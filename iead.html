@@ -1,0 +1,79 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>일별 이격도 추이 — 이그전 모니터</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--hot:#ff7b7b;--cool:#7ee7a1}
+*{box-sizing:border-box}
+body{font:15px/1.6 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:900px;margin:0 auto;padding:20px 16px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.head{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:20px 22px;margin-bottom:16px}
+h1{font-size:21px;margin:0 0 4px;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px}
+h2{font-size:16px;margin:24px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+h2::before{content:"";width:4px;height:16px;background:var(--acc);border-radius:3px;display:inline-block}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 16px 10px;height:260px}
+.chartcard canvas{width:100%!important}
+.tablewrap{overflow-x:auto;margin:6px 0;border:1px solid var(--bd);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{border-bottom:1px solid var(--bd);padding:8px 10px;text-align:center;white-space:nowrap}
+th{background:#232834;color:#dfe5ee;font-weight:600;position:sticky;top:0}
+td.d{color:var(--mut);font-size:12.5px}
+td b{font-size:14.5px}
+td .ar{color:var(--mut);font-size:12px;margin-left:4px}
+td .pc{display:block;color:var(--mut);font-size:11px}
+td.hot{background:rgba(255,123,123,.12)} td.hot b{color:var(--hot)}
+td.cool{background:rgba(126,231,161,.12)} td.cool b{color:var(--cool)}
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:9px}
+.chip{background:var(--card);border:1px solid var(--bd);border-radius:11px;padding:10px 11px;text-align:center}
+.chip.hot{border-color:rgba(255,123,123,.5);background:linear-gradient(160deg,rgba(255,123,123,.1),var(--card))}
+.chip.cool{border-color:rgba(126,231,161,.5);background:linear-gradient(160deg,rgba(126,231,161,.1),var(--card))}
+.cn{font-weight:700;font-size:13px;color:#fff}
+.ci{font-size:13px;margin-top:3px} .chip.hot .ci{color:var(--hot)} .chip.cool .ci{color:var(--cool)}
+.cp{color:var(--mut);font-size:11px;margin-top:2px}
+.legend{color:var(--mut);font-size:12px;margin:10px 0 0;line-height:1.7}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px}
+</style></head><body>
+<div class="top"><a href="./index.html">← 리포트 허브</a><a href="./supply.html">💰 수급몰이</a><a href="./macro.html">🌐 매크로</a></div>
+<div class="head"><h1>📐 일별 이격도 추이 (이그전식 50일)</h1>
+<div class="sub">지수·업종 50일 이격도 일별 누적 · 최신 2026-09-14 · 총 4일</div></div>
+
+<h2>지수 이격도 추이</h2>
+<div class="chartcard"><canvas id="idxchart"></canvas></div>
+<div class="legend">이격 ≥130% 🔴과열(패닉바잉 자제) · ≤105% 🟢과열해소(패닉셀링 자제). 분위수=자기 200일 분포상 위치.</div>
+
+<h2>일별 지수 이격 (최근 30일·최신 상단)</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>날짜</th><th>코스피</th><th>코스닥</th></tr></thead>
+<tbody><tr><td class="d">2026-09-14</td><td class="cool"><b>98.6</b> <span class="ar">↓-3.0</span><span class="pc">24%ile</span></td><td class="cool"><b>100.6</b> <span class="ar">↓-1.6</span><span class="pc">46%ile</span></td></tr>
+<tr><td class="d">2026-09-11</td><td class="cool"><b>101.6</b> <span class="ar">↓-1.4</span><span class="pc">30%ile</span></td><td class="cool"><b>102.1</b> <span class="ar">↓-1.8</span><span class="pc">52%ile</span></td></tr>
+<tr><td class="d">2026-09-10</td><td class="cool"><b>103.0</b> <span class="ar">→+0.2</span><span class="pc">36%ile</span></td><td class="cool"><b>103.9</b> <span class="ar">↑+1.0</span><span class="pc">63%ile</span></td></tr>
+<tr><td class="d">2026-09-09</td><td class="cool"><b>102.8</b> <span class="ar">↑+1.8</span><span class="pc">34%ile</span></td><td class="cool"><b>102.9</b> <span class="ar">↑+2.5</span><span class="pc">56%ile</span></td></tr></tbody></table></div>
+
+<h2>업종 이격 히트맵 (최신일·낮은→높은)</h2>
+<div class="chips"><div class="chip "><div class="cn">자동차</div><div class="ci">91.9% <span class="ar">↓</span></div><div class="cp">35%ile</div></div><div class="chip "><div class="cn">생물공학</div><div class="ci">94.3% <span class="ar">↓</span></div><div class="cp">50%ile</div></div><div class="chip "><div class="cn">제약</div><div class="ci">97.6% <span class="ar">↓</span></div><div class="cp">60%ile</div></div><div class="chip "><div class="cn">자동차부품</div><div class="ci">99.4% <span class="ar">→</span></div><div class="cp">69%ile</div></div><div class="chip "><div class="cn">반도체</div><div class="ci">100.0% <span class="ar">↓</span></div><div class="cp">40%ile</div></div><div class="chip "><div class="cn">전자장비</div><div class="ci">100.1% <span class="ar">↓</span></div><div class="cp">48%ile</div></div><div class="chip "><div class="cn">엔터</div><div class="ci">100.6% <span class="ar">→</span></div><div class="cp">92%ile</div></div><div class="chip "><div class="cn">조선</div><div class="ci">100.8% <span class="ar">→</span></div><div class="cp">82%ile</div></div><div class="chip "><div class="cn">통신장비</div><div class="ci">101.3% <span class="ar">→</span></div><div class="cp">58%ile</div></div><div class="chip "><div class="cn">증권</div><div class="ci">101.8% <span class="ar">→</span></div><div class="cp">70%ile</div></div><div class="chip "><div class="cn">화학</div><div class="ci">102.1% <span class="ar">↓</span></div><div class="cp">72%ile</div></div><div class="chip "><div class="cn">게임</div><div class="ci">102.5% <span class="ar">↑</span></div><div class="cp">93%ile</div></div><div class="chip "><div class="cn">디스플장비</div><div class="ci">102.8% <span class="ar">↓</span></div><div class="cp">70%ile</div></div><div class="chip "><div class="cn">기계</div><div class="ci">104.5% <span class="ar">↓</span></div><div class="cp">89%ile</div></div><div class="chip "><div class="cn">인터넷</div><div class="ci">105.2% <span class="ar">↑</span></div><div class="cp">84%ile</div></div><div class="chip hot"><div class="cn">은행</div><div class="ci">105.8% <span class="ar">↑</span></div><div class="cp">98%ile</div></div><div class="chip "><div class="cn">철강</div><div class="ci">106.8% <span class="ar">→</span></div><div class="cp">85%ile</div></div><div class="chip "><div class="cn">건설</div><div class="ci">108.5% <span class="ar">↓</span></div><div class="cp">85%ile</div></div></div>
+<div class="legend">🟢 하위15%ile(조정종료 매수후보) · 🔴 상위5%ile(극단과열 익절/헷지). ↑반등 ↓꺾임 →보합. 단독신호 아님 — 수급·펀더 교차 필수.</div>
+
+<div class="foot">🐤 춘식이 이격도 모니터 · 매일 자동 누적 · 트리거 충족 시에만 별도 알림</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script>
+new Chart(document.getElementById('idxchart'),{
+ type:'line',
+ data:{labels:["2026-09-09", "2026-09-10", "2026-09-11", "2026-09-14"],
+   datasets:[
+    {label:'코스피',data:[102.85, 103.02, 101.62, 98.58],borderColor:'#5db0ff',backgroundColor:'rgba(93,176,255,.08)',borderWidth:2,tension:.25,pointRadius:2,fill:true},
+    {label:'코스닥',data:[102.87, 103.89, 102.14, 100.57],borderColor:'#ffc16b',backgroundColor:'rgba(255,193,107,.06)',borderWidth:2,tension:.25,pointRadius:2,fill:true}
+   ]},
+ options:{responsive:true,maintainAspectRatio:false,
+  plugins:{legend:{labels:{color:'#cdd3dc',boxWidth:12}},
+   annotation:false},
+  scales:{
+   x:{ticks:{color:'#9aa2ad',maxTicksLimit:10},grid:{color:'rgba(255,255,255,.05)'}},
+   y:{ticks:{color:'#9aa2ad'},grid:{color:'rgba(255,255,255,.05)'},
+      title:{display:true,text:'50일 이격도 %',color:'#7d8590'}}
+  }
+ }
+});
+</script>
+</body></html>
