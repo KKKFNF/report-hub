@@ -18,6 +18,13 @@ a{color:var(--acc)}
 .kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
 .kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
 .kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
 .charts{display:grid;gap:14px;margin:6px 0 20px}
 .chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
 .chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
@@ -41,17 +48,17 @@ th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
 th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
 tbody tr:hover{background:rgba(93,176,255,.06)}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px}
-.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
 .stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
 .stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
 .stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
 </style></head><body>
 <div class="top"><a href="./index.html">← 전체 목록</a>
 <a href="./20260910-091656-흥구석유-024060.md" download>⬇︎ 마크다운 다운로드</a></div>
-<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><h1>흥구석유(024060)</h1>
-<div class="meta">📊 trend · 2026-09-10 09:16</div>
-<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">14,000원</div></div></div></div>
+<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><span class="meta">판정근거(자동판정): 눌림목 · 조건부</span><h1>흥구석유(024060)</h1>
+<div class="meta">📊 trend · 2026-09-10 09:16 · 코드 024060</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">000원</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">17,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc dn">손절 12,000원</span><span class="dc up">목표 17,000원</span><span class="dc-src">자동추출</span></div></div>
 
 <div class="body"><p>🚀 정밀 리서치 — 흥구석유(024060)  ※개별주식선물 未상장(현물만·레버리지 불가)</p>
 <p>📌 한줄 결론: 유가 테마 순수 모멘텀 급등. 실적·자산 어느 잣대로도 현재가(14,000원)를 정당화 못 함. 정면추격 손익비 1.5:1로 부적합, 진입한다면 눌림목만. 밸류 기준 목표가는 오히려 하방(적정 2,000~8,000원대). 테마 소멸 시 <span class="down">-30%</span> 급락 리스크.</p>
@@ -141,6 +148,6 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>09/02 급등 당일 개별 뉴스/기관·외인 수급 주체 [미확인 — 유가 테마 정황만 확인]</li>
 </ul>
 <p>⚠️ 본 리포트는 리서치 참고용입니다. &#x27;추정&#x27;은 추정 명시, 실측 못한 값은 &#x27;미확인&#x27; 표기. 모든 재무는 별도(개별) 기준(연결 미작성 기업).</p></div>
-<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트</div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
 
 </body></html>

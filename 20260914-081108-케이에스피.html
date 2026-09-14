@@ -18,6 +18,13 @@ a{color:var(--acc)}
 .kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
 .kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
 .kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
 .charts{display:grid;gap:14px;margin:6px 0 20px}
 .chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
 .chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
@@ -41,20 +48,20 @@ th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
 th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
 tbody tr:hover{background:rgba(93,176,255,.06)}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px}
-.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
 .stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
 .stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
 .stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
 </style></head><body>
 <div class="top"><a href="./index.html">← 전체 목록</a>
 <a href="./20260914-081108-케이에스피.md" download>⬇︎ 마크다운 다운로드</a></div>
-<div class="hero"><span class="stbadge st-buy">🟢 매수 추천</span><h1>케이에스피</h1>
-<div class="meta">📊 benine · 2026-09-14 08:11</div>
-<div class="kpis"><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:2</div></div></div></div>
+<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><span class="meta">판정근거(자동판정): 추격매수는 부적합</span><h1>케이에스피</h1>
+<div class="meta">📊 benine · 2026-09-14 08:11 · 코드 073010</div>
+<div class="kpis"><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:2.0</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">4,500원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 3,100~3,300원</span><span class="dc dn">손절 3,100원</span><span class="dc up">목표 4,500원</span><span class="dc">손익비 1:2</span><span class="dc-src">자동추출</span></div></div>
 
 <div class="body"><h1>케이에스피(073010) 딥리서치 — &quot;HiMSEN 밸류체인&quot; 아이디어 실측 검증</h1>
-<p>&gt; 출처: 비나인 블로그 「케이에스피 260913 업데이트」(네이버블로그, 작성자 dnjsrlid) 아이디어를 DART·KIS·뉴스로 교차 실측한 리포트. 블로거 의견은 <strong>참고용</strong>이며 매수·매도 권유가 아님. 투자판단·책임은 본인. &gt; 실측 기준일: 2026-09-14(토, 장마감) · 종가 3,570원</p>
+<p class="note">출처: 비나인 블로그 「케이에스피 260913 업데이트」(네이버블로그, 작성자 dnjsrlid) 아이디어를 DART·KIS·뉴스로 교차 실측한 리포트. 블로거 의견은 <strong>참고용</strong>이며 매수·매도 권유가 아님. 투자판단·책임은 본인. 실측 기준일: 2026-09-14(토, 장마감) · 종가 3,570원</p>
 <hr>
 <h2>🎯 한 줄 결론</h2>
 <p><strong>팩트는 진짜, 그러나 재두형 스타일엔 구조적 부적합.</strong> HiMSEN 증설·H54DF 3종 납품·수주잔고 1,159억(<span class="up">+42%</span> YoY)·H1 매출 <span class="up">+24%</span>/영익 <span class="up">+35%</span> — 블로그 논지는 뉴스·공시·DART로 전부 확인된 <strong>실체</strong>다. 하지만 ① <strong>케이에스피는 개별주식선물 미상장 → 레버리지 스윙 불가(현물만)</strong>, ② 9/10~9/11 이틀간 <span class="up">+28%</span> 급등 직후 추격 구간, ③ 평시 거래대금 1~2억으로 <strong>5억·50%집중(2.5억) 진입 시 유동성 병목</strong>. 자체 목표가 <strong>base 4,500원(포워드 16.5x)·bull 5,500원</strong>, 손절 3,100원(<span class="down">-13%</span>) 기준 <strong>손익비 base 1:2.0 / bull 1:4.1</strong>. 선물이 없어 재두형의 핵심 무기(레버리지)를 못 쓰므로 <strong>&quot;현물 눌림목 소액 스윙&quot;으로만 접근, 추격매수는 부적합.</strong></p>
@@ -152,6 +159,6 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 </ul>
 <hr>
 <p class="note">데이터: DART 재무제표(연결) 실측, 한국투자증권 시세 API, stockeasy 컨센서스, 뉴스 교차검증(연합·조선·매경·아시아경제·파이낸스스코프·그로쓰리서치). 블로그·언론 추정치는 &#x27;추정&#x27;, 미확보는 &#x27;미확인&#x27; 표기. 본 자료는 정보 제공용이며 투자권유가 아님.</p></div>
-<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트</div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
 
 </body></html>

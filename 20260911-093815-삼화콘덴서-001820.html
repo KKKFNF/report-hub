@@ -18,6 +18,13 @@ a{color:var(--acc)}
 .kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
 .kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
 .kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
 .charts{display:grid;gap:14px;margin:6px 0 20px}
 .chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
 .chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
@@ -41,21 +48,22 @@ th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
 th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
 tbody tr:hover{background:rgba(93,176,255,.06)}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px}
-.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
 .stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
 .stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
 .stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
 </style></head><body>
 <div class="top"><a href="./index.html">← 전체 목록</a>
 <a href="./20260911-093815-삼화콘덴서-001820.md" download>⬇︎ 마크다운 다운로드</a></div>
-<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><h1>삼화콘덴서(001820)</h1>
-<div class="meta">📊 trend · 2026-09-11 09:38</div>
-<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">141,200원</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:1</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">127000원</div></div></div></div>
+<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><span class="meta">판정근거(자동판정): 진입 부적합 · 눌림목 대기</span><h1>삼화콘덴서(001820)</h1>
+<div class="meta">📊 trend · 2026-09-11 09:38 · 코드 001820</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">127,000원</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:1.0</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 108,000~112,000원</span><span class="dc up">목표 127,000원</span><span class="dc">손익비 1:1</span><span class="dc-src">자동추출</span></div></div>
 
 <div class="body"><p>🚀 정밀 리서치 — 삼화콘덴서(001820)  ※개별주식선물 ❌ 미상장 (현물만, 레버리지 불가)</p>
 <p>📌 한줄 결론: 산업 모멘텀(AI·MLCC 가격인상)은 실체 있으나, 밸류에이션이 이미 fwd PER 100배·PBR 5.3배로 극단 고평가 구간. 오늘 <span class="up">+22%</span> 급등은 52주 고점(196,800) 대비 72% 수준까지의 반등이자 추격 부담 구간. 손익비 1:1.0 미만 → 신규 추격진입 부적합, 눌림목 대기 관점. 자체 밸류 목표가 산출 불가(현재가가 이미 컨센 목표가 127,000원 초과).</p>
-<p>━━━━━━━━━━━━━━━ ① 포착 신호 (실측)</p>
+<hr>
+<p>① 포착 신호 (실측)</p>
 <ul>
 <li>현재가 141,200원 [실측: KIS inquire-price, 09-11 장중] / 전일종가 115,700원 대비 <span class="up">+22.0%</span></li>
 <li>회전율 12.3% (거래대금 1,830.8억 / 시총 14,854억) [인용: trendscan 큐값] — 당일 자금유입 강도 매우 강함 (평소 대비 거래량 폭증: 09-10 39만주 → 09-11 182만주 [실측: KIS 일봉])</li>
@@ -63,7 +71,8 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>5일 <span class="up">+30.2%</span> / 연속상승 1일 [인용: trendscan]</li>
 <li>★현 위치 경고: 52주 최고 196,800 / 최저 27,750 [실측: KIS]. 현재가는 저점 대비 <span class="up">+409%</span>, 고점 대비 <span class="down">-28%</span>. 올해 5월 상한가·8월 급등 후 조정(→90,600, 8/24) 거쳐 다시 반등 중. &#x27;초입&#x27;이 아니라 &#x27;재반등&#x27; 국면.</li>
 </ul>
-<p>━━━━━━━━━━━━━━━ ② 사업·급등사유</p>
+<hr>
+<p>② 사업·급등사유</p>
 <ul>
 <li>주력: 국내 유일 종합 콘덴서 메이커. MLCC(적층세라믹콘덴서)·DC-Link·필름콘덴서. 전방 = IT기기·AI서버·전기차 전장.</li>
 <li>MLCC 매출비중 확대: 1Q 기준 MLCC 매출 약 312억, 전체의 53%까지 상승 [인용: 삼성증권 임은영, economicsignal.co.kr 재인용 — &#x27;추정&#x27; 성격, 원본 리포트 미확인].</li>
@@ -71,7 +80,8 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>추가 모멘텀(사실): 2024년 현대차그룹 차세대 EV 플랫폼 &#x27;eM&#x27; 구동 인버터용 DC-Link 커패시터 공급업체 선정 [인용: 동 연합뉴스]. 물량 본격화는 &#x27;기대감&#x27; 단계.</li>
 <li>판단: 테마성 순수 급등이 아니라 산업 사이클(MLCC 업턴)이라는 실체가 있음. 다만 주가는 실적이 아닌 &#x27;미래 사이클 선반영&#x27; 성격이 강함.</li>
 </ul>
-<p>━━━━━━━━━━━━━━━ ③ 실적 (DART 실측 · 전부 연결 기준)</p>
+<hr>
+<p>③ 실적 (DART 실측 · 전부 연결 기준)</p>
 <ul>
 <li>매출액 [실측: DART 사업보고서 CFS]</li>
 <li>2022: 2,634.7억 / 2023: 2,807.7억 / 2024: 2,954.1억 (완만한 증가)</li>
@@ -99,13 +109,15 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>2024 영업활동현금흐름 <span class="up">+392.6</span>억 (영업이익 178억 대비 양호) [실측: DART 2024 CF]</li>
 <li>이자보상배율: 이자비용 항목 미검출 → &#x27;미확인&#x27; (단, 부채비율 21%로 재무부담 낮음)</li>
 </ul>
-<p>━━━━━━━━━━━━━━━ ④ 미래실적·컨센서스</p>
+<hr>
+<p>④ 미래실적·컨센서스</p>
 <ul>
 <li>iM증권 목표주가 127,000원, 매수 유지 [인용: 연합뉴스 2026-08-24, 발표시점 종가 90,600원]. 근거 = MLCC 가격인상 낙수효과·ASP·가동률 상승. ★현재가 141,200원은 이 목표가를 이미 <span class="up">+11%</span> 초과.</li>
 <li>통합 컨센서스(매출·영업이익 정량치): 증권사 원본 리포트 정량 컨센 &#x27;미확인&#x27; (검색상 iM 목표가·삼성증권 코멘트만 확인, HTS 컨센 수치는 접근 못함).</li>
 <li>달성 가능성 판정: 목표가 127,000원의 &#x27;주가&#x27; 관점 달성 가능성 = 中(이미 초과 달성). 다만 이는 밸류 부담 급증을 의미. 실적(영업이익) 관점 개선 가능성 = 中 — 가격인상 수혜는 방향성 맞으나 25.3Q까지 손익 미반영, 실제 레버리지 확인은 25.4Q~26.1Q 실적 대기 필요.</li>
 </ul>
-<p>━━━━━━━━━━━━━━━ ⑤ 밸류에이션·목표가</p>
+<hr>
+<p>⑤ 밸류에이션·목표가</p>
 <ul>
 <li>현재 밸류 [실측: KIS]</li>
 <li>trailing EPS 1,206원 → PER 117.1배</li>
@@ -116,7 +128,8 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>자체 목표가 산출: 정상화 이익 미도래로 적정멀티플×EPS 계산이 무의미(EPS가 사이클 저점). PBR 관점 — 시장이 부여하는 5.3배는 &#x27;미래 사이클 정점 이익&#x27;을 3~4년 선반영한 수준. 보수적 적정가(PBR 3배 가정) = 26,701×3 = 80,100원 [추정: PBR 3배 가정]. 낙관(PBR 4배) = 106,800원. → 현재가는 낙관 시나리오도 초과.</li>
 <li>증권사 목표가(127,000) 병기: 이미 현재가 &lt; 목표가 관계 붕괴(현재가가 초과).</li>
 </ul>
-<p>━━━━━━━━━━━━━━━ ⑥ 진입전략·손익비 (선물 ❌ → 현물만, 레버리지 불가)</p>
+<hr>
+<p>⑥ 진입전략·손익비 (선물 ❌ → 현물만, 레버리지 불가)</p>
 <ul>
 <li>★kis_futures_check.py 001820 실행결과: 개별주식선물 미상장 확인 [실측: 한투 마스터파일]. 레버리지 스윙 불가, 현물 대응만 가능.</li>
 <li>지지/저항 [실측: KIS 일봉]</li>
@@ -136,7 +149,8 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>[익절] 1차 127,000(컨센) 도달 시 절반 익절, 2차 트레일링.</li>
 <li>현물이므로 집중·레버리지 무관하나, 사이클 고평가주 특성상 비중 확대 자제.</li>
 </ul>
-<p>━━━━━━━━━━━━━━━ 🎲 확률가중 시나리오 (합 100%)</p>
+<hr>
+<p>🎲 확률가중 시나리오 (합 100%)</p>
 <ul>
 <li>Bear 40%: MLCC 가격인상 낙수효과 지연 + 밸류 부담 차익실현 → 눌림. MA20~MA60(105k~108k) 회귀.</li>
 <li>Base 40%: 산업 모멘텀 유효하나 실적 확인까지 고점권 등락(110k~145k) 박스.</li>
@@ -150,6 +164,6 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>25.4Q 이후 가격인상 손익 반영 실제치</li>
 </ul>
 <p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 증권사/블로거 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;. 개별주식선물 미상장 → 레버리지 불가·현물만 대응.</p></div>
-<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트</div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
 
 </body></html>

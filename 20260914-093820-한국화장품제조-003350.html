@@ -18,6 +18,13 @@ a{color:var(--acc)}
 .kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
 .kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
 .kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
 .charts{display:grid;gap:14px;margin:6px 0 20px}
 .chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
 .chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
@@ -41,21 +48,22 @@ th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
 th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
 tbody tr:hover{background:rgba(93,176,255,.06)}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px}
-.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
 .stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
 .stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
 .stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
 </style></head><body>
 <div class="top"><a href="./index.html">← 전체 목록</a>
 <a href="./20260914-093820-한국화장품제조-003350.md" download>⬇︎ 마크다운 다운로드</a></div>
-<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><h1>한국화장품제조(003350)</h1>
-<div class="meta">📊 trend · 2026-09-14 09:38</div>
-<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">15,580원</div></div></div></div>
+<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><span class="meta">판정근거(자동판정): 눌림목 · 관망</span><h1>한국화장품제조(003350)</h1>
+<div class="meta">📊 trend · 2026-09-14 09:38 · 코드 003350</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">580원</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">18,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc dn">손절 13,100원</span><span class="dc up">목표 18,000원</span><span class="dc-src">자동추출</span></div></div>
 
 <div class="body"><p>🚀 정밀 리서치 — 한국화장품제조(003350)  ※선물 無(개별주식선물 미상장 → 현물만, 레버리지 불가) [실측: KIS 마스터파일]</p>
 <p>📌 한줄 결론: 실적은 진짜(2026 상반기 매출 <span class="up">+32%</span>·영익 <span class="up">+29%</span> YoY, OPM 19.6%)이나 현재가 15,580원은 PER 12.9x·PBR 3.4x로 이미 정당한 밸류를 받은 상태. 9/11 대량거래 급등 직후 추격진입은 손익비 0.7~0.9로 부적합. 목표가 18,000~18,100원(PER 15x)·손익비는 눌림목(13,100~13,400원) 진입 시에만 2.4~3.2로 성립. 선물 없어 현물 스윙만 가능.</p>
-<p>━━━━━━━━━━━━━━━━ ① 포착 신호</p>
+<hr>
+<p>① 포착 신호</p>
 <ul>
 <li>회전율 13.7% (거래대금 477.7억 / 시총 3,485억) — 당일 자금유입 강도 높음 [인용: trendscan 포착값]</li>
 <li>당일 KIS 실측 거래대금 533.6억·거래량 324.7만주 [실측: KIS inquire-price 2026-09-14]</li>
@@ -126,7 +134,8 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>손절선 11,700 이탈 시 추가매수 절대금지, 전량 정리</li>
 <li>50% 집중 경고: 시총 3,530억 중소형·연결재무 미공시·부채 1년새 2.7배 급증 종목. 급등 직후 변동성 극심(9/11 <span class="up">+19%</span> 후 등락 반복). 선물 없어 헤지·레버리지 불가하므로 현물 비중 축소 권고 — 50% 집중은 부적합, 20~25% 이내 제한 권장</li>
 </ul>
-<p>━━━━━━━━━━━━━━━━ 📊 확률가중 시나리오 (합=100%)</p>
+<hr>
+<p>📊 확률가중 시나리오 (합=100%)</p>
 <ul>
 <li>Bull 30%: H2 투자성과·신규수주 가시화, 재평가 지속 → 18,000~20,400(상한)</li>
 <li>Base 45%: 급등 후 되돌림, MA20(13,100~13,400)까지 조정 후 박스 → 13,000~16,000</li>
@@ -141,6 +150,6 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>2025 자산·부채 급증의 구체적 투자대상(취득 자산 성격)</li>
 </ul>
 <p>⚠️ 본 리서치는 참고용이며 매수/매도 강요가 아닙니다. 별도재무 기준이며 연결은 미확인. 자체 추정치는 &#x27;추정&#x27; 명시, 실측 못한 값은 &#x27;미확인&#x27;으로 정직 표기했습니다.</p></div>
-<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트</div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
 
 </body></html>

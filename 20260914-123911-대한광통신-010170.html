@@ -18,6 +18,13 @@ a{color:var(--acc)}
 .kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
 .kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
 .kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
 .charts{display:grid;gap:14px;margin:6px 0 20px}
 .chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
 .chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
@@ -41,21 +48,22 @@ th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
 th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
 tbody tr:hover{background:rgba(93,176,255,.06)}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px}
-.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
 .stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
 .stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
 .stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
 </style></head><body>
 <div class="top"><a href="./index.html">← 전체 목록</a>
 <a href="./20260914-123911-대한광통신-010170.md" download>⬇︎ 마크다운 다운로드</a></div>
-<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><h1>대한광통신(010170)</h1>
-<div class="meta">📊 trend · 2026-09-14 12:39</div>
-<div class="kpis"><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:0</div></div></div></div>
+<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><span class="meta">판정근거(자동판정): 관망 · 확인 후</span><h1>대한광통신(010170)</h1>
+<div class="meta">📊 trend · 2026-09-14 12:39 · 코드 010170</div>
+<div class="kpis"><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:0.5</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc dn">손절 12,100원</span><span class="dc">손익비 1:0.5</span><span class="dc-src">자동추출</span></div></div>
 
 <div class="body"><p>🚀 정밀 리서치 — 대한광통신(010170)  ※개별주식선물 無(현물만 가능·레버리지 불가)</p>
 <p>📌 한줄 결론: 실적은 3년째 적자·매출감소인데 주가는 60일 저점 대비 <span class="up">+108%</span> 급등, PBR 30배의 전형적 &#x27;AI광케이블 테마&#x27; 선반영 구간입니다. 현재가 추격 시 손익비 1:0.5(부적합), 눌림(MA20 13,600원대) 확인 후에만 소액 단기대응. 실체(수주·흑자전환) 확인 전까지 관망 권고.</p>
-<p>━━━━━━━━━━━━━━━ ① 포착 신호</p>
+<hr>
+<p>① 포착 신호</p>
 <ul>
 <li>회전율 5.6% (거래대금 1,281.8억 / 시총 22,996억) [인용: trendscan 당일] — 자금유입 강도 높음</li>
 <li>9/9 거래폭발 3,015만주(당일 종가 14,960) 단기 정점 → 눌림 → 9/14 재상승 14,880 [실측: KIS 일봉]</li>
@@ -117,7 +125,8 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>손익비(헤더 일관): 현재가 14,880 추격 시 상방 2차 16,300 <span class="up">+9.6%</span> ÷ 하방 손절 12,100 <span class="down">-18.7%</span> = 1:0.5 → 부적합</li>
 <li>눌림 진입(13,600 가정): 상방 16,300 <span class="up">+19.9%</span> ÷ 하방 12,100 <span class="down">-11.0%</span> = 1:1.8 → 이 경우에만 매매가치 성립</li>
 </ul>
-<p>━━━━━━━━━━━━━━━ 📊 확률가중 시나리오 (합=100%)</p>
+<hr>
+<p>📊 확률가중 시나리오 (합=100%)</p>
 <ul>
 <li>Bear 45%: 테마 소멸+적자 지속, MA20 이탈 → 12,000 이하 (<span class="down">-19%</span>)</li>
 <li>Base 40%: 박스 13,500~15,000 등락, 실적확인 대기</li>
@@ -131,6 +140,6 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>사업부문표(별도 기준 833억)와 연결매출(670억) 기준차 정밀분해</li>
 </ul>
 <p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 자체 추정치는 &#x27;추정&#x27; 명시. 개별주식선물 미상장 → 레버리지 스윙 불가, 현물만 가능. 적자·PBR 30배 테마주로 변동성 극대 — 50% 집중 절대 부적합, 진입 시 소액·타이트손절 원칙.</p></div>
-<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트</div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
 
 </body></html>

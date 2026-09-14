@@ -18,6 +18,13 @@ a{color:var(--acc)}
 .kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
 .kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
 .kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
 .charts{display:grid;gap:14px;margin:6px 0 20px}
 .chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
 .chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
@@ -41,21 +48,22 @@ th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
 th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
 tbody tr:hover{background:rgba(93,176,255,.06)}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px}
-.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
 .stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
 .stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
 .stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
 </style></head><body>
 <div class="top"><a href="./index.html">← 전체 목록</a>
 <a href="./20260910-091739-원익-032940.md" download>⬇︎ 마크다운 다운로드</a></div>
-<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><h1>원익(032940)</h1>
-<div class="meta">📊 trend · 2026-09-10 09:17</div>
-<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">10,430원</div></div></div></div>
+<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><span class="meta">판정근거(자동판정): 추격매수 부적합 · 관망 · 확인 후</span><h1>원익(032940)</h1>
+<div class="meta">📊 trend · 2026-09-10 09:17 · 코드 032940</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">430원</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">13,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc dn">손절 8,500원</span><span class="dc up">목표 13,000원</span><span class="dc-src">자동추출</span></div></div>
 
 <div class="body"><p>🚀 정밀 리서치 — 원익(032940)  ※개별주식선물 無(현물만·레버리지 불가)</p>
 <p>📌 한줄 결론: &quot;반도체 소부장 테마&quot;가 아니라 재무제표 8개년 정정·거버넌스 잡음發 단기 급등. 지주형 투자회사(순이익의 대부분이 지분법이익)로 본업은 정체. 외국인은 급등 구간 내내 순매도. 밸류는 PBR 0.67로 싸 보이나 지주사 할인·이연법인세 1,363억 논란이 리스크. → 추격매수 부적합, 손익비 Base 1.3:1(빈약). 관망 권고. 굳이 본다면 눌림목 8,500원대 지지 확인 후 소액.</p>
-<p>━━━━━━━━━━━━━━━ ① 포착 신호 (trendscan)</p>
+<hr>
+<p>① 포착 신호 (trendscan)</p>
 <ul>
 <li>회전율 8.5% (당일 거래대금 169.8억 / 시총 2,001억) [인용: trendscan 자동포착]</li>
 <li>추세: MA 정배열 O / 연속상승 3일 / 5일 <span class="up">+28.1%</span></li>
@@ -147,6 +155,6 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>급등의 세부 수급 주체(개인·특정 세력) 정밀 데이터</li>
 </ul>
 <p>📊 자가검증: 분기합(Q1 370+Q2 170=H1 540 ✓, KIS/DART 일치) · 전부 연결(IFRS연결) 라벨 · 손익비 산식 헤더=본문 1.3:1 일치 · 시나리오 확률합 100% · 태그 미부착 수치 0 · 단일매체 의견 사실화 회피(거버넌스워치·네이버는 &#x27;인용&#x27; 표기)</p></div>
-<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트</div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
 
 </body></html>

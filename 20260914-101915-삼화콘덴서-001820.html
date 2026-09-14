@@ -18,6 +18,13 @@ a{color:var(--acc)}
 .kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
 .kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
 .kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
 .charts{display:grid;gap:14px;margin:6px 0 20px}
 .chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
 .chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
@@ -41,21 +48,21 @@ th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
 th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
 tbody tr:hover{background:rgba(93,176,255,.06)}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px}
-.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
 .stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
 .stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
 .stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
 </style></head><body>
 <div class="top"><a href="./index.html">← 전체 목록</a>
 <a href="./20260914-101915-삼화콘덴서-001820.md" download>⬇︎ 마크다운 다운로드</a></div>
-<div class="hero"><span class="stbadge st-buy">🟢 매수 추천</span><h1>삼화콘덴서(001820)</h1>
-<div class="meta">📊 trend · 2026-09-14 10:19</div>
-<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">139,400원</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:1</div></div></div></div>
+<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><span class="meta">판정근거(자동판정): 추격 자제 · 눌림 대기</span><h1>삼화콘덴서(001820)</h1>
+<div class="meta">📊 trend · 2026-09-14 10:19 · 코드 001820</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">400원</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:1.0</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">165,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc dn">손절 118,000원</span><span class="dc up">목표 165,000원</span><span class="dc">손익비 1:1</span><span class="dc-src">자동추출</span></div></div>
 
 <div class="body"><p>🚀 정밀 리서치 — 삼화콘덴서(001820)  ※개별주식선물 無(현물만, 레버리지 불가)</p>
 <p>📌 한줄 결론: MLCC 슈퍼사이클 수혜 실체는 있으나, 현재가(139,400원)는 2026년 컨센(EPS 2,679)을 이미 크게 초과 반영한 &#x27;기대선반영&#x27; 구간입니다. 추격진입 손익비 1:1.0(부적합), 갭하단 118,000원 눌림목 진입 시 1:2.3으로 개선. 자체 목표가 밴드 67,000~107,000원(2026 EPS 기준), 슈퍼사이클 낙관 시 52주고 196,800원 재도전. 결론: 추격 자제, 눌림 대기.</p>
-<p>━━━━━━━━━━━━━━━━━━</p>
+<hr>
 <p>① 포착 신호</p>
 <ul>
 <li>회전율 7.6% [인용: trendscan] = 당일거래대금 1,090.1억 ÷ 시총 14,304억 — 자금유입 강도 상위</li>
@@ -113,7 +120,8 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>권장: 추격 자제. 118,000~120,000원(갭하단+MA20 수렴) 눌림목 재진입 시 손절 108,000(MA60 하단), 목표 165,000/196,800 → 손익비 1:2.5+로 개선</li>
 <li>집중·리스크 경고: 형 스타일(선물 레버리지·최대 50% 집중)에 부적합 요소 3개 — ①개별주식선물 미상장(레버리지 불가, 현물만) ②선행PER 50배 고평가 ③MA20 대비 <span class="up">+27%</span> 이격 고점권. 50% 집중은 특히 위험, 진입해도 분할·소액 권고</li>
 </ul>
-<p>━━━━━━━━━━━━━━━━━━ 🎯 확률가중 시나리오 (합 100%)</p>
+<hr>
+<p>🎯 확률가중 시나리오 (합 100%)</p>
 <ul>
 <li>Bear 30%: MLCC 기대감 소멸·차익실현, 갭 메우고 MA60(104k)까지 약 <span class="down">-25%</span> → 118k 이탈 시 손절</li>
 <li>Base 45%: 컨센(OP 299억) 부합, 118~165k 박스 등락. 현재가는 박스 상단권 → 상방 제한</li>
@@ -128,6 +136,6 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 </ul>
 <p>⚠️ 미확인 목록: ①증권사 목표주가·투자의견(봇차단) ②2026 3Q 이후 판가·수주 확정 ③MLCC 사업부문별 매출비중(구조화 데이터 미제공) ④2026 컨센 부채비율 등 세부</p>
 <p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 증권사·언론 추정치는 &#x27;추정/인용&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p></div>
-<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트</div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
 
 </body></html>

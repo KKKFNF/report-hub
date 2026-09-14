@@ -18,6 +18,13 @@ a{color:var(--acc)}
 .kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
 .kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
 .kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
 .charts{display:grid;gap:14px;margin:6px 0 20px}
 .chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
 .chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
@@ -41,21 +48,22 @@ th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
 th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
 tbody tr:hover{background:rgba(93,176,255,.06)}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px}
-.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
 .stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
 .stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
 .stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
 </style></head><body>
 <div class="top"><a href="./index.html">← 전체 목록</a>
 <a href="./20260911-092050-샘표식품-248170.md" download>⬇︎ 마크다운 다운로드</a></div>
-<div class="hero"><span class="stbadge st-buy">🟢 매수 추천</span><h1>샘표식품(248170)</h1>
-<div class="meta">📊 trend · 2026-09-11 09:20</div>
-<div class="kpis"><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:0</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">43660원</div></div></div></div>
+<div class="hero"><span class="stbadge st-buy">🟢 매수 추천</span><span class="meta">판정근거(자동판정): 손익비 1:4(결론)</span><h1>샘표식품(248170)</h1>
+<div class="meta">📊 trend · 2026-09-11 09:20 · 코드 248170</div>
+<div class="kpis"><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:0.8</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">43,660원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc dn">손절 30,150원</span><span class="dc up">목표 43,660원</span><span class="dc">손익비 1:4</span><span class="dc-src">자동추출</span></div></div>
 
 <div class="body"><p>🚀 정밀 리서치 — 샘표식품(248170)  ※개별주식선물 無(현물만·레버리지 불가)</p>
 <p>📌 한줄 결론: 「2025년 영업이익 <span class="up">+279%</span> 폭증(65억→245억)이라는 실체 있는 턴어라운드」가 저평가(PBR 0.58·PER TTM 6.0)와 초저유통주식(457만주)을 만나 이틀 만에 <span class="up">+45%</span> 분출. 실적은 진짜지만 지금은 52주 신고가 바로 아래 &#x27;추격 구간&#x27;이라 현 33,500원 매수는 손익비 1:0.8로 부적합. 눌림(26,000~28,000원)에서 잡아야 손익비 1:4 이상. 자체 목표가 43,660원(10x×2025 EPS).</p>
-<p>━━━━━━━━━━━━━━ ① 포착 신호 (실측)</p>
+<hr>
+<p>① 포착 신호 (실측)</p>
 <ul>
 <li>회전율 12.2%(거래대금 181.1억÷시총 1,489억) — 몇 달간 하루 수천주 거래되던 종목이 폭발 [실측: trendscan]</li>
 <li>09-09 종가 23,200 → 09-10 30,150(<span class="up">+30.0%</span>, 상한가, 거래량 172.6만주) → 09-11 장중 31,200~36,200(52주 신고가), 현재 33,500원(<span class="up">+11%</span>) [실측: KIS 일봉 FHKST03010100]</li>
@@ -118,7 +126,8 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>익절: 36,200(52주고) 1차 절반 / 43,660(밸류 10x) 2차. 39,150 상한가상단 돌파 시 추세 연장.</li>
 <li>초저유통주 특성상 하루 ±15~30% 변동 정상 → 포지션 크기 축소, 50% 집중 절대 금지(변동성·유동성 리스크).</li>
 </ul>
-<p>━━━━━━━━━━━━━━ 🎲 확률가중 시나리오(합100%)</p>
+<hr>
+<p>🎲 확률가중 시나리오(합100%)</p>
 <ul>
 <li>Bull 30%: 하반기 25Q3급 실적 재현+지주 밸류업 동조 → 43,660~55,885 (10x)</li>
 <li>Base 45%: 이익 정상화(OPM 6~7%) 인정, 밴드 회복 → 36,000~43,000</li>
@@ -129,6 +138,6 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>26년 증권사 컨센서스·목표주가(커버리지 부재) • 25Q3 OPM 11.76% 급등의 세부 원인(제품믹스/원가) • K-발효 글로벌화의 실제 매출 기여 • 공정위 조사 결과·과징금 리스크 • 248170 자체 주주환원(자사주 소각/증배) 계획 유무</li>
 </ul>
 <p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 증권사·블로거 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;. 개별주식선물 미상장이라 형 주력인 레버리지 스윙 불가 — 현물만 가능한 점 반드시 감안.</p></div>
-<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트</div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
 
 </body></html>

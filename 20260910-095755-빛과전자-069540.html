@@ -18,6 +18,13 @@ a{color:var(--acc)}
 .kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
 .kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
 .kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
 .charts{display:grid;gap:14px;margin:6px 0 20px}
 .chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
 .chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
@@ -41,21 +48,22 @@ th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
 th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
 tbody tr:hover{background:rgba(93,176,255,.06)}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px}
-.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
 .stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
 .stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
 .stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
 </style></head><body>
 <div class="top"><a href="./index.html">← 전체 목록</a>
 <a href="./20260910-095755-빛과전자-069540.md" download>⬇︎ 마크다운 다운로드</a></div>
-<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><h1>빛과전자(069540)</h1>
-<div class="meta">📊 trend · 2026-09-10 09:57</div>
-<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">3,980원</div></div></div></div>
+<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><span class="meta">판정근거(자동판정): 관망</span><h1>빛과전자(069540)</h1>
+<div class="meta">📊 trend · 2026-09-10 09:57 · 코드 069540</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">980원</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">6,990원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 3,000~4,500원</span><span class="dc up">목표 6,990원</span><span class="dc-src">자동추출</span></div></div>
 
 <div class="body"><p>🚀 정밀 리서치 — 빛과전자(069540) ※개별주식선물 無(현물만·레버리지 불가)</p>
 <p>📌 한줄 결론: AI·6G 광통신 국책과제 선정이라는 실체 있는 재료 + 최대주주 교체·CB오버행이 얽힌 &#x27;테마+수급&#x27; 급등입니다. 실적은 여전히 적자지속(2025 3Q 누적 순손실 -100억)이고 PBR 6.8배·PSR 14배로 밸류 부담이 큽니다. 5일 <span class="up">+51.7%</span> 급등으로 이미 단기 과열권 → 신규 추격진입은 손익비 불리, 관망·눌림목 대응 영역으로 봅니다.</p>
-<p>━━━━━━━━━━━━━━━ ① 포착 신호 [실측: KIS·trendscan]</p>
+<hr>
+<p>① 포착 신호 [실측: KIS·trendscan]</p>
 <ul>
 <li>회전율 17.0% (거래대금 772억 / 시총 4,547억) — 하루에 시총의 17%가 손바뀜, 자금유입 강도 매우 높음</li>
 <li>현재가 3,980원 (당일 <span class="up">+4.46%</span>) [실측: KIS 09/10]</li>
@@ -110,7 +118,8 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>선물 재검증: kis_futures_check.py → ❌ 069540 개별주식선물 미상장 = 현물만 가능, 레버리지 불가 → 형 매매스타일(선물레버리지 위주)과 부적합</li>
 <li>50% 집중 부적정: 적자지속 + CB오버행 + 테마과열 3중 리스크. 집중투자 대상 아님</li>
 </ul>
-<p>━━━━━━━━━━━━━━━ 🎯 확률가중 시나리오 (합=100%)</p>
+<hr>
+<p>🎯 확률가중 시나리오 (합=100%)</p>
 <ul>
 <li>Bull 25%: 국책과제 성과·신규 대형 광모듈 수주 가시화 → 6,990~8,100원 재도전. 트리거=계약공시·실적 흑자전환 신호</li>
 <li>Base 45%: 테마 재료 소멸 후 눌림. 3,000~4,500원 박스 등락. 재료 없으면 MA20(2,946)로 회귀</li>
@@ -132,6 +141,6 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>2024 연간 순이익 실측치(DART 계정 파싱 실패 → 인용치로 대체)</li>
 </ul>
 <p>⚠️ 본 자료는 리서치 참고용이며 매수·매도 강요가 아닙니다. 실측=DART/KIS, 추정·인용은 각각 표기했습니다. 5일 <span class="up">+51.7%</span> 급등으로 이미 고점권일 수 있어 추격리스크가 큽니다.</p></div>
-<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트</div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
 
 </body></html>

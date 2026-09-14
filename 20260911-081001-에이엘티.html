@@ -18,6 +18,13 @@ a{color:var(--acc)}
 .kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
 .kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
 .kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
 .charts{display:grid;gap:14px;margin:6px 0 20px}
 .chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
 .chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
@@ -41,17 +48,17 @@ th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
 th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
 tbody tr:hover{background:rgba(93,176,255,.06)}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px}
-.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
 .stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
 .stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
 .stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
 </style></head><body>
 <div class="top"><a href="./index.html">← 전체 목록</a>
 <a href="./20260911-081001-에이엘티.md" download>⬇︎ 마크다운 다운로드</a></div>
-<div class="hero"><span class="stbadge st-buy">🟢 매수 추천</span><h1>에이엘티</h1>
-<div class="meta">📊 benine · 2026-09-11 08:10</div>
-<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">11,360원</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:2</div></div></div></div>
+<div class="hero"><span class="stbadge st-buy">🟢 매수 추천</span><span class="meta">판정근거(자동판정): 손익비 1:2.5(결론)</span><h1>에이엘티</h1>
+<div class="meta">📊 benine · 2026-09-11 08:10 · 코드 172670</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">360원</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:2.5</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">15,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 11,000~11,400원</span><span class="dc dn">손절 9,500원</span><span class="dc up">목표 15,000원</span><span class="dc">손익비 1:2.5</span><span class="dc-src">자동추출</span></div></div>
 
 <div class="body"><h1>에이엘티(ALT) 딥리서치 — 반도체 후공정(OSAT) 테스트 실적 턴어라운드주</h1>
 <p><strong>종목코드 172670 · 코스닥 · 반도체 테스트(OSAT) 전문</strong> 현재가 11,360원(9/10 종가) · 시총 1,018억 · 주식수 896만주 · PBR 1.10x _출처글: 비나인(crush212121) 블로그 &#x27;에이엘티&#x27; — 개인 의견·참고용_</p>
@@ -132,6 +139,6 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <p><strong>3라인 (현물 스윙)</strong>: 진입 11,000~11,400 / 손절 9,500(종가이탈) / 1차익절 13,000·2차 15,000~16,000</p>
 <hr>
 <p>_주의: 본 리포트는 DART·KIS 실측 + 네이버 취합 컨센 기반. 블로그는 개인의견·참고용이며 매수강요 아님. 컨센 목표가·2026 순이익 등 &#x27;미확인&#x27; 항목은 추정으로 채우지 않음._</p></div>
-<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트</div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
 
 </body></html>

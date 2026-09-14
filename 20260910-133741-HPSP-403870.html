@@ -18,6 +18,13 @@ a{color:var(--acc)}
 .kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
 .kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
 .kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
 .charts{display:grid;gap:14px;margin:6px 0 20px}
 .chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
 .chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
@@ -41,21 +48,22 @@ th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
 th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
 tbody tr:hover{background:rgba(93,176,255,.06)}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px}
-.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
 .stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
 .stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
 .stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
 </style></head><body>
 <div class="top"><a href="./index.html">← 전체 목록</a>
 <a href="./20260910-133741-HPSP-403870.md" download>⬇︎ 마크다운 다운로드</a></div>
-<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><h1>HPSP(403870)</h1>
-<div class="meta">📊 trend · 2026-09-10 13:37</div>
-<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">56,800원</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:1</div></div></div></div>
+<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><span class="meta">판정근거(자동판정): 손익비 1:1</span><h1>HPSP(403870)</h1>
+<div class="meta">📊 trend · 2026-09-10 13:37 · 코드 403870</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">800원</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:1.0~1.4</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">65,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc dn">손절 53,000원</span><span class="dc up">목표 65,000원</span><span class="dc">손익비 1:1</span><span class="dc-src">자동추출</span></div></div>
 
 <div class="body"><p>🚀 정밀 리서치 — HPSP(403870)  ※선물 無(현물만·레버리지 불가)</p>
 <p>📌 한줄 결론: 고압수소어닐링(HPA) 장비 독점기업. 2025년 역성장 바닥 찍고 2026년 실적 재가속 국면 진입 — 추세는 살아있으나 PER 54배(TTM)로 밸류 부담이 커, 현재가 56,800원 기준 컨센 목표가까지 손익비가 1:1.0~1.4로 빡빡함. &quot;초입&quot;이 아니라 &#x27;반등 중단&#x27; 지점. 추격보다 눌림목(MA20 49,000선) 대응이 유효.</p>
-<p>━━━━━━━━━━━━━━━━ ① 포착 신호</p>
+<hr>
+<p>① 포착 신호</p>
 <ul>
 <li>회전율 5.3% (거래대금 2,512.2억 / 시총 47,487억) [인용: trendscan 당일포착] — 중소형 성장주 치고 자금유입 강도 높음</li>
 <li>오늘 거래대금 2,617억 [실측: KIS 당일], 전일(1,595억) 대비 급증 — 수급 재점화</li>
@@ -133,6 +141,6 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>EV/EBITDA 현재값(KIS PER/PBR 0 반환, 네이버 2025 EV/EBITDA 46.4배만 확보)</li>
 </ul>
 <p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 증권사 추정치는 &#x27;추정&#x27; 명시. 선물 미상장으로 레버리지 불가 — 형의 개별주식선물 전략엔 부적합, 현물 스윙으로만 접근 가능.</p></div>
-<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트</div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
 
 </body></html>

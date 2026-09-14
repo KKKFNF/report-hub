@@ -18,6 +18,13 @@ a{color:var(--acc)}
 .kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
 .kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
 .kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
 .charts{display:grid;gap:14px;margin:6px 0 20px}
 .chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
 .chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
@@ -41,20 +48,20 @@ th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
 th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
 tbody tr:hover{background:rgba(93,176,255,.06)}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px}
-.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
 .stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
 .stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
 .stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
 </style></head><body>
 <div class="top"><a href="./index.html">← 전체 목록</a>
 <a href="./20260914-110646-광통신-유리기판-CPO정렬-3부-한국-수혜주-실측.md" download>⬇︎ 마크다운 다운로드</a></div>
-<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><h1>광통신·유리기판·CPO정렬 3부 (한국 수혜주 실측)</h1>
+<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><span class="meta">판정: 자동판정</span><h1>광통신·유리기판·CPO정렬 3부 (한국 수혜주 실측)</h1>
 <div class="meta">📊 benine · 2026-09-14 11:06</div>
-<div class="kpis"><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:7</div></div></div></div>
+<div class="kpis"><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:7.3</div></div></div><div class="decision"><span class="dc">손익비 1:7.3</span><span class="dc-src">자동추출</span></div></div>
 
 <div class="body"><h1>광통신·유리기판·CPO정렬 3부 — 한국 수혜주 실측 리포트</h1>
-<p>&gt; 원문: 비나인 스크랩 &#x27;광통신&amp;기판 산업 알아보기 - 3부 (CPO·유리기판·정렬)&#x27; (블로거 dhgusdnd44, 2026-09-13). &gt; <strong>블로그 논지는 개인 의견·참고용</strong>입니다. 아래 숫자는 DART·KIS·stockeasy 실측이며, 매수/매도 강요가 아니라 판단 재료입니다. 실측 못한 값은 &#x27;미확인&#x27;, 증권사/블로거 수치는 &#x27;추정&#x27;으로 표기. &gt; 기준일: 2026-09-14 (KST). 시세는 직전 거래일 종가 기준.</p>
+<p class="note">원문: 비나인 스크랩 &#x27;광통신&amp;기판 산업 알아보기 - 3부 (CPO·유리기판·정렬)&#x27; (블로거 dhgusdnd44, 2026-09-13). <strong>블로그 논지는 개인 의견·참고용</strong>입니다. 아래 숫자는 DART·KIS·stockeasy 실측이며, 매수/매도 강요가 아니라 판단 재료입니다. 실측 못한 값은 &#x27;미확인&#x27;, 증권사/블로거 수치는 &#x27;추정&#x27;으로 표기. 기준일: 2026-09-14 (KST). 시세는 직전 거래일 종가 기준.</p>
 <hr>
 <h2>0. 3줄 결론 (재두형용)</h2>
 <ol>
@@ -87,7 +94,7 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li><strong>대덕전자·심텍</strong> — 반도체기판(FCBGA→유리기판 전환 수혜 기대). ❌선물 미상장, 현물만.</li>
 <li><strong>티에스이·ISC·리노공업</strong> — 테스트소켓/프로브(NPO 소켓형 과도기 수혜 후보). ❌전부 선물 미상장, 현물만.</li>
 </ul>
-<p>&gt; <strong>형 관점 핵심:</strong> 블로거가 강조한 &quot;패시브 정렬·검사·NPO 소켓&quot; 수혜주는 <strong>하나도 선물이 없다.</strong> 레버리지 스윙 유니버스는 삼성전기·SKC로 좁혀진다. Tier2는 현물 단타/중기 관점에서만 유효.</p>
+<p class="note"><strong>형 관점 핵심:</strong> 블로거가 강조한 &quot;패시브 정렬·검사·NPO 소켓&quot; 수혜주는 <strong>하나도 선물이 없다.</strong> 레버리지 스윙 유니버스는 삼성전기·SKC로 좁혀진다. Tier2는 현물 단타/중기 관점에서만 유효.</p>
 <hr>
 <h2>2. ★삼성전기 (009150) — 6축 풀분석</h2>
 <h3>① 사실관계 검증 (실체 vs 기대감)</h3>
@@ -208,6 +215,6 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 </ul>
 <hr>
 <p class="note">본 리포트는 DART·KIS·stockeasy 실측 + 공개뉴스 기반 참고자료입니다. 블로그 내용은 개인 의견이며, 증권사 컨센/블로거 수치는 &#x27;추정&#x27;입니다. 최종 투자판단·책임은 본인에게 있습니다. 매수·매도 강요 아님.</p></div>
-<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트</div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
 
 </body></html>

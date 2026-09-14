@@ -18,6 +18,13 @@ a{color:var(--acc)}
 .kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
 .kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
 .kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
 .charts{display:grid;gap:14px;margin:6px 0 20px}
 .chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
 .chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
@@ -41,21 +48,22 @@ th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
 th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
 tbody tr:hover{background:rgba(93,176,255,.06)}
-.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px}
-.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
 .stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
 .stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
 .stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
 </style></head><body>
 <div class="top"><a href="./index.html">← 전체 목록</a>
 <a href="./20260914-091708-샌즈랩-411080.md" download>⬇︎ 마크다운 다운로드</a></div>
-<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><h1>샌즈랩(411080)</h1>
-<div class="meta">📊 trend · 2026-09-14 09:17</div>
-<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">7,160원</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:1</div></div></div></div>
+<div class="hero"><span class="stbadge st-watch">🟡 관심 · 눌림 대기</span><span class="meta">판정근거(자동판정): 추격매수 부적합 · 추격 위험</span><h1>샌즈랩(411080)</h1>
+<div class="meta">📊 trend · 2026-09-14 09:17 · 코드 411080</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가</div><div class="kpi-v">160원</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:1.9</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">10,360원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 5,800~6,200원</span><span class="dc dn">손절 5,510원</span><span class="dc up">목표 10,360원</span><span class="dc">손익비 1:1.9</span><span class="dc-src">자동추출</span></div></div>
 
 <div class="body"><p>🚀 정밀 리서치 — 샌즈랩(411080)  ※선물 無, 형 미보유</p>
 <p>📌 한줄 결론: 실적이 아니라 &#x27;OpenAI·엔비디아發 AI보안 테마&#x27;에 올라탄 급등입니다. 회사 실체(CTI 전문·기술특례상장)는 있으나 연매출 116억·5년째 영업적자로 밸류를 정당화 못 함. 현재가 7,160원은 이틀 연속 상한가 직후 고점권(테마 초기~중기). 손익비 약 1:1.9(Base)로 추격매수 부적합, 눌림목 대응만 유효. 자체 적정가 밴드 5,000~7,000원(PSR 기준), 테마 목표 상단 10,360원(52주고).</p>
-<p>━━━━━━━━━━━━━━━ ① 포착 신호</p>
+<hr>
+<p>① 포착 신호</p>
 <ul>
 <li>회전율 13.9% [인용: trendscan 포착값] — 당일거래대금 141.9억 ÷ 시총 1,021억. 실측 재확인 시 [실측: KIS 2026-09-14] 거래대금 248.97억·거래량 363.8만주로 오히려 당일 더 폭증(전일 174만주의 2배).</li>
 <li>추세: MA 정배열 O [실측: KIS 일봉] MA5 5,078 &gt; MA20 4,363 &gt; MA60 4,132, 현재가 7,160이 전부 상회.</li>
@@ -123,6 +131,6 @@ tbody tr:hover{background:rgba(93,176,255,.06)}
 <li>OpenAI/엔비디아 이슈와 샌즈랩의 직접 사업연관 계약 유무</li>
 </ul>
 <p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거·집계사이트 수치는 &#x27;추정/인용&#x27;으로 표기했고, 확인 못한 값은 &#x27;미확인&#x27;으로 남겼습니다. 이 종목은 실적보다 테마·수급 변동성이 지배하는 구간이며, 유통주식 극소로 급락 리스크도 큽니다. 50% 집중은 절대 비권장.</p></div>
-<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트</div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
 
 </body></html>
