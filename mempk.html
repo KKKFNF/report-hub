@@ -1,0 +1,121 @@
+<!doctype html><html lang=ko><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>메모리 피크아웃 신호</title>
+<style>
+body{background:#0d1117;color:#c9d1d9;font-family:-apple-system,system-ui,sans-serif;margin:0;padding:16px;max-width:860px;margin:auto}
+h1{font-size:20px;margin:8px 0}
+.sub{color:#8b949e;font-size:12px;margin-bottom:12px}
+.alert{padding:14px;border-radius:10px;font-weight:700;font-size:16px;margin:12px 0;background:#161b22;border-left:5px solid #3fb950}
+.fc{font-size:13px;color:#8b949e;font-weight:400;margin-top:4px}
+.cards{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+.card{flex:1;min-width:240px;background:#161b22;border:1px solid #30363d;border-radius:10px;padding:12px}
+.card h3{margin:0 0 8px;font-size:15px}
+.trk{font-size:14px;margin:4px 0}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid #21262d}
+th{color:#8b949e;font-weight:600}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.aux{opacity:.6}
+.dim{color:#484f58}
+.stale{background:#3d1d1d;color:#ffa198;padding:10px;border-radius:8px;margin:10px 0;font-size:13px}
+.note{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:12px;margin-top:14px;font-size:12px;color:#8b949e;line-height:1.6}
+.warn{color:#ffb020;font-weight:700}
+</style></head><body>
+<h1>🐤 메모리 피크아웃 신호 대시보드</h1>
+<div class=sub>삼성전자·SK하이닉스 실적 하향전환 포착 · 데이터 2026-09-14T16:03:04 · 산출 2026-09-14T16:03:24</div>
+<div class="stale">🔴 STALE 경고: us_semi_ip 75일 경과(>60) · us_elec_inv 75일 경과(>60) · wsts_proxy 75일 경과(>60) · hyperscaler_capex 167일 경과(>60) · micron_inv 109일 경과(>60)</div>
+<div class="stale" style="background:#1d3d2d;color:#a0ffc0">📊 백테스트(PIT): ECOS 반도체 수출물가가 2018·2022 피크아웃 <b>2/2 포착(리드 7개월)</b>. 단 오신호율 62% → 단독 금지, <b>flip_count(다지표 동시전환) 병행</b> 시에만 매매 참고. (PPI 단독은 0/2였음)</div>
+<div class="alert">🟢 정상 — 동시 하향전환 없음(피크아웃 신호 OFF)
+<div class="fc">flip_count(점수지표 동시 하향전환 수) = 0 · flips: 없음</div></div>
+<div class=cards><div class="card"><h3>SK하이닉스 (000660)</h3>
+<div class="trk">Track A (ASP/가격): 🟢 +0.40</div>
+<div class="trk">수급(외인·주가): 🟢 +1.00</div></div><div class="card"><h3>삼성전자 (005930)</h3>
+<div class="trk">Track A (ASP/가격): 🟢 +0.40</div>
+<div class="trk">수급(외인·주가): ⚪ +0.00</div></div></div>
+<table><tr><th>지표</th><th class=num>신호 s</th><th class=num>YoY</th><th>방향(yoy/기울기/가속)</th><th>역할</th></tr>
+<tr class="">
+<td>🟢 🇰🇷 한은 반도체 수출물가 (ASP핵심·월)</td>
+<td class="num">+1.00</td>
+<td class="num">+196.8%</td>
+<td>↑/↑/↑</td>
+<td>점수반영</td></tr><tr class="">
+<td>🟢 미국 반도체 PPI (ASP보조·월)</td>
+<td class="num">+0.60</td>
+<td class="num">+26.7%</td>
+<td>↑/↑/↓</td>
+<td>점수반영</td></tr><tr class="">
+<td>🔴 us_semi_device_ppi</td>
+<td class="num">-1.00</td>
+<td class="num">-3.1%</td>
+<td>↓/↓/↓</td>
+<td>점수반영</td></tr><tr class="">
+<td>🟢 한국 총수출 (수요·월)</td>
+<td class="num">+1.00</td>
+<td class="num">+91.0%</td>
+<td>↑/↑/↑</td>
+<td>점수반영</td></tr><tr class="">
+<td>🟢 us_semi_ip</td>
+<td class="num">+1.00</td>
+<td class="num">+11.9%</td>
+<td>↑/↑/↑</td>
+<td>점수반영</td></tr><tr class="">
+<td>🟢 us_elec_inv</td>
+<td class="num">+1.00</td>
+<td class="num">-2.5%</td>
+<td>↑/↑/↑</td>
+<td>점수반영</td></tr><tr class="">
+<td>🟢 wsts_proxy</td>
+<td class="num">+1.00</td>
+<td class="num">+14.8%</td>
+<td>↑/↑/↑</td>
+<td>점수반영</td></tr><tr class="">
+<td>🟢 hyperscaler_capex</td>
+<td class="num">+1.00</td>
+<td class="num">+441.5%</td>
+<td>↑/↑/↑</td>
+<td>점수반영</td></tr><tr class="">
+<td>⚪ micron_inv</td>
+<td class="num">+0.00</td>
+<td class="num">-1.8%</td>
+<td>↑/↓/↓</td>
+<td>점수반영</td></tr><tr class="">
+<td>🔴 dart_inv_005930</td>
+<td class="num">-1.00</td>
+<td class="num">+39.9%</td>
+<td>↓/↓/↓</td>
+<td>점수반영</td></tr><tr class="">
+<td>🔴 dart_inv_000660</td>
+<td class="num">-1.00</td>
+<td class="num">+34.1%</td>
+<td>↓/↓/↓</td>
+<td>점수반영</td></tr><tr class="">
+<td>⚪ 삼성전자 수급(일)</td>
+<td class="num">+0.00</td>
+<td class="num">-9.3%</td>
+<td>↓/↑/↑</td>
+<td>점수반영</td></tr><tr class="">
+<td>🟢 SK하이닉스 수급(일)</td>
+<td class="num">+1.00</td>
+<td class="num">+3.2%</td>
+<td>↑/↑/↑</td>
+<td>점수반영</td></tr><tr class="aux">
+<td>⚪ NVIDIA (보조·심리)</td>
+<td class="num">+0.00</td>
+<td class="num">-3.1%</td>
+<td>↓/↑/↑</td>
+<td>보조(점수제외)</td></tr><tr class="aux">
+<td>⚪ 필라델피아반도체 SOX (보조·심리)</td>
+<td class="num">+0.00</td>
+<td class="num">-5.1%</td>
+<td>↓/↑/↑</td>
+<td>보조(점수제외)</td></tr></table>
+<h2 style="font-size:15px;margin:18px 0 6px;color:#8b949e">📋 수동 큐레이션(분기·비정형) — 일별신호와 분리</h2>
+<table><tr><th>지표</th><th>값</th><th>방향</th><th>기준일</th></tr><tr><td>하이퍼스케일러 capex 가이던스(분기)</td><td><span class='dim'>—</span></td><td><span class='dim'>미입력</span></td><td class='dim' style='font-size:11px'><span class='dim'>—</span></td></tr><tr><td>삼성전자 재고자산(분기공시)</td><td><span class='dim'>—</span></td><td><span class='dim'>미입력</span></td><td class='dim' style='font-size:11px'><span class='dim'>—</span></td></tr><tr><td>SK하이닉스 재고자산(분기공시)</td><td><span class='dim'>—</span></td><td><span class='dim'>미입력</span></td><td class='dim' style='font-size:11px'><span class='dim'>—</span></td></tr><tr><td>DRAM 컨트랙트 가격(트렌드포스 등)</td><td><span class='dim'>—</span></td><td><span class='dim'>미입력</span></td><td class='dim' style='font-size:11px'><span class='dim'>—</span></td></tr><tr><td>한은 D램 수출물가(ECOS)</td><td><span class='dim'>—</span></td><td><span class='dim'>미입력</span></td><td class='dim' style='font-size:11px'><span class='dim'>—</span></td></tr></table>
+<div class=note>
+<span class=warn>⚠️ 이건 '알림'이지 '베팅 비중'이 아닙니다.</span> 변곡 전 일찍 잡으면 선물 레버리지에서 죽습니다.<br>
+· 설계: 단일 종합점수 없음. 모멘텀 부호(전환신호) + 동시전환(flip_count) 기반.<br>
+· s = 0.5·sign(YoY) + 0.3·sign(기울기) + 0.2·sign(가속) → clip[-1,+1]. 가중치는 추정 안 함(고정비율).<br>
+· Track A=ASP/가격(컨벤셔널 DRAM/NAND). HBM은 현물 없어 펀더로 별도 추적 예정(P2). NVDA/SOX는 보조 심리, 점수 제외.<br>
+· 백테스트(point-in-time) 통과 전엔 매매에 쓰지 마세요(P3).
+</div>
+</body></html>
