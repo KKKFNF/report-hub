@@ -1,0 +1,160 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>글로벌 매크로 대시보드 — 재두형 리서치 허브</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.6 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:920px;margin:0 auto;padding:22px 16px 60px;color:var(--tx);background:var(--bg)}
+.head{background:linear-gradient(160deg,#1d2430,#191c22);border:1px solid var(--bd);border-radius:16px;padding:20px 22px;margin-bottom:14px}
+h1{font-size:21px;margin:0 0 4px;letter-spacing:-.3px}
+h2{font-size:16px;margin:26px 0 12px;color:#dfe4ea;border-left:3px solid var(--acc);padding-left:10px}
+.sub{color:var(--mut);font-size:13px}
+.nav{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:8px}
+.nav a{background:var(--card2);color:#cdd3dc;padding:8px 14px;border-radius:10px;text-decoration:none;font-size:13.5px;font-weight:600;border:1px solid var(--bd)}
+.nav a:hover{border-color:var(--acc);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:11px}
+.mcard{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:13px 15px}
+.mc-h{display:flex;justify-content:space-between;align-items:baseline}
+.mc-nm{font-size:14.5px;font-weight:700;color:#fff}
+.mc-v{font-size:14px;font-weight:700}
+.mc-v.up,.stk-v.up,.bd.up{color:var(--up)} .mc-v.down,.stk-v.down,.bd.down{color:var(--dn)}
+.mc-px{color:var(--mut);font-size:13px;margin:2px 0 6px}
+.spark{display:block;margin-top:4px}
+.nochart{color:var(--mut);font-size:12px;padding:22px 0;text-align:center}
+.btbl{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border:1px solid var(--bd);border-radius:10px;overflow:hidden}
+.btbl th,.btbl td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--bd)}
+.btbl th{background:var(--card2);color:#cdd3dc;font-size:12.5px;text-align:right}
+.btbl th:first-child,.btbl td.mat{text-align:left;color:var(--mut);font-weight:700}
+.btbl tr:last-child td{border-bottom:none}
+.bd{font-size:11.5px;font-weight:600}
+.asof{color:var(--mut);font-size:11.5px;margin:6px 2px 0}
+.bchart{background:var(--card);border:1px solid var(--bd);border-radius:11px;padding:11px 14px;margin-top:10px}
+.bc-h{font-size:13px;color:#cdd3dc;font-weight:600;margin-bottom:4px}
+.leg{font-size:11.5px;color:var(--mut);margin-left:8px;font-weight:500}
+.leg i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:3px;vertical-align:middle}
+.ovwrap{position:relative;height:70px}
+.ov{position:absolute;inset:0}
+.sec{background:var(--card);border:1px solid var(--bd);border-radius:11px;padding:11px 14px;margin-bottom:9px}
+.sec-nm{font-size:14px;font-weight:700;color:#fff;margin-bottom:7px}
+.stks{display:flex;flex-wrap:wrap;gap:8px}
+.stk{background:var(--card2);border:1px solid var(--bd);border-radius:8px;padding:6px 11px;display:flex;gap:7px;align-items:baseline}
+.stk-nm{font-size:13px;font-weight:600}
+.stk-v{font-size:13px;font-weight:700}
+.stk-px{font-size:11.5px;color:var(--mut)}
+.reason{background:var(--card2);border-left:3px solid var(--acc);border-radius:8px;padding:10px 14px;margin-top:12px}
+.r-t{font-size:13px;font-weight:700;color:#cdd3dc;margin-bottom:3px}
+.r-b{font-size:13.5px;color:#dfe4ea;white-space:pre-wrap;line-height:1.65}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+</style></head><body>
+<div class="head"><h1>🌐 글로벌 매크로 대시보드</h1>
+<div class="sub">미국 증시지수 · 미·일·한 국채금리 · 미국 산업별 시총상위 · <b>2026-09-14</b> 기준 · 일별 누적 1일</div></div>
+<div class="nav"><a href="./index.html">← 리포트 허브</a><a href="./supply.html">💰 수급몰이</a><a href="./iead.html">📐 이격도</a></div>
+
+<h2>📈 미국 증시지수 (전일 등락)</h2>
+<div class="grid">
+<div class="mcard">
+<div class="mc-h"><span class="mc-nm">S&amp;P500</span>
+<span class="mc-v up">+0.86%</span></div>
+<div class="mc-px">7,656.98</div>
+<div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div>
+<div class="mcard">
+<div class="mc-h"><span class="mc-nm">나스닥</span>
+<span class="mc-v up">+0.96%</span></div>
+<div class="mc-px">26,333.03</div>
+<div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div>
+<div class="mcard">
+<div class="mc-h"><span class="mc-nm">다우</span>
+<span class="mc-v up">+0.98%</span></div>
+<div class="mc-px">52,573.29</div>
+<div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div>
+<div class="mcard">
+<div class="mc-h"><span class="mc-nm">러셀2000</span>
+<span class="mc-v up">+0.45%</span></div>
+<div class="mc-px">2,903.94</div>
+<div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div>
+<div class="mcard">
+<div class="mc-h"><span class="mc-nm">필라델피아반도체</span>
+<span class="mc-v up">+1.81%</span></div>
+<div class="mc-px">11,824.00</div>
+<div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div>
+<div class="mcard">
+<div class="mc-h"><span class="mc-nm">VIX</span>
+<span class="mc-v down">-11.21%</span></div>
+<div class="mc-px">15.840</div>
+<div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div>
+</div>
+
+
+<h2>💵 미·일·한 국채금리 (만기별)</h2>
+<table class="btbl"><tr><th>만기</th><th>🇺🇸 미국</th><th>🇯🇵 일본</th><th>🇰🇷 한국</th></tr><tr><td class='mat'>3M</td><td><b>4.020</b></td><td>—</td><td>—</td></tr><tr><td class='mat'>2Y</td><td><b>4.620</b></td><td><b>1.743</b></td><td><b>3.920</b></td></tr><tr><td class='mat'>3Y</td><td>—</td><td>—</td><td><b>4.014</b></td></tr><tr><td class='mat'>5Y</td><td><b>4.775</b></td><td><b>2.233</b></td><td><b>4.267</b></td></tr><tr><td class='mat'>10Y</td><td><b>4.963</b></td><td><b>2.943</b></td><td><b>4.540</b></td></tr><tr><td class='mat'>20Y</td><td>—</td><td><b>3.815</b></td><td><b>4.633</b></td></tr><tr><td class='mat'>30Y</td><td><b>5.352</b></td><td><b>4.092</b></td><td><b>4.714</b></td></tr></table><div class="asof">기준일 · 미국 실시간(CNBC) · 일본 R8.8.31(재무성) · 한국 20260911(한국은행 ECOS)</div>
+<div class="bchart"><div class="bc-h">2Y 국채금리 추이 <span class="leg"><i style="background:#5db0ff"></i>🇺🇸 미국</span> <span class="leg"><i style="background:#ff9d5b"></i>🇯🇵 일본</span> <span class="leg"><i style="background:#7ee7a1"></i>🇰🇷 한국</span></div>
+<div class="ovwrap"><div class="ov"><div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div><div class="ov"><div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div><div class="ov"><div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div></div></div>
+<div class="bchart"><div class="bc-h">10Y 국채금리 추이 <span class="leg"><i style="background:#5db0ff"></i>🇺🇸 미국</span> <span class="leg"><i style="background:#ff9d5b"></i>🇯🇵 일본</span> <span class="leg"><i style="background:#7ee7a1"></i>🇰🇷 한국</span></div>
+<div class="ovwrap"><div class="ov"><div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div><div class="ov"><div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div><div class="ov"><div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div></div></div>
+<div class="bchart"><div class="bc-h">30Y 국채금리 추이 <span class="leg"><i style="background:#5db0ff"></i>🇺🇸 미국</span> <span class="leg"><i style="background:#ff9d5b"></i>🇯🇵 일본</span> <span class="leg"><i style="background:#7ee7a1"></i>🇰🇷 한국</span></div>
+<div class="ovwrap"><div class="ov"><div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div><div class="ov"><div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div><div class="ov"><div class="nochart">데이터 누적 중 (2일 이상 필요)</div></div></div></div>
+
+
+<h2>🏭 미국 산업별 시총상위 (전일 등락)</h2>
+<div class="sec"><div class="sec-nm">IT/빅테크</div>
+<div class="stks"><div class="stk">
+<span class="stk-nm">애플</span>
+<span class="stk-v up">+1.75%</span>
+<span class="stk-px">332.27</span></div><div class="stk">
+<span class="stk-nm">마이크로소프트</span>
+<span class="stk-v up">+0.65%</span>
+<span class="stk-px">495.63</span></div></div></div>
+<div class="sec"><div class="sec-nm">반도체</div>
+<div class="stks"><div class="stk">
+<span class="stk-nm">엔비디아</span>
+<span class="stk-v down">-0.03%</span>
+<span class="stk-px">218.29</span></div><div class="stk">
+<span class="stk-nm">브로드컴</span>
+<span class="stk-v up">+0.32%</span>
+<span class="stk-px">361.99</span></div></div></div>
+<div class="sec"><div class="sec-nm">커뮤니케이션</div>
+<div class="stks"><div class="stk">
+<span class="stk-nm">알파벳</span>
+<span class="stk-v up">+1.77%</span>
+<span class="stk-px">338.50</span></div><div class="stk">
+<span class="stk-nm">메타</span>
+<span class="stk-v up">+0.57%</span>
+<span class="stk-px">648.03</span></div></div></div>
+<div class="sec"><div class="sec-nm">소비재</div>
+<div class="stks"><div class="stk">
+<span class="stk-nm">아마존</span>
+<span class="stk-v up">+1.94%</span>
+<span class="stk-px">256.78</span></div><div class="stk">
+<span class="stk-nm">테슬라</span>
+<span class="stk-v up">+0.52%</span>
+<span class="stk-px">365.44</span></div></div></div>
+<div class="sec"><div class="sec-nm">금융</div>
+<div class="stks"><div class="stk">
+<span class="stk-nm">JP모건</span>
+<span class="stk-v up">+0.76%</span>
+<span class="stk-px">356.23</span></div><div class="stk">
+<span class="stk-nm">뱅크오브아메리카</span>
+<span class="stk-v up">+0.21%</span>
+<span class="stk-px">62.690</span></div></div></div>
+<div class="sec"><div class="sec-nm">헬스케어</div>
+<div class="stks"><div class="stk">
+<span class="stk-nm">일라이릴리</span>
+<span class="stk-v down">-0.65%</span>
+<span class="stk-px">1,115.70</span></div><div class="stk">
+<span class="stk-nm">유나이티드헬스</span>
+<span class="stk-v down">-2.37%</span>
+<span class="stk-px">379.09</span></div></div></div>
+<div class="sec"><div class="sec-nm">에너지</div>
+<div class="stks"><div class="stk">
+<span class="stk-nm">엑슨모빌</span>
+<span class="stk-v up">+0.46%</span>
+<span class="stk-px">165.99</span></div><div class="stk">
+<span class="stk-nm">셰브론</span>
+<span class="stk-v up">+0.61%</span>
+<span class="stk-px">214.06</span></div></div></div>
+
+
+<div class="foot">🐤 춘식이 매크로 대시보드 · 생성 2026-09-14 11:23 KST<br>
+데이터: CNBC(미국 지수·종목·국채) · 일본 재무성(JGB) · 한국은행 ECOS(국고채) · 매일 아침 자동 누적<br>
+⚠️ 참고용. 금리·지수는 소스 기준시점 상이(미국 실시간, 일·한 전영업일 확정치). 매매신호 아님.</div>
+</body></html>
