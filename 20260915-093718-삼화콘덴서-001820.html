@@ -1,0 +1,189 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>삼화콘덴서(001820) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260915-093718-삼화콘덴서-001820.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:1.3</div><div class="tp-c"><b>결론 발췌</b> 실적은 역성장인데 주가만 5일 +31% 급등한 전형적 수급·테마성 오버슈팅. PER 78~107배로 극단 고평가. 추격매수 부적합, 손익비 1:1.3에 불과 → 판정 관망. ━━━━━━━━━━━━━━ ① 포착 신호 - 회전율 5.2% (거래대금 796.8억 / 시총 15,229억) [실측: trendscan/KIS] - 추세: MA 정배열 [실측: MA5 130,440 &gt; MA20 111,895 &gt; MA60 103,893, KIS 일봉] / 연속상승 3일 / 5일 +31.2% - 현 위치: 고점권 추격 구간. 52주 최고 196,800(6/18) 대비 -27%지만, 8월 말 11.2만원에서 2주 만에 +28% 수직상승 [실측: KIS 일…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>삼화콘덴서(001820)</h1>
+<div class="meta">📊 trend · 2026-09-15 09:37 · 코드 001820</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-15 09:37)</div><div class="kpi-v">141,900원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">14,751억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">117.66</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">5.31</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:1.3</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">168,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 신규 비권고 (굳이 시 125,000~130,000원 눌림 확인 후)</span><span class="dc dn">손절 125,000원</span><span class="dc up">목표 168,000원</span><span class="dc">손익비 1:1.3</span><span class="dc">기간 스윙 2~4주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q 실적발표(11월, 날짜 미확정)</div><div class="dc-l">🛑 반증: 반기 영업이익 -30% 역성장·재료 공시 부재·PER 78배 → 펀더멘털 미뒷받침 시 논지 폐기(=이미 폐기 상태)</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 삼화콘덴서(001820) ※선물 無(개별주식선물 미상장 → 현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: 실적은 역성장인데 주가만 5일 <span class="up">+31%</span> 급등한 전형적 수급·테마성 오버슈팅. PER 78~107배로 극단 고평가. 추격매수 부적합, 손익비 1:1.3에 불과 → 판정 관망.</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 5.2% (거래대금 796.8억 / 시총 15,229억) [실측: trendscan/KIS]</li>
+<li>추세: MA 정배열 [실측: MA5 130,440 &gt; MA20 111,895 &gt; MA60 103,893, KIS 일봉] / 연속상승 3일 / 5일 <span class="up">+31.2%</span></li>
+<li>현 위치: 고점권 추격 구간. 52주 최고 196,800(6/18) 대비 <span class="down">-27%</span>지만, 8월 말 11.2만원에서 2주 만에 <span class="up">+28%</span> 수직상승 [실측: KIS 일봉 9/11 <span class="up">+18.8%</span>, 9/14 <span class="up">+20.3%</span>]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력: MLCC(적층세라믹콘덴서)·필름콘덴서·전력변환콘덴서. 전장(전기차)·산업용 MLCC 국내 2위권 [인용: 통상 알려진 사업구조]</li>
+<li>급등사유: DART 최근 공시(2026-08~09) 확인 결과 단일판매·공급계약 등 실적 재료 공시 없음 [실측: DART list 2026-08-01~09-15 → 반기보고서·대량보유보고서만]. 뉴스 교차확인은 봇차단으로 미확인. → 공시성 재료가 아닌 MLCC 테마·수급 주도 급등으로 판단. 재료 실체 불투명</li>
+</ul>
+<p>③ 실적 (DART 연결 실측, 접수번호 반기보고서 2026.06)</p>
+<ul>
+<li>매출: 2022 2,635억 → 2023 2,808억 → 2024 2,954억 [실측: 사업보고서]</li>
+<li>영업이익: 305억 → 237억 → 178억 (3년 연속 감소) [실측]</li>
+<li>OPM: 11.6% → 8.4% → 6.0% (수익성 지속 악화) [실측: 산식 영업이익/매출]</li>
+<li>25년 반기: 매출 1,512억(YoY <span class="up">+0.7%</span>) / 영업이익 104억(YoY <span class="down">-29.7%</span>) / 순이익 69억(YoY <span class="down">-54.8%</span>) [실측: 반기보고서, 연결]</li>
+</ul>
+<p>→ 매출은 정체, 이익은 반토막. 실적 모멘텀 없음</p>
+<ul>
+<li>재무건전성: 부채비율 22.8%(우량) / 이자보상배율 4.0배 / 영업현금흐름 393억(2024, 흑자) [실측]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 추정치·목표주가: 네이버 추정PER &quot;N/A&quot;, 웹검색 봇차단 → 컨센서스 미확인</li>
+<li>25년 연환산 추정 EPS ≈ 1,340원(반기 670×2) [추정: 산식]. 하반기 개선 재료 미확인</li>
+</ul>
+<p>⑤ 밸류에이션·목표가 (계산식)</p>
+<ul>
+<li>현 PER 78.0배(최근4Q EPS 1,840) / 25년 연환산 기준 107배 [실측: KIS/네이버]</li>
+<li>PBR 5.22배 (BPS 27,552) [실측: 네이버] — 과거 밴드 상단 크게 초과</li>
+<li>자체 적정가치 산정: 정상화 EPS(2024 순익 220억 기준 EPS 2,120원)에 성장 프리미엄 PER 18~22배 적용</li>
+</ul>
+<p>→ 적정주가 38,000~47,000원 [추정: 산식 EPS 2,120 × 18~22] → 현재가 143,600원은 정상 밸류 대비 3배 이상. 실적으로 정당화 불가</p>
+<ul>
+<li>증권사 목표가: 미확인</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>지지: MA5 130,440 / MA20 111,895 / 심리 12만</li>
+<li>저항: 6월 고점 196,800 사이 매물대, 근접 15만/16만</li>
+<li>가정 시나리오(추격 진입 시): 진입 143,600 / 손절 125,000(MA5 이탈+눌림) / 목표 168,000</li>
+</ul>
+<p>→ 상승여력 <span class="up">+17.0%</span> ÷ 하락리스크 <span class="down">-14.9%</span> = 손익비 1:1.14~1.3 [실측: 산식] → 손익비 1.5 미달. 급등 후 고점권 추격은 리스크 대비 보상 열위</p>
+<p>⑦ 촉매·반증·시나리오·수급 · 촉매(날짜확정): 3분기 실적발표(11월 중순 예상, 날짜 미확정) — 확정 이벤트 없음 · 반증 3개: 1) 실적 역성장(반기 영업이익 <span class="down">-30%</span>)에도 주가만 급등 → 펀더멘털 괴리 2) 특별 공급계약·수주 공시 부재 → 급등 재료 실체 불투명 3) PER 78~107배·PBR 5.2배 → 밸류 정당화 근거 없음 · 이벤트 매트릭스: MLCC 업황 반등(상방) / 테마 소멸·차익매물(하방) / 3Q 실적 쇼크(하방) · 확률가중 시나리오(합 100%):</p>
+<ul>
+<li>Bear 45%: 테마 소멸·급등분 반납, 12만 이하 회귀 (<span class="down">-15%</span>~)</li>
+<li>Base 40%: 15만 전후 고점 등락 후 조정 (±5%)</li>
+<li>Bull 15%: 재료 확인 시 6월 고점 196,800 재도전 (<span class="up">+30%</span>)</li>
+</ul>
+<p>→ 기대수익 음(-)에 근접, 확률우위 없음 · 수급·유동성: ADV(당일거래대금) 796.8억, 10% = 79.7억까지 무리 없음 [실측: 산식] · 포지션 사이징: 자산 5억×1% = 500만 리스크 ÷ (진입143,600−손절125,000=18,600) ≈ 269주(약 3,860만원). 유동성상한(79.7억) 여유 → 리스크관리상 3,800만원 내외가 상한. 단, 추격 부적합 판단이므로 신규 진입 비권고</p>
+<hr>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27;, 확인 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>급등 뉴스 사유(봇차단) / 증권사 목표주가·컨센서스 / 3Q 실적 확정일 / MLCC 전장 수주 구체 내역</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI: 현재가 143,600·PER 78·PBR 5.37·52주고저·일봉MA (2026-09-15)</li>
+<li>DART 연결재무: 사업보고서 2022~2024·반기보고서 2026.06</li>
+<li>네이버 m.stock integration API: PER 78.10·추정PER N/A·시총 1조4,938억</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총 143,600×10,395,000주 = 14,927억 (trendscan 15,229억과 근사, 주가변동 반영)</li>
+<li>OPM 2024 = 178억/2,954억 = 6.0% ✓</li>
+<li>반기 순익 YoY = 69억/153억−1 = −54.8% ✓</li>
+<li>손익비 = (168,000−143,600)/(143,600−125,000) = 1.31 ✓</li>
+<li>부채비율 = 608억/2,673억 = 22.8% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2>📐 실전 체크 (자동 실측 · KIS 2026-09-15 09:37 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 141,900원 (<span class="up">+1.9%</span>) · 시총 14,751억 · 5일 <span class="up">+27.0%</span> / 20일 <span class="up">+45.7%</span> / 60일 <span class="down">-17.3%</span></li>
+<li>MA5 130,100원 / MA20 111,810원 / MA60 103,865원 → MA20 이격 <span class="up">+26.9%</span> · MA60 이격 <span class="up">+36.6%</span></li>
+<li>52주 고 196,800원 / 저 27,750원 → 고점 대비 <span class="down">-27.9%</span> · 20일 고 141,900원 / 저 90,600원</li>
+<li>후행 PER 117.66 / PBR 5.31 (EPS 1,206원 · BPS 26,701원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,046.9억 (5일 2,004.2억)</li>
+<li>외국인 순매수 5일 105.7억 / 20일 237.7억 · 기관 5일 393.4억 / 20일 710.6억 · 개인 20일 -952.1억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.41% / 20일 평균 0.95% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 2.76% (08/27) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 168,000원 (<span class="up">+18.4%</span>) ÷ 하방 125,000원 (−11.9%) = <strong>1:1.54</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (운용 5억 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산: 250만원 ÷ (진입 141,900원 − 손절 125,000원 = 16,900원) = <strong>147주 ≈ 0.21억</strong></li>
+<li>유동성상한: 20일 ADV 1,046.9억 × 10% = 1일 104.69억 (분할 시 일수 = 목표금액 ÷ 이 값)</li>
+<li>채택 상한 = 최소값 → <strong>리스크예산(0.5%) 0.21억 (4% of 자산)</strong></li>
+<li>⚠️ 손절폭 11.9% · ATR14 11,700원 (손절폭/ATR 1.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 11.9% = ATR14 × 1.4배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 124,350원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.49</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관망 선물: 無 현재가: 143,600원 진입: 신규 비권고 (굳이 시 125,000~130,000원 눌림 확인 후) 손절: 125,000원 목표: 1차 168,000원 (2차 196,800원 6월고점) 손익비: 1:1.3 기간: 스윙 2~4주 촉매: 3Q 실적발표(11월, 날짜 미확정) 반증: 반기 영업이익 <span class="down">-30%</span> 역성장·재료 공시 부재·PER 78배 → 펀더멘털 미뒷받침 시 논지 폐기(=이미 폐기 상태)</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
