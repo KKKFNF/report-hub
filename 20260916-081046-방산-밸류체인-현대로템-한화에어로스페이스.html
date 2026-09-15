@@ -1,0 +1,300 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>방산 밸류체인(현대로템·한화에어로스페이스) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260916-081046-방산-밸류체인-현대로템-한화에어로스페이스.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-buy">🟢 매수 추천 ⓘ</span><span class="tip"><div class="tp-h">🟢 매수 추천 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 명시적 매수 문구(매수추천·비중확대·진입 유효·최선호 등)가 있거나, 결론의 손익비가 1:2 이상이면서 &#x27;추격 금지/자제/부적합·눌림 대기·조건부&#x27; 같은 유보 문구가 전혀 없을 때. = 현재가 부근에서 지금 진입 가능.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심~매수 · 손익비 1:2.5</div><div class="tp-c"><b>결론 발췌</b> • 한화에어로스페이스(012450): 컨센 상향·수주랠리·다각화 우위. 눌림목 매수 관점, 진입 1,060,000 / 손절 985,000 / 목표 1,250,000~1,500,000, 손익비 1:2.5. [판정: 관심~매수] • 현대로템(064350): K2 스토리 유효하나 컨센 하향·목표가 줄삭감·주가 역배열(-40%). 반등 확인 후 접근, 진입 118,000 / 손절 111,000 / 목표 140,000~165,000, 손익비 1:2.2. [판정: 관심] • 둘 다 개별주식선물 상장 ✅ → 레버리지 스윙 가능. 단 현 KOSPI 고변동 레짐(VKOSPI 46.8, RV20 90.6%ile)이라 사이징 축소 필수.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심~매수</span><h1>방산 밸류체인(현대로템·한화에어로스페이스)</h1>
+<div class="meta">📊 benine · 2026-09-16 08:10 · 코드 064350</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-16 08:10)</div><div class="kpi-v">121,400원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">132,499억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">17.21</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">4.3</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:2.5</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">1,250,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 1,040,000~1,070,000원 (눌림목)</span><span class="dc dn">손절 985,000원</span><span class="dc up">목표 1,250,000원</span><span class="dc">손익비 1:2.5</span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 실적(11/14 법정기한), 스페인·사우디·미국 K9 수주공시</div><div class="dc-l">🛑 반증: 3Q26 연결 영익 &lt; 9,500억 / 종가 985,000 이탈</div></div>
+
+<div class="body"><p>🚀 방산 밸류체인 딥리서치 — 지상무기·포탄 공급자우위 국면 (원 글: 비나인 스크랩 &quot;방산 산업 알아보기 1부&quot; · dhgusdnd44 · 2026-09-16 · 블로거 의견=참고용, 매매신호 아님)</p>
+<p>📌 한줄 결론</p>
+<ul>
+<li>한화에어로스페이스(012450): 컨센 상향·수주랠리·다각화 우위. 눌림목 매수 관점, 진입 1,060,000 / 손절 985,000 / 목표 1,250,000~1,500,000, 손익비 1:2.5. [판정: 관심~매수]</li>
+<li>현대로템(064350): K2 스토리 유효하나 컨센 하향·목표가 줄삭감·주가 역배열(<span class="down">-40%</span>). 반등 확인 후 접근, 진입 118,000 / 손절 111,000 / 목표 140,000~165,000, 손익비 1:2.2. [판정: 관심]</li>
+<li>둘 다 개별주식선물 상장 ✅ → 레버리지 스윙 가능. 단 현 KOSPI 고변동 레짐(VKOSPI 46.8, RV20 90.6%ile)이라 사이징 축소 필수.</li>
+</ul>
+<hr>
+<p>① 원 글 논지 검증 (기대감 vs 실체) ━━━━━━━━━━━━━━━━━━ 블로거 핵심주장: &quot;글로벌 방산은 돈은 있는데 물건이 없는 공급자우위. 유럽 납기 36~60개월 vs 한국 24개월 이하. 케파=수십년 안 끊긴 생산라인·숙련공·인증공급망. 휴전국 한국(창원 상시가동)이 구조적 우위.&quot; → 실체 검증 결과 <strong>대체로 사실에 부합</strong>:</p>
+<ul>
+<li>창원 라인 상시가동 실체 확인 [실측: 현대로템 사업보고서 25.12, 접수 20260319001275]: 디펜스솔루션 창원공장 평균가동률 <strong>108.7%</strong>(가동가능 864,628MH 대비 실제 939,451MH) — 초과가동 = 라인 풀capa.</li>
+<li>한화에어로 방산(창원2·3) 가동률 <strong>88.4%(25년)</strong> [실측: 사업보고서 25.12, 접수 20260316001112] — 여력 축소.</li>
+<li>수출 급증이 실적으로 확인: 현대로템 방산 수출 6,826억(23)→15,917억(24)→<strong>23,292억(25)</strong> [실측: 매출실적표]. 한화에어로 방산 수출 15,056억(23)→36,369억(24)→<strong>46,725억(25)</strong>.</li>
+<li>&quot;돈은 있는데 물건이 없다&quot;의 실체 = 수주잔고. 현대로템 <strong>약 30조(5년치 일감)</strong> [인용: 아시아경제 2026-09-14], 한화에어로 <strong>약 31조(수출 70%)</strong> [인용: finance-scope 2025-11].</li>
+</ul>
+<p>⚠️ 단 블로거가 강조한 &quot;구조적 우위&quot;는 이미 주가에 상당부분 반영→고점 대비 로템 <span class="down">-57%</span>, 한화 <span class="down">-36%</span> 조정. 지금은 &#x27;테마 초입&#x27;이 아니라 &#x27;실적 검증·수주 공백 구간&#x27;. 기대감 아닌 분기 실적·신규수주로 재평가받는 국면.</p>
+<hr>
+<p>② 밸류체인 매핑 → Tier 분류 (실적베타 × 선물상장) ━━━━━━━━━━━━━━━━━━ [선물상장 전수확인: python3 kis_futures_check.py 실측 2026-09-16]</p>
+<p>▪ Tier1 (실적수혜 高 + 선물 有 = 레버리지 가능)</p>
+<ul>
+<li>한화에어로스페이스 012450 ✅선물(ABH610) — K9 자주포·천무·유도무기·엔진, 밸류체인 최광범위 체계업체</li>
+<li>현대로템 064350 ✅선물(AG6610) — K2 전차 국내 유일 체계업체</li>
+<li>LIG디펜스앤에어로(넥스원) 079550 ✅선물(ADB610) — 유도무기(천궁·현궁), &#x27;미사일 숏티지&#x27; 직접수혜</li>
+<li>한화시스템 272210 ✅선물(AEV610) — 레이더·전자전(L-SAM MFR), 유도무기 두뇌</li>
+<li>풍산 103140 ✅선물(A0X610) — 탄약·탄체(구리황동), 원 글 &#x27;포탄 병목&#x27; 직접수혜</li>
+</ul>
+<p>▪ Tier2 (수혜 있으나 선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>한국항공우주(KAI) ❌선물 — FA-50 항공(지상무기 아님)</li>
+<li>SNT다이내믹스 ❌선물 — K2/K9 파워팩·변속기(부품)</li>
+<li>STX엔진 ❌선물 — 엔진(부품)</li>
+</ul>
+<p>▪ 부품·간접(방산 비중 낮음)</p>
+<ul>
+<li>현대위아 011210 ✅선물(ABP610) — 포신·차량, 방산비중 낮아 실적베타 약함</li>
+</ul>
+<p>핵심: 원 글이 짚은 &quot;지상무기(K2/K9/천무)+포탄(탄체/장약)+유도무기&quot; 밸류체인의 Tier1 체계업체 중 <strong>레버리지 가능한 실명주 = 한화에어로·현대로템·LIG·한화시스템·풍산</strong>. 아래 대표주 2개(한화에어로·현대로템)를 6축 정밀 분석.</p>
+<hr>
+<p>【대표주 A】 한화에어로스페이스 (012450) ✅선물 ━━━━━━━━━━━━━━━━━━ 현재가 1,063,000원 [실측: KIS 2026-09-16] · 시총 54.8조 · PER 37.2 · PBR 5.65 · EPS 28,573 · 52주 783,000~1,655,000</p>
+<p>③ 실적 (DART 실측, 연결) ※ 2025년 매출 급증은 한화오션 연결편입(해양 54.5%) 효과 — 순수 방산실적과 구분 필수</p>
+<ul>
+<li>매출: 93,590억(23) → 112,401억(24) → <strong>267,029억(25)</strong> [실측: 연결 사업보고서]</li>
+<li>영업이익: 6,911억(23, OPM 7.4%) → 17,319억(24, 15.4%) → <strong>30,893억(25, 11.6%)</strong></li>
+<li>순이익(25): 22,020억 (지배주주 14,050억 / 비지배 7,970억 ← 한화오션 지분)</li>
+<li>순수 방산 매출: 56,678억(23)→86,085억(24)→<strong>98,816억(25)</strong>, 방산 수출 46,725억(25) — 방산만으로도 고성장</li>
+<li>26년 반기(연결): 매출 150,439억 [실측: 반기보고서 접수 20260814003198], 방산 44,652억·항공 13,420억·해양 96,142억</li>
+<li>부채비율 26반기 <strong>190%</strong>(부채385,049/자본202,371억) — 해양 연결로 외형 큼, 방산 자체는 견조</li>
+<li>수주잔고 약 <strong>31조</strong>(수출 70%), 연말 40조 전망 [인용: 경제타임스/finance-scope]</li>
+</ul>
+<p>④ 미래실적·컨센 [실측: consensus.py 2026-09-16, 19개사]</p>
+<ul>
+<li>FY26E 매출 324,104억 · 영익 46,454억(14.3%) · EPS 45,048 (PER 23.6)</li>
+<li>FY27E 매출 346,517억 · 영익 57,056억 · EPS 54,765 (PER 19.4)</li>
+<li>영익컨센 <strong>상향 추세</strong>: 1년전 43,449 → 현재 46,454억 (수주랠리 반영)</li>
+<li>Q3&#x27;26 컨센: 매출 77,318억 · 영익 12,383억(16.0%)</li>
+<li>목표가: 45건 평균 1,762,889 / 최신 19사 1,685,789 (현재가 대비 <span class="up">+65.8%</span>)</li>
+<li>최근 리포트: 한투 2,000,000(9/14 크로아티아 천무) · DS 1,830,000(상향) · DB 1,500,000 · IBK 1,500,000(신규)</li>
+<li>달성가능성 <strong>中~高</strong>: 폴란드 K9 연30문+천무, 이집트·호주 K9 하반기 매출가세, 노르웨이1.3조·핀란드0.9조 확정. 다만 해양(한화오션) 변동성이 연결 실적 흔들 수 있음.</li>
+</ul>
+<p>⑤ 밸류에이션 → 목표가</p>
+<ul>
+<li>현 PER 23.6(26E)/19.4(27E), PBR 5.65 — 국내 방산 평균 대비 상단, 글로벌(라인메탈 fwd 30~40x) 대비 하단</li>
+<li>자체 목표가 산식:</li>
+<li>1차 = 22x × FY27E EPS 54,765 = <strong>1,205,000원</strong> [추정]</li>
+<li>2차 = 27x(성장프리미엄) × FY27E EPS 54,765 = <strong>1,478,000 → 1,500,000원</strong> [추정]</li>
+<li>증권사 목표 평균 1,76M은 28~30x 반영 — 리레이팅 지속 가정. 자체값은 보수적.</li>
+</ul>
+<p>⑥ 진입전략·손익비 [실측: KIS MA/ATR]</p>
+<ul>
+<li>MA5 1,082,200 · MA20 1,083,200 · MA60 1,039,217 → MA60 위·단기선 아래 = 조정 후 눌림목</li>
+<li>52주고 1,655,000 대비 <span class="down">-36%</span>(과열 아님) · ATR14 50,286</li>
+<li>레버리지 스윙 3라인: 진입 1,040,000~1,070,000 / 손절 종가 985,000(MA60·심리 100만 하향이탈) / 익절 1차 1,250,000·2차 1,500,000</li>
+<li>손익비(진입 1,060,000 기준): 상방 1,250,000 <span class="up">+17.9%</span> ÷ 하방 985,000 <span class="down">-7.1%</span> = <strong>1:2.5</strong> (2차 1,500,000이면 1:5.8)</li>
+</ul>
+<hr>
+<p>【대표주 B】 현대로템 (064350) ✅선물 ━━━━━━━━━━━━━━━━━━ 현재가 121,400원 [실측: KIS 2026-09-16] · 시총 13.25조 · PER 17.2 · PBR 4.3 · EPS 7,055 · 52주 113,100~282,000</p>
+<p>③ 실적 (DART 실측, 연결)</p>
+<ul>
+<li>매출: 35,874억(23) → 43,766억(24) → <strong>58,390억(25)</strong> [실측: 연결 사업보고서 접수 20260319001275]</li>
+<li>영업이익: 2,100억(23, OPM 5.9%) → 4,566억(24, 10.4%) → <strong>10,056억(25, 17.2%)</strong> — 방산 수출믹스로 마진 급개선</li>
+<li>순이익: 1,568억(23) → 4,053억(24) → <strong>7,705억(25)</strong> (지배 7,699억)</li>
+<li>사업부문(25): 방산 32,153억(55%)·레일 20,896억(36%)·에코 5,341억(9%). 방산 수출 23,292억(수출비중 급등)</li>
+<li><strong>2Q26(3개월): 매출 16,061억·영익 2,324억(OPM 14.5%)·순익 1,863억</strong> [실측: 반기보고서 접수 20260814002977]</li>
+</ul>
+<p>→ YoY Q2 영익 2,576억→2,324억 <strong>-9.8%</strong>, OPM 18.2%→14.5% 둔화 (높은 기저·폴란드 2차 인식 공백)</p>
+<ul>
+<li>부채비율 25말 206%(부채62,768/자본30,412) → 26반기 169%(56,998/33,698) 개선</li>
+<li>창원 방산 가동률 108.7%(초과가동) · 수주잔고 약 30조(5년치)</li>
+</ul>
+<p>④ 미래실적·컨센 [실측: consensus.py 2026-09-16, 17개사]</p>
+<ul>
+<li>FY26E 매출 68,395억 · 영익 10,808억(15.8%) · EPS 8,152 (PER 14.9)</li>
+<li>FY27E 매출 77,291억 · 영익 13,191억 · EPS 9,752 (PER 12.4)</li>
+<li>영익컨센 <strong>하향 추세</strong>: 1년전 12,863 → 6M전 12,449 → 현재 10,808억 (수주 지연·마진둔화 반영) ← 한화와 정반대</li>
+<li>Q3&#x27;26 컨센: 매출 18,185억 · 영익 2,894억(15.9%)</li>
+<li>목표가: 평균 290,632(과거 고평가 잔재) BUT <strong>최신 커버리지는 줄하향</strong> — 삼성 306→250, 현대차 284→200, 키움 →295, KB 270→225, IBK 220(신규). 실질 컨센 200,000~250,000대로 수렴 중</li>
+<li>달성가능성 <strong>中</strong>: K2 폴란드 2차 180대(8.75조, K2GF 116대 26~27 국내인식 시작)로 하반기 회복 가능. 그러나 이라크(9조)·루마니아(65억유로)·페루는 &#x27;협상중&#x27;=미확정. 수주 공시 지연이 최대 리스크.</li>
+</ul>
+<p>⑤ 밸류에이션 → 목표가</p>
+<ul>
+<li>현 PER 14.9(26E)/12.4(27E) — 한화(23.6)보다 크게 싸나, 이익모멘텀 꺾임이 디스카운트 요인</li>
+<li>자체 목표가 산식:</li>
+<li>1차 = 18x × FY26E EPS 8,152 = <strong>146,700 → 145,000원</strong> [추정]</li>
+<li>2차 = 17x × FY27E EPS 9,752 = <strong>165,780 → 165,000원</strong> [추정]</li>
+<li>증권사 평균 290k는 과거밴드·고성장 지속 가정. 컨센 하향국면이라 자체값(145k/165k)이 현실적.</li>
+</ul>
+<p>⑥ 진입전략·손익비 [실측: KIS MA/ATR]</p>
+<ul>
+<li>MA5 123,040 · MA20 129,330 · MA60 149,297 → <strong>완전 역배열(하락추세)</strong>. ret60 <span class="down">-40.3%</span>, ret20 <span class="down">-10.9%</span></li>
+<li>52주저 113,100 근접(고점 282,000 대비 <span class="down">-57%</span>) · ATR14 4,929</li>
+<li>레버리지 스윙 3라인(반등확인 후): 진입 116,000~121,000 / 손절 종가 111,000(52주저 하향이탈) / 익절 1차 140,000(hi20 139,100·MA60권)·2차 165,000</li>
+<li>손익비(진입 118,000 기준): 상방 140,000 <span class="up">+18.6%</span> ÷ 하방 111,000 <span class="down">-5.9%</span> = <strong>1:3.1</strong>... 단 역배열이라 진입 신뢰도 낮음 → 실전 손익비는 진입 120,000·손절 111,000(<span class="down">-7.5%</span>)로 보수화 시 상방140k(<span class="up">+16.7%</span>)=<strong>1:2.2</strong></li>
+</ul>
+<p>⚠️ 역배열 하락추세에서 신규 롱은 &#x27;떨어지는 칼날&#x27;. MA20 회복(종가 129,000 상향돌파) 확인 후 진입이 정석.</p>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9) ━━━━━━━━━━━━━━━━━━ [9-3 시장·경쟁] 글로벌 지상무기 공급부족 = 유럽 납기 36~60개월 vs 한국 ≤24개월 [인용: 원 블로그, 단일출처→추정]. K2 경쟁: 독일 레오파르트2·미국 M1(납기·가격 열위). K9 자주포 글로벌 점유율 50%+ (수출 다수국) [인용: 업계 통설, 미확인 정밀수치].</p>
+<p>[9-5 CAPA·수주] 현대로템 창원 방산 가동률 108.7%(풀capa, 증설 필요), 총투자 26~28년 271,166백만(디펜스) 계획 [실측]. 한화에어로 방산 가동률 88.4%.</p>
+<p>▪ 한화에어로 바텀업 (연결·억원)</p>
+<ul>
+<li>Base FY26: 매출 324,000 / 영익 46,000(14.2%) — 컨센 부합, K9·천무 수출인식+해양 정상화</li>
+<li>Bull FY26: 매출 340,000 / 영익 52,000 — 신규수주(스페인·사우디·미국) 조기인식</li>
+<li>Bear FY26: 매출 300,000 / 영익 38,000 — 해양(한화오션) 손익 변동·인식지연</li>
+<li>민감도: 방산 OPM ±2%p → 영익 ±약 2,000억 / 해양 흑자폭이 연결 스윙변수</li>
+<li><strong>결론: 3Q26 연결 영익 ≥ 12,000억(Base·컨센 12,383)이면 논지 유지·추가매수 검토, &lt; 9,500억이면 논지 폐기</strong></li>
+</ul>
+<p>▪ 현대로템 바텀업 (연결·억원)</p>
+<ul>
+<li>물량축: K2 폴란드 2차 K2GF 116대(26~27 국내생산·대당 ~40억 추정) → 연 58대×40억 ≈ 2,300억/년 신규인식 [추정: 계약 8.75조/180대]</li>
+<li>Base FY26: 매출 68,000 / 영익 10,800(15.9%) — 컨센 부합, 방산 하반기 회복+레일 안정</li>
+<li>Bull FY26: 매출 72,000 / 영익 12,500 — 이라크·루마니아 中 1건 연내 수주공시</li>
+<li>Bear FY26: 매출 64,000 / 영익 9,000(14%) — 수주 추가지연·마진 2Q수준 정체</li>
+<li>민감도: 신규 대형수주(9조 이라크) 1건 = 수주잔고 <span class="up">+30%</span>, 목표멀티플 리레이팅 트리거</li>
+<li><strong>결론: 3Q26 연결 영익 ≥ 2,900억(Base·컨센 2,894)이면 논지 유지·추가매수 검토, &lt; 2,300억(2Q정체)이면 마진둔화 확정·논지 폐기</strong></li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응 ━━━━━━━━━━━━━━━━━━ ▪ 촉매 캘린더(날짜확정)</p>
+<ul>
+<li>2026-11월 중순: 양사 3Q26 실적발표(분기보고서 법정기한 11/14) — 최대 분기점</li>
+<li>상시: 대형 수주공시(현대로템=이라크 250대 9조/루마니아 216대 65억유로/페루 · 한화에어로=스페인·사우디·미국 K9)</li>
+<li>폴란드 K2 2차 K2GF 인도(26~27), K2PL 현지생산(28~30)</li>
+</ul>
+<p>▪ 반증조건 3개 (공통·이 중 하나면 논지 재검토)</p>
+<ol>
+<li>3Q26 연결 영익: 한화 &lt; 9,500억 / 로템 &lt; 2,300억 → 성장논지 폐기</li>
+<li>손절선 종가 이탈: 한화 985,000 / 로템 111,000 → 추세훼손</li>
+<li>연내 신규 대형수주 0건(현대로템 특히) → K2 스토리 시간지연 리스크 현실화</li>
+</ol>
+<p>▪ 이벤트 매트릭스 (3Q 실적 × 당일 주가)</p>
+<ul>
+<li>서프라이즈+갭상승 → 눌림 대기 후 분할매수(추격금지)</li>
+<li>인라인+보합 → 손절선 위에서 보유·분할</li>
+<li>쇼크+갭하락 → 손절선 이탈 시 기계적 손절, 반증1 충족이면 청산</li>
+</ul>
+<p>▪ 확률가중 시나리오 (12개월)</p>
+<ul>
+<li>한화에어로: Bear 25%(목표 900,000, <span class="down">-15%</span>) / Base 50%(1,250,000, <span class="up">+18%</span>) / Bull 25%(1,500,000, <span class="up">+41%</span>) → 기대수익률 <strong><span class="up">+15.5%</span></strong></li>
+<li>현대로템: Bear 35%(목표 105,000, <span class="down">-13%</span>) / Base 45%(145,000, <span class="up">+20%</span>) / Bull 20%(165,000, <span class="up">+36%</span>) → 기대수익률 <strong><span class="up">+8.5%</span></strong></li>
+</ul>
+<p>(로템은 Bear 확률 높게 — 역배열·컨센하향 반영)</p>
+<p>▪ 수급·유동성 [실측: enrich.py]</p>
+<ul>
+<li>한화에어로: 외인 20일 <span class="up">+164</span>억, 기관 -485억, ADV20 1,364억. 공매도 20일평균 14.4%(9/11 최대 35%) — 압력 존재</li>
+<li>현대로템: 외인 20일 <span class="up">+289</span>억, 기관 -994억, ADV20 393억. 공매도 20일평균 8.6%</li>
+<li>1일 체결상한(ADV10%): 한화 136억 / 로템 39억 → 5억 운용엔 충분</li>
+</ul>
+<p>▪ 포지션 사이징 (자산 5억 · 고변동레짐 risk 0.5%)</p>
+<ul>
+<li>리스크예산 = 5억×0.5% = 250만원</li>
+<li>한화에어로: 진입1,060,000·손절985,000(差75,000) → 250만/75,000 = <strong>약 33주(3,500만 노출)</strong> = 선물 약 3계약</li>
+<li>현대로템: 진입120,000·손절111,000(差9,000) → 250만/9,000 = <strong>약 277주(3,320만 노출)</strong> = 선물 약 28계약</li>
+</ul>
+<p>⚠️ 재두형 50%집중(2.5억) 스타일 적용 시: 손절 <span class="down">-7%</span> = 약 1,750만 손실(자산 3.5%) — 고변동+로템 역배열에선 과함. 권고 비중 = 한화 20~30% / 로템 15~20%, 손절 필히 종가기준.</p>
+<hr>
+<p>⚠️ 리서치 참고용 — 매수/매도 강요 아님. 블로거 글은 개인의견(참고용). 증권사/블로거 추정치는 &#x27;추정&#x27;, 실측못한 값은 &#x27;미확인&#x27; 표기.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>K9 글로벌 정밀 점유율·경쟁사 CAPA(정량) 미확인(업계 통설만)</li>
+<li>현대로템 26반기 6M 누적 영익(반기보고서 3M/누적 구분 재확인 필요) — 본 리포트는 2Q 3M 실측 기준</li>
+<li>한화오션 연결 해양부문 3Q 손익 가이던스 미확인</li>
+<li>이라크·루마니아·페루 K2 수주 확정여부 미확인(협상중)</li>
+<li>포탄 탄체/장약 병목 정량(월 생산량) 미확인 — 원 글 주장, 교차검증 안됨</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 현대로템 사업보고서(20260319001275)·반기보고서(20260814002977)</li>
+<li>DART 한화에어로 사업보고서(20260316001112)·반기보고서(20260814003198)</li>
+<li>consensus.py 4소스 집계(stockeasy·naver·fnguide·hankyung) 2026-09-16</li>
+<li>KIS OpenAPI 시세·수급·MA·ATR 2026-09-16</li>
+<li>kis_futures_check.py 선물마스터 2026-09-16</li>
+<li>아시아경제(2026-09-14) K2 수주잔고 · finance-scope(2025-11) 한화 수주잔고 · 경제타임스 하반기 수주랠리</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>현대로템 2025: 방산32,153+레일20,896+에코5,341 = 58,390 = 연결매출 ✓</li>
+<li>현대로템 순익 3년(1,568→4,053→7,705) 방향성 = 영익(2,100→4,566→10,056) 방향성 일치 ✓</li>
+<li>손익비 헤더=본문: 한화 1:2.5 · 로템 1:2.2 일치 ✓</li>
+<li>순익 급증은 영업개선 주도(법인세·일회성 아님): 로템 세전 10,043 대비 영익 10,056 근접 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-16 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 121,400원 (<span class="up">+0.0%</span>) · 시총 132,499억 · 5일 <span class="down">-3.7%</span> / 20일 <span class="down">-10.9%</span> / 60일 <span class="down">-40.3%</span></li>
+<li>MA5 123,040원 / MA20 129,330원 / MA60 149,297원 → MA20 이격 <span class="down">-6.1%</span> · MA60 이격 <span class="down">-18.7%</span></li>
+<li>52주 고 282,000원 / 저 113,100원 → 고점 대비 <span class="down">-57.0%</span> · 20일 고 139,100원 / 저 121,400원</li>
+<li>후행 PER 17.21 / PBR 4.3 (EPS 7,055원 · BPS 28,211원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 393.2억 (5일 299.8억)</li>
+<li>외국인 순매수 5일 255.0억 / 20일 288.8억 · 기관 5일 -387.3억 / 20일 -994.4억 · 개인 20일 686.5억</li>
+<li>개별주식선물: ⚡ 상장 (AG6610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 7.98% / 20일 평균 8.62% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 20.03% (08/27) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비</strong></p>
+<ul>
+<li>현재가 121,400원가 손절 985,000~목표 1,250,000 구간 밖 → 라인 재설정 필요</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 — 한화에어로스페이스(012450) 판정: 관심~매수 선물: 有 (ABH610) 현재가: 1,063,000원 진입: 1,040,000~1,070,000원 (눌림목) 손절: 985,000원 (종가 기준) 목표: 1차 1,250,000원 (2차 1,500,000원) 손익비: 1:2.5 기간: 스윙 6~12주 촉매: 3Q26 실적(11/14 법정기한), 스페인·사우디·미국 K9 수주공시 반증: 3Q26 연결 영익 &lt; 9,500억 / 종가 985,000 이탈</p>
+<p>📋 결정카드 — 현대로템(064350) 판정: 관심 (역배열, 반등확인 후) 선물: 有 (AG6610) 현재가: 121,400원 진입: 116,000~121,000원 (MA20 회복 확인 시) 손절: 111,000원 (종가 기준, 52주저 이탈) 목표: 1차 140,000원 (2차 165,000원) 손익비: 1:2.2 기간: 스윙 8~12주 촉매: 3Q26 실적(11/14), 이라크·루마니아·페루 K2 수주공시 반증: 3Q26 연결 영익 &lt; 2,300억 / 종가 111,000 이탈 / 연내 신규수주 0건</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
