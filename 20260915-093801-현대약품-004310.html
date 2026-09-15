@@ -1,0 +1,193 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>현대약품(004310) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260915-093801-현대약품-004310.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:2.2</div><div class="tp-c"><b>결론 발췌</b> 실적은 25년 턴어라운드 중이나, 급등 직전에도 이미 PBR 3배로 고평가였고 현 주가는 공시 재료 없는 수급성 급등으로 PBR 4.2배·fwd PER 100배 극단 과열. 손익비 1:2.1로 계산되나 상방은 밸류 부담·하방은 급등분 되돌림 리스크 → 관망(추격매수 부적합). 눌림 확인 후 소액 관심 목표가 6,200원(밸류 정당화 상단). ① 포착 신호 - 회전율 26.3%(당일거래대금 912억/시총 3,334억) [실측: KIS 시총 3,334억(3,200만주×10,420원), trendscan 거래대금 912억]. 9/15 KIS 실측 거래대금은 1,104억으로 회전율 더 높음 [실측: KIS acml_tr_pbmn] - 추세: M…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>현대약품(004310)</h1>
+<div class="meta">📊 trend · 2026-09-15 09:38 · 코드 004310</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-15 09:38)</div><div class="kpi-v">10,360원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3,315억</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:2.2</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">10,400원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 눌림 확인 후 8,400원 부근(추격매수 부적합)</span><span class="dc dn">손절 7,500원</span><span class="dc up">목표 10,400원</span><span class="dc">손익비 1:2.2</span><span class="dc">기간 스윙 2~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 없음(날짜확정 이벤트 부재)</div><div class="dc-l">🛑 반증: 급등 재료가 미확인 상태로 소멸하거나 PBR 3배(7,400원) 아래 이탈 시 논지 폐기</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 현대약품(004310) ※선물 無(개별주식선물 미상장 → 레버리지 불가, 현물만)</p>
+<p>📌 한줄 결론: 실적은 25년 턴어라운드 중이나, 급등 직전에도 이미 PBR 3배로 고평가였고 현 주가는 공시 재료 없는 수급성 급등으로 PBR 4.2배·fwd PER 100배 극단 과열. 손익비 1:2.1로 계산되나 상방은 밸류 부담·하방은 급등분 되돌림 리스크 → <strong>관망(추격매수 부적합)</strong>. 눌림 확인 후 소액 관심 목표가 6,200원(밸류 정당화 상단).</p>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 26.3%(당일거래대금 912억/시총 3,334억) [실측: KIS 시총 3,334억(3,200만주×10,420원), trendscan 거래대금 912억]. 9/15 KIS 실측 거래대금은 1,104억으로 회전율 더 높음 [실측: KIS acml_tr_pbmn]</li>
+<li>추세: MA5 10,060 &gt; MA20 7,754 &gt; MA60 6,562 완전 정배열 [실측: KIS 일봉]. 단 MA60 대비 <span class="up">+59%</span> 이격 → 정배열이지만 이미 급등 고점권</li>
+<li>현 위치: 9/2 종가 7,570 → 9/8 10,440(하루 <span class="up">+37%</span>대 스파이크) 후 고가권 횡보 [실측: KIS 일봉 0902~0915]. 52주 저점 3,500 대비 약 3배 상승한 고점권 [실측: KIS w52_lwpr 3,500]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업: 현대약품은 국내 제약(전문의약품·일반의약품·건강기능식품). 별도 재무제표 사용 법인. 매출 대부분이 의약품 도소매·제조 [실측: DART 2024 사업보고서]. 사업부문별 세부 매출비중은 이번 조회 범위에서 미확인</li>
+<li>급등사유: DART 정식 재료공시 없음(7/15 반기보고서·자율준수 안내공시가 전부, 임상·계약·유증·수주 공시 0건) [실측: DART list API 20260701~20260915]. 웹검색은 네이버·구글·DuckDuckGo 전부 봇차단으로 뉴스 재료 미확인. → <strong>정식 공시 재료 없이 회전율 26%로 급등 = 테마·수급성 급등 가능성 높음.</strong> 실체 재료는 &#x27;미확인&#x27;이며, 재료 없는 급등은 되돌림 위험이 크다는 점을 냉정히 반영</li>
+</ul>
+<p>③ 실적 (DART 별도 실측)</p>
+<ul>
+<li>연간 매출: 2022 1,627억 → 2023 1,808억 → 2024 1,757억(YoY <span class="down">-2.8%</span>) [실측: DART 별도]</li>
+<li>연간 영업이익: 2022 79.7억 → 2023 69.3억 → 2024 <strong>1.8억</strong>(OPM 4.9%→3.8%→0.1%로 붕괴) [실측: DART 별도]</li>
+<li>연간 순이익: 2022 -1.6억 → 2023 <span class="up">+61.2</span>억 → 2024 <strong>-5.7억(적자전환)</strong> [실측: DART 별도]</li>
+<li>★순익 급감 분해: 2024 세전이익도 -17.3억 적자 → 순손실은 법인세 일회성 아닌 <strong>영업 실질 악화</strong>(영업이익 69→1.8억 급감이 주범). 법인세는 오히려 <span class="up">+11.6</span>억 환입 [실측: DART 2024 CIS 법인세비용(수익) -11.6억]</li>
+<li>재무건전성: 부채비율 97.8%(양호), 이자보상배율 2023 3.1배 → 2024 <strong>0.08배</strong>(영업이익으로 이자 못 갚음) [실측: DART]. 영업현금흐름 2022 <span class="up">+116</span>억 → 2023 -45억 → 2024 -24억(2년 연속 마이너스) [실측: DART CF]</li>
+<li>25년 분기 회복세(별도 단일분기): 매출 1Q 431 / 2Q 484 / 3Q 516억(QoQ 증가) / 영익 1Q -4.1 → 2Q <span class="up">+10.8</span> → 3Q <span class="up">+34.6</span>억 / 순익 1Q -9.9 → 2Q <span class="up">+9.6</span> → 3Q <span class="up">+25.4</span>억 [실측: DART 2025 분기]. <strong>25년 9M 누적 매출 1,431억·영익 41.2억·순익 25.2억으로 턴어라운드 진행 중</strong> — 이 실적 회복이 급등의 펀더멘털 근거일 여지는 있음</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스·목표주가: <strong>컨센 미확인</strong>(웹검색 전 채널 봇차단). 현대약품은 커버리지가 얇은 중소형 제약주로 정식 컨센서스 자체가 부재할 가능성 높음</li>
+<li>자체 연율화 추정: 25년 9M 순익 25.2억 → 연율화(×4/3) 약 33.6억, EPS 약 105원 [추정: 9M순익÷3×4÷3,200만주]. 달성가능성 中(3Q 회복세 지속 전제 시)</li>
+</ul>
+<p>⑤ 밸류에이션·목표가 (계산식 노출)</p>
+<ul>
+<li>실측: BPS 2,471원(2024 별도자본 791억÷3,200만주) → <strong>현 PBR 4.22배</strong> [실측/추정: DART 자본÷주식수]</li>
+<li>PER: 2024 적자로 산출불가. 25년 연율화 EPS 105원 기준 <strong>fwd PER 약 100배</strong> [추정: 10,420÷105]. 2023 흑자 EPS 189원 기준으로도 PER 55배</li>
+<li>peer/과거밴드: 제약 중소형주 통상 PBR 1~1.5배. 현대약품 급등 직전(9/2~9/4)조차 PBR 3.0~3.2배로 이미 밴드 상단 [계산: 7,570~7,950÷2,471]</li>
+<li>목표가 자체산출(적정 PBR×BPS): PBR 2.0x→4,942 / 2.5x→6,178 / 3.0x→7,413원. 실적 회복 프리미엄 최대 반영해도 PBR 3.0배(급등 직전 수준)가 정당화 상단 → <strong>적정가치 상단 약 6,200~7,400원.</strong> 현재가 10,420원은 이를 40~68% 초과</li>
+<li>증권사 목표가: 미확인</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>지지: MA20 7,754 / 급등 갭 하단 8,420(9/7 종가)·10,440 갭 / 급등 직전 밀집 7,570~7,950 [실측: KIS 일봉]</li>
+<li>저항: 구간최고 10,440(9/8) / 52주 최고 15,960(과거 고점, 현재와 괴리 큼) [실측: KIS]</li>
+<li>위치: 52주 저점 3,500 대비 <span class="up">+198%</span>, MA60 대비 <span class="up">+59%</span> 이격 → 고점권</li>
+<li>손익비(추격매수 가정, 진입 10,420): 상방 목표 12,000(라운드+갭연장) → 상승여력 <span class="up">+15.2%</span> / 하방 손절 8,300(MA20·갭하단 아래) → 하락리스크 <span class="down">-20.3%</span> → <strong>손익비 1:0.75 (진입 부적합)</strong></li>
+<li>손익비(눌림목 가정, 진입 8,400 갭하단): 상방 10,400 재도전 → <span class="up">+23.8%</span> / 하방 손절 7,500(급등직전·MA20 아래) → <span class="down">-10.7%</span> → <strong>손익비 1:2.2 (양호)</strong>. 단 재료 미확인 상태라 눌림도 신뢰도 낮음</li>
+<li>⚠️ 선물 미상장 → 레버리지 불가, 현물만. 50% 집중 절대 금지 종목(재료 미확인 급등·유동성 변동성 극심)</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오·수급·사이징</p>
+<ul>
+<li>촉매(날짜확정): 없음(다음 정기공시 3Q보고서 예상, 날짜 미확정) [실측: DART 공시이력상 확정 이벤트 없음]</li>
+<li>반증 3개: ① 재료 미확인 급등 → 재료 소멸/차익실현 시 갭 되돌림 ② PBR 4.2배는 제약 평균 3배 이상, 실적 회복해도 밸류 정당화 안 됨 ③ 영업현금흐름 2년 연속 적자·이자보상배율 0.08배 = 펀더멘털 취약</li>
+<li>이벤트 매트릭스: 3Q 실적 서프라이즈(호재, 확률 中) / 재료 실체 뉴스(불확실) / 차익실현 급락(악재, 확률 中高)</li>
+<li>확률가중 시나리오(합 100%):</li>
+</ul>
+<p>· Bear 45%: 재료 미확인+과열 되돌림, 8,000원 이하 회귀(<span class="down">-23%</span>). 급등분 반납 · Base 40%: 고가권 등락 후 9,000~10,000 박스(±5%). 실적 회복이 지지 · Bull 15%: 재료 실체화<span class="up">+3</span>Q 서프라이즈, 12,000~13,000 돌파(<span class="up">+20%</span>) · 기대값 ≈ 10,420×(0.45×0.77<span class="up">+0.40</span>×0.98<span class="up">+0.15</span>×1.20) = 약 9,600원(현재 대비 <span class="down">-8%</span>) [추정]</p>
+<ul>
+<li>수급/유동성: ADV(최근 거래대금 급증분) 매우 높음, 유동성은 충분하나 회전율 26%는 단타 유입 신호(변동성 리스크)</li>
+<li>포지션 사이징(자산 5억×1% 리스크): 눌림목 진입 8,400·손절 7,500 가정 시 리스크폭 900원 → 최대 555주(약 466만원). 유동성 상한(ADV 10%)은 여유. <strong>이벤트/재료 미확인 상태이므로 관망 우선, 진입해도 자산 1% 이내 소액</strong></li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 급등사유·컨센서스는 웹검색 봇차단으로 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>급등 실제 사유(뉴스·테마 재료): 웹검색 전 채널 봇차단</li>
+<li>증권사 목표주가·컨센서스: 미확인(커버리지 부재 가능성)</li>
+<li>사업부문별 매출비중: 이번 조회 범위 밖</li>
+<li>EV/EBITDA: 미산출</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 별도재무 2022~2024 사업보고서·2025 분기보고서(fnlttSinglAcntAll, corp_code 00164706)</li>
+<li>DART 주식총수현황(발행 3,200만주)·공시목록(list API)</li>
+<li>KIS 현재가/일봉(inquire-price·inquire-daily-itemchartprice, 004310)</li>
+<li>선물: kis_futures_check 004310 → 미상장</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총: 3,200만주×10,420 = 3,334억 ≒ KIS hts_avls 3,370억 ✓</li>
+<li>BPS: 791억÷3,200만 = 2,471원 → PBR 10,420÷2,471 = 4.22 ✓</li>
+<li>25년 9M 순익: -9.9<span class="up">+9.6</span><span class="up">+25.4</span> = 25.2억(3분기 단일합) ✓</li>
+<li>시나리오 확률합: 45<span class="up">+40</span><span class="up">+15</span> = 100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2>📐 실전 체크 (자동 실측 · KIS 2026-09-15 09:38 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 10,360원 (<span class="up">+3.7%</span>) · 시총 3,315억 · 5일 <span class="down">-0.8%</span> / 20일 <span class="up">+69.0%</span> / 60일 <span class="up">+27.1%</span></li>
+<li>MA5 10,048원 / MA20 7,751원 / MA60 6,561원 → MA20 이격 <span class="up">+33.7%</span> · MA60 이격 <span class="up">+57.9%</span></li>
+<li>52주 고 15,960원 / 저 3,500원 → 고점 대비 <span class="down">-35.1%</span> · 20일 고 10,440원 / 저 5,850원</li>
+<li>후행 PER 0.0 / PBR 0.0 (EPS 0원 · BPS 0원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 729.8억 (5일 969.5억)</li>
+<li>외국인 순매수 5일 -9.3억 / 20일 -33.1억 · 기관 5일 -0.2억 / 20일 0.2억 · 개인 20일 33.5억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.03% / 20일 평균 0.29% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 1.89% (08/27) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 10,400원 (<span class="up">+0.4%</span>) ÷ 하방 7,500원 (−27.6%) = <strong>1:0.01</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (운용 5억 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산: 250만원 ÷ (진입 10,360원 − 손절 7,500원 = 2,860원) = <strong>874주 ≈ 0.09억</strong></li>
+<li>유동성상한: 20일 ADV 729.8억 × 10% = 1일 72.98억 (분할 시 일수 = 목표금액 ÷ 이 값)</li>
+<li>채택 상한 = 최소값 → <strong>리스크예산(0.5%) 0.09억 (2% of 자산)</strong></li>
+<li>⚠️ 손절폭 27.6% · ATR14 1,196원 (손절폭/ATR 2.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 27.6% = ATR14 × 2.4배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 8,566원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.02</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관망 선물: 無 현재가: 10,420원 진입: 눌림 확인 후 8,400원 부근(추격매수 부적합) 손절: 7,500원 목표: 1차 10,400원 (2차 12,000원) 손익비: 1:2.2 (눌림목 기준 / 현재가 추격 시 1:0.75 부적합) 기간: 스윙 2~6주 촉매: 없음(날짜확정 이벤트 부재) 반증: 급등 재료가 미확인 상태로 소멸하거나 PBR 3배(7,400원) 아래 이탈 시 논지 폐기</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
