@@ -1,0 +1,236 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>네오이뮨텍(950220) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260915-095706-네오이뮨텍-950220.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2</div><div class="tp-c"><b>결론 발췌</b> 임상바이오 급등주. 8/18~8/19 임상 CSR수령+기술이전 계약이라는 &#x27;실체 있는&#x27; 촉매로 저점(367원) 대비 6배 급등 후 고점(3,705원)에서 조정 중. 손익비 1:2.0(목표 2,510원)이나 선물 無로 레버리지 불가·현물만 가능 → 판정 관심(눌림목 소액 스윙만). ━━━━━━━━━━━━━━━━ ① 포착 신호 - 당일종가 2,150원, 등락 +7.82% [실측: KIS 2026-09-15] - 당일거래대금 32.5억(거래량 147.8만주) [실측: KIS] - 시총 736억, 상장주식 3,421만주 [실측: KIS hts_avls] - MA5 2,117 / MA20 2,421 → 단기선 위·중기선 아래 = 조정 후 반등 초…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>네오이뮨텍(950220)</h1>
+<div class="meta">📊 trend · 2026-09-15 09:57 · 코드 950220</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-15 09:57)</div><div class="kpi-v">2,150원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">736억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.19</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:2</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">2,510원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 2,000~2,050원</span><span class="dc dn">손절 1,970원</span><span class="dc up">목표 2,510원</span><span class="dc">손익비 1:2</span><span class="dc">기간 스윙 2~4주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3분기보고서(11월)·기술이전 마일스톤(시점미확정)</div><div class="dc-l">🛑 반증: 종가 1,970원 하회 시 논지 폐기(급등분 반납)</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 네오이뮨텍(950220) ※선물 無</p>
+<p>📌 한줄 결론: 임상바이오 급등주. 8/18~8/19 임상 CSR수령+기술이전 계약이라는 &#x27;실체 있는&#x27; 촉매로 저점(367원) 대비 6배 급등 후 고점(3,705원)에서 조정 중. 손익비 1:2.0(목표 2,510원)이나 선물 無로 레버리지 불가·현물만 가능 → 판정 관심(눌림목 소액 스윙만).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>당일종가 2,150원, 등락 <span class="up">+7.82%</span> [실측: KIS 2026-09-15]</li>
+<li>당일거래대금 32.5억(거래량 147.8만주) [실측: KIS]</li>
+<li>시총 736억, 상장주식 3,421만주 [실측: KIS hts_avls]</li>
+<li>MA5 2,117 / MA20 2,421 → 단기선 위·중기선 아래 = 조정 후 반등 초입 [실측: KIS 일봉]</li>
+<li>52주 367~3,705원(액면병합 반영) → 현재가는 고점 대비 <span class="down">-42%</span>, 저점 대비 <span class="up">+486%</span> [실측: KIS]</li>
+<li>수급: 9/14 외인 <span class="up">+4.2</span>만주/개인 -5.7만주, 9/10 외인 <span class="up">+9.8</span>만주·기관 <span class="up">+2</span>만주 → 외인 매수 우위 [실측: KIS 투자자별]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>네오이뮨텍(NeoImmuneTech, Inc.) = 코스닥 상장 &#x27;외국법인&#x27;(미국 소재, USD 재무보고). T세포 증폭제 NT-I7(efineptakin alfa, IL-7) 단일 파이프라인 임상단계 바이오. 매출 거의 없는 R&amp;D 중심 적자기업. [실측: DART corp 01511558 / 재무]</li>
+<li>급등 촉매(실체 확인) [인용: DART 공시 2026-08]:</li>
+</ul>
+<p>· 8/18 NIT-110(재발·불응성 고형암, NT-I7+키트루다 병용) 임상 1b/2a상 CSR(임상시험결과보고서) 수령 · 8/19 NT-I7 흉선기능 관련 적응증 &#x27;독점적 기술이전 계약 체결&#x27; (투자판단 주요경영사항) · 8/19 IR 개최</p>
+<ul>
+<li>→ 테마성 급등이 아니라 임상데이터+기술수출이라는 &#x27;이벤트 근거&#x27; 있음. 다만 계약 규모·마일스톤 상세는 미확인(공시 본문 세부 미열람). 실체는 있으나 상업화까지 거리 멂.</li>
+<li>리스크 요인: 6월 제3자배정 유상증자·제1회차 CB 전환가 조정 공시 → 지분희석·오버행 상존. 5월 액면병합 시행. [실측: DART 공시]</li>
+</ul>
+<p>③ 실적 (DART 실측, 단위 USD·연결 CFS)</p>
+<ul>
+<li>2022 순손실 -46.8M / 2023 -40.9M / 2024 -30.0M [실측]</li>
+<li>2024 영업손실 -29.35M, 영업수익 0.12M(사실상 무매출) [실측]</li>
+<li>2025 반기 순손실 -5.09M(전년동기 -7.41M 대비 개선) [실측]</li>
+<li>2026 Q1 순손실 -5.15M → 2026 반기 순손실 -0.30M [실측] ※반기 순손실 급감은 기술이전 관련 수익/금융수익 반영 추정 [추정: Q1 -5.15M인데 반기 누계 -0.30M이면 Q2에 대규모 일회성 수익 발생]</li>
+<li>현금성자산: 2022말 91.2M → 2023말 53.3M → 2024말 23.2M → 2026 반기 22.78M [실측]</li>
+<li>자본총계 2026반기 36.6M, 부채 12.8M, 자본잠식 아님 [실측]</li>
+<li>★현금런웨이: 월평균 영업burn ≈ 2.45M(2024 기준) → 현금 22.78M ÷ 2.45M ≈ 약 9개월 [추정: 산식 22.78M/(29.35M/12)]. 단 2026 반기 burn이 크게 줄어(기술이전 유입) 런웨이는 이보다 길 수 있음. 바이오는 현금소진 지속 → 추가 증자 리스크 상존.</li>
+<li>분기합 검산: 2026 Q1 순손실 -5.15M vs 반기 누계 -0.30M → Q2 순이익 <span class="up">+4.85</span>M(일회성). 연간 매출·영업손익 정상화 여부는 3분기 확인 필요.</li>
+</ul>
+<p>④ 미래·컨센서스·임상일정</p>
+<ul>
+<li>파이프라인: NT-I7 단일물질 다수 적응증(고형암 병용, 흉선기능, 방사선피폭 등) [인용: DART/IR]</li>
+<li>근거리 촉매: NIT-110 1b/2a CSR 수령(8/18 완료) → 후속 라이선스아웃/파트너십 협상 가능성. 흉선 적응증 기술이전 계약의 마일스톤 수취 일정 미확인.</li>
+<li>증권사 정식 커버리지·목표가: 컨센 미확인 (임상바이오 소형주로 커버리지 희박)</li>
+<li>향후 임상 세부일정(FDA 미팅·2상 개시 등): 미확인</li>
+</ul>
+<p>⑤ 밸류에이션 (바이오 특성 반영)</p>
+<ul>
+<li>PER -1.75(적자로 무의미), EPS -1,228원 [실측: KIS]</li>
+<li>PBR 1.19, BPS 1,801원 [실측: KIS] → 순자산 대비 소폭 프리미엄</li>
+<li>시총 736억 vs 현금 약 316억(22.78M×1,388원) → 시총의 43%가 현금 [추정: 산식 cash×FX/mcap]</li>
+<li>순현금 기준 사업가치(파이프라인 가치) ≈ 736억−316억+부채178억 ≈ 약 598억을 NT-I7 파이프라인에 부여 [추정]</li>
+<li>판정: 임상 바이오라 PER·PBR로 고/저평가 단정 불가. 파이프라인 성공 시 재평가, 실패 시 현금가치(주당 ~920원 수준)로 회귀 위험. 현 주가는 &#x27;기대선반영&#x27; 구간.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (현물만 — 선물 無)</p>
+<ul>
+<li>지지: 1,970원(당일 시가·저가, 단기 지지), 그 아래 MA5 2,117 이탈 시 1,800원대</li>
+<li>저항: 2,510원(직전 반등고), 2,590원(당일 상한가·심리저항)</li>
+<li>3라인(현물 스윙):</li>
+</ul>
+<p>· 진입 2,000~2,050원 (MA5 눌림목, 종가 2,150 하회 시 분할) · 손절 1,970원 (당일 저가 이탈 = 반등 실패) · 목표 1차 2,510원 / 2차 2,590원</p>
+<ul>
+<li>손익비 [산식: 진입 2,150 기준]</li>
+</ul>
+<p>· 상승여력1 = (2,510−2,150)/2,150 = <span class="up">+16.7%</span> · 하락리스크 = (2,150−1,970)/2,150 = −8.4% · 손익비 = 16.7 ÷ 8.4 ≈ 1:2.0 (2차 목표 시 1:2.44)</p>
+<hr>
+<p>⑦ 심화 분석</p>
+<p>▶ 촉매 (날짜확정만)</p>
+<ul>
+<li>3분기 보고서(11월 중) → Q2 일회성수익 실체·현금런웨이 확인</li>
+<li>흉선 적응증 기술이전 마일스톤 수취 시점 (미확인, 확정 시 재급등 트리거)</li>
+</ul>
+<p>▶ 반증 3개 (아래면 논지 폐기)</p>
+<ol>
+<li>종가 1,970원 하회 마감 → 급등분 반납 신호, 즉시 손절</li>
+<li>추가 유상증자/CB 전환 공시 → 오버행·희석으로 상단 제한</li>
+<li>기술이전 계약 해지·마일스톤 미달 공시 → 급등 근거 소멸</li>
+</ol>
+<p>▶ 이벤트 매트릭스</p>
+<ul>
+<li>기술이전 마일스톤 유입: 주가 <span class="up">+20</span>~40% / 확률 낮음·시점불명</li>
+<li>추가 임상 호재/파트너십: <span class="up">+15</span>~30%</li>
+<li>증자·오버행 현실화: −15~25%</li>
+<li>시장 조정(바이오 로테이션): −10~20%</li>
+</ul>
+<p>▶ 확률가중 시나리오 (합 100%)</p>
+<ul>
+<li>Bull 25%: 후속 라이선스/마일스톤 가시화 → 2,590원 돌파, 3,000원 재도전</li>
+<li>Base 45%: 2,000~2,510원 박스 등락, 조정 소화</li>
+<li>Bear 30%: 1,970원 이탈·오버행 부담 → 1,700~1,800원 회귀</li>
+<li>기대값 ≈ 미세 플러스이나 변동성 극대 → 소액·짧은 스윙만 타당</li>
+</ul>
+<p>▶ 수급·유동성 (ADV10%)</p>
+<ul>
+<li>ADV10(10일 평균 거래대금) ≈ 15.6억 [실측: KIS]</li>
+<li>유동성 상한(ADV 10%) = 약 1.56억 [산식: 15.6억×10%]</li>
+</ul>
+<p>▶ 포지션 사이징 (셋 중 최소)</p>
+<ul>
+<li>자산 5억×1% 리스크 = 500만원, 손절폭 180원(2,150→1,970, 8.4%) → 최대 약 2.78만주 ≈ 0.6억 [산식: 500만÷180원]</li>
+<li>유동성 상한 1.56억</li>
+<li>형 최대집중 50% = 2.5억</li>
+<li>→ 최소값 채택: 약 0.6억(리스크1% 기준). 바이오 변동성·선물불가 감안 이보다 축소 권고.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 임상 바이오는 이벤트에 ±20~30% 급변동, 단일 파이프라인 실패 시 반토막 리스크. 선물 無로 레버리지 불가 = 형 주력전략(선물 레버리지)에 부적합. 참여 시 현물 소액 단기 스윙만.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>기술이전 계약 규모·마일스톤 금액·상대사</li>
+<li>증권사 정식 목표가·컨센서스</li>
+<li>Q2 일회성수익 세부 내역, 정확한 현금런웨이(개선분 반영)</li>
+<li>향후 임상 세부 일정</li>
+<li>USD/KRW는 1,388원 가정(원화 환산치는 추정)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI 시세/일봉/투자자별 (2026-09-15) [실측]</li>
+<li>DART OpenAPI 재무(corp 01511558, 2022~2026반기) [실측]</li>
+<li>DART 공시목록 2026-08 (CSR 수령·기술이전·유증·CB) [인용]</li>
+<li>선물 미상장: KIS 개별주식선물 마스터 [실측]</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>2026 Q1 -5.15M + Q2 = 반기 -0.30M → Q2 <span class="up">+4.85</span>M(일회성) ✓</li>
+<li>손익비 1:2.0 = 16.7%/8.4% (헤더·본문 일치) ✓</li>
+<li>시총 736억 = 2,150원×3,421만주 ✓</li>
+<li>확률합 25<span class="up">+45</span><span class="up">+30</span>=100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2>📐 실전 체크 (자동 실측 · KIS 2026-09-15 09:57 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 2,150원 (<span class="up">+7.8%</span>) · 시총 736억 · 5일 <span class="down">-11.7%</span> / 20일 <span class="up">+28.3%</span> / 60일 <span class="up">+37.3%</span></li>
+<li>MA5 2,117원 / MA20 2,421원 / MA60 1,718원 → MA20 이격 <span class="down">-11.2%</span> · MA60 이격 <span class="up">+25.1%</span></li>
+<li>52주 고 3,705원 / 저 367원 → 고점 대비 <span class="down">-42.0%</span> · 20일 고 3,050원 / 저 1,690원</li>
+<li>후행 PER -1.75 / PBR 1.19 (EPS -1,228원 · BPS 1,801원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 71.5억 (5일 17.5억)</li>
+<li>외국인 순매수 5일 -1.1억 / 20일 -11.1억 · 기관 5일 0.4억 / 20일 -21.8억 · 개인 20일 28.6억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 6.07% / 20일 평균 1.87% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 11.86% (09/09) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 2,510원 (<span class="up">+16.7%</span>) ÷ 하방 1,970원 (−8.4%) = <strong>1:2.00</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (운용 5억 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산: 250만원 ÷ (진입 2,150원 − 손절 1,970원 = 180원) = <strong>13,888주 ≈ 0.30억</strong></li>
+<li>유동성상한: 20일 ADV 71.5억 × 10% = 1일 7.15억 (분할 시 일수 = 목표금액 ÷ 이 값)</li>
+<li>채택 상한 = 최소값 → <strong>리스크예산(0.5%) 0.30억 (6% of 자산)</strong></li>
+<li>⚠️ 손절폭 8.4% · ATR14 218원 (손절폭/ATR 0.8배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 8.4% = ATR14 × 0.8배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 1,822원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.10</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 無 현재가: 2,150원 진입: 2,000~2,050원 손절: 1,970원 목표: 1차 2,510원 (2차 2,590원) 손익비: 1:2.0 기간: 스윙 2~4주 촉매: 3분기보고서(11월)·기술이전 마일스톤(시점미확정) 반증: 종가 1,970원 하회 시 논지 폐기(급등분 반납)</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
