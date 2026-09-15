@@ -1,0 +1,239 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>샌즈랩(411080) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260915-091845-샌즈랩-411080.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:3.4</div><div class="tp-c"><b>결론 발췌</b> 정부 AI보안 사업(네이버클라우드 컨소·B200 GPU 256장)이라는 &#x27;실체 있는 테마&#x27;는 인정하나, 4년 연속 영업적자·현금소진 중인 기업이 4일 만에 +66% 급등해 MA20 대비 +57% 과열·PSR 16배. 손익비 1:0.6로 추격 부적합. 판정: 관망, 목표가 제시보다 눌림 대기. [실측: KIS·DART] ━━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 12.6% (거래대금 142.7억 / 시총 1,134억) [인용: trendscan] • 오늘(9/15) 현재가 7,060원, 시총 1,078억, 상장주식 1,527만주 [실측: KIS] • 추세: MA정배열 O / 연속상승 3일 / 5일 +76.9% • ★현재가가 MA…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>샌즈랩(411080)</h1>
+<div class="meta">📊 trend · 2026-09-15 09:18 · 코드 411080</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-15 09:18)</div><div class="kpi-v">6,950원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,061억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.96</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:3.4</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">8,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 5,500~5,700원 (눌림 대기, 현재가 추격 금지)</span><span class="dc dn">손절 4,900원</span><span class="dc up">목표 8,000원</span><span class="dc">손익비 1:3.4</span><span class="dc">기간 스윙 3~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 정부 AI보안 파운데이션 사업 수주공시(날짜 미확정) / 3Q보고서 11월</div><div class="dc-l">🛑 반증: MA20(4,496) 종가 이탈 시 테마 소멸로 논지 폐기(회피)</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 샌즈랩(411080)  ※선물 無</p>
+<p>📌 한줄 결론: 정부 AI보안 사업(네이버클라우드 컨소·B200 GPU 256장)이라는 &#x27;실체 있는 테마&#x27;는 인정하나, 4년 연속 영업적자·현금소진 중인 기업이 4일 만에 <span class="up">+66%</span> 급등해 MA20 대비 <span class="up">+57%</span> 과열·PSR 16배. 손익비 1:0.6로 추격 부적합. <strong>판정: 관망</strong>, 목표가 제시보다 눌림 대기. [실측: KIS·DART]</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 12.6% (거래대금 142.7억 / 시총 1,134억) [인용: trendscan]</li>
+<li>오늘(9/15) 현재가 7,060원, 시총 1,078억, 상장주식 1,527만주 [실측: KIS]</li>
+<li>추세: MA정배열 O / 연속상승 3일 / 5일 <span class="up">+76.9%</span></li>
+<li>★현재가가 MA5(5,599) 위 <span class="up">+26%</span>, MA20(4,496) 위 <span class="up">+57%</span> — 극단적 이격 [실측: KIS 일봉]</li>
+<li>9/10 종가 4,245 → 9/15 7,060 = <span class="up">+66.3%</span> (4거래일) [실측: KIS]</li>
+<li>시장경고 01 부여 상태 [인용: trendscan]</li>
+</ul>
+<p>② 사업·급등 사유</p>
+<ul>
+<li>본업: 사이버 위협 인텔리전스(CTI). 악성코드 수집·분석 솔루션 &#x27;멀웨어즈닷컴&#x27;, AI백신 MAX, 네트워크 이상탐지 MDX. 2003년 연세대 벤처 창업, 2023년 코스닥 상장. [인용: zum/marketbrief]</li>
+<li>급등 트리거: 9/11 젠슨 황 엔비디아 CEO &quot;AI 다음 격전지는 사이버 보안&quot; 발언(골드만삭스 컨퍼런스) → 국내 AI보안 테마 동반 급등, 샌즈랩 9/11 상한가 5,510원(<span class="up">+29.8%</span>). [인용: eduinfom 26.09.14]</li>
+<li>★실체 근거: 과기정통부 &#x27;사이버보안 특화 AI 파운데이션 모델&#x27; 사업 최종 선정된 네이버클라우드 컨소시엄 참여사(데이터 담당). 엔비디아 B200 GPU 256장 지원 대상. → 단순 테마편승 아닌 정부검증 사업 이력 있음. [인용: eduinfom]</li>
+<li>다만 이 사업의 매출 기여·수주액은 공시로 미확인. 급등 기간(7/1~9/15) 중 계약·수주 등 재료성 공시 0건, 반기보고서(8/14)만 존재. [실측: DART 공시목록]</li>
+<li>판단: 테마의 &#x27;방아쇠&#x27;는 CEO 발언(외생), &#x27;실체&#x27;는 정부 R&amp;D 참여. 그러나 아직 손익으로 연결된 증거 없음 → 스토리 선반영.</li>
+</ul>
+<p>③ 실적 (DART 실측 · 별도→2025부터 연결)</p>
+<ul>
+<li>연간 매출: 2022 93.0억 → 2023 117.2억 → 2024 83.0억 (역성장 <span class="down">-29%</span>) [실측: DART 사업보고서]</li>
+<li>연간 영업이익: 2022 <span class="up">+20.9</span>억 → 2023 -8.8억 → 2024 -37.1억 (적자 확대) [실측]</li>
+<li>연간 순이익: 2022 <span class="up">+21.6</span>억 → 2023 <span class="up">+4.4</span>억 → 2024 -23.0억 (적자전환) [실측]</li>
+<li>2026 반기(연결 누적): 매출 33.7억, 영업손실 -18.8억, 순손실 -25.0억 [실측: 반기보고서 rcept 20260814]</li>
+<li>1Q 매출 18.3억/영업 -10.1억, 2Q 매출 15.5억/영업 -8.7억 (분기합 33.7억=반기 검산 OK)</li>
+<li>OPM: 2024 <span class="down">-44.7%</span> / 2026반기 <span class="down">-55.6%</span> → 적자율 오히려 악화 [추정: 영업익÷매출]</li>
+<li>재무: 2026반기 자본 494.8억·부채 36.8억 → 부채비율 7.4%(초우량, 무차입 수준). 이자보상배율 무의미(영업적자). [실측]</li>
+<li>★현금흐름 경고: 영업활동현금흐름 2024 -2.1억 → 2026반기 -17.4억(악화). 현금성자산 41.1억(2026반기말). 상장 공모자금으로 버티는 구조, 반기 -17억 소진 지속 시 자체 현금 2~3년치. [실측: DART CF]</li>
+<li>결론: 모멘텀이 상승추세를 정당화하지 못함. 실적은 역성장+적자확대+현금소진. 주가는 순수 스토리 밸류.</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 정식 커버리지·목표주가: 미확인(리서치센터 리포트 확인 안 됨, 소형·적자주 특성상 커버 희박). [인용: 검색-미확인]</li>
+<li>알고리즘 밸류(AinValue) 본질가치 약 3,240원 / 단기목표 6,000원 — 정식 컨센 아님, 참고용. [인용: eduinfom 26.09.14]</li>
+<li>2026E 매출: 반기33.7억×2 = 약 67억(run-rate) [추정: 반기 단순연율화] → 전년比 <span class="down">-19%</span> 추가 역성장 우려.</li>
+<li>달성가능성: 흑자전환 시점 <strong>미확인</strong>, 정부사업 매출화 가시성 낮음 → 실적 개선 기대는 中低.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>PER: -196배(적자, 무의미) / EPS -36원 [실측: KIS]</li>
+<li>PBR 2.0배, BPS 3,538원 [실측: KIS]</li>
+<li>PSR: 시총1,078억 ÷ 2026E매출67억 = <strong>약 16배</strong> [추정] — 적자·역성장 SW로는 극단적 고평가.</li>
+<li>목표가 산정: 적자기업이라 PER 불가. PBR 밴드로 접근.</li>
+<li>코스닥 성장 SW peer PBR 통상 1.5~3배. 현재 2.0배는 밴드 중단.</li>
+<li>눌림 시 지지 밸류 = BPS 3,538 × PBR 1.3~1.5 = 4,600~5,300원(테마 프리미엄 축소 시).</li>
+<li>낙관 시나리오 상단 = 알고리즘 단기목표 6,000원(이미 현재가가 상회 <span class="up">+18%</span>).</li>
+<li>★현재가 7,060원은 알고리즘 단기목표(6,000)·본질가치(3,240)를 모두 상회 → 밸류 기준 신규진입 매력 없음. [검산: 7,060&gt;6,000&gt;3,240]</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>선물 미상장 확인 → <strong>현물만 가능(레버리지 불가)</strong>. [실측: kis_futures_check 411080 ❌]</li>
+<li>52주: 고 10,360 / 저 2,965. 현재 7,060 = 고점대비 68% 위치, 저점대비 2.38배. [실측: KIS]</li>
+<li>지지: 1차 5,510(9/11 상한가 종가)·MA5 5,599 / 2차 MA20 4,496·급등 직전 박스 4,200 / 3차 BPS 3,538.</li>
+<li>저항: 1차 심리 8,000 / 2차 52주고 10,360.</li>
+<li>손익비(현재가 7,060 추격 가정): 상단 8,000(<span class="up">+13.3%</span>) ÷ 하단 5,510(<span class="down">-21.9%</span>) = <strong>1:0.6</strong> → 추격 부적합.</li>
+<li>손익비(눌림 5,600 진입 가정): 상단 8,000(<span class="up">+42.9%</span>) ÷ 손절 4,900(<span class="down">-12.5%</span>) = <strong>1:3.4</strong> → 조건부 매력. 단 5,600까지 <span class="down">-20%</span> 조정 필요.</li>
+<li>전략: 지금 7,060 추격 금지. 5,500~5,700(전고·MA5) 눌림 확인 시 소량 접근, MA20(4,500) 이탈 시 테마 소멸로 간주.</li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<p>▸ 촉매 캘린더(날짜확정만)</p>
+<ul>
+<li>2026 3분기보고서 ~11월 중순(적자·현금 재확인 창구, 정확일 미확인)</li>
+<li>정부 AI보안 파운데이션 사업 진척·수주 공시: 날짜 미확정(발생 시 강한 재료)</li>
+</ul>
+<p>※ 날짜 확정 임박 이벤트 없음 → 순수 수급·테마 지속력 게임.</p>
+<p>▸ 반증 조건 3개(이 중 하나면 논지=관망 재확인/폐기)</p>
+<ol>
+<li>MA20(4,496) 종가 이탈 → 테마 급등분 반납, 하락추세 전환. (관망→회피)</li>
+<li>정부사업 실제 수주액·매출 공시로 실적화 가시화 → 밸류 정당화, 관망→관심 상향 근거.</li>
+<li>젠슨 황發 AI보안 테마가 섹터 전반 재점화(엑스게이트 등 동반) → 오버슈팅 연장, 단기 트레이딩 한정 허용.</li>
+</ol>
+<p>▸ 이벤트 매트릭스</p>
+<ul>
+<li>정부사업 수주공시 → 상단 돌파 시도(8,000+), but 이미 선반영分 감안 제한적.</li>
+<li>3Q 적자 재확인 → 급락 위험(테마 명분 유일 의존).</li>
+<li>테마 소멸(추가 뉴스 부재) → 자연 되돌림 5,500→4,500.</li>
+</ul>
+<p>▸ 확률가중 시나리오(합 100%)</p>
+<ul>
+<li>Bear 45%: 테마 소멸+적자 부각, MA20 회귀 4,500(<span class="down">-36%</span>)</li>
+<li>Base 40%: 눌림 후 5,500~6,500 박스 등락(-8~<span class="down">-22%</span>~보합권)</li>
+<li>Bull 15%: 정부사업 실적화 or 테마 재점화, 8,000~10,000 재도전(<span class="up">+13</span>~<span class="up">+42%</span>)</li>
+<li>기대값 ≈ 0.45×(<span class="down">-36%</span>)<span class="up">+0.40</span>×(<span class="down">-15%</span>)<span class="up">+0.15</span>×(<span class="up">+28%</span>) = <strong>-17.9%</strong> → 현재가 추격 시 확률가중 손실. [추정]</li>
+</ul>
+<p>▸ 수급·유동성</p>
+<ul>
+<li>외인/기관 20일 순매수: 미확인(급등 초기, 세부 수급 데이터 미조회)</li>
+<li>ADV(거래대금) 급증 상태 142.7억 → 유동성 자체는 충분(단타 물량 회전).</li>
+<li>ADV 10% 상한 = 약 14억/일 이내 분할 필요.</li>
+</ul>
+<p>▸ 포지션 사이징(리스크예산 5억×1%=500만원 기준)</p>
+<ul>
+<li>눌림 진입 5,600·손절 4,900 가정: 주당 리스크 700원 → 500만/700 = <strong>약 7,140주(약 4,000만원)</strong> [추정]</li>
+<li>유동성 상한 ADV10%(14억)엔 저촉 안 됨.</li>
+<li>이벤트 전 상한(테마·적자 리스크) 감안 → 형 스타일(집중50%)이라도 이 종목은 <strong>총자산 5~8% 상한 권고</strong>(적자·테마·선물無 3중 리스크).</li>
+<li>세 값 중 최소 = 리스크예산 기준 4,000만원. 단, <strong>현재가 추격은 사이징 이전에 부적합</strong>.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치 &#x27;추정&#x27; 명시. 실측 못한 값 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 정식 목표주가·컨센서스</li>
+<li>정부 AI보안 사업 매출 기여·수주액</li>
+<li>외인/기관 20일 순매수 세부</li>
+<li>3Q 보고서 정확 발표일</li>
+<li>흑자전환 시점</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS 시세(현재가·MA·52주·PER/PBR/EPS/BPS) 2026-09-15 실측</li>
+<li>DART 재무(2022~2024 사업보고서, 2026 1Q·반기보고서 rcept 20260814) 실측</li>
+<li>kis_futures_check 411080 (선물 미상장) 실측</li>
+<li>급등사유·본질가치: finance.eduinfom.com 26.09.14 / zum·marketbrief 기업개요 인용</li>
+<li>DART 공시목록(2026.07~09) 실측</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>2026반기 분기합: 1Q 18.3억<span class="up">+2</span>Q 15.5억=33.8억 ≈ 반기 33.7억 OK</li>
+<li>시총: 7,060×15,267,638=1,078억 ≈ KIS 1,078억 OK</li>
+<li>손익비 추격: (8,000-7,060)/(7,060-5,510)=940/1,550=0.61 → 1:0.6 OK</li>
+<li>라벨: 2022~2024 별도(OFS), 2025~2026 연결(CFS) 명기</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2>📐 실전 체크 (자동 실측 · KIS 2026-09-15 09:18 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 6,950원 (<span class="up">+0.7%</span>) · 시총 1,061억 · 5일 <span class="up">+65.7%</span> / 20일 <span class="up">+68.1%</span> / 60일 <span class="up">+41.4%</span></li>
+<li>MA5 5,577원 / MA20 4,491원 / MA60 4,162원 → MA20 이격 <span class="up">+54.8%</span> · MA60 이격 <span class="up">+67.0%</span></li>
+<li>52주 고 10,360원 / 저 2,965원 → 고점 대비 <span class="down">-32.9%</span> · 20일 고 6,950원 / 저 3,970원</li>
+<li>후행 PER -193.06 / PBR 1.96 (EPS -36원 · BPS 3,538원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 65.2억 (5일 237.2억)</li>
+<li>외국인 순매수 5일 -10.5억 / 20일 -11.7억 · 기관 5일 -0.0억 / 20일 0.0억 · 개인 20일 8.2억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.20% / 20일 평균 1.50% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 4.54% (09/04) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 8,000원 (<span class="up">+15.1%</span>) ÷ 하방 4,900원 (−29.5%) = <strong>1:0.51</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (운용 5억 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산: 250만원 ÷ (진입 6,950원 − 손절 4,900원 = 2,050원) = <strong>1,219주 ≈ 0.08억</strong></li>
+<li>유동성상한: 20일 ADV 65.2억 × 10% = 1일 6.52억 (분할 시 일수 = 목표금액 ÷ 이 값)</li>
+<li>채택 상한 = 최소값 → <strong>리스크예산(0.5%) 0.08억 (2% of 자산)</strong></li>
+<li>⚠️ 손절폭 29.5% · ATR14 508원 (손절폭/ATR 4.0배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 29.5% = ATR14 × 4.0배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 6,187원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.38</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관망 선물: 無 현재가: 7,060원 진입: 5,500~5,700원 (눌림 대기, 현재가 추격 금지) 손절: 4,900원 (MA20 하회) 목표: 1차 8,000원 (2차 10,360원=52주고) 손익비: 1:3.4 (눌림 진입 기준 / 현재가 추격 시 1:0.6) 기간: 스윙 3~6주 촉매: 정부 AI보안 파운데이션 사업 수주공시(날짜 미확정) / 3Q보고서 11월 반증: MA20(4,496) 종가 이탈 시 테마 소멸로 논지 폐기(회피)</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
