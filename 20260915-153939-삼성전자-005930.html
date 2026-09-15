@@ -1,0 +1,374 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>삼성전자(005930) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260915-153939-삼성전자-005930.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.8</div><div class="tp-c"><b>결론 발췌</b> 관심 — 메모리 이익은 사상 최대 흐름이다. 다만 원화 강세와 MX 적자 때문에 3Q26 연결 영업이익 Base는 100.5조로 컨센 113.1조보다 −11%로 본다 [추정: ⑧ 9-7]. 주가는 완전 역배열에 외국인 매도가 겹쳐 현재가 즉시 진입 손익비가 1:1.2로 부적합하다. 232,000~238,000원 눌림에서 진입하면 손절 219,000원 · 1차 목표 280,000원 기준 손익비 1:2.8이다(확률가중 적정가 271,750원, +9.9%). 🎯 3Q26 잠정실적 기준선(연결): 영업이익 ≥ 100조원 → 유지·추가매수 검토 / &lt; 87조원 → 폐기 · 매출 Base 189.6조 / Bear 172.4조 · 비교 컨센 영업이익…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>삼성전자(005930)</h1>
+<div class="meta">📊 deepresearch · 2026-09-15 15:39 · 코드 005930</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-15 15:39)</div><div class="kpi-v">248,500원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">14,528,002억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">37.86</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">3.88</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:2.8</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">280,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 232,000~238,000원</span><span class="dc dn">손절 219,000원</span><span class="dc up">목표 280,000원</span><span class="dc">손익비 1:2.8</span><span class="dc">기간 스윙 3~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-10-08 주식선물 10월물 최종거래일 · 2026-11-16 3Q 분기보고서 법정기한 (3Q26 잠정실적 10월 초 예상·일자 미확정)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 87조원이면 폐기(≥ 100조원이면 유지·추가매수 검토) 또는 종가 219,000원 이탈</div></div>
+
+<div class="body"><h1>🚀 정밀 의사결정 리포트 — 삼성전자(005930) ※선물 有 · ⭐형 보유(주식선물 60계약)</h1>
+<p>작성 기준: 2026-09-15 장 마감(시세 15:17) · 규격: trend_research_prompt ①~⑧ + UPGRADE_TASK §1~8 + INDUSTRY_MODEL_SPEC §9 통합본 · 리서치 참고용, 매수/매도 강요 아님</p>
+<p>📌 <strong>한줄 결론: 관심</strong> — 메모리 이익은 사상 최대 흐름이다. 다만 원화 강세와 MX 적자 때문에 3Q26 연결 영업이익 Base는 100.5조로 컨센 113.1조보다 −11%로 본다 [추정: ⑧ 9-7]. 주가는 완전 역배열에 외국인 매도가 겹쳐 현재가 즉시 진입 손익비가 1:1.2로 부적합하다. <strong>232,000~238,000원 눌림에서 진입하면 손절 219,000원 · 1차 목표 280,000원 기준 손익비 1:2.8</strong>이다(확률가중 적정가 271,750원, <span class="up">+9.9%</span>).</p>
+<p>🎯 <strong>3Q26 잠정실적 기준선(연결)</strong>: 영업이익 <strong>≥ 100조원 → 유지·추가매수 검토 / &lt; 87조원 → 폐기</strong> · 매출 Base 189.6조 / Bear 172.4조 · 비교 컨센 영업이익 113.1조(naver), 9월 증권사 106~108.8조 [추정: ⑧ 9-7 Bear/Base · 인용: consensus.py naver 3Q / DB·미래에셋 2026-09-07]</p>
+<p>👤 <strong>보유자 액션(60계약·평단 300,350원·평가손 −3,186만원): 축소</strong> — 추석 전(9/23 추정) 40계약, 잠정실적 직전 거래일(10/2 추정)까지 20계약 이하로 줄인다. 종가 243,000원 이탈 시 20계약, 종가 219,000원 이탈이나 3Q 영업이익 &lt; 87조면 전량 청산한다. 243,000원 아래 물타기는 금지다. (§7-B) [실측: holdings_ctx.py · 추정: §7-B 산식]</p>
+<hr>
+<h2 id="사실관계-검증-현재-신호">① 사실관계 검증 · 현재 신호</h2>
+<p><strong>성격</strong>: trendscan 자동포착 건이 아니라 보유종목 정기 정밀점검. 판정은 보유 여부와 무관하게 내리고, 보유자 관점 액션은 §7에 따로 둔다.</p>
+<h3 id="11-시세추세-실측-enrichpy-005930-20260915-1517">1-1. 시세·추세 [실측: enrich.py 005930 2026-09-15 15:17]</h3>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>값</th><th>해석</th></tr></thead><tbody><tr><td>현재가</td><td>247,250원 (당일 −0.7%)</td><td>20일 최저가 = 오늘 종가(lo20 247,250)</td></tr><tr><td>시가총액</td><td>1,445조 4,924억원</td><td>—</td></tr><tr><td>52주 고/저</td><td>374,500원 / 75,900원</td><td>고점 대비 −34.0% [추정: 247,250÷374,500−1]</td></tr><tr><td>MA5 / MA20 / MA60</td><td>258,850 / 260,463 / 269,046원</td><td>현재가 &lt; MA5 &lt; MA20 &lt; MA60 → <strong>완전 역배열</strong></td></tr><tr><td>수익률 5일 / 20일 / 60일</td><td>−8.26% / −7.91% / −30.16%</td><td>중기 하락추세 진행 중</td></tr><tr><td>20일 고/저</td><td>281,500 / 247,250원</td><td>박스 하단 이탈 시도</td></tr><tr><td>ATR14</td><td>8,071원 (현재가의 3.26%) [추정: 8,071÷247,250]</td><td>일중 변동 큼</td></tr><tr><td>20일 평균 거래대금</td><td>4조 9,705억원 (5일 4조 2,029억원)</td><td>유동성 제약 없음</td></tr></tbody></table></div>
+<h3 id="12-지지저항-실측-네이버-fchart-일봉-260개-2026060809">1-2. 지지·저항 [실측: 네이버 fchart 일봉 260개, 2026-06-08~09-15]</h3>
+<div class="tablewrap"><table><thead><tr><th>구분</th><th>가격</th><th>근거(일자)</th></tr></thead><tbody><tr><td>저항3</td><td>285,000원</td><td>8/21 고가 285,000</td></tr><tr><td>저항2</td><td>279,000~281,500원</td><td>9/8 고가 279,000 · 20일 고점 281,500</td></tr><tr><td>저항1</td><td>258,850~260,463원</td><td>MA5·MA20 밀집</td></tr><tr><td>지지1</td><td>243,000원</td><td>9/3 저가 243,000 (보유자 1차손절선과 동일)</td></tr><tr><td>지지2</td><td>227,500~231,000원</td><td>8/4 저가 228,000 · 8/10 저가 228,500 · 8/11 저가 227,500 · 8/7 종가 231,000</td></tr><tr><td>지지3</td><td>207,000원 / 189,200원</td><td>7/30 종가 207,000 · 7/29 장중 저가 189,200</td></tr></tbody></table></div>
+<h3 id="13-수급파생변동성">1-3. 수급·파생·변동성</h3>
+<ul>
+<li>외국인 순매수(현물): 5일 −4조 1,112억원 / 20일 −4조 8,364억원 · 기관 5일 <span class="up">+6,025</span>억원 / 20일 −6,260억원 · 개인 20일 −2조 6,852억원 [실측: enrich.py, KIS 투자자별 · 단위 억원(백만원÷100)]</li>
+<li>공매도 비중(거래량 기준): 5일 평균 5.35% / 20일 평균 6.19% / 20일 최대 14.70%(9/2) → &quot;공매도 압력 높음&quot; 판정 [실측: enrich.py short 블록]. 잔고는 KIS 미제공 → 미확인</li>
+<li>KOSPI200 선물: 외국인 당일 −5,512계약 · 5일 −15,856계약 · 20일 <span class="up">+5,364</span>계약, 베이시스 −1.01p(백워데이션), 프로그램 비차익 5일 −8조 6,881억원 → &quot;헷지 압력↑ · 신규 롱 자제&quot; [실측: futures_flow.py 2026-09-15 장중 잠정]</li>
+<li>시장 변동성: KOSPI RV20 43.74%(1,250일 중 90.6분위) = 고변동 레짐, VKOSPI 46.85 → 1회 손실예산 0.5% 적용 [실측: enrich.py vol_regime]</li>
+<li>개별주식선물: <strong>상장 有</strong>, 근월물 A11610 = 삼성전자 F 202610 [실측: kis_futures_check.py 005930]</li>
+</ul>
+<h3 id="14-최근-약세-사유-사실과-기대-구분">1-4. 최근 약세 사유 — 사실과 기대 구분</h3>
+<div class="tablewrap"><table><thead><tr><th>사유</th><th>판정</th><th>근거</th></tr></thead><tbody><tr><td>실적 자체 악화</td><td><strong>사실 아님</strong>. 2Q26 연결 영업이익 89조 4,924억원으로 사상 최대</td><td>[실측: DART 연결재무제표기준영업(잠정)실적 20260730800077]</td></tr><tr><td>원화 강세 → 이익 추정치 하향</td><td><strong>사실</strong>. 원/달러 월평균 6월 1,531.6 → 9월(11영업일) 1,352.3원(−11.7%)</td><td>[실측: 네이버 환율 일별시세 FX_USDKRW] / 미래에셋 26F OP −5.7% 하향 [인용: 미래에셋증권·2026-09-07·stockeasy]</td></tr><tr><td>MX(스마트폰) 적자 전환</td><td><strong>사실</strong>. 2Q26 MX/NW 영업손실 0.7조원</td><td>[실측: 삼성전자 2Q26 Earnings Call PDF Appendix 2]</td></tr><tr><td>주주환원 기대 대비 실망</td><td><strong>사실(시장반응)</strong>. 8/21 공시: 2026년 잔여재원 90~110조원 예상·3Q 30조원 내외 현금배당 계획</td><td>[실측: DART 20260821800763] / &quot;주주환원 공시 실망 매물&quot; [인용: 하나증권·2026-08-31·stockeasy]</td></tr><tr><td>금리발 AI 투자 위축 우려</td><td><strong>시장 우려(실체 미확인)</strong>. 이틀간 −10% 하락 언급</td><td>[인용: KB증권·2026-08-20·stockeasy]</td></tr><tr><td>2027년 범용 서버 DRAM 가격 상승 여력 제한</td><td><strong>기관 전망(단일 출처)</strong></td><td>[인용: LS증권 산업·2026-08-27·stockeasy]</td></tr><tr><td>외국인 매도·공매도</td><td><strong>사실</strong></td><td>1-3 참조</td></tr></tbody></table></div>
+<hr>
+<h2 id="사업-구조-고객">② 사업 구조 · 고객</h2>
+<ul>
+<li>부문 구성: DX(TV·가전·스마트폰·네트워크), DS(DRAM·NAND·모바일AP·파운드리), SDC(OLED), Harman(전장·오디오) · 종속기업 309개 [실측: 반기보고서 2026.06 접수 20260814003699]</li>
+<li><strong>2026 상반기 매출 비중(부문간 내부거래 포함)</strong>: DS 209조 2,317억원(68.5%) · DX 100조 6,771억원(33.0%) · SDC 14조 1,785억원(4.6%) · Harman 8조 3,941억원(2.7%) · 내부거래 제거 △27조 1,085억원(△8.9%) [실측: 동 반기보고서 II-1]</li>
+<li><strong>상반기 영업이익 비중</strong>: DS 142조 8,593억원(97.4%) · DX 2조 1,489억원(1.5%) · SDC 1조 434억원(0.7%) · Harman 6,368억원(0.4%) [실측: 동 반기보고서 &#x27;사업부문별 요약 재무 현황&#x27;] → <strong>사실상 메모리 단일 이익구조</strong></li>
+<li>5대 매출처: Alphabet, Amazon, Apple, Hong Kong Techtronics, Supreme Electronics(알파벳순), 합계 비중 약 25%(2025년 15%) [실측: 반기보고서 II-4-마 / 사업보고서 2025.12 접수 20260310002820] → 1사 30% 이상 집중 없음(개별 비중 미공시)</li>
+<li>파운드리 수주: Tesla 반도체 위탁생산 16,544백만달러(계약 2025-07-26 ~ 2033-12-31) [실측: 반기보고서 II-4-바]</li>
+<li>가격 변동(반기, 전년 연간 평균 대비): 메모리 <strong><span class="up">+220%</span></strong> · 스마트폰 <span class="up">+7%</span> · TV −4% · 스마트폰용 OLED <span class="up">+1%</span> · 디지털 콕핏 −3% [실측: 반기보고서 II-2-나]</li>
+<li>원재료 가격(반기, 전년 대비): 모바일용 메모리 매입가 <strong><span class="up">+211%</span></strong> · 모바일AP <span class="up">+6%</span> · 카메라모듈 <span class="up">+5%</span> · TV패널 −4% [실측: 반기보고서 II-3-나] → DS 호황이 MX 원가를 누르는 <strong>사내 역(逆)헷지 구조</strong></li>
+</ul>
+<hr>
+<h2 id="실적-dart-실측-연결별도-2트랙">③ 실적 (DART 실측 · 연결/별도 2트랙)</h2>
+<h3 id="31-연간-연결12개월-실측-사업보고서-202512-접수-20260310">3-1. 연간 (연결·12개월) [실측: 사업보고서 2025.12 접수 20260310002820]</h3>
+<div class="tablewrap"><table><thead><tr><th>연도</th><th>매출</th><th>영업이익</th><th>OPM</th><th>당기순이익</th></tr></thead><tbody><tr><td>2023</td><td>258.94조</td><td>6.57조</td><td>2.5%</td><td>15.49조</td></tr><tr><td>2024</td><td>300.87조</td><td>32.73조</td><td>10.9%</td><td>34.45조</td></tr><tr><td>2025</td><td>333.61조</td><td>43.60조</td><td>13.1%</td><td>45.21조</td></tr></tbody></table></div>
+<p>OPM [추정: 영업이익÷매출]</p>
+<h3 id="32-최근-분기-연결3개월">3-2. 최근 분기 (연결·3개월)</h3>
+<div class="tablewrap"><table><thead><tr><th>분기</th><th>매출</th><th>영업이익</th><th>OPM</th><th>법인세차감전</th><th>당기순이익</th><th>출처</th></tr></thead><tbody><tr><td>3Q25</td><td>86.06조</td><td>12.17조</td><td>14.1%</td><td>13.55조</td><td>12.23조</td><td>[실측: 3분기보고서 접수 20251114002447]</td></tr><tr><td>4Q25</td><td>93.84조</td><td>20.07조</td><td>21.4%</td><td>21.03조</td><td>19.64조</td><td>[추정: 사업보고서 연간 − 3분기 누계] · IR 93.8/20.1조와 일치 [실측: 1Q26 Earnings Call Appendix 2]</td></tr><tr><td>1Q26</td><td>133.87조</td><td>57.23조</td><td>42.8%</td><td>58.83조</td><td>47.23조</td><td>[실측: 1분기보고서 접수 20260515002181]</td></tr><tr><td>2Q26</td><td>171.50조</td><td>89.49조</td><td>52.2%</td><td>94.44조</td><td>71.62조</td><td>[실측: 반기보고서 접수 20260814003699]</td></tr></tbody></table></div>
+<ul>
+<li>2Q26 YoY: 매출 <span class="up">+130.0%</span>, 영업이익 <span class="up">+1,813.8%</span> · QoQ: 매출 <span class="up">+28.1%</span>, 영업이익 <span class="up">+56.4%</span> [실측: DART 20260730800077]</li>
+<li>4Q25 법인세차감전 21.03조 [추정: 연간 49.48 − 3Q누계 28.45]</li>
+</ul>
+<h3 id="33-최근-분기-별도3개월">3-3. 최근 분기 (별도·3개월)</h3>
+<div class="tablewrap"><table><thead><tr><th>분기</th><th>매출</th><th>영업이익</th><th>출처</th></tr></thead><tbody><tr><td>3Q25</td><td>62.80조</td><td>7.94조</td><td>[실측: 접수 20251114002447 별도]</td></tr><tr><td>4Q25</td><td>64.94조</td><td>13.00조</td><td>[추정: 별도 연간 238.04 − 3Q누계 173.10 / 23.60 − 10.60]</td></tr><tr><td>1Q26</td><td>109.28조</td><td>49.24조</td><td>[실측: 접수 20260515002181 별도]</td></tr><tr><td>2Q26</td><td>149.27조</td><td>85.41조</td><td>[실측: 접수 20260814003699 별도]</td></tr></tbody></table></div>
+<ul>
+<li>별도 영업이익/연결 영업이익 2Q26 = 95.4% [추정: 85.41÷89.49] → 이익 대부분이 본사 DS에서 발생</li>
+</ul>
+<h3 id="34-사업부별-연결3개월-부문간-내부거래-포함-실측-삼성전자-earnin">3-4. 사업부별 (연결·3개월, 부문간 내부거래 포함) [실측: 삼성전자 Earnings Call PDF Appendix 2 — 3Q25(2025_3Q) / 1Q26 / 2Q26 · DART 반기보고서 주석27 부문정보와 교차일치]</h3>
+<div class="tablewrap"><table><thead><tr><th>조원</th><th>2Q25 매출/OP</th><th>3Q25 매출/OP</th><th>4Q25 매출/OP</th><th>1Q26 매출/OP</th><th>2Q26 매출/OP</th></tr></thead><tbody><tr><td><strong>DS</strong></td><td>27.9 / 0.4</td><td>33.1 / 7.0</td><td>44.0 / 16.4</td><td>81.7 / 53.7</td><td><strong>127.5 / 89.2</strong></td></tr><tr><td>└ 메모리 매출</td><td>21.2</td><td>26.7</td><td>37.1</td><td>74.8</td><td>120.8</td></tr><tr><td>└ 비메모리(파운드리+S.LSI) 매출</td><td>6.7</td><td>6.4</td><td>6.9</td><td>6.9</td><td>6.7</td></tr><tr><td><strong>DX</strong></td><td>43.6 / 3.3</td><td>48.4 / 3.5</td><td>44.3 / 1.3</td><td>52.7 / 3.0</td><td>48.0 / <strong>(0.8)</strong></td></tr><tr><td>└ MX/NW</td><td>29.2 / 3.1</td><td>34.1 / 3.6</td><td>29.3 / 1.9</td><td>38.1 / 2.8</td><td>33.2 / <strong>(0.7)</strong></td></tr><tr><td>└ VD/DA</td><td>14.1 / 0.2</td><td>13.9 / (0.1)</td><td>14.8 / (0.6)</td><td>14.3 / 0.2</td><td>14.5 / (0.01)</td></tr><tr><td><strong>SDC</strong></td><td>6.4 / 0.5</td><td>8.1 / 1.2</td><td>9.5 / 2.0</td><td>6.7 / 0.4</td><td>7.5 / 0.7</td></tr><tr><td><strong>Harman</strong></td><td>3.8 / 0.5</td><td>4.0 / 0.4</td><td>4.6 / 0.3</td><td>3.8 / 0.2</td><td>4.6 / 0.4</td></tr><tr><td><strong>합계</strong></td><td>74.6 / 4.7</td><td>86.1 / 12.2</td><td>93.8 / 20.1</td><td>133.9 / 57.2</td><td>171.5 / 89.5</td></tr></tbody></table></div>
+<ul>
+<li>비메모리 매출 [추정: DS 매출 − 메모리 매출]. 파운드리·S.LSI 영업이익은 <strong>미공시 → 미확인</strong></li>
+<li>DART 교차: 2Q26 DS 매출 127,516,071백만원·OP 89,196,019백만원, DX OP (818,805)백만원, SDC OP 680,607백만원, Harman OP 414,858백만원 [실측: 반기보고서 주석27 영업부문 3개월]</li>
+<li>DS 비용(매출−OP): 4Q25 27.6조 → 1Q26 28.0조 → 2Q26 38.3조 [추정: 위 표 차감] → 1Q→2Q 한계비용률 22.5% [추정: (38.3−28.0)÷(127.5−81.7)]. 증가 원인(성과급 충당·감가상각·물량) 분해는 <strong>미확인</strong>. DS 감가상각비 1Q26 10.03조 → 2Q26 10.65조 [실측: 주석27, 누적 20.68 − 3개월 10.65]</li>
+</ul>
+<h3 id="35-순이익-분해-연결-영업-vs-세금일회성">3-5. 순이익 분해 (연결) — 영업 vs 세금·일회성</h3>
+<div class="tablewrap"><table><thead><tr><th>분기</th><th>영업이익</th><th>영업외(차감전−OP)</th><th>법인세</th><th>유효세율</th><th>순이익</th></tr></thead><tbody><tr><td>1Q26</td><td>57.23조</td><td><span class="up">+1.60</span>조</td><td>11.6조</td><td>19.7%</td><td>47.23조</td></tr><tr><td>2Q26</td><td>89.49조</td><td><span class="up">+4.95</span>조</td><td>22.8조</td><td>24.1%</td><td>71.62조</td></tr></tbody></table></div>
+<p>[실측: IR Appendix 1 법인세 / DART 차감전·순이익] [추정: 영업외 = 차감전 − OP, 유효세율 = 법인세÷차감전]. 순이익 증가는 <strong>영업이익 증가가 주도</strong>, 세율은 오히려 상승 → 일회성 이익 의존 아님.</p>
+<h3 id="36-재무건전성">3-6. 재무건전성</h3>
+<ul>
+<li>부채비율 31.1% [추정: 부채 180.17조 ÷ 자본 579.31조, 실측: 반기보고서 연결 BS]</li>
+<li>순현금 167.6조원 [추정: 현금성 190.00조 − 차입금 22.41조, 실측: 2Q26 IR Appendix 3]</li>
+<li>영업현금흐름 2Q26 105.08조 · 1Q26 40.27조 / 유형자산 취득 2Q26 14.11조 · 1Q26 17.13조 → 단순 FCF 2Q26 90.97조 · 1Q26 23.14조 [실측: IR Appendix 4, 추정: OCF − PP&amp;E 취득]</li>
+<li>이자보상배율: 이자비용 미추출 → <strong>미확인</strong>(순현금 167.6조로 의사결정상 영향 없음) [추정: IR Appendix 3 현금 190.00 − 차입 22.41]</li>
+<li>잠정실적 신뢰도: 2Q26 잠정(7/7) 매출 171.00조·OP 89.40조 vs 확정(7/30) 171.50조·89.49조 → 오차 <span class="up">+0.29%</span>·<span class="up">+0.10%</span> [실측: DART 20260707800004 / 20260730800077] → <strong>잠정치로 논지 판정 가능</strong></li>
+</ul>
+<hr>
+<h2 id="미래-실적-컨센서스-실측-consensuspy-005930-2026091">④ 미래 실적 · 컨센서스 [실측: consensus.py 005930, 2026-09-15 15:17 — stockeasy·naver·fnguide·hankyung 4소스 성공]</h2>
+<div class="tablewrap"><table><thead><tr><th>구분</th><th>매출</th><th>영업이익</th><th>순이익</th><th>EPS</th><th>비고</th></tr></thead><tbody><tr><td>FY26E (fnguide, 22개 기관)</td><td>739.64조</td><td>391.25조</td><td>325.86조</td><td>48,239원</td><td>ROE 56.4%</td></tr><tr><td>FY27E</td><td>955.99조</td><td>553.13조</td><td>455.24조</td><td>67,600원</td><td>ROE 49.2%</td></tr><tr><td>FY28E</td><td>1,018.19조</td><td>551.68조</td><td>461.67조</td><td>68,551원</td><td>이익 정체</td></tr><tr><td><strong>3Q26E (naver)</strong></td><td>206.38조</td><td><strong>113.13조</strong></td><td>96.28조</td><td>—</td><td>잠정실적 비교 기준</td></tr><tr><td>4Q26E (wisereport)</td><td>216.61조</td><td>미제공</td><td>102.53조</td><td>—</td><td>—</td></tr></tbody></table></div>
+<ul>
+<li>FY26 영업이익 컨센 추이: 1Y전 39.81조 → 6M전 192.58조 → 3M전 358.63조 → 현재 391.25조 (상향 지속, 환율 반영은 증권사별 시차) [실측: consensus.py fnguide 컨센 추이]</li>
+<li>목표주가 컨센: 평균 476,538원(최고 600,000 / 최저 270,000 · 52건) · 증권사별 최신 평균 482,368원(19개사) · 투자의견 Buy 58 / NR 2 → 현재가 대비 <span class="up">+92.7%</span> [추정: 476,538÷247,250−1]</li>
+</ul>
+<p><strong>최근 증권사 3Q26 영업이익 추정 (환율 반영 시점 순)</strong></p>
+<div class="tablewrap"><table><thead><tr><th>일자</th><th>증권사</th><th>3Q26 OP</th><th>4Q26 OP</th><th>핵심 가정</th><th>출처</th></tr></thead><tbody><tr><td>09-07</td><td>DB금융투자</td><td>108.8조 (매출 197.7조)</td><td>—</td><td>DS 109.2조, MX −1.8조, 원화강세로 컨센 소폭 하회</td><td>[인용: DB금융투자·2026-09-07·stockeasy]</td></tr><tr><td>09-07</td><td>미래에셋</td><td>106조</td><td>118조</td><td>환율 하락 반영 26F OP −5.7%</td><td>[인용: 미래에셋증권·2026-09-07·stockeasy]</td></tr><tr><td>08-27</td><td>KB</td><td>111조</td><td>—</td><td>4개 분기 연속 최대</td><td>[인용: KB증권·2026-08-27·stockeasy]</td></tr><tr><td>08-27</td><td>미래에셋(이전)</td><td>120조</td><td>126조</td><td>DRAM ASP 3Q <span class="up">+15%</span>·4Q <span class="up">+5%</span></td><td>[인용: 미래에셋증권·2026-08-27·stockeasy]</td></tr></tbody></table></div>
+<p>→ <strong>9월 추정치는 106~109조로 컨센(113.1조)보다 낮다.</strong> 네이버 컨센에는 8월 이전 추정이 섞여 있다고 봐야 한다. [인용: DB금융투자·미래에셋증권 2026-09-07 / 실측: consensus.py naver]</p>
+<p><strong>달성 가능성</strong></p>
+<ul>
+<li>FY26 컨센 391.25조가 맞으려면 하반기 영업이익 244.5조 [추정: 391.25 − 상반기 146.73], 즉 분기 평균 122.3조가 필요하다. 2Q26 89.49조 대비 <span class="up">+37%</span>.</li>
+<li>판정: <strong>中·低</strong>. ⑧의 Base 하반기(3Q<span class="up">+4</span>Q) 추정이 이보다 낮고(9-7 참조), 원/달러가 9월 1,352원대로 2Q 평균 1,502.8원보다 −10% 낮아 원화 환산 매출이 줄어든다 [추정: 네이버 월평균 가중, 4·5·6월].</li>
+<li>FY27 컨센 553조는 LS증권의 &quot;2027 범용 서버 DRAM·eSSD 가격 상승 여력 제한&quot; 관점과 충돌 → <strong>中</strong> [인용: LS증권 산업·2026-08-27].</li>
+</ul>
+<hr>
+<h2 id="밸류에이션-목표가">⑤ 밸류에이션 · 목표가</h2>
+<h3 id="51-현재-멀티플">5-1. 현재 멀티플</h3>
+<div class="tablewrap"><table><thead><tr><th>지표</th><th>삼성전자</th><th>SK하이닉스(피어)</th><th>산식/출처</th></tr></thead><tbody><tr><td>주가</td><td>247,250원</td><td>1,688,000원</td><td>[실측: enrich.py 각 종목 2026-09-15]</td></tr><tr><td>FY26E PER</td><td><strong>5.13배</strong></td><td>4.83배</td><td>[추정: 주가÷fnguide FY26 EPS 48,239 / 349,573]</td></tr><tr><td>FY27E PER</td><td><strong>3.66배</strong></td><td>3.82배</td><td>[추정: 주가÷FY27 EPS 67,600 / 441,525]</td></tr><tr><td>FY26E OPM</td><td>52.9%</td><td>77.0%</td><td>[추정: fnguide 영업이익÷매출 391.25/739.64, 265.26/344.28]</td></tr><tr><td>60일 수익률</td><td>−30.2%</td><td>−38.9%</td><td>[실측: enrich.py ret60]</td></tr><tr><td>후행 PER(enrich)</td><td>37.67배</td><td>28.63배</td><td>[실측: KIS] — 2025년 EPS 기준이라 <strong>이익 급증 국면에 부적합, 판단에 쓰지 않음</strong></td></tr><tr><td>PBR(반기말 총자본 기준)</td><td>2.80배</td><td>미확인</td><td>[추정: 247,250 ÷ BPS 88,221원(자본총계 579.31조 ÷ 발행주식 65.67억주)] — 비지배지분 포함이라 상한값</td></tr><tr><td>12M fwd PBR(KB BVPS 131,603원 적용)</td><td>1.88배</td><td>미확인</td><td>[추정: 247,250÷131,603] / BVPS [인용: KB증권·2026-09-04]</td></tr></tbody></table></div>
+<ul>
+<li>발행주식 65.67억주(보통+우선) [추정: 2Q 분기배당 총액 2,455,894,601,644원 ÷ 주당 374원, 실측: DART 20260730800137]. 검산: 2Q26 지배순이익 71.27조 ÷ 65.67억주 = 10,853원 vs IR EPS 10,849원 → 일치</li>
+<li>피어 Micron: <strong>미확인</strong>(수집 실패) · 자기 과거 PER/PBR 밴드 분위: <strong>미확인</strong>(밴드 원자료 미수집). 증권사 설명은 &quot;12M 선행 P/E 4.0~4.3배, AI 사이클 이전 수준&quot; [인용: KB증권·2026-08-12 / 미래에셋증권·2026-08-27·stockeasy]</li>
+</ul>
+<h3 id="52-자체-목표가-확률가중-시나리오-12개월">5-2. 자체 목표가 — 확률가중 시나리오 (12개월)</h3>
+<div class="tablewrap"><table><thead><tr><th>시나리오</th><th>확률</th><th>전제(실적)</th><th>멀티플 근거</th><th>산식</th><th>목표가</th><th>현재가 대비</th></tr></thead><tbody><tr><td>Bear</td><td>30%</td><td>3Q26 OP 86.7조·4Q26 74.2조(⑧ 9-7 Bear), FY27 EPS = 4Q26 Bear 연율화 35,804원</td><td>4.0배 = 증권사가 말하는 현 저점권 12M fwd P/E 하단</td><td>35,804 × 4.0</td><td><strong>143,000원</strong></td><td>−42.2%</td></tr><tr><td>Base</td><td>45%</td><td>3Q26 100.5조·4Q26 104.5조, FY27 EPS 56,681원 = 컨센 67,600 × (내 하반기 OP 205.0 ÷ 컨센 하반기 244.5)</td><td>5.0배 = 저점권 4.0~4.3배에서 <span class="up">+16</span>~25% 정상화</td><td>56,681 × 5.0</td><td><strong>283,000원</strong></td><td><span class="up">+14.5%</span></td></tr><tr><td>Bull</td><td>25%</td><td>3Q26 112.9조·4Q26 131.9조, FY27 EPS 컨센 67,600원</td><td>6.0배 ≈ 미래에셋 목표 400,000원 역산 5.9배</td><td>67,600 × 6.0</td><td><strong>406,000원</strong></td><td><span class="up">+64.2%</span></td></tr></tbody></table></div>
+<ul>
+<li>확률가중 적정가 = 0.30×143,000 + 0.45×283,000 + 0.25×406,000 = <strong>271,750원 → 기대수익률 <span class="up">+9.9%</span></strong> [추정: 산식 표기]</li>
+<li>멀티플 근거는 증권사 인용과 역산뿐이다. <strong>자기 밴드 분위 근거는 미확인.</strong></li>
+<li>증권사 목표가: 미래에셋 400,000(09-07, SOTP·지분가치 50% 할인) · DB 360,000(09-07) · LS 450,000(08-31, HBM PER 22.8배 SOTP) · KB 600,000(09-04, 12M fwd BVPS 131,603×P/B 4.6배) [인용: 각 사·일자·stockeasy/consensus.py]</li>
+<li>괴리: 컨센 평균 476,538원은 자체 확률가중 271,750원보다 <span class="up">+75%</span> 높다. 원인은 (a) FY26~27 이익 가정(컨센 하반기 244.5조 vs 내 Base 205.0조) (b) 멀티플(KB P/B 4.6배 등) [추정: 476,538÷271,750−1 · 9-7 표]</li>
+</ul>
+<hr>
+<h2 id="진입-전략-손익비-선물-레버리지-반영">⑥ 진입 전략 · 손익비 (선물 레버리지 반영)</h2>
+<ul>
+<li>위치: 52주 고점 대비 −34.0%, 저점 대비 <span class="up">+225.8%</span> [추정: 247,250÷75,900−1]. 완전 역배열에 20일 신저가라 <strong>추격 대상이 아니다. 하락 추세 속 지지선 테스트 구간이다.</strong></li>
+<li>선물 1계약 = 기초주식 10주 → 명목 247만 2,500원 [추정: 247,250×10]. 형 보유 60계약 = 600주 = 명목 1억 4,835만원 [추정]. 증거금률: <strong>미확인</strong></li>
+</ul>
+<div class="tablewrap"><table><thead><tr><th>전략</th><th>진입</th><th>손절</th><th>목표</th><th>손익비(진입가 기준)</th><th>판정</th></tr></thead><tbody><tr><td>현재가 즉시</td><td>247,250원</td><td>219,000원</td><td>1차 280,000원</td><td>(280,000−247,250)÷(247,250−219,000) = 32,750÷28,250 = <strong>1:1.2</strong></td><td><strong>부적합</strong></td></tr><tr><td>A. 눌림 대기</td><td><strong>232,000~238,000원</strong>(중앙 235,000)</td><td><strong>219,000원</strong></td><td>1차 <strong>280,000원</strong> / 2차 320,000원</td><td>1차: (280,000−235,000)÷(235,000−219,000) = 45,000÷16,000 = <strong>1:2.8</strong> / 2차 85,000÷16,000 = 1:5.3</td><td><strong>조건부 채택</strong></td></tr><tr><td>B. 추세 회복 확인</td><td>종가 262,000원 이상</td><td>243,000원</td><td>1차 280,000원 / 2차 320,000원</td><td>1차: 18,000÷19,000 = 1:0.9 / 2차: 58,000÷19,000 = 1:3.1</td><td>3Q OP ≥ 106조일 때만(2차 목표 유효 조건)</td></tr></tbody></table></div>
+<ul>
+<li>손절 219,000원 근거: 지지2 하단 8/11 저가 227,500원 − ATR14 8,071원 = 219,429원 → 219,000원 [추정]</li>
+<li>1차 목표 280,000원 근거: 저항2(9/8 고가 279,000 ~ 20일 고점 281,500) 하단, Base 적정가 283,000원 바로 아래 [실측: fchart, 추정: 5-2]</li>
+<li>2차 목표 320,000원 근거: 7/1~7/6 종가 매물대 309,500~318,000원 상단 [실측: fchart], Bull 경로(406,000원) 중간. <strong>3Q 잠정 OP ≥ 106조일 때만 유효</strong></li>
+<li>A 진입 구간(232,000~238,000원)은 손절선 219,000원보다 위에 있다(중첩 없음). 손절선 아래 추가매수 구간은 없다. [실측: ⑥ 표]</li>
+<li>⚠️ 레버리지·집중: 한 종목 50% 집중에 선물 레버리지를 쓰면 ATR 3.26% 하루 변동이 명목 기준으로 그대로 손익에 들어온다. 삼성전기·SK하이닉스 선물 롱을 함께 들고 있어 반도체 베타가 겹친다 [실측: holdings_ctx.py]. 삼성전자 단독 사이징은 실제 위험을 과소평가한다.</li>
+</ul>
+<hr>
+<h2 id="산업제품-바텀업-실적-모델-industry-model-spec-9">⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC §9)</h2>
+<h3 id="91-제품서비스-분해-연결-부문간-내부거래-포함">9-1. 제품·서비스 분해 (연결, 부문간 내부거래 포함)</h3>
+<div class="tablewrap"><table><thead><tr><th>제품/부문</th><th>2025 연간 매출</th><th>비중</th><th>2024 연간</th><th>2026 반기</th><th>2Q26(3개월)</th><th>용도·전방</th><th>출처</th></tr></thead><tbody><tr><td>DS(DRAM·NAND·모바일AP·파운드리)</td><td>130조 1,282억</td><td>39.0%</td><td>111조 660억</td><td>209조 2,317억</td><td>127.52조</td><td>AI 서버·모바일·PC</td><td>[실측: 사업보고서 20260310002820 / 반기 20260814003699]</td></tr><tr><td>└ 메모리</td><td>미공시(부문 합산)</td><td>—</td><td>—</td><td>195.62조</td><td>120.84조</td><td>HBM·서버 DRAM·eSSD</td><td>[실측: 반기보고서 주석27 제품과 용역]</td></tr><tr><td>DX(TV·가전·스마트폰·NW)</td><td>187조 9,673억</td><td>56.3%</td><td>174조 8,877억</td><td>100조 6,771억</td><td>48.02조</td><td>소비자·통신사</td><td>[실측: 동]</td></tr><tr><td>└ 스마트폰 등</td><td>—</td><td>—</td><td>—</td><td>69.80조</td><td>32.29조</td><td>—</td><td>[실측: 주석27]</td></tr><tr><td>└ TV·모니터 등</td><td>—</td><td>—</td><td>—</td><td>15.45조</td><td>7.72조</td><td>—</td><td>[실측: 주석27]</td></tr><tr><td>SDC(OLED)</td><td>29조 8,417억</td><td>8.9%</td><td>29조 1,578억</td><td>14조 1,785억</td><td>7.49조</td><td>스마트폰(Apple 등)·IT·게이밍모니터</td><td>[실측: 동]</td></tr><tr><td>Harman</td><td>15조 7,833억</td><td>4.7%</td><td>14조 2,749억</td><td>8조 3,941억</td><td>4.57조</td><td>완성차·오디오</td><td>[실측: 동]</td></tr><tr><td>내부거래 제거</td><td>△30조 1,146억</td><td>△8.9%</td><td>△28조 5,155억</td><td>△27조 1,085억</td><td>△16.09조</td><td>—</td><td>[실측: 동]</td></tr></tbody></table></div>
+<ul>
+<li>DRAM/NAND/HBM 매출 분리는 <strong>미공시</strong>. TrendForce 2Q26 삼성 DRAM 609.8억달러 : NAND 230.6억달러 = 72.6% : 27.4% 비율로 대체 [인용: TrendForce·2026-09-07·/presscenter/news/20260907-13219.html / 2026-08-18·/20260818-13186.html]</li>
+</ul>
+<h3 id="92-고객납품-구조">9-2. 고객·납품 구조</h3>
+<div class="tablewrap"><table><thead><tr><th>고객(전방)</th><th>납품 제품</th><th>비중</th><th>근거</th></tr></thead><tbody><tr><td>5대 매출처 합계(Alphabet, Amazon, Apple, HK Techtronics, Supreme Electronics)</td><td>메모리·OLED·세트</td><td>약 25%(개별 미공시)</td><td>[실측: 반기보고서 II-4-마]</td></tr><tr><td>NVIDIA</td><td>HBM4·SOCAMM2 (Vera Rubin)</td><td>미확인</td><td>&quot;Commenced industry&#x27;s first mass product sales of HBM4 and SOCAMM2 for NVIDIA Vera Rubin platform&quot; [실측: 1Q26 Earnings Call p.7] → <strong>HBM4 엔비디아 퀄 통과·양산 판매 확인</strong></td></tr><tr><td>Tesla</td><td>파운드리 위탁생산</td><td>수주총액 16,544백만달러(~2033)</td><td>[실측: 반기보고서 II-4-바]</td></tr><tr><td>하이퍼스케일러(LTA)</td><td>메모리 장기공급</td><td>미확인</td><td>FCF 산정 시 &quot;메모리 제품 LTA 선수금&quot; 차감 [실측: DART 20260821800763] → LTA 선수금 존재. 5년 LTA 비중 확대 [인용: KB증권·2026-09-04]</td></tr><tr><td>중국 4대 CSP(바이두·알리바바·텐센트·바이트댄스)</td><td>메모리 LTA·ASIC 파운드리 요청</td><td>미확인</td><td>[인용: KB증권·2026-08-28, 단일 출처]</td></tr></tbody></table></div>
+<ul>
+<li>집중도: 공시상 1사 30% 이상 없음. 5대 합계가 15%(2025) → 25%(1H26)로 상승 [실측] → 빅테크 의존도가 높아지는 중</li>
+</ul>
+<h3 id="93-시장-규모경쟁-구도">9-3. 시장 규모·경쟁 구도</h3>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>값</th><th>출처</th></tr></thead><tbody><tr><td>DRAM 산업 매출 2Q26</td><td>1,547.3억달러 (QoQ <span class="up">+59.5%</span>)</td><td>[인용: TrendForce·2026-09-07·20260907-13219]</td></tr><tr><td>NAND 상위5사 매출 2Q26</td><td>688.7억달러 (QoQ <span class="up">+77%</span>)</td><td>[인용: TrendForce·2026-08-18·20260818-13186]</td></tr><tr><td>2027 서버 메모리/스토리지 시장</td><td>약 972조원</td><td>[인용: LS증권 산업·2026-08-27] (TAM 2번째 출처)</td></tr><tr><td>CSP CapEx 성장</td><td>2026 <span class="up">+98%</span>, 2027 <span class="up">+50%</span></td><td>[인용: TrendForce·2026-08-25·20260825-13198]</td></tr><tr><td>CSP CapEx 중 DRAM+NAND 비중</td><td>2026 47% → 2027 68%</td><td>[인용: 동]</td></tr><tr><td>파운드리 상위10 매출 2Q26</td><td>534.9억달러 (QoQ <span class="up">+11.5%</span>)</td><td>[인용: TrendForce·2026-09-09·20260909-13225]</td></tr><tr><td>스마트폰 생산 2Q26</td><td>2.75억대 (YoY −8%)</td><td>[인용: TrendForce·2026-09-08·20260908-13222]</td></tr></tbody></table></div>
+<p><strong>경쟁자 표 (2Q26)</strong></p>
+<div class="tablewrap"><table><thead><tr><th>시장</th><th>삼성</th><th>2위</th><th>3위</th><th>4위 이하</th><th>출처</th></tr></thead><tbody><tr><td>DRAM 매출점유율</td><td><strong>39.4%</strong> (609.8억달러, QoQ <span class="up">+63.4%</span>)</td><td>SK하이닉스 24.9% (385.9억달러)</td><td>Micron 23.3% (360억달러)</td><td>Nanya 26.1억달러 · Winbond 9.98억달러</td><td>[인용: TrendForce 09-07]</td></tr><tr><td>NAND 매출점유율</td><td><strong>29.3%</strong> (230.6억달러, <span class="up">+70.7%</span>)</td><td>SK그룹 142.7억달러</td><td>Micron 118.5억달러</td><td>Kioxia 13.6% · SanDisk 89.7억달러</td><td>[인용: TrendForce 08-18]</td></tr><tr><td>HBM 점유율</td><td>2Q26 <strong>33%</strong> → 4Q26 40% 근접 전망</td><td>미확인</td><td>미확인</td><td>—</td><td>[인용: KB증권·2026-09-11, <strong>단일 출처</strong>]</td></tr><tr><td>파운드리</td><td><strong>5.9%</strong> (32.6억달러, QoQ <span class="up">+1.8%</span>)</td><td>TSMC 72.5% (402억달러)</td><td>SMIC 5.4% (<span class="up">+20%</span>)</td><td>UMC 3.9% · GF 3.2%</td><td>[인용: TrendForce 09-09]</td></tr><tr><td>스마트폰 생산</td><td><strong>1위 6,200만대</strong>(YoY 약 <span class="up">+7%</span>)</td><td>미확인</td><td>—</td><td>—</td><td>[인용: TrendForce 09-08]</td></tr><tr><td>디지털 콕핏(Harman)</td><td>13.9%(회사 추정)</td><td>—</td><td>—</td><td>—</td><td>[실측: 반기보고서 TechInsights 인용]</td></tr></tbody></table></div>
+<ul>
+<li>교차검증: TrendForce 삼성 DRAM+NAND 840.4억달러 × 2Q 평균환율 1,502.8원 = 126.3조원 vs IR 메모리 매출 120.8조원 → 차이 <span class="up">+4.5%</span> [추정] → 두 출처가 대체로 맞음</li>
+<li>파운드리는 SMIC(<span class="up">+20%</span>)에 따라잡히는 중(격차 0.5%p) → &quot;턴키 유일&quot; 논리의 숫자 근거는 약함 [인용: TrendForce 09-09]</li>
+</ul>
+<h3 id="94-단가원가-이력">9-4. 단가·원가 이력</h3>
+<div class="tablewrap"><table><thead><tr><th>시점</th><th>제품 단가</th><th>원재료</th><th>변동 사유</th><th>출처</th></tr></thead><tbody><tr><td>2025 연간(vs 2024)</td><td>메모리 ASP <span class="up">+14%</span> · 스마트폰 −3% · TV −5% · OLED −6%</td><td>모바일AP <span class="up">+4%</span> · TV패널 −3%</td><td>AI 서버 수요 초입</td><td>[실측: 사업보고서 II-2-나/II-3-나]</td></tr><tr><td>2026 반기(vs 2025 평균)</td><td>메모리 ASP <strong><span class="up">+220%</span></strong> · 스마트폰 <span class="up">+7%</span> · TV −4% · OLED <span class="up">+1%</span></td><td>모바일용 메모리 <strong><span class="up">+211%</span></strong> · AP <span class="up">+6%</span> · 카메라모듈 <span class="up">+5%</span></td><td>공급부족·HBM 전환으로 범용 캐파 잠식</td><td>[실측: 반기보고서]</td></tr><tr><td>2026 1H</td><td>서버 DRAM 계약가 2026년 누적 약 <span class="up">+270%</span>, eSSD <span class="up">+235%</span> 전망</td><td>—</td><td>CSP CapEx <span class="up">+98%</span></td><td>[인용: TrendForce 08-25]</td></tr><tr><td>2026-04</td><td>HBM4 로직다이 가격 40~50% 인상</td><td>—</td><td>4nm 풀가동</td><td>[인용: 메리츠증권·2026-04-15, 단일 출처]</td></tr><tr><td>2026-08</td><td>파운드리 15% 가격 인상</td><td>—</td><td>수요 우위</td><td>[인용: KB증권·2026-08-21, 단일 출처]</td></tr><tr><td>3Q26E</td><td>DRAM 계약가 QoQ <strong><span class="up">+13</span>~18%</strong>(상승폭 둔화)</td><td>—</td><td>저용량 수요 이동·고객 가격 수용 한계</td><td>[인용: TrendForce 09-07]</td></tr><tr><td>3Q26E</td><td>DRAM ASP <span class="up">+15%</span> / 4Q26E <span class="up">+5%</span> / 2027E <span class="up">+22%</span></td><td>—</td><td>HBM 가격 인상 주도</td><td>[인용: 미래에셋증권·2026-08-27]</td></tr><tr><td>3Q26E</td><td>DRAM <span class="up">+7%</span>, NAND <span class="up">+10%</span> (출하·판가 상승 표기)</td><td>—</td><td>—</td><td>[인용: DB금융투자·2026-09-07]</td></tr><tr><td>2027E</td><td>HBM 가격 <span class="up">+70</span>~140% 가능 / 범용 서버 DRAM 연평균 ASP 하락 가능</td><td>—</td><td>서로 반대 전망</td><td>[인용: TrendForce 08-25 / LS증권 08-27]</td></tr></tbody></table></div>
+<ul>
+<li>단가 결정 구조: 분기 계약가 + LTA(최대 5년) 확대로 변동성 축소 중 [인용: KB증권 09-04 / 미래에셋 08-26]. 원재료 연동은 제한적(웨이퍼 매입액 1.15조원·케미칼 1.70조원, 1H26) [실측: 반기보고서 II-3-가] → <strong>가격 전가력 매우 강함</strong>(공급자 우위)</li>
+<li>DX 쪽은 반대: 모바일 메모리 매입가 <span class="up">+211%</span> vs 스마트폰 판가 <span class="up">+7%</span> → MX 적자 전환의 직접 원인 [실측]</li>
+</ul>
+<h3 id="95-생산능력가동률수주">9-5. 생산능력·가동률·수주</h3>
+<div class="tablewrap"><table><thead><tr><th>기간</th><th>메모리 가동률</th><th>메모리 생산실적(천개)</th><th>스마트폰 가동률</th><th>TV 가동률</th><th>SDC 가동률</th><th>CAPEX(PP&amp;E 취득)</th><th>출처</th></tr></thead><tbody><tr><td>2024</td><td>—</td><td>2,238,240,405</td><td>—</td><td>—</td><td>—</td><td>—</td><td>[실측: 사업보고서]</td></tr><tr><td>2025</td><td>100%(87,600h)</td><td>2,245,908,090</td><td>79.3%</td><td>78.8%</td><td>100%</td><td>—</td><td>[실측: 사업보고서 II-2-다]</td></tr><tr><td>1H26</td><td>100%(43,440h)</td><td>1,318,144,864</td><td>84.1%</td><td>77.5%</td><td>100%</td><td>1Q 17.13조 · 2Q 14.11조</td><td>[실측: 반기보고서 / IR Appendix 4]</td></tr></tbody></table></div>
+<ul>
+<li>메모리 생산 1H26 연율화 <span class="up">+17.4%</span> YoY [추정: 1,318,144,864×2÷2,245,908,090−1] — 풀가동 속 공정전환·수율 개선 몫</li>
+<li>증설: 1c DRAM 투자·P4 장비 발주 착수 [인용: 메리츠 04-15]. &quot;Supply constraints to continue in spite of efforts to increase production&quot; [실측: 2Q26 IR p.7] → 3Q 비트 증가는 제한적</li>
+<li>파운드리: 1Q26 &quot;Advanced node lines running at full utilization&quot; [실측: 1Q26 IR p.8], 2Q26 key update &quot;Foundry: Higher utilization&quot; [실측: 2Q26 IR p.4] / 4nm 수율 80%+, 2nm GAA 70%+, 3Q 흑자전환 가능성 [인용: KB증권 09-11]. <strong>파운드리 가동률 수치와 적자 폭은 미공시 → 미확인</strong></li>
+<li>수주잔고: 금액·수량 기재 생략(영업비밀) [실측: 반기보고서]</li>
+</ul>
+<h3 id="96-전방-수요-시나리오">9-6. 전방 수요 시나리오</h3>
+<ul>
+<li>NVIDIA FY2Q27 매출 962.2억달러(YoY <span class="up">+106%</span>), 데이터센터 890억달러, Supply &amp; Capacity 계약 QoQ 2.3배 [인용: IBK투자증권·2026-08-27] / 공급·생산능력 구매약정 2,790억달러 [인용: 메리츠증권·2026-08-28]</li>
+<li>HBM4 비중: 삼성 HBM 출하 중 1Q26 약 5% → 2Q26 약 35% [인용: LS증권·2026-08-31] / 3Q26 HBM4 매출 QoQ 3배 이상, 하반기 HBM 매출의 60%+ [인용: KB증권·2026-09-11]</li>
+<li>HBM4E: &quot;Shipped industry&#x27;s 1st HBM4E samples to major customers&quot; [실측: 2Q26 IR p.7]</li>
+<li>메모리 수출: 8월 영업일 평균 YoY <span class="up">+271%</span>, 9/1~10 <span class="up">+206%</span> [인용: 하나증권·2026-09-07/09-14, 원자료 관세청 — <strong>원문 미확인</strong>]</li>
+<li>소요량 → 매출 산식: 삼성 메모리 매출(원) = [DRAM 달러매출×(1+ASP)×(1+비트)] + [NAND 동일] × 분기 평균환율. 전방 CapEx는 비트가 아니라 <strong>가격</strong>으로 전달된다(가동률 100%, 공급 제약)</li>
+<li>시나리오: Bear = AI CapEx는 유지되나 범용 DRAM 가격 상승 둔화·원화 강세 지속 / Base = TrendForce 3Q 계약가 <span class="up">+13</span>~18% 중간값 수준, 비트 <span class="up">+3%</span> / Bull = HBM4 3배 증가 + 범용 가격 상단(<span class="up">+20%</span>) + 비트 <span class="up">+6%</span> [추정: 9-7 가정 · 인용: TrendForce 09-07·KB 09-11]</li>
+</ul>
+<h3 id="97-바텀업-실적-모델-연결-조원">9-7. 바텀업 실적 모델 (연결, 조원)</h3>
+<p>기준값 [실측/추정]: 2Q26 메모리 매출 120.8조 ÷ 2Q 평균환율 1,502.8원 = 803.8억달러 → DRAM 583.3억달러 / NAND 220.6억달러(72.6:27.4) · DS 비용 38.3조 · 비메모리 6.7조</p>
+<p><strong>3Q26</strong></p>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>Bear</th><th>Base</th><th>Bull</th><th>산식/근거</th></tr></thead><tbody><tr><td>DRAM ASP / 비트 QoQ</td><td><span class="up">+8%</span> / 0%</td><td><span class="up">+15%</span> / <span class="up">+3%</span></td><td><span class="up">+20%</span> / <span class="up">+6%</span></td><td>TrendForce 3Q 계약가 <span class="up">+13</span>~18%, 미래에셋 <span class="up">+15%</span>, IR &quot;공급 제약 지속&quot;</td></tr><tr><td>NAND ASP / 비트 QoQ</td><td><span class="up">+5%</span> / −3%</td><td><span class="up">+12%</span> / <span class="up">+3%</span></td><td><span class="up">+18%</span> / <span class="up">+5%</span></td><td>DB NAND <span class="up">+10%</span>, TrendForce &quot;계약가가 매출 성장 지지&quot;</td></tr><tr><td>DRAM 매출(억달러)</td><td>629.9</td><td>690.9</td><td>741.9</td><td>583.3×(1+ASP)×(1+비트)</td></tr><tr><td>NAND 매출(억달러)</td><td>224.6</td><td>254.4</td><td>273.3</td><td>220.6×(1+ASP)×(1+비트)</td></tr><tr><td>3Q 평균환율</td><td>1,410원</td><td>1,418원</td><td>1,425원</td><td>7월 1,489.6·8월 1,404.1·9월(11일) 1,352.3 가중 → 잔여 1,355원 가정 시 1,419원 [추정]</td></tr><tr><td>메모리 매출</td><td>120.5</td><td>134.0</td><td>144.7</td><td>달러매출×환율</td></tr><tr><td>비메모리 매출</td><td>6.7</td><td>7.2</td><td>7.6</td><td>IR &quot;Target double-digit revenue growth&quot;(하반기)</td></tr><tr><td><strong>DS 매출</strong></td><td>127.2</td><td>141.2</td><td>152.3</td><td>합</td></tr><tr><td>DS 비용</td><td>38.8</td><td>41.0</td><td>41.4</td><td>38.3 + 한계비용률(22.5%/15%/10%)×Δ매출 + 감가 <span class="up">+0.6</span></td></tr><tr><td><strong>DS 영업이익</strong></td><td><strong>88.4</strong></td><td><strong>100.3</strong></td><td><strong>110.9</strong></td><td>매출−비용 (OPM 69.5%/71.0%/72.8%)</td></tr><tr><td>MX/NW OP</td><td>−2.2</td><td>−1.2</td><td>−0.3</td><td>2Q −0.7, 3Q25 계절성 <span class="up">+0.5,</span> 메모리 원가 부담 확대 / DB −1.8조</td></tr><tr><td>VD/DA OP</td><td>−0.6</td><td>−0.3</td><td>0.0</td><td>3Q25 계절성 −0.3</td></tr><tr><td>SDC OP</td><td>0.8</td><td>1.3</td><td>1.8</td><td>3Q25 계절성 <span class="up">+0.7</span>(0.5→1.2), 메모리 가격 부담</td></tr><tr><td>Harman OP</td><td>0.3</td><td>0.4</td><td>0.5</td><td>3Q25 0.4</td></tr><tr><td><strong>연결 영업이익</strong></td><td><strong>86.7</strong></td><td><strong>100.5</strong></td><td><strong>112.9</strong></td><td>부문 합(내부거래 OP 조정 0)</td></tr><tr><td>연결 매출</td><td>172.4</td><td>189.6</td><td>202.2</td><td>DS+DX(48.8/51.8/53.4)+SDC(8.3/9.3/10.0)+Harman(4.6/4.8/5.0)−내부거래(16.5/17.5/18.5)</td></tr><tr><td>OPM</td><td>50.3%</td><td>53.0%</td><td>55.8%</td><td>—</td></tr></tbody></table></div>
+<p><strong>4Q26</strong></p>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>Bear</th><th>Base</th><th>Bull</th><th>산식/근거</th></tr></thead><tbody><tr><td>DRAM ASP / 비트</td><td>−3% / <span class="up">+2%</span></td><td><span class="up">+6%</span> / <span class="up">+4%</span></td><td><span class="up">+12%</span> / <span class="up">+5%</span></td><td>미래에셋 4Q DRAM ASP <span class="up">+5%</span> / LS &quot;추가 상승 여력 제한&quot;</td></tr><tr><td>NAND ASP / 비트</td><td>−5% / 0%</td><td><span class="up">+6%</span> / <span class="up">+3%</span></td><td><span class="up">+12%</span> / <span class="up">+4%</span></td><td>—</td></tr><tr><td>환율</td><td>1,330원</td><td>1,360원</td><td>1,400원</td><td>9/15 종가 1,359.10원 유지가 Base [실측: 네이버]</td></tr><tr><td>메모리 매출</td><td>111.3</td><td>141.4</td><td>166.7</td><td>3Q 달러매출 기준 동일 산식</td></tr><tr><td>DS 매출 / 비용</td><td>118.0 / 41.4</td><td>149.0 / 44.7</td><td>174.9 / 45.2</td><td>비용에 4Q 연말 일회성 4.0/2.0/1.0조 가정 [추정: 규모 근거 미확인]</td></tr><tr><td><strong>DS 영업이익</strong></td><td><strong>76.6</strong></td><td><strong>104.2</strong></td><td><strong>129.7</strong></td><td>—</td></tr><tr><td>MX/NW · VD/DA · SDC · Harman</td><td>−2.5 · −0.9 · 0.8 · 0.2</td><td>−1.0 · −0.5 · 1.5 · 0.3</td><td>0.0 · −0.2 · 2.0 · 0.4</td><td>4Q25 실측 VD/DA −0.6·SDC 2.0·Harman 0.3 참조</td></tr><tr><td><strong>연결 영업이익</strong></td><td><strong>74.2</strong></td><td><strong>104.5</strong></td><td><strong>131.9</strong></td><td>—</td></tr><tr><td>연결 매출 / OPM</td><td>160.1 / 46.4%</td><td>193.8 / 54.0%</td><td>221.1 / 59.6%</td><td>—</td></tr></tbody></table></div>
+<p><strong>연간 FY26 / FY27</strong></p>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>Bear</th><th>Base</th><th>Bull</th><th>컨센(fnguide)</th><th>산식</th></tr></thead><tbody><tr><td>하반기 OP</td><td>160.9</td><td>205.0</td><td>244.8</td><td>244.5</td><td>3Q<span class="up">+4</span>Q</td></tr><tr><td>FY26 OP</td><td>307.6</td><td>351.8</td><td>391.5</td><td>391.25</td><td>상반기 146.73 + 하반기</td></tr><tr><td>FY26 지배순이익</td><td>245.4</td><td>279.0</td><td>309.2</td><td>325.86</td><td>상반기 118.37 + (OP+영업외 3.0)×(1−23.5%)×99.5%</td></tr><tr><td>FY26 EPS</td><td>37,371원</td><td>42,488원</td><td>47,094원</td><td>48,239원</td><td>÷65.67억주</td></tr><tr><td>FY27 EPS</td><td>35,804원</td><td>56,681원</td><td>67,600원</td><td>67,600원</td><td>Bear=4Q 연율화 / Base=컨센×205.0÷244.5 / Bull=컨센</td></tr></tbody></table></div>
+<ul>
+<li>컨센·가이던스 대비: Base 3Q 100.5조는 네이버 컨센 113.1조보다 −11%, 9월 증권사(DB 108.8·미래에셋 106)보다 −5~8%. 차이는 <strong>환율(3Q 1,418원 가정)</strong>과 <strong>DS 한계비용률 15%(1Q→2Q 실측 22.5% 반영)</strong> 때문이다. 회사 정량 가이던스는 없다. [추정: 100.5÷113.1−1, 100.5÷108.8−1, 100.5÷106−1 · 인용: consensus.py / DB·미래에셋 09-07]</li>
+</ul>
+<p><strong>민감도 ① — DRAM ASP ±10%p × 비트(점유율 대용) ±5%p → 3Q 연결 OP(조원)</strong> [추정: 동일 산식, 비DS 부문 Base 고정]</p>
+<div class="tablewrap"><table><thead><tr><th></th><th>비트 −5%p</th><th>비트 ±0</th><th>비트 +5%p</th></tr></thead><tbody><tr><td>ASP −10%p</td><td>89.6</td><td>93.2</td><td>96.9</td></tr><tr><td>ASP ±0</td><td>96.4</td><td><strong>100.5</strong></td><td>104.5</td></tr><tr><td>ASP <span class="up">+10%</span>p</td><td>103.3</td><td>107.7</td><td>112.1</td></tr></tbody></table></div>
+<ul>
+<li>점유율 ±5%p 대신 비트출하 ±5%p를 쓴다. 가동률 100%라 점유율 변화가 비트로만 나타나기 때문이다.</li>
+</ul>
+<p><strong>민감도 ② — 3Q 평균환율 → 3Q 연결 OP</strong>: 1,300원 91.0 / 1,350원 95.0 / 1,400원 99.0 / 1,450원 103.1 / 1,500원 107.1조 → <strong>10원당 약 0.8조원</strong> [추정]</p>
+<p><strong>민감도 ③ — 전방 CapEx 1분기 지연(Rubin/HBM4 램프 지연)</strong>: ASP −10%p·비트 −5%p 적용 시 3Q OP 89.6조(−10.9조), DS 매출 약 −13조 [추정: 민감도① 좌상단]</p>
+<p class="note"><strong>결론 문장: 3Q26 연결 영업이익 ≥ 100조원(Base)이면 논지 유지·추가매수 검토(§7 조건 충족 시), &lt; 87조원(Bear)이면 논지 폐기.</strong> 3Q 연결 매출 기준선은 Base 189.6조 / Bear 172.4조. 4Q26 기준선은 OP Base 104.5조 / Bear 74.2조. 잠정실적은 매출·영업이익만 나오므로 이 두 숫자로만 판정한다. [추정: 9-7 표]</p>
+<h3 id="98-9-미확인-목록">9-8. §9 미확인 목록</h3>
+<ul>
+<li>파운드리·S.LSI 영업이익(적자 폭)과 가동률 수치 → 3Q 컨퍼런스콜(10월 말) Q&amp;A</li>
+<li>HBM 매출 규모, NVIDIA 내 HBM4 점유율, HBM 점유율 2번째 출처 → TrendForce HBM 리포트(유료)·경쟁사 IR</li>
+<li>DS 비용 2Q26 <span class="up">+10.3</span>조 급증 원인(성과급 충당·감가·물량) → 3분기보고서 성격별 비용 주석 [추정: ③ 3-4 DS 비용 38.3−28.0]</li>
+<li>TrendForce 4Q26 DRAM/NAND 계약가 전망 → 9월 말~10월 발표 예상(날짜 미확정)</li>
+<li>관세청 9월 메모리 수출 원자료 → 10/1 전후 산업부·관세청 보도자료(날짜 미확정)</li>
+<li>4Q 연말 일회성 비용 규모 → 4Q25 DS 비용 분해 불가</li>
+<li>CXMT 등 중국 DRAM CAPA·점유율 → 미수집</li>
+</ul>
+<hr>
+<h2 id="invalidation">⑦ 촉매 · 반증 · 이벤트 대응 (UPGRADE §1~8 통합)</h2>
+<h3 id="1-오류-정정검산">§1. 오류 정정·검산</h3>
+<p>정정 대상 v1 없음(신규 작성). 통과한 검산:</p>
+<ul>
+<li><strong>분기합 = 연간</strong>: 2025 IR 분기 79.1<span class="up">+74.6</span><span class="up">+86.1</span><span class="up">+93.8</span> = 333.6조 = DART 연간 333.61조 ✓ (영업이익 6.7<span class="up">+4.7</span><span class="up">+12.2</span><span class="up">+20.1</span> = 43.7조 vs 43.60조, 반올림 차이) [실측: IR 1Q26·3Q25 Appendix, 사업보고서]</li>
+<li><strong>Q1+Q2 = H1</strong>: 연결 매출 133.873<span class="up">+171.499</span> = 305.372조 = 반기 누계 305.373조 ✓ / 영업이익 57.233<span class="up">+89.492</span> = 146.725조 ✓ [실측: DART]</li>
+<li><strong>부문합 = 연결</strong>(2Q26, 백만원): 매출 48,022,433<span class="up">+127,516,071</span><span class="up">+7,485,065</span><span class="up">+4,567,751</span>−16,091,850 = 171,499,470 ✓ / 영업이익 부문합 89,472,679 vs 연결 89,492,412 → 차이 19,733백만원 = &#x27;기타 미표시&#x27; [실측: 주석27]</li>
+<li><strong>연결/별도 라벨</strong>: ③ 3-2(연결)·3-3(별도)·3-4(연결 부문) 모두 표기 ✓</li>
+<li><strong>손익비 산식</strong>: 헤더·⑥·결정카드 모두 (280,000−235,000)÷(235,000−219,000) = 1:2.8 ✓</li>
+<li><strong>손절/추가매수 비중첩</strong>: 진입 232,000~238,000 &gt; 손절 219,000, 추가매수는 243,000원 위에서만 ✓ [실측: ⑥ 표]</li>
+<li><strong>시나리오 확률 합</strong>: 30<span class="up">+45</span><span class="up">+25</span> = 100% ✓</li>
+</ul>
+<h3 id="2-컨센서스피어-비교">§2. 컨센서스·피어 비교</h3>
+<p>→ ④(컨센 표·증권사 3Q 추정)와 ⑤ 5-1(SK하이닉스 피어, Micron 미확인, 자기 밴드 미확인) 참조. 요지: 목표가 컨센 평균 476,538원(<span class="up">+92.7%</span>)은 9월 들어 환율로 낮아진 이익 추정을 아직 다 반영하지 못했다. [실측: consensus.py]</p>
+<h3 id="3-확률가중-시나리오목표가">§3. 확률가중 시나리오·목표가</h3>
+<p>→ ⑤ 5-2 표. Bear 143,000(30%) / Base 283,000(45%) / Bull 406,000(25%) → <strong>기대 271,750원(<span class="up">+9.9%</span>)</strong>. 스윙(3~8주) 손익 판단은 ⑥의 기술적 레벨을 쓴다. 12개월 가치와 스윙 레벨을 섞지 않는다. [추정: ⑤ 5-2 산식]</p>
+<h3 id="4-촉매-캘린더">§4. 촉매 캘린더</h3>
+<p><strong>날짜 확정</strong></p>
+<ul>
+<li><strong>2026-11-16</strong> — 3Q26 분기보고서 법정기한(분기말<span class="up">+45</span>일) — 사업부별 3개월 부문정보(주석)로 9-7 모델 검증 [실측: data/earnings/events.json 005930:2026Q3:report]</li>
+<li><strong>2026-10-08(목)</strong> — 삼성전자 주식선물 10월물(A11610) 최종거래일 — 보유 월물이 10월물이면 롤오버와 잠정실적 창이 겹침 [실측: kis_futures_check.py 근월물 F 202610 / 추정: KRX 규정 &#x27;결제월 두 번째 목요일&#x27;]</li>
+</ul>
+<p><strong>월 단위 확정·일자 미확정(참고)</strong></p>
+<ul>
+<li>2026년 10월 말 — 3Q 현금배당(정규 포함 30조원 내외) 확정 이사회 [실측: DART 20260821800763]. 주당 약 4,570원 [추정: 30조÷65.67억주], 현재가 대비 1.8%. 배당기준일은 9/30로 추정 [추정: 2Q 기준일 6/30 실측, DART 20260730800137]. <strong>선물 보유자는 배당을 받지 않는다</strong>(선물가에 선반영)</li>
+<li>2027년 1월 말 — 나머지 주주환원(잔여재원 90~110조원 − 3Q 30조원) 규모·방식 결정 이사회 [실측: 동 공시]</li>
+<li><strong>3Q26 잠정실적: 일자 미확정</strong>. 과거 공시일 패턴 [실측: DART &#x27;연결재무제표기준영업(잠정)실적&#x27;]: 3Q24 2024-10-08 · 1Q25 04-08 · 2Q25 07-08 · 3Q25 <strong>10-14(추석 연휴 직후)</strong> · 4Q25 2026-01-08 · 1Q26 04-07 · 2Q26 07-07 → 분기말 <span class="up">+7</span>~8일, 연휴 시 연기. 2026 추석 연휴 9/24~9/26 + 대체공휴일 9/28, 개천절 대체 10/5, 한글날 10/9를 가정하면 <strong>10/6(화)~10/8(목) 예상</strong> [추정: 휴장일 미검증]</li>
+<li>3Q26 확정실적·컨퍼런스콜: 과거 10/31·01/29·04/30·07/30 패턴 → 10월 말 예상 [실측: DART 공시일 / 일자 미확정]</li>
+</ul>
+<h3 id="invalidation">§5. 반증 조건 (이 조건이면 논지 폐기)</h3>
+<div class="tablewrap"><table><thead><tr><th>#</th><th>조건</th><th>행동</th><th>근거</th></tr></thead><tbody><tr><td>1</td><td>3Q26 잠정 <strong>연결 영업이익 &lt; 87조원</strong></td><td>신규 진입 금지, 보유 전량 청산</td><td>9-7 Bear. 이 수준이면 가격·비트 가정이 모두 Bear</td></tr><tr><td>2</td><td><strong>종가 &lt; 219,000원</strong></td><td>전량 청산</td><td>지지2(227,500) − 1ATR 이탈 = 8월 저점 구조 붕괴</td></tr><tr><td>3</td><td>TrendForce 등 4Q26 DRAM 계약가 전망 <strong>QoQ ≤ 0%</strong> 발표</td><td>보유 1/2 축소, 신규 금지</td><td>9-7 4Q Bear(ASP −3%) 진입 신호</td></tr><tr><td>4</td><td>원/달러 <strong>월평균 &lt; 1,300원</strong></td><td>Base를 91조로 하향(민감도②) → 신규 금지</td><td>3Q OP가 Bear 쪽으로 이동</td></tr><tr><td>5</td><td>10월 말 이사회 3Q 배당 <strong>&lt; 20조원</strong>(공시 30조 내외 대비 −33%)</td><td>1/2 축소</td><td>주주환원 신뢰 훼손, 8/21 공시 대비</td></tr></tbody></table></div>
+<h3 id="event-matrix">§6. 이벤트 매트릭스 (3Q26 잠정실적 공시일)</h3>
+<p>구간: 쇼크 = OP &lt; 87조 / 인라인 = 87~106조(100조 기준으로 상·하단 구분) / 서프라이즈 = ≥ 106조(9월 증권사 추정 하단 이상) [추정: 9-7 Bear 86.7 · 인용: 미래에셋 106조 09-07]</p>
+<div class="tablewrap"><table><thead><tr><th>결과 \ 당일</th><th>갭하락</th><th>보합</th><th>갭상승</th></tr></thead><tbody><tr><td><strong>쇼크(&lt;87조)</strong></td><td>신규 금지 · 보유 <strong>시가 전량 청산</strong></td><td>보유 당일 종가 전 전량 청산</td><td>반등 이용해 <strong>전량 청산</strong>(논지 폐기)</td></tr><tr><td><strong>인라인 하단(87~&lt;100조)</strong></td><td>신규 금지 · 보유 20계약 유지, 종가 &lt; 243,000원이면 10계약</td><td>추가매수 금지 · 보유 유지</td><td>추격 금지 · 보유 유지, 280,000원 접근 시 1/2 익절</td></tr><tr><td><strong>인라인 상단(100~&lt;106조)</strong></td><td>신규 금지 · 243,000원 종가 지지 확인 후 보유 유지</td><td>신규는 232,000~238,000원 눌림만 · 보유 유지</td><td>추격 금지 · 종가 262,000원 이상이면 보유 20→30계약</td></tr><tr><td><strong>서프라이즈(≥106조)</strong></td><td>243,000원 지지 확인 시 신규 5계약(1/2)</td><td>신규 10계약(이벤트 후 한도 15계약) · 보유 유지</td><td>추격 금지 · 첫 MA5 눌림에 신규 · 종가 262,000원 이상이면 보유 40계약까지 복원, 2차 목표 320,000원 활성</td></tr></tbody></table></div>
+<h3 id="수급유동성">수급·유동성</h3>
+<ul>
+<li>외국인 20일 −4조 8,364억원 / 기관 20일 −6,260억원 [실측: enrich.py]</li>
+<li>1일 체결 상한(ADV 10%): 4조 9,705억원 × 10% = 4,970억원 [추정] → 형 규모에서 현물 유동성 제약 없음. <strong>주식선물 미결제약정·호가 잔량: 미확인</strong></li>
+</ul>
+<h3 id="포지션-사이징-신규-진입-기준-자산-5억-고변동-레짐-손실예산-05">포지션 사이징 (신규 진입 기준 · 자산 5억 · 고변동 레짐 손실예산 0.5%)</h3>
+<div class="tablewrap"><table><thead><tr><th>방식</th><th>산식</th><th>결과</th></tr></thead><tbody><tr><td>리스크예산</td><td>5억 × 0.5% = 250만원 ÷ (235,000 − 219,000 = 16,000원)</td><td>156주 ≈ 15계약</td></tr><tr><td>유동성상한</td><td>ADV20 4조 9,705억 × 10%</td><td>4,970억원/일(비구속)</td></tr><tr><td>이벤트 전 상한</td><td>250만원 ÷ (16,000 + 갭 1ATR 8,071원)</td><td>104주 ≈ 10계약</td></tr><tr><td><strong>채택(최소값)</strong></td><td>—</td><td><strong>10계약(100주, 명목 2,350만원 = 자산의 4.7%)</strong>, 잠정실적 통과 후 15계약 한도</td></tr></tbody></table></div>
+<h3 id="7-기계적-매매-규칙-조건-행동-근거">§7. 기계적 매매 규칙 (조건 → 행동 → 근거)</h3>
+<p><strong>A. 신규 진입자 기준(판정: 관심)</strong></p>
+<div class="tablewrap"><table><thead><tr><th>구분</th><th>조건</th><th>행동</th><th>근거</th></tr></thead><tbody><tr><td>진입</td><td>232,000~238,000원 도달 + 당일 종가 ≥ 227,500원</td><td>10계약(잠정실적 전)</td><td>⑥ A · 사이징 최소값</td></tr><tr><td>추가매수</td><td>3Q OP ≥ 100조 + 종가 ≥ 243,000원(손절선 위)</td><td><span class="up">+5</span>계약(총 15 한도)</td><td>결론 문장 X · 리스크예산</td></tr><tr><td>손절</td><td>종가 &lt; 219,000원 <strong>또는</strong> 3Q OP &lt; 87조</td><td>전량 청산</td><td>반증 #1·#2</td></tr><tr><td>익절 1차</td><td>280,000원 도달</td><td>1/2 청산, 잔여 손절을 235,000원(본전)으로 상향</td><td>저항2 · Base 283,000</td></tr><tr><td>익절 2차</td><td>320,000원(3Q OP ≥ 106조일 때만)</td><td>잔여 청산</td><td>7월 매물대 상단</td></tr><tr><td>트레일링</td><td>1차 익절 후 종가 &lt; MA20</td><td>잔여 청산</td><td>추세 이탈</td></tr></tbody></table></div>
+<p><strong>B. 보유자 관점 액션 (60계약 = 600주 · 평단 300,350원 · 1차손절 243,000원 · 1차익절 288,000원 [실측: holdings_ctx.py --summary, positions.json 2026-09-15])</strong></p>
+<ul>
+<li>현재 평가손익: (247,250 − 300,350) × 600 = <strong>−3,186만원</strong>(포지션 −17.7%, 자산 5억의 −6.4%) [추정]</li>
+<li>리스크: 243,000원 손절 시 추가 −255만원(0.51%) / 갭으로 1ATR 더 밀리면 −739만원(1.48%) / 219,000원까지 −1,695만원(3.39%) [추정: 600주 × 가격차] → <strong>이벤트를 끼고 들고 가기엔 손실예산(0.5%=250만원)의 약 3배</strong></li>
+</ul>
+<div class="tablewrap"><table><thead><tr><th>액션</th><th>조건</th><th>행동</th><th>근거</th></tr></thead><tbody><tr><td><strong>유지</strong></td><td>종가 ≥ 243,000원 <strong>그리고</strong> 이벤트 전 한도 이내</td><td>보유 지속(단 아래 &#x27;축소&#x27; 일정 우선)</td><td>형 기존 1차손절 유지</td></tr><tr><td><strong>축소 ① (연휴 전)</strong></td><td>추석 연휴 전 마지막 거래일(9/23 추정) 종가까지</td><td>60 → <strong>40계약</strong></td><td>3영업일 휴장 갭 리스크 [추정: 휴장일 미검증]</td></tr><tr><td><strong>축소 ② (이벤트 전)</strong></td><td>3Q 잠정실적 직전 거래일(10/2 추정) 종가까지</td><td>→ <strong>20계약 이하</strong></td><td>20계약 × (4,250<span class="up">+8,071</span>원) × 10 = 246만원 ≤ 예산 250만원 [추정]</td></tr><tr><td><strong>축소 ③ (1차 손절)</strong></td><td>종가 &lt; 243,000원</td><td>익일 오전 <strong>20계약</strong>(이미 20이면 10계약)</td><td>형 1차손절 = 지지1(9/3 저가)</td></tr><tr><td><strong>손절(최종)</strong></td><td>종가 &lt; 219,000원 <strong>또는</strong> 3Q 잠정 OP &lt; 87조</td><td><strong>전량 청산</strong></td><td>반증 #1·#2</td></tr><tr><td><strong>헷지(축소 대체안)</strong></td><td>축소 체결이 어렵거나 연휴 갭이 걱정될 때</td><td>KOSPI200 선물 매도 헷지는 <strong>β 산출 후에만</strong>(β 미확인). 현재 백워데이션 −1.01p라 매도 헷지 비용이 불리 → <strong>축소를 우선</strong></td><td>futures_flow.py · 삼성전기·SK하이닉스 롱과 베타 중복</td></tr><tr><td><strong>익절/비중회수</strong></td><td>280,000~288,000원 도달</td><td>보유분 1/2 청산(평단 미회복이어도 손실 축소 원칙)</td><td>저항2~3 · 형 1차익절 288,000</td></tr><tr><td><strong>재확대</strong></td><td>3Q OP ≥ 100조 + 종가 ≥ 262,000원</td><td>20 → 40계약 / 종가 ≥ MA60(269,046원) 회복 시 60계약 한도</td><td>추세 회복 확인 후에만</td></tr><tr><td><strong>금지</strong></td><td>243,000원 아래 · 평단 회복 목적</td><td><strong>물타기·추가매수 금지</strong></td><td>손절선 아래 추가매수 금지 원칙</td></tr><tr><td><strong>롤오버</strong></td><td>보유분이 10월물일 경우</td><td>10/8 최종거래일 전, 축소②와 함께 10/2까지 11월물로 롤</td><td>잠정실적 창과 겹침. 보유 월물 <strong>미확인</strong></td></tr></tbody></table></div>
+<h3 id="8-미확인-목록-출처-목록">§8. 미확인 목록 · 출처 목록</h3>
+<p><strong>미확인 목록</strong></p>
+<ol>
+<li>3Q26 잠정실적 공시일(패턴상 10/6~10/8 예상) · 2026 추석/대체공휴일 휴장일 확정</li>
+<li>3Q 배당기준일·주당 배당금(10월 말 이사회)</li>
+<li>형 보유 선물의 월물(10월물 여부) · 주식선물 증거금률·미결제약정·호가 유동성</li>
+<li>파운드리·S.LSI 영업이익·가동률 수치, HBM 매출 규모, NVIDIA 내 HBM4 점유율, HBM 점유율 2번째 출처</li>
+<li>DS 2Q26 비용 <span class="up">+10.3</span>조 급증 원인 분해, 4Q 연말 일회성 비용 규모 [추정: ③ 3-4]</li>
+<li>TrendForce 4Q26 계약가 전망, 관세청 9월 메모리 수출 원자료</li>
+<li>자기 PER/PBR 밴드 분위, Micron 밸류에이션, SK하이닉스 PBR 교차</li>
+<li>공매도 잔고, KOSPI200 대비 β(헷지비율), 이자보상배율, 1Q26 평균환율(1·2월)</li>
+</ol>
+<p><strong>출처 목록</strong></p>
+<ul>
+<li>DART(OpenDART): 반기보고서 2026.06 20260814003699 / 1분기보고서 20260515002181 / 3분기보고서 2025 20251114002447 / 사업보고서 2025 20260310002820 / 잠정실적 20260707800004·20260730800077 및 과거 잠정실적 공시일 / 주주환원 공정공시 20260821800763 / 분기배당 20260730800137 / 협력사 인센티브 20260821800837</li>
+<li>삼성전자 IR Earnings Call PDF: 2026_2Q_conference_eng.pdf · 2026_1Q_conference_eng.pdf · 2025_3Q_conference_eng.pdf (samsung.com/global/ir)</li>
+<li>TrendForce Press Center: 20260907-13219(DRAM 순위) · 20260818-13186(NAND 순위) · 20260909-13225(파운드리) · 20260908-13222(스마트폰) · 20260825-13198(CSP CapEx·메모리 가격)</li>
+<li>stockeasy_reports.py: 기업 15건(KB 09-11·09-04·08-28·08-27·08-24·08-21·08-20·08-12 / 미래에셋 09-07·08-27·08-26·08-25·08-14 / DB 09-07 / LS 08-31), 산업 메모리·HBM4·엔비디아(하나 09-14·09-07·08-31, 한화 09-10, 메리츠 08-28·08-27·08-26·08-25·04-17·04-15·06-16, IBK 08-27, LS 08-27, iM 06-18, 미래에셋 06-05)</li>
+<li>consensus.py 005930·000660(stockeasy·naver·fnguide/wisereport·hankyung) · enrich.py 005930·000660 · dart_biz.py 005930 · futures_flow.py · kis_futures_check.py · holdings_ctx.py --summary · data/earnings/events.json · 네이버 금융 환율 일별시세(FX_USDKRW)·fchart 일봉</li>
+<li>WebSearch는 세션 한도(200회) 소진으로 쓰지 못했다 → WebFetch(TrendForce·삼성 IR)·DART·스탁이지로 대체</li>
+</ul>
+<p><strong>QA 체크리스트</strong>: 결정카드 10항목 ✓ · 판정(관심)과 한줄 결론 일치 ✓ · 9-7 표와 결론 문장 X=100조/Y=87조 ✓, 반증·카드 일치 ✓ · 촉매·반증 5개·이벤트 매트릭스·확률합 100%·사이징 ✓ · 분기합/반기합 검산 ✓ · 연결/별도 라벨 ✓ · 손익비 헤더=본문=카드 1:2.8 ✓ · 손절선 아래 추가매수 없음 ✓ · 단일 증권사·블로그 의견은 [인용]·&#x27;단일 출처&#x27;로만 표기 ✓ · 텔레그램 발송·허브 적재 안 함 ✓</p>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-15 15:39 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 248,500원 (<span class="down">-0.2%</span>) · 시총 14,528,002억 · 5일 <span class="down">-7.8%</span> / 20일 <span class="down">-7.4%</span> / 60일 <span class="down">-29.8%</span></li>
+<li>MA5 259,100원 / MA20 260,525원 / MA60 269,067원 → MA20 이격 <span class="down">-4.6%</span> · MA60 이격 <span class="down">-7.6%</span></li>
+<li>52주 고 374,500원 / 저 75,900원 → 고점 대비 <span class="down">-33.6%</span> · 20일 고 281,500원 / 저 247,500원</li>
+<li>후행 PER 37.86 / PBR 3.88 (EPS 6,564원 · BPS 63,997원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 49,839.3억 (5일 42,564.6억)</li>
+<li>외국인 순매수 5일 -44,019.1억 / 20일 -51,271.0억 · 기관 5일 429.7억 / 20일 -11,854.9억 · 개인 20일 -23,433.3억</li>
+<li>개별주식선물: ⚡ 상장 (A11610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 7.14% (공매도 791,722주 · 1970.6억) · 5일 평균 6.78% / 20일 평균 6.54% → 보합 · 20일 평균 상회 연속 3일</li>
+<li>공매도 20일 최대 14.70% (09/02) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 280,000원 (<span class="up">+12.7%</span>) ÷ 하방 219,000원 (−11.9%) = <strong>1:1.07</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (운용 5억 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산: 250만원 ÷ (진입 248,500원 − 손절 219,000원 = 29,500원) = <strong>84주 ≈ 0.21억</strong></li>
+<li>유동성상한: 20일 ADV 49,839.3억 × 10% = 1일 4983.93억 (분할 시 일수 = 목표금액 ÷ 이 값)</li>
+<li>채택 상한 = 최소값 → <strong>리스크예산(0.5%) 0.21억 (4% of 자산)</strong></li>
+<li>⚠️ 손절폭 11.9% · ATR14 8,071원 (손절폭/ATR 3.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 11.9% = ATR14 × 3.7배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 236,392원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.60</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 有 현재가: 247,250원 진입: 232,000~238,000원 손절: 219,000원 목표: 1차 280,000원 (2차 320,000원) 손익비: 1:2.8 기간: 스윙 3~8주 촉매: 2026-10-08 주식선물 10월물 최종거래일 · 2026-11-16 3Q 분기보고서 법정기한 (3Q26 잠정실적 10월 초 예상·일자 미확정) 반증: 3Q26 연결 영업이익 &lt; 87조원이면 폐기(≥ 100조원이면 유지·추가매수 검토) 또는 종가 219,000원 이탈</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
