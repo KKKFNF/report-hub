@@ -1,0 +1,232 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>에스피지(058610) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260915-143718-에스피지-058610.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.3</div><div class="tp-c"><b>결론 발췌</b> 국내 유일 휴머노이드 감속기 풀라인업의 &#x27;테마+실적 초입&#x27; 종목. 다만 밸류(PER 240배대·PBR 8.7배)가 이미 미래를 상당폭 선반영. 눌림목 분할매수 관점 관심, 손익비 1:3.3(목표1 12만) — 추격 아닌 대기매수. ① 포착 신호 • 회전율 약 5% (당일 거래대금 [실측:KIS 일봉] 1,461억 / 시총 22,577억) — 자금유입 강도 상위권 • 추세: MA 정배열 O [실측:KIS] MA5 96,020 &gt; MA20 94,145 &gt; MA60 87,872 / 당일 +12.2% [실측:KIS prdy_ctrt 12.24] • 현 위치: 52주 고점 165,700 / 저점 26,000 [실측:KIS]. 저점 대비 +290%…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>에스피지(058610)</h1>
+<div class="meta">📊 trend · 2026-09-15 14:37 · 코드 058610</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-15 14:37)</div><div class="kpi-v">101,700원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">22,554억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">246.84</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">8.74</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:3.3</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">120,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 97000원</span><span class="dc dn">손절 90,000원</span><span class="dc up">목표 120,000원</span><span class="dc">손익비 1:3.3</span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-10 SDD 양산 개시 / 11월 3Q 실적</div><div class="dc-l">🛑 반증: 3Q 감속기 비중 4~5% 정체 또는 종가 90000원 하회 시 논지 폐기</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 에스피지(058610)  ※선물 有(근월물 A3T610)</p>
+<p>📌 한줄 결론: 국내 유일 휴머노이드 감속기 풀라인업의 &#x27;테마+실적 초입&#x27; 종목. 다만 밸류(PER 240배대·PBR 8.7배)가 이미 미래를 상당폭 선반영. 눌림목 분할매수 관점 관심, 손익비 1:3.3(목표1 12만) — 추격 아닌 대기매수.</p>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 약 5% (당일 거래대금 [실측:KIS 일봉] 1,461억 / 시총 22,577억) — 자금유입 강도 상위권</li>
+<li>추세: MA 정배열 O [실측:KIS] MA5 96,020 &gt; MA20 94,145 &gt; MA60 87,872 / 당일 <span class="up">+12.2%</span> [실측:KIS prdy_ctrt 12.24]</li>
+<li>현 위치: 52주 고점 165,700 / 저점 26,000 [실측:KIS]. 저점 대비 <span class="up">+290%</span>, 고점 대비 <span class="down">-39%</span> → 고점권은 아니나 이미 큰 폭 상승한 자리. 4~5월 급등 후 조정 → 재차 반등 국면.</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>본업: 1991년 창업, 2002년 코스닥 상장한 소형 정밀제어 모터·감속기 전문사. 주력은 백색가전용 FAN 모터 + 산업자동화용 기어드 모터. [실측:반기보고서 20260814002388]</li>
+<li>제품 비중(제36기 2Q, 별도 기준 [실측:DART 반기보고서]): AC모터외 34.6% / Condenser·Controller 23.2% / BLDC모터 22.0% / 표준DC 7.0% / 기타(정밀감속기·기어드모터 등) 13.2%. → 아직 매출의 대부분은 전통 모터, 정밀감속기는 &#x27;기타&#x27; 안에 소액.</li>
+<li>급등사유(검증 결과 &#x27;실체+기대감 혼합&#x27;, 루머 아님):</li>
+<li>[인용:IBK투자증권 2026-07-20 edaily] 국내 유일 휴머노이드용 정밀감속기 3종(SR·SH·유성) 풀라인업 보유. 레인보우로보틱스 로봇 감속기 전량 납품 중. 4족보행 로봇용 공급 개시(26.1Q), 2027년 방산용 약 1,000대 출하 전망 → 레인보우향 매출 27년 약 160억(전년比 2배) 추정.</li>
+<li>감속기·모터·제어기 통합 액추에이터(SDD) 사업: 발열 30%+ 개선, 6월 북미 자동화 전시회 후 복수 美 기업과 NDA 검토, 8월 생산라인 구축 완료, 10월 이후 양산 본격화 전망. [인용:IBK 동 리포트]</li>
+<li>정밀감속기 매출비중 2025년 4% → 2027년 10% 확대 전망(저마진 모터↓·고마진 감속기↑로 수익성 개선). [인용:IBK]</li>
+<li>요약: 휴머노이드/로봇 감속기 국산화 테마가 실제 납품·양산 일정과 맞물린 것은 사실. 다만 감속기 매출 절대규모는 아직 작아 &#x27;기대 선반영&#x27; 성격이 강함.</li>
+</ul>
+<p>③ 실적 (DART 실측)</p>
+<ul>
+<li>연간 추세(연결 CFS, 억원) [실측:DART 사업보고서]:</li>
+<li>2023: 매출 3,937</li>
+<li>2024: 매출 3,884 / 영업이익 123 (OPM 3.2%)</li>
+<li>2025: 매출 3,416 / 영업이익 179 / 순이익 91 (OPM 5.3%) ← 매출은 역성장했으나 OPM은 개선(믹스 개선·판가 인상 효과)</li>
+<li>분기(연결 CFS, 억원) [실측:DART]:</li>
+<li>2026 1Q: 매출 808 / 영업이익 45 / 순이익 35 (OPM 5.6%)</li>
+<li>※ 2026 반기보고서의 누적 매핑값에 이상치가 있어 2Q 단독치는 &#x27;미확인&#x27;(DART 계정 매핑 오류로 재확인 필요). IBK는 2Q 매출 911억·영업이익 52억(OPM 5.7%, YoY <span class="up">+13%</span>/<span class="up">+33%</span>)을 전망 [추정/인용:IBK].</li>
+<li>재무건전성 [실측:DART 2026 반기]:</li>
+<li>부채총계 1,861억 / 자본총계 2,741억 → 부채비율 67.9% (양호)</li>
+<li>자산총계 4,602억</li>
+<li>2025 영업활동현금흐름 <span class="up">+284</span>억 (흑자, 이익의 질 양호)</li>
+<li>판정: 매출은 정체~역성장이나 믹스 개선으로 이익률·순익은 우상향. 재무 안정적. &#x27;실적 대박&#x27;은 아직이고 스토리가 앞서가는 국면.</li>
+</ul>
+<p>④ 미래실적·컨센서스 [인용:consensus fnguide/naver 2026-09-15]</p>
+<ul>
+<li>목표가 컨센 평균 135,600원 (최고 160,000 iM / 최저 100,000 IBK, 5건) · 증권사별 최신 평균 129,667원 · 현재가 대비 상승여력 약 <span class="up">+28</span>~33%</li>
+<li>투자의견: Buy 5 / NR 4 (의견평균 4.0/5)</li>
+<li>연간 컨센(억원, EPS원):</li>
+<li>FY26E: 매출 3,597 / 영업이익 212 / 순이익 166 / EPS 723 / PER 125배</li>
+<li>FY27E: 매출 3,990 / 영업이익 283 / 순이익 235 / EPS 991 / PER 91배</li>
+<li>FY28E: 매출 4,706 / 영업이익 343 / 순이익 293 / EPS 1,216 / PER 75배</li>
+<li>달성 가능성 판정: 中. 매출 두 자릿수 성장·OPM 5→7%대 개선은 감속기 양산(SDD 10월~, 방산 27년)이 계획대로 서야 성립. 최근 3M/6M 영업이익 컨센이 271→230→212억으로 하향 추세인 점은 주의.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 실측 [실측:KIS]: 주가 101,800원 / PER 247배 / PBR 8.75배 / EPS(TTM) 412원 / BPS 11,633원</li>
+<li>밴드: 현 PER은 과거·peer 대비 극단적 프리미엄. 스토리주 성격상 forward PER로 봐야 함.</li>
+<li>자체 목표가 산출(계산식 노출):</li>
+<li>FY27E EPS 991원 × PER 100배 = 99,100원 (보수)</li>
+<li>FY27E EPS 991원 × PER 120배 = 118,920원 (기준) ← 목표1</li>
+<li>FY27E EPS 991원 × PER 140배 = 138,740원 (낙관, iM 160,000 근접) ← 목표2 상단</li>
+<li>컨센 평균 135,600원과 대체로 정합.</li>
+<li>목표가: 1차 120,000원 / 2차 135,000원 [추정: FY27E EPS × forward PER 120~140]</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>선물 有 → 개별주식선물로 레버리지 가능(근월물 A3T610). 단 스토리주·고밸류 특성상 레버리지는 변동성 리스크가 크다는 점 유의.</li>
+<li>라인 [실측 MA·저항 기반]:</li>
+<li>진입: 97,000원 부근(MA5 96,000·MA20 94,000 사이 눌림). 추격 지양.</li>
+<li>손절: 90,000원(MA20 하회·직전 저점 83,800 위 완충)</li>
+<li>목표1: 120,000원 / 목표2: 135,600원(컨센 평균)</li>
+<li>손익비(산식):</li>
+<li>상승여력 = (120,000−97,000)/97,000 = <span class="up">+23.7%</span></li>
+<li>하락리스크 = (97,000−90,000)/97,000 = −7.2%</li>
+<li>손익비 = 23.7 / 7.2 ≈ 1:3.3 (목표2 기준 1:5.5)</li>
+<li>50% 집중 경고: 컨센 이익 하향 추세 + PER 240배대 고밸류 → 5억 계좌 50% 집중은 부적합. 스토리 훼손 시 급락 폭이 큼. 초기 비중은 계좌의 10~15% 이내로 제한하고, 양산 확인(10월 SDD)마다 증액 권고.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>실측 제품구조(2Q 별도, 억원 [실측:DART 반기]): AC모터외 396 / Condenser·Controller 266 / BLDC 252 / DC 80 / 기타(감속기 포함) 151 = 합 1,144</li>
+<li>로봇 감속기 성장 모델 [인용:IBK]:</li>
+<li>감속기 비중 2025 4% → 2027 10%. 2025 매출 3,416억 × 4% ≈ 137억, 2027 매출 3,990억(컨센) × 10% ≈ 399억 → 감속기 매출 약 137→399억 (약 <span class="up">+190%</span>, 2년) [추정: 컨센 매출 × IBK 비중]</li>
+<li>레인보우로보틱스향: 2027 약 160억(전년比 2배) [인용:IBK]. 로봇 1대당 감속기 12개 탑재.</li>
+<li>SDD(액추에이터): 10월 양산 개시, 미국 복수사 NDA 검토 → 계약 전환 시 27~28년 실적 upside [인용:IBK]</li>
+<li>결론 문장: 감속기 매출이 2025 약 137억 → 2027 약 399억(추정)으로 2년 +약 262억 증가하며 전사 OPM을 5%→7%대로 끌어올리는 것이 밸류 정당화의 핵심 축. 이 숫자(약 399억)가 확인되지 못하면 현 PER는 지속 불가.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더:</li>
+<li>2026년 10월~: SDD 액추에이터 양산 본격화(회사 가이던스/IBK) — 날짜 확정 이벤트</li>
+<li>2026년 3Q 실적 발표(11월 중, 정밀감속기 300억 가이던스 초과 여부) [인용:iM 8/19]</li>
+<li>美 자동화 업체 NDA→정식계약 전환 공시 여부(수시)</li>
+<li>반증 조건 3개(하나라도 성립 시 논지 재검토):</li>
+</ul>
+<p>1) 3Q 실적에서 감속기 매출 비중이 여전히 4~5% 정체 → 스토리 지연 2) SDD 미국 NDA가 계약으로 전환되지 못하고 표류 3) 주가 90,000원(MA20·손절선) 종가 하회 → 추세 훼손</p>
+<ul>
+<li>이벤트 매트릭스: 계약공시(+) 급등 / 실적 미스(−) 급락 / 로봇섹터 순환매 동반 변동 확대</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bull 30%: SDD 양산+NDA 계약화 → 목표 135,000~160,000원</li>
+<li>Base 45%: 감속기 완만 성장, 밸류 유지 → 105,000~120,000원 박스</li>
+<li>Bear 25%: 컨센 추가 하향·테마 냉각 → 80,000~90,000원 조정</li>
+<li>기대값 대략 110,000원대 → 현재가 대비 소폭 상방, 눌림목 매수 유효 근거</li>
+<li>수급·유동성: 당일 거래대금 1,461억 [실측:KIS]으로 유동성 충분, 회전율 상위. 테마 순환매성 수급이라 변동성 크다.</li>
+<li>포지션 사이징: 계좌 10~15% 시작 → 10월 양산·3Q 실적 확인 후 증액. 50% 집중 비권고.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>2026 2Q 단독 매출·영업이익 실측치(DART 반기 누적 매핑 이상 → IBK 추정 911억/52억으로 대체 표기)</li>
+<li>정밀감속기 단독 매출 절대액(사업보고서 &#x27;기타&#x27;에 통합, 분리 미공시)</li>
+<li>EV/EBITDA 실측(미산출)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 사업보고서 2025.12 접수 20260318000411 / 반기보고서 2026.06 접수 20260814002388</li>
+<li>KIS OpenAPI 시세(현재가·MA·52주·PER/PBR/EPS/BPS) 2026-09-15</li>
+<li>consensus(fnguide/naver/stockeasy/hankyung) 2026-09-15</li>
+<li>IBK투자증권 2026-07-20 (edaily 01321846645516488) / iM증권 2026-08-19 목표 160,000 / 미래에셋 2026-08-24 신규 129,000</li>
+<li>개별주식선물 마스터파일(KIS) — A3T610 상장 확인</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>손익비: 상승 23.7% ÷ 하락 7.2% = 3.29 → 1:3.3 (헤더·본문 일치)</li>
+<li>목표가: FY27E EPS 991 × 120배 = 118,920 ≈ 120,000(목표1), × 140배 = 138,740 ≈ 목표2·컨센 135,600 정합</li>
+<li>시나리오 확률합: 30<span class="up">+45</span><span class="up">+25</span> = 100% ✓</li>
+<li>바텀업: 2027 매출 3,990억 × 10% = 399억(감속기), 2025 3,416억 × 4% = 137억 → 결론 문장과 일치 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-15 14:37 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 101,700원 (<span class="up">+12.1%</span>) · 시총 22,554억 · 5일 <span class="up">+11.4%</span> / 20일 <span class="down">-5.8%</span> / 60일 <span class="up">+16.1%</span></li>
+<li>MA5 95,980원 / MA20 94,135원 / MA60 87,868원 → MA20 이격 <span class="up">+8.0%</span> · MA60 이격 <span class="up">+15.7%</span></li>
+<li>52주 고 165,700원 / 저 26,000원 → 고점 대비 <span class="down">-38.6%</span> · 20일 고 103,400원 / 저 83,800원</li>
+<li>후행 PER 246.84 / PBR 8.74 (EPS 412원 · BPS 11,633원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 398.3억 (5일 619.9억)</li>
+<li>외국인 순매수 5일 24.9억 / 20일 90.8억 · 기관 5일 -10.0억 / 20일 -402.8억 · 개인 20일 318.4억</li>
+<li>개별주식선물: ⚡ 상장 (A3T610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 6.25% / 20일 평균 11.62% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 25.83% (09/02) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 120,000원 (<span class="up">+18.0%</span>) ÷ 하방 90,000원 (−11.5%) = <strong>1:1.56</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (운용 5억 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산: 250만원 ÷ (진입 101,700원 − 손절 90,000원 = 11,700원) = <strong>213주 ≈ 0.22억</strong></li>
+<li>유동성상한: 20일 ADV 398.3억 × 10% = 1일 39.83억 (분할 시 일수 = 목표금액 ÷ 이 값)</li>
+<li>채택 상한 = 최소값 → <strong>리스크예산(0.5%) 0.22억 (4% of 자산)</strong></li>
+<li>⚠️ 손절폭 11.5% · ATR14 5,700원 (손절폭/ATR 2.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 11.5% = ATR14 × 2.1배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 91,530원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.80</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 有 현재가: 101800원 진입: 97000원 손절: 90000원 목표: 1차 120000원 (2차 135000원) 손익비: 1:3.3 기간: 스윙 6~12주 촉매: 2026-10 SDD 양산 개시 / 11월 3Q 실적 반증: 3Q 감속기 비중 4~5% 정체 또는 종가 90000원 하회 시 논지 폐기</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
