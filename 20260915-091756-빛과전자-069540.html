@@ -1,0 +1,235 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>빛과전자(069540) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260915-091756-빛과전자-069540.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:1.2</div><div class="tp-c"><b>결론 발췌</b> 실체(광트랜시버)는 있으나 5년 연속 적자·KH그룹 지배구조 리스크·정책테마 과열이 겹친 종목. 현 진입가 4,100원 기준 손익비 1:1.2(1차)로 스윙 부적합 → 판정 &#x27;관망&#x27;. 목표가는 밸류에이션상 산출 불가(적자·컨센 없음), 차트 저항 4,620/5,620원. ━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 57.1% (거래대금 2,490.6억 / 시총 4,361억) [인용: trendscan 포착] • 오늘(9/15) 실측: 현재가 4,100원 / 등락 -5.20% / 거래대금 2,287억 [실측: KIS inquire-price 09시대] • 추세: 이평 정배열 확인 — MA5 4,006 &gt; MA20 3,129 &gt; MA…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>빛과전자(069540)</h1>
+<div class="meta">📊 trend · 2026-09-15 09:17 · 코드 069540</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-15 09:17)</div><div class="kpi-v">4,150원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">4,677억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">4.38</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:1.2</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">4,620원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 (신규 부적합) 눌림 대기 3,200~3,400원 구간</span><span class="dc dn">손절 3,129원</span><span class="dc up">목표 4,620원</span><span class="dc">손익비 1:1.2</span><span class="dc">기간 스윙 2~4주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026.12.31 NIA 국책과제 종료 / 2026.11 3분기 실적</div><div class="dc-l">🛑 반증: 종가 MA20(3,129) 하회 시 논지 폐기(테마·정배열 붕괴)</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 빛과전자(069540)  ※선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 실체(광트랜시버)는 있으나 5년 연속 적자·KH그룹 지배구조 리스크·정책테마 과열이 겹친 종목. 현 진입가 4,100원 기준 손익비 1:1.2(1차)로 스윙 부적합 → 판정 &#x27;관망&#x27;. 목표가는 밸류에이션상 산출 불가(적자·컨센 없음), 차트 저항 4,620/5,620원.</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 57.1% (거래대금 2,490.6억 / 시총 4,361억) [인용: trendscan 포착]</li>
+<li>오늘(9/15) 실측: 현재가 4,100원 / 등락 <span class="down">-5.20%</span> / 거래대금 2,287억 [실측: KIS inquire-price 09시대]</li>
+<li>추세: 이평 정배열 확인 — MA5 4,006 &gt; MA20 3,129 &gt; MA60 2,626 [실측: KIS 일봉 83일]</li>
+<li>5일 흐름: 9/9 3,810 → 9/10 3,925 → 9/11 3,870 → 9/14 4,325(<span class="up">+11.8%</span>) → 9/15 4,100(<span class="down">-5.2%</span>) [실측: KIS]</li>
+<li>52주 밴드: 저 592원 ~ 고 8,100원. 저점 대비 <span class="up">+593%</span>, 고점 대비 <span class="down">-49%</span> 위치 [실측: KIS]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>회사: 1998년 설립, 2004년 코스닥 상장. 옛 사명 &#x27;라이트론&#x27; → 2024.3 &#x27;빛과전자&#x27;로 변경. 광통신 부품 전문(광원·레이저다이오드, 광모듈, 광송수신기/광트랜시버). 사업부문 FTTH·ODL(광데이터링크)·RF 3개 [인용: 다수 매체, 2026.09]</li>
+<li>실체 판단: 테마성 급등이나 실체는 존재. OFC 2026에서 1.6T OSFP·800G급 광트랜시버 시연, ETRI 공동 3.2T 로드맵 제시, 삼성전자 우수협력사 이력 [인용: 언론, 2026.03/09]</li>
+<li>급등 직접사유(정책성 재료 중첩):</li>
+<li>9/8 상한가(<span class="up">+30%</span>): 과기정통부 주관·NIA 전담 &#x27;지능정보 네트워크용 광통신 부품 상용화 사업&#x27; 참여기관 선정(주관=한양대 ERICA). 6G/AI데이터센터향 프론트홀 부품 국산화, 사업기간 ~2026.12, 50GBASE-BR30 SFP56 BiDi 개발 목표 [인용: 나테/언론 2026.09.08]</li>
+<li>8월 초: 미국 FCC 중국산 광트랜시버 수입금지 추진 → 국산화 수혜 테마 [인용: 언론]</li>
+<li>★냉정한 판단: 둘 다 &#x27;정부 R&amp;D 과제 수행기관 선정&#x27;·&#x27;규제 기대감&#x27;이지 확정 대규모 매출계약 아님. 상용화·매출반영까지 시차. 동일자 광전자·대한광통신·빛샘전자 동반강세 → 개별펀더가 아닌 업종 테마 순환매 성격 [판단 근거: 위 인용 종합]</li>
+</ul>
+<p>③ 실적 (DART 실측 · 연결 기준)</p>
+<ul>
+<li>연간 추이 [실측: DART finstate, CFS]:</li>
+<li>2022: 매출 525.6억 / 영익 <span class="up">+12.2</span>억(흑자) / 순익 -7.2억</li>
+<li>2023: 매출 216.9억 / 영익 -93.5억 / 순익 -196.2억</li>
+<li>2024: 매출 181.3억 / 영익 -102.7억 / 순익 -185.8억</li>
+<li>2025: 매출 317.7억 / 영익 -165.3억 / 순익 -196.5억</li>
+<li>YoY: 매출 2025 <span class="up">+75%</span>(181→318억) 회복세이나 영업손실은 -103억→-165억으로 오히려 확대. 매출 늘어도 원가·판관비 커버 못 하는 구조 [실측·계산]</li>
+<li>OPM: 2025 영업이익률 <span class="down">-52%</span>(=-165.3/317.7) [계산: 실측치]</li>
+<li>★2026 반기(상반기 누적, 연결) — 핵심 분해 [실측: DART 2026 반기보고서 rcept 20260814002282]:</li>
+<li>매출 43.3억 / 매출총손실 -1.05억 / 영업손실 -20.8억(적자 지속)</li>
+<li>그런데 반기순이익 <span class="up">+10.4</span>억 &#x27;흑자전환&#x27; → 원인은 영업개선 아님</li>
+<li>분해: 금융수익 <span class="up">+67.9</span>억, 기타수익 <span class="up">+61.0</span>억(대부분 일회성) vs 금융비용 -110.1억, 지분법손실 -5.5억 → 법인세차감전순손실 -11.0억, 법인세수익 <span class="up">+21.4</span>억 반영해 순익 <span class="up">+10.4</span>억</li>
+<li>즉 흑자는 일회성 기타수익·법인세효과의 산물. 본업(영업)은 여전히 적자 [실측 분해]</li>
+<li>재무건전성 [실측: DART CFS]:</li>
+<li>2024말 부채총계 191.2억 / 자본 625.0억 → 부채비율 30.6% [계산]</li>
+<li>2026 반기말 부채 244.3억 / 자본 999.6억 → 부채비율 24.4%(유증으로 자본 확충) [계산]</li>
+<li>2024 영업활동현금흐름 -57.7억(순유출), 금융비용 65.7억, 재무활동 <span class="up">+157</span>억(외부조달로 연명) [실측: DART 현금흐름표]</li>
+<li>이자보상배율: 영업이익 적자 → 계산 불가(음수, 이자상환능력 없음) [계산]</li>
+<li>결론: 실적 모멘텀이 상승추세를 정당화하지 못함. 매출은 늘지만 영업적자 확대, 흑자전환은 착시 [판단]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 정식 커버리지·목표주가·실적 컨센서스: 미확인(검색상 &quot;증권사 리포트 한 건도 없음&quot; 다수 확인) → 컨센 미확인 [인용: ideal-life.co.kr 2026.09]</li>
+<li>블로그성 목표가 3,640원 언급 있으나 증권사 공식 아님 → 신뢰 배제 [인용: 개인블로그]</li>
+<li>달성가능성 평가: 컨센 부재로 정량 평가 불가. 정성적으로는 800G/1.6T 차세대 수주가 실매출 전환돼야 하나 시점 미확정 → 실적 개선 가시성 &#x27;低&#x27; [판단]</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>실측 멀티플 [실측: KIS]: PER -10.79(적자), PBR 4.33, EPS -380원, BPS 947원</li>
+<li>★목표가 자체 산출 불가: EPS 음수 → PER 기반 산출 원천 불가. PBR 4.33은 자산가치 대비 이미 고평가 구간(적자 기업이 순자산의 4배). 적정 멀티플×EPS 방식 적용 불가 [판단: 적자로 밸류 산정 불능]</li>
+<li>peer 밴드: 광통신 테마주 다수도 적자·고PBR 상태라 밴드 비교 무의미. 밸류로 상단을 논하기 어려움 → 상단은 &#x27;차트 저항&#x27;으로만 제시 [판단]</li>
+<li>차트상 참고 저항: 20일 고점 4,620원(1차), 상한가 상단 5,620원(2차) [실측: KIS]</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>선물 미상장 → 현물만 가능, 레버리지 불가(형 주력인 개별주식선물 전략 적용 불가) [실측: kis_futures_check 069540 &#x27;미상장&#x27;]</li>
+<li>지지/저항 [실측: KIS]: 지지 5일저 3,660 / MA20 3,129 / 20일저 2,500. 저항 4,620(20일고) / 5,620(상한가)</li>
+<li>ATR14 = 407원(현재가 대비 약 9.9% — 초고변동성). 당일 <span class="down">-5.2%</span> 변동은 일상 [실측·계산]</li>
+<li>손익비 계산(진입 4,100 가정) [계산]:</li>
+<li>손절 3,660(5일저): 하락리스크 <span class="down">-10.7%</span> / 1차목표 4,620 상승 <span class="up">+12.7%</span> → 손익비 1:1.18 / 2차 5,620 <span class="up">+37.1%</span> → 1:3.45</li>
+<li>문제: 손절폭 440원 = ATR의 1.08배 → 노이즈권. 당일 변동에 쉽게 손절 → 실전 신뢰도 낮음</li>
+<li>손절을 MA20(3,129)로 넓히면 하락 <span class="down">-23.7%</span> → 1차 손익비 1:0.54로 급락(부적합)</li>
+<li>★판정: 노이즈권 손절이면 손익비 1:1.2로 스윙 기준 미달, 손절 넓히면 손익비 붕괴 → 현 가격대 신규진입 부적합(&#x27;관망&#x27;). 눌림 대기가 합리적 [판단]</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만):</li>
+<li>2026.12.31: NIA 광통신 부품 상용화 국책과제 사업기간 종료(성과·매출전환 확인점) [인용: 언론]</li>
+<li>(분기 실적) 2026.11월경 3분기보고서 공시 예정 — 영업적자 축소 여부가 핵심 [실측: DART 공시주기]</li>
+<li>그 외 확정일자 이벤트 미확인</li>
+<li>반증 조건 3개(하나라도 성립 시 논지=관망 유지 강화 또는 이탈):</li>
+</ul>
+<ol>
+<li>종가 MA20(3,129) 하회 → 정배열 붕괴, 테마 소멸 신호</li>
+<li>CB 전환·최대주주 담보 관련 오버행/반대매매 공시 발생</li>
+<li>3분기 실적서 영업손실이 재차 확대(매출증가에도 적자심화)</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(실적 × 당일갭):</li>
+<li>실적서프+갭상승 → 추격금지, 눌림 확인 후 소량</li>
+<li>실적서프+갭하락 → 재료소멸 매물, 관망</li>
+<li>실적쇼크+갭상승 → 테마 순환매 착시, 진입 금지</li>
+<li>실적쇼크+갭하락 → 논지대로 회피</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 45%: 테마 소멸+지배구조 리스크 부각 → MA20~20일저(3,129~2,500)로 조정</li>
+<li>Base 40%: 테마 순환매 지속되나 실적 미확인 → 3,600~4,600 박스 등락</li>
+<li>Bull 15%: 실제 대형 수주/매출 가시화 → 5,620 상단 돌파 재시도</li>
+<li>기대값상 하방 우위 → 신규 롱 매력 낮음 [판단]</li>
+<li>수급·유동성: 외인/기관 20일 순매수 세부 데이터 미확인. 오늘 거래대금 2,287억, ADV 10% 상한 ≈ 22.8억(형 운용규모 대비 유동성 제약은 없음) [실측·계산]</li>
+<li>포지션 사이징(만약 진입한다면):</li>
+<li>리스크예산 5억×1% = 500만 ÷ 주당리스크 440원 = 약 11,363주(약 4,660만원)</li>
+<li>유동성 상한(ADV 10% 22.8억)·이벤트전 상한과 비교 → 유동성은 여유, 다만 손익비 미달로 사이징 이전에 &#x27;진입 보류&#x27;가 결론 [계산]</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시, 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 목표주가·실적 컨센서스(정식 커버리지 부재)</li>
+<li>외인/기관 20일 순매수 세부</li>
+<li>2026 3분기 실적(미발표)</li>
+<li>사업부문별 매출 구성비(반기 세부 미확보)</li>
+<li>반기 흑자 내 기타수익 61억의 정확한 세부 내역(일회성 성격 추정)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 재무 실측: 2022~2025 사업보고서, 2026 반기보고서(rcept 20260814002282) 연결</li>
+<li>KIS OpenAPI 실측: 현재가·PER/PBR·52주·일봉·ATR (2026.09.15)</li>
+<li>kis_futures_check.py: 선물 미상장 확인</li>
+<li>언론/블로그(인용): 나테 2026.09.08(국책과제), okgo1329.tistory(KH그룹 지배구조), ideal-life.co.kr(컨센 부재), thedailymoney(3.2T 로드맵)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>부채비율 2026반기 = 244.3/999.6 = 24.4% ✓</li>
+<li>OPM 2025 = -165.3/317.7 = <span class="down">-52%</span> ✓</li>
+<li>손익비 1차 = 12.7/10.7 = 1.18 ✓ / 2차 = 37.1/10.7 = 3.45 ✓</li>
+<li>손절폭/ATR = 440/407 = 1.08배 ✓</li>
+<li>시나리오 확률합 45<span class="up">+40</span><span class="up">+15</span> = 100% ✓</li>
+</ul>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2>📐 실전 체크 (자동 실측 · KIS 2026-09-15 09:17 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 4,150원 (<span class="down">-4.0%</span>) · 시총 4,677억 · 5일 <span class="up">+13.9%</span> / 20일 <span class="up">+51.8%</span> / 60일 <span class="up">+41.5%</span></li>
+<li>MA5 4,015원 / MA20 3,131원 / MA60 2,627원 → MA20 이격 <span class="up">+32.5%</span> · MA60 이격 <span class="up">+58.0%</span></li>
+<li>52주 고 8,100원 / 저 592원 → 고점 대비 <span class="down">-48.8%</span> · 20일 고 4,325원 / 저 2,560원</li>
+<li>후행 PER -10.92 / PBR 4.38 (EPS -380원 · BPS 947원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 655.5억 (5일 1,803.8억)</li>
+<li>외국인 순매수 5일 -118.2억 / 20일 -76.4억 · 기관 5일 -6.0억 / 20일 -0.6억 · 개인 20일 106.6억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.01% / 20일 평균 0.34% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 2.66% (09/03) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 4,620원 (<span class="up">+11.3%</span>) ÷ 하방 3,129원 (−24.6%) = <strong>1:0.46</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (운용 5억 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산: 250만원 ÷ (진입 4,150원 − 손절 3,129원 = 1,021원) = <strong>2,448주 ≈ 0.10억</strong></li>
+<li>유동성상한: 20일 ADV 655.5억 × 10% = 1일 65.55억 (분할 시 일수 = 목표금액 ÷ 이 값)</li>
+<li>채택 상한 = 최소값 → <strong>리스크예산(0.5%) 0.10억 (2% of 자산)</strong></li>
+<li>⚠️ 손절폭 24.6% · ATR14 383원 (손절폭/ATR 2.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 24.6% = ATR14 × 2.7배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 3,575원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.82</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관망 선물: 無 현재가: 4,100원 진입: (신규 부적합) 눌림 대기 3,200~3,400원 구간 손절: 3,129원 (MA20 종가 이탈) 목표: 1차 4,620원 (2차 5,620원) 손익비: 1:1.2 (현가 진입 기준·미달) 기간: 스윙 2~4주 촉매: 2026.12.31 NIA 국책과제 종료 / 2026.11 3분기 실적 반증: 종가 MA20(3,129) 하회 시 논지 폐기(테마·정배열 붕괴)</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
