@@ -1,0 +1,206 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>케이엔제이(272110) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260916-081041-케이엔제이-272110.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:4.1</div><div class="tp-c"><b>결론 발췌</b> SiC 포커스링 유기성장(+29% YoY) + FPCB 편입으로 2026 매출 1,500억대 점프는 실체. 다만 헤드라인 PER 8배는 2025 일회성 이익이 낀 착시이고, CB 전환권 평가손실로 순익이 요동친다. 현재가 25,400원은 MA60 아래 눌림 자리 → 판정 &#x27;관심(분할)&#x27;, 진입 25,400 기준 1차 목표 34,000(+33.9%)·손절 23,300(-8.3%)로 손익비 1:4.1. 증권사 목표가는 미확인(NR). ━━━━━━━━━━━━━━━ ① 사실관계 검증 • 주력: CVD-SiC 포커스링(반도체 식각공정 소모품, 전체 매출 75.4%) — 국내 A/M(애프터마켓) 최초 CVD-SiC 포커스링 상용화, 세계 2번째 개…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>케이엔제이(272110)</h1>
+<div class="meta">📊 benine · 2026-09-16 08:10 · 코드 272110</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-16 08:10)</div><div class="kpi-v">25,400원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2,038억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">7.97</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.05</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:4.1</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">34,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 24,800~25,600원 (분할, MA20~현재가)</span><span class="dc dn">손절 23,300원</span><span class="dc up">목표 34,000원</span><span class="dc">손익비 1:4.1</span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 3Q 분기보고서(챔버 5대 가동효과)·자사주신탁(~2027-03-02)</div><div class="dc-l">🛑 반증: 3Q&#x27;26 연결 영업익 &lt; 65억 or 종가 23,300 이탈 or CB평가손 확대 적자지속/증자·CB추가발행</div></div>
+
+<div class="body"><p>🚀 정밀 딥리서치 — 케이엔제이(272110)  ※선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: SiC 포커스링 유기성장(<span class="up">+29%</span> YoY) + FPCB 편입으로 2026 매출 1,500억대 점프는 실체. 다만 헤드라인 PER 8배는 2025 일회성 이익이 낀 착시이고, CB 전환권 평가손실로 순익이 요동친다. 현재가 25,400원은 MA60 아래 눌림 자리 → 판정 &#x27;관심(분할)&#x27;, 진입 25,400 기준 1차 목표 34,000(<span class="up">+33.9%</span>)·손절 23,300(<span class="down">-8.3%</span>)로 손익비 1:4.1. 증권사 목표가는 미확인(NR).</p>
+<hr>
+<p>① 사실관계 검증</p>
+<ul>
+<li>주력: CVD-SiC 포커스링(반도체 식각공정 소모품, 전체 매출 75.4%) — 국내 A/M(애프터마켓) 최초 CVD-SiC 포커스링 상용화, 세계 2번째 개발 [인용: 한국투자증권·아시아경제 2025-09-25]. Si 대비 내플라즈마·고열 내구성 우수 → 낸드 고단적층·미세화로 채택 확대.</li>
+<li>전방/고객: 반도체 IDM(전공정 식각). 고객사 SK하이닉스·삼성전자 [인용: 한투/뉴스, 구체 납품비중 미공시].</li>
+<li>2사업부: 반도체부품(SiC) + 전자부품(FPCB, 자동차 전장/모바일). 2024.9 디스플레이 장비사업 중단, 2026년 FPCB(전자부품) 연결편입 [실측: 반기보고서 20260813001737].</li>
+<li>자금유입 사유 검증: (a)증설 실체 — 신규시설투자 298.8억 CVD SiC Focus Ring 증설, 2024-12~2026-06-30 [실측 공시 20260629900976]. (b)주주환원 — 자사주 취득신탁 30억(미래에셋, 2026-09-02~2027-03-02, 주주가치제고) [실측 공시 20260902000070]. ★블로거의 &#x27;자사주 소각&#x27;은 공시상 &#x27;취득신탁&#x27;이지 소각 확약 아님 → &#x27;소각&#x27;은 미확인. (c)낸드 초과수요(Vera Rubin CMX·Phison 충족률 30%)는 블로거 견해 [추정, 확정호재 아님].</li>
+</ul>
+<p>→ 증설·실적·주주환원은 실체. 소각·낸드 초과수요 강도는 기대감 영역.</p>
+<p>② 실적 분석 (DART 연결 실측) [연간 연결·억원] (OPM=영업이익률)</p>
+<ul>
+<li>2023: 매출 473.6 / 영업익 104.8 (22.1%) / 순익 107.6</li>
+<li>2024: 매출 622.2 (<span class="up">+31.4%</span>) / 영업익 141.5 (22.7%) / 순익 107.7</li>
+<li>2025: 매출 844.4 (<span class="up">+35.7%</span>) / 영업익 222.4 (26.3%) / 순익 255.6</li>
+</ul>
+<p>⚠️ 2025 순익(255.6억) &gt; 영업익(222.4억) — 법인세전이익 255.2억에 FPCB 취득 관련 일회성(염가매수차익 추정)이 반영. 순익 기반 PER는 과대해석 금지 [실측: 사업보고서 20260319000017]. [분기 연결·3개월·억원]</p>
+<ul>
+<li>Q1&#x27;25 192.9 / 55.4 (28.7%)</li>
+<li>Q2&#x27;25 199.5 / 51.8 (26.0%)</li>
+<li>Q3&#x27;25 218.6 / 56.4 (25.8%)</li>
+<li>Q4&#x27;25 233.4 / 58.8 (25.2%) [산출: 연간−9M누적]</li>
+<li>Q1&#x27;26 348.7 (<span class="up">+80.8%</span> YoY) / 75.0 (21.5%)</li>
+<li>Q2&#x27;26 343.5 / 62.6 (18.2%)</li>
+<li>H1&#x27;26 누적 690.7 / 139.6 (20.2%), 순익 67.0 — 단 Q2&#x27;26 순익 단 3.6억(법인세전 34억→순익 3.6억) : CB 전환권 평가손실 등 영업외 훼손 추정 [실측: 반기보고서, 항목분해는 추정].</li>
+</ul>
+<p>[사업부문 H1&#x27;26] 반도체부품(SiC) 505억(73.8%) / 전자부품(FPCB) 170억(24.6%) [실측 dart_biz]. → 매출 점프의 상당분은 FPCB 신규편입. SiC 자체는 H1 392억→505억 <span class="up">+29%</span> 유기성장(실체). 단 FPCB 편입으로 OPM 26%→20%대로 희석. [재무건전성·연결]</p>
+<ul>
+<li>부채총계 1,604억 / 자본 1,044억 → 부채비율 153.7% (2024 120%→2025 137%→2026반기 154%, 증설·CB로 상승)</li>
+<li>유동부채 804억 / 비유동부채 800억(장기차입·CB 포함 추정)</li>
+<li>이자보상배율·영업현금흐름 : 미확인(금융비용에 CB평가손 혼재, 별도 현금흐름표 미조회)</li>
+</ul>
+<p>③ 미래실적 + 달성가능성</p>
+<ul>
+<li>FY26E 컨센/증권사: 매출 1,532억(<span class="up">+81.4%</span>) / 영업익 323억(<span class="up">+45.1%</span>) / 순익 270억 / EPS 3,364원 [인용: 한투·KB·fnguide 2026].</li>
+<li>증권사 목표주가: 최근 6개월 목표가 제시 리포트 없음(투자의견 NR 2건) → 증권사 목표가 미확인. 한투는 과거 Buy·peer 20배 언급 [인용: stockeasy 한투 2025-10-29].</li>
+<li>블로거 추정: 매출 1,529억·이익 310억, 27년 FPER&lt;10 [추정].</li>
+<li>달성가능성 판정: 中~高. 근거 — H1&#x27;26 이미 매출 690.7억(연 1,532억의 45%)·영업익 139.6억(연 323억의 43%) 확보. 챔버 증설 5대 7월 가동 → 하반기 SiC 램프업 시 3·4분기 가속. 리스크: FPCB 가격경쟁·SiC 가동률(H1 SiC가동률 94.3% 이미 고수준이라 증설분 실제 채워야 성장) [실측 가동률].</li>
+</ul>
+<p>④ 밸류에이션 → 목표가</p>
+<ul>
+<li>현 지표 [실측 09-16]: 현재가 25,400 / 시총 2,038억 / PBR 2.05 / BPS 12,376 / 주식수 ~802만주.</li>
+<li>PER 착시 교정: 헤드라인 PER 7.97(2025 순익 255.6, 일회성 포함). 정상화 2025 순익 [추정: 영업익 222×(1−법인세 22%)≈173억] → 정상화 PER ≈ 11.8배. FY26E 기준 PER = 25,400/3,364 = 7.55배 [실측/컨센].</li>
+<li>Peer: 티씨케이·하나머티리얼즈·원익QnC(반도체 소모성부품). 한투 언급 peer 밸류 20배, 사이클 저점 회복 구간 → 보수적 10~13배 적용.</li>
+<li>자체 목표가 산식:</li>
+<li>1차 = 10배 × FY26E EPS 3,364 = 33,640 → 34,000원</li>
+<li>2차 = 12배 × FY26E EPS 3,364 = 40,368 → 40,000원</li>
+<li>Bull = 12배 × FY27E EPS [추정 4,040] = 48,500원(52주고 44,600 상회)</li>
+<li>증권사 목표가 병기: 미확인(NR). 자체값(34,000~40,000)만 사용.</li>
+</ul>
+<p>⑤ 손익비 (진입 25,400 기준)</p>
+<ul>
+<li>상방: 1차 34,000 = <span class="up">+33.9%</span> / 2차 40,000 = <span class="up">+57.5%</span></li>
+<li>하방: 손절 23,300 (20일저점 23,750·MA20 24,867 이탈 확인 종가, ≈25,400−1.8×ATR) = −8.3%</li>
+<li>손익비 = 33.9 ÷ 8.3 = 1:4.1 (1차) / 1:6.9 (2차)</li>
+</ul>
+<p>→ 손익비 양호. 단 판정은 &#x27;관심&#x27;(추세 미회복·CB오버행) — 진입은 분할·손절 준수 전제.</p>
+<p>⑥ 진입전략 (선물 미상장 → 현물 스윙)</p>
+<ul>
+<li>위치: 현재가 MA60(26,597) 아래, MA20(24,867) 위. 최근 60일 −25.3%(고점 44,600서 조정), 52주고 대비 −43%·저점(19,320) 대비 <span class="up">+31%</span> → 중단 눌림 구간.</li>
+<li>지지 25,000(MA5/현) → 24,867(MA20) → 23,750(20일저점) → 19,320(52주저). 저항 26,050(20일고)→26,600(MA60)→28,000→44,600.</li>
+<li>3라인: 진입 24,800~25,600 분할 / 손절 23,300 종가 / 목표 1차 34,000·2차 40,000. MA60(26,600) 종가 회복 시 추격 아닌 추가.</li>
+<li>⚠️ 선물 미상장 = 레버리지 불가, 현물만. 50% 집중(2.5억) 시 손절도달 손실 2,067만원=자본 4.1%로 과도 → 집중도 하향 권고.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9) [9-1 제품·연결 H1&#x27;26] SiC 부품 505억(73.8%)·FPCB 170억(24.6%)·기타 1.7% [실측]. [9-2 고객] SK하이닉스·삼성전자(SiC), 자동차 전장 OEM(FPCB). 비중 미공시(수주생산·기본거래계약 방식) [실측 반기보고서]. [9-3 시장·경쟁] 국내 A/M CVD-SiC 포커스링 최초 상용화·세계 2번째 개발 [인용 한투]. 주경쟁 티씨케이(SiC 부품). 글로벌 점유율·TAM 수치 미확인(&#x27;A/M 4년 3배&#x27; 한투 추정) → 단일출처. [9-4 단가·원가] 수주생산으로 표준단가 미공시 [실측]. 원재료 그라파이트 기재 82,157원(21기)→83,110원(22기반기), FCCL 30,574→35,337원(FPCB·상승) [실측 원재료 추이표]. [9-5 CAPA·가동률] SiC 가동률 84.3%(2025)→94.3%(2026반기, 이미 고수준). FPCB(안산) 86.6%. 증설 챔버 5대 7월 가동·capex 298.8억(~2026-06-30) [실측]. [9-7 바텀업 실적모델 FY26 연결·억원]</p>
+<ul>
+<li>Bear: 매출 1,420 / 영업익 270(OPM 19.0%) / 순익 210 / EPS 2,620 — 챔버 램프 지연·FPCB 마진악화</li>
+<li>Base: 매출 1,532 / 영업익 323(21.1%) / 순익 270 / EPS 3,364 — 한투·컨센</li>
+<li>Bull: 매출 1,620 / 영업익 360(22.2%) / 순익 310 / EPS 3,870 — 블로거 근접</li>
+</ul>
+<p>산식: SiC ~1,100~1,150억(H1 505 + 챔버5대 하반기 램프) + FPCB ~380~400억. 원가율 최근4Q·증설 감가 반영.</p>
+<ul>
+<li>분기배분(Base): 3Q&#x27;26 영업익 85~95억 / 4Q&#x27;26 90~100억(H2 OP 183억).</li>
+<li>민감도: SiC 단가·가동률 ±10% → 영업익 ±35억 / FPCB 가격경쟁으로 OPM −2%p → 영업익 −30억 / 전방 CAPEX 1분기 지연 → 분기매출 −60억.</li>
+<li>★결론 문장: &quot;3Q&#x27;26 연결 영업이익 ≥ 85억(Base)이면 논지 유지·추가매수 검토, &lt; 65억(Bear, Q2&#x27;26 62.6 이하)이면 논지 폐기.&quot;</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오</p>
+<ul>
+<li>촉매(날짜확정): 3Q&#x27;26 분기보고서 법정기한 2026-11-14(챔버 5대 가동효과 첫 확인) / 자사주 취득신탁 진행 2026-09-02~2027-03-02(30억) / 낸드 업황 이벤트(블로거 견해, 날짜 미확정=추정).</li>
+<li>반증 3개: ①3Q&#x27;26 연결 영업익 &lt; 65억 ②종가 23,300 이탈 ③CB 전환권 평가손 확대로 순익 적자 지속 or 유상증자·CB 추가발행 공시.</li>
+<li>이벤트 매트릭스(3Q 실적):</li>
+<li>서프라이즈(OP≥95)×갭상승 → 34,000 목표 유지·눌림 추가 / 갭하락 → 종가확인 후 진입</li>
+<li>인라인(OP 85~95)×보합 → 보유·MA60 회복 시 추가</li>
+<li>쇼크(OP&lt;65)×갭하락 → 반증①발동, 손절·청산</li>
+<li>확률가중 시나리오: Bear 30%(목표 22,000, −13.4%) / Base 50%(34,000, <span class="up">+33.9%</span>) / Bull 20%(42,000, <span class="up">+65.4%</span>) → 기대수익률 [산식: 0.3×−13.4<span class="up">+0.5</span>×33.9<span class="up">+0.2</span>×65.4] = <span class="up">+26.0%</span>.</li>
+<li>수급·유동성 [실측 enrich 20일]: 외국인 −44.3%(순매도)·기관 <span class="up">+24.6%</span>(순매수)·개인 <span class="up">+19.9%</span>. 공매도 20일평균 2.62%(특이없음). ADV20 12.4억 → 1일 체결상한(ADV10%) 1.24억.</li>
+<li>포지션 사이징(자산 5억): 리스크예산 0.5%(고변동 regime, VKOSPI 46.9)=250만 ÷ 주당리스크 2,100원 = 1,190주(~3,020만·자본6%). 1% 적용 시 2,380주(~6,050만·12%). 유동성상한 미저촉. → 채택값 3,000~6,000만(고변동이라 0.5% 권고). 50% 집중은 손절리스크 4.1%로 과도 → 회피.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 원문은 비나인 스크랩 블로거(min_hyo0303) 개인 의견 — 확정호재로 받지 말 것. 증권사/블로거 추정치는 &#x27;추정&#x27;, 실측 못한 값은 &#x27;미확인&#x27; 표기.</p>
+<p>[미확인 목록] 증권사 목표주가(NR) / 영업현금흐름·이자보상배율 / SiC 글로벌 점유율·TAM 정확값 / 고객별 납품비중 / 자사주 &#x27;소각&#x27; 여부 / CB 전환권 평가손 정확금액. [출처] DART 사업보고서 20260319000017·반기보고서 20260813001737·자사주신탁 20260902000070·신규시설투자 20260629900976 / KIS 시세 09-16 / stockeasy 한투 2025-10-29·2025-09-25 / fnguide FY26 컨센 / 한투·KB·아시아경제(웹) / 비나인 스크랩 min_hyo0303 2026-09-15. [검산] 연간 OP=분기합(163.6<span class="up">+58.8</span>=222.4 ✓) / H1&#x27;26=Q1+Q2(348.7<span class="up">+343.5</span>=692.2≈690.7, 반올림 ✓) / 손익비 헤더·본문 1:4.1 일치 ✓ / 시나리오 확률합 100% ✓.</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-16 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 25,400원 (<span class="up">+0.0%</span>) · 시총 2,038억 · 5일 <span class="up">+0.6%</span> / 20일 <span class="up">+1.2%</span> / 60일 <span class="down">-25.3%</span></li>
+<li>MA5 25,410원 / MA20 24,868원 / MA60 26,597원 → MA20 이격 <span class="up">+2.1%</span> · MA60 이격 <span class="down">-4.5%</span></li>
+<li>52주 고 44,600원 / 저 19,320원 → 고점 대비 <span class="down">-43.0%</span> · 20일 고 26,050원 / 저 23,750원</li>
+<li>후행 PER 7.97 / PBR 2.05 (EPS 3,185원 · BPS 12,376원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 12.4억 (5일 11.3억)</li>
+<li>외국인 순매수 5일 -9.5억 / 20일 -44.3억 · 기관 5일 11.4억 / 20일 24.6억 · 개인 20일 19.9억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 3.50% / 20일 평균 2.62% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 8.98% (09/15) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 34,000원 (<span class="up">+33.9%</span>) ÷ 하방 23,300원 (−8.3%) = <strong>1:4.10</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (운용 5억 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산: 250만원 ÷ (진입 25,400원 − 손절 23,300원 = 2,100원) = <strong>1,190주 ≈ 0.30억</strong></li>
+<li>유동성상한: 20일 ADV 12.4억 × 10% = 1일 1.24억 (분할 시 일수 = 목표금액 ÷ 이 값)</li>
+<li>채택 상한 = 최소값 → <strong>리스크예산(0.5%) 0.30억 (6% of 자산)</strong></li>
+<li>⚠️ 손절폭 8.3% · ATR14 1,182원 (손절폭/ATR 1.8배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 8.3% = ATR14 × 1.8배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 23,626원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:4.85</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 無 현재가: 25,400원 진입: 24,800~25,600원 (분할, MA20~현재가) 손절: 23,300원 (종가) 목표: 1차 34,000원 (2차 40,000원) 손익비: 1:4.1 기간: 스윙 6~12주 촉매: 2026-11-14 3Q 분기보고서(챔버 5대 가동효과)·자사주신탁(~2027-03-02) 반증: 3Q&#x27;26 연결 영업익 &lt; 65억 or 종가 23,300 이탈 or CB평가손 확대 적자지속/증자·CB추가발행</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
