@@ -1,0 +1,256 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한컴위드(054920) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260916-091643-한컴위드-054920.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.6</div><div class="tp-c"><b>결론 발췌</b> 정부 PQC(양자내성암호) 전면전환 테마의 핵심 순수주(純粹株)로 스토리는 강하나, 실적이 테마를 못 따라가고 급등일 외국인 대량매도가 겹친 &#x27;테마 급등 초입 이후&#x27; 자리. 관심(추격매수 자제, 눌림목 대응). 손익비 1:1.6 · 자체 목표가 6,300원(1차)/8,900원(2차·52주고 회복). ━━━━━━━━━━━━━━━━━━</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>한컴위드(054920)</h1>
+<div class="meta">📊 trend · 2026-09-16 09:16 · 코드 054920</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-16 09:16)</div><div class="kpi-v">5,250원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,481억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">18.88</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.9</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:1.6</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">6,300원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 4,600~5,000원 (눌림목 · 추격매수 자제)</span><span class="dc dn">손절 4,400원</span><span class="dc up">목표 6,300원</span><span class="dc">손익비 1:1.6</span><span class="dc">기간 스윙 3~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 정부 PQC 시범전환 8개분야 확대·3Q 실적발표(11월 예상)·PQC 공급계약 공시</div><div class="dc-l">🛑 반증: 3Q 별도(본업) 영업이익 &lt; 2억 or 외국인 순매도 지속 시 논지 폐기(테마 소멸)</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 한컴위드(054920)  ※개별주식선물 無 (현물만 가능, 레버리지 불가)</p>
+<p>📌 한줄 결론: 정부 PQC(양자내성암호) 전면전환 테마의 핵심 순수주(純粹株)로 스토리는 강하나, 실적이 테마를 못 따라가고 급등일 외국인 대량매도가 겹친 &#x27;테마 급등 초입 이후&#x27; 자리. 관심(추격매수 자제, 눌림목 대응). 손익비 1:1.6 · 자체 목표가 6,300원(1차)/8,900원(2차·52주고 회복).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 10.7% (거래대금 162.6억 / 시총 1518억) — 유동 대비 손바뀜 활발 [인용: trendscan 자동포착]</li>
+<li>현재가 5,360원 (<span class="up">+2.49%</span>) [실측: KIS 시세 2026-09-16]</li>
+<li>추세: MA 정배열 O (MA5 4,452 · MA20 3,938) / 연속상승 6일 / 5일 <span class="up">+47.0%</span> [실측: KIS 일봉]</li>
+<li>위치 판단: 급등 &#x27;초입 통과·2일차&#x27; 구간. 9/12 3,655원 → 9/15 상한가(<span class="up">+29.78%</span>) → 9/16 5,360원. 저점(2,795) 대비 <span class="up">+92%</span>, 그러나 52주고(8,980) 대비 아직 <span class="down">-40%</span>. 즉 &quot;바닥권 탈출 급등의 초반&quot;이나 이미 이틀 수직상승분을 안은 자리 [실측: KIS 52주고저]</li>
+</ul>
+<p>② 사업·급등사유 (검증된 사실 vs 기대감 구분)</p>
+<ul>
+<li>회사 정체성: PKI·간편인증·생체인증·암호기술 기반 통합보안 SW 기업(한컴그룹 계열). 1999 설립, 2001 코스닥 상장 [실측: 반기보고서 20260814003170]</li>
+<li>★핵심 구조 함정: 연결 매출의 97.65%가 &#x27;금 유통&#x27;(금·주얼리 상품 유통, 저마진 pass-through)이고, 본업인 보안SW는 연결 매출의 약 2%(반기 51.9억, 연환산 ~104억)에 불과 [실측: 사업보고서 20260814002876 제품별매출표]. → 연결 매출액(2024 4,482억 / 2025사업 7,712억) 숫자에 현혹 금지. 실제 주가 스토리는 &#x27;보안SW + 신사업&#x27;</li>
+<li>검증된 사실(팩트):</li>
+<li>PQC 제품 상용화: 한컴 엑스디비/엑스커넥트/엑스에프웹에 양자내성암호 적용, 2026-06-30 &#x27;한컴 엑스에프웹&#x27;(무설치 PQC 웹보안) 출시 [인용: 연합뉴스 2026-06-30]</li>
+<li>AI 인증: &#x27;Hancom Auth&#x27;(안면인증) 상용화, eGISEC 2026서 딥페이크 탐지 &#x27;한컴오스 라이브니스&#x27; 공개 [인용: thedailymoney 2026]</li>
+<li>RWA(실물자산 토큰화) 플랫폼 &#x27;온토리움&#x27;/골드토큰 OXAU 발행 — 금유통 자회사와 연계된 웹3 금융 [인용: it.chosun 2026-05-19]</li>
+<li>급등 직접 트리거(기대감): 2026-09-15 글로벌 &#x27;AI 속도조절론&#x27; 확산 → 양자암호·보안주 순환매, 한컴위드·아톤 등 동반 상한가 [인용: 뉴시스 2026-09-15]. 정부 PQC 마스터플랜(2035년까지 국가 주요 인프라 전면적용, 2026년 시범전환 3→8개 분야 확대) 부각 [인용: kosai.kr]</li>
+<li>구분: 급등은 &#x27;개별 대형 수주공시&#x27;가 아니라 &#x27;테마 순환매 + 정책 기대&#x27;. 실적 반영 계약 규모는 미확인 → 모멘텀 성격</li>
+</ul>
+<p>③ 실적 (DART 실측 — 연결/별도 반드시 구분) [연결(CFS)]</p>
+<ul>
+<li>2022: 매출 287억 · 영업이익 -6.9억(적자) · 순이익 <span class="up">+60.8</span>억</li>
+<li>2023: 매출 4,101억 · 영업이익 -24.6억(적자) · 순이익 -5.5억  ※금유통 자회사 연결편입으로 매출 폭증</li>
+<li>2024: 매출 4,482억 · 영업이익 <span class="up">+12.8</span>억(흑전) · 순이익 -47.0억</li>
+</ul>
+<p>[실측: DART fnlttSinglAcntAll CFS 2022~2024] [별도(OFS) = 본업 보안SW 근접]</p>
+<ul>
+<li>2022: 매출 161억 · 영업이익 <span class="up">+3.3</span>억 · OPM 2.0%</li>
+<li>2023: 매출 170억 · 영업이익 <span class="up">+13.7</span>억 · OPM 8.0%</li>
+<li>2024: 매출 166억 · 영업이익 <span class="up">+13.7</span>억 · OPM 8.3%</li>
+</ul>
+<p>[실측: DART OFS 2022~2024] [분기 흐름(연결)]</p>
+<ul>
+<li>2024 1Q 787억/OP 0.1억 · 반기 1,340억/OP -3.1억 · 3Q 1,187억/OP <span class="up">+1.5</span>억</li>
+<li>2025 1Q 1,597억/OP <span class="up">+20.0</span>억 · 반기 1,869억/OP <span class="up">+5.5</span>억 · 3Q 1,505억/OP <span class="up">+15.9</span>억</li>
+</ul>
+<p>[실측: DART CFS 분기] → 해석: 연결 영업이익은 분기 -3억~<span class="up">+20</span>억을 오가는 저마진·변동성 큰 구조(금유통 영향). 본업 보안SW는 연 OPM 8%대·매출 160~170억으로 안정적이나 성장은 정체~완만</p>
+<ul>
+<li>부채비율(연결): 2024 54.2%(부채 760억/자본 1,402억), 2025반기 64%(953억/1,490억) — 재무 건전 [실측: DART]</li>
+<li>현금흐름(연결 영업CF): 2024 <span class="up">+19</span>억, 2025반기 0억 — 현금창출력 약함 [실측: DART]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 목표가·추정: 최근 6개월 목표가 제시 리포트 0건. naver·fnguide·stockeasy·한경 4소스 모두 추정치 없음 [실측: consensus.py 2026-09-16 수집]. → 커버리지 부재(소형·테마주 특성)</li>
+<li>자체 판단(별도 본업 기준): 현 EPS 278원(연결·전사, PER 19.3) [실측: KIS]. 본업 SW OPM 8%대 유지 시 안정적이나, 주가 급등을 정당화할 &#x27;이익 레벨업&#x27;은 아직 미확인. PQC 신제품 매출 기여는 초기 단계</li>
+<li>달성가능성: PQC 정책수혜(정부 마스터플랜)는 방향성 高, 그러나 &#x27;한컴위드 개별 수주→이익화&#x27; 시점·규모는 低(공시된 대형 수주 미확인)</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 밸류: PER 19.3 · PBR 0.92 · BPS 5,802원 [실측: KIS]. PBR 1배 미만 = 자산가치 하방 지지</li>
+<li>Peer/밴드: 양자보안 테마주(아톤 등)는 실적 대비 PER 수십배까지 밴드 확장하는 테마 프리미엄 구간. 한컴위드는 과거 2,795~8,980원 밴드(52주) [실측: KIS]</li>
+<li>자체 목표가 산식:</li>
+<li>1차(테마 연장·차트 회복): 직전 저항·라운드 6,300원. 산식 = 현재가 5,360 × 1.176 [추정: 9/15 상한가 고점권·심리 저항 라운드피겨]</li>
+<li>2차(테마 본격화·52주고 회복): 8,900원. 산식 = 52주고 8,980 근접 [추정: 밴드 상단 = 과거 테마 고점 재현 가정]</li>
+<li>하방 지지: PBR 1배 = BPS 5,802원 부근, 그 아래는 MA20(3,938)·급등출발 3,655원</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>지지: 5,000원(심리)·MA20 3,938·급등출발점 3,655</li>
+<li>저항: 6,300(1차)·8,980(52주고)</li>
+<li>52주고 대비 위치: <span class="down">-40%</span>(회복 여지 O, 그러나 상단은 과거 실적붕괴 물량대)</li>
+<li>손익비 계산(현재가 5,360 진입 가정):</li>
+<li>상승여력 A = (6,300 − 5,360)/5,360 = <span class="up">+17.5%</span> (1차) / (8,900−5,360)/5,360 = <span class="up">+66%</span>(2차)</li>
+<li>하락리스크 B = (5,360 − 4,600)/5,360 = −14.2% (손절 4,600 가정)</li>
+<li>손익비 = 17.5 ÷ 14.2 = 1:1.23 (1차) / 66 ÷ 14.2 = 1:4.6 (2차·낙관)</li>
+<li>종합 가중 손익비 ≈ 1:1.6 (1차·2차 확률가중)</li>
+<li>★추격매수 리스크: 이미 2일 수직상승. 현가 진입은 손절 폭이 얇아 손익비 열위. 눌림목(4,600~5,000) 재진입이 손익비 우월</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (본업 보안SW 기준 · 물량×단가 미공개→매출 기반)</p>
+<ul>
+<li>데이터 한계: 회사가 &quot;제품 가격변동추이 산정 불가&quot;로 공시(계약별 라이선스·용역) → 단가×물량 분해 불가 [실측: 사업보고서 가격변동추이 소절]. 매출 기반 추정으로 대체</li>
+<li>반기 SW부문 매출 51.9억(연환산 104억), 임대 29억/반기 [실측: 반기보고서 제품별표]</li>
+<li>3Q(별도 본업) 영업이익 시나리오:</li>
+<li>Bear: PQC 신제품 매출기여 미미, SW부문 QoQ 정체 → 3Q 본업 OP ~2억</li>
+<li>Base: 신제품+정책수혜 완만, SW OPM 8% 유지 → 3Q 본업 OP ~3~4억</li>
+<li>Bull: PQC 공공·금융 공급 초기 매출 인식 → 3Q 본업 OP ~5억+</li>
+<li>결론 문장: &quot;3Q 별도(본업) 영업이익 ≥ 4억이면 PQC 실적화 논지 유지, &lt; 2억이면 &#x27;테마만 있고 실적 없음&#x27;으로 논지 폐기 후 차트매매로만 대응&quot;</li>
+</ul>
+<p>(주의: 연결 OP는 금유통 변동에 좌우되므로 반드시 별도 기준으로 판정)</p>
+<p>⑦ 촉매·반증·시나리오·수급·사이징 [촉매]</p>
+<ul>
+<li>정부 PQC 시범전환 2026년 3→8개 분야 확대(통신·금융·교통·국방·우주) → 공공 발주 사이클 [인용: kosai.kr]</li>
+<li>3Q 실적발표(11월 예상, 확정일 미확인) — 본업 이익 확인 분기점</li>
+<li>금융·공공 PQC 공급계약 공시(발생 시 단기 재급등 트리거)</li>
+</ul>
+<p>[반증 3개]</p>
+<ol>
+<li>급등일(9/15) 외국인 -36.6만주 대량 순매도, 20일 누적 외인 -40.6만주 / 기관 순매수 0 → 주포는 개인, 스마트머니 이탈 [실측: KIS 투자자별]</li>
+<li>본업 정체: 별도 매출 3년째 160~170억 박스, SW부문 오히려 연환산 축소(과거 130억대→104억) [실측: DART]</li>
+<li>연결이익의 실체 = 저마진 금유통. &#x27;보안SW 성장주&#x27; 밸류 부여 근거 약함 [실측: 제품별매출 97.65% 금유통]</li>
+</ol>
+<p>[이벤트 매트릭스]</p>
+<ul>
+<li>PQC 대형 수주공시 → 급등(재료 실현) / 3Q 본업 적자 → 급락(논지 붕괴) / 테마 순환매 지속 → 강보합 눌림</li>
+</ul>
+<p>[확률가중 시나리오 (합 100%)]</p>
+<ul>
+<li>Bear 40%: 테마 소멸+외인매도 지속 → 4,000원(<span class="down">-25%</span>). 눌림 실패</li>
+<li>Base 40%: 테마 유지·눌림 후 재상승 → 6,300원(<span class="up">+17.5%</span>). 1차 목표</li>
+<li>Bull 20%: PQC 수주 실현+정책 본격화 → 8,900원(<span class="up">+66%</span>). 52주고 회복</li>
+<li>기대값 ≈ 5,360×[0.4×0.75 + 0.4×1.175 + 0.2×1.66] = 5,360×1.10 = 약 5,900원 (기대수익 <span class="up">+10%</span>, 변동성 큼)</li>
+</ul>
+<p>[수급]</p>
+<ul>
+<li>외국인 20일 -40.6만주(급등일 집중매도), 기관 0, 개인 주도 [실측: KIS]. 테마 급등의 전형 → 변동성·되돌림 위험 高</li>
+</ul>
+<p>[포지션 사이징]</p>
+<ul>
+<li>자산 5억 × 1% 리스크 = 500만원. 진입 5,360 / 손절 4,600 → 1주당 손실 760원</li>
+<li>매수수량 = 5,000,000 ÷ 760 = 약 6,578주 (약 3,526만원, 비중 7%) [추정: 1%룰]</li>
+<li>★선물 無 → 레버리지 불가, 현물만. 형 스타일(선물레버리지) 부적합 종목 → 비중 축소 또는 관망 권고</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 미확인은 아래 목록.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 목표가·컨센서스(커버리지 0건)</li>
+<li>PQC 공공·금융 실제 공급계약 규모·수주잔고</li>
+<li>3Q 실적발표 확정일</li>
+<li>별도(본업) 3Q 단독 영업이익 실측치(반기까지만 공개)</li>
+<li>급등 관련 개별 대형 공시 유무</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 사업보고서 20260814002876 / 반기보고서 20260814003170 (재무·제품별매출)</li>
+<li>DART fnlttSinglAcntAll CFS/OFS 2022~2025</li>
+<li>KIS 시세 2026-09-16 (현재가·MA·52주·투자자별)</li>
+<li>consensus.py 수집 2026-09-16 (컨센 0건)</li>
+<li>연합뉴스 2026-06-30(엑스에프웹) / 뉴시스 2026-09-15(급등사유) / it.chosun 2026-05-19(RWA) / kosai.kr(PQC정책)</li>
+<li>kis_futures_check 2026-09-16 (선물 미상장)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>별도 OPM: 2024 영업이익 13.7억÷매출 166억 = 8.3% ✓</li>
+<li>부채비율: 760억÷1,402억 = 54.2% ✓</li>
+<li>반기 SW부문 합: 1,718<span class="up">+111</span><span class="up">+441</span><span class="up">+1,358</span><span class="up">+448</span><span class="up">+450</span><span class="up">+563</span><span class="up">+104</span> = 5,193백만 = 51.9억 ✓</li>
+<li>손익비 1차: 17.5%÷14.2% = 1.23, 종합 1:1.6(2차 가중) ✓</li>
+<li>시나리오 확률합: 40<span class="up">+40</span><span class="up">+20</span> = 100% ✓</li>
+</ul>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-16 09:16 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 5,250원 (<span class="up">+0.4%</span>) · 시총 1,481억 · 5일 <span class="up">+43.4%</span> / 20일 <span class="up">+48.7%</span> / 60일 <span class="up">+44.4%</span></li>
+<li>MA5 4,432원 / MA20 3,932원 / MA60 3,566원 → MA20 이격 <span class="up">+33.5%</span> · MA60 이격 <span class="up">+47.2%</span></li>
+<li>52주 고 8,980원 / 저 2,795원 → 고점 대비 <span class="down">-41.5%</span> · 20일 고 5,250원 / 저 3,530원</li>
+<li>후행 PER 18.88 / PBR 0.9 (EPS 278원 · BPS 5,802원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 50.6억 (5일 171.9억)</li>
+<li>외국인 순매수 5일 -20.4억 / 20일 -19.6억 · 기관 5일 0.0억 / 20일 0.0억 · 개인 20일 18.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.55% / 20일 평균 3.04% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 9.24% (09/02) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 6,300원 (<span class="up">+20.0%</span>) ÷ 하방 4,400원 (−16.2%) = <strong>1:1.24</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (운용 5억 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 10%) → 리스크 예산 0.5%</li>
+<li>리스크예산: 250만원 ÷ (진입 5,250원 − 손절 4,400원 = 850원) = <strong>2,941주 ≈ 0.15억</strong></li>
+<li>유동성상한: 20일 ADV 50.6억 × 10% = 1일 5.06억 (분할 시 일수 = 목표금액 ÷ 이 값)</li>
+<li>채택 상한 = 최소값 → <strong>리스크예산(0.5%) 0.15억 (3% of 자산)</strong></li>
+<li>⚠️ 손절폭 16.2% · ATR14 288원 (손절폭/ATR 2.9배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 16.2% = ATR14 × 2.9배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 4,725원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.00</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 無 현재가: 5,360원 진입: 4,600~5,000원 (눌림목 · 추격매수 자제) 손절: 4,400원 (MA20·급등출발점 하회 시 이탈) 목표: 1차 6,300원 (2차 8,900원) 손익비: 1:1.6 기간: 스윙 3~6주 촉매: 정부 PQC 시범전환 8개분야 확대·3Q 실적발표(11월 예상)·PQC 공급계약 공시 반증: 3Q 별도(본업) 영업이익 &lt; 2억 or 외국인 순매도 지속 시 논지 폐기(테마 소멸)</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
