@@ -1,0 +1,623 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>로보티즈(108490) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260916-115912-로보티즈-108490.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3</div><div class="tp-c"><b>결론 발췌</b> 실적 실체(2Q26 연결 OPM 12.9% 흑자전환)와 수급(20일 외인+기관 1,876억) 모두 진짜입니다. 다만 현재가 311,500원은 MA20 대비 +11.6% 떠 있어 지금 추격하면 손익비가 1:1.4밖에 안 나옵니다. 판정은 &#x27;관심&#x27; — 288,000원(MA20 279,050 위) 눌림 대기 시 손익비 1:3.0, 1차 목표 365,000원(2차 430,000원)입니다. ---</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>로보티즈(108490)</h1>
+<div class="meta">📊 trend · 2026-09-16 11:59 · 코드 108490</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-16 11:59)</div><div class="kpi-v">313,500원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">4.6조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">831.56</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">14.44</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:3</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">365,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 282,000~295,000원</span><span class="dc dn">손절 262,000원</span><span class="dc up">목표 365,000원</span><span class="dc">손익비 1:3</span><span class="dc">기간 스윙 8~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-16 3Q26 분기보고서 법정기한</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 10억원이면 논지 폐기·전량 청산 / ≥ 25억원이면 추가매수 검토 · 3Q26 연결 매출 &lt; 140억원이면 폐기 · 종가 262,000원 이탈 시 전량 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 로보티즈(108490)  ※개별주식선물 有(근월물 A2X610)</p>
+<p>📌 한줄 결론: 실적 실체(2Q26 연결 OPM 12.9% 흑자전환)와 수급(20일 외인+기관 1,876억) 모두 진짜입니다. 다만 현재가 311,500원은 MA20 대비 <span class="up">+11.6%</span> 떠 있어 지금 추격하면 손익비가 1:1.4밖에 안 나옵니다. <strong>판정은 &#x27;관심&#x27;</strong> — 288,000원(MA20 279,050 위) 눌림 대기 시 손익비 1:3.0, 1차 목표 365,000원(2차 430,000원)입니다.</p>
+<hr>
+<h2 id="포착-신호">① 포착 신호</h2>
+<ul>
+<li>회전율 2.54% (20일 평균 거래대금 1,159억 / 시총 45,688억) [실측: enrich.py KIS 일봉·2026-09-16 11:47]</li>
+<li>5일 평균 거래대금 1,445억으로 20일 대비 <span class="up">+24.6%</span> 가속 [실측: 동일]</li>
+<li>추세: <strong>MA 완전 정배열 O</strong> — 현재가 311,500 &gt; MA5 321,500 ✗ / MA20 279,050 / MA60 242,660 [실측: 동일]</li>
+<li>단, 당일 <span class="down">-4.01%</span> 조정으로 MA5(321,500)는 이미 이탈. 5일선 아래 첫 캔들 [실측: 동일]</li>
+<li>20일 수익률 <span class="up">+16.67%</span>, 60일 <span class="up">+7.79%</span>, 5일 <span class="up">+0.48%</span> → <strong>20일 랠리는 이미 한 차례 소화, 단기 과열 해소 국면</strong> [실측: 동일]</li>
+<li>현 위치: 52주 고점 464,000 / 저점 99,600 대비 <strong>58.2% 지점</strong> [추정: (311,500-99,600)÷(464,000-99,600)]</li>
+<li>고점권 아님. 다만 20일 고점 324,500 대비 <span class="down">-4.0%</span>, 20일 저점 242,000 대비 <span class="up">+28.7%</span></li>
+</ul>
+<ul>
+<li><strong>수급 재검증(배경 수치와 차이 있음 — 갱신치 사용)</strong> [실측: enrich.py KIS 투자자별·2026-09-16 11:47]</li>
+<li>외국인: 5일 <strong>-194.67억(순매도 전환)</strong> / 20일 <span class="up">+1,280.61</span>억</li>
+<li>기관: 5일 <span class="up">+358.21</span>억 / 20일 <span class="up">+595.54</span>억</li>
+<li>개인: 20일 -1,884.76억</li>
+<li>20일 외인+기관 합계 <strong>1,876.15억 = 시총의 4.11%</strong></li>
+<li>※ 의뢰 배경의 &quot;5일 721억 동반 순매수(9/15 마감 기준)&quot;는 <strong>9/16 장중 외국인 순매도로 무효화</strong>됐습니다. 5일 기준으로는 더 이상 &#x27;동반 순매수&#x27;가 아닙니다. 20일 기준은 유효.</li>
+<li>공매도: 당일 0.00% / 5일 평균 4.06% / <strong>20일 평균 10.24%</strong> / 20일 최대 22.24%(08/20) · 추세 &#x27;감소&#x27; [실측: enrich.py short_md·42영업일]</li>
+<li>→ 공매도 압력 높은 구간이었으나 최근 5일 4.06%로 급감. 숏커버가 20일 랠리의 일부였을 가능성.</li>
+<li>변동성 레짐: RV20 <strong>43.52%(1,250일 중 90.5분위 = 고변동)</strong>, VKOSPI 45.63 [실측: enrich.py vol_regime·2026-09-15]</li>
+<li>→ 리스크예산을 1%가 아닌 <strong>0.5%로 축소 적용</strong>해야 하는 구간입니다.</li>
+</ul>
+<hr>
+<h2 id="사업급등사유">② 사업·급등사유</h2>
+<p><strong>무엇을 파는가</strong> [실측: 반기보고서 2026.06, 접수번호 20260814003380]</p>
+<ul>
+<li>액츄에이터(DYNAMIXEL) — 1H26 매출 <strong>266.65억(97.99%)</strong>. 모터·감속기·제어기·통신을 하나로 묶은 All-in-one 로봇 구동 모듈</li>
+<li>자율주행로봇(개미) — 1H26 매출 <strong>5.48억(2.01%)</strong></li>
+<li>→ <strong>사실상 액추에이터 단일 제품 회사</strong>입니다. 휴머노이드/완제품 스토리는 아직 매출로 안 잡혀 있습니다.</li>
+</ul>
+<p><strong>수출 구조</strong> [실측: 반기보고서 &#x27;가. 매출실적&#x27;]</p>
+<ul>
+<li>1H26 수출 도매 176.05억(55%) / 수출 직판 68.24억(21%) / 국내 도매 52.12억(16%) / 국내 직판 22.51억(7%)</li>
+<li>→ <strong>수출 비중 76%</strong>. 원달러 환율 레버리지 존재.</li>
+</ul>
+<p><strong>급등 사유 — 검증된 사실 vs 기대감 분리</strong></p>
+<p>[사실 A — DART 실측으로 확인] 2Q26 연결 흑자전환</p>
+<ul>
+<li>2Q26 연결·3개월 매출 <strong>153.72억</strong>, 영업이익 <strong><span class="up">+19.81</span>억(OPM 12.9%)</strong> [실측: 반기보고서 20260814003380, 1H26 누적 272.13억 − 1Q26 118.41억]</li>
+<li>전년 동기 2Q25 매출 78.77억·영업이익 2.41억 대비 매출 <span class="up">+95.1%</span> / 영업이익 <span class="up">+722%</span> — <strong>증권사 리포트 수치(154억/20억)와 DART 실측 일치</strong> ✓</li>
+</ul>
+<p>[사실 B — 공시 실측] 1Q26 대규모 적자는 일회성</p>
+<ul>
+<li>1Q26 연결 영업손실 <strong>-118.43억</strong> [실측: 분기보고서 20260515002269]</li>
+<li>원인: 임직원 성과보상용 자기주식 교부 비용 118억 [인용: 한화투자증권 2026-08-24 &quot;성과 보상 지급 일회성 비용(118억원) 영향으로 99억원 적자이나, 제외 시 펀더멘털 개선 추세&quot;]</li>
+<li><strong>손익 분해(잔차법 아님)</strong>: 1Q26 영업이익 -118.43억 → 법인세차감전 -96.91억. 영업 대비 <span class="up">+21.5</span>억 개선은 금융수익(이자수취 등)이며 <strong>법인세 효과가 아님</strong> [실측: 분기보고서 20260515002269 연결 IS]</li>
+<li>→ 영업악화가 아니라 주식보상 일회성입니다. 2Q26에 즉시 정상화됐습니다.</li>
+</ul>
+<p>[사실 C — 리포트 교차확인] 중국·북미 수요</p>
+<ul>
+<li>중국향 2Q26 매출 15억, 3배 증가 [인용: KB증권 2026-09-03]</li>
+<li>중국향 YoY <span class="up">+180%</span> [인용: 삼성증권 2026-08-19] / 북미 <span class="up">+142.4%</span>, 중국 <span class="up">+153.9%</span> [인용: iM증권 2026-08-19]</li>
+<li>1H26 액추에이터 출하량 <strong>20만대</strong>(교보증권 2026-08-19) 또는 <strong>23.5만대</strong>(하나증권 2026-08-18) — <strong>두 출처가 불일치</strong>하므로 병기합니다. 2025 연간 출하 22만대 대비 상반기만에 근접·초과.</li>
+</ul>
+<p>[기대감 D — 아직 매출 없음] 데이터팩토리·휴머노이드 완제품</p>
+<ul>
+<li>우즈베키스탄 데이터팩토리 2028년까지 2천명 규모 [인용: KB증권 2026-09-03] / 28년 기준 연 최대 500억 잠재력 [인용: 교보증권 2026-06-29]</li>
+<li>AI Worker·AI Sapiens 완제품 — <strong>현재 매출 기여 0%</strong>. 2.01% 자율주행로봇만 계상돼 있습니다.</li>
+</ul>
+<p>[기대감 E — 규제 수혜, 정량화 불가] 미 FCC</p>
+<ul>
+<li>미 FCC Covered List·국방부 CMC 블랙리스트에 중국 휴머노이드 포함 → 로보티즈는 FCC 인증 기보유 [인용: iM증권 2026-08-19, KB증권 2026-09-03]</li>
+<li>→ 방향은 맞지만 <strong>수혜 금액을 숫자로 제시한 리포트가 없어 모델에 반영하지 않았습니다.</strong></li>
+</ul>
+<p>[촉매 F — 9월 랠리의 직접 방아쇠]</p>
+<ul>
+<li>골드만삭스 목표가 630,000원 제시 → 당일 <span class="up">+20</span>~22% 급등 [인용: 뉴스1·메트로신문 2026-09-04 헤드라인. <strong>원문 리포트 미확보 — 헤드라인 수준 인용</strong>]</li>
+<li>허깅페이스 산하 폴렌로보틱스 &#x27;마이크로덕&#x27;(55만원 오픈소스 로봇)에 로보티즈 액추에이터 탑재, 사전주문 1만대 돌파 [인용: 유진투자증권 산업리포트 2026-09-07 &quot;로보티즈 액츄에이터 탑재 마이크로덕 사전주문 1만대 돌파&quot;]</li>
+<li>한국투자증권 2026-09-10 목표가 450,000원 유지 — <strong>&quot;허깅페이스향 중장기 액추에이터 매출 780억원 예상&quot;</strong> [인용: consensus.py·fnguide 2026-09-10]</li>
+<li>&quot;액추에이터 수주잔고 50만대 이상&quot; [인용: 한국경제 2026-09-10 헤드라인. <strong>본문·출처 미확보 — 헤드라인 수준</strong>]</li>
+</ul>
+<p><strong>판정</strong>: 테마성 급등이 아니라 <strong>실적 실체 + 구체적 신규 레퍼런스(마이크로덕)</strong>가 있는 상승입니다. 다만 밸류에이션은 이미 2028년 실적을 당겨쓰고 있습니다(⑤ 참조).</p>
+<hr>
+<h2 id="실적-dart-실측-전부-연결-기준">③ 실적 (DART 실측 — 전부 <strong>연결</strong> 기준)</h2>
+<p><strong>3개년 연간 (연결)</strong> [실측: 사업보고서 20260708000478 / 20240320001005]</p>
+<ul>
+<li>FY2023: 매출 291.3억 / 영업이익 <strong>-53.0억</strong> (OPM <span class="down">-18.19%</span>) / 순이익 -13.0억</li>
+<li>FY2024: 매출 300.4억 (<span class="up">+3.1%</span> YoY) / 영업이익 <strong>-29.7억</strong> (OPM <span class="down">-9.90%</span>) / 순이익 -30.4억</li>
+<li>FY2025: 매출 389.4억 (<span class="up">+29.6%</span> YoY) / 영업이익 <strong><span class="up">+33.5</span>억</strong> (OPM <strong>8.59%</strong>) / 순이익 <span class="up">+53.0</span>억</li>
+<li>→ 2025년이 <strong>구조적 흑자전환 원년</strong>. 3년 연속 적자 → 흑자.</li>
+</ul>
+<p><strong>최근 6개 분기 (연결·3개월)</strong> [실측: 위 보고서 + 분기/반기보고서]</p>
+<ul>
+<li>1Q25: 매출 102.23억 / 영업이익 8.26억 (OPM 8.1%)</li>
+<li>2Q25: 매출 78.77억 / 영업이익 2.41억 (OPM 3.1%)</li>
+<li>3Q25: 매출 92.40억 / 영업이익 2.24억 (OPM <strong>2.4%</strong>)</li>
+<li>4Q25: 매출 116.01억 / 영업이익 20.55억 (OPM 17.7%)</li>
+<li>1Q26: 매출 118.41억 / 영업이익 <strong>-118.43억</strong> (주식보상 118억 일회성)</li>
+<li>2Q26: 매출 153.72억 / 영업이익 <strong><span class="up">+19.81</span>억</strong> (OPM <strong>12.9%</strong>)</li>
+<li>→ <strong>3Q25 OPM이 2.4%로 계절적 최저</strong>였습니다. 3Q26 YoY 비교 기저가 매우 낮습니다.</li>
+</ul>
+<p><strong>별도 기준 참고</strong> [실측: 동일 보고서 OFS]</p>
+<ul>
+<li>FY25 별도: 매출 347.1억 / 영업이익 51.4억 (연결 33.5억보다 큼 → 해외 종속법인이 적자)</li>
+<li>1H26 별도: 매출 239.79억 / 영업이익 <strong>-41.0억</strong> (연결 -98.62억보다 손실 작음)</li>
+<li>→ 연결-별도 차이 57.6억은 종속법인(우즈벡·미국 등) 선행투자 비용. <strong>증설 국면에서 연결 OPM이 별도보다 낮게 나오는 구조</strong>입니다. 분기 판정은 반드시 연결로 하십시오.</li>
+</ul>
+<p><strong>재무건전성</strong> [실측: 반기보고서 20260814003380 연결 BS/CF]</p>
+<ul>
+<li>부채비율(반기말·연결): 부채 109.66억 ÷ 자본 3,611.26억 = <strong>3.04%</strong> — 사실상 무차입</li>
+<li>FY25말 부채비율 1.79%</li>
+<li>현금성자산 848.84억 + 단기금융상품 816.19억 + 당기손익공정가치금융자산 688.39억 = <strong>약 2,353억 순현금</strong></li>
+<li>이자보상배율: 1H26 이자지급 0.78억 vs 이자수취 21.68억 → <strong>차입 부담 없음(산정 무의미)</strong></li>
+<li>영업활동현금흐름: 1H26 <strong><span class="up">+10.93</span>억</strong> (FY25 <span class="up">+70.75</span>억). 단 &#x27;영업에서 창출된 현금&#x27;은 -0.55억 → <strong>이자수취 21.7억이 OCF를 떠받치는 구조</strong>. 운전자본(재고 136→193억, <span class="up">+42%</span>) 증가가 현금을 먹고 있습니다.</li>
+<li>유형자산 취득 1H26 <strong>117.45억</strong> (1H25 2.57억의 46배) — 우즈벡 증설 CAPEX 집행 확인 ✓</li>
+<li>자기주식 처분 411.46억(1H26) — 증설 재원 조달 완료 [실측: 반기보고서 CF]</li>
+</ul>
+<p><strong>실적 모멘텀이 상승추세를 정당화하는가</strong>: <strong>부분적으로 예</strong>. 매출 성장(2Q26 <span class="up">+95%</span> YoY)과 흑자 전환은 실체입니다. 그러나 FY26 연간 컨센서스는 여전히 <strong>영업이익 -23억(적자)</strong>이며, 1Q26 일회성을 메우기에 하반기 이익이 부족합니다.</p>
+<hr>
+<h2 id="미래실적컨센서스">④ 미래실적·컨센서스</h2>
+<p><strong>연간 컨센서스</strong> [인용: consensus.py·fnguide+naver, 추정기관 7개사, 2026-09-16 수집]</p>
+<ul>
+<li>FY26E: 매출 634억 / 영업이익 <strong>-23억</strong> / 순이익 -33억 / EPS -101원</li>
+<li>FY27E: 매출 1,180억 / 영업이익 <strong>238억</strong> / 순이익 239억 / EPS 1,589원 / ROE 6.8%</li>
+<li>FY28E: 매출 2,060억 / 영업이익 <strong>510억</strong> / 순이익 483억 / EPS 3,165원 / ROE 12.2%</li>
+<li><strong>영업이익 컨센 추이(당해 FY26)</strong>: 현재 -23억 ← 3M전 <span class="up">+93</span>억 ← 6M전 <span class="up">+74</span>억 ← 1Y전 <span class="up">+111</span>억</li>
+<li>→ <strong>FY26 컨센이 3개월 만에 93억 → -23억으로 116억 하향</strong>됐습니다. 1Q26 주식보상 118억을 뒤늦게 반영한 것으로, 실적 악화가 아니라 회계 반영입니다. 다만 <strong>컨센 하향 종목이 주가는 <span class="up">+16.7%</span>(20일) 오른 상태</strong>라는 점은 기억하십시오.</li>
+</ul>
+<p><strong>분기 컨센서스</strong> [인용: consensus.py]</p>
+<ul>
+<li>2026Q3: 매출 <strong>168억</strong> / 영업이익 <strong>25억</strong> (naver)</li>
+<li>2026Q4: 매출 200억 (wisereport)</li>
+<li>2027Q1: 매출 307억 (wisereport)</li>
+</ul>
+<p><strong>목표주가 컨센서스</strong> [인용: consensus.py 4소스 2026-09-16]</p>
+<ul>
+<li>평균 <strong>383,929원</strong> (최고 460,000 / 최저 320,000, 14건) · 증권사별 최신 평균 <strong>392,286원</strong>(7개사)</li>
+<li>투자의견: Buy 14 / NR 8 (최근 6개월), 의견평균 4.00/5</li>
+</ul>
+<p><strong>증권사별 최신 목표가·산출근거</strong> [인용: stockeasy_reports.py·consensus.py]</p>
+<ul>
+<li>교보증권 2026-08-19 · Buy · <strong>460,000원</strong> — 2028년 완전가동 기준 + 중국 감속기 PEER 12MF PSR 18.4배를 COE 12.6%로 할인한 Target PSR 13.1배</li>
+<li>한국투자증권 2026-09-10 · 매수 · <strong>450,000원</strong>(변동없음) — 허깅페이스향 중장기 액추에이터 매출 780억 예상</li>
+<li>iM증권 2026-08-19 · Buy(Initiate) · <strong>400,000원</strong> — 2028년 매출 추정치 × Target PSR 30배</li>
+<li>현대차증권 2026-08-26 · Buy · <strong>380,000원</strong>(403,000 → 하향) — 2027F SPS 8,253원 × 국내 로보틱스 2027F PSR 평균 <span class="down">-10%</span> 할인 = 46.0배</li>
+<li>미래에셋증권 2026-08-24 · Buy(신규) · <strong>356,000원</strong> — 27F SPS 8,408원 × 글로벌 휴머노이드 밸류체인 Peer 평균 35.3배 <span class="up">+20%</span> 할증 = 42.3배</li>
+<li>삼성증권 2026-08-19 · Buy · <strong>350,000원</strong>(320,000 → 상향) — 2028년 추정매출 × 국내 로봇 밸류체인 2025 평균 PSR 39배</li>
+<li>한화투자증권 2026-08-24 · Buy · <strong>350,000원</strong>(320,000 → 상향) — 12M FWD PBR/PSR Band 중상단(12.3배/58.3배)</li>
+<li>골드만삭스 2026-09-04 · <strong>630,000원</strong> [인용: 뉴스1 2026-09-04 헤드라인 — <strong>원문 미확보</strong>]</li>
+</ul>
+<p><strong>달성 가능성 판정</strong></p>
+<ul>
+<li>FY26 매출 634억 → <strong>達 가능성 高</strong></li>
+<li>산식: 1H26 실적 272.13억 [실측] + 3Q 컨센 168억 + 4Q 컨센 200억 = <strong>640억</strong> ≈ 컨센 634억 ✓</li>
+<li>2Q26 런레이트 153.72억 × 2 = 307억(하반기) → 하반기 컨센 368억 대비 <strong><span class="up">+20%</span> 성장 필요</strong>. 우즈벡 4Q 가동(한화투자 2026-08-24) 감안 시 합리적.</li>
+</ul>
+<ul>
+<li>FY26 영업이익 -23억 → <strong>達 가능성 中</strong></li>
+<li>산식: 1H26 -98.62억 [실측] + 3Q 25억 + 4Q 50억 = -23.6억 ✓ 계산은 맞습니다.</li>
+<li>단 <strong>4Q에 50억(OPM 25%)을 요구</strong>합니다. 최고 기록이 4Q25의 OPM 17.7%였습니다. 우즈벡 초기 가동 감가상각·램프업 비용이 4Q에 들어오면 달성이 어렵습니다. → <strong>컨센 영업이익은 다소 낙관적</strong>으로 봅니다.</li>
+</ul>
+<ul>
+<li>FY27 매출 1,180억(<span class="up">+86%</span> YoY) → <strong>達 가능성 中</strong></li>
+<li>근거 O: 우즈벡 CAPA 2027년 100만대(현대차증권 2026-08-26 / 교보 2026-06-29), &#x27;27년 출하량 88.5만대 전망(한화투자 2026-08-24)</li>
+<li>근거 X: <strong>수주잔고가 DART에 미공시</strong>(사업보고서·반기보고서 &#x27;수주상황&#x27; 모두 미확인). 50만대 수주잔고는 언론 헤드라인뿐이라 검증 불가.</li>
+<li>병목 리스크: <strong>모터 영구자석 등 부품 수급 문제</strong>로 26년 출하량을 목표 50만대 → 43.5만대로 하향 추정 [인용: 교보증권 2026-08-19, 한화투자 2026-07-01]</li>
+</ul>
+<ul>
+<li>FY28 매출 2,060억 → <strong>達 가능성 低~中</strong>. 데이터팩토리 매출(연 500억 잠재) 가정이 포함돼 있으나 <strong>현재 매출 0원</strong>입니다.</li>
+</ul>
+<hr>
+<h2 id="밸류에이션목표가">⑤ 밸류에이션·목표가</h2>
+<p><strong>현재 멀티플</strong> [실측: enrich.py 2026-09-16 / 컨센: fnguide]</p>
+<ul>
+<li>현재가 311,500원 · 시총 45,688억 · 발행주식수 약 14,667천주 [추정: 시총÷주가, 자본금 7,330,514,000÷500 = 14,661천주와 일치 확인]</li>
+<li>후행 PER <strong>826.3배</strong> / PBR <strong>14.35배</strong> (BPS 21,707원) — 후행 지표는 의미 없음</li>
+<li><strong>선행 PSR</strong>: FY26E 72.1배 / FY27E <strong>38.7배</strong> / FY28E <strong>22.2배</strong> [추정: 시총 45,688억 ÷ 컨센 매출]</li>
+<li><strong>선행 PER</strong>: FY27E 196배 / FY28E 98.4배 [추정: 311,500 ÷ EPS 컨센]</li>
+</ul>
+<p><strong>Peer 비교</strong> [실측: enrich.py / 인용: consensus.py 2026-09-16]</p>
+<ul>
+<li>레인보우로보틱스(277810): 시총 82,449억, PBR 61.6배, FY27E 매출 1,590억 → <strong>PSR 51.9배</strong> / FY28E 3,140억 → 26.3배. 20일 <span class="down">-8.1%</span></li>
+<li>두산로보틱스(454910): 시총 44,078억, PBR 12.64배, <strong>컨센 미확인(naver/fnguide 추정치 없음)</strong>. 20일 <span class="down">-4.9%</span></li>
+<li>에스피지(058610): 시총 4,493억, PBR 12.34배. 20일 <span class="down">-6.0%</span></li>
+<li>→ <strong>로보티즈 FY27 PSR 38.7배는 레인보우로보틱스 51.9배 대비 25% 할인</strong>. PBR 14.35배도 레인보우 61.6배 대비 크게 낮습니다. <strong>peer 대비로는 저평가</strong>입니다.</li>
+<li>→ 단, 절대 수준(PSR 38.7배)은 제조업 기준 극단적 프리미엄입니다. 또한 <strong>로보티즈만 20일 <span class="up">+16.7%</span>, peer 3사는 모두 마이너스</strong> — 로봇 섹터 내 자금이 로보티즈로 쏠린 상태입니다.</li>
+</ul>
+<p><strong>자체 목표가 산출 (계산식 노출)</strong></p>
+<ul>
+<li>방법 A — FY27 PSR</li>
+<li>FY27 SPS = 1,180억 ÷ 14,667천주 = <strong>8,045원</strong> [추정]</li>
+<li>Target PSR 44.0배 = (현대차증권 46.0배 + 미래에셋 42.3배) ÷ 2 [인용: 두 리포트의 적용 배수]</li>
+<li>목표가 = 8,045 × 44.0 = <strong>354,000원</strong></li>
+<li>방법 B — FY28 PSR</li>
+<li>FY28 SPS = 2,060억 ÷ 14,667천주 = <strong>14,045원</strong> [추정]</li>
+<li>Target PSR 27.0배 = iM증권 30배와 교보 13.1배의 중간대, 삼성 39배(국내밴드)는 제외한 보수치 [추정: 증권사 적용배수 밴드의 하위 중앙값]</li>
+<li>목표가 = 14,045 × 27.0 = <strong>379,000원</strong></li>
+<li><strong>자체 목표가 = (354,000 + 379,000) ÷ 2 = 367,000원 → 1차 목표 365,000원</strong> [추정: 위 산식]</li>
+<li><strong>2차 목표 430,000원</strong> [추정: FY28 SPS 14,045 × 30.6배 = 429,777원. iM 30배·교보/한투 450~460,000원 영역]</li>
+<li>증권사 목표가 병기: 컨센 평균 383,929원 / 최신 평균 392,286원 → <strong>자체 목표 365,000원은 컨센 대비 5% 보수적</strong>입니다. 데이터팩토리 매출(FY28 컨센에 포함 추정)을 제가 할인했기 때문입니다.</li>
+</ul>
+<hr>
+<h2 id="진입전략손익비-선물-레버리지-반영">⑥ 진입전략·손익비 (선물 레버리지 반영)</h2>
+<p><strong>지지·저항</strong> [실측: enrich.py KIS 일봉 2026-09-16]</p>
+<ul>
+<li>저항: 20일 고점 <strong>324,500</strong> → MA5 321,500 → 52주 고점 464,000</li>
+<li>지지: <strong>MA20 279,050</strong> (1차) → 20일 저점 242,000 / MA60 242,660 (2차, 겹침) → 심리선 200,000</li>
+<li>ATR14 = <strong>24,161원</strong> (현재가의 7.76%) — 하루에 ±2.4만원 움직이는 종목입니다.</li>
+</ul>
+<p><strong>3라인 (선물 A2X610 기준)</strong></p>
+<ul>
+<li><strong>진입: 282,000 ~ 295,000원 (중앙 288,000)</strong> — MA20 279,050 위에서 지지 확인 후 분할</li>
+<li><strong>손절: 262,000원 (종가 기준)</strong> — 근거: MA20 279,050 하향이탈 + ATR14의 0.7배(16,913원) 버퍼 = 262,137 ≈ 262,000. 종가로 262,000 이탈 시 전량 청산.</li>
+<li><strong>익절: 1차 365,000원 / 2차 430,000원</strong></li>
+</ul>
+<p><strong>손익비 (진입 288,000 기준)</strong></p>
+<ul>
+<li>상승여력 = (365,000 − 288,000) ÷ 288,000 = <strong><span class="up">+26.74%</span></strong></li>
+<li>하락리스크 = (288,000 − 262,000) ÷ 288,000 = <strong>−9.03%</strong></li>
+<li><strong>손익비 = 26.74 ÷ 9.03 = 1:2.96 → 1:3.0</strong> ✓</li>
+</ul>
+<p><strong>현재가(311,500) 추격 시 — 참고</strong></p>
+<ul>
+<li>목표 365,000까지 <span class="up">+17.17%</span> ÷ 손절 274,000까지 <span class="down">-12.04%</span> = <strong>1:1.43</strong></li>
+<li>→ <strong>1:1.43은 5억 운용·50% 집중 프로필에 부적합합니다. 그래서 &#x27;매수&#x27;가 아닌 &#x27;관심&#x27;입니다.</strong></li>
+</ul>
+<p><strong>포지션 사이징 — 3개 상한 중 최소값 채택</strong></p>
+<ul>
+<li>리스크예산: 5억 × <strong>0.5%</strong>(고변동 레짐, RV20 90.5분위) ÷ (288,000 − 262,000) = 250만원 ÷ 26,000 = <strong>96주 (2,769만원)</strong></li>
+<li>유동성상한: ADV20 1,159억 × 10% = 115.9억 ÷ 288,000 = <strong>40,244주</strong> (제약 아님)</li>
+<li>이벤트 전 상한: 3Q 실적 전 자산 10% = 5,000만원 ÷ 288,000 = <strong>173주</strong></li>
+<li><strong>→ 채택: 96주 ≈ 2,769만원 (자산의 5.5%)</strong></li>
+<li>선물 환산: 1계약 = 10주 → <strong>9계약</strong>. 증거금 레버리지 감안해도 <strong>기초자산 노출 2,769만원을 넘기지 마십시오.</strong></li>
+</ul>
+<p><strong>⚠️ 레버리지 경고</strong>: RV20 43.5%(90.5분위)·ATR 7.76%·공매도 20일 평균 10.24% 종목입니다. 선물로 50% 집중하면 이틀 만에 원금의 절반이 흔들립니다. <strong>손절선 262,000원 아래에서는 절대 추가매수 금지.</strong></p>
+<hr>
+<h2 id="산업제품-바텀업-실적-모델-industry-model-spec-9">⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC §9)</h2>
+<h3 id="91-제품서비스-분해-실측-반기보고서-20260814003380-사업보고">9-1 제품·서비스 분해 [실측: 반기보고서 20260814003380 / 사업보고서 20260708000478]</h3>
+<ul>
+<li>액츄에이터(DYNAMIXEL) — FY25 <strong>378.30억(97.14%)</strong> / 1H26 <strong>266.65억(97.99%)</strong> — 로봇 관절용 All-in-one 구동 모듈. 전방: 휴머노이드·협동로봇·연구용 플랫폼·리더암·덱스트러스핸드</li>
+<li>자율주행로봇(개미) — FY25 <strong>11.13억(2.86%)</strong> / 1H26 <strong>5.48억(2.01%)</strong> — 실내외 서비스 배송</li>
+<li>휴머노이드 완제품(AI Worker/AI Sapiens) — <strong>별도 매출 미공시(제품별 매출표에 없음)</strong>. 2026-11 공식 판매 예정 [인용: 시사저널e 2026-09-07 헤드라인]</li>
+<li>데이터팩토리 — <strong>매출 미공시(0원)</strong>. 2H26 첫 매출 기대 [인용: 교보증권 2026-08-19]</li>
+</ul>
+<h3 id="92-고객납품-구조">9-2 고객·납품 구조</h3>
+<ul>
+<li>주요매출처 <strong>A사(익명)</strong>: FY25 40.86억 / 1H26 <strong>10.10억</strong> (1H25 22.54억) [실측: 반기보고서 &#x27;다. 주요매출처 현황&#x27;]</li>
+<li>1H26 전체 매출 272.13억 대비 <strong>3.7%</strong> → <strong>고객 집중도 리스크 없음(1사 30% 기준 크게 하회)</strong></li>
+<li>단 A사 납품이 YoY <span class="down">-55%</span> 감소한 점은 체크 필요. 매출처명·납품제품 <strong>미확인(비공개)</strong></li>
+<li>판매경로별(1H26): 수출 도매 176.05억(55%) / 수출 직판 68.24억(21%) / 국내 도매 52.12억(16%) / 국내 직판 22.51억(7%) [실측: 반기보고서]</li>
+<li>→ <strong>도매(대리점) 71%</strong> 구조. 최종 고객(휴머노이드 업체) 식별이 구조적으로 어렵습니다.</li>
+<li>언론·리포트상 거론 고객: 허깅페이스/폴렌로보틱스(마이크로덕), 중국 유니트리·에이보트, LG전자(2대주주) [인용: 유진투자 2026-09-07, 하나증권 2026-08-18, 한화투자 2026-07-01] — <strong>납품 비중은 전부 미확인</strong></li>
+<li>지역별 성장: 중국 2Q26 매출 15억(<span class="up">+3</span>배) [인용: KB증권 2026-09-03], 중국 YoY <span class="up">+153.9%</span> / 북미 <span class="up">+142.4%</span> [인용: iM증권 2026-08-19]</li>
+</ul>
+<h3 id="93-시장-규모경쟁-구도">9-3 시장 규모·경쟁 구도</h3>
+<p><strong>TAM (출처 2개 교차)</strong></p>
+<ul>
+<li>밸류에이츠리포트: 글로벌 휴머노이드용 액추에이터 시장 2024년 1.5억달러(약 2,200억원) → <strong>2031년 98.64억달러(약 14조 5,000억원)</strong>, <strong>CAGR 80%</strong>, 7년간 65배 [인용: 로봇신문 2025-01-18, irobotnews.com/news/articleView.html?idxno=44427]</li>
+<li>QYResearch: 세계 휴머노이드 로봇용 액추에이터 시장 <strong>2032년 169.7억달러</strong>, 성장률 <strong>80.0%</strong> [인용: note/QYResearch 2026-05-20 헤드라인 — 본문 미확보]</li>
+<li>→ <strong>두 출처 모두 CAGR 80% 수준으로 수렴</strong> ✓ 교차 확인 완료</li>
+<li>대당 탑재량: <strong>휴머노이드 1대당 평균 25~35개, 고급형 50개 이상</strong>. 테슬라 옵티머스 28개 이상 [인용: 로봇신문 2025-01-18]</li>
+<li>액추에이터가 휴머노이드 <strong>BOM의 30~50%</strong> 차지 [인용: 동일]</li>
+<li>참고(전방 물량): 국내 로봇 액추에이터 시장 &quot;65조 시장 격돌&quot; [인용: 매일경제 2026-09-14 헤드라인 — 본문·정의 미확보, 모델 미반영]</li>
+</ul>
+<p><strong>경쟁자</strong></p>
+<ul>
+<li>국내: <strong>에스피지(058610), 삼현(437730), 에스비비테크, 하이젠알앤엠, 뉴로메카, HL만도, 삼성전기, 현대모비스</strong> [인용: 로봇신문 2025-01-18 / 지디넷코리아 2026-07-28 &quot;로봇 액추에이터 시장 3파전…에스피지·삼현, 로보티즈에 도전장&quot; 헤드라인]</li>
+<li>HL만도: 로봇 액추에이터 시장 <strong>점유율 10% 목표</strong>, 2035년 관련 매출 2.3조 목표 [인용: 리버티코리아포스트 2026-01-14 / 알파경제 2025-12-15 헤드라인 — 본문 미확보]</li>
+<li><strong>국내 경쟁사별 CAPA·점유율: 미확인</strong> (지디넷 원문 URL 소실, 기업별 공시 CAPA 비교 불가)</li>
+<li>글로벌 상위 3~5사 CAPA·점유율: <strong>미확인</strong></li>
+<li><strong>로보티즈 점유율: 미확인</strong></li>
+<li>역산 시도: FY25 매출 389.4억 ÷ 2024 TAM 2,200억 = 17.7%이나, <strong>분모(휴머노이드 전용 TAM)와 분자(로보티즈 전체 액추에이터 매출, 연구용·협동로봇 포함)의 정의가 불일치</strong>하여 점유율로 쓸 수 없습니다. → <strong>미확인 처리</strong></li>
+<li>중국 시장: 1H26 중국향 출하 13만대로 &quot;유의미한 점유율 확보&quot; [인용: 교보증권 2026-08-19] — <strong>% 수치는 리포트에도 없음</strong></li>
+<li>⚠️ &quot;국내 유일&quot;·&quot;독점&quot; 표현은 <strong>9-3 경쟁자 표로 뒷받침되지 않습니다</strong>. 에스피지·삼현·HL만도가 동일 시장에 진입 중이므로 본 리포트는 그 표현을 쓰지 않습니다.</li>
+</ul>
+<h3 id="94-단가원가-이력">9-4 단가·원가 이력</h3>
+<p><strong>제품 단가 (다이나믹셀 XM540-W270-T, 단위 천원)</strong> [실측: 반기보고서 20260814003380 &#x27;(3) 주요 제품의 가격변동 추이&#x27;]</p>
+<ul>
+<li>국내: 2024 <strong>422</strong> → 2025 <strong>399</strong> → 1H26 <strong>426</strong> (2025 <span class="down">-5.5%</span> → 1H26 <strong><span class="up">+6.8%</span></strong>)</li>
+<li>수출: 2024 <strong>305</strong> → 2025 <strong>302</strong> → 1H26 <strong>325</strong> (2025 <span class="down">-1.0%</span> → 1H26 <strong><span class="up">+7.6%</span></strong>)</li>
+<li>개미(자율주행로봇) 국내: 2024 32,090 → 2025 30,807 → 1H26 <strong>17,900</strong> (<strong>-41.9%</strong>, 구독형 전환 영향 추정)</li>
+<li>변동 사유: 1H26 단가 반등은 <strong>고환율 + 고부가 제품 믹스 개선</strong>으로 추정 [추정: 수출단가가 국내보다 큰 폭 상승 + 회사 주3) &quot;외화금액은 해당 기말 평균환율 환산&quot;]</li>
+<li>⚠️ 주의: 위 단가는 <strong>대표모델 1종 기준</strong>입니다. 회사 주1) 명시. 전사 ASP와 다릅니다.</li>
+<li><strong>전사 ASP 역산</strong>: 1H26 액추에이터 매출 266.65억 ÷ 출하 20만대 = <strong>133,325원/대</strong> (교보 기준) / ÷ 23.5만대 = <strong>113,468원/대</strong> (하나 기준) [추정: 매출÷출하량, 출하량 출처 2개 불일치로 밴드 제시]</li>
+<li>소형 제품 비중 확대로 ASP 하락, 2H26 고가 라인 확대 기대 [인용: 하나증권 2026-08-18]</li>
+</ul>
+<p><strong>원재료 단가 (원)</strong> [실측: 반기보고서 &#x27;나. 주요 원재료 등의 가격변동 추이&#x27;]</p>
+<ul>
+<li>MOTOR: 2024 15,849 → 2025 16,862 → 1H26 <strong>16,862</strong> (<strong>보합</strong>)</li>
+<li>전자자재: 2024 2,176 → 2025 2,105 → 1H26 <strong>2,118</strong> (<span class="up">+0.6%</span>)</li>
+<li>FRAME 16원 / OPTION FRAME 960원 — <strong>3년간 완전 보합</strong></li>
+<li><strong>단가 결정 구조</strong>: 제품 단가는 <span class="up">+7%</span> 오르는데 원재료는 보합 → <strong>가격 전가력 양호, 스프레드 확대 중</strong>. 이것이 2Q26 GPM 43.8%(교보 2026-08-19 인용)의 근거입니다.</li>
+<li>리스크: 모터 영구자석(네오디뮴) 수급 불안 [인용: 한화투자 2026-07-01, 교보 2026-08-19] — 우즈벡 모터 내재화로 대응 [인용: 미래에셋 2026-08-24]</li>
+</ul>
+<h3 id="95-생산능력가동률수주">9-5 생산능력·가동률·수주</h3>
+<p><strong>가동률(총공수 기준, 단위 초)</strong> [실측: 반기보고서 &#x27;다. 생산능력 및 생산실적&#x27;]</p>
+<ul>
+<li>FY2023: 총공수 125,460,217 / 가동률 <strong>90.0%</strong></li>
+<li>FY2024: 총공수 88,943,012 / 가동률 <strong>70.3%</strong></li>
+<li>FY2025: 총공수 102,818,503 / 가동률 <strong>86.9%</strong></li>
+<li>1H26: 총공수 87,395,314 / 가동률 <strong>81.8%</strong></li>
+<li>→ 1H26 반기 총공수가 FY25 연간의 85%에 달함 = <strong>생산량 급증 확인</strong> ✓. 가동률 81.8%는 여유 있어 보이나 총공수 기준이라 물리적 CAPA와 다릅니다.</li>
+</ul>
+<p><strong>CAPA·증설</strong> [인용: 증권사 리포트 — DART에 대수 기준 CAPA 미공시]</p>
+<ul>
+<li>현재: 연 <strong>30만대</strong> (국내) [인용: 신한투자 2026-09-07, 현대차 2026-08-26]</li>
+<li>우즈벡 신공장: 2026-10 부분 가동 [인용: 한화투자 2026-07-01] / 4Q26 가동 [인용: 한화투자 2026-08-24]</li>
+<li>2026년 말: 30만 + 우즈벡 20만 = <strong>50만대 체제</strong> [인용: 미래에셋 2026-08-24]</li>
+<li>2027년: <strong>100만대</strong> [인용: 현대차 2026-08-26, 미래에셋 2026-08-24, 교보 2026-06-29]</li>
+<li>2028년 말: <strong>300만대</strong> / 2031년: <strong>500만대 이상</strong> [인용: 신한투자 2026-09-07]</li>
+<li>투자 재원: 유상증자 + 자사주 처분 411.46억(1H26 실측) [인용: 신한투자 2026-09-07 / 실측: 반기보고서 CF]</li>
+<li>LG전자(2대주주)와 우즈벡 공장 지분투자 MOU [인용: 한화투자 2026-07-01]</li>
+</ul>
+<p><strong>수주잔고</strong>: <strong>DART 미공시</strong> — 사업보고서·반기보고서 &#x27;수주상황&#x27; 항목 모두 <strong>미확인</strong> [실측: dart_biz.py 108490]</p>
+<ul>
+<li>언론 헤드라인 &quot;수주잔고 50만대 이상&quot;(한국경제 2026-09-10), &quot;올해 액추에이터 100만개 수주&quot;(프라임경제 2026-04-23) — <strong>본문 미확보, 공시 근거 없음. 모델에 반영하지 않음.</strong></li>
+</ul>
+<h3 id="96-전방-수요-시나리오">9-6 전방 수요 시나리오</h3>
+<p><strong>전방 이벤트 (날짜·출처 명시)</strong></p>
+<ul>
+<li>허깅페이스 폴렌로보틱스 &#x27;마이크로덕&#x27;(55만원 오픈소스 로봇) 출시 2026-08-29, 사전주문 <strong>1만대 돌파</strong> [인용: AI타임스 2026-08-29 / 유진투자 2026-09-07]</li>
+<li>소요량 추정: 마이크로덕 1대당 액추에이터 탑재수 <strong>미확인</strong>. 소형 오리형 로봇이므로 8~14개 추정되나 근거 없어 <strong>모델 미반영</strong></li>
+<li>엔비디아의 허깅페이스 인수 [인용: 유진투자 2026-09-04] — 마이크로덕 생태계 확장 가능성</li>
+<li>중국 휴머노이드 2026년 양산 시작 → 2H26 QDD Dynamixel Q 시리즈 공급 [인용: 현대차 2026-08-26]</li>
+<li>중국 규제당국 휴머노이드 IPO 기준 강화 [인용: 유진투자 2026-09-10] — <strong>중국 수요 하방 리스크</strong></li>
+<li>미 FCC Covered List·국방부 CMC에 중국 휴머노이드 포함 → 중국산 대체 수요 [인용: iM증권 2026-08-19]</li>
+</ul>
+<p><strong>침투율·점유율 시나리오 3개</strong></p>
+<ul>
+<li>Bear: 모터 영구자석 수급 병목 지속 → 26년 출하 43.5만대 [인용: 교보 2026-08-19 추정], 중국 IPO 규제로 중국향 둔화</li>
+<li>Base: 26년 출하 <strong>50만대</strong>(회사 목표) [인용: 한화투자 2026-07-01], 우즈벡 4Q 부분가동</li>
+<li>Bull: 마이크로덕 양산 본격화 + 데이터팩토리 첫 매출 → 출하 55만대 이상 + 고마진 데이터 매출</li>
+</ul>
+<h3 id="97-바텀업-실적-모델">9-7 바텀업 실적 모델</h3>
+<p><strong>3Q26 (연결·3개월) — 물량 × 단가 → 매출 → 영업이익</strong></p>
+<ul>
+<li><strong>물량(액추에이터 출하량, 만대)</strong></li>
+<li>Bear <strong>10.5</strong> / Base <strong>12.8</strong> / Bull <strong>15.0</strong></li>
+<li>산식: 2H26 목표 30만대(교보 2026-08-19 인용) 중 3Q 배분 — Bear 35% / Base 42.5% / Bull 50%. 우즈벡이 4Q 가동이므로 3Q는 국내 30만대 CAPA만 가동 → 분기 최대 약 7.5만대이나, 1H26 실적(20만대/반기)이 이를 초과하므로 <strong>총공수 기준 실질 CAPA는 공시 대수 CAPA보다 크다고 판단</strong> [추정]</li>
+</ul>
+<ul>
+<li><strong>단가(전사 ASP, 원/대)</strong> — 9-4</li>
+<li>Bear <strong>125,000</strong> (소형 믹스 지속) / Base <strong>133,000</strong> (1H26 역산 133,325) / Bull <strong>140,000</strong> (고가 라인 확대, 하나증권 2026-08-18 인용)</li>
+</ul>
+<ul>
+<li><strong>매출(억원) = 물량 × 단가 + 자율주행로봇</strong></li>
+<li>Bear: 10.5만 × 125,000 = 131억 + 3억 = <strong>140억</strong></li>
+<li>Base: 12.8만 × 133,000 = 170억 + 3억 ≈ <strong>170억</strong>  ← 컨센 168억과 일치 ✓</li>
+<li>Bull: 15.0만 × 140,000 = 210억 (−10억 인식 지연) = <strong>200억</strong></li>
+</ul>
+<ul>
+<li><strong>매출원가율 / GPM</strong></li>
+<li>Bear GPM <strong>40.0%</strong> / Base <strong>43.8%</strong> (2Q26 실측 인용: 교보 2026-08-19) / Bull <strong>45.0%</strong></li>
+</ul>
+<ul>
+<li><strong>판관비(억원)</strong></li>
+<li>Bear/Base <strong>50억</strong> / Bull <strong>51억</strong></li>
+<li>산식: 2Q26 역산 판관비 = 153.72억 × 43.8% − 19.81억 = <strong>47.52억</strong> [추정]. 3Q 증설·인력 증가분 <span class="up">+2.5</span>억 반영.</li>
+</ul>
+<ul>
+<li><strong>영업이익 / OPM</strong></li>
+<li><strong>Bear: 140 × 40.0% − 50 = <span class="up">+6.0</span>억 (OPM 4.3%)</strong></li>
+<li><strong>Base: 170 × 43.8% − 50 = <span class="up">+24.5</span>억 (OPM 14.4%)</strong>  ← 컨센 25억과 일치 ✓</li>
+<li><strong>Bull: 200 × 45.0% − 51 = <span class="up">+39.0</span>억 (OPM 19.5%)</strong></li>
+</ul>
+<p><strong>4Q26 (연결·3개월)</strong></p>
+<ul>
+<li>Bear 매출 170억 / OP <span class="up">+13</span>억 | Base 매출 <strong>200억</strong> / OP <strong><span class="up">+30</span>억</strong> | Bull 매출 240억 / OP <span class="up">+50</span>억</li>
+<li>산식: Base는 wisereport 4Q 컨센 200억 채택. 우즈벡 초기 가동 감가상각·램프업 비용 <span class="up">+5</span>억 반영해 GPM 43.8% − 판관비 55억.</li>
+</ul>
+<p><strong>FY26 연간 합산 (연결)</strong> [실측 1H + 추정 2H]</p>
+<ul>
+<li>Bear: 118.41 + 153.72 + 140 + 170 = <strong>582억</strong> / 영업이익 −118.43 + 19.81 + 6.0 + 13.0 = <strong>−79.6억</strong></li>
+<li>Base: 118.41 + 153.72 + 170 + 200 = <strong>642억</strong> / 영업이익 −118.43 + 19.81 + 24.5 + 30.0 = <strong>−44.1억</strong></li>
+<li>Bull: 118.41 + 153.72 + 200 + 240 = <strong>712억</strong> / 영업이익 −118.43 + 19.81 + 39.0 + 50.0 = <strong>−9.6억</strong></li>
+<li><strong>컨센 대조</strong>: 매출 컨센 634억 vs Base 642억 (<span class="up">+1.3%</span>, 부합 ✓) / 영업이익 컨센 <strong>−23억</strong> vs Base <strong>−44.1억</strong> (<strong>21억 괴리</strong>)</li>
+<li><strong>차이 원인 한 줄</strong>: 컨센은 4Q26 영업이익 약 50억(OPM 25%)을 가정하나, 회사 최고 기록이 4Q25 OPM 17.7%이고 우즈벡 초기 가동비용이 4Q에 들어오므로 <strong>제 모델은 4Q OPM을 15%로 보수 적용</strong>했습니다.</li>
+</ul>
+<p><strong>FY27 연간 (연결)</strong></p>
+<ul>
+<li>Base: 출하 88.5만대(한화투자 2026-08-24 인용) × ASP 133,000원 = 1,177억 ≈ <strong>1,180억</strong> ← 컨센과 일치 ✓</li>
+<li>영업이익: 1,180 × GPM 44% − 판관비 260억 = <strong><span class="up">+259</span>억</strong> (컨센 238억) [추정]</li>
+</ul>
+<p><strong>민감도 ① 단가 ±10% × 점유율(물량) ±5%p — 3Q26 영업이익 (Base 24.5억 기준)</strong></p>
+<ul>
+<li>단가 <span class="up">+10%</span> / 물량 <span class="up">+5%</span>p(13.4만대): 매출 196억 → GP 85.8억 − 50 = <strong><span class="up">+35.8</span>억</strong></li>
+<li>단가 <span class="up">+10%</span> / 물량 −5%p(12.2만대): 매출 179억 → GP 78.4억 − 50 = <strong><span class="up">+28.4</span>억</strong></li>
+<li>단가 −10% / 물량 <span class="up">+5%</span>p: 매출 161억 → GP 70.5억 − 50 = <strong><span class="up">+20.5</span>억</strong></li>
+<li>단가 −10% / 물량 −5%p: 매출 147억 → GP 64.4억 − 50 = <strong><span class="up">+14.4</span>억</strong></li>
+<li>→ <strong>단가 <span class="down">-10%</span>만으로 영업이익이 24.5 → 약 17억으로 30% 증발</strong>합니다. ASP가 이 종목의 최대 민감 변수입니다.</li>
+</ul>
+<p><strong>민감도 ② 전방 CAPEX(우즈벡 가동) 1분기 지연</strong></p>
+<ul>
+<li>우즈벡 4Q26 → 1Q27 지연 시: 4Q26 매출 200억 → <strong>170억</strong>(−30억), 영업이익 30억 → <strong><span class="up">+13</span>억</strong>(−17억)</li>
+<li>FY26 영업이익 −44.1억 → <strong>−61.1억</strong>. FY27 매출 1,180억 → 1,120억 [추정]</li>
+</ul>
+<p><strong>🔴 결론 문장 (필수·캘린더 연동)</strong></p>
+<p class="note"><strong>3Q26 연결 영업이익 ≥ 25억(Base)이면 논지 유지·추가매수 검토, &lt; 10억(Bear)이면 논지 폐기·전량 청산.</strong> 보조: 3Q26 연결 매출 &lt; 140억이면 동일하게 폐기.</p>
+<h3 id="98-미확인-목록-9">9-8 미확인 목록 (§9)</h3>
+<ul>
+<li>로보티즈 글로벌·국내 <strong>점유율</strong> — 확인 경로: 회사 IR 문의, 한국로봇산업협회 통계</li>
+<li>국내외 경쟁사(에스피지·삼현·HL만도·글로벌 3사) <strong>CAPA·점유율</strong> — 확인 경로: 각사 사업보고서 &#x27;생산능력&#x27;, 지디넷 2026-07-28 원문</li>
+<li><strong>수주잔고</strong> — DART 미공시. 확인 경로: 2026-11-16 3Q 분기보고서, IR</li>
+<li>마이크로덕 <strong>1대당 액추에이터 탑재수</strong> 및 로보티즈 <strong>단가·공급 계약 규모</strong> — 확인 경로: 폴렌로보틱스 BOM 공개, 한투 2026-09-10 원문</li>
+<li><strong>주요매출처 A사 실명·납품 제품</strong></li>
+<li><strong>대수 기준 CAPA 공시</strong> (DART는 총공수(초) 기준만 공시)</li>
+<li>데이터팩토리 <strong>매출 인식 시점·단가</strong></li>
+<li>골드만삭스 630,000원 <strong>원문 리포트·산출근거</strong></li>
+<li>2026년 <strong>분기별 지역·제품 믹스</strong> (DART 미공시)</li>
+</ul>
+<hr>
+<h2 id="invalidation">⑦ 촉매·반증·이벤트 대응</h2>
+<h3 id="촉매-캘린더-날짜-확정-이벤트만">촉매 캘린더 (날짜 확정 이벤트만)</h3>
+<ul>
+<li><strong>2026-11-16(월)</strong> — 3Q26 분기보고서 법정기한. 근거: 분기말(9/30) + 45일 = 11/14(토) → 익영업일 11/16(월) [실측: 자본시장법 제160조·달력 확인]. <strong>왜 중요: 본 리포트의 핵심 임계(영업이익 25억/10억)가 여기서 판정됩니다.</strong></li>
+<li><strong>2026-10월 중</strong> — 우즈베키스탄 공장 부분 가동 예정 [인용: 한화투자증권 2026-07-01 &quot;우즈벡 공장(총 500만개 CAPA) 10월 부분 가동 예정&quot;]. <strong>일자 미확정 — 가동 공시 여부를 반증 조건에 반영</strong></li>
+<li><strong>2026-11월 중</strong> — AI 사피엔스 휴머노이드 공식 판매 개시 [인용: 시사저널e 2026-09-07 헤드라인, 초기 물량 완판]. <strong>일자 미확정</strong></li>
+<li><strong>2026-12-11(금)</strong> — 개별주식선물 12월물 만기(둘째 목요일 기준 12/10, 확인 필요). <strong>근월물 A2X610(10월물)은 2026-10-08(목) 만기 추정 — 롤오버 필요</strong> [추정: KRX 개별주식선물 만기 규칙. 정확일 미확인]</li>
+<li><strong>2027-03월 중</strong> — FY26 사업보고서. 데이터팩토리 매출 인식 여부 최초 확인 지점</li>
+</ul>
+<h3 id="invalidation">반증 조건 3개 (수치 → 행동)</h3>
+<ol>
+<li><strong>3Q26 연결 영업이익 &lt; 10억원이면 논지 폐기·전량 청산.</strong> (Base 24.5억 / 컨센 25억 대비 60% 미달) — 발표 2026-11-16</li>
+<li><strong>3Q26 연결 매출 &lt; 140억원이면 논지 폐기·전량 청산.</strong> (컨센 168억 / Base 170억 대비 17% 미달 = 출하 병목 확정) — 발표 2026-11-16</li>
+<li><strong>종가 262,000원 이탈 시 전량 청산.</strong> (MA20 279,050 − ATR14×0.7) — 상시. <strong>262,000원 아래 추가매수 절대 금지.</strong></li>
+</ol>
+<p>(보조) 2026-10-31까지 우즈벡 가동 관련 공시·IR 발표가 <strong>0건</strong>이면 포지션 절반 축소. (추가매수 조건) <strong>3Q26 연결 영업이익 ≥ 25억이면 논지 유지·추가매수 검토.</strong></p>
+<h3 id="event-matrix">이벤트 매트릭스 (2026-11-16 3Q 실적 × 당일 주가)</h3>
+<ul>
+<li><strong>서프라이즈(OP ≥ 39억)</strong> × 갭상승 → 1차 목표 365,000 도달 시 50% 익절, 잔량 430,000까지 홀딩. 손절 MA20으로 상향</li>
+<li><strong>서프라이즈</strong> × 보합/갭하락 → 재료 선반영. 전량 유지, 손절을 진입가(288,000)로 상향(본전 스톱)</li>
+<li><strong>인라인(OP 10~39억)</strong> × 갭상승 → 50% 익절, 잔량 홀딩. 손절 275,000 상향</li>
+<li><strong>인라인</strong> × 보합 → 포지션 유지, 손절 262,000 그대로</li>
+<li><strong>인라인</strong> × 갭하락(<span class="down">-5%</span> 이상) → 포지션 50% 축소. 시장이 컨센 25억을 이미 가격에 넣었다는 신호</li>
+<li><strong>쇼크(OP &lt; 10억)</strong> × 어떤 반응이든 → <strong>반증 1번 발동. 전량 청산.</strong> 갭하락이면 시가 청산, 갭상승이면 장중 반등 시 청산</li>
+</ul>
+<h3 id="확률가중-시나리오-진입-288000원-기준-확률-합-100">확률가중 시나리오 (진입 288,000원 기준, 확률 합 100%)</h3>
+<ul>
+<li><strong>Bear 30%</strong> — 목표 <strong>210,000원</strong> · 수익률 <strong>−27.08%</strong> · 기여 <strong>−8.12%p</strong></li>
+<li>전제: 3Q26 OP 6억, 모터 영구자석 병목으로 출하 43.5만대, 중국 IPO 규제로 중국향 둔화</li>
+<li>산식: FY27 SPS 8,045 × PSR 26배(레인보우 FY28 PSR 26.3배 수준으로 디레이팅) = 209,170원</li>
+<li><strong>Base 50%</strong> — 목표 <strong>365,000원</strong> · 수익률 <strong><span class="up">+26.74%</span></strong> · 기여 <strong><span class="up">+13.37%</span>p</strong></li>
+<li>전제: 3Q26 OP 24.5억, 우즈벡 4Q 가동, FY27 매출 1,180억 달성</li>
+<li>산식: ⑤ 방법A(354,000) + 방법B(379,000) ÷ 2 = 367,000 → 365,000</li>
+<li><strong>Bull 20%</strong> — 목표 <strong>460,000원</strong> · 수익률 <strong><span class="up">+59.72%</span></strong> · 기여 <strong><span class="up">+11.94%</span>p</strong></li>
+<li>전제: 3Q26 OP 39억 + 데이터팩토리 첫 매출 인식 + 마이크로덕 양산 발주</li>
+<li>산식: FY28 SPS 14,045 × PSR 32.8배 = 460,676원 (교보 460,000원과 동일 수준)</li>
+<li><strong>확률가중 기대수익률 = −8.12 + 13.37 + 11.94 = <span class="up">+17.19%</span></strong> [추정: Σ(확률 × 수익률)]</li>
+</ul>
+<h3 id="수급유동성-재확인">수급·유동성 (재확인)</h3>
+<ul>
+<li>외국인 20일 <strong><span class="up">+1,280.61</span>억</strong> / 5일 −194.67억 [실측: enrich.py KIS FHKST01010900 2026-09-16 11:47]</li>
+<li>기관 20일 <strong><span class="up">+595.54</span>억</strong> / 5일 <span class="up">+358.21</span>억 [실측: 동일]</li>
+<li>20일 외인+기관 합 <strong>1,876.15억 = 시총 45,688억의 4.11%</strong> [추정: 합계÷시총]</li>
+<li>개인 20일 <strong>−1,884.76억</strong> — 개인이 물량을 넘기고 외인·기관이 받은 구조 ✓</li>
+<li>20일 평균 거래대금 <strong>1,159억</strong> → <strong>1일 체결 상한(ADV 10%) = 115.9억 = 40,244주</strong> [추정: ADV20×10%÷288,000]</li>
+<li>→ 유동성은 전혀 제약이 아닙니다. 사이징을 묶는 것은 <strong>변동성(리스크예산 0.5%)</strong>입니다.</li>
+</ul>
+<h3 id="기계적-규칙-조건-행동">기계적 규칙 (조건 → 행동)</h3>
+<ol>
+<li>종가가 <strong>MA20(279,050) 위에서 지지 확인</strong> → 282,000~295,000 구간 3회 분할 진입(각 32주)</li>
+<li>종가 <strong>262,000 이탈</strong> → 전량 청산. 재진입은 MA20 회복 후에만</li>
+<li><strong>365,000 도달</strong> → 50% 익절, 손절을 진입가 288,000으로 상향</li>
+<li><strong>430,000 도달</strong> → 추가 30% 익절, 잔량 20%는 트레일링(MA20 종가 이탈 시 청산)</li>
+<li><strong>2026-11-16 실적 발표 전날 종가 기준 포지션을 50% 이하로 축소</strong> (이벤트 전 상한 173주보다 실제 보유가 적으므로 96주 유지 가능. 단 선물 레버리지 사용 중이면 절반 축소)</li>
+<li><strong>3Q26 OP ≥ 25억</strong> → 추가매수 검토(단, 손절선 상향 후 리스크예산 재계산)</li>
+<li><strong>손절선 262,000 아래에서는 어떤 이유로도 추가매수 금지</strong></li>
+</ol>
+<hr>
+<p>⚠️ 리서치 참고용이며 매수/매도를 강요하지 않습니다. 증권사·언론 추정치는 &#x27;추정/인용&#x27;으로 명시했고, 실측하지 못한 값은 &#x27;미확인&#x27;으로 남겼습니다.</p>
+<h3 id="미확인-목록">[미확인 목록]</h3>
+<ul>
+<li>로보티즈 및 경쟁사 <strong>시장 점유율·CAPA 비교</strong> (§9-3)</li>
+<li><strong>수주잔고</strong> — DART 미공시 (§9-5). 언론 &quot;50만대&quot;는 헤드라인 수준</li>
+<li><strong>주요매출처 A사 실명·납품 제품</strong> (§9-2)</li>
+<li>골드만삭스 <strong>630,000원 원문·산출근거</strong> (②F)</li>
+<li>한국경제 2026-09-10 &quot;수주잔고 50만대&quot; <strong>본문</strong> — Google News 리다이렉트 URL 400, 한경 검색 404</li>
+<li>지디넷 2026-07-28 &quot;액추에이터 3파전&quot; <strong>본문</strong> — URL 소실(404)</li>
+<li>마이크로덕 <strong>1대당 액추에이터 탑재수·단가·계약규모</strong></li>
+<li>개별주식선물 <strong>10월물 정확한 만기일</strong></li>
+<li>우즈벡 공장 <strong>가동 확정일</strong>, AI 사피엔스 <strong>판매 개시 확정일</strong></li>
+<li>2026년 <strong>분기별 지역·제품 믹스</strong> (DART 미공시)</li>
+<li>1H26 <strong>출하량</strong> — 교보 20만대 vs 하나 23.5만대 <strong>출처 불일치</strong>, 회사 공시 없음</li>
+<li>두산로보틱스 <strong>컨센서스</strong> (naver/fnguide 추정치 없음) — peer PSR 비교 3사 중 1사 결손</li>
+</ul>
+<h3 id="출처-목록">[출처 목록]</h3>
+<ul>
+<li>DART 사업보고서(2025.12) 접수번호 <strong>20260708000478</strong> [기재정정]</li>
+<li>DART 반기보고서(2026.06) 접수번호 <strong>20260814003380</strong></li>
+<li>DART 분기보고서(2026.03) 접수번호 <strong>20260515002269</strong></li>
+<li>DART 분기보고서(2025.09) 접수번호 <strong>20251114000599</strong></li>
+<li>DART 사업보고서(2023.12) 접수번호 <strong>20240320001005</strong></li>
+<li>DART 공시목록 조회(2026-03-20~2026-09-16, 13건) — 유상증자·시설투자·단일판매공급계약 공시 <strong>없음</strong>. 타법인주식취득결정 1건(2026-07-08, 접수 20260708900261, <strong>내용 미확보</strong>)</li>
+<li>KIS API: 시세·일봉·투자자별(FHKST01010100 / FHKST03010100 / FHKST01010900), 2026-09-16 11:47 — enrich.py</li>
+<li>개별주식선물 마스터 292종목 조회 — kis_futures_check.py (108490 상장 확인, A2X610, std=KR4A2X6A0004)</li>
+<li>consensus.py 4소스(stockeasy 20건 / naver / fnguide+wisereport / hankyung), 2026-09-16 11:47 수집, LLM 추정 0건</li>
+<li>stockeasy 기업리포트 12건(신한 09-07, KB 09-03, 현대차 08-26, 미래에셋 08-24, 한화 08-24, 삼성 08-19, 교보 08-19·06-29, iM 08-19, 하나 08-18, 한화 07-01)</li>
+<li>stockeasy 산업리포트 10건(유진투자증권 로봇/방산/조선 데일리·위클리 2026-09-03~09-16)</li>
+<li>로봇신문 2025-01-18, irobotnews.com/news/articleView.html?idxno=44427 (TAM·탑재수·BOM 비중)</li>
+<li>Google News RSS 헤드라인(2026-08-19~2026-09-16, 60건) — 골드만·마이크로덕·수주잔고·TAM 헤드라인 확인용</li>
+</ul>
+<h3 id="검산">[검산]</h3>
+<ul>
+<li><strong>분기합 = 연간</strong>: 1Q25 102.23 + 2Q25 78.77 + 3Q25 92.40 + 4Q25 116.01 = <strong>389.43억</strong> = FY25 연결 매출 389.43억 ✓</li>
+<li><strong>Q1 + Q2 = H1</strong>: 1Q26 영업이익 −118.43 + 2Q26 <span class="up">+19.81</span> = <strong>−98.62억</strong> = 1H26 연결 누적 영업이익 −98.62억 ✓</li>
+<li><strong>Q1 + Q2 = H1(매출)</strong>: 118.41 + 153.72 = <strong>272.13억</strong> = 1H26 연결 누적 272.13억 ✓</li>
+<li><strong>연결/별도 라벨</strong>: ③ 전 수치에 &#x27;연결·3개월&#x27; 또는 &#x27;별도&#x27; 명기 ✓. 바텀업 모델(9-7) 전부 연결 기준 ✓</li>
+<li><strong>손익비 산식 헤더·본문 일치</strong>: 헤더 1:3.0 = ⑥ 본문 26.74% ÷ 9.03% = 2.96 → 1:3.0 ✓ / 결정카드 1:3.0 ✓</li>
+<li><strong>시나리오 확률 합</strong>: 30% + 50% + 20% = <strong>100%</strong> ✓</li>
+<li><strong>반증 임계 = 9-7 결론 문장 = 결정카드 &#x27;반증&#x27;</strong>: 세 곳 모두 <strong>OP &lt; 10억 폐기 / ≥ 25억 추가매수 검토</strong> 일치 ✓</li>
+<li><strong>주식수 교차검증</strong>: 시총 역산 14,667천주 ≈ 자본금 7,330,514,000 ÷ 500원 = 14,661천주 (오차 0.04%) ✓</li>
+<li><strong>손절선 아래 추가매수 금지</strong> 조항 명시 ✓ (⑥·⑦ 기계적 규칙 7번)</li>
+<li><strong>컨센 대조</strong>: 자체 3Q26 Base 매출 170억 vs 컨센 168억(<span class="up">+1.2%</span>) / OP 24.5억 vs 컨센 25억(−2.0%) ✓</li>
+</ul>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-16 11:59 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 313,500원 (<span class="down">-3.4%</span>) · 시총 4.60조 · 5일 <span class="up">+1.1%</span> / 20일 <span class="up">+17.4%</span> / 60일 <span class="up">+8.5%</span></li>
+<li>MA5 321,900원 / MA20 279,150원 / MA60 242,693원 → MA20 이격 <span class="up">+12.3%</span> · MA60 이격 <span class="up">+29.2%</span></li>
+<li>52주 고 464,000원 / 저 99,600원 → 고점 대비 <span class="down">-32.4%</span> · 20일 고 324,500원 / 저 242,000원</li>
+<li>후행 PER 831.56 / PBR 14.44 (EPS 377원 · BPS 21,707원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,159.6억 (5일 1,446.9억)</li>
+<li>외국인 순매수 5일 -194.7억 / 20일 1,280.6억 · 기관 5일 358.2억 / 20일 595.5억 · 개인 20일 -1,884.8억</li>
+<li>개별주식선물: ⚡ 상장 (A2X610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 4.06% / 20일 평균 10.24% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 22.24% (08/20) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 365,000원 (<span class="up">+16.4%</span>) ÷ 하방 262,000원 (−16.4%) = <strong>1:1.00</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (운용 5억 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 10%) → 리스크 예산 0.5%</li>
+<li>리스크예산: 250만원 ÷ (진입 313,500원 − 손절 262,000원 = 51,500원) = <strong>48주 ≈ 0.15억</strong></li>
+<li>유동성상한: 20일 ADV 1,159.6억 × 10% = 1일 115.96억 (분할 시 일수 = 목표금액 ÷ 이 값)</li>
+<li>채택 상한 = 최소값 → <strong>리스크예산(0.5%) 0.15억 (3% of 자산)</strong></li>
+<li>⚠️ 손절폭 16.4% · ATR14 24,161원 (손절폭/ATR 2.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 16.4% = ATR14 × 2.1배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 277,258원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.42</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 有 현재가: 311,500원 진입: 282,000~295,000원 손절: 262,000원 목표: 1차 365,000원 (2차 430,000원) 손익비: 1:3.0 기간: 스윙 8~12주 촉매: 2026-11-16 3Q26 분기보고서 법정기한 반증: 3Q26 연결 영업이익 &lt; 10억원이면 논지 폐기·전량 청산 / ≥ 25억원이면 추가매수 검토 · 3Q26 연결 매출 &lt; 140억원이면 폐기 · 종가 262,000원 이탈 시 전량 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
