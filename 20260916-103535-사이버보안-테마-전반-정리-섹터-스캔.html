@@ -1,0 +1,127 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>사이버보안 테마 전반 정리 (섹터 스캔) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260916-103535-사이버보안-테마-전반-정리-섹터-스캔.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 수동 지정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-c"><b>결론 발췌</b> 엔비디아 젠슨황 &quot;차세대 AI 응용처는 사이버보안&quot; 발언[9/16]에 국내 보안주 무더기 급등. 대장은 거래대금 엑스게이트(1361억)·수급주 샌즈랩(+12%). 그러나 이 테마 27종목 전부 개별주식선물 미상장 → 형 레버리지(개별선물) 매매 불가, 100% 현물만. 실적 실체주(안랩·윈스·지니언스·아톤·드림시큐리티)와 적자 테마·수급주(샌즈랩·카티스·한컴위드)가 뚜렷이 갈림. ━━━━━━━━━━━━━━━</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정: 수동지정</span><h1>사이버보안 테마 전반 정리 (섹터 스캔)</h1>
+<div class="meta">📊 sector-scan · 2026-09-16 10:35</div>
+<div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc-src">자동추출</span></div></div>
+
+<div class="body"><p>🛡️ <strong>사이버보안(정보보안) 테마 전반 정리</strong> — 섹터 스캔 [KIS·DART 실측] ※ <strong>테마 전종목 개별주식선물 無</strong>(현물만, 레버리지 불가)</p>
+<p>📌 <strong>한줄 결론</strong>: 엔비디아 젠슨황 &quot;차세대 AI 응용처는 사이버보안&quot; 발언[9/16]에 국내 보안주 <strong>무더기 급등</strong>. 대장은 거래대금 <strong>엑스게이트(1361억)</strong>·수급주 <strong>샌즈랩(<span class="up">+12%</span>)</strong>. 그러나 <strong>이 테마 27종목 전부 개별주식선물 미상장 → 형 레버리지(개별선물) 매매 불가, 100% 현물만</strong>. 실적 실체주(안랩·윈스·지니언스·아톤·드림시큐리티)와 적자 테마·수급주(샌즈랩·카티스·한컴위드)가 뚜렷이 갈림.</p>
+<hr>
+<p><strong>① 테마 개요·촉매</strong></p>
+<ul>
+<li><strong>직접 촉매</strong>: 엔비디아 젠슨황이 &quot;다음 AI 물결·최대 응용처는 사이버보안&quot;이라 언급 → 미국 보안주(크라우드스트라이크·팔로알토 등) 강세 → 9/16 국내 보안주 동반 급등[인용·언론].</li>
+<li><strong>구조적 성장</strong>: ①AI 기반 공격(자동화·딥페이크) 급증 → AI 방어수요 ②제로트러스트·클라우드 전환 ③양자컴퓨터 대비 <strong>양자내성암호(PQC)</strong> ④국내 정책: 망분리 완화(다층보안체계 MLS 전환)·개인정보보호·공공 보안예산.</li>
+<li><strong>주의</strong>: 국내 보안주는 대부분 <strong>소형·저유동성 내수주</strong>. 테마 발생 시 순환매·단기 급등 후 급락 패턴 반복. 실적 대비 밸류 과열 잦음.</li>
+</ul>
+<p><strong>② 종목 요약표 (KIS 9/16 오전 실측 · DART 2024연간)</strong></p>
+<div class="tablewrap"><table><thead><tr><th>종목(코드)</th><th>하위테마</th><th>현재가</th><th>등락%</th><th>시총(억)</th><th>당일거래대금(억)</th><th>선물</th><th>24년순익</th><th>코멘트</th></tr></thead><tbody><tr><td>엑스게이트(356680)</td><td>네트워크/방화벽·SSL VPN</td><td>17,380</td><td>-0.97</td><td>4,969</td><td>1361</td><td>❌無</td><td>매출432 영익35 순익40(흑)</td><td>금일 대장(거래대금1361억). 고가18860(<span class="up">+9.9%</span>)→반락. VPN·양자내성암호(PQC) 부각. 실적 흑자 실체+테마 겸비</td></tr><tr><td>샌즈랩(411080)</td><td>AI보안(AI악성코드분석)</td><td>7,730</td><td><span class="up">+12.03</span></td><td>1,176</td><td>613</td><td>❌無</td><td>매출83 영익-37 순익-23(적)</td><td>AI보안 상징주. 시가6770→고가8590(<span class="up">+24%</span>)→<span class="up">+12%</span>. 젠슨황 &#x27;AI=사이버보안&#x27; 직격. 적자·매출영세 → 순수 테마·수급주</td></tr><tr><td>한컴위드(054920)</td><td>암호·인증·블록체인</td><td>5,420</td><td><span class="up">+3.63</span></td><td>1,538</td><td>491</td><td>❌無</td><td>매출4482 영익13 순익-47(적)</td><td>한글과컴퓨터 계열 보안. 거래량 폭증. 매출크나 순익 적자·이익률 미미 → 테마 수급주 성격</td></tr><tr><td>아톤(158430)</td><td>양자암호·간편인증(PASS)</td><td>5,850</td><td>-7.29</td><td>1,437</td><td>370</td><td>❌無</td><td>매출654 영익144 순익110(흑)</td><td>양자암호·본인인증 대장. 시가6390→저가5630, 급락 반전(차익실현). 실적 탄탄 흑자 실체주. 변동성 극심</td></tr><tr><td>지니언스(263860)</td><td>NAC/EDR 엔드포인트</td><td>20,800</td><td><span class="up">+9.01</span></td><td>1,893</td><td>213</td><td>❌無</td><td>매출496 영익98 순익109(흑)</td><td>NAC 국내1위·EDR 성장. 고가22050. 실적 우량+구조적성장 실체주. 별도 정밀리포트 진행중</td></tr><tr><td>라온시큐어(042510)</td><td>모바일보안·DID·생체인증</td><td>12,430</td><td>-4.09</td><td>1,380</td><td>158</td><td>❌無</td><td>매출625 영익20 순익41(흑)</td><td>DID·모바일신분증 수혜주. 최근 급등 후 조정(<span class="down">-4%</span>). 흑자지만 이익률 낮음. 테마 순환 대상</td></tr><tr><td>카티스(140430)</td><td>양자암호·드론</td><td>3,277</td><td><span class="up">+15.80</span></td><td>350</td><td>129</td><td>❌無</td><td>매출317 영익16 순익-51(적)</td><td>양자암호·드론 소형주. <span class="up">+15.8%</span> 급등. 순익 적자. 소형·변동성 극심 추격주의</td></tr><tr><td>드림시큐리티(203650)</td><td>인증·양자암호·PKI</td><td>2,680</td><td>-4.29</td><td>2,726</td><td>28</td><td>❌無</td><td>매출2688 영익256 순익121(흑)</td><td>인증·PKI 대형 실체주. 오늘은 <span class="down">-4%</span> 차익실현. 실적 견조. 시총 큰 편(2726억) 안정적</td></tr><tr><td>안랩(053800)</td><td>백신·엔드포인트(V3)</td><td>63,600</td><td><span class="up">+0.00</span></td><td>7,076</td><td>19</td><td>❌無</td><td>매출2606 영익277 순익324(흑)</td><td>보안 대장·최대 시총(7076억). 오늘 보합. 실적 최강 실체주. 무거워 급등탄력은 낮음</td></tr><tr><td>윈스(136540)</td><td>네트워크보안·IPS</td><td>10,830</td><td>-0.55</td><td>1,330</td><td>3</td><td>❌無</td><td>매출1015 영익204 순익199(흑)</td><td>IPS·네트워크보안 알짜 실체주. 고배당·저평가. 오늘 보합. 테마 소외</td></tr><tr><td>파이오링크(170790)</td><td>네트워크보안·ADC/스위치</td><td>8,430</td><td>-1.29</td><td>539</td><td>0.6</td><td>❌無</td><td>매출583 영익26 순익54(흑)</td><td>ADC·보안스위치. 흑자 실체주. 유동성 낮음(거래대금 0.6억)</td></tr><tr><td>이글루(067920)</td><td>보안관제(SOC)·AI관제</td><td>5,710</td><td>-2.23</td><td>628</td><td>1</td><td>❌無</td><td>매출N/A 영익61 순익62(흑)</td><td>보안관제(SOC) 대표주. AI관제 확장. 흑자. 오늘 소외</td></tr><tr><td>케이사인(192250)</td><td>DB암호화·PKI</td><td>8,160</td><td>-1.45</td><td>577</td><td>4</td><td>❌無</td><td>암호화 솔루션</td><td>DB암호화 대표. 유동성 낮음. 테마 소외</td></tr><tr><td>슈프리마(236200)</td><td>생체인증·출입통제</td><td>50,800</td><td>-0.20</td><td>3,543</td><td>5</td><td>❌無</td><td>바이오인증 H/W</td><td>지문·안면 생체인증 대형주. 실체 있으나 오늘 소외</td></tr><tr><td>모니터랩(434480)</td><td>클라우드보안(SECaaS)</td><td>3,015</td><td><span class="up">+1.52</span></td><td>371</td><td>16</td><td>❌無</td><td>클라우드보안</td><td>클라우드 웹방화벽 소형주. 소폭 강세</td></tr><tr><td>한싹(430690)</td><td>망연계·망분리</td><td>3,045</td><td>-1.14</td><td>332</td><td>8</td><td>❌無</td><td>망연계 솔루션</td><td>망분리·망연계 소형주. 공공 수요. 유동성 낮음</td></tr><tr><td>수산아이앤티(050960)</td><td>보안·트래픽</td><td>8,670</td><td><span class="up">+1.17</span></td><td>585</td><td>0.7</td><td>❌無</td><td>네트워크보안</td><td>보안·네트워크 소형. 유동성 매우 낮음</td></tr><tr><td>SGA솔루션즈(184230)</td><td>서버보안·관제</td><td>2,255</td><td>-2.38</td><td>425</td><td>3</td><td>❌無</td><td>서버보안</td><td>서버보안·관제 소형주. 저가</td></tr><tr><td>소프트캠프(258790)</td><td>문서보안·망분리</td><td>5,950</td><td>-1.49</td><td>297</td><td>5</td><td>❌無</td><td>문서보안(DRM)</td><td>문서보안·CDR 소형주. 소외</td></tr><tr><td>싸이버원(356890)</td><td>보안관제·컨설팅</td><td>2,640</td><td>-0.75</td><td>316</td><td>3</td><td>❌無</td><td>보안관제</td><td>관제·컨설팅 소형주. 소외</td></tr><tr><td>시큐브(131090)</td><td>전자서명·보안</td><td>4,195</td><td><span class="up">+0.48</span></td><td>321</td><td>0.2</td><td>❌無</td><td>전자서명</td><td>전자서명 소형. 유동성 극저</td></tr><tr><td>지란지교시큐리티(208350)</td><td>메일·문서보안</td><td>2,990</td><td><span class="up">+0.00</span></td><td>242</td><td>0.03</td><td>❌無</td><td>메일보안</td><td>메일보안 소형. 거래 거의 없음</td></tr><tr><td>한국전자인증(041460)</td><td>공인인증·CA</td><td>3,485</td><td><span class="up">+0.00</span></td><td>662</td><td>0.5</td><td>❌無</td><td>인증서비스</td><td>공인인증 대표. 오늘 보합. 유동성 낮음</td></tr><tr><td>이스트소프트(047560)</td><td>AI·백신(알약)</td><td>7,800</td><td><span class="up">+0.00</span></td><td>917</td><td>1</td><td>❌無</td><td>알약백신·AI</td><td>알약 백신+AI. 오늘 보합. 테마 소외</td></tr><tr><td>포시에스(189690)</td><td>전자문서·보안</td><td>1,524</td><td>-1.68</td><td>416</td><td>0.15</td><td>❌無</td><td>전자문서</td><td>전자문서·보안 소형. 유동성 저</td></tr><tr><td>플랜티넷(075130)</td><td>유해차단·보안</td><td>2,210</td><td><span class="up">+1.38</span></td><td>356</td><td>0.9</td><td>❌無</td><td>콘텐츠필터</td><td>유해정보차단 소형. 소폭 강세</td></tr><tr><td>시큐레터(418250)</td><td>악성코드·CDR</td><td>6,550</td><td><span class="up">+0.00</span></td><td>476</td><td>0</td><td>❌無</td><td>CDR/샌드박스</td><td>오늘 거래 0(거래정지 추정). 상태 미확인</td></tr></tbody></table></div>
+<p class="note">⚠️ <strong>전 종목 개별주식선물 미상장</strong>(한투 마스터 실측, 292 기초자산 중 보안주 0). → <strong>레버리지 불가, 현물 매매만 가능</strong>.</p>
+<p><strong>③ 형 관점 옥석 가리기 (현물 전제)</strong></p>
+<ul>
+<li>🚫 <strong>선물(레버리지) 가능 종목: 없음.</strong> 이 테마는 개별선물 매매 대상이 아님. 하려면 현물 직접 매수뿐 → 비중·손절 관리가 전부.</li>
+<li>✅ <strong>실적 실체주(흑자·구조성장, 눌림 관점)</strong>:</li>
+<li><strong>안랩(053800)</strong>: 순익324억, 시총7076억. 보안 최대장·최강실적. 단 무거워 탄력↓, 오늘 보합.</li>
+<li><strong>윈스(136540)</strong>: 순익199억, IPS 알짜·고배당·저평가. 테마 소외 → 가치+순환 후보.</li>
+<li><strong>지니언스(263860)</strong>: 순익109억, NAC1위·EDR성장. 오늘 <span class="up">+9%</span>. 실체+모멘텀 겸비(별도 정밀리포트 진행중).</li>
+<li><strong>아톤(158430)</strong>: 순익110억, 양자암호·PASS인증. 오늘 급락 반전(<span class="down">-7%</span>)이나 실적 탄탄. 변동성 큼.</li>
+<li><strong>드림시큐리티(203650)</strong>: 순익121억, 인증·양자·PKI 대형. 시총2726억 안정적.</li>
+<li>⚡ <strong>테마·수급 급등주(적자/영세, 추격주의)</strong>:</li>
+<li><strong>샌즈랩(411080)</strong>: 매출83억·순익 <strong>-23억 적자</strong>. &#x27;AI보안&#x27; 상징성만으로 <span class="up">+12%</span>(고가<span class="up">+24%</span>). <strong>순수 테마·수급주</strong>, 실적 부재 → 추격 최악 손익비.</li>
+<li><strong>카티스(140430)</strong>: 순익 <strong>-51억 적자</strong>, 시총350억 소형. <span class="up">+15.8%</span> 급등. 변동성 극심 추격주의.</li>
+<li><strong>한컴위드(054920)</strong>: 순익 <strong>-47억 적자</strong>(매출은 큼). 거래폭증 수급주.</li>
+<li>🏆 <strong>금일 대장·주도주(거래대금·탄력 기준)</strong>:</li>
+<li><strong>엑스게이트(356680)</strong>: 당일거래대금 <strong>1361억</strong>(압도적 1위)·고가<span class="up">+9.9%</span>후 반락. VPN·PQC 실체(흑자40억)+테마 겸비 → <strong>실질 대장주</strong>. 다만 이미 크게 오른 자리(52주 상단권) 과열 체크.</li>
+<li>수급 화력은 <strong>샌즈랩(613억)·한컴위드(491억)</strong> 로 이어짐(순환).</li>
+<li>💧 <strong>유동성 등급</strong>: 高(엑스게이트·샌즈랩·한컴위드·아톤) / 中(지니언스·라온시큐어·드림시큐리티) / 低(윈스·파이오링크·이글루·소형주 다수, 거래대금 수억 이하 → 슬리피지·현물비중 제한).</li>
+</ul>
+<p><strong>④ 순환매 흐름·주도테마</strong></p>
+<ul>
+<li>하위테마별 금일 온도: <strong>AI보안(샌즈랩)·양자암호(카티스·아톤)</strong> 가 가장 뜨겁고, <strong>네트워크/VPN(엑스게이트)</strong> 이 거래대금 리더. 실적 대형주(안랩·윈스·드림시큐리티)는 <strong>아직 소외</strong> → 순환매 시 후발 매수 후보.</li>
+<li>전형적 순환: 대장(엑스게이트) 거래대금 폭발 → 저가·소형 테마주(샌즈랩·카티스)로 단타 확산 → 다음 실적주(지니언스·아톤)로 키맞추기.</li>
+</ul>
+<p><strong>⑤ 리스크</strong></p>
+<ul>
+<li><strong>테마 소멸 리스크</strong>: 젠슨황 발언 모멘텀은 단발성. 미국 보안주 조정 시 국내 동반 급락.</li>
+<li><strong>밸류 과열</strong>: 샌즈랩·카티스 등 적자주는 실적 뒷받침 전무 → 테마 식으면 -20~30% 반납 흔함.</li>
+<li><strong>소형주 변동성·유동성</strong>: 시총 300~500억·거래대금 수억 종목은 상·하한가 빈발, 대량진입 시 슬리피지.</li>
+<li><strong>레버리지 불가</strong>: 개별선물 없어 형의 선물 스윙 전략 부적합 → 현물 분할·손절선 엄격 관리 필수.</li>
+<li><strong>시큐레터(418250)</strong>: 오늘 거래 0(거래정지 추정), 상태 미확인 → 편입 보류.</li>
+</ul>
+<p><strong>⑥ 미확인·한계</strong></p>
+<ul>
+<li>일부 소형주 순익은 DART 2024 연간 미조회(케이사인·슈프리마·모니터랩 등)로 사업요약만 표기.</li>
+<li>젠슨황 발언 원문·구체 날짜는 언론 보도 기반(웹검색 봇차단으로 1차 원문 미확인).</li>
+<li>지니언스는 별도 정밀리포트 진행 중 → 상세는 개별 리포트 참조.</li>
+<li>시큐레터 거래정지 사유 미확인.</li>
+</ul>
+<p>_생성: 2026-09-16 오전 · KIS 현재가/거래대금·DART 2024연간·한투 선물마스터 전부 실측. 개별선물 유무는 당일 마스터 기준._</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
