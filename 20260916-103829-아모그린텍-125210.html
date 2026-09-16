@@ -1,0 +1,261 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>아모그린텍(125210) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260916-103829-아모그린텍-125210.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.5</div><div class="tp-c"><b>결론 발췌</b> 오늘 +12% 급등은 공시 없는 수급성 테마 급등(ESS·옵티머스 기대)이고, 정작 H1&#x27;26 연결 영업이익은 YoY -39%로 역성장 중. 선물 미상장이라 형 스타일(레버리지 스윙)엔 부적합. 자체 목표가 1차 7,500원(현물 손익비 1:2.5)이나 진입은 5,450원 손절 전제의 소액 관심에 한정. 판정: 관심(현물 소액). ━━━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 1.26% [계산: 거래대금 131억 ÷ 시총 1,034억] — 평소 대비 폭증   - 당일 거래대금 130.6억원 / 거래량 202만주 [실측: KIS FHKST01010100, 2026-09-16]   - 직전일 거래량 2.7만주 → 오늘 202만주로 …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>아모그린텍(125210)</h1>
+<div class="meta">📊 trend · 2026-09-16 10:38 · 코드 125210</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-16 10:38)</div><div class="kpi-v">6,280원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,036억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">17.59</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.28</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:2.5</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">7,500원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 5,900~6,000원 (눌림목 대기, 추격 금지)</span><span class="dc dn">손절 5,450원</span><span class="dc up">목표 7,500원</span><span class="dc">손익비 1:2.5</span><span class="dc">기간 스윙 4~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14경 3Q 분기보고서 / 옵티머스·ESS 공급계약 공시</div><div class="dc-l">🛑 반증: 3Q&#x27;26 연결 영익 &lt; 15억 또는 종가 5,450원 이탈 시 논지 폐기</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 아모그린텍(125210)  ※개별주식선물 無 (현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 오늘 <span class="up">+12%</span> 급등은 공시 없는 수급성 테마 급등(ESS·옵티머스 기대)이고, 정작 H1&#x27;26 연결 영업이익은 YoY <span class="down">-39%</span>로 역성장 중. 선물 미상장이라 형 스타일(레버리지 스윙)엔 부적합. 자체 목표가 1차 7,500원(현물 손익비 1:2.5)이나 진입은 5,450원 손절 전제의 소액 관심에 한정. 판정: 관심(현물 소액).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 1.26% [계산: 거래대금 131억 ÷ 시총 1,034억] — 평소 대비 폭증</li>
+<li>당일 거래대금 130.6억원 / 거래량 202만주 [실측: KIS FHKST01010100, 2026-09-16]</li>
+<li>직전일 거래량 2.7만주 → 오늘 202만주로 약 75배 폭증 [실측: KIS 일봉]</li>
+<li>20일 평균거래대금 11.5억 → 오늘 131억(11배) [실측: KIS 일봉 20일]</li>
+<li>등락률 <span class="up">+12.37%</span>, 현재가 6,270~6,310원 [실측: KIS, 장중]</li>
+<li>추세: MA정배열 X (MA5 5,768 / MA20 5,641 / MA60 5,841 — 오늘 급등 전까진 60일선 아래 횡보) [실측: KIS 일봉]</li>
+<li>연속상승 1일(오늘 하루 갭·급등, 그 전 5,400~5,700 박스) [실측: KIS 일봉]</li>
+<li>20일 수익률 <span class="up">+9.6%</span>, 5일 <span class="up">+11%</span>(대부분 오늘 하루) [실측: KIS]</li>
+<li>현 위치: 52주 저 4,350 대비 <span class="up">+44%</span>, 52주 고 16,750 대비 <span class="down">-62%</span> [실측: KIS] → 중장기 급락 후 바닥권 반등, 고점권 아님</li>
+<li>수급: 20일 외국인 순매도 -14.5만주, 기관 -0.5만주, 개인 <span class="up">+14.0</span>만주 [실측: KIS FHKST01010900] → 오늘 급등 직전까진 외인이 팔고 개인이 받던 종목</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력: 소재부품 기업(2004년 설립). H1&#x27;26 연결 제품비중 [실측: 반기보고서 20260814002991]</li>
+<li>고효율 자성소재(Magnetic Core) 36.3% — 테슬라향 비중 약 65%(전기차 충전·파워)</li>
+<li>ESS(에너지저장장치) 39.7% — 통신·신재생·전기기관차용</li>
+<li>나노멤브레인(Vent) 16.3% / 방열 3.0% / 기타 4.7%</li>
+<li>급등사유 검증:</li>
+<li>[인용: SK증권 2026-04-23] &quot;테슬라 옵티머스 충전기向 자성소재 메인벤더 선정 → 2H26부터 로봇 매출&quot;, &quot;LNG 복합발전 메탈릭컨버터 독점공급&quot;, &quot;일본 통신용 ESS 공급개시&quot;</li>
+<li>[실측: DART 공시목록] 2026.07~09 신규 공급계약·수주 공시 0건 → 오늘 급등은 확정 공시가 아니라 테마(옵티머스·ESS·데이터센터) 기대감 + 저평가 갭 메우기성 수급 급등으로 판단</li>
+</ul>
+<p>→ 실체(자성소재 테슬라 밸류체인, ESS 다변화)는 있으나, 2H26 로봇 매출은 아직 &#x27;기대감&#x27; 단계(실적 미반영)</p>
+<p>③ 실적 (DART 실측·연결)</p>
+<ul>
+<li>연간 추세 [실측: 사업보고서]</li>
+<li>2024: 매출 1,285.7억 / 영익 44.7억(OPM 3.5%) / 순익 21.2억</li>
+<li>2025: 매출 1,306.0억(<span class="up">+1.6%</span> YoY) / 영익 93.8억(OPM 7.2%, <span class="up">+110%</span> YoY) / 순익 59.0억</li>
+</ul>
+<p>→ 2025년은 영익 급개선(마진 3.5→7.2%)한 해</p>
+<ul>
+<li>최근 반기 (연결·누적) [실측: 반기보고서 20260814002991, thstrm_add_amount]</li>
+<li>H1&#x27;26: 매출 665.3억 / 영익 34.6억(OPM 5.2%) / 순익 23.1억</li>
+<li>H1&#x27;25: 매출 701.7억 / 영익 57.0억(OPM 8.1%) / 순익 28.8억</li>
+<li>YoY: 매출 <span class="down">-5.2%</span> / 영익 <span class="down">-39.3%</span> / 순익 <span class="down">-19.8%</span> ★역성장</li>
+<li>분기 분해 [실측·검산: 반기=1Q<span class="up">+2</span>Q]</li>
+<li>26_1Q 연결: 매출 307.5억 / 영익 16.4억</li>
+<li>26_2Q 연결: 매출 357.8억 / 영익 18.1억 (검산 307.5<span class="up">+357.8</span>=665.3=반기 ✓)</li>
+<li>순익 급감 분해: 영업 자체가 <span class="down">-39%</span> 악화가 주원인(일회성·법인세 아님). 금융수지는 H1&#x27;26 금융수익 상회로 오히려 방어 [실측: 금융수익 vs 금융비용]</li>
+<li>재무건전성 [실측: 사업보고서 2025]</li>
+<li>자산 1,897억 / 부채 1,086억 / 자본 811억 → 부채비율 133.9%</li>
+<li>영업현금흐름 <span class="up">+217</span>억(양호), 투자현금흐름 -148억(설비투자), 재무현금흐름 <span class="up">+31</span>억 [실측: 2025 현금흐름표]</li>
+</ul>
+<p>→ 현금창출력은 견조하나 부채비율 130%대는 다소 높은 편</p>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>커버리지 1곳뿐 [인용: consensus.py, stockeasy]</li>
+<li>SK증권 2026-04-23 · Buy · 목표가 24,000원(신규 커버리지 개시)</li>
+<li>26E 매출 1,529억(<span class="up">+17.1%</span> YoY) / 영익 144억(<span class="up">+53.3%</span> YoY) &#x27;사상 최대&#x27; 전망</li>
+<li>27E EPS 1,201원 가정</li>
+<li>달성 가능성: 中~低</li>
+<li>[실측] H1&#x27;26 영익 34.6억 = 26E 144억의 24%밖에 안 됨. 하반기 로봇·ESS 물량이 폭발해야 달성 → 2H에 110억(연간의 76%) 필요</li>
+<li>자성소재 단가는 오히려 하락(수출 $1.63→$1.35), ESS 단가는 회복 [실측: dart_biz 단가표]</li>
+<li>옵티머스 매출은 &#x27;기대&#x27;이고 2H26 발생 여부 미확인 → 컨센 달성은 하이리스크</li>
+</ul>
+<p>→ SK 목표가 24,000원은 27F EPS×P/E 20배 기준의 낙관 케이스. 현재가 6,270원과 3.8배 괴리는 &#x27;단일 증권사 낙관 시나리오&#x27;로만 취급</p>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 밸류 [실측: KIS] PER 17.6배(EPS 357) / PBR 1.28배(BPS 4,917) / 시총 1,034억</li>
+<li>자체 목표가 산출 [추정: 산식]</li>
+<li>보수 케이스: 25년 순익 59억 유지 가정, EPS 357원 × 적정 P/E 18배(자체밴드 중단) = 6,430원 (현재가 근접 → 현 주가는 25년 실적엔 이미 공정가치)</li>
+<li>낙관 케이스: 26E 순익 추정 미확인이나 SK 26E 영익 144억 달성 시 순익 ~85억 가정, EPS ~515원 × P/E 20배 = 10,300원</li>
+</ul>
+<p>→ 자체 1차 목표 7,500원(현재<span class="up">+20%</span>, 26E 개선 초기 반영), 2차 10,000원(낙관 케이스)</p>
+<ul>
+<li>증권사 목표가 병기: SK증권 24,000원 [인용: 2026-04-23] — 27F 기준, 본 리포트 자체 산출과 큰 괴리(가정 낙관도 차이)</li>
+</ul>
+<p>⑥ 진입전략·손익비 ★선물 無 → 레버리지 불가, 현물만</p>
+<ul>
+<li>지지: 5,450원(MA20 5,641 하단·직전 박스 저점) / 5,000원(심리) / 4,350원(52주저)</li>
+<li>저항: 6,760원(오늘 고가) / 7,500원(자체 1차목표) / 8,000~8,500원(구간 매물대)</li>
+<li>52주 고 대비 <span class="down">-62%</span>(급락 후 바닥권), MA60 막 회복 시도 단계</li>
+<li>현물 스윙(참고): 진입 6,000원 / 손절 5,450원(MA20·박스하단 아래) / 목표 1차 7,500원</li>
+<li>손익비: 상승여력 25.0% ÷ 하락리스크 10.1% = 1:2.5 [검산: (7500/6000-1)÷(6000/5450-1)]</li>
+<li>단, 추격매수(6,270 이상)는 손절 5,450까지 <span class="down">-13%</span>로 벌어져 손익비 1:1.8로 악화 → 눌림목 대기 권장</li>
+</ul>
+<p>⚠️ 선물 미상장 → 형 주력인 개별주식선물 레버리지 진입 불가. 현물만 가능하며 50% 집중·레버리지는 원천 불가.</p>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>9-1 제품구조 [실측: 반기보고서 20260814002991]</li>
+<li>ESS 39.7%(H1 264억) / 자성소재 36.3%(H1 241억) / 나노멤브레인 16.3%(H1 108억)</li>
+<li>9-2 고객·납품: 자성소재 테슬라향 비중 약 65% [인용: SK증권 2026-04-23] / ESS는 통신·신재생·전기기관차 다변화 [실측: 반기보고서 사업개요] / 개별 고객 납품비중 정량치 미확인</li>
+<li>9-3 TAM·경쟁·점유율: 미확인(반기보고서에 경쟁사 점유율·CAPA 정량표 없음) → &#x27;독점&#x27;류 정성문구(메탈릭컨버터 독점)는 [인용: SK증권] 단일소스로 검증 미완, 데이터로만 취급</li>
+<li>9-4 단가이력 [실측: dart_biz 가격변동표]</li>
+<li>자성소재 수출 $1.37(23)→$1.63(24)→$1.35(25)→$1.25(26H1) ★하락추세(마진압박)</li>
+<li>ESS 수출 $693(23)→$859(24)→$577(25)→$566(26H1) ★급락 후 저위</li>
+<li>나노멤브레인 수출 $0.07→0.09→0.09→0.10 (완만 상승)</li>
+<li>9-5 CAPA증설: 투자현금흐름 -148억(2025) 설비투자 진행 [실측] / 구체 증설 CAPA 수치 미확인</li>
+<li>9-6 전방 CAPEX: 테슬라 EV·옵티머스, 데이터센터 ESS, LNG발전 [인용: SK증권] — 정량 미확인</li>
+<li>9-7 바텀업 표 (연결·억, 하반기 H2&#x27;26 영익 추정) [추정: 산식]</li>
+</ul>
+<p>구조: H1&#x27;26 실적(매출665/영익34.6) → H2 시나리오</p>
+<ul>
+<li>Bear(확률 40%): 자성소재·ESS 단가 약세 지속, 옵티머스 매출 미발생 → H2 매출 660억×OPM 5% = 영익 33억 / 연간 영익 ~68억</li>
+<li>Base(확률 40%): ESS 물량 회복+로봇 초기물량 소폭 → H2 매출 730억×OPM 7% = 영익 51억 / 연간 영익 ~86억</li>
+<li>Bull(확률 20%): 옵티머스·일본ESS 본격화 → H2 매출 860억×OPM 9% = 영익 77억 / 연간 영익 ~112억</li>
+<li>컨센대조: 3개 시나리오 모두 SK 26E 영익 144억에 미달 → 컨센은 낙관적</li>
+<li>결론 문장: 3Q&#x27;26 연결 영업이익 ≥ 25억이면 하반기 회복 논지 유지·관심 지속, &lt; 15억이면 역성장 고착으로 논지 폐기(오늘 급등의 실적 근거 소멸).</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정):</li>
+<li>2026-11-14 전후: 3Q&#x27;26 분기보고서 법정기한(2026.09말 결산 기준 45일) [실측: 자본시장법 분기보고서 기한] — H1 역성장 반전 여부 확인 분수령</li>
+<li>상시: 테슬라 옵티머스 양산 스케줄·공급계약 공시 발생 시 [인용: SK증권 기대이벤트, 날짜 미확정]</li>
+<li>반증 조건 3개:</li>
+</ul>
+<p>1) 3Q&#x27;26 연결 영익 &lt; 15억(H1 역성장 고착) → 논지 폐기 2) 종가 5,450원(MA20·박스저점) 이탈 마감 → 오늘 급등 되돌림 확정, 손절 3) 옵티머스·ESS 공급계약 4Q까지 무공시 → 테마 소멸, 밸류 정상화(6,000원대 이하)</p>
+<ul>
+<li>이벤트 매트릭스(3Q 실적×당일):</li>
+<li>서프라이즈×갭상승 → 추격 금지, 눌림 확인 후 분할</li>
+<li>인라인×보합 → 6,000 눌림 진입 유지</li>
+<li>쇼크×갭하락 → 즉시 손절, 재진입 보류</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 40%: 목표 5,000원(<span class="down">-20%</span>), 실적 역성장·테마소멸</li>
+<li>Base 40%: 목표 7,500원(<span class="up">+20%</span>), 26E 소폭개선 반영</li>
+<li>Bull 20%: 목표 10,000원(<span class="up">+60%</span>), 옵티머스 매출 가시화</li>
+<li>기대수익률 = 0.4×(<span class="down">-20%</span>)<span class="up">+0.4</span>×(<span class="up">+20%</span>)<span class="up">+0.2</span>×(<span class="up">+60%</span>) = <span class="up">+12%</span> [계산]</li>
+<li>수급·유동성 [실측: KIS]</li>
+<li>20일 외인 순매도 -14.5만주, 기관 -0.5만주 (오늘 급등 전까진 매도우위)</li>
+<li>20일 ADV 11.5억원 → 오늘 131억으로 급증했으나 평소 유동성 얇음</li>
+<li>1일 체결상한(ADV 10%) = 평소 약 1.15억원(약 1.8만주) → 급등일 외 진입/청산 유동성 제약</li>
+<li>포지션 사이징 [계산: 5억×1% 리스크예산]</li>
+<li>리스크예산 500만원 ÷ (6,000-5,450=550원) = 약 9,090주(약 5,450만원)</li>
+<li>유동성상한(평소 ADV 10% = 1.8만주)은 넉넉하나 얇은 종목이므로 3,000만원 이하 권장</li>
+<li>→ 최소값 기준: 약 3,000만원(총자산 0.6%) 소액 현물 한정. 선물 없어 집중·레버리지 불가.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>시장경고(00=정상 확인, 경고 無 [실측])</li>
+<li>형 보유 여부: 미확인</li>
+<li>개별 고객사 납품비중 정량치 / 경쟁사 점유율·CAPA / 옵티머스 계약 규모·시점</li>
+<li>26E·27E 순이익 컨센(SK 영익만 제시, 순익·EPS 세부 미확인)</li>
+<li>2023년 연간 손익(DART 조회 데이터 없음 013)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI 실측(현재가·일봉·투자자·2026-09-16)</li>
+<li>DART 사업보고서(2025.12, 접수 20260318001646) / 반기보고서(2026.06, 접수 20260814002991)</li>
+<li>SK증권 2026-04-23 리포트(consensus.py·stockeasy, Buy·TP 24,000)</li>
+</ul>
+<p>[검산] 26_1Q 307.5 + 26_2Q 357.8 = 665.3 = H1 반기누적 ✓ / 손익비 헤더=본문 1:2.5(진입6,000 기준) 일치 ✓ / 시나리오 확률합 40<span class="up">+40</span><span class="up">+20</span>=100% ✓ / 연결(CFS) 라벨 전수표기 ✓ / 손절 5,450원 아래 추가매수 금지 명시 ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-16 10:38 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 6,280원 (<span class="up">+12.5%</span>) · 시총 1,036억 · 5일 <span class="up">+11.0%</span> / 20일 <span class="up">+9.6%</span> / 60일 <span class="down">-22.0%</span></li>
+<li>MA5 5,768원 / MA20 5,641원 / MA60 5,841원 → MA20 이격 <span class="up">+11.3%</span> · MA60 이격 <span class="up">+7.5%</span></li>
+<li>52주 고 16,750원 / 저 4,350원 → 고점 대비 <span class="down">-62.5%</span> · 20일 고 6,280원 / 저 5,380원</li>
+<li>후행 PER 17.59 / PBR 1.28 (EPS 357원 · BPS 4,917원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 11.6억 (5일 29.2억)</li>
+<li>외국인 순매수 5일 -1.4억 / 20일 -8.4억 · 기관 5일 0.0억 / 20일 -0.3억 · 개인 20일 8.1억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.54% / 20일 평균 2.89% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 10.92% (09/04) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 7,500원 (<span class="up">+19.4%</span>) ÷ 하방 5,450원 (−13.2%) = <strong>1:1.47</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (운용 5억 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 10%) → 리스크 예산 0.5%</li>
+<li>리스크예산: 250만원 ÷ (진입 6,280원 − 손절 5,450원 = 830원) = <strong>3,012주 ≈ 0.19억</strong></li>
+<li>유동성상한: 20일 ADV 11.6억 × 10% = 1일 1.16억 (분할 시 일수 = 목표금액 ÷ 이 값)</li>
+<li>채택 상한 = 최소값 → <strong>리스크예산(0.5%) 0.19억 (4% of 자산)</strong></li>
+<li>⚠️ 손절폭 13.2% · ATR14 338원 (손절폭/ATR 2.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 13.2% = ATR14 × 2.5배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 5,652원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.94</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-125210"></span>📋 결정카드 — 아모그린텍(125210) 판정: 관심 선물: 無 현재가: 6,270원 진입: 5,900~6,000원 (눌림목 대기, 추격 금지) 손절: 5,450원 목표: 1차 7,500원 (2차 10,000원) 손익비: 1:2.5 기간: 스윙 4~8주 촉매: 2026-11-14경 3Q 분기보고서 / 옵티머스·ESS 공급계약 공시 반증: 3Q&#x27;26 연결 영익 &lt; 15억 또는 종가 5,450원 이탈 시 논지 폐기</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
