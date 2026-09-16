@@ -1,0 +1,124 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>📝 후성 (093370) 매수 추천 · 9/17 — 리서치 허브</title><style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b;--wr:#ffc16b}
+*{box-sizing:border-box}
+body{overflow-x:hidden;font:15px/1.6 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:1000px;margin:0 auto;padding:20px 16px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.head{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:20px 22px;margin-bottom:14px}
+h1{font-size:22px;margin:0 0 4px;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;line-height:1.7}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.stat{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:5px 11px;font-size:12.5px;color:#cdd3dc}
+.stat b{color:#fff;font-size:14px}
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 14px}
+.chip{background:var(--card);border:1px solid var(--bd);color:#cdd3dc;padding:5px 12px;border-radius:20px;font-size:12.5px;font-weight:600;cursor:pointer;user-select:none}
+.chip.on{border-color:var(--acc);color:#fff;background:rgba(93,176,255,.14)}
+.fgrp{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-right:8px}
+.fgrp .fl{color:var(--mut);font-size:12px}
+h2.sech{font-size:16px;font-weight:700;margin:22px 0 10px;padding:8px 14px;border-radius:11px;background:linear-gradient(160deg,rgba(93,176,255,.14),var(--card2));border:1px solid rgba(93,176,255,.35);color:#9fd0ff}
+.months{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.month{min-width:0;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px}
+.month h3{margin:0 0 8px;font-size:14px;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+.dow{font-size:10.5px;color:var(--mut);text-align:center}
+.day{min-width:0;overflow:hidden;min-height:44px;background:var(--card2);border:1px solid var(--bd);border-radius:6px;padding:2px 3px;font-size:10.5px;color:var(--mut)}
+.day.off{opacity:.45}.day.today{border-color:var(--wr)}
+.day .dn{font-weight:600;color:#cdd3dc}
+.ec{display:block;margin-top:2px;padding:1px 4px;border-radius:5px;font-size:10px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#e7eaee;text-decoration:none;cursor:pointer}
+.ec.expected{border:1px dashed #6a7386;background:transparent}
+.ec.confirmed{border:1px solid var(--acc);background:rgba(93,176,255,.12)}
+.ec.released{border:1px solid var(--up);background:rgba(126,231,161,.25)}
+.ec.hold{font-weight:700}
+.ec.k-report{opacity:.85}
+.ec.more{border:1px solid var(--wr);color:var(--wr);text-align:center}
+[hidden]{display:none!important}
+.list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.row{background:var(--card);border:1px solid var(--bd);border-radius:13px;padding:12px 16px}
+.row:hover{border-color:var(--acc)}
+.row.past{opacity:.75}
+.r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.nm{font-size:16px;font-weight:700;color:#fff}
+.code{color:var(--mut);font-size:12px}
+.tag{padding:2px 9px;border-radius:6px;font-size:12px;font-weight:600;background:#233043;color:#8fc3ff}
+.tag.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2}.tag.st-watch{background:rgba(255,193,107,.16);color:#ffd08a}.tag.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3}
+.tag.hold{background:rgba(255,193,107,.22);color:#ffd08a;border:1px solid rgba(255,193,107,.4)}
+.tag.fut{background:rgba(93,176,255,.18);color:#9fd0ff}
+.tag.k{background:#2a2f3a;color:#dfe5ee}
+.tag.s-expected{border:1px dashed #6a7386;background:transparent;color:#cdd3dc}
+.tag.s-confirmed{border:1px solid var(--acc);background:rgba(93,176,255,.12);color:#9fd0ff}
+.tag.s-released{border:1px solid var(--up);background:rgba(126,231,161,.16);color:#a6f0c2}
+.tag.v-sur{background:rgba(126,231,161,.2);color:#a6f0c2}.tag.v-inl{background:rgba(255,193,107,.18);color:#ffd08a}.tag.v-shk{background:rgba(255,123,123,.2);color:#ffb3b3}
+.tag.warn{background:rgba(255,123,123,.16);color:#ffb3b3}
+.dday{margin-left:auto;font-weight:700;font-size:14px;color:#fff}
+.dday.soon{color:var(--wr)}.dday.done{color:var(--up)}
+.r2{color:#cdd3dc;font-size:13px;margin-top:5px}
+.r2 .src{color:var(--mut);font-size:12px}
+.th{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px;margin-top:8px}
+.tb{background:var(--card2);border:1px solid var(--bd);border-radius:9px;padding:6px 9px;font-size:12.5px}
+.tb .l{color:var(--mut);font-size:11px;display:block}
+.tb.shk{border-color:rgba(255,123,123,.35)}.tb.inl{border-color:rgba(255,193,107,.35)}.tb.sur{border-color:rgba(126,231,161,.35)}
+.raw{color:#aeb6c2;font-size:12px;margin-top:6px}
+.act{margin-top:8px;background:rgba(93,176,255,.08);border:1px solid rgba(93,176,255,.3);border-radius:9px;padding:7px 10px;font-size:13px}
+.btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.btns a{background:var(--card2);border:1px solid var(--bd);color:#cdd3dc;padding:4px 10px;border-radius:8px;text-decoration:none;font-size:12px}
+.btns a:hover{border-color:var(--acc);color:#fff}
+.basis{color:var(--mut);font-size:11px}
+.up{color:var(--up)}.down{color:var(--dn)}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px;background:var(--card);border:1px solid var(--bd);border-radius:10px;overflow:hidden}
+th,td{padding:7px 9px;border-bottom:1px solid var(--bd);text-align:left;white-space:nowrap}
+th{background:var(--card2);color:#cdd3dc;font-size:12px}
+.howto{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 16px;font-size:13px;color:#cdd3dc;margin-top:22px}
+.howto ol{margin:6px 0 0;padding-left:20px}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:22px;line-height:1.7}
+.fn{color:var(--mut);font-size:12px;margin-top:10px;line-height:1.6}
+.empty{color:var(--mut);text-align:center;padding:14px;background:var(--card);border:1px solid var(--bd);border-radius:13px}
+.rev{margin-top:8px;background:var(--card2);border:1px solid var(--bd);border-radius:9px;padding:6px 10px;font-size:12.5px;color:#cdd3dc}
+.rev.pre{border-color:rgba(255,193,107,.55);background:rgba(255,193,107,.07)}
+.rev .l{color:var(--mut);font-size:11px;margin-right:4px}
+.dir{padding:1px 8px;border-radius:6px;font-size:11.5px;font-weight:700;margin-right:6px}
+.dir.up{background:rgba(126,231,161,.18);color:#a6f0c2}.dir.dn{background:rgba(255,123,123,.2);color:#ffb3b3}.dir.flat{background:#2a2f3a;color:#dfe5ee}.dir.na{background:transparent;border:1px dashed #6a7386;color:var(--mut)}
+.leads{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px;align-items:center}
+.wk{background:linear-gradient(160deg,#20263a,#191c22);border:1px solid rgba(255,193,107,.45);border-radius:16px;padding:14px 16px;margin-bottom:14px}
+.wk-title{font-size:17px;font-weight:800;color:#fff;margin-bottom:10px}
+.wk-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.wk-col,.wk-next{min-width:0}
+.wk-next{margin-top:12px}
+.wk-h{font-size:14px;font-weight:700;color:#ffd08a;margin:0 0 6px}
+.wk-row{display:flex;align-items:stretch;gap:4px;margin-bottom:6px}
+.wk-it{flex:1;min-width:0;display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--bd);border-left:4px solid #6a7386;border-radius:10px;padding:8px 10px;text-decoration:none;color:var(--tx)}
+.wk-it:hover{border-color:var(--acc)}
+.wk-it.earn{border-left-color:var(--acc)}.wk-it.cat{border-left-color:var(--wr)}.wk-it.lead{border-left-color:#b48cff}.wk-it.exp{border-left-color:var(--dn)}
+.wk-it.hold{background:rgba(255,193,107,.08)}
+.wk-it.past{opacity:.55}
+.wk-d{flex:0 0 64px;font-size:12.5px;color:var(--mut);line-height:1.35}
+.wk-d b{display:block;font-size:15px;color:#fff}
+.wk-b{min-width:0;display:flex;flex-direction:column;gap:2px}
+.wk-t{font-size:14px;font-weight:700;color:#fff;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}
+.wk-s{font-size:12.5px;color:#cdd3dc;line-height:1.45;overflow-wrap:anywhere}
+.wk-kill{color:#ffb3b3;font-weight:600}
+.wk-s .dir,.wk-s .wk-kill{white-space:nowrap;display:inline-block}
+.wk-rep{display:flex;align-items:center;padding:0 8px;background:var(--card2);border:1px solid var(--bd);border-radius:10px;text-decoration:none}
+.wk-empty{color:var(--mut);font-size:13px;padding:10px;background:var(--card);border:1px dashed var(--bd);border-radius:10px}
+.wk-grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+@media(max-width:720px){.wk-cols,.wk-grid2{grid-template-columns:1fr}}
+.lchip{background:rgba(180,140,255,.12);border:1px solid rgba(180,140,255,.4);color:#d9c8ff;border-radius:14px;padding:1px 9px;font-size:11.5px;text-decoration:none;white-space:nowrap}
+.lchip.bad{background:transparent;border:1px dashed #6a7386;color:var(--mut)}
+.ec.lead{border:1px solid rgba(180,140,255,.55);background:rgba(180,140,255,.14);color:#d9c8ff}
+.alertbox{margin-top:10px;background:rgba(255,123,123,.08);border:1px solid rgba(255,123,123,.35);border-radius:10px;padding:7px 11px;font-size:13px}
+.alertbox.ok{background:var(--card);border-color:var(--bd);color:var(--mut)}
+@media(max-width:760px){.months{grid-template-columns:1fr}.day{min-height:36px}.th{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.th{grid-template-columns:1fr}.dday{margin-left:0}}
+
+.wrap{max-width:860px;margin:0 auto}
+h1{font-size:26px;margin:6px 0 2px;letter-spacing:-.4px}
+.concl{background:linear-gradient(160deg,#20263a,#191c22);border:1px solid rgba(255,193,107,.5);border-radius:14px;padding:14px 18px;margin:12px 0 18px;font-size:17px;line-height:1.65;font-weight:600}
+h2.s{font-size:17px;margin:20px 0 8px;padding:8px 14px;border-radius:11px;background:linear-gradient(160deg,rgba(93,176,255,.14),#1e222b);border:1px solid rgba(93,176,255,.35);color:#9fd0ff}
+ul.b{list-style:none;padding:0;margin:0;display:grid;gap:7px}
+ul.b li{background:#191c22;border:1px solid #2a2f3a;border-left:3px solid #5db0ff;border-radius:10px;padding:9px 13px;font-size:15px;line-height:1.6}
+.n{color:#ffd08a;font-weight:700}
+.foot{color:#9aa2ad;font-size:12.5px;margin-top:20px;text-align:center;line-height:1.7}
+@media print{body{background:#fff;color:#111}ul.b li,.concl{background:#fff;border-color:#ccc}.n{color:#a05a00}h2.s{background:#eee;color:#111}}
+</style></head><body><div class="wrap"><div class="top"><a href="./index.html">← 리포트 허브</a><a href="./earnings.html">📆 실적 캘린더</a><a href="./supply.html">💰 수급</a></div><h1>후성 (093370) 매수 추천 · 9/17</h1><h2 class="s">결론</h2><div class="concl">후성 매수. 현재가 <span class="n">14,600원</span>, 목표 <span class="n">18,500원</span>(+<span class="n">26.7%</span>), 손절 <span class="n">12,850원</span>(-<span class="n">12.0%</span>) → 손익비 1:2.23.<br>근거는 하나: 반도체 특수가스 가격이 70~<span class="n">90%</span> 올랐고 이게 2Q부터 이익으로 찍히기 시작함. 3Q 영업이익 <span class="n">240억</span>이 나오면 논지 확정.</div><h2 class="s">왜 지금 이익이 뛰나</h2><ul class="b"><li>WF6(텅스텐 증착가스) <span class="n">2026계약</span>가 +70~<span class="n">90%</span>. 중국 텅스텐 수출허가제(2025-02)로 원료가 막히면서 가격 전가 성공</li><li>일본계 WF6 <span class="n">25%</span> 감산 예고(2H26). 글로벌 공급 공백 약 2,000톤, 후성 CAPA 900톤(점유율 약 <span class="n">10%</span>)</li><li>영업이익 흐름: 3Q25 <span class="n">58억</span> → 1Q26 <span class="n">93억</span> → 2Q26 <span class="n">234억</span>. 2Q 영업이익률 <span class="n">12.4%</span>로 역대 최고</li><li>상반기 누적 매출 <span class="n">3,297억</span>(+<span class="n">18.5%</span>), 영업이익 <span class="n">327억</span>(전년 -<span class="n">13억</span>에서 흑자전환)</li></ul><h2 class="s">3Q <span class="n">240억</span>은 이렇게 나옴</h2><ul class="b"><li>한텍(열교환기) 제외 본업 매출 <span class="n">1,400억</span>대 × 영업이익률 9~<span class="n">10%</span> ≈ <span class="n">130억</span></li><li>한텍 매출 <span class="n">460억</span>대 × 영업이익률 약 <span class="n">23%</span> ≈ <span class="n">106억</span> (2Q 실측과 동일 수준)</li><li>합계 약 <span class="n">240억</span>. 컨센 <span class="n">243억</span>과 일치. 전년 3Q <span class="n">58억</span> 대비 <span class="n">4배</span></li><li>비관 <span class="n">165억</span>(단가 전가 둔화) / 낙관 <span class="n">305억</span>(두 자릿수 이익률 유지)</li></ul><h2 class="s">목표 <span class="n">18,500원</span> 근거</h2><ul class="b"><li>FY27 컨센: 매출 <span class="n">7,659억</span> · 영업이익 <span class="n">1,057억</span> · EPS <span class="n">668원</span>. 지금 주가는 FY27 PER <span class="n">21.9배</span></li><li>낙관 이익(FY27 영업이익 <span class="n">1,200억</span> → EPS 약 <span class="n">843원</span>) × 지금 배수 <span class="n">22배</span> = <span class="n">18,550원</span></li><li>즉 멀티플을 올리지 않아도 이익이 낙관 경로로 가면 목표가 나옴. 기본 경로면 배수 <span class="n">28배</span>까지 재평가가 필요</li><li>증권사 목표 <span class="n">20,000원</span>(유진, Buy). 영업이익 컨센은 1년 전 <span class="n">367억</span> → 3개월 전 <span class="n">527억</span> → 지금 <span class="n">765억</span>, 한 달 새 +<span class="n">45%</span>로 커버 종목 중 상향폭 1위</li></ul><h2 class="s">수급·가격</h2><ul class="b"><li>20일 기관 +<span class="n">286억</span>, 외인 -<span class="n">86억</span>. 기관이 받고 있음</li><li>5일 +<span class="n">9.4%</span>, 20일 +<span class="n">16.7%</span>인데 60일은 -<span class="n">21.5%</span>. 상반기 고점(<span class="n">52주</span> <span class="n">23,550원</span>)의 <span class="n">62%</span> 수준</li><li>20일선 <span class="n">12,972원</span> · 60일선 <span class="n">12,520원</span> 위. 공매도 20일 평균 <span class="n">3.2%</span>로 낮음</li><li>20일 평균 거래대금 <span class="n">404억</span>, 선물 상장(AEL610)</li></ul><h2 class="s">진입과 사이징</h2><ul class="b"><li>지금 <span class="n">14,600원</span>에서 절반. 나머지는 <span class="n">15,250원</span>(20일 고점) 종가 돌파 확인 또는 <span class="n">13,300원</span> 눌림에서</li><li>손절 <span class="n">12,850원</span> 종가 이탈. 더 타이트하게 가면 <span class="n">13,140원</span>(2ATR) 기준 손익비 1:2.67</li><li>비중: 손실예산 <span class="n">0.5%</span>(고변동 구간) ÷ 손절폭 <span class="n">12%</span> = 자산의 약 <span class="n">4%</span></li></ul><h2 class="s">접는 기준</h2><ul class="b"><li>3Q 영업이익 <span class="n">165억</span> 미만이면 논지 폐기 (발표 11/16 법정기한)</li><li>3Q 영업이익률 <span class="n">9%</span> 미만 = 2Q <span class="n">12.4%</span>가 일회성이었다는 신호</li><li>60일선 <span class="n">12,520원</span> 종가 이탈</li></ul><h2 class="s">리스크</h2><ul class="b"><li>반도체가스 고객이 삼성·SK하이닉스 2사 집중. 가격 협상력은 고객 쪽</li><li>LiPF6(2차전지 전해질) 중국 스팟 2Q -<span class="n">17%</span>. 하락 전환 중</li><li>컨센 추정 기관이 1곳(유진)뿐이라 컨센 자체의 신뢰구간이 넓음</li><li>후행 PER은 <span class="n">292배</span>로 비싸 보임. 흑자전환 초기라 FY27 기준으로 봐야 함</li></ul><div class="foot">수치 기준 9/16 종가 · KIS 시세·수급 · DART 2026 반기보고서 · 컨센서스(FnGuide·네이버·유진) · 근거 리포트: https://kkkfnf.github.io/report-hub/20260915-103940-%ED%9B%<span class="n">84%</span>EC%<span class="n">84%</span>B1-093370.html</div><div class="foot">🐤 춘식이 리서치 허브 · 스터디 발표용 요약 · 갱신 2026-09-17 01:56<br>⚠️ 참고용. 매수·매도 권유 아님. 수치는 KIS·DART·컨센서스 실측.</div></div></body></html>
