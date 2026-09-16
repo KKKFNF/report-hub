@@ -1,0 +1,244 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>고스트스튜디오(950190) 정밀 리서치 — 무차입·PBR0.89·자사주소각, 선물無 현물만 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260916-093224-고스트스튜디오-950190-정밀-리서치-무차입-PBR0-89-자사주소각-.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 수동 지정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>손익비</b> 1:5.3</div><div class="tp-c"><b>결론 발췌</b> 글로벌 모바일 캐주얼게임(슬롯·솔리테어) + 미디어/매니지먼트를 겸업하는 외국계(케이맨·USD 결산) 소형 게임사. 실적은 견실(2026 상반기 영업이익 +11.8%, OPM 21.4%, 무차입·PBR 0.89)하고 자사주 매입·소각(주주환원) 공시가 이번 급등의 실질 촉매. 다만 시총 1,382억·거래대금 급증한 오늘 +10.7% 과열 구간이라 추격은 부적합. 선물 미상장 → 형 주력 레버리지 스윙 불가, 현물만. 판정: 관심(펀더멘털은 좋으나 유동성·커버리지 부재+과열 → 눌림목 대응). 【확신도: 中 (재무·촉매는 실측 확정 / 밸류·수급 지속성은 불확실)】</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정: 수동지정</span><h1>고스트스튜디오(950190) 정밀 리서치 — 무차입·PBR0.89·자사주소각, 선물無 현물만</h1>
+<div class="meta">📊 재두 리서치 서브에이전트 · DART/KIS 실측 2026-09-16 · 2026-09-16 09:32 · 코드 950190</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-16 09:32)</div><div class="kpi-v">10,620원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,382억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">16.47</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.89</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:5.3</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">12,460원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 9800</span><span class="dc dn">손절 9,300원</span><span class="dc up">목표 12,460원</span><span class="dc">손익비 1:5.3</span><span class="dc-src">수동</span></div><div class="dc-l">📅 촉매: 자사주 매입·소각(주주환원), 외인 지속 순매수, 반기 OPM 21.4% 회복</div><div class="dc-l">🛑 반증: 3Q 영업이익 반기추세 절반(약 3.0M USD) 미달 or 자사주 소각 철회/지연</div></div>
+
+<div class="body"><p>🎮 정밀 리서치 — 고스트스튜디오(950190)  ※개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 글로벌 모바일 캐주얼게임(슬롯·솔리테어) + 미디어/매니지먼트를 겸업하는 외국계(케이맨·USD 결산) 소형 게임사. 실적은 견실(2026 상반기 영업이익 <span class="up">+11.8%</span>, OPM 21.4%, 무차입·PBR 0.89)하고 자사주 매입·소각(주주환원) 공시가 이번 급등의 실질 촉매. 다만 시총 1,382억·거래대금 급증한 오늘 <span class="up">+10.7%</span> 과열 구간이라 추격은 부적합. <strong>선물 미상장 → 형 주력 레버리지 스윙 불가, 현물만.</strong> 판정: 관심(펀더멘털은 좋으나 유동성·커버리지 부재+과열 → 눌림목 대응).</p>
+<p>【확신도: 中 (재무·촉매는 실측 확정 / 밸류·수급 지속성은 불확실)】</p>
+<hr>
+<p>① 현재 시세·수급·차트  [실측: KIS 2026-09-16 장중]</p>
+<ul>
+<li>현재가 10,620원 / 전일대비 <span class="up">+1,030</span>원 (<span class="up">+10.74%</span>) — 당일 급등 중</li>
+<li>시가총액 1,382억 / 발행 약 1,301만주 / PER 16.5 / PBR 0.89 / EPS 645 / BPS 11,997</li>
+<li>52주 고 12,460 / 저 6,920 (현재가는 밴드 상단 60% 지점)</li>
+<li>거래량 46.3만주·거래대금 54.2억 (20일 평균 거래량 6.6만주 → <strong>7배 폭증</strong>)</li>
+<li>이평선: MA5 9,864 / MA20 9,342 / MA60 9,349 → 정배열 초입. <strong>현재가는 MA20 대비 <span class="up">+13.8%</span></strong> (단기 이격 과열)</li>
+<li>급등 타임라인[실측: KIS 일봉]: 9/11 9,730 → 9/12 9,590 → 9/15 9,590(대금 소강) → <strong>9/15 34만주·9/16 46만+ 거래폭발</strong>하며 <span class="up">+10.7%</span> 돌파</li>
+<li>수급[실측: KIS 투자자별]: <strong>외국인 지속 순매수</strong>(9/9~9/15 매일 순매수, 9/15 <span class="up">+37,679</span>주), 개인이 매도로 물량 소화. 외인 보유율 30.4%. 기관은 무거래(커버리지 부재)</li>
+</ul>
+<p>② 급등락 사유·촉매  [실측: DART 공시목록 2026-06~09]</p>
+<ul>
+<li><strong>핵심 촉매 = 자사주 매입·소각 결정</strong> — 8/28 주요사항보고서(자기주식취득결정), 9/1 기재정정. 목적 명시: &quot;<strong>자사주 매입 및 소각을 통한 주주환원</strong>&quot;, 방법: 코스닥 장내 취득. 취득예정 금액·수량은 정정본에서 상세 미표기(미확인) → IR/정정공시 추가 확인 필요</li>
+<li>8/14 자기주식취득결과보고서 = 직전 자사주 매입 완료분 보고 (연속적 주주환원 스탠스)</li>
+<li>8/13 연결 잠정실적(공정공시) + 8/14 반기보고서 = 상반기 영업이익 개선 확인</li>
+<li>판정: 이번 상승은 <strong>테마가 아니라 (주주환원 + 저평가 + 외인 매집)</strong> 조합. 실체 있는 촉매. 단, 소형주 특성상 거래대금 급증분이 며칠 내 이탈하면 되돌림 위험</li>
+</ul>
+<p>③ 재무·실적  [실측: DART 연결, USD 결산 · 원화는 1,380원/$ 환산 참고] [연간·연결, USD]</p>
+<ul>
+<li>2023: 매출 75.9M / 영업 19.2M / 순익 16.2M / OPM 25.3%</li>
+<li>2024: 매출 62.9M / 영업 11.3M / 순익 6.0M / OPM 18.0%  ← 게임 매출 감소·미디어 초기</li>
+<li>2025: 매출 79.1M(<span class="up">+25.9%</span>) / 영업 10.8M / 순익 5.5M / OPM 13.6%</li>
+</ul>
+<p>→ 2025 매출 반등은 <strong>미디어 콘텐츠·기타 부문 폭증</strong>(2024 16.2M→2025 34.6M, 비중 25.7%→43.7%)이 견인. 단 영업이익률은 오히려 하락(고마진 게임 → 저마진 미디어 믹스 변화) [반기·연결, USD]</p>
+<ul>
+<li>2026 상반기: 매출 28.99M(전년 28.79M, <strong><span class="up">+0.7%</span> flat</strong>) / <strong>영업이익 6.20M(<span class="up">+11.8%</span>)</strong> / 순익 5.94M(<span class="up">+9.8%</span>) / <strong>OPM 21.4%</strong>(전년 19.3%)</li>
+</ul>
+<p>→ 매출 정체지만 <strong>마진 회복</strong>이 실질 개선. 상반기 미디어 비중 26.2%로 정상화되며 게임 고마진 회복 [재무건전성 — 강점]</p>
+<ul>
+<li>2025말 연결: 자산 121.6M / 부채 11.1M / 자본 110.5M → <strong>부채비율 10%, 사실상 무차입</strong></li>
+<li>PBR 0.89 (자본 대비 저평가), 순현금 구조 추정 → 자사주 소각 여력 충분</li>
+<li>일회성 함정 점검: 2025 순익 5.5M은 미디어 믹스로 마진 희석된 실질치. 2023→2024 이익 급감은 게임 매출 자연감소(라이브 게임 노후화)로 <strong>경상적 하락</strong>이었고, 2026 상반기 마진 반등은 회복 신호 (일회성 이익 아님)</li>
+</ul>
+<p>④ 밸류에이션·컨센서스  [실측: KIS + DART]</p>
+<ul>
+<li>PER 16.5 / PBR 0.89 (EPS 645, BPS 11,997)</li>
+<li>2026 상반기 순익 연율화 시 순익 약 11.9M USD → 현 시총 1,382억(약 100M USD) 기준 <strong>PER 약 8.4배</strong> (반기 이익 연환산 기준). 후행 PER 16.5와 괴리 = 상반기 이익 개선이 아직 주가에 부분 반영</li>
+<li>증권사 컨센서스: <strong>미확인/부재</strong> — 제도권 커버리지 없음(NR, 목표가 없음)[실측: consensus.py, stockeasy 0건]. 외국계 소형주 특성. 실적 기반 상승 스토리는 시장 컨센이 아닌 자체 실적·주주환원 중심</li>
+<li>적정가 참고: PBR 1.0 회복 시 BPS 11,997원. 반기 이익 연환산 PER 10배 부여 시 EPS 약 1,270원×10 = 약 12,700원. → <strong>밸류상 상단 여지는 12,000~12,700원대</strong>(52주 고 12,460과 부합)</li>
+</ul>
+<p>⑤ 리스크·반증</p>
+<ul>
+<li><strong>선물 미상장</strong> → 레버리지 스윙 불가(형 주력전략 부적합). 현물만</li>
+<li>유동성 함정: 20일 평균 거래량 6.6만주 = 평소 매우 얕음. 급등 대금이 빠지면 슬리피지·되돌림 큼. 50% 고집중 절대 부적합</li>
+<li>매출 성장 정체: 2026 상반기 매출 <span class="up">+0.7%</span> flat. 게임 라인업 노후화(주력작 2016~2018 출시), 신작 &#x27;매치 딜리버리&#x27;(2025.09) 성과 미검증</li>
+<li>미디어/매니지먼트 부문 변동성: 2025 미디어 매출 34.6M 급증의 지속성 불투명(프로젝트성 인식 가능성) → 반기엔 다시 26% 비중으로 축소됨</li>
+<li>외국계·USD 결산: 환율 변동이 원화 EPS에 직접 영향. 감사·지배구조 투명성은 국내주 대비 확인 난도 높음</li>
+<li>반증 트리거: <strong>3Q(9월 결산 분기) 연결 영업이익이 반기 추세(반기 6.2M의 절반 약 3.0M) 미만이거나 자사주 소각이 지연/철회되면 논지 폐기.</strong> 자사주 취득 실제 집행 규모 미공개 = 확인 필요</li>
+</ul>
+<p>⑥ 시나리오·목표가/손절  [진입가 기준·손익비 명시] [실측: KIS] 지지 MA20 9,342 / MA60 9,349 / 직전 박스 상단 9,770 / 52주 고 12,460</p>
+<ul>
+<li>추격 금지: 현재가 10,620은 당일 <span class="up">+10.7%</span>·MA20 대비 <span class="up">+13.8%</span> 과열. 눌림 대기가 원칙</li>
+<li>진입 시나리오(눌림목): <strong>9,700~9,900원</strong>(직전 박스 상단=돌파 후 지지 전환 구간) 재접근 시 분할 진입</li>
+<li>손절 9,300(MA20/MA60 군집 이탈) · 목표1 11,500 · 목표2 12,460(52주 고)</li>
+<li>손익비[산식: 상승여력÷하락리스크, 진입 9,800 기준]</li>
+</ul>
+<p>· 목표 11,500: 상승 17.3% / 하락 5.1% → <strong>손익비 3.4</strong> (양호) · 목표 12,460: 상승 27.1% / 하락 5.1% → <strong>손익비 5.3</strong> (우수)</p>
+<ul>
+<li>현재가(10,620) 추격 시 손익비: 손절 9,300·목표 12,460 → 상승 17.3%/하락 12.4% → 1.4 (부적합, 추격 비권장)</li>
+</ul>
+<p>[확률가중 시나리오 · 합=100%]</p>
+<ul>
+<li>Bull 30%: 자사주 소각 규모 확정+외인 매집 지속 → 52주 고 12,460 돌파, 밸류 리레이팅</li>
+<li>Base 45%: 급등 후 차익실현 → 9,300~10,600 박스 등락하며 소화, 눌림 후 재상승</li>
+<li>Bear 25%: 거래대금 이탈+매출 정체 부각 → MA60(9,349) 하향 이탈, 8,500~9,000 되돌림</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-16 09:32 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 10,620원 (<span class="up">+10.7%</span>) · 시총 1,382억 · 5일 <span class="up">+11.8%</span> / 20일 <span class="up">+26.6%</span> / 60일 <span class="up">+16.4%</span></li>
+<li>MA5 9,862원 / MA20 9,342원 / MA60 9,349원 → MA20 이격 <span class="up">+13.7%</span> · MA60 이격 <span class="up">+13.6%</span></li>
+<li>52주 고 12,460원 / 저 6,920원 → 고점 대비 <span class="down">-14.8%</span> · 20일 고 10,620원 / 저 8,390원</li>
+<li>후행 PER 16.47 / PBR 0.89 (EPS 645원 · BPS 11,997원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 7.1억 (5일 19.8억)</li>
+<li>외국인 순매수 5일 6.5억 / 20일 18.5억 · 기관 5일 0.0억 / 20일 0.5억 · 개인 20일 -17.1억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.35% / 20일 평균 3.97% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 21.54% (08/27) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 12,460원 (<span class="up">+17.3%</span>) ÷ 하방 9,300원 (−12.4%) = <strong>1:1.39</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (운용 5억 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 10%) → 리스크 예산 0.5%</li>
+<li>리스크예산: 250만원 ÷ (진입 10,620원 − 손절 9,300원 = 1,320원) = <strong>1,893주 ≈ 0.20억</strong></li>
+<li>유동성상한: 20일 ADV 7.1억 × 10% = 1일 0.71억 (분할 시 일수 = 목표금액 ÷ 이 값)</li>
+<li>채택 상한 = 최소값 → <strong>리스크예산(0.5%) 0.20억 (4% of 자산)</strong></li>
+<li>⚠️ 손절폭 12.4% · ATR14 575원 (손절폭/ATR 2.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 12.4% = ATR14 × 2.3배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 9,558원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.73</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>⑦ 결정카드</p>
+<ul>
+<li>종목: 고스트스튜디오(950190) · <strong>선물 無(현물만·레버리지 불가)</strong></li>
+<li>판정: <strong>관심</strong> (확신도 中) — 펀더멘털 양호(무차입·PBR 0.89·마진 회복·주주환원)하나 유동성 얕고 오늘 과열</li>
+<li>진입: 9,700~9,900 눌림목 분할 (현재가 10,620 추격 금지)</li>
+<li>손절: 9,300 종가 이탈(MA20/60 군집)</li>
+<li>목표: 1차 11,500 / 2차 12,460(52주 고) → 손익비 3.4~5.3(눌림 진입 기준)</li>
+<li>촉매: 자사주 매입·소각(주주환원), 외인 지속 순매수, 반기 OPM 21.4% 회복</li>
+<li>반증: 3Q 영업이익 반기추세 절반(약 3.0M USD) 미달 or 자사주 소각 철회/지연</li>
+<li>비중: 소형·얕은 유동성 → 소액·분할만. 50% 고집중 절대 금지</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (§9)</p>
+<p>9-1 제품·서비스 분해  [실측: DART 2025 사업보고서·2026 반기보고서, USD]</p>
+<div class="tablewrap"><table><thead><tr><th>부문</th><th>2025 매출</th><th>비중</th><th>2026 상반기</th><th>성격</th></tr></thead><tbody><tr><td>캐주얼 슬롯(클래식 베가스 등)</td><td>20.2M</td><td>25.5%</td><td>9.55M(32.9%)</td><td>인앱결제 중심·고마진</td></tr><tr><td>캐주얼 게임(TriPeaks·Solitaire)</td><td>24.3M</td><td>30.8%</td><td>11.85M(40.9%)</td><td>인앱+광고</td></tr><tr><td>미디어 콘텐츠·기타(웹툰·웹소설·매니지먼트)</td><td>34.6M</td><td>43.7%</td><td>7.59M(26.2%)</td><td>프로젝트성·변동 큼</td></tr><tr><td><strong>합계</strong></td><td><strong>79.1M</strong></td><td>100%</td><td><strong>28.99M</strong></td><td>—</td></tr></tbody></table></div>
+<ul>
+<li>2025 미디어 급증(16.2M→34.6M)이 매출 반등 견인. 반기엔 26% 비중으로 정상화 → 미디어는 변동성 큰 프로젝트성으로 추정</li>
+</ul>
+<p>9-2 고객·납품 구조  [실측: DART &#x27;판매 경로&#x27;]</p>
+<div class="tablewrap"><table><thead><tr><th>채널</th><th>제품</th><th>근거</th></tr></thead><tbody><tr><td>Google Play / Apple App Store / Amazon / Facebook</td><td>게임 인앱결제·광고</td><td>글로벌 앱마켓 직판(B2C)</td></tr><tr><td>Admob·AppLovin·ironSource·Onemobile</td><td>게임 광고매출</td><td>광고 네트워크</td></tr><tr><td>자사·타사 플랫폼(웹/앱)</td><td>웹툰·웹소설</td><td>온라인 콘텐츠 유통</td></tr><tr><td>매니지먼트 사업부 → 제작사·광고주</td><td>아티스트 매니지먼트</td><td>직접·간접(에이전시)</td></tr></tbody></table></div>
+<ul>
+<li>특정 고객 집중 아님(글로벌 B2C 앱마켓 분산). 플랫폼 수수료(구글·애플 30%)가 구조적 원가</li>
+</ul>
+<p>9-3 시장 규모·경쟁 구도</p>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>값</th><th>출처</th></tr></thead><tbody><tr><td>글로벌 모바일 캐주얼게임 시장</td><td>대형(수백억 달러)·저성장 성숙기</td><td>[정성·단일추정] 업계 통념</td></tr><tr><td>경쟁</td><td>Playtika·Product Madness(슬롯), King(솔리테어·매치3) 등 글로벌 대형</td><td>앱마켓 관찰</td></tr></tbody></table></div>
+<ul>
+<li>슬롯·솔리테어는 <strong>성숙·레드오션</strong> 장르. 고스트는 니치 롱테일 라이브서비스로 존속. 시장점유율은 미미(글로벌 대형 대비) → 성장은 신작·미디어 신사업에 의존</li>
+<li>정량 TAM·점유율은 <strong>미확인</strong>(회사 IR·산업리포트 부재)</li>
+</ul>
+<p>9-4 단가·원가  [실측: DART &#x27;가격변동추이&#x27;]</p>
+<ul>
+<li>게임 인앱상품 단가: USD 0.99~199.99 고정 티어(플랫폼 정책). 슬롯은 광고+IAP 혼합</li>
+<li>매출원가율: 2026 상반기 46.4%(13.47M/28.99M) → 매출총이익률 53.6%. 플랫폼 수수료+서버+콘텐츠 제작비 중심</li>
+<li>가격 전가력: 앱마켓 고정 티어라 단가 인상 여지 제한 → <strong>성장은 유저·과금률(ARPU)·신작에 의존</strong></li>
+</ul>
+<p>9-5 생산능력·수주</p>
+<ul>
+<li>게임/콘텐츠 사업 특성상 CAPA·가동률·수주 개념 없음(DART &quot;해당사항 없음&quot;) → 물리적 증설 스토리 부재. 성장 레버는 신작 파이프라인·미디어 프로젝트</li>
+</ul>
+<p>9-6 전방 수요 시나리오</p>
+<ul>
+<li>게임: 기존 라이브작 유저 유지(LTV) + 신작(매치 딜리버리 2025.09 등) 흥행 여부</li>
+<li>미디어: 웹툰·웹소설 IP·아티스트 매니지먼트 프로젝트 수주 → <strong>변동성 큰 upside 옵션</strong></li>
+<li>정량 소요량 추정 근거 부족 → 시나리오는 정성 수준</li>
+</ul>
+<p>9-7 바텀업 실적 모델 (2026 연간)  [추정: 반기 실측 연율화·믹스 보정]</p>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>Bear</th><th>Base</th><th>Bull</th><th>산식/근거</th></tr></thead><tbody><tr><td>매출(USD)</td><td>55M</td><td>60M</td><td>70M</td><td>반기 29M×2 = 58M 기준. 미디어 프로젝트 유무로 ±. 2025 79M은 미디어 일시 급증분</td></tr><tr><td>OPM</td><td>18%</td><td>21%</td><td>23%</td><td>반기 21.4% 기준. 미디어 믹스↓시 마진↑</td></tr><tr><td>영업이익(USD)</td><td>9.9M</td><td>12.6M</td><td>16.1M</td><td>매출×OPM</td></tr><tr><td>순이익(USD)</td><td>8M</td><td>10.5M</td><td>13.5M</td><td>법인세·비지배 반영</td></tr><tr><td>원화 순익(억, 1,380원)</td><td>110</td><td>145</td><td>186</td><td>참고 환산</td></tr></tbody></table></div>
+<ul>
+<li>민감도: 미디어 매출 ±10M USD → 영업이익 약 ±2M USD(미디어 저마진). 게임 ARPU ±10% → 영업이익 ±1.5M</li>
+<li><strong>결론 문장: 2026 연결 영업이익 ≥ 12M USD(약 165억, Base)면 논지 유지·눌림목 매수 검토. &lt; 9.9M USD(Bear)이거나 자사주 소각 철회면 논지 폐기.</strong> (실적 캘린더 임계값 연동)</li>
+</ul>
+<p>9-8 미확인 목록</p>
+<ul>
+<li>자사주 취득 <strong>예정 금액·수량</strong>(정정공시 상세 미표기) → DART 정정본·IR 확인</li>
+<li>정량 TAM·글로벌 점유율(회사 IR·산업리포트 부재)</li>
+<li>미디어 콘텐츠 34.6M(2025) 세부 구성·지속성(웹툰 vs 매니지먼트 vs 일회성)</li>
+<li>신작 &#x27;매치 딜리버리&#x27; 초기 매출 기여도</li>
+<li>증권사 커버리지·컨센서스(현재 NR)</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용, 매수·매도 강요 아님. 실측 못한 값은 &#x27;미확인&#x27; 명시. 외국계·USD 결산 종목으로 환율·지배구조 확인 난도 유의. 개별주식선물 미상장 → 레버리지 불가·현물만.</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
