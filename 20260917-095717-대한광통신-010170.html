@@ -1,0 +1,215 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>대한광통신(010170) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260917-095717-대한광통신-010170.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:11</div><div class="tp-c"><b>결론 발췌</b> AIDC(AI데이터센터) 광케이블 슈퍼사이클 + 864심 초고다심 수주 + 광섬유 판가 급등이 겹친 정통 턴어라운드주. 13분기 만의 흑자전환을 실적으로 확인(2026 반기 연결 영업이익 +9.57억 [실측]). 다만 52주 저점 대비 약 12.7배 폭등한 고평가·수급 과열 구간이라 신규 진입은 눌림 확인 후 분할이 원칙. 판정 관심, 손익비 약 1:2.0, 1차 목표 20,000원. ━━━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 7.3% (거래대금 1,838억 / 시총 25,189억) [실측: trendscan] — 시총 2.5조 중형주에서 하루 7% 이상 손바뀜은 강한 자금유입. • 추세: MA 정배열 O (MA5 15,01…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>대한광통신(010170)</h1>
+<div class="meta">📊 trend · 2026-09-17 09:57 · 코드 010170</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-17 09:57)</div><div class="kpi-v">16,290원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2.5조</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">33.18</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:11</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.62</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">20,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 14,000~15,000원 (눌림 분할)</span><span class="dc dn">손절 14,000원</span><span class="dc up">목표 20,000원</span><span class="dc">손익비 진입 1:11 · 현재가 1:1.62 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2로 적었지만 진입·손절·목표로 계산하면 1:11다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 실적발표(11월 중순 예상)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 25억 → 전량 청산 / 종가 14,000원 이탈 → 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 대한광통신(010170) ※개별주식선물 無(현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: AIDC(AI데이터센터) 광케이블 슈퍼사이클 + 864심 초고다심 수주 + 광섬유 판가 급등이 겹친 정통 턴어라운드주. 13분기 만의 흑자전환을 실적으로 확인(2026 반기 연결 영업이익 <span class="up">+9.57</span>억 [실측]). 다만 52주 저점 대비 약 12.7배 폭등한 고평가·수급 과열 구간이라 신규 진입은 눌림 확인 후 분할이 원칙. 판정 관심, 손익비 약 1:2.0, 1차 목표 20,000원.</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 7.3% (거래대금 1,838억 / 시총 25,189억) [실측: trendscan] — 시총 2.5조 중형주에서 하루 7% 이상 손바뀜은 강한 자금유입.</li>
+<li>추세: MA 정배열 O (MA5 15,010 &gt; MA20 14,003 &gt; MA60 약 12,551) [실측: KIS 일봉 20260917] / 연속상승 2일 / 5일 <span class="up">+9.9%</span>.</li>
+<li>현 위치: 현재가 16,120~16,170원 [실측: KIS], 52주 고 31,500·저 1,272원 [실측: KIS]. 저점 대비 약 12.7배. 52주 고점(31,500)의 절반 수준으로 &#x27;초입&#x27;은 아니고 &#x27;재상승 국면&#x27;. 8월 흑자전환 확인 후 9월 초 12,000원대 → 9월 중순 16,000원대 재급등.</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업구조 [실측: 반기보고서 20260814002121]: 국내 유일 광섬유-광케이블 일관생산(모재→광섬유→케이블) 업체. 통신사업 57%(광케이블), 전력사업 43%(OPGW). 반기 수출 비중 64%(536.7억/833억). 종속사 Incab America(미국 텍사스 그레이프바인, 관세·BABA 대응), 티에프오네트웍스(AL ROD).</li>
+<li>급등 4대 축:</li>
+</ul>
+<p>1) 864심 초고다심 케이블 [인용: 유안타 2026-09-02] — 미국 하이퍼스케일러향 최초 수주(1Q26)<span class="up">+2</span>차 추가, LTA 장기계약. 범용 대비 ASP 약 40% 高(신영)~5~10배(리딩·신영). 3Q26부터 출하. 2) 광섬유 판가 급등 [인용: 신영 2026-08-28] — 7월 국제 광섬유가 호황기 수준 12달러까지 상승, 시차 두고 하반기 실적 반영. 3) AIDC 쇼티지 [인용: 신영] — 데이터센터 CAPEX 급증으로 광케이블 공급부족, 선두업체 증설에 약 2년 소요. 2Q26 수주잔고 1,269억(YoY <span class="up">+82%</span>). 4) 방산 옵션 [인용: SK증권 2025-10] — 레이저 대공무기 &#x27;천광&#x27;용 광섬유 레이저 모듈 국산화 유일 후보(현물 확정 아님, 옵션).</p>
+<p>③ 실적 (DART 실측 · 전부 연결 CFS 기준)</p>
+<ul>
+<li>연간 매출/영업이익 [실측: fnlttSinglAcnt]</li>
+<li>2023: 매출 1,802.6억 / 영업이익 -232.2억</li>
+<li>2024: 매출 1,527.2억 / 영업이익 -297.0억</li>
+<li>2025: 매출 1,394.5억 / 영업이익 -214.1억</li>
+</ul>
+<p>→ 3년 연속 영업적자. 매출도 감소 추세였음(공급과잉·관세).</p>
+<ul>
+<li>재무상태 [실측: 2025 사업보고서]: 자산 2,190억 / 부채 1,523.6억 / 자본 666.5억 → 부채비율 약 229% [추정: 1,523.6/666.5×100]. 2024년 자본 408억까지 축소됐다가 2025년 회복.</li>
+<li>분기 전환점 [실측: 반기보고서]: 2026 1Q누적 연결 영업이익 -39.6억 → 2026 반기누적 <span class="up">+9.57</span>억. 즉 2026 2Q 단독 영업이익 약 <span class="up">+49.5</span>억 흑자 [추정: 9.57-(-39.6)]. (신영은 &#x27;2Q 약 10억&#x27; 표기 — 별도/보수 기준 차이 가능, 연결 실측은 반기 <span class="up">+9.57</span>억.)</li>
+<li>[미확인] 2025년 분기 데이터 정합성: DART 반환값에서 2025 3Q누적(-67.1억)이 반기누적(-27.7억)보다 커 보이는 항목 혼재 → 2025 분기별 단독은 미확인 처리.</li>
+</ul>
+<p>④ 미래실적·컨센서스 [인용: consensus.py 수집 2026-09-16]</p>
+<ul>
+<li>최근 6개월 목표가 제시 리포트 없음(주요 증권사 대부분 N/R). 유일 목표가는 SK증권 2,150원(2025-10) — 액면·급등 이전 수치로 現 무의미.</li>
+<li>fnguide 연간 컨센(연결, 억원): FY26E 매출 2,034·영업익 37 / FY27E 매출 2,566·영업익 180 / FY28E 매출 3,116·영업익 246.</li>
+<li>분기 컨센: 3Q26 매출 668·영업익 59(naver) ~ 매출 657·영업익 64(유안타/신영). 4Q26 매출 549(wisereport).</li>
+<li>영업익 컨센 추이 급변: FY26E 6M전 23 → 현재 37(상향). 매출 FY26 <span class="up">+80%</span> YoY 급성장 컨센.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 지표 [실측: KIS]: PER -66.6(적자), PBR 32.8, EPS -242, BPS 491. → PBR 32배는 자본 대비 극단적 고평가(자본이 얇아 PBR 왜곡). PER는 적자라 무의미.</li>
+<li>Forward 접근 [추정]: FY27E 영업익 180억·순익 120억(fnguide) 기준 現 시총 2.5조 → FY27 PER 약 209배. FY28E 순익 188억 기준 PER 약 133배. → 컨센 성장을 100% 반영해도 밸류 부담 큼. 즉 &#x27;실적&#x27;보다 &#x27;AIDC 테마·판가·수주모멘텀&#x27;에 프리미엄이 붙은 구간.</li>
+<li>목표가 [추정]: 밸류로는 정당화 어려우나 모멘텀·수급 기준. 1차 20,000원(직전 급등 후 되돌림 저항·라운드피겨), 2차 24,000~25,000원(52주 고점 31,500의 약 75~80% 회복). Bull에서만 유효.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>성격: 실적 턴어라운드 + AIDC 테마 결합. 변동성 큼(52주 저 1,272→現 16,120). 스윙 대상.</li>
+<li>진입: 신규는 추격 금지. MA5(15,010)~MA20(14,003) 눌림 구간 14,000~15,000원 분할 매수. 돌파매매 시 16,200원(당일 고 16,170 상단) 종가 돌파 확인 후.</li>
+<li>손절: 14,000원 이탈 종가 시(MA20 하향이탈).</li>
+<li>목표: 1차 20,000원, 2차 24,000원.</li>
+<li>손익비 [산식: 목표1차-진입 / 진입-손절 = (20,000-15,000)/(15,000-14,000)=5,000/1,000=5.0]: 단 손절폭이 얇아 노이즈 손절 위험 → 손절을 스윙저점 13,000원으로 넓히면 (20,000-15,000)/(15,000-13,000)=2.5. 보수적 종합 약 1:2.0.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC §9) 9-1 제품·매출믹스 [실측: 사업보고서/반기보고서]</p>
+<ul>
+<li>통신(광케이블) 반기 477.3억(57%) / 전력(OPGW) 355.7억(43%). 수출 64%.</li>
+<li>광케이블 생산능력: 2025 517.5억 → 2026반기 366.9억(반기치, 연환산 약 734억 → CAPA 확대). Incab 미국 CAPA 신규 통신 39.5억+전력 119.3억(반기).</li>
+</ul>
+<p>9-2 단가 드라이버 [인용: 신영]: 국제 광섬유가 7월 12달러(호황 수준). 864심 ASP 범용 <span class="up">+40%</span>~수배. 시차 두고 2H26 반영. 9-3 원재료 [실측: 반기보고서]: 통신 가스·석화 쉬스류 133.4억, 전력 AL 228.7억. AL·구리·유가·환율 민감. 9-4 전방수요: AIDC CAPEX(하이퍼스케일러), 미국 BEAD 농촌광대역, 국내 AIDC 개화. 9-5 경쟁·점유: 국내 유일 일관생산. 글로벌 선두 증설 약 2년 소요 → 쇼티지 지속. 9-6 수주잔고 [인용: 신영]: 2Q26 1,269억(YoY <span class="up">+82%</span>).</p>
+<p>9-7 바텀업 모델 (연결 영업이익, 억원) — 3Q26 / 4Q26</p>
+<ul>
+<li>Bear(판가 조정·864 출하 지연): 3Q26 매출 560·영업익 25 / 4Q26 매출 500·영업익 20. 확률 25%</li>
+<li>Base(컨센 부합·판가 유지): 3Q26 매출 657·영업익 60 / 4Q26 매출 549·영업익 45. 확률 50%</li>
+<li>Bull(판가 초강세·864 조기 램프업): 3Q26 매출 720·영업익 90 / 4Q26 매출 620·영업익 75. 확률 25%</li>
+<li>민감도: 광섬유 판가 ±1달러 → 통신부문 영업익 약 ±8~12억 [추정: 수출비중·ASP탄력]. 864심 물량 ±10% → 영업익 ±5~8억 [추정].</li>
+<li>결론문장: 3Q26 연결 영업이익 ≥ 60억이면 턴어라운드 본격화로 유지·추가매수, &lt; 25억이면 판가 모멘텀 훼손으로 폐기.</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오·수급·사이징</p>
+<ul>
+<li>촉매(날짜성): 3Q26 실적발표(11월 중순 예상, [미확인] 확정일) — 864심 출하·판가 반영 첫 분기라 최대 분수령. 광섬유 국제가 월별 동향. 추가 하이퍼스케일러 수주공시. 방산 &#x27;천광&#x27; 계약(옵션).</li>
+<li>반증 3개(수치→행동):</li>
+</ul>
+<p>1) 3Q26 연결 영업이익 &lt; 25억 발표 → 턴어라운드 논리 훼손, 전량 청산. 2) 국제 광섬유가 10달러 하회 지속(월간) → 마진 스토리 약화, 비중 절반 축소. 3) 종가 14,000원(MA20) 이탈 → 추세 훼손, 손절.</p>
+<ul>
+<li>이벤트 매트릭스: 3Q 서프라이즈(영업익&gt;64억)→상방 20,000+ / 컨센부합→박스 15,000~18,000 / 미스→13,000 지지테스트.</li>
+<li>확률가중 시나리오(합100%): Bear 25%(13,000·<span class="down">-19%</span>: 판가조정·과열해소) / Base 50%(18,000·<span class="up">+12%</span>: 컨센부합 재평가) / Bull 25%(24,000·<span class="up">+49%</span>: 판가강세·수주추가). 기대값 약 <span class="up">+13.5%</span> [산식: 0.25×(-19)<span class="up">+0.5</span>×12<span class="up">+0.25</span>×49].</li>
+<li>수급·유동성: 거래대금 1,838억으로 유동성 충분, 대량 진입/청산 용이. 단 회전율 7%·변동성 큼 → 급락 갭 위험.</li>
+<li>포지션 사이징(자산 대비 %): 테마·고밸류·현물전용 감안 총자산 5~8% 이내, 눌림 2~3회 분할. 손절 엄수. 집중한도 대비 소량.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>2025년 분기별 단독 손익(DART 반환 정합성 이슈)</li>
+<li>3Q26 실적 발표 확정일</li>
+<li>방산 &#x27;천광&#x27; 계약 체결 여부·금액</li>
+<li>864심 2차 수주 구체 금액·납기</li>
+<li>fnguide 컨센 추정기관 명단(집계값만 확인)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>[실측] DART fnlttSinglAcnt(2023~2026반기), 사업보고서 20260319000854, 반기보고서 20260814002121</li>
+<li>[실측] KIS inquire-price·일봉(20260917): 현재가·MA·52주고저·상장주식수</li>
+<li>[인용] consensus.py(2026-09-16): fnguide/naver/wisereport 컨센</li>
+<li>[인용] stockeasy: 유안타(09-02), 신영(08-28·03-10), 리딩(04-07), SK(2025-10)</li>
+<li>[실측] kis_futures_check.py 010170: 개별주식선물 미상장</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총: 155,485,660주 × 16,120원 = 25,064억 ≈ trendscan 25,189억(시각차) OK</li>
+<li>분기합: 2026 반기 <span class="up">+9.57</span>억 = 1Q -39.6 + 2Q <span class="up">+49.5</span> OK</li>
+<li>시나리오 확률합: 25<span class="up">+50</span><span class="up">+25</span> = 100% OK</li>
+<li>손익비 산식 헤더=본문(종합 1:2.0) OK</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-17 09:57 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 16,290원 (<span class="up">+1.2%</span>) · 시총 2.53조 · 5일 <span class="up">+10.5%</span> / 20일 <span class="up">+28.8%</span> / 60일 <span class="up">+14.2%</span></li>
+<li>MA5 15,034원 / MA20 14,009원 / MA60 12,300원 → MA20 이격 <span class="up">+16.3%</span> · MA60 이격 <span class="up">+32.4%</span></li>
+<li>52주 고 31,500원 / 저 1,272원 → 고점 대비 <span class="down">-48.3%</span> · 20일 고 16,290원 / 저 12,120원</li>
+<li>후행 PER -67.31 / PBR 33.18 (EPS -242원 · BPS 491원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,666.5억 (5일 2,499.3억)</li>
+<li>외국인 순매수 5일 537.9억 / 20일 595.9억 · 기관 5일 16.7억 / 20일 65.1억 · 개인 20일 -654.0억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.49% / 20일 평균 2.12% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 5.23% (09/01) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 43영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 20,000원 (<span class="up">+22.8%</span>) ÷ 하방 14,000원 (−14.1%) = <strong>1:1.62</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 12%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 14.1% = <strong>자산의 3.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.6%</strong></li>
+<li>유동성 참고: 20일 ADV 1,666.5억 · 1일 소화 한도는 ADV의 10%(166.65억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 14.1% · ATR14 1,053원 (손절폭/ATR 2.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 14.1% = ATR14 × 2.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 14,661원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.28</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 無 현재가: 16,120원 진입: 14,000~15,000원 (눌림 분할) 손절: 14,000원 (MA20 종가 이탈) 목표: 1차 20,000원 (2차 24,000원) 손익비: 1:2.0 기간: 스윙 4~10주 촉매: 3Q26 실적발표(11월 중순 예상) 반증: 3Q26 연결 영업이익 &lt; 25억 → 전량 청산 / 종가 14,000원 이탈 → 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
