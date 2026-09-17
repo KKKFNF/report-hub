@@ -1,0 +1,220 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>마이크로컨텍솔(098120) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260917-121109-마이크로컨텍솔-098120.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:5.25</div><div class="tp-c"><b>결론 발췌</b> 실적은 진짜다(H1&#x27;26 영업이익 192.9억, 이미 FY25 연간 177.4억 초과). 다만 60일 +114%·52주고 94%·MA60 대비 +69% 극단 이격 → 지금 추격은 손익비 1:2.4로 열위. 눌림(46,000~48,000) 대기가 정석, 그 구간 진입 시 손익비 1:5.3 / 1차 목표 68,000원(2차 78,000). 판정 = 관심. ※ 본 리포트는 IR 정리 블로그(magpie_invest 2026-09-16)를 출발점으로 공시·시세를 직접 교차검증한 참고자료이며, 매수·매도 권유가 아님.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>마이크로컨텍솔(098120)</h1>
+<div class="meta">📊 benine · 2026-09-17 12:11 · 코드 098120</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-17 12:11)</div><div class="kpi-v">53,500원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">4,447억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">26.34</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">5.47</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:5.25</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.38</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">68,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 46,000~48,000원 (눌림 대기)</span><span class="dc dn">손절 43,000원</span><span class="dc up">목표 68,000원</span><span class="dc">손익비 진입 1:5.25 · 현재가 1:1.38</span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 자동삽입기 10월말 완비 / 3Q26 분기보고서 2026-11-14</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 90억 → 폐기 / ≥ 160억 → 추가매수 / 종가 43,000 이탈 → 청산</div></div>
+
+<div class="body"><p>🔬 심층 리서치 — 마이크로컨텍솔(098120) ※개별주식선물 無(현물 스윙만)</p>
+<p>📌 한줄 결론: 실적은 진짜다(H1&#x27;26 영업이익 192.9억, 이미 FY25 연간 177.4억 초과). 다만 60일 <span class="up">+114%</span>·52주고 94%·MA60 대비 <span class="up">+69%</span> 극단 이격 → 지금 추격은 손익비 1:2.4로 열위. 눌림(46,000~48,000) 대기가 정석, 그 구간 진입 시 손익비 1:5.3 / 1차 목표 68,000원(2차 78,000). 판정 = 관심. ※ 본 리포트는 IR 정리 블로그(magpie_invest 2026-09-16)를 출발점으로 공시·시세를 직접 교차검증한 참고자료이며, 매수·매도 권유가 아님.</p>
+<hr>
+<p>① 사실관계 검증 (기대감 vs 실체)</p>
+<ul>
+<li>사업 실체 [실측: DART 반기보고서 2026.06, 접수 20260814003233]: 반도체 검사용 소모품 IC소켓 제조. H1&#x27;26 매출비중 — 세미콘(번인·모듈·SSD소켓 등) 69.2%, 어플라이언스(써멀프로텍터·전자개폐기·컨택어셈블리, LS일렉트릭향 추정) 20.2%, 자회사 MSL(러버소켓) 10.4%. 블로거가 말한 &quot;번인소켓이 2Q 매출 약 80%&quot;는 세미콘 부문 內 비중으로 해석 시 정합(세미콘 제품 455억 中 대부분 B/I).</li>
+<li>IR 논지의 실체 여부: &#x27;고객 다변화(삼성 편중↓, CXMT·마이크론↑)&#x27;, &#x27;번인 고마진&#x27;, &#x27;자동삽입기 캐파 병목(39→51대)&#x27;은 정성 IR이라 절대금액 미공시. 그러나 가동률로 실체 확인 — 번인소켓 가동률 FY25 74% → H1&#x27;26 97% [실측: DART 생산능력표]. 캐파가 병목이라는 IR 주장과 일치. 증설이 곧 매출인 구조.</li>
+<li>재평가 서사(AI/DDR5 발열↑ → 번인 수요↑, CXMT DDR4 번인 솔벤더 수혜)는 시장·블로그 다수에서 반복되나 [인용: 네이버 프리미엄·블로그, 봇검증 불가] 사실이 아닌 &#x27;해석&#x27;. 실체는 아래 ②의 폭발적 분기실적이 뒷받침.</li>
+</ul>
+<hr>
+<p>② 실적 분석 (DART 연결 실측)</p>
+<ul>
+<li>연간(연결) [실측: DART API fnlttSinglAcntAll, CFS]</li>
+<li>FY23: 매출 648.2억 / 영업익 74.3억(OPM 11.5%) / 순익 74.0억</li>
+<li>FY24: 매출 696.6억 / 영업익 102.0억(OPM 14.6%) / 순익 106.8억</li>
+<li>FY25: 매출 1,003.1억 / 영업익 177.4억(OPM 17.7%) / 순익 168.9억  (매출 YoY <span class="up">+44%</span>, 영업익 <span class="up">+74%</span>)</li>
+<li>분기(연결·3개월, 매출/영업익/OPM/순익) [실측: DART]</li>
+<li>25Q1 253.2 / 49.8 / 19.7% / 44.5</li>
+<li>25Q2 223.7 / 36.9 / 16.5% / 21.6</li>
+<li>25Q3 253.9 / 39.0 / 15.4% / 40.0</li>
+<li>25Q4 272.4 / 51.7 / 19.0% / 63.5</li>
+<li>26Q1 275.7 / 53.8 / 19.5% / 54.4</li>
+<li>26Q2 419.0 / 139.0 / 33.2% / 114.7  ← 매출 QoQ <span class="up">+52%</span>·YoY <span class="up">+87%</span>, 영업익 YoY <span class="up">+277%</span>, OPM 33.2% 급점프</li>
+<li>H1&#x27;26(연결): 매출 694.7억(YoY <span class="up">+45.7%</span>, H1&#x27;25 476.9), 영업익 192.9억(YoY <span class="up">+122%</span>, H1&#x27;25 86.8) — 반기 영업익이 이미 FY25 연간(177.4)을 초과.</li>
+<li>재무건전성 [실측]: 부채비율 26.7%(H1&#x27;26) — 매우 우량. 자본 814억.</li>
+<li>⚠️ 현금흐름 주의: FY25 영업CF 186.4억(순익 168.9 대비 양호)이나 H1&#x27;26 영업CF 25.1억(순익 169.2 대비 크게 저조) → 급성장에 따른 매출채권·재고 운전자본 급증. 이익의 질(현금화)은 하반기 회수 확인 필요.</li>
+</ul>
+<hr>
+<p>③ 미래실적·컨센서스 (달성가능성)</p>
+<ul>
+<li>증권사 컨센서스: 미확인 [실측: stockeasy·네이버·FnGuide·한경 4소스 모두 0건]. 정식 셀사이드 커버리지 없음(소형주). → 아래는 전부 자체 [추정].</li>
+<li>FY26 자체 바텀업 [추정: 산식 ⑧ 참조]</li>
+<li>Bear: 매출 ~1,335억 / 영업익 ~321억(OPM 24%) / 순익 ~285억 → EPS 3,430원</li>
+<li>Base: 매출 ~1,455억 / 영업익 ~391억(OPM 27%) / 순익 ~340억 → EPS 4,090원</li>
+<li>Bull: 매출 ~1,575억 / 영업익 ~457억(OPM 29%) / 순익 ~400억 → EPS 4,815원</li>
+<li>달성가능성 판정: 中~高. 근거 — ①H1 실적(694.7/192.9)이 이미 Base 궤도, ②번인 가동률 97%에서 자동삽입기 <span class="up">+60%</span>(시간당 3900→6300) 10월말 완비 → 캐파 병목 해소가 곧 물량, ③MSL 러버소켓 마이크론 양산·SK하이닉스 7월 개시 [인용: 블로그, 미검증]. 리스크 — Q2 OPM 33%가 재고 선반영·일회성일 경우 되돌림.</li>
+</ul>
+<hr>
+<p>④ 밸류에이션·목표가</p>
+<ul>
+<li>현재 [실측: KIS 2026-09-17]: 주가 53,200원, 시총 4,422억, PER 26.2x(FY25 EPS 2,032), PBR 5.44x(BPS 9,781).</li>
+<li>TTM 기준 [추정: 산식] 최근4Q 순익 40.0<span class="up">+63.5</span><span class="up">+54.4</span><span class="up">+114.7</span>=272.6억, 주식수 ≈831만주(시총/주가) → TTM EPS ≈3,280원 → TTM PER ≈16.2x. FY26 Base EPS 4,090 기준 forward PER ≈13.0x.</li>
+<li>Peer 밸류 [실측: KIS trailing]: ISC 71.4x(PBR7.2)·티에스이 71.8x(PBR7.0)·오킨스전자 56.2x(PBR9.3)·리노공업(시총 5.1조). 소켓 peer는 사이클 저점이익으로 trailing PER이 높으나, 마컨솔 TTM 16x·forward 13x는 peer 밴드 대비 뚜렷한 할인(과거부터 &#x27;메모리 번인 니치&#x27;로 저평가 지속).</li>
+<li>자체 목표가 산식: Base EPS 4,090 × 목표배수 16x = 65,400 → 1차 68,000원(16.6x). × 18x = 73,600 → 2차 78,000원. peer 할인 축소 감안해도 보수적 forward 16~18x.</li>
+<li>증권사 목표가: 미확인(커버리지 없음).</li>
+</ul>
+<hr>
+<p>⑤ 진입전략·손익비 (선물 無 → 현물 스윙 전용)</p>
+<ul>
+<li>위치 [실측]: 52주 15,500~56,500 中 현재 94% 고점권. MA5 52,100 / MA20 45,360 / MA60 31,519 — 정배열이나 MA60 대비 <span class="up">+69%</span> 극단 이격. ret5 <span class="up">+4.3%</span> / ret20 <span class="up">+28.5%</span> / ret60 <span class="up">+114.1%</span>. ATR14 3,818(일변동 7%대), RV20 38%(87.5분위 고변동), VKOSPI 44.4.</li>
+<li>수급 [실측: KIS]: 외국인 5일 <span class="up">+61.3</span>억·20일 <span class="up">+157.1</span>억(지속 순매수), 기관 20일 <span class="up">+17.7</span>억, 개인 20일 -218.8억. 공매도 미미(당일 0%, 20일평균 1.61%). ADV20 68.9억·ADV5 114.4억(거래폭증).</li>
+<li>지지/저항: 저항 55,800~56,500(20일고·52주고). 지지 MA20 45,360 / 20일저 38,850 / MA60 31,519.</li>
+<li>3라인:</li>
+<li>진입: 46,000~48,000 눌림 대기(MA20 부근). 3회 분할, 각 1/3.</li>
+<li>손절: 43,000 종가 이탈(MA20·전저점 38,850 위 완충).</li>
+<li>목표: 1차 68,000 / 2차 78,000.</li>
+<li>손익비 [산식]: 진입 47,000 기준 → 상방 (68,000-47,000)/47,000 = <span class="up">+44.7%</span> ÷ 하방 (47,000-43,000)/47,000 = <span class="down">-8.5%</span> = 1:5.3.</li>
+</ul>
+<p>※ 현재가 53,200 추격 시: 상방 <span class="up">+27.8%</span> ÷ 하방(손절 47,000) <span class="down">-11.7%</span> = 1:2.4 → 열위, 비권장.</p>
+<ul>
+<li>사이징 [산식]: 손실예산 1% ÷ 손절폭 8.5% = 자산의 11.8%. 집중상한 50%·이벤트전 상한 25% 중 최소 → 자산의 11.8%. 1일 체결상한 = ADV20 68.9억×10% = 6.9억.</li>
+<li>⚠️ 선물 미상장(kis_futures_check 재확인) → 레버리지 불가, 현물만. 고변동·고점권이므로 50% 집중은 부적합.</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 모델 【9-1 제품분해 (H1&#x27;26, 백만원)】 [실측: DART 반기보고서]</p>
+<ul>
+<li>세미콘 제품(B/I·모듈·SSD소켓) 45,502(65.5%) / 세미콘 상품 2,551(3.7%) / 어플라이언스 제품 13,601(19.5%) / 어플 상품 460(0.7%) / MSL 러버소켓 7,220(10.4%). 합 69,469.</li>
+</ul>
+<p>【9-2 고객구조】 [실측+인용]</p>
+<ul>
+<li>DART 고객명 미공개. IR/블로그: 세미콘=삼성전자·SK하이닉스·CXMT·마이크론, MSL 러버소켓=마이크론(양산)·SK하이닉스(LPDDR6, 7월 개시)·북미 A사 AP향 LPDDR5X 663FBGA [인용: 블로그, 미검증]. 삼성 비중 과거 60%→現 삼성+하닉 30%대라는 IR 주장은 절대치 검증 불가(미확인).</li>
+</ul>
+<p>【9-3 시장·경쟁】</p>
+<ul>
+<li>국내 소켓 peer: 리노공업(파이널테스트)·ISC(러버)·티에스이·오킨스전자. 마컨솔은 &#x27;메모리 번인소켓&#x27; 특화. 글로벌 TAM·점유율은 출처 확보 실패 → 미확인.</li>
+</ul>
+<p>【9-4 단가·원가】 [실측: DART]</p>
+<ul>
+<li>제품 단가표 미공시(생산실적 천개만). 원재료: BeCu·ULTEM(세미콘), Copper·Ag·Enamel Coil(어플). 세미콘 원자재 매입 H1&#x27;26 252.8억(증가) — 블로거 &#x27;컨택핀 원자재 쇼티지→판가 인상 예정&#x27;과 방향 일치(단가 인상 미실현·미확인).</li>
+</ul>
+<p>【9-5 캐파·가동률】 [실측: DART 반기]</p>
+<ul>
+<li>번인소켓 가동률 97%(H1&#x27;26) vs 74%(FY25) — 병목 확인. IR: 자동삽입기 39대(하루 3,900개)→9/15 6대 테스트<span class="up">+10</span>월말 6대 = 51대(하루 6,300개, <span class="up">+60%</span>) [인용: IR, 미검증]. 신공장 3,000평 매입·2,000평 연말 승인 추진.</li>
+</ul>
+<p>【9-7 바텀업 실적모델 (연결)】 [추정: 산식]</p>
+<ul>
+<li>입력: H1&#x27;26 실측 매출 694.7·영업익 192.9(OPM 27.8%). H2는 자동삽입기 부분가동(3Q)→완비(4Q).</li>
+<li>Bear: H2 매출 640(Q2 되돌림·OPM 20%)→영업익 128 → FY 매출 1,335·영업익 321·순익 285·EPS 3,430</li>
+<li>Base: H2 매출 760(캐파 램프·OPM 26%)→영업익 198 → FY 매출 1,455·영업익 391·순익 340·EPS 4,090</li>
+<li>Bull: H2 매출 880(풀가동+CXMT/AMD·OPM 30%)→영업익 264 → FY 매출 1,575·영업익 457·순익 400·EPS 4,815</li>
+<li>분기배분: 3Q(신규 6대만 부분가동) 매출 400~460·영업익 Base 130(OPM~30%)·Bear 85~90(OPM 22%)·Bull 160. 4Q 캐파 완비로 3Q 상회.</li>
+<li>민감도: OPM ±3%p → FY 영업익 ±44억. 자동삽입기 완비 1분기 지연 → 4Q→FY27 이연.</li>
+<li>결론 문장: 3Q26 연결 영업이익 ≥ 160억이면 논지 유지·추가매수 검토, &lt; 90억이면 논지 폐기.</li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·시나리오</p>
+<ul>
+<li>촉매 캘린더(날짜 확정): 3Q26 분기보고서 법정기한 2026-11-14(잠정 late Oct 가능) / 자동삽입기 6대 10월말 가동(캐파 완비) / AMD 퀄 10월 재제안 / CXMT LPDDR 소켓 퀄 진행.</li>
+<li>반증 3개(수치→행동): ①3Q26 연결 영업이익 &lt; 90억 → 논지 폐기·청산 ②종가 43,000 이탈 → 전량 청산 ③H2 영업CF가 순익의 30% 미만 지속(운전자본 미회수) → 비중 축소.</li>
+<li>이벤트 매트릭스: [3Q 서프(OP≥160)×갭상승→목표 상향 보유] / [인라인(90~160)×보합→분할 보유] / [쇼크(&lt;90)×갭하락→손절 청산].</li>
+<li>확률가중 시나리오: Bear 30%(목표 42,000, 이익 되돌림+이격조정) / Base 50%(목표 68,000) / Bull 20%(목표 78,000). 현재가 53,200 기준 확률가중 기대가 ≈ 0.3×42,000<span class="up">+0.5</span>×68,000<span class="up">+0.2</span>×78,000 = 62,200원(<span class="up">+16.9%</span>). 눌림 47,000 진입 시 기대수익 <span class="up">+32.3%</span>.</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 컨센 미확인(자체 추정), 블로거/IR 수치는 &#x27;추정·미검증&#x27; 명시. [미확인 목록] 증권사 컨센·목표가 / 고객사 절대 비중 / 제품 단가·판가 인상폭 / 글로벌 TAM·점유율 / H2 운전자본 회수. [출처] DART 사업보고서(20260319001387)·반기보고서(20260814003233) / KIS 시세 2026-09-17 / kis_futures_check(선물 無) / 4소스 컨센(0건). [검산] H1&#x27;26=Q1+Q2(275.7<span class="up">+419.0</span>=694.7 ✓, 53.8<span class="up">+139.0</span>=192.8≒192.9 ✓) / 손익비 헤더·본문 1:5.3 일치 / 시나리오 확률합 100%.</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-17 12:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 53,500원 (<span class="up">+7.0%</span>) · 시총 4,447억 · 5일 <span class="up">+4.9%</span> / 20일 <span class="up">+29.2%</span> / 60일 <span class="up">+115.3%</span></li>
+<li>MA5 52,160원 / MA20 45,375원 / MA60 31,524원 → MA20 이격 <span class="up">+17.9%</span> · MA60 이격 <span class="up">+69.7%</span></li>
+<li>52주 고 56,500원 / 저 15,500원 → 고점 대비 <span class="down">-5.3%</span> · 20일 고 55,800원 / 저 38,850원</li>
+<li>후행 PER 26.34 / PBR 5.47 (EPS 2,031원 · BPS 9,781원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 69.0억 (5일 114.7억)</li>
+<li>외국인 순매수 5일 61.3억 / 20일 157.1억 · 기관 5일 -10.3억 / 20일 17.7억 · 개인 20일 -218.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.14% / 20일 평균 1.61% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 10.36% (08/21) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 43영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 68,000원 (<span class="up">+27.1%</span>) ÷ 하방 43,000원 (−19.6%) = <strong>1:1.38</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 12%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 19.6% = <strong>자산의 2.5%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.5%</strong></li>
+<li>유동성 참고: 20일 ADV 69.0억 · 1일 소화 한도는 ADV의 10%(6.90억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 19.6% · ATR14 3,818원 (손절폭/ATR 2.8배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 19.6% = ATR14 × 2.8배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 47,773원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.53</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-098120"></span>📋 결정카드 — 마이크로컨텍솔(098120) 판정: 관심 선물: 無 현재가: 53,200원 진입: 46,000~48,000원 (눌림 대기) 손절: 43,000원 목표: 1차 68,000원 (2차 78,000원) 손익비: 1:5.3 기간: 스윙 6~12주 촉매: 자동삽입기 10월말 완비 / 3Q26 분기보고서 2026-11-14 반증: 3Q26 연결 영업이익 &lt; 90억 → 폐기 / ≥ 160억 → 추가매수 / 종가 43,000 이탈 → 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
