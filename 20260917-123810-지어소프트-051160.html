@@ -1,0 +1,260 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>지어소프트(051160) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260917-123810-지어소프트-051160.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.53</div><div class="tp-c"><b>결론 발췌</b> 오아시스마켓 자회사 가치 재평가 + 본업 수익성 개선의 이중 스토리는 유효하나, 당일 +22.8% 급등으로 단기 과열. 신규 추격매수보다 눌림 대기 관심. 자체 목표가 13,500원(적정PER 16.5×2026E EPS), 손익비 약 1:1.5. 판정 [관심]. ━━━━━━━━━━━━━━</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>지어소프트(051160)</h1>
+<div class="meta">📊 trend · 2026-09-17 12:38 · 코드 051160</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-17 12:38)</div><div class="kpi-v">12,140원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,879억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">14.88</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.13</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.53</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.56</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">13,500원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 11,000~11,400원 (또는 12,450원 종가 돌파 확정 시)</span><span class="dc dn">손절 9,700원</span><span class="dc up">목표 13,500원</span><span class="dc">손익비 진입 1:1.53 · 현재가 1:0.56</span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q2026 분기보고서(11/14 법정기한)·오아시스 상장 관련 공시</div><div class="dc-l">🛑 반증: 3Q2026 연결 영업이익 &lt; 60억(전년 40.8억 대비 개선 없음)이면 논지 폐기·청산 / 종가 MA20(9,700원) 하회 시 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 지어소프트(051160)  ※선물 無(현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: 오아시스마켓 자회사 가치 재평가 + 본업 수익성 개선의 이중 스토리는 유효하나, 당일 <span class="up">+22.8%</span> 급등으로 단기 과열. 신규 추격매수보다 눌림 대기 관심. 자체 목표가 13,500원(적정PER 16.5×2026E EPS), 손익비 약 1:1.5. 판정 [관심].</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>현재가 12,180원, 전일比 <span class="up">+22.78%</span> [실측: KIS inquire-price 2026-09-17]</li>
+<li>회전율 9.04% = 당일거래대금 170억 ÷ 시총 1,885억 [추정: 12,180원×15,474,430주=1,885억 / 거래대금 17,040,829,130원 KIS 실측]</li>
+<li>자금유입 강도: 평소 일 거래대금 2~40억대에서 당일 170억으로 4~8배 폭증 [실측: KIS 일봉]</li>
+<li>추세: MA 정배열(MA5 10,516 &lt; 현재가, MA20 9,800, MA60 8,721 전부 상회) [추정: KIS 일봉 종가 평균]</li>
+<li>5거래일 수익률 <span class="up">+21.7%</span>(0910 10,010→12,180), 20거래일 <span class="up">+27.8%</span>(0821 9,530→12,180) [추정: KIS 종가]</li>
+<li>위치: 52주 최고가 12,450원의 97.8%(신고가 근접), 52주 최저 6,270원 대비 <span class="up">+94%</span> [실측: KIS w52_hgpr/lwpr]</li>
+</ul>
+<p>→ 바닥권 아닌 상단 돌파형. 회전율 9%는 강한 유입이나 신고가 부근 추격은 변동성 큼</p>
+<hr>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업구조(3부문, 지주형): IT서비스(SW 개발·유지보수) 45.8% / 유통·이커머스(오아시스마켓 새벽배송) 47.7% / 광고 6.5% [실측: 사업보고서 2025.12 접수 20260320000711, 제품별 매출 별도 35,277백만 기준 비중]</li>
+<li>핵심 자산: 새벽배송 이커머스 &#x27;오아시스마켓&#x27; 운영 오아시스(종속회사). 지어소프트가 최대주주로 연결 편입</li>
+<li>급등 직접 트리거(추정): 2026-09-17 &#x27;유상증자결정(종속회사의 주요경영사항)&#x27; 공시 [실측: DART 수시공시 2026-09-17]. 종속회사(오아시스) 자본확충 신호 → 오아시스 상장 재추진·기업가치 재평가 기대감으로 해석. 단, 증자 규모·목적·상장 일정의 구체 내용은 본 리서치 시점 뉴스 봇차단으로 미확정 → &#x27;기대감&#x27; 영역</li>
+<li>주주환원 병행: 9/3 주식소각결정, 8/4·8/24 자기주식 취득(결정·결과) [실측: DART 수시공시]. 유통주식 축소·EPS 개선 요인</li>
+<li>사실 vs 기대: (사실) 자회사 유증·자사주 소각·본업 수익성 개선 / (기대) 오아시스 상장 밸류·증자 세부내용</li>
+</ul>
+<hr>
+<p>③ 실적 (DART 연결 실측)</p>
+<ul>
+<li>연간 매출(연결): 2023 5,089억 → 2024 5,472억 → 2025 5,871억 (3년 연속 성장, CAGR <span class="up">+7.4%</span>) [실측: 사업보고서 2025.12, 수익(매출액) CFS]</li>
+<li>연간 영업이익(연결): 2023 152억 → 2024 291억 → 2025 251억 [실측: 동일, 영업이익(손실) CIS]</li>
+<li>OPM(연결): 2023 3.0% → 2024 5.3% → 2025 4.3% [추정: 영업이익÷매출]</li>
+<li>연간 순이익(연결·지배): 2023 106억 → 2024 179억 → 2025 126억 [실측: 지배기업 소유주 귀속 순이익 CIS]</li>
+<li>★순익 급감 분해(2024→2025): 세전이익 325억→245억(<span class="down">-25%</span>), 영업이익 291억→251억(<span class="down">-14%</span>), 법인세 45억→53억(<span class="up">+18%</span>). 즉 영업 둔화(-40억)+세전 비영업손익 악화+법인세 증가가 복합. 일회성보다 영업+금융 전반 둔화 [실측: CIS 세전·법인세·영업이익 대조]</li>
+<li>부채비율(연결) 2025말: 부채 907.9억 ÷ 자본 2,255.3억 = 40.3% (매우 건전) [추정: BS 부채총계÷자본총계 실측값]</li>
+<li>현금흐름: 2025 영업활동 관련 순이익조정 165억, 법인세 납부 52억 [실측: CF]</li>
+</ul>
+<ul>
+<li>★반기 턴어라운드(2026 상반기 연결·누적6M): 매출 2,909억(전년 2,960억, <span class="down">-1.7%</span>), 매출총이익 752억(전년 702억, <span class="up">+7.1%</span>), 판관비 549.6억(전년 571.1억, <span class="down">-3.8%</span>) → 영업이익 202.5억(전년 131.3억, <span class="up">+54.2%</span>), 순이익 165.1억(전년 125.3억, <span class="up">+31.8%</span>) [실측: 반기보고서 2026.06 접수 20260813000721, CFS]</li>
+<li>1Q2026 영업이익 103.5억(전년 77.9억), 2Q2026 영업이익 99.0억(전년 53.4억) [실측: 1Q보고서 20260514000151 3M / 반기-1Q 산출]</li>
+</ul>
+<p>→ 매출은 정체지만 원가율 개선(매출원가율 78.9%→74.1%)과 판관비 절감으로 이익 레버리지 발생. 질적 개선 진행 중</p>
+<hr>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 커버리지: 없음. 최근 6개월 목표가 리포트 0건, 연간·분기 컨센 미확인 [실측: consensus.py 2026-09-17, stockeasy·naver·fnguide·hankyung 4소스 전부 추정치 없음]</li>
+<li>자체 추정(연결·상향 근거): 2026 상반기 영업이익 202.5억으로 이미 2025 연간(251억)의 81% 달성. 하반기 전년 수준(2025 하반기 영업이익=251-131.3=119.7억) 유지 시 2026 연간 영업이익 약 322억, 최소 300억 [추정: 상반기 실측 202.5 + 하반기 보수적 100~120]</li>
+<li>달성가능성 [中~高]: 근거=원가율 개선 추세 지속·판관비 통제·자사주 소각으로 EPS 방어. 리스크=매출 정체(성장 둔화), 이커머스 계절성</li>
+</ul>
+<hr>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 밸류: PER 14.93배, PBR 1.13배, EPS 816원, BPS 10,737원 [실측: KIS inquire-price 2026-09-17]</li>
+<li>EPS 재계산: 2025 지배순이익 126억÷15,474,430주 = 815원 (KIS EPS 816원과 일치) [검산 ✓]</li>
+<li>2026E EPS(추정): 2026 상반기 순이익 165억 기반, 연간 지배순이익 약 200~220억 가정 → 지배순이익 210억÷15.47백만주 ≈ 1,357원 [추정: 상반기 실측×연환산 보수]</li>
+</ul>
+<p>(주: 반기 순이익 165억은 연결 전체. 지배지분율 2025년 12,632/19,209=65.8% 적용 시 지배 2026E ≈ 210억×0.66 보정 필요 → 보수적 EPS 1,000~1,100원 밴드)</p>
+<ul>
+<li>자체 목표가 산정:</li>
+<li>방식A(PER): 적정PER 16.5배(3년 평균 성장·건전 재무 프리미엄 소폭) × 보수적 2026E EPS 820원(2025 실적 유지 가정) = 13,530원</li>
+<li>방식B(자산가치): 오아시스 지분가치 별도 반영 시 상단. PBR 1.13배는 순현금·자회사 감안 저평가 소지. 단 오아시스 밸류 미확정으로 정량화 불가 → &#x27;미확인&#x27;</li>
+<li>자체 목표가 13,500원 (방식A 기준, 오아시스 재평가는 업사이드 옵션) [추정: 16.5×820]</li>
+<li>증권사 목표가: 없음(커버리지 부재) [실측]</li>
+</ul>
+<hr>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>선물 無 → 개별주식선물 미상장, 현물 매매만 가능(레버리지 불가) [실측: kis_futures_check.py 051160]</li>
+<li>지지: MA20 9,800원 / 직전 박스 상단 10,900원(8/10~8/14 고점권) / 심리 10,000원</li>
+<li>저항: 52주 최고 12,450원 → 당일 상한가 12,890원 부근이 1차 저항, 돌파 시 신고가 랠리</li>
+<li>현재가 12,180원은 상한가 근처 종가. 신고가 부근이라 추격 리스크 큼</li>
+<li>스윙 3라인(현물 기준, 눌림 대기 관점):</li>
+<li>진입: 11,000~11,400원(직전 박스 상단 되돌림 지지 확인 후) 또는 12,450원 종가 돌파 확정 시 추세추종</li>
+<li>손절: 9,700원(MA20 하회·9월 급등 시발점 이탈)</li>
+<li>익절: 1차 13,500원(자체 목표), 2차 15,000원(오아시스 재평가 촉매 실현 시)</li>
+<li>손익비(진입 11,200원 가정): 상승여력 13,500까지 <span class="up">+20.5%</span> ÷ 하락리스크 9,700까지 <span class="down">-13.4%</span> = 1:1.53 [추정: (13500-11200)/(11200-9700)]</li>
+</ul>
+<p>(현재가 12,180 추격 진입 시: 상승 <span class="up">+10.8%</span> ÷ 하락 <span class="down">-20.4%</span> = 1:0.53 → 불리, 추격 비권장)</p>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC.md §9 규격)</p>
+<ul>
+<li>스탁이지 기업·산업 리포트: 0건(해당 리포트 없음) [실측: stockeasy_reports.py 051160]</li>
+<li>제품별 매출(반기 2026.06, 별도 기준 별도매출 17,074백만): IT서비스 8,158백만(47.8%) / 유통·이커머스 8,081백만(47.3%) / 광고 835백만(4.9%) [실측: dart_biz.py, 반기보고서 20260813000721]</li>
+</ul>
+<p>※ 연결매출(2,909억)과 별도매출(171억)의 큰 차이 = 오아시스마켓 유통부문이 연결 종속회사로 대부분 매출 기여. 연결 매출 성장·이익 개선의 주체는 오아시스(이커머스)</p>
+<ul>
+<li>9-2 고객·납품: IT서비스는 내수 100%(공공·기업 SI/유지보수). 이커머스는 B2C 새벽배송 소비자 [실측: 제품별 매출 내수100%]</li>
+<li>9-3 TAM·경쟁: 새벽배송 시장 경쟁자 컬리·쿠팡·SSG. 오아시스는 흑자 새벽배송 사업자로 차별화(출처: 사업보고서 사업개요). 시장점유율·경쟁 CAPA는 미확인(출처 2개 확보 불가) [미확인]</li>
+<li>9-4 단가이력: SW용역 단가 이력 미공시 [미확인]</li>
+<li>9-5 수주잔고: IT서비스 용역 수주잔고 2025말 12.7억 → 2026 반기 71.8억 (수주총액 108.5억, +대폭 증가) [실측: dart_biz.py 수주상황]. IT부문 향후 매출 가시성 개선 신호</li>
+<li>9-6 전방 CAPEX: 이커머스 전방=소비 경기, IT=공공·기업 IT예산 [정성]</li>
+<li>9-7 바텀업 모델 표(연결 영업이익, 반기 실측 202.5억 기반 하반기 시나리오):</li>
+<li>Bear: 하반기 영업이익 80억(이커머스 계절 둔화·경쟁심화) → 2026 연간 282억. 산식 202.5<span class="up">+80</span></li>
+<li>Base: 하반기 100억(전년比 소폭 개선) → 연간 302억. 산식 202.5<span class="up">+100</span></li>
+<li>Bull: 하반기 130억(수주잔고 소화+오아시스 성장) → 연간 332억. 산식 202.5<span class="up">+130</span></li>
+<li>컨센 대조: 컨센 부재 → 자체 추정만</li>
+<li>결론 문장: &quot;3Q2026 연결 영업이익 ≥ 90억이면 이익 개선 논지 유지·눌림 매수 유효, &lt; 60억이면 상반기 개선의 지속성 훼손으로 논지 폐기(3Q 전년 40.8억 대비 개선 여부가 핵심)&quot;</li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만):</li>
+<li>2026-11월 중순(법정기한 11/14): 3Q2026 분기보고서 → 이익 개선 지속성·이커머스 실적 확인 [실측: 전년 3Q보고서 20251113 접수 기준]</li>
+<li>진행중: 종속회사 유상증자(9/17 결정 공시) 후속 절차·오아시스 상장 관련 공시 [실측: DART 2026-09-17]</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<p>1) 3Q2026 연결 영업이익 &lt; 60억(전년 40.8억 대비 개선 없음) → 이익 레버리지 소멸, 전량 청산 2) 종가가 MA20(9,800원) 하회 마감 → 급등 추세 이탈, 손절 3) 오아시스 상장 철회·무산 공시 발생 → 밸류 재평가 스토리 소멸, 관심 철회</p>
+<ul>
+<li>이벤트 매트릭스(3Q 실적×당일 주가):</li>
+<li>쇼크(OP&lt;60억): 갭하락→손절 / 보합→비중축소 / 갭상승→매도(팔 기회)</li>
+<li>인라인(60~100억): 갭하락→손절선까지 홀드 / 보합→홀드 / 갭상승→부분익절</li>
+<li>서프라이즈(OP&gt;100억): 갭하락→저가매수 / 보합→홀드 / 갭상승→추세홀드·목표 상향</li>
+<li>확률가중 시나리오(합=100%):</li>
+<li>Bear 30%: 오아시스 지연·본업 둔화, 목표 9,700원(<span class="down">-20%</span> from 12,180). 기여 <span class="down">-6.0%</span>p</li>
+<li>Base 50%: 이익개선 지속·오아시스 옵션 유지, 목표 13,500원(<span class="up">+10.8%</span>). 기여 <span class="up">+5.4%</span>p</li>
+<li>Bull 20%: 오아시스 상장 가시화·재평가, 목표 16,000원(<span class="up">+31.4%</span>). 기여 <span class="up">+6.3%</span>p</li>
+<li>확률가중 기대수익률(현재가 기준) ≈ <span class="up">+5.7%</span> [추정: -6.0<span class="up">+5.4</span><span class="up">+6.3</span>]. 진입가 11,200 기준으론 <span class="up">+14.9%</span></li>
+<li>수급·유동성: 9/4 외국인 <span class="up">+75,507</span>주·기관 <span class="up">+55,435</span>주 대량 순매수 후 등락 반복. 최근 외국인 지분율 18.76% [실측: KIS 투자자별·frgn_ehrt]. 20일 평균거래대금 약 15~20억대(9월 급등 전), 당일 170억 [추정: KIS 일봉]. 1일 체결상한(ADV 10%)=평상시 1.5~2억 수준, 급등일엔 17억 → 유동성은 급등일에만 충분, 평시엔 얇음(대량 진입 시 분할 필수)</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭(진입11,200→손절9,700=13.4%) = 자산의 약 7.5%. 집중상한 50%·이벤트전 상한 25% 중 최소값 적용 → 7.5% 상한. 3Q 실적(11월) 이벤트 전 상한 25% 룰상 문제없으나, 유동성 얇음 감안 실질 상한은 리스크예산 7.5%가 결정. 분할: 1차 11,200원 절반, 2차 지지 확인 후 절반</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>오아시스마켓 상장 일정·기업가치·9/17 유상증자 규모·목적(뉴스 봇차단으로 미확정)</li>
+<li>증권사 컨센서스·목표가(커버리지 부재)</li>
+<li>새벽배송 시장 점유율·경쟁사 CAPA(출처 2개 확보 실패)</li>
+<li>SW용역 단가 이력</li>
+<li>2026 지배지분 순이익 정확값(연결 순이익만 실측, 지배비율 추정 적용)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 사업보고서 2025.12 접수 20260320000711</li>
+<li>DART 반기보고서 2026.06 접수 20260813000721</li>
+<li>DART 1Q보고서 2026.03 접수 20260514000151</li>
+<li>DART 수시공시(유상증자·주식소각·자사주) 2026-08~09</li>
+<li>KIS inquire-price / inquire-daily-itemchartprice / inquire-investor 2026-09-17</li>
+<li>consensus.py 2026-09-17 (커버리지 없음 확인)</li>
+<li>kis_futures_check.py (선물 미상장 확인)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합=연간: 2025 3Q누적 172.1억, 4Q 단독=251-172.1=78.9억, 합 251억 ✓</li>
+<li>Q1+Q2=H1: 2026 1Q 103.5억 + 2Q 99.0억 = 202.5억 = 반기누적 202.5억 ✓</li>
+<li>EPS 검산: 126억÷15.47백만주=815원 ≈ KIS 816원 ✓</li>
+<li>손익비 산식 헤더·본문 일치: 진입11,200 목표13,500 손절9,700 → 1:1.53 ✓ (헤더 &quot;약 1:1.5&quot;와 일치)</li>
+</ul>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-17 12:38 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 12,140원 (<span class="up">+22.4%</span>) · 시총 1,879억 · 5일 <span class="up">+21.3%</span> / 20일 <span class="up">+26.9%</span> / 60일 <span class="up">+83.9%</span></li>
+<li>MA5 10,508원 / MA20 9,798원 / MA60 8,720원 → MA20 이격 <span class="up">+23.9%</span> · MA60 이격 <span class="up">+39.2%</span></li>
+<li>52주 고 12,450원 / 저 6,270원 → 고점 대비 <span class="down">-2.5%</span> · 20일 고 12,140원 / 저 8,860원</li>
+<li>후행 PER 14.88 / PBR 1.13 (EPS 816원 · BPS 10,737원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 15.8억 (5일 37.8억)</li>
+<li>외국인 순매수 5일 1.1억 / 20일 1.1억 · 기관 5일 0.0억 / 20일 12.8억 · 개인 20일 -12.9억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.31% / 20일 평균 1.41% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 5.39% (09/07) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 43영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 13,500원 (<span class="up">+11.2%</span>) ÷ 하방 9,700원 (−20.1%) = <strong>1:0.56</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 12%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 20.1% = <strong>자산의 2.5%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.5%</strong></li>
+<li>유동성 참고: 20일 ADV 15.8억 · 1일 소화 한도는 ADV의 10%(1.58억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 20.1% · ATR14 709원 (손절폭/ATR 3.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 20.1% = ATR14 × 3.4배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 10,926원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.12</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-051160"></span>📋 결정카드 — 지어소프트(051160) 판정: 관심 선물: 無 현재가: 12,180원 진입: 11,000~11,400원 (또는 12,450원 종가 돌파 확정 시) 손절: 9,700원 목표: 1차 13,500원 (2차 15,000원) 손익비: 1:1.5 기간: 스윙 4~10주 촉매: 3Q2026 분기보고서(11/14 법정기한)·오아시스 상장 관련 공시 반증: 3Q2026 연결 영업이익 &lt; 60억(전년 40.8억 대비 개선 없음)이면 논지 폐기·청산 / 종가 MA20(9,700원) 하회 시 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
