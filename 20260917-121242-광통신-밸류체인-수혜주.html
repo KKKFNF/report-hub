@@ -1,0 +1,278 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RF머트리얼즈(327260) · 광통신 밸류체인 수혜주 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260917-121242-광통신-밸류체인-수혜주.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.29</div><div class="tp-c"><b>결론 발췌</b> 밸류체인 전 종목이 개별주식선물 미상장 → 전원 현물 스윙만·레버리지 불가. 실적으로 숫자를 증명한 대표주는 RF머트리얼즈(327260)뿐. 현재가 46,800원 추격은 손익비 1:1.6로 애매, 44,000~45,000원 눌림 분할이 손익비 1:4·목표 1차 56,000/2차 71,500원. 판정 관심. ⚠️ 본 리포트는 비나인 블로그 글(광통신 섹터 개요·밸류체인, 1dosal, 2026-09-17)을 소재로 한 참고용 리서치이며 매수/매도 강요가 아니다. 블로거·증권사 추정치는 &#x27;추정&#x27;으로 구분 표기했다.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>RF머트리얼즈(327260) · 광통신 밸류체인 수혜주</h1>
+<div class="meta">📊 benine · 2026-09-17 12:12 · 코드 327260</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-17 12:12)</div><div class="kpi-v">46,800원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">8,419억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">115.27</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">15.43</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.29</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.59</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">56,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 44,000~45,000원 (눌림 3회 분할)</span><span class="dc dn">손절 41,000원</span><span class="dc up">목표 56,000원</span><span class="dc">손익비 진입 1:3.29 · 현재가 1:1.59 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:4</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:4로 적었지만 진입·손절·목표로 계산하면 1:3.29다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 분기보고서(2026-11-14 법정기한)·루멘텀 추가 발주 공시</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 30억이면 논지 약화·비중축소 / 종가 41,000원 이탈 시 전량 청산</div></div>
+
+<div class="body"><p>🔦 광통신 밸류체인 수혜주 — 실적베타 Tier 분석 (비나인 블로그 소재)</p>
+<p>📌 한줄 결론: 밸류체인 전 종목이 개별주식선물 미상장 → 전원 현물 스윙만·레버리지 불가. 실적으로 숫자를 증명한 대표주는 RF머트리얼즈(327260)뿐. 현재가 46,800원 추격은 손익비 1:1.6로 애매, 44,000~45,000원 눌림 분할이 손익비 1:4·목표 1차 56,000/2차 71,500원. 판정 관심.</p>
+<p>⚠️ 본 리포트는 비나인 블로그 글(광통신 섹터 개요·밸류체인, 1dosal, 2026-09-17)을 소재로 한 참고용 리서치이며 매수/매도 강요가 아니다. 블로거·증권사 추정치는 &#x27;추정&#x27;으로 구분 표기했다.</p>
+<hr>
+<p>■ 밸류체인 5기능 &amp; 수요 구분 (블로그 논지 요약, 참고용)</p>
+<ul>
+<li>빛 생성(레이저) → 신호 변환(광트랜시버) → 이동(광섬유·케이블) → 증폭(광증폭기·펌프레이저) → 경로 제어(WSS)</li>
+<li>수요 트리거: 거리↑ → 광증폭기 / 트래픽↑ → 고다심 케이블·WDM / 경로↑ → WSS</li>
+<li>CPO는 광통신 &#x27;대체&#x27;가 아니라 광변환 &#x27;위치&#x27; 변화(칩 옆으로) — 광부품 수요 총량은 유지·증가라는 게 블로거 시각(추정)</li>
+</ul>
+<p>■ 전 종목 선물 상장여부 [실측: kis_futures_check.py, 2026-09-17]</p>
+<ul>
+<li>388790 라이콤 ❌ / 327260 RF머트리얼즈 ❌ / 010170 대한광통신 ❌ / 418420 라온텍 ❌</li>
+<li>개별주식선물 상장 기초자산 292종목 중 4종목 전원 미상장 → 레버리지(선물) 불가, 전 종목 현물 스윙 한정.</li>
+</ul>
+<hr>
+<p>■ Tier 분류 (실적베타 × 선물상장 — 이 섹터는 전원 선물無이므로 실적베타로만 서열)</p>
+<p>▶ Tier 1 — 실적수혜 확정·현물 (밸류체인 숫자가 이미 P&amp;L에 찍힘)</p>
+<ul>
+<li>⭐RF머트리얼즈(327260) — 펌프레이저 패키지. 2025 흑자전환 후 2개 분기 연속 어닝서프, OPM 21%까지 상승. 부채비율 48%·영업CF 흑자. 밸류체인 유일 &#x27;숫자 증명주&#x27;.</li>
+<li>대한광통신(010170) — 광섬유·864심 케이블. 13분기 만에 2Q26 흑자전환, 미국 데이터센터 대형수주. 단 PBR 33배·부채비율 229%·영업CF 적자 — 실적 대비 밸류·재무 부담 큼(턴어라운드 초입).</li>
+</ul>
+<p>▶ Tier 2 — 수주 실체 O, 실적은 소형·변동 (레버리지 없이 변동성만 큼)</p>
+<ul>
+<li>라이콤(388790) — 광증폭기(EDFA). 블로거상 1Finity향 수주잔고 65→147억(추정). 실적은 2025 영업익 <span class="up">+5.8</span>억 → 1Q26 -8.8억 → 2Q26 <span class="up">+1.3</span>억으로 흑적 오락가락. 20일 평균 거래대금 33억으로 극소 → 스윙 체결·이탈 리스크.</li>
+</ul>
+<p>▶ Tier 3 — 테마·소액수주·적자 심화 (실적 근거 취약)</p>
+<ul>
+<li>라온텍(418420) — 마이크로디스플레이(SLM). 블로거상 광통신용 SLM 백플레인 15억 수주(WSS향 추정). 2025 영업익 -58억, 1H26 영업익 -63억, 자본 167→106억 감소. 20일 거래대금 10억 극소. WSS 매출 기여는 먼 얘기 → 실적 근거 취약.</li>
+</ul>
+<p>※ Tier 분류 근거: (1) RF머트리얼즈는 밸류체인 중 유일하게 흑자+연속 서프로 실적이 확정 반영, (2) 대한광통신은 흑자전환 &#x27;초입&#x27;+대형수주 실체지만 밸류·재무가 실적을 크게 앞서감, (3) 라이콤은 수주잔고 실체는 있으나 분기 손익이 BEP 근방에서 진동+유동성 극소, (4) 라온텍은 소액수주+적자심화로 실적 근거가 가장 약함.</p>
+<hr>
+<p>■ Tier1 대표주 풀분석 ① RF머트리얼즈(327260) ※선물 無·현물만</p>
+<p>【① 사실관계 검증】</p>
+<ul>
+<li>사업: 화합물반도체 패키지 전문(통신용/레이저용/군수용). 주력이 &#x27;통신용 패키지&#x27;(RF+광통신)로 이동 중 [실측: 사업보고서 2025.12, 접수 20260318001224].</li>
+<li>전방·고객: AI 데이터센터용 광통신. 루멘텀(Lumentum)향 펌프레이저 패키지 공급 — 신한투자증권은 &#x27;루멘텀 솔벤더(단독벤더)&#x27;로 표현 [인용: 신한 2026-09-10 &#x27;루멘텀 솔벤더의 위엄&#x27;, NR]. Metallife-USA 통해 72.9억원 공급계약 체결 [인용: 한국경제 2026-08-30].</li>
+<li>실체 검증: 기대감이 아니라 숫자로 확인됨 — 통신용 패키지 매출비중 2024 20.1%→2025 34.7%→1H26 44.9%로 실제 상승, 단가도 9,572→12,039→16,136원으로 동반 상승 [실측: dart_biz 사업/반기보고서]. 루멘텀향 펌프레이저 패키지 매출은 2024 30~40억→2025 120억→2026 300억→2027 700억↑ 전망 [추정: 신한·하나 리포트].</li>
+</ul>
+<p>【② 실적 (DART 연결 실측)】</p>
+<ul>
+<li>연간(연결): 2023 매출 479억/영업익 -0.3억 → 2024 매출 445억/영업익 -14.5억(적자) → 2025 매출 641억/영업익 <span class="up">+73.7</span>억(흑자전환, OPM 11.5%) [실측: fnlttSinglAcnt CFS].</li>
+<li>분기(연결·3개월): 3Q25 매출 146억/영업익 18.9억(OPM 13.0%) → 1Q26 매출 200.2억/영업익 32.0억(OPM 16.0%, 서프 1회) → 2Q26 매출 250.6억/영업익 52.9억(OPM 21.1%, 서프 2회) [실측: 각 분기·반기보고서 CFS].</li>
+<li>1H26 누계 매출 450.8억/영업익 84.9억 — 반년 만에 2025 연간 영업익(73.7억) 초과. 매출·마진 동시 상승 추세.</li>
+<li>재무건전성: 2025 부채총계 418억/자본총계 864억 → 부채비율 48.4%(양호). 영업활동현금흐름 <span class="up">+71.6</span>억(플러스 전환). [실측: fnlttSinglAcntAll 2025 CFS]</li>
+<li>검산: 분기(Q3&#x27;25·Q1&#x27;26·Q2&#x27;26)는 3개월 단수치(반기 250.6=외부확인치 2Q 251과 일치), 연간=사업보고서 누계.</li>
+</ul>
+<p>【③ 미래실적·컨센서스】</p>
+<ul>
+<li>FY26E 매출 1,011억/영업익 181억/순익 163억/EPS 722/PER 61.3/ROE 20.4% [인용: fnguide, 추정기관 3].</li>
+<li>FY27E 매출 1,500억/영업익 305억/EPS 1,185/PER 37.3 · FY28E 매출 1,954억/영업익 429억/EPS 1,677/PER 26.4 [인용: fnguide].</li>
+<li>분기 컨센: 3Q26E 매출 269억/영업익 46억/순익 48억 [인용: naver] · 4Q26E 매출 342억 [인용: wisereport].</li>
+<li>달성가능성 中~高: 1H26 실적(450.8억/84.9억) 런레이트 연환산 시 매출 900~1,000억·영업익 170억선 → FY26 컨센 무난. FY26 영업익 컨센이 6M전 129억→3M전 161억→현재 181억으로 상향 추세(긍정) [인용: fnguide]. CAPA 확대(유증 280억, 시설 250억 → 매출능력 500~600억→1,200억)로 FY27 1,500억 뒷받침 [인용: 한국경제 2026-08-30].</li>
+</ul>
+<p>【④ 밸류에이션 → 목표가】</p>
+<ul>
+<li>현재 PER 115.3(trailing)·PBR 15.43·EPS 406·BPS 3,034 [실측: KIS 2026-09-17]. Trailing은 흑자전환 초기라 높음.</li>
+<li>Forward: FY26 PER 64.8배·FY27 PER 39.5배(현재가 기준). 글로벌 광통신 peer 밴드 30~40배 대비 성장(매출 CAGR 50%+) 프리미엄 반영 구간.</li>
+<li>자체 목표가 산식(FY27E EPS 1,185 기준): PER 45배 = 53,300원 / PER 55배 = 65,200원. FY28E EPS 1,677 × 35배 = 58,700원.</li>
+</ul>
+<p>→ 자체 목표 1차 56,000원(FY27E EPS×약 47배), 2차 71,500원(증권사 최신 2사 평균).</p>
+<ul>
+<li>증권사 목표가: 신영 68,000원(2026-08-28 신규), 하나 75,000원(2026-07-28, 1:1 무증 반영). 리포트 집계 평균 112,600원(무증 전 15만 포함)·최신 2사 평균 71,500원 [인용: consensus 4소스].</li>
+</ul>
+<p>※ 무상증자(1:1) 후 기준 — 52주 고가 126,600원은 권리락 전 수치이므로 현재가와 직접 비교 금물.</p>
+<p>【⑤ 손익비】(진입가 기준)</p>
+<ul>
+<li>현재가 추격(46,800): 목표1차 56,000 <span class="up">+19.7%</span> ÷ 손절 41,000 <span class="down">-12.4%</span> = 1:1.59 (애매).</li>
+<li>눌림 진입(44,000): 목표1차 56,000 <span class="up">+27.3%</span> ÷ 손절 41,000 <span class="down">-6.8%</span> = 1:4.0 (양호).</li>
+<li>2차 목표(71,500)까지 보면 눌림 기준 <span class="up">+62.5%</span> ÷ 6.8% = 1:9.2.</li>
+</ul>
+<p>→ 현재가 추격은 손익비 부족, 눌림 대기 시 손익비 우수.</p>
+<p>【⑥ 진입전략】(현물 스윙, 선물 無)</p>
+<ul>
+<li>위치: MA5 44,910 / MA20 38,248 / MA60 31,048 완전 정배열. 오늘 46,800으로 20일 신고가(직전 46,750) 돌파. ret20 <span class="up">+32.6%</span>·ret60 <span class="up">+68.5%</span> — 상승 후반부, 추격주의.</li>
+<li>진입: 44,000~45,000원(MA5 부근 눌림) 3회 분할(각 1/3). 신고가 안착 후 재돌파 확인 매수 병행.</li>
+<li>손절: 종가 41,000원 이탈(박스 상단·MA5·MA20 사이 붕괴).</li>
+<li>익절: 1차 56,000(절반) / 2차 71,500(잔량, 증권사 컨센 도달).</li>
+<li>경고: 고변동(rv20 38·상위 87%ile), 외국인 20일 -523억 순매도(기관 <span class="up">+433</span>억이 수취) — 수급 엇갈림. 공매도 20일 평균 5.08%·최대 10.98% 압력. 테마 변동성·집중상한 유의.</li>
+</ul>
+<p>【⑧ 산업·제품 바텀업 모델 (§9)】</p>
+<ul>
+<li>9-1 제품분해 [실측 사업보고서]: 2025 통신용패키지 222억(34.7%)·군수용장비부품 336억(52.4%)·군수용패키지 26억·기타 53억. 1H26 통신용 202억(44.9%)로 주력 역전.</li>
+<li>9-2 고객: 루멘텀(펌프레이저 패키지, 단독벤더 표현)·Metallife-USA(계약주체 72.9억)·모회사 RFHIC(RF부문). 고객 집중(루멘텀 단일 의존) 리스크 존재.</li>
+<li>9-3 시장·경쟁: AI DCI 광증폭기용 펌프레이저 수요 급증(공급부족, 신한 &#x27;펌프레이저 공급 부족&#x27; 탐방노트 2026-05-07). 국내 화합물반도체 하이메틱 패키지 실질 경쟁자 제한적(회사·리포트 주장, 점유율 수치 미확인). [단일출처 성격 — 미확인 목록 참조]</li>
+<li>9-4 단가: 통신용패키지 9,572(24)→12,039(25)→16,136원(1H26) 상승. 원재료 PGC 단가 8,640(24)→4,977(25)→3,269원(1H26) 하락 → 스프레드 개선(마진 상승의 근거) [실측 dart_biz].</li>
+<li>9-5 CAPA: 유증 280억(시설 250억), 생산능력 매출기준 500~600억→1,200억 확대 [인용: 한국경제 2026-08-30]. 구체 가동률은 &#x27;영업기밀&#x27;로 미공시.</li>
+<li>9-7 바텀업(영업익 기준): 3Q26 Bear 30억 / Base 46억(컨센) / Bull 60억. FY26 Base 영업익 181억(컨센)·1H 84.9억 실측 감안 달성 무난.</li>
+</ul>
+<p>→ 결론 문장: &quot;3Q26 연결 영업이익 ≥ 46억(Base)이면 논지 유지·눌림 추가매수 검토, &lt; 30억(Bear)이면 성장둔화로 논지 약화·비중축소.&quot; → 민감도: 3Q 매출 269억 가정, OPM 17%(Base)→46억 / OPM 11%(단가경쟁·믹스악화)→30억 / OPM 22%(2Q OPM 유지)→59억.</p>
+<p>【⑦ 촉매·반증·시나리오】</p>
+<ul>
+<li>촉매 캘린더: 3Q26 분기보고서(법정기한 2026-11-14, 실적 서프 지속 여부 3연속) / 루멘텀 추가 발주·CPO 관련 공시 / 유증 시설투자 가동 진행.</li>
+<li>반증 3개(수치→행동):</li>
+</ul>
+<p>1) 3Q26 연결 영업이익 &lt; 30억 → 성장둔화, 비중 축소(컨센 46억 대비 <span class="down">-35%</span>) 2) 종가 41,000원 이탈 → 기술적 전량 청산 3) 외국인 순매도 지속 + 루멘텀 발주 감소 뉴스 → 수급·펀더 동시 악화, 관망 전환</p>
+<ul>
+<li>이벤트 매트릭스(3Q 실적×당일 갭):</li>
+<li>서프(&gt;60억)×갭상승 → 눌림 없으면 관망, 이후 조정 시 재진입 / 서프×갭하락 → 분할 진입 기회</li>
+<li>인라인(46억)×보합 → 44,000 눌림만 진입 / 쇼크(&lt;30억)×갭하락 → 반증1 발동, 청산</li>
+<li>확률가중 시나리오: Bear 30%(목표 41,000, <span class="down">-12.4%</span>) / Base 45%(56,000, <span class="up">+19.7%</span>) / Bull 25%(71,500, <span class="up">+52.8%</span>) → 기대수익률 <span class="up">+18.3%</span>.</li>
+<li>수급·유동성: 20일 평균 거래대금 360억, 1일 체결상한(ADV 10%) 약 36억. 외국인 20일 -523억·기관 <span class="up">+433</span>억·개인 <span class="up">+77</span>억 [실측 KIS].</li>
+<li>포지션 사이징(자산 대비 %): 눌림 진입(손절폭 6.8%) 기준 손실예산 0.5%(고변동 레짐) ÷ 6.8% = 자산의 7.4%. 집중상한 50%·이벤트 전 상한 25% 중 최소값 → 7.4% 채택. 현재가 추격(손절폭 12.4%) 시 0.5÷12.4 = 4.0%.</li>
+</ul>
+<hr>
+<p>■ Tier1 대표주 풀분석 ② 대한광통신(010170) ※선물 無·현물만</p>
+<p>【① 사실】광섬유~광케이블 국내 유일 일관생산. 통신 57~58%/전력 43% 사업부문. AI 데이터센터 공급부족 수혜로 864심 초고다심(범용 대비 5~10배 고부가) 케이블 2월 첫수주 약 54억, 6월 추가 355억(블로거 인용, 추정). INCAB America(미 텍사스) 인수로 현지 생산거점 확보 [인용: 유안타 2026-09-02, 한국경제 2026-05-08]. 【② 실적(연결 실측)】2023 매출 1,803억/영업익 -232억 → 2024 1,527억/-297억 → 2025 1,394억/-214억(13분기 연속적자). 1Q26 매출 342.5억/영업익 -39.6억 → 2Q26 매출 490.5억/영업익 <span class="up">+9.6</span>억(흑자전환, OPM 2.0%) [실측 CFS, 외부확인 일치]. 재무: 2025 부채비율 228.6%(부채 1,524억/자본 667억)·영업CF 2024 -240억·2025 -122억(현금소진 지속) — 재무 부담 큼. 【③ 컨센】FY26E 매출 2,034억/영업익 37억/순익 29억/EPS 18 · FY27E 매출 2,566억/영업익 180억/EPS 92 [인용 fnguide]. 3Q26E 매출 668억/영업익 59억 [naver]. 최근 리포트 전부 NR(목표가 미제시): 유안타 &#x27;병목 관통&#x27;(09-02)·신영 &#x27;13분기만 흑자전환&#x27;(08-28)·한투 &#x27;광섬유 레버리지&#x27;(08-25). 달성가능성 中: 흑자전환 초입·마진 2%로 얇음, 컨센 3Q 59억은 2Q 9.6억 대비 급증 가정 → 검증 필요. 【④ 밸류】현 PER -66.9(적자)·PBR 32.97·BPS 491원 [실측]. FY27E EPS 92×40배 = 3,680원 &lt;&lt; 현재 16,190원 → 실적기반 밸류로는 정당화 불가. 순수 수급·턴어라운드 기대 주도. 증권사 목표가 6개월내 미제시(컨센 미확인). 【⑤ 손익비】현재가 추격(16,190): 목표 18,000 <span class="up">+11.2%</span> ÷ 손절 13,900 <span class="down">-14.1%</span> = 1:0.79 → 진입 부적합. 눌림 진입(14,300, MA20 부근): <span class="up">+25.9%</span> ÷ <span class="down">-2.8%</span> = 1:9.2. 반드시 눌림 한정. 【⑥ 진입전략】MA5 15,012/MA20 14,004/MA60 12,298 정배열, 20일 신고가 돌파. 외국인 20일 <span class="up">+595</span>억 순매수(강력)·개인 -654억. 20일 거래대금 1,723억(대형·유동성 우수). 진입 14,300~14,700 눌림 분할 / 손절 종가 13,900(MA20 이탈) / 목표 18,000(라운드·전고). 경고: PBR 33배·부채비율 229%·영업CF 적자 — 실적이 밸류를 못 따라가면 급락 리스크. 【⑧⑦ 요약】9-7 결론: &quot;3Q26 연결 영업이익 ≥ 40억이면 턴어라운드 지속·논지 유지, &lt; 20억이면 지연으로 논지 폐기&quot;(컨센 59억, 2Q 9.6억 대비 급증 가정의 검증치). 반증: ①3Q26 영업익 &lt;20억 → 폐기 ②종가 13,900 이탈 → 청산 ③영업CF 적자 지속+유증/차입 확대 공시 → 재무리스크. 시나리오: Bear 35%(13,900,<span class="down">-14%</span>)/Base 45%(18,000,<span class="up">+11%</span>)/Bull 20%(21,000,<span class="up">+30%</span>) → 기대수익률 <span class="up">+2.0%</span>(밸류부담 반영, 낮음). 사이징: 눌림 손절폭 2.8% 기준 0.5÷2.8=자산의 17.9%, 이벤트 전 상한 25%·집중 50% 중 최소 → 17.9%(단 밸류·재무 리스크로 하향 권고).</p>
+<hr>
+<p>[미확인 목록]</p>
+<ul>
+<li>RF머트리얼즈 국내 경쟁자 점유율·글로벌 CAPA 수치(회사·리포트 정성 주장, 교차 2출처 미확보) → IR·산업리포트 확인 필요.</li>
+<li>RF머트리얼즈 가동률(사업보고서 &#x27;영업기밀&#x27; 미공시).</li>
+<li>라이콤 1Finity향 수주잔고 65→147억은 블로거 인용치(원 공시 미교차).</li>
+<li>대한광통신 864심 수주 54억·355억은 블로거·뉴스 인용(단일판매공급계약 공시 원문 미대조).</li>
+<li>대한광통신 6개월내 증권사 목표가 컨센(전부 NR).</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>실측: kis_futures_check.py(선물), DART fnlttSinglAcnt/All·dart_biz(재무·사업보고서, RFM 접수 20260318001224·20260814001631 / 대한 20260319000854·20260814002121), KIS 시세(2026-09-17 12:04).</li>
+<li>인용: consensus.py 4소스(fnguide/naver/wisereport/stockeasy/hankyung), 신한 2026-09-10·05-07, 신영 08-28, 하나 07-28·06-09·04-30·04-03, 유안타 09-02, 한투 08-25, 한국경제 2026-08-30·05-08, 유안타(newspim 09-02).</li>
+<li>소재: 비나인 블로그 &#x27;광통신 섹터 개요 및 밸류체인&#x27;(1dosal, 2026-09-17) — 참고용, 블로거 개인의견.</li>
+</ul>
+<p>[검산] 1H26 = 1Q<span class="up">+2</span>Q: RFM 200.2<span class="up">+250.6</span>=450.8억 ✓ / 대한 342.5<span class="up">+490.5</span>=833억(반기 매출과 정합) ✓. 손익비 산식 헤더=본문 일치(RFM 눌림 1:4.0, 추격 1:1.59) ✓. 시나리오 확률합 RFM 30<span class="up">+45</span><span class="up">+25</span>=100 ✓·대한 35<span class="up">+45</span><span class="up">+20</span>=100 ✓. 연결(CFS) 라벨 전수 확인 ✓.</p>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 밸류체인 전 종목 선물 미상장으로 레버리지 불가·현물 스윙만 가능. 블로거·증권사 추정치는 &#x27;추정&#x27;, 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>&lt;!-- hub:enrich:begin:327260 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-17 12:12 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 46,800원 (<span class="up">+5.8%</span>) · 시총 8,419억 · 5일 <span class="up">+7.8%</span> / 20일 <span class="up">+32.8%</span> / 60일 <span class="up">+68.6%</span></li>
+<li>MA5 44,920원 / MA20 38,250원 / MA60 31,049원 → MA20 이격 <span class="up">+22.4%</span> · MA60 이격 <span class="up">+50.7%</span></li>
+<li>52주 고 126,600원 / 저 11,900원 → 고점 대비 <span class="down">-63.0%</span> · 20일 고 46,800원 / 저 32,900원</li>
+<li>후행 PER 115.27 / PBR 15.43 (EPS 406원 · BPS 3,034원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 360.0억 (5일 482.4억)</li>
+<li>외국인 순매수 5일 -102.8억 / 20일 -523.2억 · 기관 5일 70.3억 / 20일 433.4억 · 개인 20일 77.3억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.66% / 20일 평균 5.08% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 10.98% (08/24) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 43영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 56,000원 (<span class="up">+19.7%</span>) ÷ 하방 41,000원 (−12.4%) = <strong>1:1.59</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 12%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 12.4% = <strong>자산의 4.0%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.0%</strong></li>
+<li>유동성 참고: 20일 ADV 360.0억 · 1일 소화 한도는 ADV의 10%(36.00억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 12.4% · ATR14 3,964원 (손절폭/ATR 1.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 12.4% = ATR14 × 1.5배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 40,853원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.55</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:327260 --&gt;</p>
+<p><span id="card-327260"></span>📋 결정카드 — RF머트리얼즈(327260) 판정: 관심 선물: 無 현재가: 46,800원 진입: 44,000~45,000원 (눌림 3회 분할) 손절: 41,000원 목표: 1차 56,000원 (2차 71,500원) 손익비: 1:4.0 (눌림 진입 기준) 기간: 스윙 4~10주 촉매: 3Q26 분기보고서(2026-11-14 법정기한)·루멘텀 추가 발주 공시 반증: 3Q26 연결 영업이익 &lt; 30억이면 논지 약화·비중축소 / 종가 41,000원 이탈 시 전량 청산</p>
+<p>&lt;!-- hub:enrich:begin:010170 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-17 12:12 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 16,170원 (<span class="up">+0.4%</span>) · 시총 2.51조 · 5일 <span class="up">+9.7%</span> / 20일 <span class="up">+27.8%</span> / 60일 <span class="up">+13.3%</span></li>
+<li>MA5 15,010원 / MA20 14,003원 / MA60 12,298원 → MA20 이격 <span class="up">+15.5%</span> · MA60 이격 <span class="up">+31.5%</span></li>
+<li>52주 고 31,500원 / 저 1,272원 → 고점 대비 <span class="down">-48.7%</span> · 20일 고 16,170원 / 저 12,120원</li>
+<li>후행 PER -66.82 / PBR 32.93 (EPS -242원 · BPS 491원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,724.3억 (5일 2,730.5억)</li>
+<li>외국인 순매수 5일 537.9억 / 20일 595.9억 · 기관 5일 16.7억 / 20일 65.1억 · 개인 20일 -654.0억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.49% / 20일 평균 2.12% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 5.23% (09/01) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 43영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 18,000원 (<span class="up">+11.3%</span>) ÷ 하방 13,900원 (−14.0%) = <strong>1:0.81</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 12%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 14.0% = <strong>자산의 3.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.6%</strong></li>
+<li>유동성 참고: 20일 ADV 1,724.3억 · 1일 소화 한도는 ADV의 10%(172.43억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 14.0% · ATR14 1,053원 (손절폭/ATR 2.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 14.0% = ATR14 × 2.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 14,553원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.13</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:010170 --&gt;</p>
+<p><span id="card-010170"></span>📋 결정카드 — 대한광통신(010170) 판정: 관심 선물: 無 현재가: 16,190원 진입: 14,300~14,700원 (MA20 눌림 분할) 손절: 13,900원 목표: 1차 18,000원 (2차 21,000원) 손익비: 1:9.2 (눌림 진입 기준) 기간: 스윙 4~8주 촉매: 3Q26 분기보고서(2026-11-14 법정기한)·864심 추가수주 공시 반증: 3Q26 연결 영업이익 &lt; 20억이면 논지 폐기·전량 청산 / 종가 13,900원 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
