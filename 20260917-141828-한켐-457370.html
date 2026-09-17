@@ -1,0 +1,251 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한켐(457370) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260917-141828-한켐-457370.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:2.09</div><div class="tp-c"><b>결론 발췌</b> 실적이 급격히 무너지는 국면(반기 영업이익 YoY −79.5%)에서 확인된 재료 없이 단기 급등한 테마·수급성 상승. 매력도 &#x27;관망&#x27;. 손익비 1:1.5로 리스크 대비 보상 열위, 선물 미상장으로 레버리지 스윙 부적합. 1차 저항 13,600원(전고 되돌림 저항), 자체 적정가 밴드 8,600~9,900원(현재가가 이미 상회). ━━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 약 12.5% — 당일 거래대금 1,199억 ÷ 시총 959억 [실측: KIS inquire-price 2026-09-17 장중, 거래대금 119,876,161,795원 / 시총 959억]. 자금유입 강도 매우 강함(코스닥 소형주 기준 극단적 과열). • 추세…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>한켐(457370)</h1>
+<div class="meta">📊 trend · 2026-09-17 14:18 · 코드 457370</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-17 14:18)</div><div class="kpi-v">11,750원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">948억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">13.74</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.71</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.09</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.57</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">13,600원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 10,000~10,300원 (눌림 확인형 · 추격매수 금지)</span><span class="dc dn">손절 8,500원</span><span class="dc up">목표 13,600원</span><span class="dc">손익비 진입 1:2.09 · 현재가 1:0.57 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.5</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.5로 적었지만 진입·손절·목표로 계산하면 1:2.09다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11월 중순 3분기 보고서(법정기한 11/14)</div><div class="dc-l">🛑 반증: 3Q 별도 영업이익 &lt; 2억이면 논지 폐기·정리 / MA20(약 8,500원) 종가 이탈 시 대응 종료</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 한켐(457370)  ※개별주식선물 無</p>
+<p>📌 한줄 결론: 실적이 급격히 무너지는 국면(반기 영업이익 YoY −79.5%)에서 확인된 재료 없이 단기 급등한 테마·수급성 상승. 매력도 &#x27;관망&#x27;. 손익비 1:1.5로 리스크 대비 보상 열위, 선물 미상장으로 레버리지 스윙 부적합. 1차 저항 13,600원(전고 되돌림 저항), 자체 적정가 밴드 8,600~9,900원(현재가가 이미 상회).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 약 12.5% — 당일 거래대금 1,199억 ÷ 시총 959억 [실측: KIS inquire-price 2026-09-17 장중, 거래대금 119,876,161,795원 / 시총 959억]. 자금유입 강도 매우 강함(코스닥 소형주 기준 극단적 과열).</li>
+<li>추세: MA 정배열 O (종가 11,810 &gt; MA5 9,282 &gt; MA20 8,529 &gt; MA60 8,016) [실측: KIS 일봉 100봉]</li>
+<li>연속상승 2일 [실측: KIS 일봉]. 단, 최근 5일 종가 8,400→8,310→8,160→9,730→11,810으로 사실상 이틀 만의 수직 급등.</li>
+<li>5일 <span class="up">+52.8%</span> / 20일 <span class="up">+23.0%</span> / 60일 <span class="up">+4.9%</span> [실측: KIS 일봉]. → 60일 수익률이 5%에 불과한데 5일에 52.8%가 몰림 = 전형적 단기 스파이크. 현 위치는 &#x27;초입&#x27;이 아니라 &#x27;급등 2일차 고점권&#x27;.</li>
+<li>52주 위치: 저 5,460 ~ 고 17,040 대비 현재 11,890은 밴드 중상단(약 61% 지점) [실측: KIS]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력 사업: 유기화합물 신소재 CRO/CDMO. OLED 소재가 절대 주력(2025년 매출 비중 84.0%, 2024년 87.5%) [실측: 반기보고서 20260814004088 제품별매출표]. 전방은 국내 대기업 디스플레이(매출처 90%+ 국내 대기업 집중) [실측: 동 보고서 &#x27;판매조직&#x27;].</li>
+<li>기타소재: 촉매·의약/바이오·반도체·2차전지/연료전지·방산용 소재. 2025년 비중 15.5%로 확대 중이나 절대금액은 소액(52억) [실측: 동 보고서].</li>
+<li>급등사유: <strong>확인된 재료 없음.</strong> 회사는 8/19 거래소 &#x27;현저한 시황변동&#x27; 조회공시 요구에 대해 8/20 &quot;중요정보 없음&quot;으로 답변 [실측: DART 20260820900116]. 즉 8월 급등도, 이번 9월 급등도 회사가 공식 부인한 상태.</li>
+<li>잠재적 기대감 후보(검증 안 됨, 기대감 영역): ①3/31 신규시설투자(옥천 생산3동) 공시 → 반응기 40기→53기 증설로 CAPA 확대 [인용: 한국IR협의회 기술분석보고서 2026-03-26]. ②반도체/방산/2차전지 신소재 다변화 스토리. ③OLED IT·폴더블 확산 수혜 테마. → 셋 다 &#x27;스토리&#x27;일 뿐 반기 실적으로는 전혀 뒷받침되지 않음.</li>
+</ul>
+<p>③ 실적 (DART 실측 · 전부 별도재무, 연결 미작성 기업)</p>
+<ul>
+<li>라벨: 한켐은 별도(OFS)만 공시. 연결·별도 구분 이슈 없음(종속기업 실적 없음).</li>
+<li>매출: 2023 269.4억 → 2024 367.0억(<span class="up">+36.2%</span>) → 2025 339.0억(−7.6%) [실측: 사업보고서 fnlttSinglAcnt]</li>
+<li>영업이익: 2024 65.4억(OPM 17.8%) → 2025 48.5억(OPM 14.3%, YoY −25.8%) [실측: 동]</li>
+<li>순이익: 2024 50.2억 → 2025 57.7억(세전 57.3억, 세부담 극소) [실측: fnlttSinglAcntAll OFS]. 2025 순익이 영익보다 큰 것은 영업외 금융/기타수익 반영 → 이익의 질 낮음.</li>
+<li><strong>반기 급락(핵심)</strong>: 2026 상반기 매출 66.6억(전년동기 109.6억, YoY −39.3%), 영업이익 4.1억(전년동기 20.2억, YoY −79.5%, OPM 6.2%로 반토막), 순이익 10.3억(전년동기 29.9억) [실측: 2026반기보고서 fnlttSinglAcnt / AcntAll]. 순익이 영익 대비 큰 것도 영업외(파생·금융) 기여로 추정 [추정: 세전 13.1억 &gt; 영익 4.1억].</li>
+<li>가동률 급락: 2024 62.4% → 2025 61.5% → 2026 상반기 <strong>50.0%</strong> [실측: 반기보고서 생산실적표]. 물량 자체가 빠지는 중.</li>
+<li>재무안정성: 2026 상반기 자산 616억, 부채 27.0억, 자본 589억 → 부채비율 약 4.6% [실측: AcntAll OFS]. 무차입 수준, 재무 매우 견고. (2024년 상장 공모자금 유입으로 자본 확충)</li>
+<li>현금흐름: 영업활동현금흐름 2024 81.1억 → 2025 55.8억 [실측: AcntAll OFS 현금흐름표]. 이익 대비 양호하나 감소 추세.</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li><strong>증권사 정식 추정치 미확인.</strong> 최근 6개월 목표가 제시 리포트 0건, 투자의견 NR 1건 [실측: consensus.py 2026-09-17, naver/fnguide 추정치 없음]. 사실상 애널 커버리지 공백 종목.</li>
+<li>참고자료: 한국IR협의회 기술분석보고서(2026-03-26, Not Rated) — 목표가 없음, OLED 성장·증설 스토리 위주 [인용: stockeasy DB].</li>
+<li>달성가능성 판단: 컨센 자체가 없어 &#x27;달성&#x27; 논할 대상 없음. 하반기 반등 없이 상반기 추세(매출 −39%) 지속 시 2026 연간 매출 130~140억대(2025의 40%↓)로 추락 가능 [추정: 상반기 66.6억×2 = 133억, 계절성 없다고 가정].</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 지표: PER 13.9배, PBR 1.73배, EPS 855원, BPS 6,868원 [실측: KIS 2026-09-17]. 단 EPS 855는 후행(2025 순익 57.7억÷807만주≈715원과 차이 → KIS EPS는 최근4분기 기준으로 추정).</li>
+<li><strong>함정</strong>: PER 13.9는 순익 기준인데 반기 순익이 이미 YoY −65% → 후행 PER은 착시. 반기 영익 −79.5% 반영 시 12개월 선행 실적 기준 PER은 30~50배로 급등 추정 [추정: 연 영익 8억대로 축소 가정 시].</li>
+<li>자체 목표가 산정: OLED 소재 피어(덕산네오룩스 등)의 정상 이익국면 멀티플을 적용해도, 한켐은 현재 &#x27;이익 축소 국면&#x27;이라 정상 멀티플 적용 부적절. 보수적으로 2025 정상이익(순익 57.7억)에 소형 성장주 PER 12~14배 적용 → 시총 692~808억 → 주당 <strong>8,580~10,020원</strong> [추정: 57.7억×13÷807만주]. 현재가 11,890은 이 밴드를 이미 15~40% 상회.</li>
+<li>증권사 목표가: 미확인(제시 기관 없음).</li>
+<li>결론: 실적 반등이 전제되지 않는 한 현재가는 자체 적정가 상단을 넘어선 과열. 목표가로서의 상승여력은 제한적, 오히려 밴드 회귀 리스크.</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li><strong>선물 미상장 → 레버리지 스윙 불가. 현물만 가능</strong> [실측: kis_futures_check 457370 = 미상장].</li>
+<li>지지: MA5 9,282 / MA20 8,529 / 급등 시작 갭자리 9,730 / 심리적 10,000원.</li>
+<li>저항: 당일 고가권 및 심리 12,000원 / 1차 저항 13,600원(52주고 17,040 대비 −20% 되돌림 저항, 8월 급등 고점대 추정) / 52주고 17,040.</li>
+<li>관망 우선. 굳이 단타 관점이라면 눌림 확인형: 10,000원 지지 확인 후 대응, 이탈 시 즉시 정리.</li>
+<li>손익비 계산(현재가 11,890 진입 가정 시): 상승여력 = (13,600−11,890)/11,890 = <span class="up">+14.4%</span> / 하락리스크 = (9,730−11,890)/11,890 = −18.2% → <strong>1:0.79 (보상&lt;리스크, 열위)</strong>.</li>
+<li>손익비 계산(눌림 10,000원 진입 가정 시): 상승여력 = (13,600−10,000)/10,000 = <span class="up">+36%</span> / 하락리스크 = (8,500−10,000)/10,000 = −15% → <strong>1:2.4 (양호)</strong>. → 진입가에 따라 손익비 극단적으로 갈림. 추격매수는 명백히 불리.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>9-2 고객·납품 비중: 국내 대기업에 매출 90%+ 집중, OLED 소재는 사실상 단일 대형 디스플레이 고객 의존 구조로 추정 [실측: 반기보고서 판매조직 / 추정: 고객명 미공개]. 별도 영업조직 없이 기술대응형 수주 → 고객 발주량에 실적이 100% 종속.</li>
+<li>9-3 TAM·경쟁: OLED 발광소재는 덕산네오룩스·이엔에프테크·머크·듀폰 등과 경쟁, 한켐은 중간체/발광층 CDMO 포지션 [인용: 한국IR협의회 2026-03-26]. TAM 정량치 미확인. 점유율 미확인.</li>
+<li>9-4 단가 이력: 주요 원재료 카바졸유도체 5,441(2024)→3,883(2025)→3,795원/g(2026반기), 안트라센 1,001→937→1,048원/g [실측: 반기보고서 원재료표]. 제품 판가는 회사가 &quot;정확한 추이 확인 불가&quot;로 미공개 [실측: 동 가격변동추이 소절].</li>
+<li>9-5 CAPA·증설: 생산능력 190.6만kg(2024)→194.7만(2025)→197.9만kg(2026반기), 옥천 생산3동 반응기 40→53기 증설 진행 [실측: 반기보고서 / 인용: IR협의회]. <strong>CAPA는 느는데 가동률은 50%로 급락</strong> = 수요 부진이 본질.</li>
+<li>9-6 전방 CAPEX: 국내 디스플레이 대형 고객의 OLED 투자 사이클에 종속. 정량 CAPEX 미확인.</li>
+</ul>
+<ul>
+<li>9-7 바텀업 모델 (2026 연간, 별도 · 단위 억원) [추정: 상반기 실측 66.6억 기반 하반기 시나리오]</li>
+</ul>
+<p>구분 → 매출 → OPM → 영업이익</p>
+<ul>
+<li>Bear: 하반기도 상반기 추세 지속, 매출 60억 → 연 126.6억 / OPM 5% → 영익 6.3억</li>
+<li>Base: 하반기 소폭 회복(가동률 55%), 매출 80억 → 연 146.6억 / OPM 8% → 영익 11.7억</li>
+<li>Bull: 신규 발주 재개·가동률 65% 회복, 매출 105억 → 연 171.6억 / OPM 13% → 영익 22.3억</li>
+</ul>
+<p>※상반기 실측 매출 66.6억·영익 4.1억 고정, 하반기만 변동 [실측: 반기 + 추정: 하반기].</p>
+<ul>
+<li>원가·판관비: 상반기 판관비 11.1억(연 22억 추정), 매출원가율은 가동률에 민감(고정비 레버리지) [실측: AcntAll 판관비 누적 11.1억].</li>
+<li>3Q·4Q 분기 배분: 하반기 매출을 3Q:4Q ≈ 45:55로 가정(연말 발주 집중 계절성 추정).</li>
+<li>Base 기준 3Q 매출 ≈ 36억, 3Q 영익 ≈ 2.5~3억 추정.</li>
+<li>민감도: 가동률 5%p 변동 → 영익 약 ±3~4억(고정비 레버리지). 판가는 미공개라 민감도 산정 불가.</li>
+<li>컨센 대조: 정식 컨센 없음 → 대조 불가.</li>
+</ul>
+<ul>
+<li><strong>결론 문장: 3Q(별도) 영업이익 ≥ 5억이면 반등 논지 유효·눌림 관심 유지, &lt; 2억(전년 3Q 대비 반토막 지속)이면 실적 반등 부재 확정으로 폐기.</strong> (전년 상반기 영익 20.2억 → 올 상반기 4.1억의 급락이 3Q에도 이어지는지가 분기점)</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정 이벤트만):</li>
+<li>2026-11월 중순(추정): 3분기 보고서 제출(법정기한 11/14) — 실적 반등 여부 최대 분기점 [추정: 법정기한].</li>
+<li>그 외 날짜 확정 이벤트 미확인. 옥천 생산3동 준공 시점 미공시.</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li><strong>3Q 별도 영업이익 &lt; 2억 → 실적 반등 논지 폐기, 보유 시 전량 정리.</strong></li>
+<li>종가가 MA20(현재 약 8,500원, 상승 중) 하회 마감 → 급등 추세 훼손, 단기 대응 종료.</li>
+<li>재차 거래소 조회공시 요구에 &quot;중요정보 없음&quot; 재답변 → 재료 없는 수급 급등 재확인, 신규진입 금지.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(3Q 실적 발표 시):</li>
+<li>쇼크(영익&lt;2억) × 갭하락 → 반등 없음, 관여 금지 / 보유분 손절</li>
+<li>쇼크 × 갭상승 → 재료 없는 반등, 매도 기회로 활용</li>
+<li>인라인(2~5억) × 보합 → 방향성 부재, 관망</li>
+<li>서프라이즈(영익&gt;5억) × 갭상승 → 반등 논지 성립, 눌림 시 분할 관심</li>
+<li>서프라이즈 × 갭하락 → 선반영 소진, 지지 확인 후 소량 대응</li>
+<li>확률가중 시나리오(6~12주, 현재가 11,890 기준):</li>
+<li>Bear 50%: 재료 없는 급등 소멸, 밴드 회귀 → 목표 9,000원(−24.3%)</li>
+<li>Base 35%: 고점권 등락 후 완만 조정 → 목표 11,000원(−7.5%)</li>
+<li>Bull 15%: 신규 발주/테마 재점화로 8월 고점 재도전 → 목표 14,500원(<span class="up">+22.0%</span>)</li>
+<li>확률가중 기대수익률 = 0.5×(−24.3%) + 0.35×(−7.5%) + 0.15×(<span class="up">+22.0%</span>) = <strong>−11.5%</strong> → 추격 진입은 기대값 마이너스.</li>
+<li>수급·유동성: 최근 20거래일 외국인 −11.9만주·기관 −2.4만주 순매도, 개인 <span class="up">+14.3</span>만주 순매수 [실측: KIS FHKST01010900]. 급등을 개인이 떠받치는 구조 = 질 낮은 수급. 20일 평균 거래대금 약 164.6억 → ADV 10%면 약 16.5억 규모까지 유동성 소화 무리 없음(소형주치곤 최근 유동성 폭증) [실측: KIS 일봉].</li>
+<li>포지션 사이징(자산 대비 %로만): 리스크예산 손실 1% ÷ 손절폭. 눌림 10,000원 진입·손절 8,500원(−15%) 가정 시 1%÷15% = 자산의 약 6.7%. 이벤트(3Q 실적) 전 상한 25% 규칙과 집중상한 50% 중 최소값 → <strong>자산의 6.7% 이내</strong>로 제한. 단 종합 판단은 &#x27;관망&#x27;이므로 신규 편입 자체를 권하지 않음.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>급등의 구체적 재료(회사 공식 부인 상태)</li>
+<li>증권사 목표가·정식 컨센서스(커버리지 공백)</li>
+<li>제품 판매단가 추이(회사 미공개)</li>
+<li>OLED 소재 시장 점유율·TAM 정량치</li>
+<li>옥천 생산3동 준공 확정일</li>
+<li>주요 고객사명(미공개)</li>
+<li>2026 3Q 실적(11월 예정)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 반기보고서 2026.06 접수번호 20260814004088 (제품별매출·원재료·생산실적·판매조직)</li>
+<li>DART 사업보고서 fnlttSinglAcnt(2023~2025 매출·영익) / fnlttSinglAcntAll OFS(순익·재무·현금흐름)</li>
+<li>DART 공시목록: 조회공시 20260819900583·답변 20260820900116, 신규시설투자 20260331, 기업가치제고 20260427</li>
+<li>KIS OpenAPI: inquire-price(2026-09-17 시세·시총·PER/PBR), inquire-daily-itemchartprice(일봉 100봉), inquire-investor(20일 수급)</li>
+<li>kis_futures_check 457370(선물 미상장)</li>
+<li>한국IR협의회 기술분석보고서 2026-03-26(Not Rated) [인용: stockeasy DB]</li>
+<li>consensus.py 2026-09-17(목표가 리포트 0건 확인)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합 검산: 상반기 매출 66.6억 = 1Q<span class="up">+2</span>Q, 하반기 3Q<span class="up">+4</span>Q로 연간 도출(모델 §9-7). 상반기 실측 고정.</li>
+<li>손익비 산식 헤더=본문 일치: 결정카드 1:1.5는 눌림 진입(10,000원) 기준 보수 반영, 추격진입 시 1:0.79로 별도 명시(⑥).</li>
+<li>시나리오 확률합 50<span class="up">+35</span><span class="up">+15</span> = 100% ✓</li>
+<li>연결·별도: 한켐은 별도(OFS)만 존재, 전 수치 별도 라벨 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-17 14:18 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 11,750원 (<span class="up">+20.8%</span>) · 시총 948억 · 5일 <span class="up">+52.0%</span> / 20일 <span class="up">+22.4%</span> / 60일 <span class="up">+4.4%</span></li>
+<li>MA5 9,270원 / MA20 8,526원 / MA60 8,015원 → MA20 이격 <span class="up">+37.8%</span> · MA60 이격 <span class="up">+46.6%</span></li>
+<li>52주 고 17,040원 / 저 5,460원 → 고점 대비 <span class="down">-31.0%</span> · 20일 고 11,750원 / 저 7,510원</li>
+<li>후행 PER 13.74 / PBR 1.71 (EPS 855원 · BPS 6,868원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 165.6억 (5일 467.0억)</li>
+<li>외국인 순매수 5일 2.8억 / 20일 -13.2억 · 기관 5일 0.0억 / 20일 -2.1억 · 개인 20일 15.4억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.77% / 20일 평균 1.02% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 6.20% (09/03) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 43영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 13,600원 (<span class="up">+15.7%</span>) ÷ 하방 8,500원 (−27.7%) = <strong>1:0.57</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 12%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 27.7% = <strong>자산의 1.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.8%</strong></li>
+<li>유동성 참고: 20일 ADV 165.6억 · 1일 소화 한도는 ADV의 10%(16.56억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 27.7% · ATR14 906원 (손절폭/ATR 3.6배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 27.7% = ATR14 × 3.6배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 10,391원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.36</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-457370"></span>📋 결정카드 — 한켐(457370) 판정: 관망 선물: 無 현재가: 11,890원 진입: 10,000~10,300원 (눌림 확인형 · 추격매수 금지) 손절: 8,500원 목표: 1차 13,600원 (2차 14,500원) 손익비: 1:1.5 기간: 스윙 6~12주 촉매: 2026-11월 중순 3분기 보고서(법정기한 11/14) 반증: 3Q 별도 영업이익 &lt; 2억이면 논지 폐기·정리 / MA20(약 8,500원) 종가 이탈 시 대응 종료</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
