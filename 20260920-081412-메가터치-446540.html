@@ -1,0 +1,222 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>메가터치(446540) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260920-081412-메가터치-446540.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.88</div><div class="tp-c"><b>결론 발췌</b> 반도체 테스트핀 주도로 FY26 턴어라운드가 실적으로 확인된 실체주(H1 영업이익 흑전 +67억). 다만 현재가는 이미 FY26 급반등을 상당부분 반영(FY26E PER 약 20x)해 추격 손익비는 1:1.5로 애매. MA20(7,700원대) 눌림 대기가 손익비 1:2.9로 우월 → 관심(눌림 매수), 1차 목표 10,000원. ※아래는 리서치 참고용이며 매수·매도 권유가 아님. 원본 블로그·단일 증권사 코멘트는 &#x27;개인의견/추정&#x27;으로 구분 표기. ① 포착 신호 [실측: KIS 2026-09-18 종가] • 현재가 8,560원(전일 -4.14%) · 시총 2,489억 · 발행주식 29,079,111주 [실측: DART 반기보고서 stock…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>메가터치(446540)</h1>
+<div class="meta">📊 benine · 2026-09-20 08:14 · 코드 446540</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-20 08:14)</div><div class="kpi-v">8,560원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2,489억</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.88</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.87</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">10,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 7,600~7,800원(MA20 눌림 대기)</span><span class="dc dn">손절 6,900원</span><span class="dc up">목표 10,000원</span><span class="dc">손익비 진입 1:2.88 · 현재가 1:0.87</span><span class="dc">기간 스윙 6~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026.11.14 3분기보고서 / 리노공업 파업 타결 여부</div><div class="dc-l">🛑 반증: 3Q26 별도 영업이익 &lt; 20억이면 논지 폐기·청산 / 종가 6,900원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 메가터치(446540)  ※선물 無(개별주식선물 미상장·현물만 가능)</p>
+<p>📌 한줄 결론: 반도체 테스트핀 주도로 FY26 턴어라운드가 실적으로 확인된 실체주(H1 영업이익 흑전 <span class="up">+67</span>억). 다만 현재가는 이미 FY26 급반등을 상당부분 반영(FY26E PER 약 20x)해 추격 손익비는 1:1.5로 애매. MA20(7,700원대) 눌림 대기가 손익비 1:2.9로 우월 → <strong>관심(눌림 매수)</strong>, 1차 목표 10,000원. ※아래는 리서치 참고용이며 매수·매도 권유가 아님. 원본 블로그·단일 증권사 코멘트는 &#x27;개인의견/추정&#x27;으로 구분 표기.</p>
+<p>① 포착 신호 [실측: KIS 2026-09-18 종가]</p>
+<ul>
+<li>현재가 8,560원(전일 <span class="down">-4.14%</span>) · 시총 2,489억 · 발행주식 29,079,111주 [실측: DART 반기보고서 stockTotqySttus 20260814]</li>
+<li>추세: 60일 <span class="up">+46.8%</span> / 20일 <span class="up">+25.5%</span> / 5일 <span class="up">+1.5%</span> — 중기 강한 상승 후 단기 숨고르기</li>
+<li>이평: MA5 8,718 · MA20 7,685 · MA60 6,928 → 현재가 MA5 아래·MA20/60 위(정배열 유지, 5일선 이탈)</li>
+<li>위치: 52주고 10,990 대비 <span class="down">-22.1%</span>, 52주저 3,245 대비 <span class="up">+163.8%</span> — 고점권 아님, 바닥 대비 크게 상승한 중단</li>
+<li>거래대금: 20일 평균 57.4억 / 5일 평균 91.9억(거래 급증) · ATR14 846원(약 9.9%, 고변동)</li>
+<li>수급: 외국인 5일 <span class="up">+23.6</span>억 / 20일 -19.1억, 기관 5일 <span class="up">+16.1</span>억 / 20일 <span class="up">+11.3</span>억 [실측: KIS 투자자별]</li>
+<li>공매도: 당일 4.32%(20일 평균 1.76%의 2.5배 급증), 20일 최대 7.39%(09/08) — 단기 경계 신호</li>
+</ul>
+<p>② 사업·급등사유 [실측: DART 사업보고서 20260318001084 / 반기 20260814002338]</p>
+<ul>
+<li>사업 2축: ①반도체 테스트용 PROBE PIN(비메모리 후공정 OSAT, Final Test 포고핀) ②2차전지 활성화(충·방전) 공정용 PIN·CLIP</li>
+<li>지배구조: 최대주주 (주)티에스이 40.68%, 2대주주 대만 Whitston(휘스턴) 재료과학 28.57% [실측: DART 최대주주현황·주식등변동] — 티에스이 계열 유지</li>
+<li>급등사유 3가지(사실관계 검증):</li>
+<li>(검증O) 경쟁사 리노공업 파업: 2026.7.23 무기한 전면파업 개시 → 9/16 기준 57일째 지속(최종합의 무산·지도부 삭발단식), 사측 추산 하루 약 20억 매출차질 [인용: 대한데일리·네이트·EBN 2026.07~09] → 파이널테스트 핀·소켓 숏티지 반사수혜 논지 <strong>현재진행형·실체 有</strong></li>
+<li>(검증O) 턴어라운드: FY26 H1 매출 <span class="up">+91%</span> YoY, 영업이익 흑전(③참조) — 실적으로 확인</li>
+<li>(일부검증) 엔비디아發 테스트 인터페이스 CAPA 숏티지·W社(윈웨이 추정) 내재화 중단→물량 재확대: NH 리포트가 언급하나 회사 공시로 직접 확인 안 됨 → <strong>기대감 성격, &#x27;추정&#x27;</strong></li>
+</ul>
+<p>③ 실적 — DART 실측 (★연결 없음, 전부 별도재무제표)</p>
+<ul>
+<li>연간 매출/영업이익/OPM/순이익:</li>
+<li>FY22: 490.4억 / <span class="up">+80.9</span>억(16.5%) / <span class="up">+65.8</span>억</li>
+<li>FY23: 501.4억 / -2.5억(적자) / -0.9억</li>
+<li>FY24: 529.9억 / <span class="up">+40.0</span>억(7.5%) / <span class="up">+50.4</span>억</li>
+<li>FY25: 432.4억 / -41.7억(<span class="down">-9.7%</span>) / -28.6억 ← 배터리핀 급감으로 적자</li>
+<li>분기 추세(별도·3개월):</li>
+<li>25Q1 93.5억/-47.3억 → 25Q2 121.4억/-0.9억 → 25Q3 100.0억/-6.2억 → <strong>25Q4 117.5억/<span class="up">+12.6</span>억(흑전, 역산)</strong> → <strong>26Q1 158.8억/<span class="up">+19.4</span>억(12.2%)</strong> → <strong>26Q2 252.2억/<span class="up">+47.7</span>억(18.9%)</strong></li>
+<li>26H1 누적: 매출 410.9억(<span class="up">+91.2%</span> YoY) / 영업이익 <span class="up">+67.1</span>억(전년 -48.2억서 흑전) / 순이익 <span class="up">+60.8</span>억 [실측: 반기보고서 20260814002338]</li>
+<li>사업부문 매출비중(26H1): 반도체핀 62.7% · 배터리핀 21.9% · 임가공 15.4% → 반도체가 성장 견인</li>
+<li>반도체핀: FY23 132억→FY24 236억→FY25 240억→26H1 258억(연환산 약 515억)</li>
+<li>배터리핀: FY23 329억→FY24 239억→FY25 99억→26H1 90억(연환산 약 180억, 저점서 회복 중)</li>
+<li>재무건전성(26H1말): 부채총계 129.8억 / 자본총계 861.8억 → <strong>부채비율 15.1%(초우량)</strong>, 유증으로 자본 확충(FY25말 523억→862억). 영업이익 67억 vs 금융비용 3.7억 → 이자보상 문제없음</li>
+<li>⚠️영업현금흐름: FY24 <span class="up">+170.9</span>억 → FY25 <span class="up">+56.6</span>억 → <strong>26H1 -53.7억</strong>(매출 급증기 매출채권·재고 등 운전자본 확대) — 성장통이나 현금창출은 아직 (-), 유증 자금으로 커버 중</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 정식 컨센서스: <strong>미확인</strong>(stockeasy·네이버·FnGuide·한경 4소스 모두 FY26/27 추정치·목표가 없음). 커버리지 사실상 부재</li>
+<li>유일 참고: NH투자증권 2026-12-26 코멘트(<strong>Not Rated·목표가 없음</strong>) [인용: NH 2026.12.26] — &quot;4Q25 회복 본격화 / W社 핀 내재화 중단으로 물량 재확대 / 신규 고객 F社 비중 2026년 35% 전망 / 반도체 수주잔고 분기최고 약 100억·Full-Capa 근접 / 2026년 반도체 부문 50% 성장 기대&quot; ※단일 증권사 의견=추정</li>
+<li>블로거 추정(개인의견): FY27 순이익 225억·27E PER 11.5x → 저평가 주장 [인용: 네이버블로그 gagi159, 개인 추정]</li>
+<li>달성가능성 판정: 반도체핀 <strong>中~高</strong>(리노 파업 반사+수주잔고 최고+가동률 Full, 다만 파업 종료 시 반사수혜 소멸). 블로거 FY27 순이익 225억은 <strong>中~低</strong>(H1 실적 연환산 순이익 약 122억 대비 <span class="up">+85%</span> 추가 성장 가정, CAPA 풀증설·리노 파업 장기화 동시 성립 필요)</li>
+</ul>
+<p>⑤ 밸류에이션·목표가 [실측 시세 + 산식]</p>
+<ul>
+<li>현 밸류: EPS(FY26E=H1순익 60.8억×2÷29.08M주=418원) 기준 <strong>PER 약 20.5x</strong> / BPS(자본 861.8억÷29.08M=2,964원) 기준 <strong>PBR 2.89x</strong> → 이미 턴어라운드 상당 반영, 절대 저평가 아님</li>
+<li>블로거 27E PER 11.5x 검증: 순이익 225억(EPS 774원) 가정 시 8,560원 = PER 11.1x로 계산 일치 → <strong>가정치가 낙관적일 뿐 현 실적 기준 PER은 20x대</strong></li>
+<li>peer 리노공업(058470): 현재가 69,600원·시총 5.3조 [실측: KIS 2026-09-18], 블로거 인용 27E PER 22.4x. 리노는 소켓 글로벌 1위·고마진 프리미엄 → 메가터치는 스몰캡·커버부재·유증오버행·영업CF(-)로 할인 적용 타당(적정 13~15x)</li>
+<li>자체 목표가 산식:</li>
+<li>Base: FY27E 순이익 175억(H1 런레이트+증설 일부) ÷ 29.08M = EPS 602원 × 14x = <strong>8,430원</strong>(현재가 수준, 상승여력 제한)</li>
+<li>Bull: FY27E 순이익 200억 × 15x ÷ 29.08M = <strong>10,300원</strong>(리노 파업 장기화+CAPA 증설 성공+F社 확대)</li>
+<li>1차 목표 <strong>10,000원</strong>(52주고 10,990 부근·Bull 부분반영) / 2차 <strong>11,000원</strong>(52주고 돌파)</li>
+<li>증권사 목표가: <strong>미확인</strong>(Not Rated)</li>
+</ul>
+<p>⑥ 진입전략·손익비 (★선물 미상장 → 레버리지 불가, 현물 스윙만)</p>
+<ul>
+<li>지지/저항: 지지 MA20 7,685 → MA60 6,928 → 20일저 6,770 / 저항 20일고 8,950 → 52주고 10,990</li>
+<li>시나리오A 추격(현재가 8,560): 손절 7,600(MA20 하단 종가이탈), 목표 10,000 → 상승 <span class="up">+16.8%</span> / 하락 <span class="down">-11.2%</span> = <strong>손익비 1:1.5</strong>(고변동 감안 시 미흡)</li>
+<li>시나리오B 눌림(7,700 부근, MA20 지지 확인): 손절 6,900(MA60), 목표 10,000 → 상승 <span class="up">+29.9%</span> / 하락 <span class="down">-10.4%</span> = <strong>손익비 1:2.9</strong>(우월)</li>
+<li>결론: 추격보다 <strong>MA20 눌림 대기(B)</strong>가 유리. 3회 분할(각 1/3), 손절선 종가 이탈 시 규칙 청산</li>
+<li>⚠️집중 리스크: 스몰캡+증권사 커버 부재+제3자배정 유증 2회(신주 오버행)+영업CF(-)+공매도 급증+고변동(RV20 84%ile)·VKOSPI 43 → 50% 집중 부적합</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9)</p>
+<ul>
+<li>9-1 제품분해(26H1, 별도): 반도체핀 258억(62.7%)·배터리핀 90억(21.9%)·임가공 63억(15.4%) [실측: 반기보고서]</li>
+<li>9-2 고객·납품: 반도체핀은 대만 윈웨이(Winway) 경유 간접납품 구조(블로거 주장, 회사 미공시=추정) / 배터리핀은 &quot;국내 배터리 제조사 2개사가 원형전지(1865·2170·4680) 증설&quot; 대상 공급 [실측: 사업보고서 본문]. 고객사명 대부분 비공개 → 미확인</li>
+<li>9-3 시장·경쟁: 반도체 파이널테스트 포고핀/소켓은 리노공업(글로벌 소켓 1위)이 대표. 메가터치 글로벌 점유율 수치 <strong>미확인</strong>(회사·산업리포트 부재). 리노 파업으로 단기 물량 공백 발생은 사실 [인용: 언론]</li>
+<li>9-4 단가: 배터리 내수핀 단가 3,431원(FY25)→5,378원(26Q2) 상승, 반도체 수출핀 1,492(FY24)→1,773(FY25)→1,681원(26Q2) [실측: 반기보고서 가격변동표]. 원재료 Pd Alloy(팔라듐합금) 227,821→271,936원 상승 → 원가 부담 요인</li>
+<li>9-5 CAPA: 사업보고서상 &quot;생산능력 산정 부적합 사유로 기재생략&quot;(정량 CAPA <strong>미공시</strong>). 블로거 인용(추정): CNC 303→403대(6/30 매입공시), 반도체핀 월350만→연말500만개, 풀증설 650만개(<span class="up">+85%</span>). 2026.4 유증 114억 자금용도가 &quot;반도체 Pin Capa CNC·자동화 투자&quot;로 공시 확인 → 증설 방향성은 사실, 규모 수치는 추정</li>
+<li>9-6 전방: 리노 파업 지속 기간이 반사수혜 크기 결정(파업 종료 = 반사수혜 소멸 리스크) / 배터리 3사 원형전지·ESS 전환 회복이 배터리핀 수요 변수</li>
+<li>9-7 바텀업 모델(FY26·FY27, 별도):</li>
+<li>Bear: 매출 720억/OP 95억/순익 80억 (파업 조기종결·반도체 둔화) | 산식: H1 411억×보수적 하반기</li>
+<li>Base: 매출 820억/OP 130억(OPM 15.9%)/순익 135억 | H1 연환산 + 하반기 소폭 성장</li>
+<li>Bull: 매출 900억/OP 165억/순익 175억 (파업 장기화+F社 35%+증설 조기가동)</li>
+<li>분기배분: 26Q3 매출 약 210억·OP 약 40억 / 26Q4 약 200억·OP 약 38억(계절성 평이 가정)</li>
+<li>민감도: 반도체핀 단가 ±10% → OP ±13억 / 점유율(반사수혜) ±5%p → OP ±10억</li>
+<li><strong>결론 문장: 3Q26 별도 영업이익 ≥ 40억(Base)이면 턴어라운드 논지 유지·눌림 추가매수 검토, &lt; 20억(Bear)이면 논지 폐기·청산</strong> (26Q2 OP 47.7억이 런레이트)</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더:</li>
+<li>2026.11.14 前後 3분기보고서(법정기한 11/14) — 3Q 영업이익이 논지 판정 핵심 [실측: 자본시장법 분기보고 기한]</li>
+<li>리노공업 파업 타결 여부(수시) — 타결 시 반사수혜 소멸(양방향 촉매)</li>
+<li>CNC 증설분 가동·수주 단일판매공급계약 공시(수시)</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>3Q26 별도 영업이익 &lt; 20억 → 턴어라운드 훼손, 전량 청산</li>
+<li>종가 6,900원(MA60) 이탈 → 추세 붕괴, 전량 청산</li>
+<li>리노공업 파업 타결 공식 발표 + 다음 분기 반도체핀 매출 QoQ 역성장 → 반사수혜 소멸, 비중 축소</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(3Q 실적):</li>
+<li>서프라이즈(OP≥55억) × 갭상승 → 홀딩·목표 상향 11,000 / × 갭하락 → 눌림 매수</li>
+<li>인라인(OP 35~55억) × 보합 → 홀딩 / × 갭하락 → 손절선까지 관망</li>
+<li>쇼크(OP&lt;20억) × 갭하락 → 반증1 발동 청산</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 30%: 목표 6,500원(<span class="down">-24%</span>) — 파업 조기종결·반도체 둔화</li>
+<li>Base 50%: 목표 9,300원(<span class="up">+8.6%</span>) — 턴어라운드 유지·증설 정상</li>
+<li>Bull 20%: 목표 11,000원(<span class="up">+28.5%</span>) — 파업 장기화+F社 확대</li>
+<li>기대수익률 = 0.3×(<span class="down">-24%</span>)<span class="up">+0.5</span>×(<span class="up">+8.6%</span>)<span class="up">+0.2</span>×(<span class="up">+28.5%</span>) = <strong><span class="up">+2.4%</span></strong>(현재가 추격 기준 기대값 낮음 → 눌림 대기 타당)</li>
+<li>수급·유동성: 20일 평균 거래대금 57.4억 → 1일 체결 상한(ADV 10%) 약 5.7억. 유동성 양호하나 공매도·외국인 20일 순매도(-19.1억) 경계</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 눌림 손절폭 10.4% = <strong>자산의 약 9.6%</strong>, 고변동 레짐(리스크 0.5%) 적용 시 약 4.8%. 집중상한 50%·이벤트(3Q실적) 전 상한 25% 중 <strong>최소값(4.8~9.6%) 채택</strong>. 50% 집중 금지</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수·매도 강요 아님. 블로거·단일 증권사 코멘트는 &#x27;추정/개인의견&#x27;, 실측 못한 값은 &#x27;미확인&#x27;. [미확인 목록] 증권사 정식 컨센서스·목표가 / 정량 CAPA·가동률(회사 미공시) / 반도체핀 글로벌 점유율 / 윈웨이·F社 납품비중 / 연결재무제표(별도만 존재) [출처] DART 사업보고서 20260318001084·반기 20260814002338 / KIS 시세 2026-09-18 / NH 2026.12.26(Not Rated) / 리노 파업 대한데일리·네이트·EBN 2026.07~09 / 유증 네이트 20251219·20260402 [검산] 26H1 매출 Q1 158.8+Q2 252.2=411.0≈410.9 ✓ / 25Q4 역산 OP 12.6=FY25(-41.7)-9M(-54.4) ✓ / 손익비 헤더=본문(추격 1:1.5, 눌림 1:2.9) ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-20 08:14 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 8,560원 (<span class="down">-4.1%</span>) · 시총 2,489억 · 5일 <span class="up">+1.5%</span> / 20일 <span class="up">+25.5%</span> / 60일 <span class="up">+46.8%</span></li>
+<li>MA5 8,718원 / MA20 7,686원 / MA60 6,928원 → MA20 이격 <span class="up">+11.4%</span> · MA60 이격 <span class="up">+23.6%</span></li>
+<li>52주 고 10,990원 / 저 3,245원 → 고점 대비 <span class="down">-22.1%</span> · 20일 고 8,950원 / 저 6,770원</li>
+<li>후행 PER 0.0 / PBR 0.0 (EPS 0원 · BPS 0원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 57.4억 (5일 91.9억)</li>
+<li>외국인 순매수 5일 23.6억 / 20일 -19.1억 · 기관 5일 16.1억 / 20일 11.3억 · 개인 20일 7.1억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 4.32% (공매도 23,831주 · 2.0억) · 5일 평균 1.37% / 20일 평균 1.76% → 감소 · 20일 평균 상회 연속 1일</li>
+<li>공매도 20일 최대 7.39% (09/08) · 판정: ⚠️ 당일 공매도 급증(20일 평균 2배↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 10,000원 (<span class="up">+16.8%</span>) ÷ 하방 6,900원 (−19.4%) = <strong>1:0.87</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 19.4% = <strong>자산의 2.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.6%</strong></li>
+<li>유동성 참고: 20일 ADV 57.4억 · 1일 소화 한도는 ADV의 10%(5.74억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 19.4% · ATR14 846원 (손절폭/ATR 2.0배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 19.4% = ATR14 × 2.0배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 7,290원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.13</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 無 현재가: 8,560원 진입: 7,600~7,800원(MA20 눌림 대기) 손절: 6,900원(MA60 종가이탈) 목표: 1차 10,000원 (2차 11,000원) 손익비: 1:2.9 (눌림 진입 기준) 기간: 스윙 6~10주 촉매: 2026.11.14 3분기보고서 / 리노공업 파업 타결 여부 반증: 3Q26 별도 영업이익 &lt; 20억이면 논지 폐기·청산 / 종가 6,900원 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
