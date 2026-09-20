@@ -1,0 +1,277 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>글로벌텍스프리(204620) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260920-120902-글로벌텍스프리-204620.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.43</div><div class="tp-c"><b>결론 발췌</b> 방한 관광객 폭증(상반기 +21%)의 구조적 수혜 1위주(사후면세 M/S 70%)지만, 미용성형 특례 일몰(26.1월)이 관광객 증가분을 상쇄해 연결매출 성장은 +3.9%에 그친 상태 — 현재가 5,850원은 손익비 열위(1:1.1)라 지금 추격 부적합. MA20 눌림(5,450~5,600) 대기 시 손익비 1:2.6, 1차 목표 6,750원. ━━━━━━━━━━━━━━━━ ① 포착 신호 (KIS 실측 · 2026-09-20) • 현재가 5,850원(전일 -0.51%), 시총 4,112억 [실측: KIS enrich] • 추세: MA5 5,796 &gt; MA20 5,534 &gt; MA60 5,082 정배열 O / 20일 +22.1% · 60일 …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>글로벌텍스프리(204620)</h1>
+<div class="meta">📊 benine · 2026-09-20 12:09 · 코드 204620</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-20 12:09)</div><div class="kpi-v">5,850원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">4,112억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">11.84</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.94</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.43</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.08</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">6,750원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 5,450~5,600원(MA20 눌림 대기)</span><span class="dc dn">손절 5,020원</span><span class="dc up">목표 6,750원</span><span class="dc">손익비 진입 1:2.43 · 현재가 1:1.08</span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026.11.14 전후 3Q26 분기보고서 / 2026.11.1 일본 사후환급 시행</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 77억이면 폐기·청산 / 종가 5,020원 이탈 시 청산 / ≥100억이면 추가매수</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 글로벌텍스프리(204620)  ※선물 無(개별주식선물 미상장 → 현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: 방한 관광객 폭증(상반기 <span class="up">+21%</span>)의 구조적 수혜 1위주(사후면세 M/S 70%)지만, 미용성형 특례 일몰(26.1월)이 관광객 증가분을 상쇄해 연결매출 성장은 <span class="up">+3.9%</span>에 그친 상태 — 현재가 5,850원은 손익비 열위(1:1.1)라 지금 추격 부적합. MA20 눌림(5,450~5,600) 대기 시 손익비 1:2.6, 1차 목표 6,750원.</p>
+<hr>
+<p>① 포착 신호 (KIS 실측 · 2026-09-20)</p>
+<ul>
+<li>현재가 5,850원(전일 <span class="down">-0.51%</span>), 시총 4,112억 [실측: KIS enrich]</li>
+<li>추세: MA5 5,796 &gt; MA20 5,534 &gt; MA60 5,082 정배열 O / 20일 <span class="up">+22.1%</span> · 60일 <span class="up">+23.7%</span> [실측]</li>
+<li>위치: 52주고 7,230(<span class="down">-19.1%</span>) · 52주저 3,955(<span class="up">+47.9%</span>) → 중상단(고점권 아님) [실측]</li>
+<li>20일 평균거래대금 52.4억 · ATR14 334원 · RV20 31.9%(백분위 84 = 고변동 레짐) [실측: KIS/네이버]</li>
+<li>수급 20일: 외국인 <span class="up">+123.4</span>억(주도) / 기관 -32.4억 / 개인 -45.8억 [실측: KIS 투자자별]</li>
+<li>공매도: 당일 1.82% · 20일평균 2.47%(감소) → 특이 없음 [실측: KIS]</li>
+</ul>
+<p>② 사업·논지 검증</p>
+<ul>
+<li>사업: 2005년 설립 아시아 최초 세금환급(Tax Refund) 대행사. 외국인 관광객 사후면세 부가세 환급을 대행하고 수수료를 수취. 별도매출의 96.5%가 &#x27;부가세환급 수수료수익&#x27; 단일 사업 [실측: 사업보고서 20260323001065].</li>
+<li>BM: 외국인 소비액 → 부가세(10%) → 환급대상분 → 수수료. 관광객 수·소비액에 실적이 직접 연동되는 과점 구조. 글로벌 1위 Global Blue 가맹점 기준 점유율 약 70%로 인용됨(국내 M/S 70% 주장은 블로거·증권사 인용, 정밀 경쟁자표는 9-3 참조) [인용: SK증권 2026-02-05 리포트].</li>
+<li>전방 팩트체크 ✅: 2026 상반기 방한 외국인 1,071만 명(문체부, 6월 199만 <span class="up">+23.1%</span> YoY), 중국 321만 명(<span class="up">+27.1%</span> YoY)으로 방한 1위 회복, 상반기의 약 30%가 중국 [인용: 문체부·한국관광공사, biz.chosun 2026-06-24, 프리미엄 2026-09-16]. → 전방 강력 확인.</li>
+<li>정책 팩트체크 ✅: 일본 사후환급(리펀드 방식) 2026.11.1 전면 시행 — 매장 즉시면세 폐지, 공항 환급 전환 [인용: matcha-jp/japanweather 2026]. 한국형 사후환급 운영 노하우 보유사에 해외 진출(일본·싱가포르·태국 입찰) 옵션이나, 계약·매출 인식은 미확인.</li>
+<li>미용성형 특례 일몰 ✅: 2026.1월 미용성형 부가세 환급 특례 일몰 → 성장 공백 발생(블로거 주장 매출 19%·이익 26% 공백). 실측 검증: 전방 관광객 <span class="up">+21%</span> 폭증에도 H126 연결매출 <span class="up">+3.9%</span>에 그침 → 일몰 역풍이 관광객 증가분을 대부분 상쇄한 것으로 확인. base effect는 2027.1월부터 소멸.</li>
+<li>⚠️ 핵심 괴리: &quot;관광객 2배 → 이익 3배&quot; 논지는 미용특례 일몰이라는 구조적 역풍을 과소평가. 실측 성장률(<span class="up">+3.9%</span>)은 관광객 성장률(<span class="up">+21%</span>)의 1/5 수준.</li>
+</ul>
+<p>③ 실적 — DART 실측 (연결 CFS 기준, 별도 병기) 연간 [실측: 사업보고서]:</p>
+<ul>
+<li>FY23: 매출 933.7억 · 영업이익 147.8억(OPM 15.8%) · 순이익 -79.9억(적자)</li>
+<li>FY24: 매출 1,297.3억(<span class="up">+38.9%</span>) · 영업이익 217.7억(OPM 16.8%) · 순이익 62.5억(흑전)</li>
+<li>FY25: 매출 1,540.6억(<span class="up">+18.8%</span>) · 영업이익 289.9억(OPM 18.8%) · 순이익 354.5억</li>
+</ul>
+<p>└ ★순이익 분해: 계속영업 267.5억 + 중단영업이익 87.0억(일회성). 순이익&gt;영업이익은 중단영업 일회성 때문 [실측: CIS 계속/중단영업 분리]. EPS 494·PER 11.84는 이 일회성 포함치 → 정상화(계속영업) EPS 약 373원·정상화 PER 15.7배.</p>
+<ul>
+<li>별도 FY25: 매출 1,362.7억 · 영업이익 259.2억 · 순이익 213.9억 (연결-별도 매출차 ~178억은 자회사)</li>
+</ul>
+<p>분기 (연결·3개월 standalone) [실측: 분기·반기보고서]:</p>
+<ul>
+<li>2025 1Q 342.9 / OP 50.9 / OPM 14.8%</li>
+<li>2025 2Q 449.9 / OP 82.6 / OPM 18.4%</li>
+<li>2025 3Q 450.5 / OP 82.5 / OPM 18.3%  ← 3분기 성수기 확인</li>
+<li>2025 4Q 297.3 / OP 73.9 / OPM 24.8%</li>
+<li>2026 1Q 354.9(<span class="up">+3.5%</span> YoY) / OP 58.2 / OPM 16.4%</li>
+<li>2026 2Q 469.0(<span class="up">+4.2%</span> YoY) / OP 90.4 / OPM 19.3%  ← 창사이래 최대 분기매출 ✅</li>
+<li>H1 26 누적: 매출 823.9(<span class="up">+3.9%</span> YoY) / OP 148.6(<span class="up">+11.4%</span> YoY)  [검산: Q1+Q2=823.9=반기누적 ✓]</li>
+</ul>
+<p>재무건전성 [실측: FY25 연결]:</p>
+<ul>
+<li>부채비율 31.6%(부채 442.0억/자본 1,398.7억) — 우량</li>
+<li>영업활동현금흐름 404.9억(FY25, 순이익 대비 우수) · 기말현금 1,059.3억 → 순현금(시총의 25.8%가 현금)</li>
+<li>이자보상배율: 순현금 구조로 사실상 무의미(금융수익 27.2억 &gt; 금융원가)</li>
+</ul>
+<p>→ 재무는 최상급. 실적 모멘텀은 이익성장(<span class="up">+11%</span> OP)은 유효하나 매출 성장 둔화가 주가 정체(&quot;도돌이표&quot;)의 실체적 근거.</p>
+<p>④ 미래실적·컨센서스 [실측: fnguide/stockeasy 2026-09-20]</p>
+<ul>
+<li>FY26E: 매출 1,921억 · 영업이익 350억 · 순이익 323억 · EPS 450 · ROE 20.2%</li>
+<li>FY27E: 매출 2,094억 · 영업이익 407억 · 순이익 379억 · EPS 528 · ROE 19.4%</li>
+<li>목표주가: 최근 6개월 커버리지 4곳 전부 Not Rated → 제시 목표가 없음(컨센 목표가 미확인)</li>
+<li>최근 리포트: 하나 9/16, SK 9/8·5/18·2/5, 다올 8/20 — 모두 NR, 인바운드 관광 최대 수혜·해외확장 모멘텀 관점</li>
+<li>달성가능성 판정: 매출 中~低 / 이익 中</li>
+</ul>
+<p>근거: H1 823.9억 run-rate + 성수기 3Q(전년 450.5) → 자체 추정 연 약 1,620~1,680억. 컨센 1,921억 달성엔 하반기 매출 1,097억(3Q~600·4Q~500)이 필요 = run-rate 대비 뚜렷한 가속 필수. 관광객·중국 회복이 3Q부터 매출로 전환돼야 성립. 미용일몰 base가 잔존하는 하반기엔 낙관적일 소지 [추정: run-rate 연장].</p>
+<p>⑤ 밸류에이션 → 목표가</p>
+<ul>
+<li>현재 지표: PER 11.84(보고)/15.7(정상화)/13.0(FY26E fwd) · PBR 2.94 · ROE 20%대 · EV/OP(FY26E) ≈ (4,112-1,059)/350 = 8.7배 [실측+추정]</li>
+<li>Peer: 순수 국내 동종 상장사 없음(과점). 글로벌 비교 Global Blue는 2025년 피인수로 상장 멀티플 소멸 → peer밴드 미확인. 자기밴드(성장<span class="up">+20%</span>ROE) 기준 forward PER 13~16배가 합리 구간.</li>
+<li>자체 목표가 산식:</li>
+<li>1차 = FY26E EPS 450 × 15배 = 6,750원 (<span class="up">+15.4%</span> from 5,850)</li>
+<li>2차 = FY27E EPS 528 × 15배 = 7,920원 (52주고 7,230 상회)</li>
+<li>하방(정상화) = 계속영업 EPS 373 × 12배 = 4,476원</li>
+<li>증권사 목표가 없음(전부 NR) → 자체값만 사용.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (현물 스윙 — 선물 미상장으로 레버리지 불가)</p>
+<ul>
+<li>지지: MA20 5,534 · MA60 5,082 · 20일저 5,020 / 저항: 20일고 5,960 · 52주고 7,230</li>
+<li>현재가 진입 시 손익비: 목표 6,750(<span class="up">+15.4%</span>) ÷ 손절 5,020(<span class="down">-14.2%</span>) = 1:1.08 → 진입 부적합</li>
+<li>눌림 진입 시(권장): 진입 5,500(MA20 부근), 손절 5,020(종가 이탈), 1차목표 6,750</li>
+</ul>
+<p>손익비 = 상승 <span class="up">+22.7%</span> ÷ 하락 <span class="down">-8.7%</span> = 1:2.6</p>
+<ul>
+<li>손절폭 830원 = 2.5×ATR14(노이즈권 아님, 적정)</li>
+<li>⚠️ 리스크 3중: (a)선물 미상장=현물만 레버리지 불가, (b)거버넌스 디스카운트(블로거 주장 잦은 유상증자·최대주주 변동 이력 — DART 최대주주 관계 정밀확인은 미확인), (c)원화 급락 시 환급대상 소비 위축·환율 민감. 50% 집중은 부적합.</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9)</p>
+<p>9-1 제품·서비스 [실측: 사업보고서 20260323001065, 별도]</p>
+<ul>
+<li>부가세환급 수수료수익: FY25 1,314.8억(96.5%) / FY24 912.3억 / FY23 468.2억</li>
+<li>기타수익: FY25 47.9억(3.5%)</li>
+<li>실질 단일사업(사후면세 환급대행). 제품단가·원재료·CAPA 표는 서비스업 특성상 사업보고서 미공시(9-4·9-5 미확인).</li>
+</ul>
+<p>9-2 고객·납품 구조</p>
+<ul>
+<li>고객 = 가맹점(백화점·올리브영·명품·코스메틱·호텔 등 사후면세 판매점)과 최종 외국인 관광객. DART 주요매출처 미공시(미확인). 카테고리 확장(K뷰티·백화점·코스메틱)은 블로거·증권사 주장 [인용, 정량 미확인].</li>
+</ul>
+<p>9-3 시장규모·경쟁 [교차: 문체부/관광공사 + 증권사]</p>
+<ul>
+<li>전방 TAM(방한 관광객): 2026 상반기 1,071만 명(+약 21% YoY), 정부·연구기관 연간 2,000~2,200만 전망 [인용: 문체부 2026-06]. 상반기 중국 321만(<span class="up">+27.1%</span>)·30% 비중 [인용: 관광공사].</li>
+<li>국내 사후면세 환급대행 점유율 약 70%(1위) — 블로거·증권사 인용, 2위권 사업자 CAPA·점유 정밀표는 미확인(단일 근거).</li>
+<li>글로벌: Global Blue(가맹점 기준 약 70% 글로벌 점유, 2025 피인수) [인용: SK증권 2026-02-05].</li>
+</ul>
+<p>9-4·9-5 단가·CAPA: 서비스업으로 사업보고서 미공시 → 미확인.</p>
+<p>9-6 전방 수요 시나리오</p>
+<ul>
+<li>관광객 <span class="up">+21%</span> &amp; 중국 <span class="up">+27%</span> 회복 = 강한 순풍. 단, 미용성형 특례 일몰(26.1월)이 26년 내내 YoY 성장을 -구간으로 끌어내리는 역풍. 2027.1월부터 base 소멸로 정상 성장 복원 예상 [추정].</li>
+<li>일본 26.11 사후환급 전면시행 = 해외 신시장 옵션(계약·매출 인식 미확인).</li>
+</ul>
+<p>9-7 바텀업 실적 모델 (연결, 3Q26 초점) [추정: run-rate × 계절성 × 관광객 회복] 전제: 3Q는 성수기(3Q25 450.5억). 관광객 회복 반영 정도로 시나리오 분기.</p>
+<ul>
+<li>Bear: 3Q26 매출 450억(YoY flat, 미용일몰 충격 우세) · OPM 17% · 영업이익 76.5억</li>
+<li>Base: 3Q26 매출 486억(<span class="up">+8%</span> YoY) · OPM 18.5% · 영업이익 90억</li>
+<li>Bull: 3Q26 매출 532억(<span class="up">+18%</span> YoY, 중국·K뷰티 본격) · OPM 20% · 영업이익 106억</li>
+</ul>
+<p>연간 함의: Base 연결 FY26 매출 약 1,650억·영업이익 약 300억(컨센 350억 하회) / Bull 시 컨센 근접. 민감도: 매출 ±10% × OPM ±2%p → 3Q 영업이익 약 ±20~25억. ★결론 문장: 3Q26 연결 영업이익 ≥ 100억이면 논지 강화·추가매수 검토 / &lt; 77억(YoY 역성장 동반)이면 미용일몰 충격이 관광객 증가를 압도한 것 → 논지 폐기.</p>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<p>촉매 캘린더(날짜 확정만):</p>
+<ul>
+<li>2026.11.14 전후 — 3Q26 분기보고서 법정기한. 성수기 실적·미용일몰 순영향 확인 [법정기한]</li>
+<li>2026.11.1 — 일본 사후환급 전면시행. 진출 계약 공시 여부 관찰 [인용: 일본 국세청 제도]</li>
+<li>매월 초 — 문체부 방한 관광객 월별 통계(전방 선행지표)</li>
+</ul>
+<p>반증 조건 3개(수치→행동):</p>
+<ol>
+<li>3Q26 연결 영업이익 &lt; 77억 → 논지 폐기·전량 청산</li>
+<li>3Q26 연결 영업이익 ≥ 100억 → 논지 강화·추가매수 검토</li>
+<li>종가 5,020원 이탈 → 기술적 손절·전량 청산</li>
+</ol>
+<p>이벤트 매트릭스(3Q 실적 × 당일 주가):</p>
+<ul>
+<li>쇼크(&lt;77억) × 갭하락 → 청산 / 갭상승 → 반등 매도</li>
+<li>인라인(77~100억) × 보합 → 보유 / 갭하락 → MA60 지지 확인 후 판단</li>
+<li>서프(≥100억) × 갭상승 → 보유·추가 / 갭하락 → 눌림 매수</li>
+</ul>
+<p>확률가중 시나리오:</p>
+<ul>
+<li>Bear 30%: 미용일몰+환율급락+중국실망 → 목표 4,600원</li>
+<li>Base 50%: 관광객 성장으로 두자릿수 이익성장, 컨센 소폭 하회 → 목표 6,750원</li>
+<li>Bull 20%: 3Q 서프+일본진출 가시화 → 목표 7,900원</li>
+</ul>
+<p>확률가중 기대목표 = 0.3×4,600 + 0.5×6,750 + 0.2×7,900 = 6,335원 (현재가 대비 <span class="up">+8.3%</span>)</p>
+<p>수급·유동성: 외국인 20일 <span class="up">+123.4</span>억(주도) / 20일 평균거래대금 52.4억 → 1일 체결상한(ADV 10%) 약 5.2억 [실측].</p>
+<p>포지션 사이징(자산 대비 %):</p>
+<ul>
+<li>표준 리스크예산 1% ÷ 손절폭 8.7%(진입 5,500 기준) = 자산의 11.5%</li>
+<li>고변동 레짐(RV 백분위 84) 반영 리스크예산 0.5% → 자산의 5.7%</li>
+<li>집중상한 50%·이벤트전 상한 25% 중 최소값 채택 → 고변동 감안 자산의 약 5.7% 권고</li>
+<li>분할: 3회 분할, 각 1/3. 손절선 아래 추가매수 금지.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 증권사·블로거 추정치는 &#x27;추정&#x27;, 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>컨센 목표주가(커버 4곳 전부 NR) · 분기 컨센</li>
+<li>최대주주 관계·유상증자 이력 정밀검증(블로거 주장, DART 지분 미조회)</li>
+<li>국내 2위권 경쟁자 CAPA·점유율 정밀표(단일 근거) · 주요 매출처 비중(DART 미공시)</li>
+<li>일본·싱가포르·태국 진출 계약·매출 인식 · 카테고리별 매출 비중(K뷰티 등)</li>
+<li>FY25 중단영업이익 87억의 세부 성격</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART: 사업보고서 20260323001065, 반기보고서 20260814002806, 2025 분기·반기·사업보고서 재무</li>
+<li>KIS enrich(2026-09-20), kis_futures_check(선물 미상장)</li>
+<li>fnguide/stockeasy 컨센(2026-09-20), SK/하나/다올 NR 리포트</li>
+<li>문체부·관광공사(2026 상반기 관광통계), 일본 사후환급 제도(2026.11 시행)</li>
+</ul>
+<p>[검산] 분기합=연간(2025 4개분기 1,540.6=연간 ✓) · Q1+Q2 2026=823.9=반기누적 ✓ · 손익비 산식 헤더=본문(1:2.6, 진입5,500) 일치 · 시나리오 확률합 100% ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-20 12:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 5,850원 (<span class="down">-0.5%</span>) · 시총 4,112억 · 5일 <span class="up">+8.5%</span> / 20일 <span class="up">+22.1%</span> / 60일 <span class="up">+23.7%</span></li>
+<li>MA5 5,796원 / MA20 5,534원 / MA60 5,082원 → MA20 이격 <span class="up">+5.7%</span> · MA60 이격 <span class="up">+15.1%</span></li>
+<li>52주 고 7,230원 / 저 3,955원 → 고점 대비 <span class="down">-19.1%</span> · 20일 고 5,960원 / 저 5,020원</li>
+<li>후행 PER 11.84 / PBR 2.94 (EPS 494원 · BPS 1,993원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 52.4억 (5일 52.2억)</li>
+<li>외국인 순매수 5일 15.6억 / 20일 123.4억 · 기관 5일 22.2억 / 20일 -32.4억 · 개인 20일 -45.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 1.82% (공매도 10,226주 · 0.6억) · 5일 평균 1.58% / 20일 평균 2.47% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 7.15% (09/04) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 6,750원 (<span class="up">+15.4%</span>) ÷ 하방 5,020원 (−14.2%) = <strong>1:1.08</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 14.2% = <strong>자산의 3.5%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.5%</strong></li>
+<li>유동성 참고: 20일 ADV 52.4억 · 1일 소화 한도는 ADV의 10%(5.24억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 14.2% · ATR14 334원 (손절폭/ATR 2.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 14.2% = ATR14 × 2.5배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 5,265원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.54</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 無 현재가: 5,850원 진입: 5,450~5,600원(MA20 눌림 대기) 손절: 5,020원 목표: 1차 6,750원 (2차 7,920원) 손익비: 1:2.6 기간: 스윙 6~12주 촉매: 2026.11.14 전후 3Q26 분기보고서 / 2026.11.1 일본 사후환급 시행 반증: 3Q26 연결 영업이익 &lt; 77억이면 폐기·청산 / 종가 5,020원 이탈 시 청산 / ≥100억이면 추가매수</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
