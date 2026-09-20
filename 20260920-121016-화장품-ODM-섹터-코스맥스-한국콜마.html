@@ -1,0 +1,311 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>코스맥스(192820) · 화장품 ODM 섹터(코스맥스·한국콜마) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260920-121016-화장품-ODM-섹터-코스맥스-한국콜마.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.27</div><div class="tp-c"><b>결론 발췌</b> - K뷰티 ODM은 &quot;브랜드가 ODM을 찾아다니는 수급역전&quot;이 실체로 확인됨(대형 2사 별도/화장품 부문 +20~34% YoY, 가동률 상단). 선물 상장된 코스맥스·한국콜마가 유일한 레버리지 스윙 대상(Tier1). - 코스맥스(192820) 선물有 — 관심(눌림), 목표 1차 305,000 / 손익비 1:3.3 - 한국콜마(161890) 선물有 — 관심(눌림), 목표 1차 162,000 / 손익비 1:2.7 - 코스메카·펌텍·제닉은 선물 미상장 → 현물만(레버리지 불가), Tier2/3 요약 매핑.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>코스맥스(192820) · 화장품 ODM 섹터(코스맥스·한국콜마)</h1>
+<div class="meta">📊 benine · 2026-09-20 12:10 · 코드 192820</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-20 12:10)</div><div class="kpi-v">274,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3.1조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">25.27</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">5.57</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.27</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.94</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">305,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 264,000~274,000원 (눌림 분할, 기준 269,000)</span><span class="dc dn">손절 258,000원</span><span class="dc up">목표 305,000원</span><span class="dc">손익비 진입 1:3.27 · 현재가 1:1.94</span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 3Q26 분기보고서 법정기한 / YSL 미국 리오더</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 550억이면 폐기·청산 / 종가 258,000 이탈 시 청산 / ≥ 750억이면 추가매수</div></div>
+
+<div class="body"><p>🚀 산업·테마 딥리서치 — 화장품 ODM 섹터 (코스맥스·한국콜마 중심)</p>
+<p>📌 한줄 결론</p>
+<ul>
+<li>K뷰티 ODM은 &quot;브랜드가 ODM을 찾아다니는 수급역전&quot;이 실체로 확인됨(대형 2사 별도/화장품 부문 <span class="up">+20</span>~34% YoY, 가동률 상단). 선물 상장된 코스맥스·한국콜마가 유일한 레버리지 스윙 대상(Tier1).</li>
+<li>코스맥스(192820) 선물有 — 관심(눌림), 목표 1차 305,000 / 손익비 1:3.3</li>
+<li>한국콜마(161890) 선물有 — 관심(눌림), 목표 1차 162,000 / 손익비 1:2.7</li>
+<li>코스메카·펌텍·제닉은 선물 미상장 → 현물만(레버리지 불가), Tier2/3 요약 매핑.</li>
+</ul>
+<p>──────────────────── ■ Tier 분류 (실적베타 × 선물상장)</p>
+<ul>
+<li>Tier1 (실적수혜 高 + 선물有 = 레버리지 가능): 코스맥스(192820), 한국콜마(161890)</li>
+<li>Tier2 (실적수혜 高, 선물無 = 현물): 코스메카코리아(241710) — 미국 인디 수주 호황</li>
+<li>Tier3 (테마 연동, 선물無 = 현물): 펌텍코리아(251970·용기), 제닉(123330·하이드로겔)</li>
+<li>선물 재확인 [실측: kis_futures_check 2026-09-20]: 192820 ✅(ADK610), 161890 ✅(ADE610), 241710 ❌, 251970 ❌, 123330 ❌.</li>
+</ul>
+<hr>
+<p>【Tier1-A】 코스맥스 (192820) ※선물 有(ADK610)</p>
+<p>① 사실관계 검증</p>
+<ul>
+<li>순수 화장품 ODM(매출 90%+ ODM). 국내·중국·미국·인니·태국 생산 [실측: 사업보고서 2025.12, 접수 20260318000694].</li>
+<li>ODM 완판·수급역전 테마 = 실체 O. 파이낸셜뉴스 2026-08-23 &quot;K뷰티 세계화로 ODM 생산능력 급증(콜마·코스맥스·코스메카)&quot; 보도로 교차확인 [인용: fnnews 2026-08-23].</li>
+<li>럭셔리 MNC 수주(YSL 쿠션 31색 미국 출시)는 증권사도 &#x27;MNC 모멘텀&#x27;으로 언급하나 회사 공시 원문 미확보 → [추정: 증권사·블로그 인용, 공시 미확정]. 리레이팅 트리거로만 취급, 실적엔 미반영.</li>
+<li>코스맥스이스트(중국) 중복상장 우려는 FI 엑시트·금전대여로 해소 [인용: 유안타·한화 2026-09-02~03].</li>
+</ul>
+<p>② 실적 (DART 연결 실측 · 억원)</p>
+<ul>
+<li>2023: 매출 17,775 / 영업이익 1,157 / OPM 6.5% [실측: 사업보고서 CFS]</li>
+<li>2024: 매출 21,661 / 영업이익 1,754 / OPM 8.1% / 순익 884 [실측]</li>
+<li>2025: 매출 23,988 / 영업이익 1,958 / OPM 8.2% / 순익 1,311 [실측]</li>
+<li>분기(연결·단일분기): Q2&#x27;25 6,236/608(9.8%) → Q1&#x27;26 6,820/530(7.8%) → Q2&#x27;26 7,949/737(9.3%) [실측: 각 분기보고서 CFS]</li>
+<li>H1&#x27;26 매출 14,769 / OP 1,267 / OPM 8.6%, 매출 YoY <span class="up">+21.8%</span> [검산: Q1+Q2]</li>
+<li>재무: 부채총계 15,131 / 자본 6,123 → 부채비율 247% [실측: 2025 CFS] (증설 CAPEX·차입 반영, 이자보상배율 미확인)</li>
+</ul>
+<p>③ 미래 실적·컨센서스 (억원, EPS 원) [인용: fnguide/naver 집계, 2026-09-20]</p>
+<ul>
+<li>FY26E: 매출 29,699 / OP 2,569 / 순익 1,769 / EPS 14,937 / PER 18.3x / ROE 27.2%</li>
+<li>FY27E: 매출 34,632 / OP 3,157 / 순익 2,163 / EPS 18,237 / PER 15.0x</li>
+<li>3Q26E: 매출 7,633 / OP 676 [인용: naver]</li>
+<li>달성가능성 高: H1&#x27;26 매출 <span class="up">+21.8%</span>(실측)로 FY26E <span class="up">+23.8%</span>와 정합. Q2&#x27;26 이미 7,949억 런레이트 → 3Q 7,633 무리없음. OP 컨센 최근 상향(2,320→2,569, 3개월).</li>
+<li>목표가 컨센 최신평균 300,471원(17개사), 최근 러시: 유안타 363,000·SK 350,000·상상인 350,000·NH/BNK 320,000 [인용: 2026-08~09].</li>
+</ul>
+<p>④ 밸류에이션 → 목표가</p>
+<ul>
+<li>현재가 274,000원 [실측: KIS 2026-09-20]. 트레일링 PER 25.3x / PBR 5.57x. Forward PER FY26 18.3x·FY27 15.0x.</li>
+<li>자체 목표가: FY27E EPS 18,237 × 17x(대형 ODM 정상 forward, 리레이팅 반영·조정 감안 보수) = 310,000원 [추정: 산식].</li>
+<li>→ 목표 1차 305,000(전고 306,500 근처) / 2차 335,000. 증권사 평균 300,471 병기.</li>
+<li>블로거 제시 PER 16.8/fPER18.3 검증: fPER18.3은 컨센 FY26 EPS와 정확히 일치(✓). 16.8은 하위 시점 주가 기준 추정치.</li>
+</ul>
+<p>⑤ 손익비 (진입가 기준)</p>
+<ul>
+<li>진입 264,000~274,000(현 MA20 279,775 하회, 눌림), 기준 269,000</li>
+<li>상방 목표 305,000 = <span class="up">+13.4%</span> ÷ 하방 손절 258,000 = <span class="down">-4.1%</span> → 손익비 1:3.3</li>
+</ul>
+<p>⑥ 진입전략 (선물 레버리지)</p>
+<ul>
+<li>위치: 현재가 274,000 = 52주고 306,500 대비 <span class="down">-10.6%</span>, MA5 275,100·MA20 279,775 하회 / MA60 221,203 상회. 단기 조정, 중기 정배열 유지. ret60 <span class="up">+80.6%</span>(과열권 인지).</li>
+<li>레버리지 스윙 3라인: 진입 264,000~274,000 분할(3회 1/3), 손절 258,000 종가이탈, 익절 305,000(절반)/335,000.</li>
+<li>⚠️ 집중 50%+레버리지 동시는 고변동 레짐(VKOSPI 43)에서 과대. 손실예산 0.5%(고변동)÷손절폭 4.1% = 자산의 12%, 집중상한 50%·이벤트전 25% 중 최소값 채택.</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오</p>
+<ul>
+<li>촉매: 3Q26 분기보고서 법정기한 2026-11-14(실적발표 11월중순) / YSL 쿠션 미국 리오더 / 인니 신공장(6억개) 2H27 가동.</li>
+<li>반증 3개: ①3Q26 연결 OP &lt; 550억이면 논지 폐기·청산 / ≥ 750억이면 추가매수 검토 ②종가 258,000 이탈 시 전량 청산 ③외인 공매도 20일평균 15% 상회 지속 시 비중축소.</li>
+<li>이벤트매트릭스: 쇼크(OP&lt;575억)×갭하락→손절 / 인라인×보합→홀드 / 서프(OP&gt;777억)×갭상승→추가·홀드.</li>
+<li>확률가중(12M): Bull 30% 365,000(<span class="up">+33%</span>, 20x·MNC수주) / Base 50% 305,000(<span class="up">+11%</span>, 17x) / Bear 20% 209,000(<span class="down">-24%</span>, 14x·섹터조정) → 기대수익률 <span class="up">+10.6%</span>.</li>
+<li>수급: 외인 20일 -655억(순매도)·기관 <span class="up">+1,086</span>억(순매수), 공매도 20일평균 10.1%(높음) [실측: KIS]. 유동성 ADV20 404억, 1일 상한(10%) 40억.</li>
+</ul>
+<p>⑧ 바텀업 (§9 요약)</p>
+<ul>
+<li>9-1 제품(반기&#x27;26): 기초 61.0% / 색조 32.5% [실측: 반기보고서]. 기초 편중 심화(럭셔리 스킨케어 수혜).</li>
+<li>9-4 단가: 기초 2,163→2,117원(반기), 색조 2,822→2,846원. 원재료 ETHANOL 1,700→2,040·GLYCERINE 1,780→2,200(반기, 상승) → 마진 압박 요인이나 OPM 유지 [실측].</li>
+<li>9-5 CAPA: 연결 26억7천만개(2025)→반기 26억9천만개. 국내 코스맥스(주) 10.2억개(2024 7.8억→2025 10.2억, <span class="up">+31%</span> 증설) [실측: 사업보고서·반기].</li>
+<li>9-7 결론: 3Q 연결 OP ≥ 676억(Base 컨센)이면 논지 유지·추가매수 검토, &lt; 550억이면 폐기.</li>
+</ul>
+<hr>
+<p>【Tier1-B】 한국콜마 (161890) ※선물 有(ADE610)</p>
+<p>① 사실관계 검증</p>
+<ul>
+<li>★순수 ODM 아님. 연결 = 화장품 ODM(기초40.6%+색조13.5%=54%) + 전문의약품(HK이노엔 케이캡 등 36.2%) + 패키징(연우 9.2%) [실측: 사업보고서 2025.12, 접수 20260318001196]. 연결 이익에 제약 비중 큼 → ODM 순수 성장은 별도/화장품 부문으로 봐야 함.</li>
+<li>별도(화장품 ODM) 2Q26 매출 4,304억(<span class="up">+31.2%</span>)·OP 708억(<span class="up">+44.3%</span>)·OPM 16.5% [인용: BNK 2026-08-21] → ODM 본업 고성장·고마진 확인.</li>
+<li>랑콤 앱솔뤼 클렌징밤 국내 최초 생산·8~9월 첫 리오더 = [추정: 블로그·증권사 MNC모멘텀 인용, 공시 미확정]. SK증권 &quot;글로벌 MNC 모멘텀&quot;으로 교차 [인용: SK 2026-09-07].</li>
+<li>미국법인(HK Kolmar USA) 가동률 8.8%(CAPA 147,900천개 中 12,960 생산) [실측: 반기] → 미국 증설분 대규모 유휴 = 향후 레버리지 여력.</li>
+</ul>
+<p>② 실적 (DART 연결 실측 · 억원)</p>
+<ul>
+<li>2023: 매출 21,557 / OP 1,361 / OPM 6.3% [실측]</li>
+<li>2024: 매출 24,521 / OP 1,939 / OPM 7.9% / 순익 1,253(지배 901) [실측]</li>
+<li>2025: 매출 27,224 / OP 2,396 / OPM 8.8% / 순익 1,682(지배 1,251) [실측]</li>
+<li>분기(연결·단일): Q2&#x27;25 7,308/735(10.1%) → Q1&#x27;26 7,280/789(10.8%) → Q2&#x27;26 8,613/1,103(12.8%) [실측; Q2&#x27;26 한화 2026-08-21과 일치]</li>
+<li>H1&#x27;26 매출 15,893 / OP 1,892 / OPM 11.9% [실측·검산 Q1+Q2]. 마진 개선 뚜렷.</li>
+<li>재무: 부채 17,904 / 자본 16,673 → 부채비율 107% [실측: 2025 CFS]. 코스맥스보다 건전.</li>
+</ul>
+<p>③ 미래 실적·컨센서스 (억원, EPS 원) [인용: fnguide/naver 2026-09-20]</p>
+<ul>
+<li>FY26E: 매출 31,932 / OP 3,458 / 순익 2,503 / EPS 8,282 / PER 17.5x / ROE 19.6%</li>
+<li>FY27E: 매출 36,000 / OP 4,117 / 순익 3,047 / EPS 10,123 / PER 14.3x</li>
+<li>3Q26E: 매출 8,345 / OP 921 [인용: naver]</li>
+<li>달성가능성 高: H1&#x27;26 OP 1,892 실측 → FY26E 3,458의 55% 이미 달성. OP 컨센 상향(2,798→3,458, 6개월). Q2&#x27;26 OP 1,103 런레이트로 3Q 921 여유.</li>
+<li>목표가 컨센 최신평균 163,316원(19개사): LS 200,000·SK 180,000·BNK 175,000·유진/상상인 170,000 [인용: 2026-08~09].</li>
+</ul>
+<p>④ 밸류에이션 → 목표가</p>
+<ul>
+<li>현재가 145,500원 [실측: KIS 2026-09-20]. 트레일링 PER 27.5x / PBR 3.77x. Forward PER FY26 17.5x·FY27 14.3x.</li>
+<li>자체 목표가: FY27E EPS 10,123 × 17x = 172,000원 [추정: 산식]. SK증권 Target PER 20x 적용 시 180,000.</li>
+<li>→ 목표 1차 162,000(hi20 161,700 근처) / 2차 180,000. 컨센 평균 163,316 병기.</li>
+<li>블로거 제시 fPER17.6 검증: 컨센 FY26 17.5x와 일치(✓).</li>
+</ul>
+<p>⑤ 손익비 (진입가 기준)</p>
+<ul>
+<li>진입 140,000~146,000(현 MA20 147,795 하회, 눌림), 기준 143,000</li>
+<li>상방 목표 162,000 = <span class="up">+13.3%</span> ÷ 하방 손절 136,000 = <span class="down">-4.9%</span> → 손익비 1:2.7</li>
+</ul>
+<p>⑥ 진입전략 (선물 레버리지)</p>
+<ul>
+<li>위치: 현재가 145,500 = 52주고 165,900 대비 <span class="down">-12.3%</span>, MA5 146,700·MA20 147,795 하회 / MA60 121,893 상회. 단기 조정, 중기 정배열. ret60 <span class="up">+68.4%</span>.</li>
+<li>레버리지 스윙 3라인: 진입 140,000~146,000 분할(3회 1/3), 손절 136,000 종가이탈(lo20 139,400 하회), 익절 162,000(절반)/180,000.</li>
+<li>⚠️ 손실예산 0.5%(고변동)÷손절폭 4.9% = 자산의 10%, 집중상한 50%·이벤트전 25% 중 최소값 채택. 레버리지 시 실질 노출 관리.</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오</p>
+<ul>
+<li>촉매: 3Q26 분기보고서 법정기한 2026-11-14 / 랑콤 밤 리오더 4Q 반영 여부 / 세종 신공장(투자 1,733억) 2H27 가동 / 미국법인 가동률 회복.</li>
+<li>반증 3개: ①3Q26 연결 OP &lt; 750억이면 논지 폐기·청산 / ≥ 1,000억이면 추가매수 검토 ②종가 136,000 이탈 시 전량 청산 ③별도(화장품) OP YoY 증가율 <span class="up">+10%</span> 하회 전환 시 논지 약화.</li>
+<li>이벤트매트릭스: 쇼크(OP&lt;783억)×갭하락→손절 / 인라인×보합→홀드 / 서프(OP&gt;1,059억)×갭상승→추가·홀드.</li>
+<li>확률가중(12M): Bull 30% 202,000(<span class="up">+39%</span>, 20x·랑콤리오더) / Base 50% 172,000(<span class="up">+18%</span>, 17x) / Bear 20% 116,000(<span class="down">-20%</span>, 14x·제약부진) → 기대수익률 <span class="up">+16.7%</span>.</li>
+<li>수급: 외인 20일 -155억·기관 <span class="up">+246</span>억(순매수), 공매도 20일평균 8.0% [실측]. 유동성 ADV20 487억, 1일 상한 49억.</li>
+</ul>
+<p>⑧ 바텀업 (§9 요약)</p>
+<ul>
+<li>9-2 고객: 화장품 ODM 상위처 애터미·구다이글로벌·CJ올리브영·더파운더즈 등 [실측: 반기]. 제약 케이캡(HK이노엔)이 이익 방어.</li>
+<li>9-5 CAPA/가동률(반기&#x27;26): 한국콜마 별도 81.1%(367,514천개 中 298,236), Wuxi 57.4%, 미국 8.8%(대규모 유휴), 캐나다 20.0% [실측]. 미국·중국 여유 = 증설 없이도 물량 확대 여지.</li>
+<li>9-7 결론: 3Q 연결 OP ≥ 921억(Base 컨센)이면 논지 유지·추가매수, &lt; 750억이면 폐기.</li>
+</ul>
+<hr>
+<p>【Tier2/3 요약 매핑】 (선물 미상장 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>코스메카코리아(241710) 선물無 [실측: kis 2026-09-20] · 실적베타 高</li>
+</ul>
+<p>· 미국 잉글우드클리프스 자회사(잉글우드랩) 인디브랜드 수주 호황, 2Q26 매출 <span class="up">+29%</span> YoY [인용: 유안타 2026-09-06, 목표 120,000]. 블로거 PER 22.1/fPER19. · 디자인CAPA 13억개(음성6.74+청주1.72), 오창 신규취득(6월 640억<span class="up">+9</span>월 1,360억) 27년 가동 [인용: 블로그, 공시 교차 미완료→추정]. · 핵심: 미국 인디 노출 최대 수혜주이나 선물無로 레버리지 스윙 부적합. 현물 관점만.</p>
+<ul>
+<li>펌텍코리아(251970) 선물無 · 용기(패키징) 밸류체인</li>
+</ul>
+<p>· ODM 증설의 후방 수혜(용기). 4공장(25.11)·6공장(8~9월)·7공장(27년) 증설 [인용: 블로그, 공시 미확인→추정]. 실적베타 中. 현물만.</p>
+<ul>
+<li>제닉(123330) 선물無 · 하이드로겔 마스크</li>
+</ul>
+<p>· 2Q26 가동률 132.5%(CAPA 3,720만/생산 4,929만), 12호기 10월 가동 [인용: 블로그→추정]. 소형·변동성 高, 테마 연동. 현물만.</p>
+<p>⚠️ 리서치 참고용, 매수·매도 강요 아님. 증권사·블로거 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>코스맥스 2023 순이익·이자보상배율 / YSL·랑콤 수주의 회사 공시 원문 / 코스메카·펌텍·제닉 증설 공시 원문 대조 / 한국콜마 별도 3개년 분리 손익.</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 사업보고서 2025.12(코스맥스 20260318000694·한국콜마 20260318001196), 반기보고서 2026.06(20260813001436·20260814002721)</li>
+<li>KIS 시세·수급·공매도 2026-09-20 / fnguide·naver 컨센 2026-09-20 / 증권사 리포트 2026-08~09(SK·유안타·LS·BNK·NH·한화·상상인·유진) / fnnews 2026-08-23</li>
+</ul>
+<p>[검산] Q1+Q2=H1(코스맥스 6,820<span class="up">+7,949</span>=14,769 ✓ / 한국콜마 OP 789<span class="up">+1,103</span>=1,892 ✓) · 손익비 산식 헤더=본문 일치 · 태그 없는 수치 0건 · 시나리오 확률합 100%.</p>
+<p>&lt;!-- hub:enrich:begin:192820 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-20 12:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 274,000원 (<span class="up">+0.7%</span>) · 시총 3.11조 · 5일 <span class="up">+1.3%</span> / 20일 <span class="up">+1.1%</span> / 60일 <span class="up">+80.6%</span></li>
+<li>MA5 275,100원 / MA20 279,775원 / MA60 221,203원 → MA20 이격 <span class="down">-2.1%</span> · MA60 이격 <span class="up">+23.9%</span></li>
+<li>52주 고 306,500원 / 저 141,000원 → 고점 대비 <span class="down">-10.6%</span> · 20일 고 303,000원 / 저 265,000원</li>
+<li>후행 PER 25.27 / PBR 5.57 (EPS 10,843원 · BPS 49,196원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 403.6억 (5일 253.8억)</li>
+<li>외국인 순매수 5일 -158.9억 / 20일 -655.1억 · 기관 5일 98.0억 / 20일 1,086.3억 · 개인 20일 -446.5억</li>
+<li>개별주식선물: ⚡ 상장 (ADK610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 10.17% (공매도 8,776주 · 24.0억) · 5일 평균 12.18% / 20일 평균 10.10% → 증가 · 20일 평균 상회 연속 1일</li>
+<li>공매도 20일 최대 35.34% (09/11) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 305,000원 (<span class="up">+11.3%</span>) ÷ 하방 258,000원 (−5.8%) = <strong>1:1.94</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 5.8% = <strong>자산의 8.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 8.6%</strong></li>
+<li>유동성 참고: 20일 ADV 403.6억 · 1일 소화 한도는 ADV의 10%(40.36억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 5.8% · ATR14 15,786원 (손절폭/ATR 1.0배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 5.8% = ATR14 × 1.0배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 250,321원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.31</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:192820 --&gt;</p>
+<p><span id="card-192820"></span>📋 결정카드 — 코스맥스(192820) 판정: 관심 선물: 有 현재가: 274,000원 진입: 264,000~274,000원 (눌림 분할, 기준 269,000) 손절: 258,000원 (종가 이탈) 목표: 1차 305,000원 (2차 335,000원) 손익비: 1:3.3 기간: 스윙 6~12주 촉매: 2026-11-14 3Q26 분기보고서 법정기한 / YSL 미국 리오더 반증: 3Q26 연결 영업이익 &lt; 550억이면 폐기·청산 / 종가 258,000 이탈 시 청산 / ≥ 750억이면 추가매수</p>
+<p>&lt;!-- hub:enrich:begin:161890 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-20 12:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 145,500원 (<span class="down">-1.3%</span>) · 시총 3.43조 · 5일 <span class="up">+3.0%</span> / 20일 <span class="up">+6.4%</span> / 60일 <span class="up">+68.4%</span></li>
+<li>MA5 146,700원 / MA20 147,795원 / MA60 121,893원 → MA20 이격 <span class="down">-1.6%</span> · MA60 이격 <span class="up">+19.4%</span></li>
+<li>52주 고 165,900원 / 저 60,600원 → 고점 대비 <span class="down">-12.3%</span> · 20일 고 161,700원 / 저 139,400원</li>
+<li>후행 PER 27.46 / PBR 3.77 (EPS 5,299원 · BPS 38,566원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 487.3억 (5일 425.2억)</li>
+<li>외국인 순매수 5일 -117.1억 / 20일 -154.8억 · 기관 5일 186.6억 / 20일 246.3억 · 개인 20일 -102.8억</li>
+<li>개별주식선물: ⚡ 상장 (ADE610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 3.25% (공매도 8,806주 · 13.0억) · 5일 평균 5.37% / 20일 평균 8.00% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 25.10% (09/11) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 162,000원 (<span class="up">+11.3%</span>) ÷ 하방 136,000원 (−6.5%) = <strong>1:1.74</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 6.5% = <strong>자산의 7.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 7.7%</strong></li>
+<li>유동성 참고: 20일 ADV 487.3억 · 1일 소화 한도는 ADV의 10%(48.73억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 6.5% · ATR14 7,993원 (손절폭/ATR 1.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 6.5% = ATR14 × 1.2배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 133,510원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.38</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:161890 --&gt;</p>
+<p><span id="card-161890"></span>📋 결정카드 — 한국콜마(161890) 판정: 관심 선물: 有 현재가: 145,500원 진입: 140,000~146,000원 (눌림 분할, 기준 143,000) 손절: 136,000원 (종가 이탈) 목표: 1차 162,000원 (2차 180,000원) 손익비: 1:2.7 기간: 스윙 6~12주 촉매: 2026-11-14 3Q26 분기보고서 법정기한 / 랑콤 밤 리오더 4Q 반영 반증: 3Q26 연결 영업이익 &lt; 750억이면 폐기·청산 / 종가 136,000 이탈 시 청산 / ≥ 1,000억이면 추가매수</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
