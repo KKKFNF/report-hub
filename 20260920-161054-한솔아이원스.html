@@ -1,0 +1,233 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한솔아이원스 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260920-161054-한솔아이원스.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.8</div><div class="tp-c"><b>결론 발췌</b> 반도체 소모성부품 세정·코팅 + 노광장비 리유즈 성장주. 2Q26 어닝쇼크는 대부분 A사향 일회성 프로모션비 50억 탓(정상화 OPM 21%대)이라 펀더는 견조하나, 컨센 하향·주가 MA20 하회 조정국면·HBM4 양산 타이밍 미확정 → 판정 관심(눌림 분할). 자체 목표 15,000원(+19.4%), 진입 12,200원 기준 손익비 1:3.5. ※ 블로거(네이버 hellowheesun, 2026-09-20) 의견은 참고용 아이디어이며, 아래는 DART·증권사·뉴스 실측으로 교차검증한 것임.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>한솔아이원스</h1>
+<div class="meta">📊 benine · 2026-09-20 16:10 · 코드 114810</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-20 16:10)</div><div class="kpi-v">12,560원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3,535억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">12.71</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.65</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.8</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.1</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">15,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 12,000~12,300원 (눌림 분할)</span><span class="dc dn">손절 11,400원</span><span class="dc up">목표 15,000원</span><span class="dc">손익비 진입 1:3.8 · 현재가 1:2.1</span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 전후 3Q26 실적(HBM4 양산·일회성 소멸 확인)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 80억이면 논지 폐기·전량 청산 / 종가 11,400원 이탈 청산</div></div>
+
+<div class="body"><p>🔬 정밀 딥리서치 — 한솔아이원스(114810)  ※개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 반도체 소모성부품 세정·코팅 + 노광장비 리유즈 성장주. 2Q26 어닝쇼크는 대부분 A사향 일회성 프로모션비 50억 탓(정상화 OPM 21%대)이라 펀더는 견조하나, 컨센 하향·주가 MA20 하회 조정국면·HBM4 양산 타이밍 미확정 → 판정 관심(눌림 분할). 자체 목표 15,000원(<span class="up">+19.4%</span>), 진입 12,200원 기준 손익비 1:3.5. ※ 블로거(네이버 hellowheesun, 2026-09-20) 의견은 참고용 아이디어이며, 아래는 DART·증권사·뉴스 실측으로 교차검증한 것임.</p>
+<hr>
+<p>① 사실관계 검증 (블로거 논지 vs 실체) ━━━━━━━━━━━━━━</p>
+<ul>
+<li>회사 정체: 반도체 전공정·디스플레이 장비부품 정밀가공 + 세정·코팅. 2025 부문비중 [실측: 사업보고서 20260313000415] 정밀가공반도체 78.5%(1,560억)·정밀세정코팅 19.0%(377억)·디스플레이 2.6%(51억). 최대고객 &#x27;A사&#x27;(식각장비, 삼성 추정·미공개).</li>
+<li>ASML 리유즈(RE-USE): ✅실체 확인. 노광장비 폐부품(주석 버킷 등)을 재생·재사용. 3Q25 기준 1개 품목 월 1.5~2억 초도매출, 3개 품목 Sole Vendor 수주 완료 [인용: KB증권 2025-10-23]. EUV 부품 3개 퀄테스트 통과·양산 개시 [인용: 데이터투자 2026-02-12]. 블로거의 &quot;4번째 품목 개발중·DUV 가공/세정 양산예정&quot;과 정합.</li>
+<li>2Q26 세정/코팅 방향: HBM4용 식각장비향 세정/코팅 하반기 양산 확장 [인용: 한화 2026-07-28]. 블로거의 &quot;설비부품 26년 흑전·리유즈 고수익&quot; 스토리와 방향 일치.</li>
+<li>파이프클리너: 9/17 데모인력 채용공고가 근거의 전부. 뉴스·공시 매출/계약 없음 → [미확인] 초기 니치옵션. 블로거도 &quot;니치&quot; 인정.</li>
+<li>아이코닉(자회사): 5년째 퀄·불확실 → 블로거 권고대로 밸류에서 &#x27;없는 셈&#x27;.</li>
+</ul>
+<p>→ 결론: 리유즈·세정코팅 실체는 있음(기대감 아님). 단, 리유즈 현매출은 전사 1~2%대로 아직 &#x27;옵션&#x27;. 파이프클리너는 재료성 초기.</p>
+<hr>
+<p>② 실적 분석 (DART 연결 실측) ━━━━━━━━━━━━━━ 연간(연결) [실측: 사업보고서·fnlttSinglAcnt]</p>
+<ul>
+<li>2023: 매출 1,239억 / 영업 82억 / OPM 6.6% / 순 21억</li>
+<li>2024: 매출 1,571억(<span class="up">+26.8%</span>) / 영업 231억(<span class="up">+180.7%</span>) / OPM 14.7% / 순 311억</li>
+<li>2025: 매출 1,988억(<span class="up">+26.5%</span>) / 영업 333억(<span class="up">+44.4%</span>) / OPM 16.8% / 순이익 [미확인·FY값 API 누락, TTM EPS 988원]</li>
+</ul>
+<p>→ 2년 연속 <span class="up">+26%</span> 외형·수익성 레벨업. 수출(정밀가공) 급증 535억(23)→814억(24)→1,166억(25)이 견인 = 해외 노광장비사향 확대.</p>
+<p>분기(연결·단독) [실측: 분기보고서 누적차감]</p>
+<ul>
+<li>2025 Q1 489억/119억/24.4% · Q2 470억/91억/19.3% · Q3 512억/94억/18.3% · Q4 517억/30억/5.7%(급감)</li>
+<li>2026 Q1 492억/71억/14.5% · Q2 537억/66억/12.2%</li>
+</ul>
+<p>→ QoQ 수익성 둔화 표면화. 단 2Q26 영업 66억은 컨센 38.5% 하회로, A사 식각장비 수주확대용 프로모션 일회성비 약 50억 반영 결과 [인용: 한화 2026-07-28]. 정상화 시 2Q26 영업≈116억·OPM≈21.6% → 구조훼손 아님, 전략적 지출. 검산: 2025 Q합 489<span class="up">+470</span><span class="up">+512</span><span class="up">+517</span>=1,988=연간✓ / 영업 119<span class="up">+91</span><span class="up">+94</span><span class="up">+30</span>=333✓ / 2026H1 492<span class="up">+537</span>=1,029(<span class="up">+7.3%</span>YoY)✓ / 영업 71<span class="up">+66</span>=137✓.</p>
+<p>재무건전성 [실측: BS·CF]</p>
+<ul>
+<li>부채비율 45.4%(23)→27.3%(24)→21.0%(25)→21.3%(26H1). 사실상 무차입(2026반기 금융원가 0) → 이자보상배율 의미없이 안전.</li>
+<li>영업현금흐름 198억(23)→372억(24)→236억(25)→반기 5.5억(26H1, 운전자본 부담·매출채권 증가 추정).</li>
+</ul>
+<p>→ 재무는 최상급. 단기 영업CF 급감은 모니터링 포인트.</p>
+<hr>
+<p>③ 미래실적·컨센서스 (달성가능성) ━━━━━━━━━━━━━━ [인용: consensus.py 자동수집 2026-09-20]</p>
+<ul>
+<li>목표가 컨센 15,000원(1건, 한화 2026-07-28 Buy·하향) · 현재가 12,560원 대비 <span class="up">+19.4%</span></li>
+<li>FY26E 매출 2,333억 / 영업 427억 / 순 346억 / EPS 1,191 / PER 10.6 [fnguide]</li>
+<li>FY27E 매출 2,786억 / 영업 613억 / 순 491억 / EPS 1,695 / PER 7.4 [fnguide]</li>
+<li>분기컨센 2026Q3 매출 639억·영업 140억·순 122억 [naver] / Q4 매출 665억 [wisereport]</li>
+<li>영업이익 컨센 추이: 현재 427 ← 3개월전 483 (하향)</li>
+<li>최근리포트: 한화 2026-07-28 Buy 15,000원(하향), 한국IR협의회 2026-05-22 NR</li>
+</ul>
+<p>달성가능성 판정: 中</p>
+<ul>
+<li>근거(+): 상반기 영업 137억에 일회성 50억 제외 시 정상 187억. 하반기 HBM4 식각장비 세정/코팅 본격양산 [인용: 한화]. 정상궤도면 FY26 400억대 무리 아님.</li>
+<li>근거(-): Q3컨센 140억은 상반기 정상 분기평균(≈93억) 대비 <span class="up">+50%</span> 점프. HBM4 양산·A사 물량확대 실제 인식시점 미확정. 컨센 자체 483→427 하향 중.</li>
+</ul>
+<hr>
+<p>④ 밸류에이션 → 목표가 ━━━━━━━━━━━━━━ [실측: KIS/enrich 2026-09-18 종가 기준]</p>
+<ul>
+<li>현재 PER 12.71(TTM EPS 988) / PBR 1.65(BPS 7,607) / 시총 3,535억</li>
+<li>Forward PER: FY26E 10.5배 · FY27E 7.4배 → 성장 감안 밸류 부담 낮음</li>
+<li>자기밴드(52주): PER 7.1배(저 7,050)~20배(고 19,900), 현 12.7배 = 중단</li>
+<li>Peer(세정코팅·부품재생 코미코/월덱스/케이엔제이 등) 평균 PER 대략 12~15배권 → 한화는 &quot;세정코팅기업 평균 PER에 20% 할인한 12.3배&quot; 적용</li>
+</ul>
+<p>자체 목표가 [추정: 산식]</p>
+<ul>
+<li>Base: FY26E EPS 1,191 × 적정 PER 13 = 15,480원 (컨센/한화 목표 15,000과 수렴)</li>
+<li>보수: FY26E EPS 1,191 × 11 = 13,100원</li>
+<li>성장연장: FY27E EPS 1,695 × 10 = 16,950원(2차)</li>
+</ul>
+<p>→ 채택 목표: 1차 15,000원(<span class="up">+19.4%</span>) · 2차 16,950원(<span class="up">+35%</span>). 증권사 목표 15,000원 병기(한화).</p>
+<hr>
+<p>⑤ 진입전략·손익비 (현물 전용 — 선물 미상장) ━━━━━━━━━━━━━━ [실측: KIS 일봉 2026-09-18]</p>
+<ul>
+<li>현재가 12,560원 · 52주 고 19,900(<span class="down">-36.9%</span>)·저 7,050(<span class="up">+78.2%</span>) → 중단, 고점권 아님</li>
+<li>이평: MA5 12,288 / MA20 12,941 / MA60 11,949 → 현재가 MA20 하회·MA60 상회(조정·눌림)</li>
+<li>20일 밴드 hi 13,880 / lo 12,080, ATR14 720원(변동성 큼)</li>
+<li>수급 20일: 외인 -16.9억·기관 -6.2억·개인 <span class="up">+18.0</span>억(최근5일 외인 <span class="up">+24.5</span>억 순매수 전환) / 공매도 당일 6.94%·특이없음 / ADV20 25.3억(1일체결상한 ADV10%=2.5억)</li>
+</ul>
+<p>라인(현물 스윙)</p>
+<ul>
+<li>진입: 12,000~12,300원 눌림 대기(MA60 11,949 지지 확인). 3회 분할 각 1/3.</li>
+<li>손절: 11,400원 종가 이탈(MA60·전저점권 명확 붕괴, 1.5ATR)</li>
+<li>목표: 1차 15,000원 · 2차 16,950원</li>
+<li>손익비(진입 12,200 기준): 상방 (15,000-12,200)/12,200=<span class="up">+23.0%</span> ÷ 하방 (12,200-11,400)/12,200=<span class="down">-6.6%</span> = 1:3.5</li>
+</ul>
+<p>(현재가 12,560 즉시진입 기준으로도: <span class="up">+19.4%</span> ÷ <span class="down">-9.2%</span> = 1:2.1) ※ 선물 미상장이라 레버리지 불가·현물만. 고변동 레짐이라 분할·손절준수 필수.</p>
+<hr>
+<p>⑧ 산업·제품 바텀업 모델 (§9) ━━━━━━━━━━━━━━ 9-1 제품분해 [실측: 20260313000415 / 반기 20260813001023]</p>
+<ul>
+<li>정밀가공반도체 2025 1,560억(78.5%)·26H1 784억(76.2%) — 샤워헤드 등 식각장비 부품</li>
+<li>정밀세정코팅 2025 377억(19.0%)·26H1 208억(20.2%) — Depo shield·챔버부품 세정/코팅·리유즈(고마진)</li>
+<li>디스플레이 2025 51억(2.6%)·26H1 37억(3.6%)</li>
+</ul>
+<p>9-2 고객: 최대 &#x27;A사&#x27;(식각장비, 삼성 추정·미공개) 및 계열사, 해외 노광장비사(ASML 추정, 수출로 반영). 고객명 DART 비공개 → 집중도 [미확인](수출 정밀가공 1,166억이 특정 대형고객 정황). 9-3 시장·경쟁: 반도체 소모성부품 세정·코팅·부품재생. 국내 peer 코미코·월덱스·케이엔제이 등(세정/재생). 리유즈(노광장비 폐부품 재생)는 ESG 수혜 신영역, 한솔아이원스가 3개품목 Sole Vendor [인용: KB 2025-10-23]. TAM·점유율 정량 [미확인·단일출처]. 9-4 단가: 다품종 소량 주문생산으로 단가추이 미공시 [실측: 사업보고서 본문]. 구조=매년 원가절감 단가인하 vs 설계변경 단가인상. 가격전가력 제한적. 9-5 CAPA·가동률 [실측]: 정밀가공 가동률 36.8%(23)→50.4%(24)→54.5%(25)→55.7%(26H1) 상승. 정밀세정 67.9%(23)→43.2%(24)→45.7%(25)→49.0%(26H1). 안성 세정·코팅 신공장(2023 완공) 가동 확대 중. 수주=전방 투자연동, 잔고 [미확인]. 9-6 전방: 국내 메모리 HBM4용 식각장비 세정/코팅 하반기 양산 [인용: 한화]. A사 식각장비 챔버/부품 확대판매(프로모션 후) [인용: 한화]. 소요량 정량 [미확인].</p>
+<p>9-7 바텀업 실적모델 (연결·억원) [추정: 산식] Bear    Base    Bull   근거 매출 FY26        2,150   2,300   2,450  상반 1,029×계절성+HBM4 OPM              14%     17%     19%    2Q일회성50억 정상화·믹스 영업이익 FY26     300     390     465   컨센 427 병기 3Q26 영업        95      125     150   컨센 140 / 상반정상분기93 기준 4Q26 영업        75      110     140   HBM4 양산 강도 민감도: 세정코팅 단가 ±10%×점유율 ±5%p → 영업이익 약 ±35~45억 / 전방 CAPEX 1분기 지연 → 분기매출 -60~80억 결론 문장: 3Q26 연결 영업이익 ≥ 125억(Base)이면 논지 유지·추가매수 검토, &lt; 80억이면 일회성 아닌 구조둔화로 논지 폐기.</p>
+<hr>
+<p>⑦ 촉매·반증·시나리오 ━━━━━━━━━━━━━━ 촉매 캘린더(날짜 확정)</p>
+<ul>
+<li>2026-11-14 전후: 3Q26 분기보고서(법정기한) — HBM4 양산·일회성 소멸 확인 분기. 최대 변수.</li>
+<li>하반기: EUV 리유즈 4번째 품목 퀄·DUV 가공/세정 양산 개시 여부(공시·IR 주시).</li>
+</ul>
+<p>반증 조건 3개 (수치→행동)</p>
+<ol>
+<li>3Q26 연결 영업이익 &lt; 80억이면 논지 폐기·전량 청산(일회성 아닌 구조둔화).</li>
+<li>종가 11,400원 이탈 시 전량 청산(MA60·전저점 붕괴).</li>
+<li>FY26 영업이익 컨센 &lt; 380억으로 추가 하향 시 목표가·비중 재산정.</li>
+</ol>
+<p>이벤트 매트릭스(3Q 실적×당일)</p>
+<ul>
+<li>쇼크(영업&lt;95억)×갭하락 → 손절/관망 / 인라인(95~140)×보합 → 눌림 유지 / 서프(&gt;140)×갭상승 → 돌파 시 추격 소량</li>
+</ul>
+<p>확률가중 시나리오</p>
+<ul>
+<li>Bull 25%: HBM4+리유즈 확대, FY26 영업 430억+, 목표 16,950(<span class="up">+35%</span>)</li>
+<li>Base 50%: 일회성 회복·정상궤도, FY26 영업 390억, 목표 15,000(<span class="up">+19%</span>)</li>
+<li>Bear 25%: 전방 capex 둔화·프로모션 재발, FY26 영업 300억, 주가 11,000(<span class="down">-12%</span>)</li>
+</ul>
+<p>→ 확률가중 기대수익률 ≈ 0.25×35 + 0.5×19 - 0.25×12 = <span class="up">+15.3%</span></p>
+<p>포지션 사이징(자산 대비 %만)</p>
+<ul>
+<li>손절폭 6.6%(진입 12,200·손절 11,400) 기준 손실예산: 고변동레짐 0.5% ÷ 6.6% = 자산 7.6%</li>
+<li>집중상한 50% / 이벤트(3Q실적) 전 상한 25% 중 최소 = 7.6% 채택. 실적 전 오버사이징 금지.</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용 — 매수/매도 권유 아님. 증권사·블로거 추정치는 &#x27;추정&#x27;, 못 구한 값은 &#x27;미확인&#x27;. [미확인 목록] 2025 FY 순이익(API 누락)·고객사 집중도·수주잔고·리유즈 TAM/점유율·파이프클리너 매출·제품 단가추이 [출처] DART 20260313000415·20260813001023 / 한화 2026-07-28 / KB 2025-10-23 / 한국IR협의회 2026-05-22 / 데이터투자 2026-02-12 / 이투데이 / KIS·consensus.py 2026-09-20 / 블로그 hellowheesun 2026-09-20(아이디어) [검산] 분기합=연간✓ / Q1+Q2=H1✓ / 손익비 헤더=본문(1:3.5)✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-20 16:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 12,560원 (<span class="up">+2.3%</span>) · 시총 3,535억 · 5일 <span class="down">-2.6%</span> / 20일 <span class="up">+3.0%</span> / 60일 <span class="down">-6.5%</span></li>
+<li>MA5 12,288원 / MA20 12,942원 / MA60 11,949원 → MA20 이격 <span class="down">-2.9%</span> · MA60 이격 <span class="up">+5.1%</span></li>
+<li>52주 고 19,900원 / 저 7,050원 → 고점 대비 <span class="down">-36.9%</span> · 20일 고 13,880원 / 저 12,080원</li>
+<li>후행 PER 12.71 / PBR 1.65 (EPS 988원 · BPS 7,607원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 25.3억 (5일 17.1억)</li>
+<li>외국인 순매수 5일 24.4억 / 20일 -16.9억 · 기관 5일 -33.8억 / 20일 -6.2억 · 개인 20일 18.0억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 6.94% (공매도 5,743주 · 0.7억) · 5일 평균 7.49% / 20일 평균 4.94% → 증가 · 20일 평균 상회 연속 4일</li>
+<li>공매도 20일 최대 12.91% (08/26) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 15,000원 (<span class="up">+19.4%</span>) ÷ 하방 11,400원 (−9.2%) = <strong>1:2.10</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 9.2% = <strong>자산의 5.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 5.4%</strong></li>
+<li>유동성 참고: 20일 ADV 25.3억 · 1일 소화 한도는 ADV의 10%(2.53억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 9.2% · ATR14 721원 (손절폭/ATR 1.6배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 9.2% = ATR14 × 1.6배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 11,478원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.26</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-114810"></span>📋 결정카드 — 한솔아이원스(114810) 판정: 관심 선물: 無 현재가: 12,560원 진입: 12,000~12,300원 (눌림 분할) 손절: 11,400원 목표: 1차 15,000원 (2차 16,950원) 손익비: 1:3.5 기간: 스윙 6~12주 촉매: 2026-11-14 전후 3Q26 실적(HBM4 양산·일회성 소멸 확인) 반증: 3Q26 연결 영업이익 &lt; 80억이면 논지 폐기·전량 청산 / 종가 11,400원 이탈 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
