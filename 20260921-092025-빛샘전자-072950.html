@@ -1,0 +1,259 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>빛샘전자(072950) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260921-092025-빛샘전자-072950.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.36</div><div class="tp-c"><b>결론 발췌</b> 방산·솔더로 외형은 커졌으나 2026 상반기 연결 순이익 run-rate가 오히려 2025 연간을 하회하는 이익 둔화 구간. 지금 급등은 방산·은 테마 모멘텀 오버슈팅. 추격 금지·눌림목 대응. 손익비 1:2.5(진입 13,000 기준), 1차 목표 16,000원 → 판정 관심. ━━━━━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 108.6% (당일거래대금 1,383억 / 시총 1,274억) [인용: trendscan 2026-09-21] • 추세: MA 정배열 O / 연속상승 1일 / 5일수익률 +77.8% • 실측 현재가 14,160원(전일 -0.63%) [실측: KIS 시세 2026-09-21] — trendscan 스냅샷(…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>빛샘전자(072950)</h1>
+<div class="meta">📊 trend · 2026-09-21 09:20 · 코드 072950</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-21 09:20)</div><div class="kpi-v">14,030원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,130억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">14.96</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.35</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.36</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.88</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">16,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 12,800~13,300원 (눌림목 분할)</span><span class="dc dn">손절 11,800원</span><span class="dc up">목표 16,000원</span><span class="dc">손익비 진입 1:2.36 · 현재가 1:0.88</span><span class="dc">기간 스윙 4~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3분기보고서(2026.11 중순 예상, 정확일 미확정)</div><div class="dc-l">🛑 반증: 3Q 연결 누적 영업이익 &lt; 45억 → 전량 정리 / 종가 MA20 하회 → 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 빛샘전자(072950)  ※개별주식선물 無(미상장·현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 방산·솔더로 외형은 커졌으나 2026 상반기 연결 순이익 run-rate가 오히려 2025 연간을 하회하는 이익 둔화 구간. 지금 급등은 방산·은 테마 모멘텀 오버슈팅. 추격 금지·눌림목 대응. 손익비 1:2.5(진입 13,000 기준), 1차 목표 16,000원 → 판정 관심.</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 108.6% (당일거래대금 1,383억 / 시총 1,274억) [인용: trendscan 2026-09-21]</li>
+<li>추세: MA 정배열 O / 연속상승 1일 / 5일수익률 <span class="up">+77.8%</span></li>
+<li>실측 현재가 14,160원(전일 <span class="down">-0.63%</span>) [실측: KIS 시세 2026-09-21] — trendscan 스냅샷(15,750) 대비 조정</li>
+<li>MA5 13,196 · MA20 9,926 · MA60 8,556 → 완전 정배열, 종가가 MA20 대비 <span class="up">+42.7%</span> 이격 [실측: KIS 일봉 78일]</li>
+<li>52주 밴드 4,600~25,700원 → 저점 대비 <span class="up">+208%</span>, 고점 대비 <span class="down">-45%</span> 위치 [실측: KIS]</li>
+<li>20일 평균거래대금 327억, 상장주식수 805.3만주(소형주), 외인비율 1.47% [실측: KIS]</li>
+</ul>
+<hr>
+<p>② 사업·급등사유</p>
+<ul>
+<li>4개 사업부 + 종속회사 솔더(비엔에프머티리얼즈) 구조 [실측: 사업보고서 2025.12, 접수 20260316001265]</li>
+<li>방산사업부(케이블조립체·와이어링 하네스, 국방무기용): 2025 매출 412억(34.1%) ← 실질 성장엔진</li>
+<li>솔더사업부(솔더바·와이어·페이스트, 전자접합소재): 2025 매출 548억(45.4%)</li>
+<li>네트워크(CATV·초고속인터넷 통신기기) 117억(9.7%), LED전광판 69억(5.7%), 광통신 62억(5.1%)</li>
+</ul>
+<p>* 방산이 2025.9 종속회사→본사 흡수합병되며 사업부 재편 [실측: 사업보고서 주2]</p>
+<ul>
+<li>급등 사유(추정): ①방산 케이블/하네스 매출 폭증(2023 0원→2024 154억→2025 412억) [실측: 사업보고서 매출실적] ②솔더 원재료 은(Ag) 수입단가 급등(2023 1,418천→2025 2,401천→2026반기 3,776천원/kg)으로 접합소재 단가·매출 동반상승 [실측: 반기보고서 원재료가격, 접수 20260814000391] ③방산+은 테마 수급 쏠림.</li>
+<li>냉정 판단: 공시상 계약기간·금액 유의미한 단일 수주계약 없음, 대부분 1~3개월 내 완료되는 반복 납품구조 → 가시적 수주잔고 無 [실측: 반기보고서 &#x27;다.수주상황&#x27;]. 급등 직접 트리거 특정 공시(대형수주·유증·M&amp;A)는 최근 3개월 확인 안 됨 — 2026.8.14 반기보고서 외 신규 공시 0건 [실측: DART list API 2026.07~09]. 뉴스 원문은 네이버·검색 봇차단으로 미확인(아래 미확인 목록).</li>
+</ul>
+<hr>
+<p>③ 실적(DART 연결 실측) [실측: fnlttSinglAcnt CFS, 각 사업연도 사업보고서]</p>
+<ul>
+<li>매출: 2023 741억 → 2024 851억(<span class="up">+14.9%</span>) → 2025 1,209억(<span class="up">+42.0%</span>)</li>
+<li>영업이익: 2023 37억 → 2024 51억 → 2025 90억 (OPM 4.9%→6.0%→7.4%)</li>
+<li>당기순이익: 2023 41억 → 2024 52억 → 2025 77억</li>
+<li>재무건전성(2025 연결): 자산 1,171억 / 부채 329억 / 자본 842억 → 부채비율 39.1% [실측] — 견조</li>
+<li>2026 상반기(연결 CIS): 수익 412억, 매출총이익 60억, 순이익 29.9억(전년동반 11.9억 대비 <span class="up">+150%</span>), 영업활동현금흐름 <span class="up">+7.2</span>억(전년동반 -2.8억) [실측: 반기보고서 CIS, 접수 20260814000391]</li>
+<li>★핵심 경계: 2026 H1 순이익 29.9억을 단순 연환산(×2)하면 59.7억으로 2025 연간 77.3억을 하회. 즉 연결 이익 run-rate는 오히려 둔화. 외형(방산·은단가)은 커졌으나 은 원가 급등이 솔더 마진을 눌러 이익 레버리지가 제한됨.</li>
+<li>[주의·태그혼재] 분기 손익(1Q·반기)의 XBRL 태그가 이 회사 공시에서 혼재됨(반기 매출총이익 60억 &lt; 영업이익 36억 등 논리 모순 라인 확인). 신뢰 가능한 값은 연간 4개년 추세와 H1 연결 순이익 29.9억. 반기 &#x27;매출실적&#x27; 사업부 합산표(H1 800억: 솔더 430·방산 258)와 연결 &#x27;수익&#x27;(412억)의 괴리는 내부거래 제거 전 총액 vs 연결 순액 차이로 판단, 본 리포트는 연결 순액 412억을 기준값으로 사용.</li>
+</ul>
+<hr>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: 없음 — 최근 6개월 목표가 제시 리포트 0건, 연간·분기 추정치 미확인 [실측: consensus.py 4소스 stockeasy/naver/fnguide/hankyung, 2026-09-21]. 소형주로 기관 커버리지 부재.</li>
+<li>달성가능성 판정(자체): 2026 매출은 방산 지속·은 단가 힘으로 전년比 증가 가능성 高, 그러나 이익은 은 원가부담으로 마진 압박 → 순이익 급증 가능성 中低.</li>
+<li>자체 2026E(추정): 순이익 60~69억 [추정: H1 순익 29.9억 × 2.0~2.3, 하반기 계절성·방산 인식 반영]. 2025(77.3억)을 넘기려면 하반기 이익이 상반기 대비 크게 개선돼야 함(달성가능성 中).</li>
+</ul>
+<hr>
+<p>⑤ 밸류에이션·목표가 [실측: KIS 2026-09-21] PER 15.1배 / PBR 1.37배 / EPS 938원 / BPS 10,357원 / 시총 1,140억</p>
+<ul>
+<li>2025 실적기준 PER = 14.8배 [검산: 14,160 ÷ (순익773억÷805만주=959원)]</li>
+<li>2026E 기준 PER = 16.6~19.1배 [추정: EPS 741~853원] → 이익 둔화 감안 시 부담 구간</li>
+<li>자체 목표가(적정PER × 2026E EPS 797원[base]):</li>
+<li>PER 12배 → 9,565원 (보수)</li>
+<li>PER 15배 → 11,956원</li>
+<li>PER 18배 → 14,347원 (현재가 수준)</li>
+<li>PER 20배 → 15,942원 (테마 프리미엄)</li>
+<li>판단: 무커버리지·이익둔화 소형주에 PER 18배 이상은 순수 모멘텀 프리미엄. 펀더 기준 적정가 12,000~14,300원. 1차 목표 16,000원은 &#x27;테마 재점화 + 하반기 방산 인식&#x27; 전제의 오버슈팅 시나리오.</li>
+</ul>
+<hr>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>지지/저항: 지지 MA5 13,196 / 직전 갭·스윙저점 11,800~10,700 / MA20 9,926. 저항 근접 16,000(라운드)·18,000, 52주고 25,700.</li>
+<li>이격 과대(MA20 <span class="up">+42.7%</span>) → 현재가 추격 시 손익비 1:0.40 (열위). 추격 금지.</li>
+<li>권장: 눌림목 12,800~13,300원 분할매수, 손절 11,800원(직전 갭지지·스윙저점 하단 이탈).</li>
+<li>진입 13,000 · 손절 11,800(폭 9.2%) · 1차 16,000 → 상승여력 23.1% / 리스크 9.2% → 손익비 1:2.50</li>
+<li>2차 18,500 → 손익비 1:4.58</li>
+<li>선물 미상장 → 레버리지 불가, 현물만. 고변동(52주 5.6배 레인지)·소형주 → 슬리피지·갭 리스크 큼.</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 [실측: dart_biz.py / 사업보고서 2025.12·반기보고서 2026.06]</p>
+<ul>
+<li>방산(케이블조립체·하네스): CAPA 미공시(주문형), 2025 매출 412억, 단가 프로젝트별 비표준. K-방산 수출 파생 물량 성격.</li>
+<li>솔더(금속접합소재): CAPA 1,348톤/년, 2025 생산 864톤(가동률 64%), H1 2026 452톤. 은(Ag) 수입단가 3,776천원/kg(전년 2,401천, <span class="up">+57%</span>). 매출은 은 단가 전가로 증가하나 스프레드는 원가상승분에 좌우.</li>
+<li>네트워크/LED/광통신: 생산실적 전년比 감소(LED모듈 73,799→45,632EA, 유선통신 44,877→37,454EA) → 성장 정체·역성장.</li>
+</ul>
+<p>9-7 바텀업 표 (2026E 연결, 단위 억원) [추정]</p>
+<ul>
+<li>Bear(확률 30%): 방산 380 + 솔더 480 + 기타 250 = 매출 1,110, OPM 6.0% → 영업이익 67억</li>
+<li>Base(확률 50%): 방산 450 + 솔더 520 + 기타 240 = 매출 1,210, OPM 6.5% → 영업이익 79억</li>
+<li>Bull(확률 20%): 방산 540 + 솔더 560 + 기타 250 = 매출 1,350, OPM 7.5% → 영업이익 101억</li>
+<li>3Q/4Q 배분(추정): 하반기가 방산 납품·연말 수요로 통상 H1보다 강함 → 연간의 약 55% H2 인식 가정.</li>
+<li>민감도: 은단가 <span class="up">+10%</span> 시 솔더 매출 <span class="up">+5%</span>p·마진 <span class="down">-0.5%</span>p(원가전가 시차). 방산 물량 ±20%가 영업이익 ±15억 좌우.</li>
+</ul>
+<p>★결론 문장: 3Q 연결 누적 영업이익 ≥ 60억이면 &#x27;외형+이익 동반&#x27; 논지 유지, &lt; 45억이면 &#x27;외형만 커지고 이익 둔화&#x27; 확정 → 폐기.</p>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응 [촉매 캘린더 — 날짜 확정만]</p>
+<ul>
+<li>2026.11 중순(예상): 3분기보고서(반기 접수 08.14 기준, 통상 11월 중순 — 정확일 미확정, 미확인 목록)</li>
+<li>대형 방산 단일수주 공시(발생 시): 즉각 재평가 트리거 — 단, 회사는 통상 수주공시 안 하는 구조(주의)</li>
+</ul>
+<p>[반증 3개 — 수치→행동] 1) (분기실적) 3Q 연결 누적 영업이익 &lt; 45억 → 이익 둔화 확정, 논지 폐기·전량 정리 2) (기술) 종가가 MA20(9,926, 상승 시 재계산) 하회 마감 → 추세 훼손, 손절 3) (수급) 20일 평균거래대금이 100억 미만 위축 → 테마 소멸, 비중 축소</p>
+<p>[이벤트 매트릭스]</p>
+<ul>
+<li>3Q 실적 서프라이즈(영익≥60억) → 목표 18,000 상향, 홀딩</li>
+<li>3Q 실적 쇼크(영익&lt;45억) → 손절 무관 전량 정리</li>
+<li>은가격 급락 → 솔더 매출 역풍, 비중 절반 축소</li>
+<li>방산 테마 재점화(타 방산주 강세 동조) → 눌림목 추가 진입</li>
+</ul>
+<p>[확률가중 시나리오] (합 100%)</p>
+<ul>
+<li>Bear 30%: 이익둔화 확인·테마 소멸, 11,000~12,000 회귀 (하락 <span class="down">-15%</span>)</li>
+<li>Base 50%: 박스 등락 후 방산 모멘텀 유지, 14,000~16,000 (기대 <span class="up">+8%</span>)</li>
+<li>Bull 20%: 3Q 서프라이즈+테마, 18,000~20,000 (상승 <span class="up">+35%</span>)</li>
+</ul>
+<p>→ 기대수익률 ≈ 0.30×(<span class="down">-15%</span>)<span class="up">+0.50</span>×(<span class="up">+8%</span>)<span class="up">+0.20</span>×(<span class="up">+35%</span>) = <span class="up">+6.5%</span> [검산]</p>
+<p>[수급·유동성]</p>
+<ul>
+<li>외인비율 1.47%(수급 취약) [실측: KIS]. 기관·외인 20일 순매수 세부집계 미확인(개별집계 미조회 → 미확인 목록).</li>
+<li>20일 평균거래대금 327억 → ADV 10% ≈ 33억. 개인 회전 위주, 스윙엔 유동성 충분하나 급변동 리스크.</li>
+</ul>
+<p>[포지션 사이징 — 자산 대비 %로만]</p>
+<ul>
+<li>리스크예산: 손실 1% ÷ 손절폭 9.2% = 비중 10.8%</li>
+<li>집중 상한 50% / 이벤트(3Q실적) 전 상한 25%</li>
+<li>→ 최소값 채택: 3분기 실적 전에는 자산의 10.8% 이내 권장(선물 불가로 현물 한도). 추격매수 시 손절폭 확대 → 비중 추가 축소.</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용. 최종 투자판단은 본인 책임.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>급등 직접 트리거 뉴스 원문(네이버·DuckDuckGo 봇차단으로 미확인)</li>
+<li>3분기보고서 정확한 제출 예정일</li>
+<li>기관·외인 20일 순매수 세부 집계</li>
+<li>반기 사업부 매출실적표(800억)와 연결 손익 수익(412억) 괴리의 정확한 내부거래 제거 규모</li>
+<li>분기 손익 XBRL 태그 혼재로 인한 분기별 정확 영업이익</li>
+<li>증권사 목표가·컨센서스(커버리지 부재로 부존재)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 사업보고서 2025.12 (접수 20260316001265)</li>
+<li>DART 반기보고서 2026.06 (접수 20260814000391)</li>
+<li>DART fnlttSinglAcnt/AcntAll CFS (2023~2026)</li>
+<li>DART list API (공시목록 2026.07~09)</li>
+<li>KIS 국내주식 현재가·일봉 (2026-09-21)</li>
+<li>consensus.py 4소스 (2026-09-21)</li>
+<li>kis_futures_check.py 개별주식선물 마스터</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총: 14,160 × 805.3만 = 1,140억 ✓</li>
+<li>2025 PER: 14,160 ÷ 959원 = 14.8배 ✓</li>
+<li>손익비 1차: (16,000-13,000) ÷ (13,000-11,800) = 3,000/1,200 = 2.50 ✓</li>
+<li>기대수익률: <span class="down">-4.5%</span><span class="up">+4.0%</span><span class="up">+7.0%</span> = <span class="up">+6.5%</span> ✓</li>
+<li>시나리오 확률합: 30<span class="up">+50</span><span class="up">+20</span> = 100% ✓</li>
+</ul>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-21 09:20 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 14,030원 (<span class="down">-1.5%</span>) · 시총 1,130억 · 5일 <span class="up">+24.8%</span> / 20일 <span class="up">+64.3%</span> / 60일 <span class="up">+76.7%</span></li>
+<li>MA5 13,170원 / MA20 9,919원 / MA60 8,553원 → MA20 이격 <span class="up">+41.4%</span> · MA60 이격 <span class="up">+64.0%</span></li>
+<li>52주 고 25,700원 / 저 4,600원 → 고점 대비 <span class="down">-45.4%</span> · 20일 고 14,250원 / 저 8,180원</li>
+<li>후행 PER 14.96 / PBR 1.35 (EPS 938원 · BPS 10,357원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 327.7억 (5일 1,087.3억)</li>
+<li>외국인 순매수 5일 11.0억 / 20일 -0.4억 · 기관 5일 0.2억 / 20일 -0.0억 · 개인 20일 1.0억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.13% / 20일 평균 2.29% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 7.87% (09/01) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 16,000원 (<span class="up">+14.0%</span>) ÷ 하방 11,800원 (−15.9%) = <strong>1:0.88</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 15.9% = <strong>자산의 3.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.1%</strong></li>
+<li>유동성 참고: 20일 ADV 327.7억 · 1일 소화 한도는 ADV의 10%(32.77억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 15.9% · ATR14 1,277원 (손절폭/ATR 1.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 15.9% = ATR14 × 1.7배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 12,114원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.03</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-072950"></span>📋 결정카드 — 빛샘전자(072950) 판정: 관심 선물: 無 현재가: 14,160원 진입: 12,800~13,300원 (눌림목 분할) 손절: 11,800원 목표: 1차 16,000원 (2차 18,500원) 손익비: 1:2.5 기간: 스윙 4~8주 촉매: 3분기보고서(2026.11 중순 예상, 정확일 미확정) 반증: 3Q 연결 누적 영업이익 &lt; 45억 → 전량 정리 / 종가 MA20 하회 → 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
