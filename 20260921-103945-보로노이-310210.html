@@ -1,0 +1,263 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>보로노이(310210) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260921-103945-보로노이-310210.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:4.17</div><div class="tp-c"><b>결론 발췌</b> VRN11(EGFR C797S·뇌전이 표적) 1상 데이터가 시장을 흔든 국내 대표 후기임상 바이오. 파이프라인 자체는 매력적이나 당일 +18% 급등으로 단기 과열, 컨센 목표가(평균 37.7만원)와 현재가(15.6만원) 괴리는 크지만 임상 이벤트 종속 변동성이 극단적. 관심(추격 자제·눌림 대기). 눌림 진입 기준 손익비 1:2.4, 1차 목표 20.0만원. ━━━━━━━━━━━━━━━━ ① 포착 신호 (KIS 실측) • 현재가 156,100원 / 전일대비 +24,100원 (+18.26%) [실측: KIS FHKST01010100·2026-09-21] • 당일 거래대금 130.1억원 / 거래량 86,516주 [실측: KIS 동일] • 시…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>보로노이(310210)</h1>
+<div class="meta">📊 trend · 2026-09-21 10:39 · 코드 310210</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-21 10:39)</div><div class="kpi-v">155,700원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2.9조</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">27.29</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:4.17</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.5</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">200,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 148,000~152,000원 (눌림 분할·급등 추격 금지)</span><span class="dc dn">손절 138,000원</span><span class="dc up">목표 200,000원</span><span class="dc">손익비 진입 1:4.17 · 현재가 1:2.5 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.4</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.4로 적었지만 진입·손절·목표로 계산하면 1:4.17다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주 (임상/L/O 이벤트 종속)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q 분기보고서 2026-11-14, VRN11 1b/2a 데이터 업데이트(일자 미확정), 후속 IR</div><div class="dc-l">🛑 반증: 종가 138,000원 이탈 or VRN11 1b/2a 데이터 후퇴·임상지연 or 대규모 증자·CB 발행</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 보로노이(310210) ※선물 有 (근월물 A2Y610, 1계약=10주) [실측: KIS 개별주식선물 마스터]</p>
+<p>📌 한줄 결론: VRN11(EGFR C797S·뇌전이 표적) 1상 데이터가 시장을 흔든 국내 대표 후기임상 바이오. 파이프라인 자체는 매력적이나 당일 <span class="up">+18%</span> 급등으로 단기 과열, 컨센 목표가(평균 37.7만원)와 현재가(15.6만원) 괴리는 크지만 임상 이벤트 종속 변동성이 극단적. 관심(추격 자제·눌림 대기). 눌림 진입 기준 손익비 1:2.4, 1차 목표 20.0만원.</p>
+<hr>
+<p>① 포착 신호 (KIS 실측)</p>
+<ul>
+<li>현재가 156,100원 / 전일대비 <span class="up">+24,100</span>원 (<span class="up">+18.26%</span>) [실측: KIS FHKST01010100·2026-09-21]</li>
+<li>당일 거래대금 130.1억원 / 거래량 86,516주 [실측: KIS 동일]</li>
+<li>시가총액 2조8,935억원 / 상장주식수 18,536,108주 [실측: KIS hts_avls]</li>
+<li>회전율(당일) ≈ 0.47% (당일거래량 86,516 ÷ 상장주식 18,536,108) [추정: 산식=당일거래량/상장주식수]</li>
+<li>20일 평균 거래대금 116.1억원 [실측: KIS 일봉 20일 acml_tr_pbmn 평균]</li>
+<li>이평선: MA5 142,560 / MA20 153,895 / MA60 154,383 [실측: KIS 일봉]</li>
+</ul>
+<p>→ 배열은 MA5&lt;MA20≈MA60 의 사실상 역배열. 당일 급등으로 현재가가 MA20·MA60을 상향 돌파한 &#x27;역배열 속 반등&#x27; 국면(정배열 아님).</p>
+<ul>
+<li>최근 수익률: 5거래일 <span class="up">+10.2%</span> / 20거래일 <span class="down">-7.3%</span> [실측: KIS 일봉]</li>
+<li>52주 고저: 고 375,500원 / 저 97,500원 [실측: KIS] → 현재가는 52주 고점 대비 <span class="down">-58.4%</span>, 저점 대비 <span class="up">+60.1%</span> (고점권 아님, 중단 회복 국면)</li>
+<li>현 위치 판단: 4월 고점(37.5만) 후 대폭 조정→9월 초 16만대 반등→다시 조정(13.2만)→당일 급반등. &#x27;조정 후 이벤트 반등 초입&#x27;이나 급등 당일 캔들이라 추격 진입은 불리.</li>
+</ul>
+<p>② 사업·급등사유 (파이프라인·L/O·임상)</p>
+<ul>
+<li>사업 실체: 폐암·유방암 표적항암제(인산화효소 저해제, Kinase Inhibitor) 신약개발 전문기업. 임상 1~2상 초기개발 후 글로벌 기술이전(L/O) 하는 사업모델. [실측: 사업보고서 2025.12·접수 20260320000892]</li>
+<li>매출 실체: 2025년(제11기) 용역매출 75.1억원(전액 미국向 L/O 수출) 최초 인식. 2024·2023·2026반기 매출 0. [실측: DART 사업보고서 매출실적표·접수 20260320000892 / fnlttSinglAcntAll 영업수익]</li>
+</ul>
+<p>→ &#x27;매출=마일스톤성 L/O 수익&#x27;으로 경상적이지 않음. 파이프라인 실체는 확인되나 반복 현금창출은 부재(전형적 후기임상 바이오).</p>
+<ul>
+<li>핵심 파이프라인 VRN11(=VRN110755): EGFR 변이 비소세포폐암 표적. 3세대 TKI(타그리소/오시머티닙) 내성인 C797S 변이(약 10% 비중)와 뇌전이 환자 공략. [인용: 현대차증권 2026-09-18 / 유안타 2026-09-17]</li>
+<li>1a상: 유효용량(160mg↑) C797S 환자 6명 전원 반응(40%↑ 종양축소), C797S 외 환자 mPFS 7.3개월, 뇌전이 iDCR 100%, Grade3↑ 부작용 3% 내외. [인용: 유안타·한양 2026-09]</li>
+<li>뇌투과율(Kp,uu) 77% / 오시머티닙(0.2) 대비 약 2배 CNS 유효성. [인용: 현대차·사업보고서]</li>
+<li>치료이력 없는 naive 환자 대상 REACH-EGFR 1b/2a상 모집 시작 → 1차 표준치료 확장 시 시장 대폭 확대. [인용: 한양 2026-09-01]</li>
+<li>VRN10: HER2 변이 NSCLC 표적. 초기임상 환자 전원 PR, ECD·TKD 변이 아우르는 적응증 확장 기대. [인용: 유안타 2026-09-17]</li>
+<li>급등사유 실체 판정: (1) 9/12 세계폐암학회(WCLC 2026) 고용량·PFS 데이터 공개, (2) 유안타 9/17 목표가 45만원 유지 리포트, (3) 현대차증권 9/18 커버리지 개시(BUY 23만원), (4) 9/17 IR 개최, (5) VRN11 1/2상 임상시험계획 변경 공시 다수(9/7~9/18). → &#x27;루머&#x27;가 아닌 임상 데이터+커버리지 확대라는 실체 기반 모멘텀. 다만 데이터는 초기(1상) 단계로 상업화·L/O까지 거리 있음. [실측: DART 공시목록 2026-08~09]</li>
+</ul>
+<p>③ 실적 (DART 실측 · 연결 기준)</p>
+<ul>
+<li>매출(영업수익): 2023 0 / 2024 0 / 2025 75.1억 / 2026반기 0 [실측: DART fnlttSinglAcntAll CFS]</li>
+<li>영업손익: 2023 -313.4억 / 2024 -363.4억 / 2025 -543.8억 / 2026반기 -293.0억 [실측: 동일]</li>
+</ul>
+<p>→ 적자 확대 추세(YoY 2025 영업손실 <span class="up">+49.6%</span> 확대). R&amp;D 집중형 바이오라 적자 자체는 정상이나, 손실 규모가 매년 증가.</p>
+<ul>
+<li>세전순손익: 2024 -326.5억 / 2025 -506.3억 [실측: 법인세비용차감전순이익(손실)]</li>
+</ul>
+<p>→ 2025 세전손실이 영업손실보다 작은 것은 금융수익 98.3억(전기 49.5억)이 완충. 즉 순손실 급증은 &#x27;영업악화(연구비 증가)&#x27;가 주동인, 금융/일회성은 완화 방향. 법인세수익 79.3억 인식으로 최종 순손실 일부 축소.</p>
+<ul>
+<li>재무상태(2025말): 자산총계 1,712억 / 부채총계 674억 / 자본총계 1,038억 → 부채비율 65.0% [실측: DART BS·산식 674/1038]</li>
+<li>현금및현금성자산: 357.4억 [실측: DART BS 2025]</li>
+<li>영업활동현금흐름: 2025 -720.9억 [실측: DART CF]</li>
+</ul>
+<p>★ 현금소진 경고: 영업CF -720억 vs 보유현금 357억. 순수 영업기준 현금런웨이는 1년 미만 수준으로, 추가 L/O 마일스톤 유입 또는 증자·전환사채 등 외부조달 없으면 자금압박. (금융수익·조달 감안 시 실제 런웨이는 이보다 김 — 정확한 순현금 소진속도는 미확인)</p>
+<p>④ 미래실적·컨센서스 [인용: consensus.py 집계 2026-09-21]</p>
+<ul>
+<li>목표주가 컨센서스: 평균 376,667원 (최고 450,000 유안타 / 최저 230,000 현대차 / 3건) · 현재가 대비 <span class="up">+141.3%</span></li>
+<li>투자의견: Buy 3 / NR 2 (최근 6개월)</li>
+<li>연간 컨센(억원): FY26E 매출 55·영업이익 -875 / FY27E 매출 130·영업이익 -595 / FY28E 매출 250·영업이익 -530</li>
+</ul>
+<p>→ 컨센도 FY28까지 영업적자 지속 전제(흑전 시점 미정). 영업이익 컨센이 3개월 전 -440 → 현재 -875로 하향(연구비 확대 반영).</p>
+<ul>
+<li>달성 가능성 판정: 목표주가는 전적으로 VRN11 rNPV·M&amp;A/L/O 가정에 의존 → 임상 성공 시 상단, 실패/지연 시 급락. 실적(매출)로는 검증 불가 = 달성 가능성 &#x27;中·이벤트 종속&#x27;.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가 (바이오 rNPV/L/O 관점)</p>
+<ul>
+<li>PER/PBR 무의미: 적자기업이라 PER -67.2(음수), PBR 27.4배(BPS 5,705원)로 자산가치 대비 극단적 프리미엄 = 순수 파이프라인 기대가치 반영. [실측: KIS per/pbr/bps]</li>
+<li>현대차증권 목표가 산정 논리(23만원): VRN11의 C797S 2차 치료시장(1조3,550억) + 뇌전이 시장(2조8,770억) 반영, 기술이전보다 M&amp;A 가능성 가정 rNPV. [인용: 현대차 2026-09-18]</li>
+<li>유안타 목표가(45만원): 임상데이터 축적 기반, VRN11 가치 상향(4월 32만→45만). [인용: 유안타 2026-04·09]</li>
+<li>자체 목표가 산출(보수적 시나리오 가중):</li>
+<li>컨센 평균 376,667 × 임상초기 할인 60% 적용 = 226,000원 근사 → 1상 단계 리스크 반영한 보수적 목표.</li>
+<li>기술적 저항(9월 초 고점 169,500·전고권)과 현대차 목표(230,000)를 감안, 스윙 1차 목표 200,000원 / 2차 230,000원 설정.</li>
+</ul>
+<p>※ 목표가 산식: 1차=직전 반등고점(169,500) 상향+심리저항 20만 라운드 / 2차=애널 최저목표(현대차 230,000). rNPV 정밀산출은 임상 성공확률(PoS) 가정 필요로 미확인.</p>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>지지: 138,000(당일 갭 하단·MA 수렴권) / 129,600(20일 최저저가) / 120,000(9월 초 급락 저점권) [실측: KIS 일봉]</li>
+<li>저항: 169,500(9월 초 반등고점) / 200,000(심리) / 230,000(애널 최저목표)</li>
+<li>ATR14 = 13,564원(종가대비 8.7%) → 바이오 고변동. [실측: KIS 일봉]</li>
+<li>진입: 당일 급등봉 추격 금지. 눌림 148,000~152,000원 분할(1차 152,000·2차 148,000) 대기 권고. 진입 기준가 150,000원 가정.</li>
+<li>손절: 138,000원(당일 갭 하단·직전 조정저점 상단 이탈 시). 진입 150,000 기준 하락리스크 <span class="down">-8.0%</span>. (손절폭 12,000원=0.88×ATR로 다소 타이트→노이즈 이탈 위험 존재, 종가 기준 적용 권고)</li>
+<li>목표: 1차 200,000원(<span class="up">+33.3%</span>) / 2차 230,000원(<span class="up">+53.3%</span>)</li>
+<li>손익비 = 상승여력 33.3%(1차) ÷ 하락리스크 8.0% = 1:4.2 (1차 기준) / 종가손절 여유 감안 실효 1:2.4~1:4.2</li>
+</ul>
+<p>※ 보수 산정(손절을 129,600 스윙저점 기준 <span class="down">-13.6%</span>로 넓힐 경우): 33.3÷13.6 = 1:2.4. 헤더 손익비 1:2.4는 이 보수 기준.</p>
+<p>⑧ 산업·제품 바텀업 실적 모델 (바이오 rNPV 대체)</p>
+<ul>
+<li>사업구조: 물량×단가 무의미(제품매출 없음). 가치의 100%가 파이프라인 L/O·마일스톤·로열티에서 발생. [실측: dart_biz 사업보고서]</li>
+<li>파이프라인별 정리:</li>
+<li>VRN11(EGFR C797S/뇌전이 NSCLC): 임상 1a 완료·1b/2a(REACH-EGFR) 진행. 경쟁약 Nuvalent(zipalertinib 등)·J&amp;J 아미반타맙. 차별점=뇌투과율 우위. TAM: C797S 2차(1.36조)+뇌전이(2.88조). PoS: 1상 우수데이터로 초기 대비 상향되나 여전히 후기임상 리스크. [인용: 현대차·유안타·한양]</li>
+<li>VRN10(HER2 NSCLC): 초기임상 전원 PR. 경쟁약 zongertinib(BI). 적응증 확장 기대. [인용: 유안타]</li>
+<li>9-7 시나리오 표 (파이프라인 진전·L/O 여부 → 기업가치):</li>
+</ul>
+<p>구분 | 전제 | 함의 기업가치(시총) | 목표주가 근사 | 확률 Bear | VRN11 1b/2a 데이터 실망 or 임상 지연·자금조달(증자/CB) 희석 | 현 시총 대비 -35~45% | 90,000~105,000원 | 30% Base | 데이터 순항, 컨센 유지, L/O는 없거나 소규모, 지속 R&amp;D 적자 | 현 시총 유지~소폭↑ | 150,000~200,000원 | 45% Bull | 대형 글로벌 L/O 체결 or 1b/2a 압도적 데이터 → M&amp;A 기대 | 현 시총 대비 <span class="up">+50</span>~100% | 230,000~310,000원 | 25%</p>
+<p>컨센 대조: 컨센 평균 목표 376,667원은 본 Bull 상단(310,000)마저 상회 → 시장은 L/O/M&amp;A 실현을 상당부분 선반영. 본 모델은 임상초기 할인을 더 보수적으로 적용.</p>
+<ul>
+<li>확률가중 기대수익률: (Bear <span class="down">-40%</span>×0.30) + (Base <span class="up">+12%</span>×0.45) + (Bull <span class="up">+72%</span>×0.25) = -12.0 <span class="up">+5.4</span> <span class="up">+18.0</span> = <span class="up">+11.4%</span> (기대값 플러스이나 Bear 꼬리 큼) [추정: 각 시나리오 중간값×확률]</li>
+</ul>
+<ul>
+<li>결론 문장: 다음 촉매(VRN11 1b/2a 추가 데이터·글로벌 L/O 발표)가 &#x27;유효성 유지 또는 대형 파트너 계약&#x27;으로 확인되면 논지(파이프라인 프리미엄) 유지. 반대로 &#x27;1b/2a 데이터 실망·임상 지연 공시·대규모 증자/CB 발행(주식가치 희석)&#x27;이 나오면 논지 폐기. 바이오라 분기 영업이익 임계는 무의미 → 대신 &#x27;마일스톤 수령/L/O 체결/임상 데이터 진전&#x27; 임계로 판단.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트</p>
+<ul>
+<li>촉매 캘린더:</li>
+<li>진행 중: VRN11 REACH-EGFR 1b/2a상 모집·데이터 축적 (구체 발표일 미확인)</li>
+<li>9/17 IR 개최분 후속 자료·기관 커버리지 추가 여부</li>
+<li>3분기 분기보고서 법정기한: 2026-11-14 (11월 중순 실적·연구비 확인) [추정: 12월 결산 3분기보고서 법정기한 11/14]</li>
+<li>차기 학회(WCLC 후속·ESMO 등)에서 VRN11/VRN10 데이터 업데이트 (일자 미확인)</li>
+<li>반증 조건 3개(기술적 임계 + 이벤트 임계 조합):</li>
+</ul>
+<ol>
+<li>[기술] 종가 138,000원 이탈 시 단기 논지 폐기(청산). 129,600(20일 최저) 이탈 시 추세 훼손 확정.</li>
+<li>[이벤트] VRN11 1b/2a 데이터가 1a 대비 반응률·PFS 후퇴 or 임상 지연/보류 공시 시 논지 폐기.</li>
+<li>[수급/재무] 대규모 유상증자·전환사채 발행 공시(주식가치 희석) or 외국인·기관 20일 순매도 지속 심화 시 논지 약화.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스 (촉매 × 당일 주가):</li>
+<li>촉매 성공(L/O/데이터 호재) × 갭상승: 눌림 없이 오버슈팅, 추격 자제·기보유만 홀딩, 분할 익절</li>
+<li>촉매 성공 × 보합/갭하락: 재료 소멸(sell-the-news) 경계, 관망</li>
+<li>촉매 무소식 × 갭하락: 예정 진입가(148,000~152,000) 도달 시에만 분할 진입</li>
+<li>촉매 실패(데이터 실망) × 갭하락: 진입 금지·기보유 손절 실행</li>
+<li>확률가중 시나리오: Bear 30% / Base 45% / Bull 25% (합 100%), 상세 ⑧ 표 참조. 확률가중 기대수익률 <span class="up">+11.4%</span>.</li>
+<li>수급·유동성: 20일 누적 외국인 -168,687주·기관 -34,639주(순매도) [실측: KIS FHKST01010900]. 20일 평균 거래대금 116.1억원 → ADV 10% ≈ 11.6억원 규모까지가 시장충격 최소 체결 한도.</li>
+<li>포지션 사이징(자산 대비 %로만):</li>
+<li>손실1%룰: 손절폭 8.0%(종가 138,000) → 최대 편입 12.5% (1%/8%)</li>
+<li>이벤트 前 상한 25% / 바이오 극변동성 감안 집중상한 50%</li>
+<li>→ 위 셋 중 최소 = 12.5%. 임상 이벤트 종속·급등 직후임을 감안, 초기 편입은 그 절반 이하(자산 대비 5~6% 수준)로 눌림 분할 후 데이터 확인 시 증액 권고.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>VRN11 1b/2a 데이터 정확한 발표 예정일</li>
+<li>글로벌 L/O 진행 여부·상대사·계약규모</li>
+<li>rNPV 정밀 산출용 임상 성공확률(PoS) 가정치</li>
+<li>순현금 소진속도 기준 정확한 자금 런웨이(개월)</li>
+<li>당일(9/21) 외국인·기관 순매수(장중 미집계)</li>
+<li>급등 당일 개별 뉴스 원문(네이버·DDG 봇차단으로 미확보 → 애널 리포트·DART 공시로 대체 검증)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI: 현재가(FHKST01010100)·일봉(FHKST03010100)·투자자(FHKST01010900)·선물마스터 — 2026-09-21 실측</li>
+<li>DART: 사업보고서 2025.12(접수 20260320000892)·반기보고서 2026.06(접수 20260814004145)·재무(fnlttSinglAcntAll CFS)·공시목록 2026-08~09</li>
+<li>컨센서스: consensus.py(stockeasy·naver·fnguide·hankyung 집계 2026-09-21)</li>
+<li>리포트: 현대차증권 2026-09-18(BUY 230,000)·유안타 2026-09-17/04-20(Buy 450,000)·한양증권 2026-09-01(NR)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총 = 156,100 × 18,536,108 = 28,935억 ✓ (KIS hts_avls 28,935 일치)</li>
+<li>부채비율 = 674억/1,038억 = 65.0% ✓</li>
+<li>손익비(보수) = 33.3%/13.6% = 2.45 → 1:2.4 ✓</li>
+<li>확률합 = 30<span class="up">+45</span><span class="up">+25</span> = 100% ✓</li>
+<li>상승여력(컨센) = 376,667/156,100 -1 = <span class="up">+141.3%</span> ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-21 10:39 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 155,700원 (<span class="up">+17.9%</span>) · 시총 2.89조 · 5일 <span class="up">+7.1%</span> / 20일 <span class="down">-7.1%</span> / 60일 <span class="down">-14.9%</span></li>
+<li>MA5 142,520원 / MA20 153,885원 / MA60 154,380원 → MA20 이격 <span class="up">+1.2%</span> · MA60 이격 <span class="up">+0.9%</span></li>
+<li>52주 고 375,500원 / 저 97,500원 → 고점 대비 <span class="down">-58.5%</span> · 20일 고 172,600원 / 저 132,000원</li>
+<li>후행 PER -67.03 / PBR 27.29 (EPS -2,323원 · BPS 5,705원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 116.1억 (5일 126.0억)</li>
+<li>외국인 순매수 5일 -120.4억 / 20일 -267.3억 · 기관 5일 21.0억 / 20일 -33.7억 · 개인 20일 301.9억</li>
+<li>개별주식선물: ⚡ 상장 (A2Y610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 5.95% / 20일 평균 9.83% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 21.66% (09/11) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 200,000원 (<span class="up">+28.5%</span>) ÷ 하방 138,000원 (−11.4%) = <strong>1:2.50</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 11.4% = <strong>자산의 4.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.4%</strong></li>
+<li>유동성 참고: 20일 ADV 116.1억 · 1일 소화 한도는 ADV의 10%(11.61억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 11.4% · ATR14 13,043원 (손절폭/ATR 1.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 11.4% = ATR14 × 1.4배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 136,135원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.26</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-310210"></span>📋 결정카드 — 보로노이(310210) 판정: 관심 선물: 有 현재가: 156,100원 진입: 148,000~152,000원 (눌림 분할·급등 추격 금지) 손절: 138,000원 (종가 이탈) 목표: 1차 200,000원 (2차 230,000원) 손익비: 1:2.4 기간: 스윙 4~10주 (임상/L/O 이벤트 종속) 촉매: 3Q 분기보고서 2026-11-14, VRN11 1b/2a 데이터 업데이트(일자 미확정), 후속 IR 반증: 종가 138,000원 이탈 or VRN11 1b/2a 데이터 후퇴·임상지연 or 대규모 증자·CB 발행</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
