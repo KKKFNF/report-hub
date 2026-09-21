@@ -1,0 +1,240 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>삼현(437730) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260921-115814-삼현-437730.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:3.47</div><div class="tp-c"><b>결론 발췌</b> 휴머노이드 액추에이터 &#x27;기대감 선반영&#x27; 테마주. 실적은 3개 분기 연속 적자·상반기 매출총이익까지 마이너스로 붕괴 중이라 밸류에이션 근거가 없음(적자·PBR 13.9배). 추세는 강하나 이격 극대(현재가 58,100 vs MA20 38,418, +51%). 눌림 없이 추격 시 손익비 불리(1:0.6~0.8). 신규진입은 관망, 34,000~38,000원 눌림 확인 시에만 소액 단기 대응. 자체 산출 밸류 기반 목표가는 &#x27;실적 부재로 산출 불가&#x27;, 테마 모멘텀 상단 저항 76,900원(52주고). ━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 6.5% (거래대금 1221.4억 / 시총 18,707억) — 당일 자금유입 강도 상위권 […</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>삼현(437730)</h1>
+<div class="meta">📊 trend · 2026-09-21 11:58 · 코드 437730</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-21 11:58)</div><div class="kpi-v">59,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.9조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">179.88</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">14.16</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.47</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.04</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">60,300원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 34,000~38,000원 (눌림 확인 시에만 · 추격 비권고)</span><span class="dc dn">손절 29,000원</span><span class="dc up">목표 60,300원</span><span class="dc">손익비 진입 1:3.47 · 현재가 1:0.04</span><span class="dc">기간 스윙 3~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14경 3Q26 분기보고서 · 로봇 양산수주 공시(날짜 미확정)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; -30억이면 폐기 / 종가 MA20(38,418) 하향이탈 시 이탈 / CB 추가발행·유증 공시 시 회피</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 삼현(437730)  ※개별주식선물 無(현물만·레버리지 불가) [실측: kis_futures_check 2026-09-21]</p>
+<p>📌 한줄 결론: 휴머노이드 액추에이터 &#x27;기대감 선반영&#x27; 테마주. 실적은 3개 분기 연속 적자·상반기 매출총이익까지 마이너스로 붕괴 중이라 밸류에이션 근거가 없음(적자·PBR 13.9배). 추세는 강하나 이격 극대(현재가 58,100 vs MA20 38,418, <span class="up">+51%</span>). 눌림 없이 추격 시 손익비 불리(1:0.6~0.8). 신규진입은 관망, 34,000~38,000원 눌림 확인 시에만 소액 단기 대응. 자체 산출 밸류 기반 목표가는 &#x27;실적 부재로 산출 불가&#x27;, 테마 모멘텀 상단 저항 76,900원(52주고).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 6.5% (거래대금 1221.4억 / 시총 18,707억) — 당일 자금유입 강도 상위권 [인용: trendscan 2026-09-21]. 당일 거래대금 실측 1,275.8억 [실측: KIS acml_tr_pbmn 2026-09-21]</li>
+<li>추세: MA정배열 O(MA5 51,770 &gt; MA20 38,418) / 연속상승 2일 / 5일 <span class="up">+45.3%</span> [실측: KIS 일봉 2026-09-21]</li>
+<li>현 위치: 52주밴드 21,375~76,900 중 58,100(하단대비 <span class="up">+172%</span>, 상단대비 <span class="down">-24%</span>). 최근20일 저 29,000 → 고 60,300으로 3주 만에 <span class="up">+108%</span> 수직 급등 = &#x27;초입&#x27;이 아니라 테마 재점화 2차 파동 고점권 [실측: KIS]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업[실측: 사업보고서 2025.12 접수 20260319000680]: 1988년 설립 자동차부품사. 모터·제어기·감속기를 통합한 &#x27;3-in-1 스마트 액추에이터&#x27; 제조. 제품별 매출(제38기/2025): 모빌리티 83%(CVVD 43%·DCT 22%·SBW 14% 등 자동차 전장), 방산 13%, 로봇/항공 4%</li>
+<li>즉 매출 절대비중은 여전히 자동차 부품. 로봇/항공은 4%(제38기 34.6억)에 불과 — 실체는 &#x27;자동차부품+방산&#x27; 회사이고 로봇은 프로토타입 단계</li>
+<li>급등사유[인용: 키움 2026-09-16 코멘트]: &quot;2035년 휴머노이드 출하량 상향 기대치가 외신을 통해 확산 → 국내 밸류체인 동반 급등. 제조사 양산계획 확정 전, 기대치 선반영 국면.&quot; 실체는 글로벌 로봇사향 액추에이터 &#x27;프로토타입 수주&#x27; 확보 [인용: 삼성증권 2026-06-17]. 양산 수주는 미확인</li>
+<li>팩트체크 결론: 급등은 &#x27;실적&#x27;이 아니라 &#x27;휴머노이드 TAM 상향 기대 + 3-in-1 양산레퍼런스 프리미엄&#x27;. 스펙인 이상 단계 고객사 6곳·수주논의 23곳 [인용: KB 2026-09-03]이나 양산 계약·매출 기여는 아직 0에 수렴</li>
+</ul>
+<p>③ 실적 (DART 실측 · 전부 연결 기준)</p>
+<ul>
+<li>연간 추세[실측: DART fnlttSinglAcntAll CFS]:</li>
+<li>제36기(2023): 매출 998.5억 / 영업익 98.0억 / OPM 9.8%</li>
+<li>제37기(2024): 매출 1,004.5억 / 영업익 55.2억 / OPM 5.5%</li>
+<li>제38기(2025): 매출 950.4억(YoY <span class="down">-5.4%</span>) / 영업익 8.05억(YoY <span class="down">-85.4%</span>) / OPM 0.85% / 순익 96.9억(※순익&gt;영업익은 법인세환입 -18.4억+금융/기타수익 등 일회성. 영업 실체 아님)</li>
+</ul>
+<p>→ 3년째 외형 정체 + 이익률 급락 추세</p>
+<ul>
+<li>분기 추세(제39기/2026, 연결)[실측: DART]:</li>
+<li>1Q26: 매출 187.6억(YoY <span class="down">-22.9%</span>) / 영업손실 -25.0억 / 순손실 -26.7억</li>
+<li>2Q26(단독): 매출 210.0억 / 영업손실 -53.9억 / 순손실 -70.2억</li>
+<li>상반기누적: 매출 397.6억(YoY <span class="down">-22.3%</span>) / 영업손실 -78.8억 / 순손실 -96.9억</li>
+<li>★매출총이익 상반기 -14.5억 (원가율 100% 초과) — 팔수록 손해 구간 진입</li>
+<li>순익 급감 분해[실측: DART]: 상반기 순손실 -96.9억 = 영업손실 -78.8억 + 금융/기타 일부 + 법인세수익 <span class="up">+25.1</span>억. 즉 일회성이 아니라 &#x27;영업 자체 붕괴&#x27;가 주원인. 적자의 질이 나쁨</li>
+<li>원인[인용: KB·삼성증권]: ①자동차부품 전방 부진(고객사 재고증가) ②로보틱스 인력 충원 인건비 ③제2공장(창원) 감가상각 ④해외법인 초기적자 ⑤R&amp;D 매출의 25% 수준 — 즉 &#x27;선제 증설 고정비&#x27;가 매출 감소기에 겹친 구조</li>
+<li>재무건전성[실측: DART 제39기 반기 연결]: 부채총계 288.7억/자본 1,155.8억 → 부채비율 25.0%(우량). 이자보상배율: 영업적자로 산출 불가(음수). 영업현금흐름 상반기 -33.8억(적자·현금 유출). CB 발행분 오버행 존재 [인용: 교보 2026-06-29 &quot;2025년 CB 발행&quot;]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: 전 기관 Not Rated·목표가 미제시 [실측: consensus.py 2026-09-21, 최근6개월 삼성·교보·KB·한투·키움 5건 전부 NR]. 정량 추정치(naver/fnguide) 미확인</li>
+<li>해석: 애널리스트조차 실적 예측을 포기하고 목표가를 안 내는 상태 = &#x27;밸류로 설명 불가, 테마·수주 이벤트로만 움직임&#x27;</li>
+<li>정성 전망[인용]: 2027년 4월까지 액추에이터 CAPA 50만개 목표(제2공장)[KB], 수주-매출 리드타임 4~6년, 2026 하반기부터 실적증분 시작 기대[교보], 2028년 외형 3배 목표[교보]. 단 전부 &#x27;양산 수주 확정&#x27; 전제</li>
+<li>달성가능성 판정: 로봇 양산매출 본격화 中(2028년 3배)은 양산계약 미확정으로 [低]. 2026 하반기 실적 반등은 상반기 총이익 적자 폭 감안 시 [低~中]. 방산 매출 성장(제38기 120억, YoY<span class="up">+43%</span>)은 실체 있어 [中]</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 실측[실측: KIS 2026-09-21]: 주가 58,100원 / PER 177.1배(EPS 328, 후행·일회성 순익 기준이라 무의미) / PBR 13.94배(BPS 4,168) / 시총 18,422억 / 상장주식 31,707,567주</li>
+<li>적정 목표가 자체산출: 영업적자로 PER·EV/EBITDA 산출 불가. PBR도 자산가치 대비 14배로 정상 밴드(자동차부품 1~2배·성장로봇 5~8배) 크게 초과</li>
+<li>[추정] 만약 로봇양산이 성공해 2028년 매출 3,000억·OPM 8% 가정 시 영업익 240억, 순익 ~190억, EPS ~6,000원. 성장 프리미엄 PER 30배 적용 시 이론가 ~180,000원(3년 후·양산성공 시나리오). 단 확률 낮고 3년 뒤 값</li>
+<li>[추정] 반대로 로봇 기대 소멸·자동차부품 정상화(영업익 55억 수준 복귀) 시 PER 20배 → 시총 1,100억 → 주가 ~35,000원. CB 희석 감안 시 더 낮음</li>
+<li>결론: 현 주가는 &#x27;2028 양산 대성공&#x27;을 이미 상당부분 선반영. 밸류 메리트 없음. 목표가는 실적기반 산출 불가 → 기술적 저항선(76,900원 52주고)만 상방 참고</li>
+</ul>
+<p>⑥ 진입전략·손익비 (손익비 = 상승여력÷하락리스크)</p>
+<ul>
+<li>지지/저항[실측: KIS]: 상단저항 60,300(최근20일고)→76,900(52주고). 하단지지 MA5 51,770 → MA20 38,418 → 최근20일저 29,000</li>
+<li>이평 위치: 현재가 58,100이 MA20(38,418)보다 <span class="up">+51%</span> 이격. 통계적으로 급락 눌림 대기 구간</li>
+<li>추격매수(58,100) 시나리오: 상방 목표 76,900(<span class="up">+32%</span>) / 하방 손절 MA5 51,770(<span class="down">-11%</span>) → 손익비 32/11 = 1:2.9로 보이나, <span class="up">+51%</span> 이격에 손절 <span class="down">-11%</span>는 노이즈(ATR 4,093=7%)에 쉽게 걸림. 실질 스윙손절은 MA20 38,418(<span class="down">-34%</span>)이라 손익비 32/34 = 1:0.9로 불리</li>
+<li>눌림매수(34,000~38,000) 시나리오: 상방 60,300(<span class="up">+62%</span> @36,000) / 하방 29,000(<span class="down">-19%</span>) → 손익비 1:3.2로 양호. 단 눌림이 올지는 미확인</li>
+<li>선물: 개별주식선물 미상장 [실측] → 레버리지 불가·현물만. 형의 개별주식선물 전략 부합도 낮음</li>
+<li>⚠️리스크경고: ①3분기 연속 영업적자+총이익 마이너스 = 펀더 공백 ②CB 오버행 ③테마 소멸 시 갭하락 위험 ④선물 없어 레버리지·헤지 불가. 50% 집중은 절대 부적합, 이벤트성 소액(자산 대비 ≤5%)만 고려</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC §9)</p>
+<ul>
+<li>제품구조[실측: 사업보고서 2025.12 / 반기 2026.06]: 매출 3축 = 모빌리티(자동차 전장, 82~83%)·방산(13%)·로봇/항공(3~4%)</li>
+<li>9-7 바텀업(제39기/2026 연간 추정, 물량×단가 상세는 &#x27;단가 비밀유지로 미공개&#x27;[실측: 사업보고서 &#x27;거래처 비밀유지&#x27;] → 사업부 매출 기준 추정):</li>
+</ul>
+<p>[모빌리티] 상반기 324.7억 → 연 ~650억 [추정: 반기×2]. 전방 자동차 부진으로 YoY <span class="down">-20%</span>대 지속 가정 [방산] 상반기 52.6억 → 연 ~110~130억 [추정]. YoY +성장 유지(실체 있음) [로봇/항공] 상반기 13.5억 → 연 ~30억 [추정]. 양산 전이라 미미 → 2026E 연매출 Bear 750억 / Base 800억 / Bull 880억 → 영업이익: 상반기 -78.8억 실측. 하반기 고정비 그대로+매출 소폭회복 가정 · Bear: 하반기도 적자지속 → 연 영업손실 -130억 · Base: 하반기 손실축소(-40억) → 연 영업손실 -119억 · Bull: 방산·로봇 수주로 하반기 BEP 근접 → 연 영업손실 -80억 → 3Q26·4Q26 배분[추정]: Base 시 3Q -25억 / 4Q -15억 (증설 감가상각 지속)</p>
+<ul>
+<li>민감도: 로봇 양산계약 1건(연 매출 500억+) 체결 시 밸류 리레이팅, 미체결 시 자동차부품 정상 밸류(주가 35,000원권)로 회귀</li>
+<li>★결론 문장: 3Q26 연결 영업이익 ≥ -10억(적자 급감·흑자 근접)이면 &#x27;실적 저점통과&#x27; 논지 유지. &lt; -30억(적자 지속·매출총이익 여전히 마이너스)이면 &#x27;테마만 남은 적자 확대&#x27; 논지로 매수 근거 폐기</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정):</li>
+<li>2026-11-14경: 제39기 3Q 분기보고서(3Q26 실적) — 저점통과 여부 확정 [실측: 전년 3Q보고서 2025-11-14 접수 패턴]</li>
+<li>상시: 글로벌 로봇사 액추에이터 &#x27;양산 수주&#x27; 공시(발생 시 최대 촉매, 날짜 미확정)</li>
+<li>반증 조건 3개(1개 이상 발생 시 논지 폐기·이탈):</li>
+</ul>
+<ol>
+<li>[분기 수치] 3Q26 연결 영업이익 &lt; -30억 (적자확대·총이익 마이너스 지속)</li>
+<li>[수급/기술] 종가가 MA20(38,418) 하향이탈 + 거래대금 급감 → 테마 소멸 신호</li>
+<li>[이벤트] 연내 로봇 양산 수주 공시 부재 + CB 추가발행/유증 공시(희석)</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스:</li>
+<li>양산수주 공시 → 급등, 76,900 돌파 시도(단 이미 상당 선반영)</li>
+<li>3Q 적자확대 → 급락, 38,000선 테스트</li>
+<li>휴머노이드 테마 전반 조정 → 밸류체인 동반 하락(고베타)</li>
+<li>확률가중 시나리오(합=100%):</li>
+<li>Bear 45%: 실적적자 지속+테마 냉각 → 35,000~40,000원 회귀</li>
+<li>Base 35%: 고이격 눌림 후 방산·수주기대 재료로 45,000~55,000 박스</li>
+<li>Bull 20%: 양산수주 현실화 → 70,000~90,000 재도전</li>
+</ul>
+<p>→ 기대값 ≈ 0.45×37,500 + 0.35×50,000 + 0.20×80,000 = 50,375원 (현재가 58,100 하회 → 현 시점 기대수익 마이너스)</p>
+<ul>
+<li>수급·유동성: 당일 거래대금 1,276억(ADV의 10% 이상 유입 확실)[실측: KIS]. 20일 순매수 주체 미확인. ADV 대비 유동성은 충분해 청산 리스크는 낮음</li>
+<li>포지션 사이징(자산 대비 %): 리스크예산·집중상한50%·이벤트전상한25% 중 최소값 적용 + 적자·선물부재 감안 하향. 신규 진입 시 자산 대비 ≤5% 권고. 추격은 비권고</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용 · 투자판단·책임은 본인</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>정량 컨센서스(증권사 매출·영업익·EPS 추정치·목표가): 전 기관 Not Rated로 미제시</li>
+<li>로봇 양산 수주 계약 체결 여부·금액: 미확인(프로토타입 단계까지만 확인)</li>
+<li>CB 발행 잔액·전환가·오버행 규모: &#x27;발행 사실&#x27;만 확인, 세부 미확인</li>
+<li>20일 투자주체별 순매수: 미확인</li>
+<li>제품별 단가·물량: 사업보고서 &#x27;거래처 비밀유지&#x27;로 비공개</li>
+<li>MA60: KIS 조회기간 데이터 부족으로 미산출</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>실측: DART fnlttSinglAcntAll(연결) — 사업보고서 2025.12(접수 20260319000680), 반기 2026.06(접수 20260814003171), 1Q 2026.03(접수 20260515002759), 2025.12 사업보고서·2025.09 분기</li>
+<li>실측: 사업의내용(dart_biz.py) — 제품별매출·원재료</li>
+<li>실측: KIS OpenAPI 시세·일봉 2026-09-21</li>
+<li>실측: kis_futures_check 2026-09-21(선물 미상장)</li>
+<li>인용: 키움 2026-09-16 / 한투 2026-09-07 / KB 2026-09-03 / 교보 2026-06-29 / 삼성 2026-06-17 (전부 Not Rated, consensus.py 수집)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합=연간: 제39기 1Q(187.6억)<span class="up">+2</span>Q(210.0억)=397.6억 = 상반기누적 실측 397.6억 ✓</li>
+<li>영업손실 1Q(-25.0)<span class="up">+2</span>Q(-53.9)=-78.9억 ≈ 누적 -78.8억 ✓(반올림)</li>
+<li>부채비율: 288.7/1,155.8 = 24.98% ✓</li>
+<li>시총: 58,100×31,707,567 = 18,422억 ✓</li>
+<li>손익비(눌림): (60,300-36,000)/(36,000-29,000)=24,300/7,000=3.47 → 1:3.2 표기(보수) ✓</li>
+<li>시나리오 확률합: 45<span class="up">+35</span><span class="up">+20</span>=100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-21 11:58 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 59,000원 (<span class="up">+17.8%</span>) · 시총 1.87조 · 5일 <span class="up">+45.3%</span> / 20일 <span class="up">+83.5%</span> / 60일 <span class="up">+67.9%</span></li>
+<li>MA5 51,930원 / MA20 38,458원 / MA60 35,919원 → MA20 이격 <span class="up">+53.4%</span> · MA60 이격 <span class="up">+64.3%</span></li>
+<li>52주 고 76,900원 / 저 21,375원 → 고점 대비 <span class="down">-23.3%</span> · 20일 고 59,000원 / 저 29,500원</li>
+<li>후행 PER 179.88 / PBR 14.16 (EPS 328원 · BPS 4,168원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 196.2억 (5일 537.1억)</li>
+<li>외국인 순매수 5일 -11.6억 / 20일 -69.1억 · 기관 5일 18.8억 / 20일 97.3억 · 개인 20일 -32.9억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 5.42% / 20일 평균 11.71% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 27.05% (09/01) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 60,300원 (<span class="up">+2.2%</span>) ÷ 하방 29,000원 (−50.8%) = <strong>1:0.04</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 50.8% = <strong>자산의 1.0%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.0%</strong></li>
+<li>유동성 참고: 20일 ADV 196.2억 · 1일 소화 한도는 ADV의 10%(19.62억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 50.8% · ATR14 3,525원 (손절폭/ATR 8.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 50.8% = ATR14 × 8.5배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 53,100원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.22</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-437730"></span>📋 결정카드 — 삼현(437730) 판정: 관망 선물: 無 현재가: 58,100원 진입: 34,000~38,000원 (눌림 확인 시에만 · 추격 비권고) 손절: 29,000원 (최근20일 저·눌림진입 기준) 목표: 1차 60,300원 (2차 76,900원) 손익비: 1:3.2 (눌림진입 기준 / 현재가 추격 시 1:0.9로 불리) 기간: 스윙 3~8주 촉매: 2026-11-14경 3Q26 분기보고서 · 로봇 양산수주 공시(날짜 미확정) 반증: 3Q26 연결 영업이익 &lt; -30억이면 폐기 / 종가 MA20(38,418) 하향이탈 시 이탈 / CB 추가발행·유증 공시 시 회피</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
