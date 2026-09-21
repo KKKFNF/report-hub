@@ -1,0 +1,259 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>뉴파워프라즈마(144960) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260921-160023-뉴파워프라즈마-144960.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.15</div><div class="tp-c"><b>결론 발췌</b> 반도체 플라즈마 본업 + 방산(스페이스프로)·UTG(도우인시스) 자회사 IPO 릴레이가 겹친 실적·모멘텀 동반주. 다만 오늘 +16.7% 급등으로 52주 신고가권 진입, 20일 수급은 외인·기관 순매도라 추격보다 눌림 대응. 판정 관심, 손익비 1:2.2(1차)·1:3.6(2차), 자체 목표가 13,000~15,000원. ━━━━━━━━━━━━━━━━ ① 포착 신호 — 자금유입·추세 • 회전율(당일): 6.58% [실측: KIS inquire-price·당일거래대금 345억÷시총 5,243억] • 당일거래대금 345억 vs 20일 평균 83.7억 → 약 4.1배 급증 [실측: KIS 일봉] • 당일거래량 300만주 vs 20일 평균 86…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>뉴파워프라즈마(144960)</h1>
+<div class="meta">📊 trend · 2026-09-21 16:00 · 코드 144960</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-21 16:00)</div><div class="kpi-v">12,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">5,243억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">61.54</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.7</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.15</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.65</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">13,360원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 11,000원(눌림) / 돌파형은 13,280 종가 확정 시</span><span class="dc dn">손절 9,900원</span><span class="dc up">목표 13,360원</span><span class="dc">손익비 진입 1:2.15 · 현재가 1:0.65</span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 실적(11월 중순 예상), 스페이스프로 상장예심 청구(연내)</div><div class="dc-l">🛑 반증: 3Q26 단분기 연결 영업이익 &lt; 150억이면 논지 폐기·비중 축소 / 종가 MA20(9,326) 하회 시 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 뉴파워프라즈마(144960)  ※개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 반도체 플라즈마 본업 + 방산(스페이스프로)·UTG(도우인시스) 자회사 IPO 릴레이가 겹친 실적·모멘텀 동반주. 다만 오늘 <span class="up">+16.7%</span> 급등으로 52주 신고가권 진입, 20일 수급은 외인·기관 순매도라 추격보다 눌림 대응. 판정 관심, 손익비 1:2.2(1차)·1:3.6(2차), 자체 목표가 13,000~15,000원.</p>
+<hr>
+<p>① 포착 신호 — 자금유입·추세</p>
+<ul>
+<li>회전율(당일): 6.58% [실측: KIS inquire-price·당일거래대금 345억÷시총 5,243억]</li>
+<li>당일거래대금 345억 vs 20일 평균 83.7억 → 약 4.1배 급증 [실측: KIS 일봉]</li>
+<li>당일거래량 300만주 vs 20일 평균 86.6만주 → 3.5배 [실측: KIS]</li>
+<li>등락: <span class="up">+16.73%</span>(1,720원↑), 종가 12,000원 [실측: KIS prdy_ctrt]</li>
+<li>추세: MA5 9,960 / MA20 9,326 / MA60 9,511 [실측: KIS 일봉 계산]</li>
+<li>현재가(12,000)가 세 이평선 모두 위 → 강세. 단 MA20&lt;MA60(단기 급반등 국면, 완전정배열 직전)</li>
+<li>연속상승 5거래일, 5일수익률 <span class="up">+38.7%</span>, 20일 <span class="up">+25.1%</span>, 60일 <span class="up">+68.5%</span> [실측: KIS]</li>
+<li>현 위치: 52주 고가 13,280 / 저가 4,710 [실측] → 신고가 대비 <span class="down">-9.6%</span>, 저가 대비 <span class="up">+155%</span>. 상단 근접 → 추격 시 되돌림 리스크 큼.</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력: 반도체·디스플레이 박막/식각 공정용 플라즈마 핵심부품(RPG=Remote Plasma Generator, RF Power, PPS) 국내 1위·글로벌 과점(점유율 ~10%) [인용: IBK투자증권 2026-07-23, 스탁이지]</li>
+<li>사업 포트폴리오 3축(연결) [실측: 사업보고서 2025.12, 접수 20260323001403]:</li>
+<li>방산부문 등(자회사 스페이스프로/옛 한국화이바): FY25 2,825억(연결매출 49%)</li>
+<li>UTG(자회사 도우인시스, 폴더블폰 초박막유리): FY25 1,398억(24%)</li>
+<li>Cleaning System(RPG 본업): FY25 1,138억(20%)</li>
+<li>RF System 141억 / 기타 277억</li>
+<li>급등사유(검증된 사실 vs 기대감 구분):</li>
+</ul>
+<p>[사실] ①1H2026 실적 폭발 — 2Q26 단분기 매출 2,088억·영업익 273억(반기 누적 영업익 408억, 이미 FY25 연간 287억 초과) [실측: 반기보고서 2026.06, 접수 20260814001986] [사실] ②자회사 도우인시스 상장 완료 — 2026-09-18 대량보유 공시(NP 등 특수관계 지분 47.91%) [인용: 머니터링 2026-09-18, thebell] [기대] ③2호 자회사 스페이스프로(방산) 연내 상장예심 청구 예정 → 지주사 리레이팅 기대 [인용: thebell 2026-08-11] [기대] ④미국 반도체 CapEx(TSMC·인텔·삼성 P4·SK M15X) 수혜, 해외비중 1Q26 63.3%로 확대 [인용: 한국IR협의회 2026-08-11] → 오늘 급등은 자회사 IPO 릴레이 기대 + 실적 확인 + 외인 당일 대량순매수(<span class="up">+60.3</span>만주)의 복합. 단발 뉴스보다 스토리 누적형.</p>
+<p>③ 실적 (DART 실측·연결 CFS)</p>
+<ul>
+<li>연간(매출/영업익/OPM/순익) [실측: 각 사업보고서]:</li>
+<li>FY23: 3,507억 / 161억 / 4.6% / 163억</li>
+<li>FY24: 5,198억 / 261억 / 5.0% / 223억</li>
+<li>FY25: 5,780억 / 287억 / 5.0% / 76억  ← 매출·영업익 성장 지속하나 순익 급감</li>
+<li>★순익 급감 분해(FY25 순익 76억, 영업익 287억): 영업은 오히려 개선. 순익 급감은 영업 외 요인(자회사 소수주주 귀속·금융비용·일회성) 성격이 강함 → &#x27;영업악화 아님&#x27;. 단 [실측 세부: 미확인]으로 남김(순익 감소 정확한 브릿지 계정 미확보).</li>
+<li>분기 추이(단분기, 연결) [실측: DART 분기·반기·사업보고서]:</li>
+<li>2025 1Q 1,082억/34억 · 2Q 1,633억/122억 · 3Q 1,514억/60억 · 4Q 1,551억/71억(역산)</li>
+<li>2026 1Q 1,485억/135억(YoY 영업익 <span class="up">+293%</span>) · 2Q 2,088억/273억</li>
+</ul>
+<p>→ 2026 들어 매출·이익 레벨 급점프. 1H26 영업익 408억으로 반기 만에 FY25 연간 초과. 실적 모멘텀은 명확한 사실.</p>
+<ul>
+<li>재무건전성(2026 반기, 연결) [실측: 반기보고서 20260814001986]:</li>
+<li>자산 10,482억 / 자본 4,866억 / 부채 5,616억 → 부채비율 약 115%. 자회사 편입·CB/EB 등으로 부채 증가(FY23 143%→FY24 148% 수준과 유사 레인지). 과도하진 않으나 무차입 우량주는 아님.</li>
+<li>현금흐름: [실측 세부: 미확인] (본 리포트에서 CF표 미수집)</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>FY26E 컨센(fnguide): 매출 7,059억 / 영업익 692억 / 순익 534억 / EPS 1,005원 / PER 10.2 / ROE 14.2% [인용: consensus.py 2026-09-21]</li>
+<li>FY27E: 매출 8,068 / 영업익 820 / EPS 1,133  · FY28E: 매출 9,158 / 영업익 921 / EPS 1,353</li>
+<li>증권사 목표가·의견 [인용: 각 리포트]:</li>
+<li>IBK투자증권 2026-07-23 Buy·목표 15,000원(신규 커버) — FY26 영업익 729억, EPS 1,211×PER 12.5x</li>
+<li>한국IR협의회 2026-08-11 NR — FY26 매출 7,055·영업익 682억(<span class="up">+137.8%</span>)</li>
+<li>키움 2026-07-16 NR — 매출 6,733·영업익 679억</li>
+<li>신한 2026-07-06 NR — 영업익 649억(<span class="up">+126%</span>), 26F PER 8배 저평가</li>
+<li>달성가능성 판단: 高. 근거 — 1H26 영업익 408억 이미 확보(연 692억 대비 진척 59%), 2Q 가속 추세, 4개 증권사 영업익 전망 649~729억으로 수렴. 반기 기준 하반기 284억만 내면 컨센 달성. 리스크는 반도체 수주 계절성·자회사 인식 변동.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 [실측: KIS]: 주가 12,000원 / PER 61.5(TTM 순익 저조 왜곡) / PBR 1.70 / EPS(TTM) 195 / BPS 7,057</li>
+<li>TTM PER는 FY25 순익 일회성 급감 탓에 무의미. 반드시 fwd 기준으로 볼 것.</li>
+<li>Fwd 기준: 12,000 ÷ EPS 1,005(FY26E) = fwd PER 11.9배 [추정: 산식 현재가÷컨센EPS]</li>
+<li>자체 목표가 [추정: 산식]:</li>
+<li>EPS 1,005 × PER 12.5x = 12,562원 (보수)</li>
+<li>EPS 1,005 × PER 13x = 13,065원 (1차 타깃 근거)</li>
+<li>EPS 1,005 × PER 14~15x = 14,070~15,075원 (자회사 IPO 프리미엄 반영 시)</li>
+<li>IBK식(EPS 1,211×12.5) = 15,138원 ≈ 증권사 목표 15,000원과 일치</li>
+<li>결론: Base 목표 13,000원(PER 13x), 리레이팅 시 15,000원. 증권사 컨센 목표 15,000원 병기. 현재가는 fwd 11.9배로 peer 반도체 부품주 대비 과열은 아니나, 이미 신고가권이라 밸류 매력은 &#x27;중립&#x27;.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (※선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: MA5 9,960 / MA20 9,326 / 직전 박스 상단 9,500 [실측: KIS]</li>
+<li>저항: 52주 고가 13,280 / 상한가 13,360 / 심리 15,000(컨센 목표)</li>
+<li>현물 스윙 3라인(추격 아닌 눌림 대응 권장):</li>
+<li>진입: 11,000원 부근(오늘 급등봉 되돌림 대기·MA5 회귀 구간). 돌파추종형이면 13,280(신고가) 종가 확정 시 분할.</li>
+<li>손절: 9,900원(MA20 이탈·직전 지지 붕괴, 진입가 대비 <span class="down">-10.0%</span>)</li>
+<li>익절: 1차 13,360원(전고·상한가 부근), 2차 15,000원(컨센 목표)</li>
+<li>손익비 [추정: 산식 (목표−진입)÷(진입−손절)]:</li>
+<li>1차: (13,360−11,000)÷(11,000−9,900) = 1:2.15</li>
+<li>2차: (15,000−11,000)÷1,100 = 1:3.64</li>
+</ul>
+<p>→ 눌림 진입 기준 손익비 양호. 단 오늘 종가 12,000 추격 시 손절폭 확대로 손익비 급락하므로 추격 비권장.</p>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만):</li>
+<li>2026-11월 중순 예상 3Q26 분기보고서(법정기한 11/14) [추정: 법정기한, 정확일 미확인]</li>
+<li>스페이스프로 상장예심 청구 &#x27;연내&#x27; 예정 — 날짜 미확정 [인용: thebell]</li>
+<li>반증조건 3개(수치→행동):</li>
+</ul>
+<p>1) [분기 영업이익 임계] 3Q26 단분기 연결 영업이익 &lt; 150억이면(2Q 273억 대비 급감·모멘텀 훼손) → 논지 약화, 비중 절반 축소. ≥ 200억이면 논지 유지·추가. 2) 종가가 MA20(9,326) 하회 마감 → 추세 이탈, 전량 손절. 3) 스페이스프로 상장 철회/무기연기 공시 → IPO 프리미엄 소멸, 관심 하향.</p>
+<ul>
+<li>이벤트 매트릭스:</li>
+<li>3Q 어닝 서프라이즈(영업익≥200억): 재차 신고가 시도 → 15,000 목표 유지</li>
+<li>3Q 미스(&lt;150억): 9,300~9,900 지지 테스트, 손절 규칙 발동</li>
+<li>스페이스프로 상장 확정 뉴스: 단기 오버슈팅 가능 → 익절 분할 대응</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bull 30%: 3Q 서프라이즈+스페이스프로 상장 가시화 → 15,000원(<span class="up">+25%</span>)</li>
+<li>Base 45%: 컨센 부합·모멘텀 유지 → 13,000원(<span class="up">+8%</span>)</li>
+<li>Bear 25%: 급등 되돌림·수급 이탈 → 9,300원(−22.5%)</li>
+<li>기대값 ≈ 12,600원(현재가 대비 <span class="up">+5%</span>). 눌림 진입(11,000) 기준이라야 기대수익 유의미.</li>
+<li>수급·유동성: 20일 누적 외국인 −13.3만주 / 기관 −59.2만주 순매도 [실측: KIS inquire-investor] → ★추세 상승에도 큰손은 순매도, 오늘 외인 <span class="up">+60.3</span>만주는 단발성일 수 있음(경계). ADV(20일 평균거래대금) 83.7억 → 유동성 충분, ADV 10% 이내 분할 매매 무리 없음.</li>
+<li>포지션 사이징(자산 대비 %로만): 리스크예산 손실 1% ÷ 손절폭 10% = 비중 10% / 집중상한 50% / 이벤트(3Q 실적)전 25% → 셋 중 최소인 10% 상한 권장. 신고가권·수급 부담 고려 시 실제로는 5~7%가 합리.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC.md §9)</p>
+<ul>
+<li>제품별 매출·단가 [실측: dart_biz.py, 사업보고서 20260323001403 / 반기 20260814001986]:</li>
+<li>Cleaning System(RPG): FY25 1,138억, 단가 내수 21,456천원/외 21,687천원. 1H26 474억(연 환산 ~948억, 다소 둔화).</li>
+<li>방산부문(스페이스프로): FY25 2,825억, 1H26 1,642억(연 환산 ~3,284억, <span class="up">+16%</span> 성장) — 최대 사업.</li>
+<li>UTG(도우인시스): FY25 1,398억, 1H26 857억(연 환산 ~1,714억, <span class="up">+23%</span>) — 폴더블 회복 수혜.</li>
+<li>RF System: FY25 141억, 1H26 41억(연 환산 ~82억, 둔화).</li>
+<li>물량×단가×점유율 → 영업이익 브릿지:</li>
+<li>반도체(RPG+RF): 미국 장비사(AMAT 등)향 확대·해외비중 63.3%, 글로벌 점유율 ~10% [인용: IBK/IR협의회]. 교체수요(리커링)로 안정.</li>
+<li>방산: 우주항공·복합소재 수요, 한국 방산수출 2025 154억달러→2026 270억달러 전망 [인용: 한국IR협의회 PDF]. 스페이스프로 IPO가 별도 밸류 촉매.</li>
+<li>UTG: 폴더블폰 시장 회복·고객사 외판 확대.</li>
+<li>Bear/Base/Bull(FY26 연결 영업이익):</li>
+<li>Bear 550억(반도체 수주 둔화·자회사 마진 압박)</li>
+<li>Base 690억(컨센 부합, 1H 408억×하반기 정상화)</li>
+<li>Bull 750억(3Q 가속+방산 호조)</li>
+<li>★기계적 규칙: 3Q26 연결 영업이익 ≥ 200억이면 논지 유지·추가매수(연 700억 궤도), &lt; 150억이면 모멘텀 훼손으로 논지 폐기·비중 축소. (2Q 실적 273억 기준선)</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>FY25 순익 급감(76억)의 정확한 회계 브릿지(소수주주·금융비용·일회성 세부)</li>
+<li>현금흐름표(영업/투자/재무 CF) 수치</li>
+<li>원재료 매입액·매입처 비중(사업보고서 미기재)</li>
+<li>스페이스프로 상장 확정일, 3Q26 실적 발표 확정일</li>
+<li>도우인시스·스페이스프로 개별 순이익 기여분(소수주주 귀속 분해)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI: 현재가·일봉·투자자동향(2026-09-21 실측)</li>
+<li>DART: 사업보고서 2025.12(20260323001403), 반기보고서 2026.06(20260814001986), 각 분기·연간 fnlttSinglAcntAll</li>
+<li>consensus.py 2026-09-21(fnguide·naver·hankyung·stockeasy)</li>
+<li>리포트: IBK투자증권 2026-07-23(Buy 15,000), 한국IR협의회 2026-08-11, 키움 2026-07-16, 신한 2026-07-06</li>
+<li>thebell 2026-08-11/09-02, 머니터링 2026-09-18(도우인시스 대량보유)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합=연간: 2025 단분기 매출 1,082<span class="up">+1,633</span><span class="up">+1,514</span><span class="up">+1,551</span>=5,780억 ✓ = FY25 연간 5,780억</li>
+<li>2025 단분기 영업익 34<span class="up">+122</span><span class="up">+60</span><span class="up">+71</span>=287억 ✓ = FY25 연간 287억</li>
+<li>1H26 영업익: 1Q 135<span class="up">+2</span>Q 273=408억 ✓ = 반기 누적 408억</li>
+<li>회전율: 345억÷5,243억=6.58% ✓</li>
+<li>손익비 산식(진입11,000·손절9,900): 1차 2,360÷1,100=2.15 ✓ / 2차 4,000÷1,100=3.64 ✓</li>
+<li>시나리오 확률합: 30<span class="up">+45</span><span class="up">+25</span>=100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-21 16:00 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 12,000원 (<span class="up">+16.7%</span>) · 시총 5,243억 · 5일 <span class="up">+38.7%</span> / 20일 <span class="up">+25.1%</span> / 60일 <span class="up">+68.5%</span></li>
+<li>MA5 9,960원 / MA20 9,326원 / MA60 9,511원 → MA20 이격 <span class="up">+28.7%</span> · MA60 이격 <span class="up">+26.2%</span></li>
+<li>52주 고 13,280원 / 저 4,710원 → 고점 대비 <span class="down">-9.6%</span> · 20일 고 12,000원 / 저 8,550원</li>
+<li>후행 PER 61.54 / PBR 1.7 (EPS 195원 · BPS 7,057원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 83.7억 (5일 131.8억)</li>
+<li>외국인 순매수 5일 82.8억 / 20일 0.8억 · 기관 5일 6.8억 / 20일 -50.3억 · 개인 20일 75.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.83% (공매도 24,870주 · 2.8억) · 5일 평균 1.94% / 20일 평균 5.25% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 17.54% (09/03) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 13,360원 (<span class="up">+11.3%</span>) ÷ 하방 9,900원 (−17.5%) = <strong>1:0.65</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 17.5% = <strong>자산의 2.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.9%</strong></li>
+<li>유동성 참고: 20일 ADV 83.7억 · 1일 소화 한도는 ADV의 10%(8.37억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 17.5% · ATR14 572원 (손절폭/ATR 3.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 17.5% = ATR14 × 3.7배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 10,855원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.19</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-144960"></span>📋 결정카드 — 뉴파워프라즈마(144960) 판정: 관심 선물: 無 현재가: 12,000원 진입: 11,000원(눌림) / 돌파형은 13,280 종가 확정 시 손절: 9,900원 목표: 1차 13,360원 (2차 15,000원) 손익비: 1:2.2 기간: 스윙 4~10주 촉매: 3Q26 실적(11월 중순 예상), 스페이스프로 상장예심 청구(연내) 반증: 3Q26 단분기 연결 영업이익 &lt; 150억이면 논지 폐기·비중 축소 / 종가 MA20(9,326) 하회 시 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
