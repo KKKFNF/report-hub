@@ -1,0 +1,250 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SFA반도체(036540) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260921-101717-SFA반도체-036540.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3</div><div class="tp-c"><b>결론 발췌</b> 삼성 DDR5 후공정 외주화 수혜의 정면 플레이어. 4Q26 흑자전환·2027 사상최대 실적이라는 강력한 서사가 주가를 이미 52주 신고가권(+186%)까지 끌어올려, 실적은 아직 적자인 &#x27;기대 선반영&#x27; 구간. 손익비 1:1.5, 1차 목표가 12,000원(컨센 상단). ━━━━━━━━━━━━━━ ① 포착 신호 - 현재가 10,700원 [실측:KIS 20260921], 전일대비 +18.63% [실측:KIS prdy_ctrt], 당일 거래대금 1,197억 [실측:KIS acml_tr_pbmn 119,751,652,970] - 시가총액 1조7,597억 [실측:KIS hts_avls], 상장주식 164,460,303주 [실측:KIS lstn_…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>SFA반도체(036540)</h1>
+<div class="meta">📊 trend · 2026-09-21 10:17 · 코드 036540</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-21 10:17)</div><div class="kpi-v">10,610원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.7조</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">3.68</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.63</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">12,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 9,200~9,400원 (MA5 눌림 대기)</span><span class="dc dn">손절 8,400원</span><span class="dc up">목표 12,000원</span><span class="dc">손익비 진입 1:3 · 현재가 1:0.63</span><span class="dc">기간 스윙 6~12주 (4Q26 흑전 확인까지)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 4Q26 흑자전환(10~12월), 3Q26 실적발표(10월말~11월초 예상)</div><div class="dc-l">🛑 반증: 3Q26 영업손실 -100억 이하 악화 → 축소 / 4Q26 흑전 실패 → 청산 / 삼성 외주화 이관 지연 뉴스 → 전량 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — SFA반도체(036540) ※선물 有</p>
+<p>📌 한줄 결론: 삼성 DDR5 후공정 외주화 수혜의 정면 플레이어. 4Q26 흑자전환·2027 사상최대 실적이라는 강력한 서사가 주가를 이미 52주 신고가권(<span class="up">+186%</span>)까지 끌어올려, 실적은 아직 적자인 &#x27;기대 선반영&#x27; 구간. 손익비 1:1.5, 1차 목표가 12,000원(컨센 상단).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>현재가 10,700원 [실측:KIS 20260921], 전일대비 <span class="up">+18.63%</span> [실측:KIS prdy_ctrt], 당일 거래대금 1,197억 [실측:KIS acml_tr_pbmn 119,751,652,970]</li>
+<li>시가총액 1조7,597억 [실측:KIS hts_avls], 상장주식 164,460,303주 [실측:KIS lstn_stcn]</li>
+<li>회전율(거래대금÷시총) = 1,197.5억 ÷ 17,597억 = 6.8% [추정:산식] → 하루에 시총 6.8%가 손바뀜, 과열권</li>
+<li>이동평균 완전 정배열: 현재가 10,700 &gt; MA5 9,194 &gt; MA20 6,890 [실측:KIS 일봉 20260701~0921 종가평균]</li>
+<li>추세: 9/4 종가 5,610 → 9/21 10,700, 약 12거래일 <span class="up">+91%</span> [실측:KIS 일봉]. 52주 최저 3,735 → 최고 11,640, 현재 신고가 <span class="down">-8%</span> 위치 [실측:KIS w52]</li>
+<li>판단: 상승추세는 명백히 살아있으나, 이미 급등의 &#x27;중반~후반&#x27;. 눌림 없는 추격은 회전율 6.8% 과열이 부담</li>
+</ul>
+<p>② 사업·급등사유 (사실 vs 기대)</p>
+<ul>
+<li>사업: 반도체 후공정(패키징·파이널테스트) 전문 OSAT. 최대고객 삼성전자, 그 외 Micron·IDT [실측:DART 반기보고서 20260812000313]</li>
+<li>매출구성(2026 반기 연결): 메모리 83.3%(1,946억) / 비메모리 16.5%(385억) [실측:DART 반기 접수 20260812000313] → 메모리 편중이 곧 삼성 DDR5 사이클에 직결</li>
+<li>【사실】 삼성전자가 온양공장을 AI/HBM 첨단패키징 전용으로 재배치 → 범용 DDR5 조립·테스트를 외주로 이관 中 [인용:iM증권 2026-09-21, SK증권 2026-09-01, stockeasy]</li>
+<li>【사실】 필리핀 법인 DDR5 파이널테스트 CAPA: 4Q26 월 100억 → 2027 2Q말 월 200억으로 증설 [인용:iM증권 2026-09-21]</li>
+<li>【기대】 한국 1공장 내년 DDR5 패키징 매출 <span class="up">+1,100</span>~1,200억 증분 [인용:iM증권 2026-09-21 &quot;1,100억 이상&quot;, SK증권 2026-09-01 &quot;1,200억 상회&quot;] → 아직 계약·물량 미확정, 전망치</li>
+<li>【기대】 이관 장비가 고객사 &#x27;무상 임대(컨사인)&#x27; 형식 → CAPEX·감가비 부담 급감, 이익 레버리지 극대화 [인용:SK증권 2026-09-01]</li>
+<li>요약: 급등의 뿌리는 &#x27;삼성 외주화 = 물량 이관&#x27;이라는 사실 + &#x27;2027 사상최대&#x27;라는 기대. 물량은 이미 감지됐으나 실적 숫자로는 아직 미현실화(2026 반기까지 적자)</li>
+</ul>
+<p>③ 실적 (DART 실측·연결기준 CFS)</p>
+<ul>
+<li>3개년 매출/영업이익/OPM:</li>
+</ul>
+<p>· 2022: 매출 6,994억 / 영업이익 <span class="up">+629</span>억 / OPM <span class="up">+9.0%</span> [실측:DART 11011] · 2023: 매출 4,376억 / 영업이익 -167억 / 적자전환 [실측:DART 11011] · 2024: 매출 4,005억 / 영업이익 -0.003억(사실상 BEP) [실측:DART 11011] · 2025: 매출 3,674억 / 영업이익 -196억 [실측:DART 사업보고서 20260323000826]</p>
+<ul>
+<li>최근 분기(2026 연결):</li>
+</ul>
+<p>· 1Q26: 매출 1,073억 / 영업손실 -62억 [실측:DART 11013] · 2Q26: 매출 1,263억 / 영업손실 -62억 [실측:DART 반기 11012, 반기누적 매출 2,336억·OP -123억에서 1Q 차감] · 매출은 QoQ <span class="up">+17.6%</span> 회복세이나 영업손익은 여전히 적자 [추정:분기산식]</p>
+<ul>
+<li>재무 안정성(2026 반기): 자본총계 4,799억 / 부채총계 979억 → 부채비율 20.4% [실측:DART 반기 20260812000313] → 매우 낮음, 적자에도 재무 위험 낮음</li>
+<li>현금흐름: 2024 영업CF <span class="up">+531</span>억(투자 -169·재무 -208) / 2025 영업CF <span class="up">+55</span>억(투자 -137·재무 -642) [실측:DART 11011] → 적자에도 영업현금은 (+)유지, 재무활동으로 차입상환 中</li>
+<li>핵심: 2022 정점(매출 7천억·OP 629억) 대비 매출 반토막, 3년 연속 적자. 지금 주가는 &#x27;과거 실적&#x27;이 아니라 &#x27;2027 회복&#x27;을 사고 있음</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 목표가: 한국투자 12,000원(매수, 9/14 상향) / BNK 12,000원(매수, 4/27) [인용:consensus.py 20260921] · 평균 12,000원(2건) · 외부집계 naver 10,500 / fnguide 10,500</li>
+<li>투자의견 최근6M: NR 3 / Buy 2 [인용:consensus.py] → NR(Not Rated)가 많다 = 커버 초기, 목표가 확정 소수</li>
+<li>연간 컨센(fnguide+naver):</li>
+</ul>
+<p>· FY26E 매출 5,581억 / 영업이익 -49억 / EPS -2 [인용:consensus.py] · FY27E 매출 8,010억 / 영업이익 <span class="up">+780</span>억 / 순이익 602억 / EPS 366 / PER 24.6 / ROE 12.0% [인용:consensus.py] · FY28E 매출 8,705억 / 영업이익 <span class="up">+780</span>억 / EPS 374 [인용:consensus.py]</p>
+<ul>
+<li>분기 컨센: 2026Q3 매출 1,479억·영업이익 -31억(naver) / 2026Q4 매출 1,823억·순이익 <span class="up">+76</span>억(wisereport) [인용:consensus.py] → 흑자전환 시점 4Q26으로 컨센 집중</li>
+<li>하나증권(8/11): 2027 매출 7,580억·영업이익 834억 사상최대, DDR5 테스트 전량 확보로 테스트매출 356억(25)→1,692억(27) [인용:하나증권 2026-08-11 stockeasy]</li>
+<li>달성가능성: 【中】. 2026 매출 컨센 5,581억은 반기 실적 2,336억 대비 하반기 급가속 전제(3Q 1,479<span class="up">+4</span>Q 1,823 = 하반기 3,302억). 물량 이관은 확인됐으나 램프업 속도·단가가 변수</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 지표: PER 적자(-92) [실측:KIS], PBR 3.71배 [실측:KIS], BPS 2,884원 [실측:KIS], EPS -116원 [실측:KIS]</li>
+<li>적자 국면이라 PER 무의미 → 2027E EPS 기반 forward 밸류로 접근</li>
+<li>목표가 산식(2027E EPS 366원 기준):</li>
+</ul>
+<p>· Bear: EPS 366 × 22배 = 8,050원 [추정] · Base: EPS 366 × 30배 = 10,980원 [추정] (컨센 PER 24.6 + 사상최대 성장 프리미엄) · Bull: EPS 366 × 33배 = 12,080원 [추정] ≈ 증권사 목표가 상단 12,000원</p>
+<ul>
+<li>PBR 관점: 현재 3.71배는 OSAT 흑자기업 평균(1.5~2.5배) 대비 이미 높음 → 밸류 부담은 &#x27;흑자전환 성공&#x27;을 전제로 해소되는 구조</li>
+<li>1차 목표 12,000원(컨센 상단·Bull), 그 이상은 2027 실적 가시성 확인 후 재평가</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 有 = 레버리지 가능)</p>
+<ul>
+<li>지지: MA5 9,194 / 심리·직전박스 상단 8,900~9,000 / MA20 6,890 [실측:KIS]</li>
+<li>저항: 52주 최고 11,640 [실측:KIS], 상한가 근접일 갭 구간</li>
+<li>현재가 10,700은 52주 최고 <span class="down">-8%</span>, MA5 대비 <span class="up">+16%</span> 이격 → 단기 과열</li>
+<li>레버리지 3라인(선물, 자산대비 % 기준):</li>
+</ul>
+<p>· 공격(추격): 10,700 진입 / 손절 9,150(MA5 이탈) / 목표 12,000 → 상승 <span class="up">+1,300</span> vs 하락 -1,550 → 손익비 1:0.84 (불리, 비권장) · 균형(눌림 대기): 9,200~9,400 진입 / 손절 8,400(직전지지 이탈) / 목표 12,000 → 상승 <span class="up">+2,700</span> vs 하락 -900 → 손익비 1:3.0 (양호) · 보수(깊은 눌림): 8,000~8,300 진입 / 손절 6,850(MA20 이탈) / 목표 11,000 → 상승 <span class="up">+2,800</span> vs 하락 -1,300 → 손익비 1:2.15</p>
+<ul>
+<li>대표 손익비(균형라인 기준): 상승여력 <span class="up">+1,300</span>원(현재가→목표) ÷ 하락리스크 -1,550(현재가→공격손절)이 아닌, 실행 권장인 균형라인 1:3.0. 헤더에는 추격 부담을 반영해 1:1.5로 보수 표기</li>
+<li>결론: 지금 추격은 손익비 열위. MA5(9,200) 눌림 확인 후 분할 진입이 정석</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트</p>
+<ul>
+<li>촉매 캘린더:</li>
+</ul>
+<p>· 4Q26(10~12월): DDR5 외주화 물량 본격 인식·흑자전환 첫 분기 [인용:SK/하나/naver 컨센 4Q26 흑전] · 3Q26 실적발표(10월말~11월초 예상, 미확인): 3Q 영업손익이 흑자전환 신호탄인지 판가름 [추정] · 2027 상반기: 필리핀 CAPA 월 200억 도달, 한국1공장 DDR5 패키징 매출 인식 [인용:iM증권 9/21]</p>
+<ul>
+<li>반증 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>3Q26 영업이익이 컨센(-31억)보다 크게 악화되어 -100억 이하 → 흑전 지연 신호, 포지션 축소 [실측근거:분기OP]</li>
+<li>4Q26 흑자전환 실패(영업손실 지속) → 서사 훼손, 손절 원칙 준수</li>
+<li>삼성 외주화 물량 이관 지연·축소 뉴스 → 급등 근거 소멸, 전량 청산</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스:</li>
+</ul>
+<p>· [흑전 확인 + 물량 가시화] → 12,000 돌파·재평가 (Bull) · [매출은 늘되 적자 지속] → 6,900~9,200 박스 회귀 (Base) · [외주화 지연] → 6,890(MA20) 하향 이탈, 5,600까지 조정 (Bear)</p>
+<ul>
+<li>확률가중 시나리오(합 100%):</li>
+</ul>
+<p>· Bear 30%: 3Q 적자 심화·흑전 지연 → 목표 8,050원 (현재가 <span class="down">-25%</span>) · Base 50%: 4Q 흑전·2027 램프업 순항 → 목표 10,980원 (현재가 <span class="up">+2.6%</span>) · Bull 20%: 물량 조기 가시화·2027 사상최대 확정 → 목표 12,080원 (현재가 <span class="up">+13%</span>) · 기대값 = 8,050×0.3 + 10,980×0.5 + 12,080×0.2 = 2,415 + 5,490 + 2,416 = 10,321원 → 현재가 10,700 대비 <span class="down">-3.5%</span> [추정]</p>
+<ul>
+<li>수급·유동성: 일 거래대금 1,197억·회전율 6.8%로 유동성 충분, 선물 상장(근월물 AF2610)으로 레버리지·헤지 모두 가능 [실측:마스터파일]</li>
+<li>포지션 사이징: 적자 + 신고가 과열 + 기대선반영 → 초기 진입은 집중한도(자산 50%)의 절반 이하 권장, 눌림 분할로 평단 관리 [추정:리스크]</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델</p>
+<ul>
+<li>제품별 단가 추이(연결, 원): 메모리 704(26기)→780(27기)→1,329(28기·2025) [실측:DART 사업보고서 20260323000826] → 단가 상승 = DDR5 고부가 믹스 개선. 단, 2026 2분기 메모리 단가 862원으로 하락은 저가물량 일시 확대 [실측:DART 반기 20260812000313]</li>
+<li>물량×단가×점유율 프레임(2027 테스트+패키징 증분 중심):</li>
+</ul>
+<p>· 테스트 매출: 2025 356억 → 2027 1,692억(하나증권 추정) [인용:하나증권 8/11] · 한국1공장 DDR5 패키징 증분: <span class="up">+1,100</span>~1,200억 [인용:iM/SK] · 필리핀 테스트 CAPA: 월 100억(4Q26)→200억(2027)→300억(2028) [인용:iM/SK]</p>
+<ul>
+<li>2027 영업이익 Bear/Base/Bull:</li>
+</ul>
+<p>· Bear: 매출 6,500억 · OPM 6% → OP 390억 [추정] · Base: 매출 8,010억 · OPM 9.7% → OP 780억 [추정:컨센] · Bull: 매출 8,705억 · OPM 9.6% → OP 834억 [추정:하나증권]</p>
+<ul>
+<li>결론문장: &quot;2026 3Q 영업손실이 컨센 -31억 수준(또는 그 이상 개선)을 유지하며 4Q26 흑자전환 궤도를 지키면 서사 유효. 3Q 영업손실이 -100억 이하로 악화되거나 4Q 흑전 실패 시 2027 사상최대(OP 780억) 스토리 폐기.&quot;</li>
+</ul>
+<p>⚠️ 리서치 참고용. 투자판단·손실 책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>3Q26 정확한 실적발표일(10월말~11월초 추정, DART 잠정공시 미확인)</li>
+<li>FY26 당기순이익 실측(DART 손익에서 순이익 항목 미출력, 컨센 EPS로 대체)</li>
+<li>삼성 외주화 물량의 확정 계약규모·단가(전망치만 존재)</li>
+<li>외국인·기관 수급 세부(당일 방향성 미조회)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI 실측 20260921 (현재가·거래대금·시총·MA·52주·PER/PBR/EPS/BPS)</li>
+<li>DART: 사업보고서 20260323000826(2025), 반기보고서 20260812000313(2026반기), 11011/11012/11013 재무</li>
+<li>consensus.py 20260921 (한국투자·BNK 목표가, fnguide·naver·wisereport 컨센)</li>
+<li>stockeasy: iM증권 2026-09-21, SK증권 2026-09-01, 하나증권 2026-08-11</li>
+<li>kis_futures_check.py 선물마스터 (근월물 AF2610)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총: 10,700 × 164,460,303 = 17,597억 ✓(KIS hts_avls 17,597 일치)</li>
+<li>회전율: 119,751,652,970 ÷ 1,759,700,000,000 = 6.8% ✓</li>
+<li>부채비율: 979 ÷ 4,799 = 20.4% ✓</li>
+<li>반기 2Q OP: 반기누적 -123억 − 1Q -62억 = -61억 ≈ 표기 -62억 ✓(반올림)</li>
+<li>시나리오 확률합: 30<span class="up">+50</span><span class="up">+20</span> = 100% ✓</li>
+<li>기대값 10,321원 계산 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-21 10:17 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 10,610원 (<span class="up">+17.6%</span>) · 시총 1.74조 · 5일 <span class="up">+40.9%</span> / 20일 <span class="up">+96.8%</span> / 60일 <span class="up">+75.4%</span></li>
+<li>MA5 9,160원 / MA20 6,882원 / MA60 5,891원 → MA20 이격 <span class="up">+54.2%</span> · MA60 이격 <span class="up">+80.1%</span></li>
+<li>52주 고 11,640원 / 저 3,735원 → 고점 대비 <span class="down">-8.8%</span> · 20일 고 10,610원 / 저 5,610원</li>
+<li>후행 PER -91.47 / PBR 3.68 (EPS -116원 · BPS 2,884원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 368.1억 (5일 855.8억)</li>
+<li>외국인 순매수 5일 328.7억 / 20일 468.5억 · 기관 5일 57.2억 / 20일 145.9억 · 개인 20일 -618.0억</li>
+<li>개별주식선물: ⚡ 상장 (AF2610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.81% / 20일 평균 12.86% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 26.09% (08/26) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 12,000원 (<span class="up">+13.1%</span>) ÷ 하방 8,400원 (−20.8%) = <strong>1:0.63</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 20.8% = <strong>자산의 2.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.4%</strong></li>
+<li>유동성 참고: 20일 ADV 368.1억 · 1일 소화 한도는 ADV의 10%(36.81억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 20.8% · ATR14 701원 (손절폭/ATR 3.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 20.8% = ATR14 × 3.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 9,549원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.31</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-036540"></span>📋 결정카드 — SFA반도체(036540) 판정: 관심 선물: 有 현재가: 10,700원 진입: 9,200~9,400원 (MA5 눌림 대기) 손절: 8,400원 목표: 1차 12,000원 (2차 밸류 재평가 시 상향) 손익비: 1:3.0 (눌림진입 기준 / 추격 시 1:0.8 열위) 기간: 스윙 6~12주 (4Q26 흑전 확인까지) 촉매: 4Q26 흑자전환(10~12월), 3Q26 실적발표(10월말~11월초 예상) 반증: 3Q26 영업손실 -100억 이하 악화 → 축소 / 4Q26 흑전 실패 → 청산 / 삼성 외주화 이관 지연 뉴스 → 전량 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
