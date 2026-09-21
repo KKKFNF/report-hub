@@ -1,0 +1,244 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>대원전선(006340) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260921-093933-대원전선-006340.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:2.3</div><div class="tp-c"><b>결론 발췌</b> 26.1Q 어닝서프라이즈로 재평가됐으나 2Q에 OPM 1.3%로 급랭 → 이익 모멘텀 이미 꺾였고 fwd PER 36x·PBR 8.8x는 전선업 정상범위(15~25x)의 1.5~2배. 추세는 살아있으나 밸류·펀더 근거 취약 → 관망(추격금지, MA60 12,900 이탈 시 관심 철회).</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>대원전선(006340)</h1>
+<div class="meta">📊 trend · 2026-09-21 09:39 · 코드 006340</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-21 09:39)</div><div class="kpi-v">13,420원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.1조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">118.76</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">8.79</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.65</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">14,800원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 부적합(추격금지). 트레이딩 한정 시 12,900~13,250 눌림</span><span class="dc dn">손절 12,900원</span><span class="dc up">목표 14,800원</span><span class="dc">손익비 현재가 1:2.65</span><span class="dc">기간 스윙 2~4주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q 실적발표(11월 중순, 확정일 미확인)</div><div class="dc-l">🛑 반증: 3Q 연결 영업이익 &lt; 50억 → 밸류논리 폐기·회피 / MA60 12,938 종가이탈 → 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 대원전선(006340) ※선물 無(개별주식선물 미상장, 현물만·레버리지 불가)</p>
+<p>📌 한줄 결론</p>
+<p>26.1Q 어닝서프라이즈로 재평가됐으나 2Q에 OPM 1.3%로 급랭 → 이익 모멘텀 이미 꺾였고 fwd PER 36x·PBR 8.8x는 전선업 정상범위(15~25x)의 1.5~2배. 추세는 살아있으나 밸류·펀더 근거 취약 → <strong>관망</strong>(추격금지, MA60 12,900 이탈 시 관심 철회).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 8.5% (거래대금 948.0억 / 시총 11,103억) [인용: trendscan 포착값]</li>
+<li>20일 평균 거래대금 345억, 그 10%=34.5억 → 유동성 충분(스윙 진입 무리없음) [실측: KIS 일봉 20일]</li>
+<li>추세: MA정배열(현재 13,480 &gt; MA5 13,138 &gt; MA20 13,248 ≈ MA60 12,938), 연속상승 3일, 5일 <span class="up">+7.4%</span> [실측: KIS FHKST03010100]</li>
+<li>단, 당일(9/21 조회시점) 현재가 13,480은 전일比 <span class="down">-2.95%</span>로 숨고르기 [실측: KIS 현재가]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업: 전력·절연케이블 제조. 26반기 제품비중 절연전선 60% / 전력전선 31% / 나선 5% / 통신 3% [실측: 반기보고서 20260812000613]</li>
+<li>급등 실체 판단 — <strong>구리(LME) 급등發 판가·재고 효과</strong>가 본질:</li>
+<li>절연전선 내수단가 15,664(56기)→17,158(57기)→22,500원/kg(58기반기), 전력전선 15,164→19,824원/kg [실측: 사업보고서/반기보고서]</li>
+<li>원재료 CU-ROD 14,403→19,628원/kg 동반 급등 → 판가전가 시차로 26.1Q 스프레드 확대, 이후 원가따라잡기로 축소</li>
+<li>전력망·데이터센터·초고압 테마 편승 국면이나, 대원전선은 초고압(HV)·해저케이블 라인업 부재(주력은 저압 절연·배전급). 테마 수혜 실체는 제한적 [추정: 제품구성상 초고압 매출 미검출]</li>
+<li>8월 이후 최대주주 소유주식변동신고서·임원 특정증권 소유상황보고서 연속 공시(8/24~9/17 다수) → 지분 변동 이벤트 진행 중, 성격 미확인 [실측: DART 공시목록]</li>
+</ul>
+<p>③ 실적 (DART 연결 실측)</p>
+<ul>
+<li>연간 매출/영업이익/OPM [실측: 사업보고서]</li>
+<li>2023: 5,154억 / 131.3억 / 2.5%</li>
+<li>2024: 5,528억 / 143.4억 / 2.6%</li>
+<li>2025: 6,245억 / 93.5억 / <strong>1.5%</strong> (매출 YoY<span class="up">+13%</span>인데 OP YoY <span class="down">-35%</span> 감익)</li>
+<li>순이익: 25년 129.2억 &gt; 세전이익 98.2억 → 법인세환입·이연법인세 등 <strong>일회성 순익 부풀림</strong>(영업개선 아님) [실측: 손익계산서]</li>
+<li>분기 (연결, 억) [실측: 분기·반기보고서]</li>
+<li>25.1Q 매출1,513/OP83.3 · 25.2Q 1,514/54.0 · 25.3Q 1,548/11.1 · 25.4Q(역산) /-54.9</li>
+<li><strong>26.1Q 매출1,892 / OP146.7 / OPM7.8% / 순익112</strong> ← 서프라이즈</li>
+<li><strong>26.2Q 매출2,781 / OP37.3 / OPM1.3%</strong> ← 정상화(스프레드 소멸)</li>
+<li>26상반기 매출4,673(YoY<span class="up">+54%</span>)/OP184.0(YoY<span class="up">+34%</span>)/OPM3.9%/순익147</li>
+<li>재무건전성 [실측: 재무상태표]</li>
+<li>부채비율 25말 128% → 26반기말 152%(부채2,722억/자본1,789억) 상승</li>
+<li>매출급증에 따른 운전자본·차입 확대 추정 → 금리부담 체크 필요</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스 <strong>미확인</strong> (최근 6개월 목표가 리포트 0건, naver/fnguide 추정치 없음) [실측: consensus.py]</li>
+<li>스탁이지 기업리포트 0건 → 기관 커버리지 사실상 부재(모멘텀 종목 특성)</li>
+<li>자체 추정: 26.1Q 스프레드는 구리 급등기 일시효과. 2Q OPM1.3% 회귀가 정상 수준 → 연간 OP는 구리 재상승 없으면 200~250억대 수렴 추정 [추정: 26H1 OP184억 × 계절성, 하반기 스프레드 정상 가정]</li>
+<li>달성 가능성 판정: 이익 재가속 근거 <strong>低</strong>(2Q에 이미 스프레드 소멸 확인)</li>
+</ul>
+<p>⑤ 밸류에이션·목표가 (계산식)</p>
+<ul>
+<li>현재 [실측: KIS] — 주가13,480 / 시총10,570억 / EPS113 / BPS1,527</li>
+<li>PER 119x(TTM EPS기준), PBR 8.8x</li>
+<li>26E 순이익 연율화 294억(26H1 147억×2) 가정 시 fwd EPS 375원 → <strong>fwd PER 36x</strong> [추정: 26H1×2]</li>
+<li>전선업 정상 멀티플 15~25x 대입 (peer 가온전선·LS 밴드 참고, 개별 실측 미확보→미확인)</li>
+<li>PER15×375 = 5,624원 / PER20×375 = 7,499원 / PER25×375 = 9,373원</li>
+<li>후한 낙관(구리 재랠리+OP 재확대로 fwdEPS 500 가정) × PER25 = 12,500원(현재가 부근)</li>
+<li>결론: <strong>현재가는 낙관 시나리오조차 이미 반영·초과.</strong> PBR 8.8x는 전선주로선 극단(정상 1~3x). 밸류 상방 여력 사실상 없음</li>
+<li>증권사 목표가: 없음(컨센 미확인)</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>선물 無 → 현물만, 레버리지 불가. 형 집중한도(자산50%) 무관하나 밸류부담 큰 종목</li>
+<li>기술적 라인 [실측: KIS ATR14=646원]</li>
+<li>저항: 14,800(20일 스윙고) → 16,160(30일 고) → 20,300(52주고, <span class="down">-34%</span> 하방여지=반대로 상단멀다)</li>
+<li>지지: MA20 13,248 → MA60 12,938 → 스윙저 12,270</li>
+<li>만약 추세추종 진입 가정 시 손익비(현재가 13,480 기준)</li>
+<li>목표 1차 14,800(<span class="up">+9.8%</span>) / 손절 12,900(MA60아래, <span class="down">-4.3%</span>) → <strong>손익비 1:2.3</strong></li>
+<li>단, 목표 14,800은 밸류상 기술적 반등에 불과. 15,000 이상은 펀더 미지원</li>
+<li><strong>판정: 밸류·이익모멘텀 미지원 → 신규 추격진입 부적합. 관망 우위.</strong> 굳이 트레이딩 시 MA20~MA60 눌림 확인 후 소량, 12,900 이탈 즉시 손절</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (§9)</p>
+<ul>
+<li>제품별 매출(26반기 연결, 백만원) [실측: 반기보고서 20260812000613]</li>
+<li>절연전선 213,421(60%) / 전력전선 107,476(31%) / 나선 18,371(5%) / 통신전선 9,995(3%)</li>
+<li>단가×물량 구조: 매출의 대부분이 구리 연동 판가. 구리↑시 매출·마진 동반확대, 구리 횡보/하락시 재고손실+마진축소 (26.1Q→2Q 전형)</li>
+<li>9-7 바텀업 (분기 영업이익 임계, 억)</li>
+<li>Bear: 구리 하락·스프레드 마이너스 → 3Q OP 20억 이하 (OPM&lt;1%)</li>
+<li>Base: 구리 횡보·판가전가 정상 → 3Q OP 40~60억 (OPM 1.5~2%, 25년 평균 수준)</li>
+<li>Bull: 구리 재랠리·전력망 수주 인식 → 3Q OP 100억+ (26.1Q 재현)</li>
+<li><strong>결론: 3Q 연결 영업이익 ≥ 100억이면 이익모멘텀 유지·재평가 정당(관심전환), &lt; 50억이면 26.1Q는 일시효과 확정·밸류논리 폐기(관망유지)</strong></li>
+</ul>
+<p>⑦ 촉매·반증·시나리오·수급·사이징</p>
+<ul>
+<li>촉매(날짜확정만): 3Q 실적발표(11월 중순 예상, DART 법정기한 11/14, 확정일 미확인) / 구리 LME 방향성</li>
+<li>반증 3개(수치→행동)</li>
+</ul>
+<ol>
+<li><strong>3Q 연결 영업이익 &lt; 50억</strong> → 26.1Q 일시효과 확정, 밸류논리 붕괴 → 전량 회피·보유시 청산</li>
+<li><strong>주가 MA60(12,938) 종가 이탈</strong> → 추세훼손 → 관심 철회·손절</li>
+<li><strong>LME 구리 급락(월 <span class="down">-8%</span>↑)</strong> → 스프레드·재고 이중타격 → 진입 보류</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스</li>
+<li>3Q OP≥100억 &amp; 구리강세 → 재평가 지속(상단 16,000+)</li>
+<li>3Q OP 50~100억 → 박스(12,900~14,800) 등락</li>
+<li>3Q OP&lt;50억 or 구리약세 → 조정(11,000~12,000 회귀)</li>
+<li>확률가중 시나리오 (합100%)</li>
+<li>Bear(45%): 이익 정상화+밸류부담 → 11,000~12,000 (−11~−19%)</li>
+<li>Base(40%): 박스권 → 12,900~14,800 (−4~<span class="up">+10%</span>)</li>
+<li>Bull(15%): 구리랠리+수주 → 16,000~18,000 (<span class="up">+19</span>~<span class="up">+34%</span>)</li>
+<li>기대값 ≈ 13,000원(현재가 근처, 하방 편향)</li>
+<li>수급: 컨센·기관커버 부재 → 개인·테마 자금 주도(변동성 큼). 최대주주 지분변동 공시 연속 → 수급 교란 가능</li>
+<li>포지션 사이징(자산 대비 %로만): 추격 비권장. 트레이딩 한정 시 <strong>자산 3~5% 이내 소량</strong>, 1회 진입, MA60 이탈 기계적 손절. 밸류부담·선물부재로 확대 부적합</li>
+</ul>
+<p>⚠️ 리서치 참고용. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 컨센서스·목표가(리포트 0건)</li>
+<li>peer 가온전선/LS 개별 PER·PBR 실측</li>
+<li>26.2Q 순이익 개별값(반기 누적147억만 확인)</li>
+<li>최대주주 소유주식변동신고서 성격(매집/처분/담보 여부)</li>
+<li>3Q 실적발표 확정일</li>
+<li>25.4Q 영업이익은 연간-3분기합 역산치(-54.9억)로 정정공시 가능성</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 사업보고서 [기재정정] 접수 20260331003244 (2025.12)</li>
+<li>DART 반기보고서 접수 20260812000613 (2026.06)</li>
+<li>DART 1분기보고서(26.1Q, reprt_code 11013)</li>
+<li>DART 재무 fnlttSinglAcnt (2023~2025 연간)</li>
+<li>KIS 현재가 FHKST01010100 / 일봉 FHKST03010100 (조회 2026-09-21)</li>
+<li>consensus.py (2026-09-21, 컨센 0건)</li>
+<li>kis_futures_check.py (선물 미상장)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합=연간: 26H1 OP = 26.1Q 146.7 + 26.2Q 37.3 = 184.0 ✓ (반기누적 184.0 일치)</li>
+<li>매출: 26.1Q 1,892 + 26.2Q 2,781 = 4,673 ✓ (반기누적 일치)</li>
+<li>손익비: (14,800−13,480)/(13,480−12,900) = 1,320/580 = 2.28 → 1:2.3 ✓</li>
+<li>부채비율: 2,722/1,789×100 = 152% ✓</li>
+<li>fwd PER: 13,480/375 = 35.9 ≈ 36x ✓</li>
+<li>연결·별도 라벨: 실적 전부 연결(CFS) 기준 명시</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-21 09:39 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 13,420원 (<span class="down">-3.4%</span>) · 시총 1.05조 · 5일 <span class="up">+3.2%</span> / 20일 <span class="up">+4.2%</span> / 60일 <span class="up">+35.6%</span></li>
+<li>MA5 13,126원 / MA20 13,246원 / MA60 12,937원 → MA20 이격 <span class="up">+1.3%</span> · MA60 이격 <span class="up">+3.7%</span></li>
+<li>52주 고 20,300원 / 저 2,885원 → 고점 대비 <span class="down">-33.9%</span> · 20일 고 14,140원 / 저 12,440원</li>
+<li>후행 PER 118.76 / PBR 8.79 (EPS 113원 · BPS 1,527원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 345.4억 (5일 471.3억)</li>
+<li>외국인 순매수 5일 76.0억 / 20일 81.0억 · 기관 5일 8.9억 / 20일 38.9억 · 개인 20일 -130.4억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.64% / 20일 평균 2.78% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 8.86% (09/02) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 14,800원 (<span class="up">+10.3%</span>) ÷ 하방 12,900원 (−3.9%) = <strong>1:2.65</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 3.9% = <strong>자산의 12.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 12.9%</strong></li>
+<li>유동성 참고: 20일 ADV 345.4억 · 1일 소화 한도는 ADV의 10%(34.54억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 3.9% · ATR14 591원 (손절폭/ATR 0.9배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 3.9% = ATR14 × 0.9배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 12,440원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.41</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관망 선물: 無 현재가: 13,480원 진입: 부적합(추격금지). 트레이딩 한정 시 12,900~13,250 눌림 손절: 12,900원 (MA60 이탈) 목표: 1차 14,800원 (2차 16,160원) 손익비: 1:2.3 기간: 스윙 2~4주 촉매: 3Q 실적발표(11월 중순, 확정일 미확인) 반증: 3Q 연결 영업이익 &lt; 50억 → 밸류논리 폐기·회피 / MA60 12,938 종가이탈 → 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
