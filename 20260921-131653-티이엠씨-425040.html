@@ -1,0 +1,150 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>티이엠씨(425040) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260921-131653-티이엠씨-425040.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.95</div><div class="tp-c"><b>결론 발췌</b> 삼성·SK하이닉스向 재활용 네온가스 본계약이라는 실체 있는 구조적 촉매에 거래대금이 평소의 10배 이상 급증한 관심 종목입니다. 다만 밸류 커버리지가 부재(NR)하고 개별주식선물이 없어 스윙 레버리지가 불가하며 오늘 +20%로 이미 고평가 구간 진입 — 판정 관심(추격매수 아닌 눌림목 대응). 손익비 약 1:1.7(눌림목 진입 기준), 1차 목표 15,000원. ━━━━━━━━━━━━━━━━━━━━ ① 포착 신호 (실측) [실측: KIS 시세 2026-09-21] · 현재가 12,340원 (전일 +2,080원, +20.27%) — 상한가(13,330원) 근접 · 시가총액 2,705억 · 상장주식 2,192만주 · 당일 거래대금 349억 …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>티이엠씨(425040)</h1>
+<div class="meta">📊 trend · 2026-09-21 13:16 · 코드 425040</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-21 13:16)</div><div class="kpi-v">12,670원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2,778억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">16.94</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.34</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.95</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.98</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">15,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 11,000~11,500원 (눌림목, 추격 지양)</span><span class="dc dn">손절 10,300원</span><span class="dc up">목표 15,000원</span><span class="dc">손익비 진입 1:3.95 · 현재가 1:0.98 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.7</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.7로 적었지만 진입·손절·목표로 계산하면 1:3.95다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 3~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3분기 실적발표(2026-11월경, 확정일 미확인)에서 재활용 네온 매출 첫 계상 여부</div><div class="dc-l">🛑 반증: 3Q 연결 영업이익 &lt; 35억이면 논지 폐기·청산 / 종가 MA20(9,122) 이탈 시 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 티이엠씨(425040)  ※선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 삼성·SK하이닉스向 재활용 네온가스 본계약이라는 실체 있는 구조적 촉매에 거래대금이 평소의 10배 이상 급증한 관심 종목입니다. 다만 밸류 커버리지가 부재(NR)하고 개별주식선물이 없어 스윙 레버리지가 불가하며 오늘 <span class="up">+20%</span>로 이미 고평가 구간 진입 — 판정 관심(추격매수 아닌 눌림목 대응). 손익비 약 1:1.7(눌림목 진입 기준), 1차 목표 15,000원.</p>
+<hr>
+<p>① 포착 신호 (실측) [실측: KIS 시세 2026-09-21] · 현재가 12,340원 (전일 <span class="up">+2,080</span>원, <span class="up">+20.27%</span>) — 상한가(13,330원) 근접 · 시가총액 2,705억 · 상장주식 2,192만주 · 당일 거래대금 349억 · 회전율 13.84% · 20일 평균거래대금 32억 → 오늘 약 10.9배 폭증 [추정: 349÷32] · 52주 6,300~30,300원 → 현재가는 52주 고점 대비 −59%, 저점 대비 <span class="up">+96%</span> · 이평(종가기준): MA5 10,336 / MA20 9,122 / MA60 9,318 [실측: KIS 일봉] → 오늘 급등 전까지는 정배열 아님(MA20&lt;MA60). 오늘 갭상승으로 전 이평 상향 돌파. · 상승 흐름: 9/15 9,140 → 9/16 9,930(<span class="up">+8.6%</span>, 거래대금 68억 1차 급증) → 9/17~18 완만 → 9/21 12,340(<span class="up">+20%</span>). 9/16부터 자금 유입 시작, 오늘 폭발.</p>
+<p>② 사업·급등사유 [실측: 사업보고서 20260319000082 / 반기보고서 20260814000997] · 2015년 설립, 충북 보은. 반도체 공정용 특수가스 국산화 전문. 특수가스 제조 전 공정(합성·수전해·희귀가스 추출분리·정제혼합충전) 내재화. · 사업부 매출비중(연결): 특수가스(케미칼) 57.0%, 반도체장비 41.5%, 2차전지장비 1.5% (2025)</p>
+<ul>
+<li>핵심 제품: Excimer용 Ne(네온), Kr, Xe 등 노광·식각용 희귀가스 + HCDS·TiCl4 등 프리커서</li>
+</ul>
+<p>· 주요 매출처 A(추정 삼성/SK급 대형 메모리)의 별도매출 비중이 절대적(2025 별도 A사 752억).</p>
+<p>[급등 촉매 — 인용: 프라임경제 2026, newsprime.co.kr/news/article/?no=748499] · 삼성전자·SK하이닉스에 &#x27;리사이클링(재활용) 네온가스&#x27; 본계약 잇달아 체결 확인. · 2026년 2분기 양사와 각각 재활용 네온 장기 공급계약 확정, 현재 적용라인·납품일정 조율 중. · 노광 폐가스를 포집→극저온 정제→99.999%(5N) 신규가스급으로 재생. 회수율 72.7%(양산기준 70%대 상회), 최적화 시 77%+ 검증 완료. · 구조적 동인: HBM·300단+ NAND·10nm 이하 D램으로 멀티패터닝 노광 스텝 증가 → 네온 소모량 구조적 증가. 네온은 대기 0.0018%로 지정학 리스크(러·우 전쟁 등) 상존 → 재활용 국산화의 전략적 가치 상승. → 냉정한 판단: 테마 급등이 아니라 실체 있는 본계약·기술검증 기반. 단, 계약금액·납품물량은 NDA로 비공개(미확인)라 실적 기여 규모 정량화 불가 상태에서 기대감이 선반영됨.</p>
+<p>③ 실적 (DART 실측, 연결 CFS) [실측: fnlttSinglAcntAll, 접수 20260319000082·20260814000997] 연도별(억): · 2023: 매출 2,008 / 영업익 211 / 순익 227 / OPM 10.5% · 2024: 매출 3,102 / 영업익 197 / 순익 170 / OPM 6.4% · 2025: 매출 2,797 / 영업익 248 / 순익 176 / OPM 8.9% 반기 누적(억): · 2025 상반기: 매출 763 / 영업익 68 / 순익 17 / OPM 8.9% · 2026 상반기: 매출 864 / 영업익 58 / 순익 52 / OPM 6.7% → 매출 YoY <span class="up">+13.2%</span>, 영업익 YoY −14.7%(마진 하락), 순익 YoY <span class="up">+205.9%</span>(전년 순익 급감의 기저·금융/일회성 회복 추정) [분해] 2026 상반기 영업익은 줄었는데 순익 급증 → 영업 개선이 아니라 영업외/세후 요인(전년 저조 기저). 영업 자체는 마진 압박(OPM 8.9→6.7%). 순익 개선을 실적 호전으로 오독 금지. · 사업부 매출 변동성 큼: 2024 2차전지장비 1,027억(33%) → 2025 41억(1.5%)로 급감, 반도체장비가 425→1,161억으로 대체. 장비 수주 타이밍에 따라 연도별 매출 롤러코스터. 재무건전성(연결): · 자산 4,218억 / 부채 1,311억 / 자본 2,906억 → 부채비율 45.1% (건전) [실측: 2025 CFS] · BPS 9,438 · EPS 748 [실측: KIS] · 가동률 66.3%(2026 반기 별도) — 증설 여력 존재 ※ 영업현금흐름·이자보상배율: 미확인(당일 실측 범위 밖)</p>
+<p>④ 미래실적·컨센서스 [실측: consensus.py 2026-09-21] · 증권사 정식 목표가·컨센서스 부재. 최근 6개월 목표가 제시 리포트 0건. · 최근 리포트 1건: NH투자증권 2026-04-01 &quot;가스를 넘어 신사업으로&quot; — Not Rated(목표가 미제시). · 연간/분기 컨센서스: naver·fnguide 추정치 없음. → 커버리지 공백 상태. 실적 가시성 낮고, 목표가는 자체산출에 의존해야 함(신뢰도 中下). · 달성가능성 판정: 재활용 네온 본계약의 매출 기여는 계약규모 비공개로 정량화 불가 → 실적 반영 가시성 &#x27;中低&#x27;. 기대감이 실적을 선행.</p>
+<p>⑤ 밸류에이션·목표가 [실측: KIS] 현재 PER 16.5 · PBR 1.31 · EV/EBITDA 미확인 · EPS 748(2025 실적 기준). 현재가 12,340 → 실적 PER 16.5배. [자체 목표가 산출 — 계산식 노출] · 시나리오A(현 실적 유지, EPS 748): 적정 PER 16~20배 적용 → 11,968~14,960원 · 시나리오B(재활용 네온+장비 정상화로 순익 250억 회복, EPS 추정 1,140 [추정: 250억÷2,192만주]): PER 16~20배 → 18,240~22,800원 → 1차 목표 15,000원(현 실적 상단 멀티플, 상승여력 <span class="up">+21.6%</span>), 2차 18,000원(실적 정상화 선반영, <span class="up">+45.9%</span>). Bull 22,000원은 순익 정상화가 수치로 확인돼야 정당화. · peer 밴드: 특수가스/소재 peer(원익머트리얼즈·후성 등) 통상 PER 12~20배대 — 티이엠씨 16.5배는 중상단. 커버리지 부재 프리미엄은 제한적.</p>
+<p>⑥ 진입전략·손익비  ※선물 無 → 현물 스윙만, 레버리지 불가 [실측: KIS 이평·전일 종가] · 지지: 1차 MA5 10,336 / 강지지 전일종가~MA20 근처 9,100~10,300 갭 하단 · 저항: 오늘 고가 12,340(=상한 직전) → 상단 심리저항, 그 위 13,000·52주 중단 15,000 · 추격매수 비권장(당일 <span class="up">+20%</span>, 갭 큰 상태). 눌림목 전략 권고. [손익비 계산 = 상승여력% ÷ 하락리스크%] · 진입 11,000~11,500원(익일 눌림 시) 기준:</p>
+<ul>
+<li>1차목표 15,000 → 상승 <span class="up">+30.4%</span>(15000/11500−1) [추정]</li>
+<li>손절 10,300(MA5·갭중단 이탈) → 하락 −10.4% [추정]</li>
+<li>손익비 ≈ 1:1.7 ~ 1:2.9(진입가·목표 조합에 따라)</li>
+</ul>
+<p>· 추격 진입(12,340) 기준 손익비: 목표15,000 <span class="up">+21.6%</span> / 손절10,800 −12.5% = 1:1.7 (매력 저하) → 반드시 눌림목·손절 준수 전제. 상한가 추격은 손익비 열위.</p>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9 규격, 연결 기준) [핵심 변수] 재활용 네온 매출 = 고객 노광 네온 소모량 × 회수율(72.7%) × 티이엠씨 점유 × 단가. 단, 계약규모·물량 전부 NDA 비공개(미확인) → 본 모델은 &#x27;반기실적 실측 + 마진 시나리오&#x27; 기반 근사.</p>
+<p>9-7 바텀업 (연 기준, 억 단위) · 물량축: 특수가스부문 2026 반기 776억 → 연환산 1,552억 [추정: 776×2]. 장비부문 반기 573억(수주성 변동 큼). · Bear: 특수가스 약보합·장비 수주공백. 연매출 2,600 / OPM 6% → 영업익 156억 · Base: 특수가스 +단가안정, 재활용 네온 초기기여. 연매출 2,900 / OPM 8% → 영업익 232억 · Bull: 재활용 네온 라인확대+장비수주. 연매출 3,300 / OPM 9% → 영업익 297억 · 민감도: OPM ±1%p = 영업익 약 ±29억(매출 2,900 기준) [추정] [3Q·4Q 분기 임계] · 상반기 영업익 58억 실측. 정상 궤도면 하반기 ≥ 90억 필요(연 148억↑=Base 하회 Bear권). · 결론 문장: 3Q 연결 영업이익 ≥ 55억이면 재활용 네온·장비 회복 논지 유지, &lt; 35억이면 마진 훼손 심화로 논지 폐기.</p>
+<p>⑦ 촉매·반증·이벤트 [촉매 캘린더 — 날짜확정만] · 2026-11월경(추정): 3분기 실적발표 — 재활용 네온 매출 계상 여부 첫 확인 시점. ※확정일 미확인 · 그 외 계약 세부(라인·물량) 공개, 추가 재활용가스 품목 확장 뉴스 — 날짜 미정. [반증 3개 → 행동]</p>
+<ol>
+<li>3Q 연결 영업이익 &lt; 35억(마진 훼손 지속) → 실적 모멘텀 부정, 포지션 청산·비중 축소.</li>
+<li>종가가 MA20(9,122) 이탈 마감 → 급등 되돌림 확정, 손절.</li>
+<li>재활용 네온 계약이 &#x27;기술협력·MOU 수준&#x27;으로 축소 정정공시 → 촉매 소멸, 즉시 청산.</li>
+</ol>
+<p>[이벤트 매트릭스] · 3Q 실적 서프라이즈(영업익≥55억) → 15,000 재도전 · 실적 기대 부합·재활용 네온 매출 첫 계상 → 12,000~13,000 박스 유지 · 실적 실망(&lt;35억) → 9,000~10,000 갭 되메움 [확률가중 시나리오 (합 100%)] · Bear 35%: 급등 되돌림+실적 마진훼손 → 9,000~10,000 (−19~−27%) · Base 45%: 실적 안착·재활용 네온 초기 기여 → 12,000~15,000 박스 (0~<span class="up">+22%</span>) · Bull 20%: 재활용 네온 물량 확대 확인 → 18,000+ (<span class="up">+46%</span>↑) [수급·유동성] · 외국인 지분율 5.35%(낮음), 당일 외국인 순매수 0 [실측: KIS] → 오늘 급등은 개인·기관 단기자금 주도 추정. · ADV(20일) 32억 → 유동성 개선됐으나 스윙 청산 시 슬리피지 유의. ADV 10% = 약 3.2억 규모 내 분할. [포지션 사이징 — 자산 대비 %] · 선물 부재로 레버리지 불가·현물 한정. 커버리지 공백+당일 급등+실적 가시성 中低 감안, 자산의 3~6% 내 소액 스윙. 눌림목 분할, 반증 트리거 시 기계적 청산.</p>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록] · 재활용 네온 계약금액·연간 물량·매출기여 규모 (NDA 비공개) · 3Q/연간 증권사 컨센서스·정식 목표가 (커버리지 부재) · 영업현금흐름·이자보상배율·EV/EBITDA · 3분기 실적 발표 확정일 · 개별 peer의 현시점 정확한 멀티플 밴드</p>
+<p>[출처 목록] · KIS OpenAPI 시세·일봉·재무지표 (2026-09-21 실측) · DART 사업보고서 20260319000082, 반기보고서 20260814000997 (연결) · consensus.py 자동수집 (stockeasy·naver·fnguide·hankyung, 2026-09-21) · 프라임경제 newsprime.co.kr/news/article/?no=748499 (재활용 네온 본계약 보도) · NH투자증권 2026-04-01 NR 리포트(요약)</p>
+<p>[검산] · 사업부 합계: 특수가스 159,474 + 장비 116,095 + 2차전지 4,140 = 279,709백만 ≈ 매출 2,797억 ✓(연결 일치) · 반기 사업부 합계: 776<span class="up">+573</span><span class="up">+10</span> = 1,359억 ≈ 반기매출 864억? → 사업부표는 별도/부문 기준, 연결 매출 864억과 별개 라벨 확인(부문 표는 부문매출 기준, 연결조정 전). 연결 매출액 864억은 손익계산서 수익 실측치. · PER 검산: 12,340 ÷ 748 = 16.5배 ✓ · 부채비율: 1,311 ÷ 2,906 = 45.1% ✓ · 시나리오 확률합: 35<span class="up">+45</span><span class="up">+20</span> = 100% ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-21 13:16 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 12,670원 (<span class="up">+23.5%</span>) · 시총 2,778억 · 5일 <span class="up">+44.6%</span> / 20일 <span class="up">+44.9%</span> / 60일 <span class="up">+2.2%</span></li>
+<li>MA5 10,404원 / MA20 9,139원 / MA60 9,323원 → MA20 이격 <span class="up">+38.6%</span> · MA60 이격 <span class="up">+35.9%</span></li>
+<li>52주 고 30,300원 / 저 6,300원 → 고점 대비 <span class="down">-58.2%</span> · 20일 고 12,680원 / 저 8,200원</li>
+<li>후행 PER 16.94 / PBR 1.34 (EPS 748원 · BPS 9,438원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 34.5억 (5일 111.4억)</li>
+<li>외국인 순매수 5일 -4.7억 / 20일 -12.1억 · 기관 5일 2.7억 / 20일 18.9억 · 개인 20일 -6.2억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.60% / 20일 평균 1.95% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 9.64% (09/01) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 15,000원 (<span class="up">+18.4%</span>) ÷ 하방 10,300원 (−18.7%) = <strong>1:0.98</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 18.7% = <strong>자산의 2.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.7%</strong></li>
+<li>유동성 참고: 20일 ADV 34.5억 · 1일 소화 한도는 ADV의 10%(3.45억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 18.7% · ATR14 631원 (손절폭/ATR 3.8배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 18.7% = ATR14 × 3.8배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 11,408원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.85</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-425040"></span>📋 결정카드 — 티이엠씨(425040) 판정: 관심 선물: 無 현재가: 12,340원 진입: 11,000~11,500원 (눌림목, 추격 지양) 손절: 10,300원 목표: 1차 15,000원 (2차 18,000원) 손익비: 1:1.7 기간: 스윙 3~8주 촉매: 3분기 실적발표(2026-11월경, 확정일 미확인)에서 재활용 네온 매출 첫 계상 여부 반증: 3Q 연결 영업이익 &lt; 35억이면 논지 폐기·청산 / 종가 MA20(9,122) 이탈 시 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
