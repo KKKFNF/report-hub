@@ -1,0 +1,256 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>아모텍(052710) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260922-095743-아모텍-052710.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.11</div><div class="tp-c"><b>결론 발췌</b> AI MLCC·광네트워크 테마의 기대선반영 급등. 실적은 2026 반기 연결 영업손실(-5.75억) 적자전환 상태로, 밸류는 미래 스토리에 100% 베팅한 국면. 정배열 초·중반이나 PER 43배·전고점 대비 54%로 리스크 큼. 눌림목 진입 기준 손익비 1:2.1, 자체 목표가 22,000원(관심). ━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 9.0% [실측: 거래대금 329억 ÷ 시총 3,637억, KIS inquire-price 2026-09-22] — 시총 대비 하루 거래대금 9%로 자금유입 강함 • 거래대금 329억 [실측: KIS acml_tr_pbmn 32,894,630,950원] · 당일 +15.21% [실측: K…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>아모텍(052710)</h1>
+<div class="meta">📊 trend · 2026-09-22 09:57 · 코드 052710</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-22 09:57)</div><div class="kpi-v">19,450원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3,633억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">43.32</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.2</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.11</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.57</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">22,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 17,000~17,500원 (눌림목·추격금지)</span><span class="dc dn">손절 15,000원</span><span class="dc up">목표 22,000원</span><span class="dc">손익비 진입 1:2.11 · 현재가 1:0.57</span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 실적(2026-11 중순 예상·날짜 미확정)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 15억 또는 매출 &lt; 700억이면 AI MLCC 램프업 논지 폐기 / 종가 15,000원 하회 시 추세 훼손</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 아모텍(052710)  ※선물 無(현물만·레버리지 불가) [실측: kis_futures_check 개별주식선물 미상장]</p>
+<p>📌 한줄 결론: AI MLCC·광네트워크 테마의 기대선반영 급등. 실적은 2026 반기 연결 영업손실(-5.75억) 적자전환 상태로, 밸류는 미래 스토리에 100% 베팅한 국면. 정배열 초·중반이나 PER 43배·전고점 대비 54%로 리스크 큼. 눌림목 진입 기준 손익비 1:2.1, 자체 목표가 22,000원(관심).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 9.0% [실측: 거래대금 329억 ÷ 시총 3,637억, KIS inquire-price 2026-09-22] — 시총 대비 하루 거래대금 9%로 자금유입 강함</li>
+<li>거래대금 329억 [실측: KIS acml_tr_pbmn 32,894,630,950원] · 당일 <span class="up">+15.21%</span> [실측: KIS prdy_ctrt]</li>
+<li>추세: MA 정배열 O (MA5 17,052 &gt; MA20 13,240) [실측: KIS 일봉 45세션 종가 산출]</li>
+<li>위치: 52주 밴드 40.1% 지점, 전고점(36,250원) 대비 53.7% [실측: KIS w52_hgpr 36,250 / w52_lwpr 8,240]</li>
+<li>급등 구간: 9/10 종가 11,640 → 9/22 19,480, 8세션 <span class="up">+67%</span> [실측: KIS 일봉] — 추세 초입 아닌 급등 2차 파동, 단기 과열권</li>
+<li>연속상승 지표는 조정 섞인 계단식(9/17→9/18 <span class="up">+7%</span>, 9/19~21 소폭 조정 후 9/22 재급등) [실측: KIS 일봉]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업구조: 3개 부문 — 세라믹칩(EMC/MLCC), 안테나, BLDC모터 [실측: 사업보고서 2025.12 접수 20260317000848]. 제품매출 93.5%가 EMC·안테나·모터 [실측: dart_biz 제품별매출]</li>
+<li>급등사유(기대감 중심):</li>
+<li>AI 서버·광네트워크용 MLCC/BBC(Broadband Capacitor) 매출 가시화 기대 [인용: IBK투자증권 2026-09-11, &quot;3분기 MLCC 중 AI 비중 40% 근접, 4분기 50% 기대&quot;]</li>
+<li>Marvell·Coherent·Lumentum·InnoLight 등 광네트워크 고객사 매출 확대 서사 [인용: 스탁이지 IBK리포트 2026-09-11]</li>
+<li>GPU 업체 대상 MLCC 품질테스트 진행 → 2027년 매출 기여 기대 [인용: IBK 2026-09-11]</li>
+<li>검증된 사실 vs 기대감:</li>
+<li>사실: 1Q26 매출 609억(QoQ <span class="up">+13.8%</span>) [인용: IBK 2026-05-27], 유·무상증자로 CAPA 투자 자금 조달·집행 [실측: 증권발행실적보고서 접수 20260811]</li>
+<li>기대감: AI 비중 40→50% 확대, MLCC 매년 2배 성장, GPU향 2027 매출 — 전부 미실현 추정치 [인용: IBK/키움]</li>
+</ul>
+<p>③ 실적 (DART 실측 · 전부 연결)</p>
+<ul>
+<li>매출액: 2023년 1,868억 → 2024년 2,294억 → 2025년 2,538억 [실측: 사업보고서 CIS 매출액 186,814/229,444/253,765백만원]</li>
+<li>영업이익: 2023년 -260억 → 2024년 -239억 → 2025년 <span class="up">+55</span>억 [실측: 영업이익(손실) -25,972/-23,900/<span class="up">+5,505</span>백만원] — 2025년 턴어라운드 첫 흑자</li>
+<li>OPM: 2023 <span class="down">-13.9%</span> → 2024 <span class="down">-10.4%</span> → 2025 <span class="up">+2.2%</span> [추정: 영업이익÷매출액]</li>
+<li>당기순이익: 2023 -147억 → 2024 -198억 → 2025 <span class="up">+79</span>억 [실측: 당기순이익(손실)]</li>
+<li>★★2026 반기(연결): 매출 623억, 영업손실 -5.75억, 반기순손실 -24.1억 [실측: 반기보고서 접수 20260814002657, 영업이익 -575,237,185 / 반기순이익 -2,409,255,441]</li>
+</ul>
+<p>→ 2025년 흑자전환했으나 2026 상반기 다시 영업적자. 순손실 -24억은 영업적자(-5.75억)보다 큼 = 금융비용(반기 23.6억) 과다 부담 [실측: 금융비용 2,364,963,890... 반기 23.6억] — 순익 급감은 영업악화+금융비용+일부 이연법인세 복합</p>
+<ul>
+<li>재무구조: 부채총계 2,068억 / 자본총계 1,603억 → 부채비율 129% [실측: 반기 BS 206,768/160,329백만원, 추정 부채÷자본]</li>
+<li>2025→2026반기 자본 증가(1,562억→1,603억)는 유상증자 납입 영향 [실측: 반기 자본총계, 증권발행 공시]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>연간 컨센(fnguide 1개사 추정, 억원):</li>
+<li>FY26E 매출 2,706 / 영업이익 92 / 순이익 76 / EPS 422 [인용: consensus.py fnguide 2026-09-22]</li>
+<li>FY27E 매출 3,345 / 영업이익 314 / 순이익 245 / EPS 1,312</li>
+<li>FY28E 매출 4,450 / 영업이익 520</li>
+<li>분기 컨센: 3Q26 매출 780 / 영업이익 44 [인용: naver], 4Q26 매출 780 [인용: wisereport]</li>
+<li>★컨센 하향 추세: FY26 영업이익 컨센 1년전 255억 → 6M전 164억 → 3M전 90억 → 현재 92억 [인용: consensus.py fnguide] — 낙관 축소 후 정체</li>
+<li>증권사 목표가: IBK 30,000원(2026-09-11, 유증반영 하향) / iM 29,000원(2026-05-26) / 과거 IBK 42,000원(2026-05-27) [인용: consensus.py]</li>
+<li>달성가능성 판정: <strong>中~低</strong></li>
+<li>근거: 반기 실적이 컨센 방향과 역행(영업적자). FY26 영업이익 92억 달성하려면 하반기에만 ~98억(반기 -5.75억 만회) 필요. IBK는 &quot;하반기 매출 1,561억·영업이익 93억&quot; 전망 [인용: IBK 2026-09-11]하나, 상반기 매출 623억 대비 하반기 1,561억은 QoQ 급증 가정 → 실현 시 AI MLCC 램프업 입증, 실패 시 컨센 대폭 하향</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 멀티플: PER 43.4배, PBR 2.20배 [실측: KIS per/pbr, EPS 449 / BPS 8,855]</li>
+<li>문제: PER 43배는 FY26 컨센 EPS 422 기준 forward PER 46배 [추정: 19,470÷422] — 흑자 초입 종목의 고멀티플, 성장 프리미엄 전액 반영</li>
+<li>PBR 2.2배는 IBK 목표 PBR 3.3배(BPS 9,150 적용) [인용: IBK target_price_rationale] 대비 낮으나, 이는 FY27+ 실적 정상화 가정 하의 멀티플</li>
+<li>자체 목표가 산출:</li>
+<li>보수적 접근: FY27E EPS 1,312 [인용: fnguide]에 성장주 PER 17배 적용 = 22,300원 [추정: 1,312×17]</li>
+<li>PBR 접근: 유증후 BPS ~9,150 [인용: IBK]에 PBR 2.4배(현 2.2배 소폭 상회) = 22,000원 [추정: 9,150×2.4]</li>
+<li>자체 목표가 <strong>22,000원</strong> (증권사 컨센 30,000원은 FY27 실적의 완전 정상화·PBR 3.3배 가정으로 낙관적, 본 리포트는 FY26 적자·컨센 하향추세 반영해 보수 채택)</li>
+<li>증권사 목표가 병기: 평균 30,000원(최저 29,000/최고 42,000) [인용: consensus.py]</li>
+</ul>
+<p>⑥ 진입전략·손익비 (★선물 無 → 현물만, 레버리지 불가·스윙)</p>
+<ul>
+<li>지지: MA5 17,052 / 급등 시작점 9/11 갭 15,130 / MA20 13,240 [실측: KIS 일봉]</li>
+<li>저항: 당일 고가 19,800 / 심리 20,000 / 자체목표 22,000 [실측·추정]</li>
+<li>진입: 17,000~17,500원 (MA5 눌림목 확인 후 분할 1회차) — 현재가 19,470은 당일 <span class="up">+15%</span> 급등 직후로 추격 부적절</li>
+<li>손절: 15,000원 (급등 시작점 이탈·MA20 접근) [실측 기반]</li>
+<li>익절: 1차 22,000원 / 2차 26,000원(전고점 36,250의 절반+α, 컨센 근접)</li>
+<li>손익비: 진입 17,250 기준 상승여력 (22,000-17,250)/17,250 = <span class="up">+27.5%</span> ÷ 하락리스크 (17,250-15,000)/17,250 = <span class="down">-13.0%</span> = <strong>1:2.1</strong> [추정: 27.5÷13.0]</li>
+<li>현재가(19,470) 추격 시: 상승 (22,000-19,470)/19,470=<span class="up">+13%</span> ÷ 손절15,000까지 <span class="down">-23%</span> = 1:0.6 (불리) → 추격금지, 눌림목 대기 권고</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC §9)</p>
+<ul>
+<li>제품 구조 [실측: dart_biz 반기 2026.06 접수 20260814002657]:</li>
+<li>EMC/안테나/모터(제품) 매출 1,156.9억(93.8%) / 상품 25.9억(2.1%) / 용역 32.9억(2.7%) — 단, DART는 3부문 합산공시로 MLCC 단독 분리 안됨(미확인)</li>
+<li>원재료 비중 [실측: dart_biz 반기 매입]: 안테나부품 37.8%, BLDC모터 23.8%, 기타 28.4%, EMC 10.0% — 총매입 921억</li>
+<li>판가: &quot;EMC·안테나·모터 판가 유지 추세&quot; [인용: 반기보고서 마.가격변동추이]</li>
+<li>9-7 바텀업 모델 (하반기 영업이익, MLCC AI 램프업이 핵심변수):</li>
+</ul>
+<p>전제 — 상반기 매출 623억·영업손실 -5.75억 [실측]. 하반기 MLCC AI 매출 증가분이 OP 좌우. 단위: 매출 억원 / OP 억원</p>
+<p>· Bear(확률 35%): 하반기매출 1,000억(AI 램프업 지연), 하반기 OPM 3% → 하반기OP <span class="up">+30</span>억, 연간 OP ≈ <span class="up">+24</span>억, EPS ~130원 산식: 1,000×0.03=30, 30+(-5.75)=24.25 · Base(확률 45%): 하반기매출 1,300억(AI 비중 40% 근접), OPM 6% → 하반기OP <span class="up">+78</span>억, 연간 OP ≈ <span class="up">+72</span>억 산식: 1,300×0.06=78, 78-5.75=72.25 → 컨센 92억 소폭 하회 · Bull(확률 20%): 하반기매출 1,561억(IBK전망), OPM 6% → 하반기OP <span class="up">+93</span>억 [인용: IBK], 연간 OP ≈ <span class="up">+87</span>억 산식: 1,561×0.06≈93.7 · 3Q·4Q 배분(Base): 3Q OP ~35억, 4Q OP ~43억(AI 비중 40→50% 확대 가정) [인용: IBK 비중 추이] · 민감도: 하반기 OPM 1%p 변동 시 하반기 OP 약 ±13억(매출 1,300 기준)</p>
+<ul>
+<li>★결론 문장: 3Q26 연결 영업이익 ≥ 35억이면 AI MLCC 램프업 논지 유지, &lt; 15억이면 하반기 컨센(93억) 붕괴로 논지 폐기.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정 이벤트만):</li>
+<li>3Q26 잠정/분기실적: 2026년 11월 중순 예상 [추정: 분기보고서 법정기한 11/14] — 날짜 미확정(미확인)</li>
+<li>확정 이벤트 부재: 별도 IR·CES 등 확정일정 미확인</li>
+<li>반증 조건 3개:</li>
+</ul>
+<ol>
+<li>★3Q26 연결 영업이익 &lt; 15억 → 하반기 AI MLCC 램프업 실패, 논지 폐기 [분기실적 수치임계]</li>
+<li>★3Q26 매출 &lt; 700억(QoQ 정체) → AI 매출 가시화 서사 붕괴 [분기실적 수치임계]</li>
+<li>종가 15,000원(급등 시작점·MA20) 하회 → 기술적 추세 훼손</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스 (3Q 실적 × 당일주가):</li>
+<li>쇼크(OP&lt;15억) × 갭하락 → 즉시 손절/관망, 반등 매도</li>
+<li>쇼크 × 갭상승 → 데드캣 경계, 익절/비중축소</li>
+<li>인라인(OP 30~50억) × 보합 → 홀드, 눌림목 분할</li>
+<li>서프(OP&gt;60억) × 갭상승 → 목표 26,000 상향, 홀드</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 35%: AI 지연·컨센 하향 → 목표 14,000원(<span class="down">-28%</span>)</li>
+<li>Base 45%: 하반기 회복·OP 72억 → 목표 22,000원(<span class="up">+13%</span>)</li>
+<li>Bull 20%: IBK전망 달성·2027 GPU매출 → 목표 30,000원(<span class="up">+54%</span>)</li>
+<li>확률가중 기대수익: 0.35×(<span class="down">-28%</span>)<span class="up">+0.45</span>×(<span class="up">+13%</span>)<span class="up">+0.20</span>×(<span class="up">+54%</span>) = <span class="down">-9.8%</span><span class="up">+5.9%</span><span class="up">+10.8%</span> = <strong><span class="up">+6.9%</span></strong> [추정, 현재가 기준]</li>
+</ul>
+<p>→ 현재가 추격의 기대수익은 <span class="up">+6.9%</span>로 낮음. 진입가 17,250 기준으로는 기대수익 <span class="up">+21%</span> 수준으로 개선</p>
+<ul>
+<li>수급·유동성:</li>
+<li>외국인 지분율 6.94% [실측: KIS hts_frgn_ehrt]</li>
+<li>외국인/기관 20일 순매수: 미확인</li>
+<li>20일 평균거래대금 146억 [실측: KIS 일봉 20세션 tr_pbmn 평균] → 1일 체결 상한(ADV 10%) 약 14.6억</li>
+<li>포지션 사이징(자산 대비 %만):</li>
+<li>리스크예산: 손실 1% ÷ 손절폭 13.0%(진입17,250·손절15,000) = 자산의 7.7%</li>
+<li>이벤트 전 상한 25% / 집중 상한 50%</li>
+<li>→ 최소값 채택 <strong>자산의 7.7% 이내</strong> (분할: 1회차 5% 눌림목, 2회차 실적확인 후)</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>MLCC 단독 매출·CAPA(DART 3부문 합산공시로 분리불가)</li>
+<li>3Q26 실적 발표 확정일</li>
+<li>외국인/기관 20일 순매수 금액</li>
+<li>유·무상증자 후 정확한 신주 상장수량·희석률(권리락 8/12 반영, 상세 미확인)</li>
+<li>산업 리포트(스탁이지 0건)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI inquire-price/inquire-daily-itemchartprice 2026-09-22 (현재가·일봉·PER·PBR·52주)</li>
+<li>DART 사업보고서 2025.12 접수 20260317000848 / 반기보고서 2026.06 접수 20260814002657 (재무·제품·원재료)</li>
+<li>consensus.py 2026-09-22 (fnguide/naver/wisereport/stockeasy/hankyung 컨센)</li>
+<li>스탁이지 IBK투자증권 2026-09-11·2026-05-27, 키움 2026-07-02, iM 2026-05-26</li>
+<li>kis_futures_check 2026-09-22 (선물 미상장)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>2026 반기 순손실 -24.1억 vs 영업손실 -5.75억: 차이 -18.3억 ≈ 금융비용순(23.6-7.1=16.5억)+기타손익+법인세 → 영업외/금융 부담이 순손실 확대 주원인 확인</li>
+<li>확률합 35<span class="up">+45</span><span class="up">+20</span>=100% ✓</li>
+<li>손익비 헤더(1:1.4)=본문 산식(27.5%÷13.0%=2.1... 정정: (22,000-17,250)/17,250=27.5%, (17,250-15,000)/17,250=13.0%, 27.5/13.0=2.1) → 정정: 손익비 1:2.1이 정확. 한줄결론/카드는 진입가 기준 1:2.1로 통일</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-22 09:57 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 19,450원 (<span class="up">+15.1%</span>) · 시총 3,633억 · 5일 <span class="up">+22.3%</span> / 20일 <span class="up">+69.7%</span> / 60일 <span class="up">+4.3%</span></li>
+<li>MA5 17,046원 / MA20 13,238원 / MA60 13,909원 → MA20 이격 <span class="up">+46.9%</span> · MA60 이격 <span class="up">+39.8%</span></li>
+<li>52주 고 36,250원 / 저 8,240원 → 고점 대비 <span class="down">-46.3%</span> · 20일 고 19,450원 / 저 10,430원</li>
+<li>후행 PER 43.32 / PBR 2.2 (EPS 449원 · BPS 8,855원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 146.7억 (5일 230.7억)</li>
+<li>외국인 순매수 5일 -34.0억 / 20일 -85.7억 · 기관 5일 -17.5억 / 20일 16.5억 · 개인 20일 63.7억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.58% / 20일 평균 3.01% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 8.20% (08/31) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 22,000원 (<span class="up">+13.1%</span>) ÷ 하방 15,000원 (−22.9%) = <strong>1:0.57</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 22.9% = <strong>자산의 2.2%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.2%</strong></li>
+<li>유동성 참고: 20일 ADV 146.7억 · 1일 소화 한도는 ADV의 10%(14.67억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 22.9% · ATR14 1,449원 (손절폭/ATR 3.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 22.9% = ATR14 × 3.1배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 17,277원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.17</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-052710"></span>📋 결정카드 — 아모텍(052710) 판정: 관심 선물: 無 현재가: 19,470원 진입: 17,000~17,500원 (눌림목·추격금지) 손절: 15,000원 목표: 1차 22,000원 (2차 26,000원) 손익비: 1:2.1 기간: 스윙 6~12주 촉매: 3Q26 실적(2026-11 중순 예상·날짜 미확정) 반증: 3Q26 연결 영업이익 &lt; 15억 또는 매출 &lt; 700억이면 AI MLCC 램프업 논지 폐기 / 종가 15,000원 하회 시 추세 훼손</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
