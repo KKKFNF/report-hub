@@ -1,0 +1,307 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>두산 AI병참 CCL / 드러켄밀러 방한 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260922-121123-두산-AI병참-CCL-드러켄밀러-방한.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.59</div><div class="tp-c"><b>결론 발췌</b> 드러켄밀러 방한은 &#x27;사실&#x27;이나 주가 촉매는 이미 반영된 CCL(전자BG) 구조적 성장 + 9,684억 증설이 실체. 실적 모멘텀·컨센 상향은 강하나 오늘(+3.49%) 20일 신고가 급등·외국인 20일 –3,998억 순매도·Forward PER 60배로 추격은 부적합. 판정 관심(눌림 대기), 진입 1,390,000~1,440,000, 손익비 1차 1:1.6 / 2차 1:3.2, 1차 목표 1,630,000·2차 1,840,000(컨센 평균 2,125,000 병기). &gt; ⚠️ 본 리포트는 비나인 블로그 글(&#x27;드러켄밀러는 왜 한국에 오는가?&#x27;, doctordk, 2026-09-22)을 출발점으로 한 리서치 참고용이며 매수·매도 강요가 아니…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>두산 AI병참 CCL / 드러켄밀러 방한</h1>
+<div class="meta">📊 benine · 2026-09-22 12:11 · 코드 000150</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-22 12:11)</div><div class="kpi-v">1,478,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">23.9조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">416.81</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">16.91</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.59</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.77</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">1,630,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 1,390,000~1,440,000원 (눌림 대기, 3회 분할)</span><span class="dc dn">손절 1,280,000원</span><span class="dc up">목표 1,630,000원</span><span class="dc">손익비 진입 1:1.59 · 현재가 1:0.77</span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-09-22 드러켄밀러 회동 / 11월 중순 3Q 보고서</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 3,500억이면 전량 청산 / 종가 1,280,000 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 두산(000150) ※선물 有(근월물 AGT610)</p>
+<p>📌 <strong>한줄 결론</strong>: 드러켄밀러 방한은 &#x27;사실&#x27;이나 주가 촉매는 이미 반영된 <strong>CCL(전자BG) 구조적 성장 + 9,684억 증설</strong>이 실체. 실적 모멘텀·컨센 상향은 강하나 오늘(<span class="up">+3.49%</span>) 20일 신고가 급등·외국인 20일 –3,998억 순매도·Forward PER 60배로 추격은 부적합. <strong>판정 관심(눌림 대기)</strong>, 진입 1,390,000~1,440,000, 손익비 1차 1:1.6 / 2차 1:3.2, 1차 목표 1,630,000·2차 1,840,000(컨센 평균 2,125,000 병기).</p>
+<p class="note">⚠️ 본 리포트는 비나인 블로그 글(&#x27;드러켄밀러는 왜 한국에 오는가?&#x27;, doctordk, 2026-09-22)을 출발점으로 한 리서치 참고용이며 매수·매도 강요가 아니다. 블로그·단일 증권사 의견은 &#x27;블로거/증권사 추정&#x27;으로 구분 표기했다.</p>
+<hr>
+<h2 id="사실관계-검증-실체-vs-기대감">① 사실관계 검증 — 실체 vs 기대감</h2>
+<p><strong>(A) 드러켄밀러 방한 [인용: 한국경제·머니투데이·아주경제 2026-09-20~21]</strong></p>
+<ul>
+<li>스탠리 드러켄밀러(듀케인 패밀리오피스 회장) 첫 공개 방한, 2026-09-22 서울에서 ㈜두산·두산에너빌리티 고위경영진과 회동 <strong>추진 중</strong>(확정 아님). 삼성전자·SK하이닉스, 네이버·쿠팡 접촉 가능성 거론. → <strong>방한·면담 추진은 사실.</strong> 다만 &#x27;투자 집행&#x27;은 미확인이며, 회동 자체가 지분투자로 직결된다는 근거는 없다.</li>
+<li>블로거가 인용한 &quot;드러켄밀러가 AI 투자를 6개월 전의 20% 수준으로 축소, 에너지(YPF) 비중 확대&quot; → [블로거·언론 인용, 세부 수치 미검증]. 정황(AI 과열 경계·전력/에너지 선호)은 방한 목적(AI 병참·전력계통)과 부합하나, 리포트 판단 근거로는 부차적.</li>
+</ul>
+<p><strong>(B) 두산이 실제로 파는 것 [실측: 사업보고서 2025.12 / 반기 2026.06]</strong></p>
+<ul>
+<li>㈜두산은 두산에너빌리티·두산밥캣·두산퓨얼셀·두산로보틱스 등 23개 계열 지배 <strong>지주회사</strong> + 자체사업 <strong>전자BG(CCL, 동박적층판)</strong>·디지털이노베이션BU.</li>
+<li>2025 연결 매출 비중: 두산밥캣 44.4% / 두산에너빌리티 39.4% / <strong>전자BG(CCL) 9.5%</strong> / 퓨얼셀 2.0% / 기타 4.5%. → 밥캣·에너빌이 매출 몸통, <strong>CCL은 매출 비중은 작지만 성장·마진의 열쇠</strong>.</li>
+</ul>
+<p><strong>(C) CCL 증설 — 실체 확인됨 [인용: ZDNet·이투데이·키움·한신평 2026-09-17~18 / 다수 증권사 리포트]</strong></p>
+<ul>
+<li>㈜두산 전자BG <strong>9,684억 증설 결정</strong>: 국내 4,210억(광모듈 CCL 라인) + 중국 두산일렉트로머티리얼즈창수 5,474억(AI 가속기·네트워크 스위치 CCL 신공장). 블로거 언급 숫자(4,210<span class="up">+5,474</span>)와 <strong>정확히 일치</strong>.</li>
+<li>2028.12까지 단계 집행, <strong>신규 CAPA는 2028부터 순차 가동</strong> → CCL 라인 수 기준 현재比 약 <strong><span class="up">+167%</span></strong> 확대 전망. 한국신용평가 &quot;등급 전망 유효&quot;(재무부담 감내).</li>
+<li>두산 설명 &quot;800G부터 미세회로 하이엔드 CCL 공급, 주요 제조사 1순위 파트너&quot; [회사 IR 주장]. 400G→800G→1.6T 전송속도 상승으로 고부가 CCL 수요 확대 논리는 증권사(메리츠·키움) 공통 인용.</li>
+<li><strong>판정: &#x27;증설·전방수요·ASP 상승&#x27;은 실체. 단 신규 CAPA는 2028 가동 → 2026~27 실적은 기존 라인·판가로 결정.</strong> 블로거의 &quot;광트랜시버 CCL 하반기 매출 ~2,200억&quot;은 전자BG 내 특정 제품군 추정치로 <strong>[블로거 추정, 공시·IR 미확인]</strong>.</li>
+</ul>
+<hr>
+<h2 id="실적-분석-dart-실측-연결">② 실적 분석 (DART 실측, 연결)</h2>
+<p><strong>연간 추세 [실측: 사업보고서, 접수 20260323000945]</strong></p>
+<ul>
+<li>매출: 2023 191,301억 → 2024 181,329억 → 2025 197,841억</li>
+<li>영업이익: 2023 14,363억 → 2024 10,038억 → 2025 10,627억</li>
+<li>순이익(연결): 2023 2,721억 → 2024 3,022억 → 2025 2,495억</li>
+<li>OPM: 2023 7.5% → 2024 5.5% → 2025 5.4% (밥캣 건설기계 사이클 둔화가 2024~25 마진 압박)</li>
+</ul>
+<p><strong>분기 추세 (연결·3개월 standalone) [실측: 분기·반기보고서]</strong></p>
+<ul>
+<li>매출: 2025Q1 42,987 / Q2 53,464 / Q3 44,523 / Q4 56,867 → 2026Q1 50,603 / <strong>Q2 55,861억</strong></li>
+<li>영업이익: 2025Q1 1,985 / Q2 3,578 / Q3 2,313 / Q4 2,751 → 2026Q1 3,408 / <strong>Q2 4,884억</strong></li>
+<li><strong>OP YoY: 2026Q1 <span class="up">+71.7%</span>, Q2 <span class="up">+36.5%</span> → 뚜렷한 이익 모멘텀.</strong> H1 2026 OPM 7.8%(연결)로 2025년(5.4%) 대비 개선 — CCL 고마진 믹스 확대가 견인.</li>
+</ul>
+<p><strong>전자BG(CCL) 부문 매출 [실측: 매출실적 표]</strong></p>
+<ul>
+<li>2023 7,517억 → 2024 10,063억 → 2025 <strong>18,751억</strong>(<span class="up">+86%</span> YoY, 수출 3,078→11,846억 급증) → <strong>2026 상반기 12,933억</strong>(연 환산 ~25,900억). 전사 매출 비중 9.5%(2025)→12.2%(2026H1)로 상승. → <strong>CCL이 이익·밸류의 성장 엔진임을 실측이 뒷받침.</strong></li>
+</ul>
+<p><strong>재무건전성 [실측: 2025 연결]</strong></p>
+<ul>
+<li>자산 329,278억 / 부채 206,935억 / 자본 122,343억 → <strong>부채비율 169.1%</strong>(밥캣·에너빌 연결 부채 포함, 지주 특성상 과대). DS투자증권은 ㈜두산 별도 기준 &quot;순현금 전환&quot;으로 평가.</li>
+<li>현금흐름: 영업활동 <span class="up">+9,819</span>억 / 투자활동 –4,304억 / 재무활동 <span class="up">+7,000</span>억 → 영업CF 흑자, 증설 CAPEX 감내 가능 구간.</li>
+</ul>
+<hr>
+<h2 id="미래-실적-달성-가능성">③ 미래 실적 + 달성 가능성</h2>
+<p><strong>증권사 컨센서스 [인용: fnguide·naver·stockeasy 집계, 2026-09-22 수집]</strong></p>
+<ul>
+<li>FY26E 매출 218,530억 / 영업이익 17,947억 / 순이익 9,196억 / EPS 23,291 / ROE 24.9%</li>
+<li>FY27E 매출 252,452억 / 영업이익 25,095억 / EPS 36,197</li>
+<li>FY28E 매출 285,187억 / 영업이익 31,331억 / EPS 43,625</li>
+<li>2026Q3E: 매출 52,248억 / 영업이익 4,499억 / 순이익 1,736억 (naver)</li>
+<li>영업이익 컨센 상향 추세: 6M전 16,296 → 3M전 17,146 → 현재 17,947억</li>
+</ul>
+<p><strong>달성 가능성 판정: 中~高</strong></p>
+<ul>
+<li>근거(高 방향): ①H1 2026 OP 8,292억 실적 → FY26E 17,947억은 H2 9,655억 필요, H1 런레이트 유지면 달성권. ②CCL H1 12,933억 실적·ASP 상승·국내 하이엔드 라인 풀가동(증평 107.8%·김천 105.3% 가동률)로 물량·믹스 견인. ③메리츠 &quot;2029 전자BG 매출 6.5조&quot; 등 장기 상향.</li>
+<li>근거(리스크): ①밥캣 건설기계 전방 둔화 지속 시 전사 매출 캡. ②신규 CCL CAPA는 <strong>2028 가동</strong> → 2026~27 증익은 증설이 아니라 기존 라인 ASP·가동률에 의존. ③블로거의 &quot;하반기 CCL 2,200억&quot; 세부치는 미검증.</li>
+<li><strong>FY27E 영업익 25,095억(<span class="up">+40%</span>)은 증설 가동 전이라 ASP·믹스 개선 지속을 전제 → 달성 中(가정 의존도 높음).</strong></li>
+</ul>
+<hr>
+<h2 id="밸류에이션-목표가">④ 밸류에이션 → 목표가</h2>
+<p><strong>현재 멀티플 [실측: KIS 2026-09-22]</strong></p>
+<ul>
+<li>현재가 1,482,000원 / 시총 239,993억 / PER(TTM) 417.9배(EPS 3,546 — 지주사·일회성 왜곡) / PBR 16.96배(BPS 87,399 — 지배지분 축소로 과대 표시). → <strong>후행 PER·PBR은 지주회사 구조상 무의미, Forward·SOTP로 판단.</strong></li>
+<li>Forward PER: FY26E <strong>63.6배</strong> / FY27E <strong>40.9배</strong> / FY28E <strong>34.0배</strong> (컨센 EPS 기준)</li>
+</ul>
+<p><strong>자체 목표가 산출 [추정: Forward PER 앵커]</strong></p>
+<ul>
+<li>산식: FY27E EPS 36,197원 × 적정 PER 45배(AI CCL 성장 프리미엄, 증설 가동 前 보수 반영) = <strong>약 1,630,000원</strong> → <strong>1차 목표</strong></li>
+<li>성장 지속·리레이팅 시: FY27E EPS 36,197 × 50배 ≈ 1,810,000 → 대신증권 목표 1,840,000과 근접 → <strong>2차 목표 1,840,000원</strong></li>
+<li>컨센 평균 목표 <strong>2,125,484원</strong>(11개사 2,153,636 / 최고 DS투자 2,750,000·최저 1,370,000)은 FY27E EPS × 약 58배로 <strong>성장 프리미엄 최대 반영</strong> → 강세 시나리오 상단으로만 참조.</li>
+</ul>
+<p><strong>증권사 목표가 [인용]</strong></p>
+<ul>
+<li>DS투자 2,750,000(상향, 09-18) / 대신 1,840,000(유지, 09-21) / DB 1,800,000(유지) / 메리츠·키움 목표가 미제시(Buy). 투자의견 Buy 37 : NR 6.</li>
+</ul>
+<hr>
+<h2 id="손익비-진입-중앙값-1415000원-기준">⑤ 손익비 (진입 중앙값 1,415,000원 기준)</h2>
+<ul>
+<li>진입 구간: 1,390,000~1,440,000 (중앙 1,415,000)</li>
+<li>손절: 1,280,000 (MA20 1,284,050 종가 이탈) → 하락리스크 <strong>–9.5%</strong></li>
+<li>1차 목표 1,630,000 → 상승여력 <strong><span class="up">+15.2%</span></strong> → <strong>손익비 1:1.6</strong></li>
+<li>2차 목표 1,840,000 → 상승여력 <strong><span class="up">+30.0%</span></strong> → <strong>손익비 1:3.2</strong></li>
+<li>현재가(1,482,000) 추격 시: 손절 1,280,000까지 –13.6%, 1차까지 <span class="up">+10.0%</span> → 손익비 1:0.7로 <strong>부적합</strong>. → <strong>눌림 진입이 손익비의 핵심 전제.</strong></li>
+</ul>
+<hr>
+<h2 id="진입-전략-선물-레버리지-스윙">⑥ 진입 전략 (선물 레버리지 스윙)</h2>
+<ul>
+<li>선물: <strong>有(근월물 AGT610, 표준코드 KR4AGT6A0003, 1계약=10주)</strong> → 레버리지 가능.</li>
+<li>위치: 이평 정배열(MA5 1,430,600 &gt; MA20 1,284,050 &gt; MA60 1,251,983), 오늘 20일 신고가(<span class="up">+3.49%</span>). 52주 고 2,489,000 대비 –40.5%(과거 고점권 아님), 20일 <span class="up">+34.6%</span> 급등 직후 → <strong>단기 과열·추격 부담</strong>.</li>
+<li>수급 경고: <strong>외국인 20일 –3,998억 순매도</strong>(5일 –2,365억), 기관 <span class="up">+2,775</span>억·개인 <span class="up">+1,141</span>억으로 방어. <strong>공매도 20일 평균 6.29%(압력 높음, 20일 최대 10.95%)</strong>. 변동성 고변동(VKOSPI 42.99).</li>
+<li>3라인:</li>
+</ul>
+<p>· 진입 1,390,000~1,440,000 (MA5 눌림, 3회 분할·각 1/3) · 손절 1,280,000 (MA20 종가 이탈 시 전량) · 익절 1차 1,630,000(비중 절반) / 2차 1,840,000(잔량)</p>
+<ul>
+<li><strong>레버리지·집중 경고</strong>: 고변동 레짐 + 외국인 매도 + Forward PER 60배 구간. 선물 레버리지는 손절 –9.5% 이탈 시 손실이 배수로 확대. 한 종목 50% 집중은 이 변동성에서 과다 — 아래 사이징 상한 준수.</li>
+</ul>
+<hr>
+<h2 id="산업제품-바텀업-모델-ccl-전자bg">⑧ 산업·제품 바텀업 모델 (CCL / 전자BG)</h2>
+<p><strong>9-1 제품 분해 [실측: 사업보고서·반기보고서]</strong></p>
+<ul>
+<li>전자BG 품목 = CCL(동박적층판). 매출: 2023 7,517 / 2024 10,063 / 2025 18,751 / 2026H1 12,933억. 용도: PCB 기판소재(AI 가속기·네트워크 스위치·광모듈/광트랜시버).</li>
+</ul>
+<p><strong>9-2 고객·납품</strong></p>
+<ul>
+<li>CCL 고객명 비공개(하이엔드 CCL &quot;주요 제조사 1순위 파트너&quot; 회사 주장). 수출 비중 급증(2025 CCL 수출 11,846억, 내수 6,905억)으로 글로벌 AI 서버·스위치 밸류체인향 추정. 고객 집중도 수치 [미확인].</li>
+</ul>
+<p><strong>9-3 시장·경쟁 [인용: 증권사 산업코멘트]</strong></p>
+<ul>
+<li>전방: AI 데이터센터(AIDC)·스위치 400G→800G→1.6T 전환이 고다층·저손실 하이엔드 CCL 수요 견인. 글로벌 경쟁사(대만·일본 CCL 업체) CAPA·점유율 수치 교차출처 [미확인 — 단일 증권사 코멘트만]. 두산 &quot;800G↑ 1순위 파트너&quot;는 회사 주장으로 점유율 숫자 뒷받침 [미확인].</li>
+</ul>
+<p><strong>9-4 단가·원가 이력 [실측: DART 가격변동추이]</strong></p>
+<ul>
+<li>CCL(동박적층판) ASP: 2023 47,308 → 2024 51,022 → 2025 60,127 → <strong>2026H1 69,132원</strong> (2025 <span class="up">+17.8%</span>, 2026H1 vs FY25 <span class="up">+15.0%</span>). → 블로거 &quot;올해 ASP <span class="up">+15</span>~20%&quot; 주장은 실측과 <strong>부합</strong>.</li>
+<li>원재료 동박: 2025 23,821 → 2026H1 32,063원/kg(<span class="up">+34.6%</span>). G/F·에폭시레진도 상승. → <strong>원가 상승분을 ASP 전가 중이나, 동박 상승폭(<span class="up">+35%</span>)이 ASP(<span class="up">+15%</span>)보다 커 마진 스프레드는 주시 필요.</strong></li>
+</ul>
+<p><strong>9-5 CAPA·가동률·수주 [실측]</strong></p>
+<ul>
+<li>동박적층판 CAPA(천Unit, 2025): 익산 4,768 / 증평 3,840 / 김천 3,816 / 중국 6,882.</li>
+<li>가동률 2025: 익산 47.9%(전환 중 추정) / <strong>증평 107.8% / 김천 105.3%</strong>(국내 하이엔드 풀가동+) / 중국 89.0%. → 국내 고부가 라인은 이미 한계 가동 → 증설 필요성 실증. 신규 CAPA <span class="up">+167%</span>는 <strong>2028 가동</strong>.</li>
+<li>㈜두산 CCL 별도 수주잔고 항목 [미확인 — 공시 수주표는 에너빌 원전 중심].</li>
+</ul>
+<p><strong>9-6 전방 시나리오</strong></p>
+<ul>
+<li>AI 가속기·스위치 CAPEX 확대(글로벌 하이퍼스케일러)로 하이엔드 CCL 소요 증가. 침투율/점유율 정량 시나리오는 경쟁사 CAPA 미확인으로 정밀 산식 불가 → 아래 매출은 ASP·가동률 기반 추정.</li>
+</ul>
+<p><strong>9-7 바텀업 실적 모델 — 전자BG(CCL) [추정]</strong></p>
+<ul>
+<li>물량·ASP 기반, 2026H1 실측(매출 12,933억) 앵커.</li>
+</ul>
+<p>· Bear: H2 CCL ≈ H1 유지(12,900억) → FY26 CCL 약 25,800억, OPM 완만 · Base: H2 ASP·믹스 개선으로 14,000억 → FY26 CCL 약 26,900억 · Bull: 하이엔드 물량 확대 15,500억 → FY26 CCL 약 28,400억</p>
+<ul>
+<li>단, 전자BG 부문 영업이익 별도 공시 미확보 → CCL 단독 OP는 [미확인]. <strong>전사(연결) 영업이익으로 판정한다.</strong></li>
+<li>민감도: ASP ±10% × 가동률(물량) ±5%p → 전자BG 매출 약 ±2,600억 변동(H1 실측 대비). 동박 원가 <span class="up">+10%</span> 추가 상승 시 스프레드 축소로 부문 OP 훼손.</li>
+<li>컨센 대조: 전사 FY26E OP 17,947억은 밥캣·에너빌 포함. CCL 기여 확대가 컨센 상향의 동력.</li>
+</ul>
+<p><strong>결론 문장(실적 캘린더 연동)</strong>: <strong>3Q26 연결 영업이익 ≥ 4,500억(컨센)이면 논지 유지·추가매수 검토, &lt; 3,500억이면 이익 모멘텀 훼손으로 논지 폐기.</strong> (2026Q2 연결 OP 4,884억 실적이 기준선.)</p>
+<hr>
+<h2 id="invalidation">⑦ 촉매·반증·이벤트 대응</h2>
+<p><strong>촉매 캘린더 (날짜 확정)</strong></p>
+<ul>
+<li>2026-09-22: 드러켄밀러 방한·㈜두산/두산에너빌리티 회동 추진(당일 이벤트, 뉴스 플로우 변동성).</li>
+<li>2026-11 중순(잠정): 3분기 보고서 법정기한 → 3Q26 연결 실적·전자BG 매출·ASP 확인.</li>
+<li>2028.12까지: 9,684억 CCL 증설 단계 집행, 2028 순차 가동(중장기 촉매, 단기 실적 무관).</li>
+</ul>
+<p><strong>반증 조건 3개 (수치→행동)</strong></p>
+<ol>
+<li><strong>3Q26 연결 영업이익 &lt; 3,500억</strong> → 이익 모멘텀 붕괴, 논지 폐기·전량 청산 / ≥ 4,500억 → 추가매수 검토.</li>
+<li><strong>종가 1,280,000원 이탈</strong> → MA20 지지 붕괴, 전량 청산.</li>
+<li><strong>전자BG(CCL) 반기 매출 &lt; 11,000억(다음 반기 기준) 또는 동박-ASP 스프레드 역전 신호</strong> → 성장 논지 약화, 비중 축소.</li>
+</ol>
+<p><strong>이벤트 매트릭스 (3Q 실적 × 당일 주가)</strong></p>
+<ul>
+<li>서프라이즈(OP≥5,000억) × 갭상승 → 눌림 대기 말고 분할 추격, 손절 진입가 –8%.</li>
+<li>인라인(4,000~5,000억) × 보합 → 계획대로 1,390,000~1,440,000 분할.</li>
+<li>쇼크(&lt;3,500억) × 갭하락 → 반증1 발동, 진입 보류·기보유분 청산.</li>
+</ul>
+<p><strong>확률가중 시나리오</strong></p>
+<ul>
+<li>Bear 30%: 3Q 둔화·외국인 매도 지속·밸류 부담 → 1,200,000 (–19% from 1,482,000)</li>
+<li>Base 50%: CCL 성장 지속·컨센 부합 → 1,630,000 (<span class="up">+10%</span>)</li>
+<li>Bull 20%: 하이엔드 CCL 물량 서프라이즈·리레이팅 → 1,900,000 (<span class="up">+28%</span>)</li>
+<li>확률가중 기대: (–19%×0.3)+(<span class="up">+10%</span>×0.5)+(<span class="up">+28%</span>×0.2) = <strong><span class="up">+1.3%</span></strong> (현재가 기준). → 현재가 추격의 기대수익은 미미, <strong>진입가를 낮출수록(눌림) 기대수익 개선</strong>.</li>
+</ul>
+<p><strong>수급·유동성 [실측: KIS]</strong></p>
+<ul>
+<li>외국인 20일 –3,998억 / 기관 <span class="up">+2,775</span>억 / 개인 <span class="up">+1,141</span>억. 공매도 20일 평균 6.29%.</li>
+<li>20일 평균 거래대금 1,064억 → 1일 체결 상한(ADV 10%) 약 106억 → 대금 충분, 체결 리스크 낮음.</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 %로만)</strong></p>
+<ul>
+<li>리스크예산: 손실예산 0.5%(고변동 레짐) ÷ 손절폭 9.5% = <strong>자산의 약 5.3%</strong>.</li>
+<li>집중상한 50% · 이벤트(3Q 실적) 전 상한 25% · 리스크예산 5.3% 중 <strong>최소값 = 자산의 5.3%</strong> 채택. 표준 손실예산 1% 적용 시에도 10.5% 상한. → 선물 레버리지 감안 시 <strong>명목 익스포저가 이 상한을 넘지 않도록</strong> 계약 규모 역산 필요. 한 종목 50% 집중은 이 변동성·수급에서 비권장.</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 증권사·블로거 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p><strong>[미확인 목록]</strong> 광트랜시버 CCL 하반기 2,200억(블로거 추정) · 전자BG 부문 영업이익 별도치 · CCL 고객명·집중도 · 글로벌 경쟁사 CAPA·점유율 교차출처 · CCL 별도 수주잔고 · 드러켄밀러 AI투자 20% 축소 세부치.</p>
+<p><strong>[출처 목록]</strong> DART 사업보고서(20260323000945)·반기보고서(20260814004047) · KIS 시세(2026-09-22) · fnguide/naver/stockeasy 컨센(2026-09-22) · 한국경제·머니투데이·아주경제(드러켄밀러, 09-20~21) · ZDNet·이투데이·키움·한신평(CCL 증설, 09-17~18) · 비나인 블로그 doctordk(2026-09-22, 출발점).</p>
+<p><strong>[검산]</strong> CCL 매출 부문합=전사표 일치(2025 18,751억) · Q1+Q2 2026 연결매출 50,603<span class="up">+55,861</span>=106,464억≈반기 세그먼트합 106,175억(연결조정 차이) · 손익비 헤더(1:1.6/1:3.2)=본문 산식 일치 · 시나리오 확률합 30<span class="up">+50</span><span class="up">+20</span>=100%.</p>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-22 12:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 1,478,000원 (<span class="up">+3.2%</span>) · 시총 23.93조 · 5일 <span class="up">+14.7%</span> / 20일 <span class="up">+34.2%</span> / 60일 <span class="up">+2.5%</span></li>
+<li>MA5 1,429,800원 / MA20 1,283,850원 / MA60 1,251,917원 → MA20 이격 <span class="up">+15.1%</span> · MA60 이격 <span class="up">+18.1%</span></li>
+<li>52주 고 2,489,000원 / 저 522,000원 → 고점 대비 <span class="down">-40.6%</span> · 20일 고 1,478,000원 / 저 1,121,000원</li>
+<li>후행 PER 416.81 / PBR 16.91 (EPS 3,546원 · BPS 87,399원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,064.7억 (5일 1,623.3억)</li>
+<li>외국인 순매수 5일 -2,364.7억 / 20일 -3,998.3억 · 기관 5일 1,097.1억 / 20일 2,775.3억 · 개인 20일 1,140.9억</li>
+<li>개별주식선물: ⚡ 상장 (AGT610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 7.40% / 20일 평균 6.29% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 10.95% (09/16) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 1,630,000원 (<span class="up">+10.3%</span>) ÷ 하방 1,280,000원 (−13.4%) = <strong>1:0.77</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 13.4% = <strong>자산의 3.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.7%</strong></li>
+<li>유동성 참고: 20일 ADV 1,064.7억 · 1일 소화 한도는 ADV의 10%(106.47억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 13.4% · ATR14 77,286원 (손절폭/ATR 2.6배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 13.4% = ATR14 × 2.6배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 1,330,200원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.03</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-000150"></span>📋 결정카드 — 두산(000150) 판정: 관심 선물: 有 현재가: 1,482,000원 진입: 1,390,000~1,440,000원 (눌림 대기, 3회 분할) 손절: 1,280,000원 (MA20 종가 이탈) 목표: 1차 1,630,000원 (2차 1,840,000원) 손익비: 1:1.6 (2차 1:3.2, 진입 중앙 1,415,000 기준) 기간: 스윙 4~10주 촉매: 2026-09-22 드러켄밀러 회동 / 11월 중순 3Q 보고서 반증: 3Q26 연결 영업이익 &lt; 3,500억이면 전량 청산 / 종가 1,280,000 이탈 시 청산</p>
+<hr>
+<h3 id="부록-ai-병참-밸류체인-tier-실적베타-선물상장-전-종목-선물-확인">부록 — AI 병참 밸류체인 Tier (실적베타 × 선물상장, 전 종목 선물 有 확인)</h3>
+<ul>
+<li><strong>Tier1 (수혜高·직접)</strong>: 두산(000150, CCL 직접·선물 AGT610) — 본 리포트 풀분석 / SK하이닉스(000660, HBM 직접·선물 A50610).</li>
+<li><strong>Tier1~2</strong>: 삼성전자(005930, HBM 추격+파운드리·선물 A11610) — AI 메모리 수혜, 밸류 부담 낮음.</li>
+<li><strong>Tier2 (전력 병참)</strong>: 두산에너빌리티(034020, 원전 주기기·가스터빈·선물 AB9610) — AI 전력수요 수혜 서사, 다만 2025 수주잔고 27조(체코 원전) 이익 인식 시차·밸류 부담은 별도 검증 필요.</li>
+<li>㈜두산은 두산에너빌리티 지배 → CCL 직접 + 에너빌 지분 간접으로 &#x27;AI 병참(메모리 기판 + 전력)&#x27; 이중 노출이 지주 프리미엄 논리의 핵심.</li>
+</ul></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
