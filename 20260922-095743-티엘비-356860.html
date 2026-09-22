@@ -1,0 +1,252 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>티엘비(356860) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260922-095743-티엘비-356860.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.5</div><div class="tp-c"><b>결론 발췌</b> AI 메모리 폼팩터(SoCAMM·MR-DIMM) PCB 전환의 핵심 수혜주로 실적 급증 궤적은 명확하나, 오늘 +19% 갭 급등으로 PER 51배까지 밀집 → &#x27;관심&#x27;. 고점권이 아닌 52주 저점권(19,600~141,800 중 하단 32% 위치)이라 되돌림 확인 후 접근이 합리적. 손익비 약 1:2.0, 1차 목표 55,000원. ━━━━━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 약 5.2% [추정: 당일거래대금 556억 ÷ 시총 10,749억 = 5.17%] — 20일 평균거래대금 235억 [실측: KIS 일봉 20봉 평균]의 2.4배 자금유입, 강도 &#x27;강&#x27; • 추세: MA정배열 O (MA5 39,290 &gt; MA20 38,7…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>티엘비(356860)</h1>
+<div class="meta">📊 trend · 2026-09-22 09:57 · 코드 356860</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-22 09:57)</div><div class="kpi-v">45,700원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.1조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">51.41</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">7.72</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.5</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.07</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">55,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 40,000~42,000원 (갭 되돌림 확인 후 분할)</span><span class="dc dn">손절 37,000원</span><span class="dc up">목표 55,000원</span><span class="dc">손익비 진입 1:3.5 · 현재가 1:1.07</span><span class="dc">기간 스윙 4~10주 (3Q 실적발표까지)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026년 10월 하순~11월초 3Q26 실적발표 / 2027년 1월말 4Q·연간 실적</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 100억이면 논지 폐기 / 판가 1,361,056원/㎡ 하락반전 / 종가 37,000원 하향이탈 3일내 미회복</div></div>
+<div class="charts"><div class="chartcard"><div class="chart-t">연간 실적 추이 (매출·영업익 억원 / OPM %)</div><canvas id="chart0" height="150"></canvas></div></div>
+<div class="body"><p>🚀 정밀 리서치 — 티엘비(356860)  ※선물 無(개별주식선물 미상장 → 현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: AI 메모리 폼팩터(SoCAMM·MR-DIMM) PCB 전환의 핵심 수혜주로 실적 급증 궤적은 명확하나, 오늘 <span class="up">+19%</span> 갭 급등으로 PER 51배까지 밀집 → &#x27;관심&#x27;. 고점권이 아닌 52주 저점권(19,600~141,800 중 하단 32% 위치)이라 되돌림 확인 후 접근이 합리적. 손익비 약 1:2.0, 1차 목표 55,000원.</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 약 5.2% [추정: 당일거래대금 556억 ÷ 시총 10,749억 = 5.17%] — 20일 평균거래대금 235억 [실측: KIS 일봉 20봉 평균]의 2.4배 자금유입, 강도 &#x27;강&#x27;</li>
+<li>추세: MA정배열 O (MA5 39,290 &gt; MA20 38,795 &gt; MA60 34,594) [실측: KIS 일봉]</li>
+<li>연속상승 2일 [실측: KIS 일봉]. 단, 오늘 하루가 전일 38,100원 → 45,300원 <strong><span class="up">+18.9%</span> 갭 급등</strong> [실측: KIS 일봉 09/21 종가 38,100 → 09/22 종가 45,300]</li>
+<li>20일 <span class="up">+17.1%</span> / 60일 <span class="up">+17.6%</span> [실측: KIS 일봉] — 추세는 살아있으나 상승분의 대부분이 당일 발생 → &#x27;초입&#x27;이 아닌 &#x27;뉴스 스파이크&#x27; 성격</li>
+<li>52주 위치: 하단에서 32% 지점 [산식: (45,350−19,600)/(141,800−19,600)]. 52주 고점 141,800 대비 −68% → 고점권 아님</li>
+<li>ATR14 = 2,911원(6.4%) [실측: KIS 일봉] — 변동성 큰 종목</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력: 메모리모듈 PCB(주기억용 DRAM 모듈 기판) + SSD PCB [실측: 사업보고서 2025.12, 접수 20260320000683]. 전방은 서버·PC·워크스테이션 메모리</li>
+<li>급등사유(검증된 사실): AI 서버용 차세대 메모리 폼팩터 <strong>SoCAMM2 / MR-DIMM PCB</strong> 수혜. 엔비디아 Vera CPU 채택 고부가 PCB로 ASP 상승 [인용: 메리츠 2026-09-14 &#x27;SoCAMM, 다음은 MR-DIMM&#x27; / 핀릿 2026-09-07 &#x27;NVIDIA 베라 CPU 옆자리&#x27;]</li>
+<li>검증된 실적 사실: 2025년 매출 <span class="up">+43.6%</span>·OPM 1.9%→10.0% 대전환 [실측: DART, ③ 참조]. SoCAMM2 매출 2026년 195~700억 → 2027년 1,550억 고성장 전망 [인용: 대신 09-09, iM 08-31]</li>
+<li>기대감 요소: MR-DIMM은 16층 고다층·BVH 결합 고난도 공정으로 진입장벽 높음, ASP 추가 상승 기대 [인용: 메리츠 09-14] — 아직 매출 본격화 전 &#x27;기대&#x27; 영역</li>
+</ul>
+<p>③ 실적 (DART 실측 · 연결기준)</p>
+<ul>
+<li>연간 매출/영업익/OPM [실측: DART 연결 사업보고서]</li>
+<li>2023: 매출 1,713억 / 영업익 30.4억 / OPM 1.8% / 순익 25.1억</li>
+<li>2024: 매출 1,800억 / 영업익 33.6억 / OPM 1.9% / 순익 36.0억</li>
+<li>2025: 매출 2,585억 / 영업익 259.6억 / OPM 10.0% / 순익 189.5억 → <strong>매출 <span class="up">+43.6%</span>, 영업익 <span class="up">+672%</span></strong></li>
+<li>순익 급증 분해 [실측: DART 2025 연결 CIS]: 세전이익 243.8억 − 법인세 54.2억(실효세율 22.2%) = 순익 189.5억. <strong>영업이익 자체가 30억→260억으로 급증(영업 개선이 본질), 일회성·법인세 왜곡 아님.</strong> 판가 상승(인쇄회로기판 단가 843,160원→1,095,566원/㎡, <span class="up">+30%</span> [실측: 사업보고서])이 OPM 개선 견인</li>
+<li>반기 누계 [실측: DART 2026 반기보고서, 접수 20260814000485]: 2026 상반기 매출 882억(전년동기 640억 대비 <span class="up">+37.8%</span>), 영업익 127.7억(전년동기 68.6억 대비 <span class="up">+86.2%</span>). OPM 14.5%로 추가 개선</li>
+<li>부채비율: 2023 56.5% → 2024 68.1% → 2025 95.4% [실측: DART]. CAPA 증설(베트남 내층·안산 공장) 투자로 상승 중이나 아직 관리권</li>
+<li>현금흐름: 2025 운전자본 변동 −230억(매출 급증에 따른 매출채권·재고 증가) [실측: DART CF] — 성장기 전형적 자금 소요, 유·무상증자로 조달 [인용: 대신 09-09 &#x27;주식수 희석&#x27;]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>연간 컨센 [인용: FnGuide 2026-09-22 집계, 10개사]</li>
+<li>FY26E: 매출 3,720억 / 영업익 577억 / EPS 2,095원 / PER 18.2 / ROE 25.6%</li>
+<li>FY27E: 매출 4,709억 / 영업익 838억 / EPS 2,875원 / PER 13.2 / ROE 25.2%</li>
+<li>FY28E: 매출 6,487억 / 영업익 1,219억 / EPS 4,162원 / PER 9.2</li>
+<li>분기 컨센 [인용: 메리츠·대신 09월]: 3Q26 매출 957~967억(<span class="up">+38.9</span>~40.3% YoY), 영업익 147~170억(<span class="up">+69.6</span>~96.5% YoY). 4Q26 매출 첫 1,000억 돌파 1,091억 전망</li>
+<li>영업익 컨센 상향 추이(FY26): 1Y전 337억 → 6M전 456억 → 3M전 546억 → 현재 577억 [인용: FnGuide] — 지속 상향</li>
+<li>달성가능성: <strong>中~高</strong>. 근거: 2026 상반기 실측 영업익 127.7억으로 FY26E 577억의 22% 진행(하반기 비수기→성수기 전환·SoCAMM 램프업 감안 시 하반기 집중 구조는 정합적). 다만 원화강세 매출 하향 리스크 [인용: 메리츠 09-14]</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 [실측: KIS]: PER 51.0배(EPS 889 기준·후행), PBR 7.66배(BPS 5,918)</li>
+<li>선행 기준 [산식: 현재가 45,350 ÷ FY26E EPS 2,095]: 26F PER 21.6배 / [÷ FY27E EPS 2,875] 27F PER 15.8배</li>
+<li>Peer·과거밴드: 증권사 목표가 산정 근거는 2020~2022 고점 평균 PER 21.7배(메리츠) 또는 실적호조 상단 24.4배(대신)를 27F EPS에 적용 [인용]</li>
+<li>자체 목표가 [산식: 보수적 21.7배 × FY27E EPS 2,875원 = 62,388원, 반올림]: <strong>1차 55,000원(26F EPS 2,095 × 26배 상단, 급등 직후 프리미엄 축소 반영), 2차 62,000원(27F EPS × 21.7배)</strong></li>
+<li>증권사 목표가 병기 [인용]: 평균 67,800원(10개사) / 메리츠 57,000 · 대신 60,000 · 신한 60,000 · 현대차 62,000 · IBK 53,000. 현재가 대비 상승여력 <span class="up">+26</span>~48%</li>
+</ul>
+<p>⑥ 진입전략·손익비  ※선물 無 → 현물 스윙만, 레버리지 불가</p>
+<ul>
+<li>지지: 1차 MA5 39,290 / 2차 MA20 38,795·최근 박스 상단이던 38,100 / 3차 최근20일 스윙저점 35,200 [실측: KIS]</li>
+<li>저항: 오늘 고가 46,500 / 상한가 49,500 / 심리 50,000 [실측: KIS]</li>
+<li>52주고 141,800 대비 저점권이나, 당일 급등으로 단기 과열 → 눌림 대응 우선</li>
+<li>3라인(현물 스윙, 진입가 기준):</li>
+<li>진입: 40,000~42,000원 (갭 되돌림·MA5 부근 지지 확인 후 분할 1·2차)</li>
+<li>손절: 37,000원 (MA20·직전 박스상단 38,100 하향이탈 = 급등 무효화, 진입 41,000 기준 −9.8%)</li>
+<li>익절: 1차 55,000원 / 2차 62,000원</li>
+<li>손익비 [산식: 진입 41,000 기준]: 상승여력 (55,000−41,000)/41,000 = <span class="up">+34.1%</span> ÷ 하락리스크 (41,000−37,000)/41,000 = −9.8% = <strong>1:3.5</strong>. 현재가 45,350 즉시추격 기준으로는 상승 (55,000−45,350)/45,350=<span class="up">+21.3%</span> ÷ 손절 (45,350−37,000)/45,350=−18.4% = <strong>1:1.2</strong>(불리) → 추격보다 눌림 진입 권고</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC.md §9 규격)</p>
+<ul>
+<li>제품·단가·CAPA 실측 [실측: DART 사업보고서·반기보고서]</li>
+<li>인쇄회로기판 판가(㎡당): 2023 751,236 → 2024 843,160 → 2025 1,095,566 → 2026반기 1,361,056원 (2년 <span class="up">+81%</span>, 고부가 믹스 반영)</li>
+<li>생산능력: 2025 348,000㎡ / 가동률 69.75% → 2026반기 가동률 70.8% [실측: DART]</li>
+<li>원재료 CCL 6,238→6,869원, PGC(청화금) 109,445→152,044원 등 상승 [실측] → 판가전가 여부가 마진 관건</li>
+<li>9-7 바텀업 모델(물량×단가×믹스 → 매출 → 영업이익)</li>
+</ul>
+<p>기준: 2025 실측 생산실적 242,721㎡ · 판가 1,095,566원 · OPM 10.0% [실측]</p>
+<div class="tablewrap"><table><thead><tr><th>시나리오</th><th>물량(㎡)</th><th>판가(원/㎡)</th><th>매출(억)</th><th>OPM</th><th>영업익(억)</th></tr></thead><tbody><tr><td>Bear</td><td>260,000</td><td>1,300,000</td><td>3,380</td><td>12%</td><td>406</td></tr><tr><td>Base</td><td>285,000</td><td>1,300,000</td><td>3,705</td><td>15%</td><td>556</td></tr><tr><td>Bull</td><td>300,000</td><td>1,380,000</td><td>4,140</td><td>17%</td><td>704</td></tr></tbody></table></div>
+<p>[산식: 물량×단가=매출, 매출×OPM=영업익. 단가는 2026반기 실측 1,361,056 하향보수 적용]</p>
+<ul>
+<li>3Q·4Q 분기배분 [인용 컨센 + 반기실측 정합]: 상반기 실측 882억, Base 연 3,705억 → 하반기 2,823억 = 3Q 957억·4Q 1,091억(컨센 하단 채택 시 합 2,048억, 나머지는 4Q 추가상향 여력). 상반기 영업익 127.7억 실측 → 하반기 Base 428억(3Q 147억·4Q 281억 편중)</li>
+<li>민감도: 판가 <span class="up">+5%</span>p → 매출 +약 185억·영업익 +약 28억(OPM 15% 가정). 물량 <span class="up">+5%</span> → 매출 +약 185억</li>
+<li><strong>결론 문장: 3Q26 연결 영업이익 ≥ 140억이면 논지(SoCAMM 실적 램프업) 유지, &lt; 100억이면 폐기(성수기·믹스개선 서사 붕괴).</strong> — 컨센 147~170억 대비 하회 임계</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정 이벤트만):</li>
+<li>2026년 10월 하순~11월 초: 3Q26 실적발표(잠정) — 반증 임계의 검증 시점</li>
+<li>2027년 1월 말: 4Q26·연간 실적(첫 분기 매출 1,000억 돌파 여부)</li>
+</ul>
+<p>(SoCAMM2/MR-DIMM 고객 공급 개시 등은 날짜 미확정 → 제외)</p>
+<ul>
+<li>반증 조건 3개:</li>
+</ul>
+<p>1) <strong>3Q26 연결 영업이익 &lt; 100억</strong> [분기실적 수치임계] → 실적 서사 폐기 2) 인쇄회로기판 판가가 2026반기 1,361,056원/㎡ 대비 하락 반전 [분기실적/판가 수치임계] → 믹스개선 종료 신호 3) 종가 37,000원(MA20·박스상단) 하향이탈 후 3일 내 미회복 → 기술적 급등 무효화</p>
+<ul>
+<li>이벤트 매트릭스(3Q 실적 × 당일주가):</li>
+<li>서프라이즈(영업익&gt;170억) × 갭상승 → 눌림목 추격, 목표 62,000 상향</li>
+<li>서프라이즈 × 갭하락 → 재료소멸 경계, 40,000 지지확인 후만 진입</li>
+<li>인라인(140~170억) × 보합 → 계획대로 40~42,000 분할</li>
+<li>쇼크(&lt;100억) × 갭하락 → 진입보류·손절, 반증1 발동</li>
+<li>확률가중 시나리오</li>
+</ul>
+<div class="tablewrap"><table><thead><tr><th>구분</th><th>확률</th><th>전제</th><th>목표가</th><th>수익률(현재가45,350 대비)</th></tr></thead><tbody><tr><td>Bull</td><td>30%</td><td>SoCAMM2+MR-DIMM 램프업, 27F EPS 24배</td><td>62,000</td><td><span class="up">+36.7%</span></td></tr><tr><td>Base</td><td>45%</td><td>컨센 부합, 26F 21배·27F 상향</td><td>52,000</td><td><span class="up">+14.7%</span></td></tr><tr><td>Bear</td><td>25%</td><td>원화강세·믹스지연, 급등분 반납</td><td>37,000</td><td>−18.4%</td></tr></tbody></table></div>
+<p>[산식: 확률가중 = 0.30×36.7 + 0.45×14.7 + 0.25×(−18.4) = <strong><span class="up">+13.0%</span></strong>]</p>
+<ul>
+<li>수급·유동성: 외국인/기관 20일 순매수 미확인(KIS 투자자별 미조회). 20일 평균거래대금 235억 [실측] → 1일 체결상한(ADV 10%) ≈ 23.5억 규모까지가 무리 없는 체결 한도</li>
+<li>포지션 사이징(자산 대비 %): 리스크예산 손실 1% ÷ 손절폭 9.8%(진입41,000·손절37,000) = 자산의 <strong>약 10.2%</strong>. 이벤트(3Q 실적) 전 상한 25%·집중상한 50% 중 최소값 → <strong>약 10% 상한</strong>. 선물 미상장으로 레버리지 배제, 현물 기준</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>외국인·기관 20일 순매수 동향(KIS 투자자별 미조회)</li>
+<li>유·무상증자 세부(주식수 희석 규모·신주배정일) — 컨센 리포트 언급만, DART 원문 미확인</li>
+<li>2026 3Q 단독 실적(발표 전, 컨센 추정치만)</li>
+<li>SoCAMM2/MR-DIMM 구체 고객사·공급 개시일</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI: inquire-price·inquire-daily-itemchartprice (2026-09-22 실측 시세·일봉)</li>
+<li>DART: 사업보고서 2025.12(접수 20260320000683), 반기보고서 2026.06(접수 20260814000485)</li>
+<li>FnGuide/네이버 컨센(consensus.py 2026-09-22 집계, 10개사)</li>
+<li>증권사 리포트: 메리츠 09-14, 대신 09-09, 신한 09-07, 현대차 08-28, IBK 08-26, iM 08-31, 핀릿 09-07 (stockeasy)</li>
+<li>kis_futures_check.py: 개별주식선물 미상장 확인</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합↔연간: 2025 반기누계 640.5 + 하반기(연간2585−상반기... 별도 검증) — 2026 상반기 882.4억은 반기보고서 직접 실측치로 정합</li>
+<li>시총 검산: 45,350원 × 23,701,260주 = 1조 748억 ≈ KIS hts_avls 10,749억 [실측 일치]</li>
+<li>EPS 검산: 순익 189.5억 ÷ 발행주식 → EPS 889원(KIS 후행) 정합</li>
+<li>손익비 헤더(1:2.0 요약)와 본문(눌림진입 1:3.5·추격 1:1.2) 구분 명시 — 결정카드는 눌림진입 기준 채택</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-22 09:57 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 45,700원 (<span class="up">+19.9%</span>) · 시총 1.08조 · 5일 <span class="up">+22.7%</span> / 20일 <span class="up">+18.1%</span> / 60일 <span class="up">+18.6%</span></li>
+<li>MA5 39,370원 / MA20 38,815원 / MA60 34,601원 → MA20 이격 <span class="up">+17.7%</span> · MA60 이격 <span class="up">+32.1%</span></li>
+<li>52주 고 141,800원 / 저 19,600원 → 고점 대비 <span class="down">-67.8%</span> · 20일 고 45,700원 / 저 36,600원</li>
+<li>후행 PER 51.41 / PBR 7.72 (EPS 889원 · BPS 5,918원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 236.1억 (5일 221.5억)</li>
+<li>외국인 순매수 5일 -81.2억 / 20일 -167.6억 · 기관 5일 -2.9억 / 20일 21.1억 · 개인 20일 142.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 4.06% / 20일 평균 3.94% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 8.66% (09/02) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 55,000원 (<span class="up">+20.4%</span>) ÷ 하방 37,000원 (−19.0%) = <strong>1:1.07</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 19.0% = <strong>자산의 2.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.6%</strong></li>
+<li>유동성 참고: 20일 ADV 236.1억 · 1일 소화 한도는 ADV의 10%(23.61억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 19.0% · ATR14 2,671원 (손절폭/ATR 3.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 19.0% = ATR14 × 3.3배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 41,130원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.04</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-356860"></span>📋 결정카드 — 티엘비(356860) 판정: 관심 선물: 無 현재가: 45,350원 진입: 40,000~42,000원 (갭 되돌림 확인 후 분할) 손절: 37,000원 목표: 1차 55,000원 (2차 62,000원) 손익비: 1:3.5 (진입 41,000 기준) 기간: 스윙 4~10주 (3Q 실적발표까지) 촉매: 2026년 10월 하순~11월초 3Q26 실적발표 / 2027년 1월말 4Q·연간 실적 반증: 3Q26 연결 영업이익 &lt; 100억이면 논지 폐기 / 판가 1,361,056원/㎡ 하락반전 / 종가 37,000원 하향이탈 3일내 미회복</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script><script>
+new Chart(document.getElementById("chart0"), {
+  data: { labels: ["2023", "2024", "2025"],
+    datasets: [
+      {type:'bar', label:'매출', data:[1713.0, 1800.0, 2585.0], backgroundColor:'rgba(93,176,255,.55)', borderRadius:5, yAxisID:'y', order:2},
+      {type:'bar', label:'영업익', data:[30.4, 33.6, 259.6], backgroundColor:'rgba(126,231,161,.6)', borderRadius:5, yAxisID:'y', order:2},
+      {type:'line', label:'OPM %', data:[1.8, 1.9, 10.0], borderColor:'#ffc16b', backgroundColor:'#ffc16b', borderWidth:2, tension:.3, pointRadius:3, yAxisID:'y1', order:1}
+    ] },
+  options: { responsive:true, maintainAspectRatio:false, interaction:{mode:'index', intersect:false},
+    plugins:{legend:{labels:{color:'#cdd3dc', boxWidth:12, font:{size:12}}}},
+    scales:{ x:{ticks:{color:'#9aa2ad'}, grid:{color:'rgba(255,255,255,.05)'}},
+      y:{position:'left', ticks:{color:'#9aa2ad'}, grid:{color:'rgba(255,255,255,.05)'}, title:{display:true,text:'억원',color:'#7d8590'}},
+      y1:{position:'right', ticks:{color:'#ffc16b'}, grid:{drawOnChartArea:false}, title:{display:true,text:'OPM %',color:'#ffc16b'}} } }
+});</script>
+</body></html>
