@@ -1,0 +1,139 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>삼성전자(005930) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260922-090640-삼성전자-005930.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 자동판정(한줄 결론 기준)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망</div><div class="tp-c"><b>결론 발췌</b> 특별배당 기준일(9/30)과 15조 자사주 조기종료(10월 초)가 겹치는 이벤트 구간. 배당 노림수 진입은 배당락(9/29) 리스크를 감수해야 하고, 진짜 승부처는 쌍끌이 자사주 매수가 소멸하는 10월 중순 이후 수급이다. 근거(사실): - 현재가 281,750원(+2.83%), 5일 +13.4%·20일 +9.6% 급반등. 20일 신고가 근처, MA5/20/60 정배열 회복. 외인 20일 -2.9만·개인 20일 -9.6만, 기관 20일 +2.9만(기관 매집). - 배당기준일 9/30, 특별배당 받으려면 9/28(추석후 첫 개장)까지 매수, 배당락일 9/29. - 8/24부터 15조 자사주 매입 중, 하루 5000~5200억. 하이닉스(4…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(자동판정): 관망</span><h1>삼성전자(005930)</h1>
+<div class="meta">📊 mer · 2026-09-22 09:06 · 코드 005930</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-22 09:06)</div><div class="kpi-v">281,500원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,645.7조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">42.89</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">4.4</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc dn">손절 259,000원</span><span class="dc-src">자동추출</span></div></div>
+
+<div class="body"><h1>삼성전자(005930) — 배당·자사주 이벤트 체크포인트</h1>
+<p><strong>한줄 결론:</strong> 특별배당 기준일(9/30)과 15조 자사주 조기종료(10월 초)가 겹치는 이벤트 구간. 배당 노림수 진입은 배당락(9/29) 리스크를 감수해야 하고, 진짜 승부처는 쌍끌이 자사주 매수가 소멸하는 10월 중순 이후 수급이다.</p>
+<p><strong>근거(사실):</strong></p>
+<ul>
+<li>현재가 281,750원(<span class="up">+2.83%</span>), 5일 <span class="up">+13.4%</span>·20일 <span class="up">+9.6%</span> 급반등. 20일 신고가 근처, MA5/20/60 정배열 회복. 외인 20일 -2.9만·개인 20일 -9.6만, 기관 20일 <span class="up">+2.9</span>만(기관 매집).</li>
+<li>배당기준일 9/30, 특별배당 받으려면 9/28(추석후 첫 개장)까지 매수, 배당락일 9/29.</li>
+<li>8/24부터 15조 자사주 매입 중, 하루 5000~5200억. 하이닉스(40조, 하루 1.1조)와 합쳐 매일 1.6조 매수.</li>
+</ul>
+<p><strong>반증/리스크:</strong></p>
+<ul>
+<li>메르 추정치 다수(특별배당 27.5조·주당 4500~4600원, 매입진행률 삼성82%/하이닉스64%, 조기종료 10월). 확정 아님, 10월 이사회에서 배당금 확정.</li>
+<li>배당락(9/29)에서 배당수익률만큼 갭하락 가능 → 단기 배당노림은 락 폭에 따라 손익 상쇄.</li>
+<li>10월 중순 하루 1.6조 자사주 버팀목 소멸 시 수급 공백. 60일 수익률 여전히 <span class="down">-17%</span>(고점권 부담).</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-22 09:06 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 281,500원 (<span class="up">+2.7%</span>) · 시총 1,645.73조 · 5일 <span class="up">+13.3%</span> / 20일 <span class="up">+9.5%</span> / 60일 <span class="down">-17.1%</span></li>
+<li>MA5 264,500원 / MA20 260,950원 / MA60 262,742원 → MA20 이격 <span class="up">+7.9%</span> · MA60 이격 <span class="up">+7.1%</span></li>
+<li>52주 고 374,500원 / 저 81,100원 → 고점 대비 <span class="down">-24.8%</span> · 20일 고 281,500원 / 저 248,500원</li>
+<li>후행 PER 42.89 / PBR 4.4 (EPS 6,564원 · BPS 63,997원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 41,212.5억 (5일 33,814.7억)</li>
+<li>외국인 순매수 5일 -3,581.1억 / 20일 -29,357.7억 · 기관 5일 23,225.0억 / 20일 29,082.3억 · 개인 20일 -96,117.2억</li>
+<li>개별주식선물: ⚡ 상장 (A11610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 3.36% / 20일 평균 5.59% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 14.70% (09/02) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 8.0% = <strong>자산의 6.3%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 6.3%</strong></li>
+<li>유동성 참고: 20일 ADV 41,212.5억 · 1일 소화 한도는 ADV의 10%(4121.25억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 8.0% · ATR14 7,036원 (손절폭/ATR 3.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 8.0% = ATR14 × 3.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 267,428원</li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<h2 id="결정카드">결정카드</h2>
+<ol>
+<li>종목/코드: 삼성전자 / 005930 (선물 A11610 존재, 형 보유 선물 600계약 평단 300,350)</li>
+<li>방향: 보유 유지(중립~관망) — 신규 배당노림 추격은 비권장</li>
+<li>진입가: 눌림 대기 259,000(1차손절선) 근접 시 분할, 추격매수 자제</li>
+<li>손절: 259,000(1차손절) 이탈 시</li>
+<li>익절/목표: 1차익절 279,000 이미 도달 — 분할 익절 고려 구간</li>
+<li>비중: 레버리지 축소 기조 유지, 추가 확대 금지</li>
+<li>기간: 이벤트 구간(9/28~10월 중순) 단기 트레이딩 관점</li>
+<li>트리거: 9/30 배당기준일, 9/29 배당락 폭, 10월 초 자사주 완료 공시</li>
+<li>핵심리스크: 배당락 갭·10월 중순 수급 공백·외인 순매도 지속</li>
+<li>반증신호: MA20(260,962) 이탈 + 기관 매수 반전 시 조정 전환 판단</li>
+</ol>
+<p class="note">근거: 메르 블로그(ranto28) 2026-09-22 글 + report-hub 실측(2026-09-22 09:05). 메르 수치는 추정 다수, 확정호재 아님.</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
