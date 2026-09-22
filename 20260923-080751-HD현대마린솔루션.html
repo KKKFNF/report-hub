@@ -1,0 +1,286 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HD현대마린솔루션 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260923-080751-HD현대마린솔루션.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:4.04</div><div class="tp-c"><b>결론 발췌</b> 선박 애프터마켓(AM) 독점·자산경량·고ROE(38%)의 실체 있는 성장주. 다만 현재가 243,000원은 Trailing PER 40배·PBR 13배로 이미 프리미엄 만개, 영업이익 컨센이 오히려 하향 중이라 추격보단 눌림 매수 우위. 손익비 1:2.2(진입 243,000 기준), 1차 목표 290,000원. 〔출처: 블로거 &#x27;까치사냥꾼&#x27; 글은 개인의견·참고용. 이하 수치는 DART·KIS·증권사 컨센 실측 기반, 태그 표기〕</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>HD현대마린솔루션</h1>
+<div class="meta">📊 benine · 2026-09-23 08:07 · 코드 443060</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-23 08:07)</div><div class="kpi-v">243,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">10.9조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">40.41</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">13.21</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:4.04</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.24</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">290,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 228,000~243,000원 (눌림 우선, MA20 근접 시 비중 확대)</span><span class="dc dn">손절 222,000원</span><span class="dc up">목표 290,000원</span><span class="dc">손익비 진입 1:4.04 · 현재가 1:2.24 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.2</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.2로 적었지만 진입·손절·목표로 계산하면 1:4.04다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주 (3Q 실적 전후)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-16 전후 3Q26 분기보고서(영익 컨센 1,072억)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 900억이면 논지 폐기·전량 청산 / 종가 222,000원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 딥리서치 — HD현대마린솔루션(443060) ※선물 有(근월물 A1V610)</p>
+<p>📌 한줄 결론: 선박 애프터마켓(AM) 독점·자산경량·고ROE(38%)의 실체 있는 성장주. 다만 현재가 243,000원은 Trailing PER 40배·PBR 13배로 이미 프리미엄 만개, 영업이익 컨센이 오히려 하향 중이라 추격보단 눌림 매수 우위. 손익비 1:2.2(진입 243,000 기준), 1차 목표 290,000원.</p>
+<p>〔출처: 블로거 &#x27;까치사냥꾼&#x27; 글은 개인의견·참고용. 이하 수치는 DART·KIS·증권사 컨센 실측 기반, 태그 표기〕</p>
+<hr>
+<p>① 사실관계 검증 — 스토리는 &#x27;실체 有&#x27;, 이익 기여는 &#x27;점진적&#x27; ━━━━━━━━━━━━━━━</p>
+<ul>
+<li>사업 실체 [실측: 2025 사업보고서 접수 20260316001512]: 신조선 인도 후 25~30년 생애주기 AM(애프터마켓) 사업. 4개 부문 = AM솔루션 47% / 벙커링(출항유) 39% / 친환경솔루션 9% / 디지털 5%. &quot;선박 생애주기 통합서비스 전세계 유일&quot;은 회사 주장(사업보고서 원문).</li>
+<li>급등·재평가 사유 = AI 데이터센터용 육상발전엔진 MRO 기대 [인용: 서울신문·머니투데이·이투데이 2026.05~09]:</li>
+<li>HD현대마린솔루션은 美 AEG와 텍사스 데이터센터 발전엔진 33기 장기 유지·보수 MOU 체결(2026.5).</li>
+<li>모회사 HD현대중공업이 AEG와 20MW급 힘센엔진 기반 684MW 발전설비 9,560억 공급계약(26.8~30.7), 울산 온산에 8,336억 투자 연산 3GW 힘센 신공장(26.1Q 착공·28.5월 준공, 육상엔진 CAPA 4GW로 확대).</li>
+<li>★핵심: 대형 엔진 &#x27;수주&#x27;는 HD현대중공업이 받고, 마린솔루션은 그 엔진의 사후 MRO(유지·보수)를 먹는 구조. 즉 실체는 있으나 이익은 &#x27;엔진 납품 후 시차&#x27;를 두고 발생 → SK증권도 &quot;납품 3년차인 2030년부터 폭발적 이익성장&quot;으로 명시. 지금 주가는 2028~2030 이익을 당겨 반영한 &#x27;기대 선반영&#x27; 성격.</li>
+<li>한국투자증권(2026.9.15): 육상발전엔진 MRO 누적매출 2059년까지 4.8조원 전망(서비스 단가 성장 배제한 보수 추정)[인용: consensus.py].</li>
+<li>블로거 논지(AM 독점 BM·자산경량 무차입)는 대체로 사실과 부합. 단 &quot;BM 자체가 사기적(그만큼 좋다)&quot;은 개인 표현이며, 밸류 부담은 블로거도 리스크로 인정.</li>
+</ul>
+<hr>
+<p>② 실적 분석 (DART 연결 실측) ━━━━━━━━━━━━━━━ [실측: DART fnlttSinglAcntAll CFS, 접수 20260316001512·20260814001752 / 단위 억원]</p>
+<ul>
+<li>연간 추세(연결):</li>
+<li>2023: 매출 14,305 / 영익 2,015(OPM 14.1%) / 순익 1,511</li>
+<li>2024: 매출 17,455(<span class="up">+22.0%</span>) / 영익 2,717(<span class="up">+34.8%</span>, OPM 15.6%) / 순익 2,279(<span class="up">+50.8%</span>)</li>
+<li>2025: 매출 19,827(<span class="up">+13.6%</span>) / 영익 3,501(<span class="up">+28.9%</span>, OPM 17.7%) / 순익 2,696(<span class="up">+18.3%</span>)</li>
+</ul>
+<p>→ 3년 연속 외형·이익 동반 성장, OPM 14%→17.7% 개선. 성장의 질 우량.</p>
+<ul>
+<li>분기 추세(연결, 억):</li>
+<li>25Q1 4,856 / 830(17.1%)  · 25Q2 4,677 / 830(17.7%)</li>
+<li>25Q3 5,132 / 936(18.2%)  · 25Q4 5,162 / 905(17.5%)</li>
+<li>26Q1 5,746 / 934(16.3%)  · 26Q2 5,804 / 976(16.8%)</li>
+</ul>
+<p>→ 매출은 QoQ 꾸준 증가(26Q2 <span class="up">+24.1%</span> YoY). 단 OPM은 17%→16%대로 소폭 하락(구리·유가 등 원재료 상승 + 저마진 벙커링 비중 확대. 하나증권도 &quot;Core 마진 하락&quot; 지적). → H1 26 누적: 매출 11,550(<span class="up">+21.2%</span> YoY) / 영익 1,910(<span class="up">+15.1%</span> YoY).</p>
+<ul>
+<li>사업부문 매출비중(2025 연결) [실측: 사업보고서]: AM 9,351억(47%) / 벙커링 7,834억(39%) / 친환경 1,723억(9%) / 디지털 919억(5%). 26반기엔 벙커링 42%로 확대(유가·물량).</li>
+<li>재무건전성 [실측]:</li>
+<li>부채비율: 2024말 49.0% → 2025말 54.3%(부채 4,476 / 자본 8,247). 낮음.</li>
+<li>영업현금흐름: 2024 2,465억 → 2025 3,241억(순익 2,696 상회 → 이익의 질 우량, 현금창출력 견고).</li>
+<li>사실상 무차입·자산경량(블로거: 총자산 대비 유형자산 극소). 이자보상배율은 이자비용 세부 미분해로 &#x27;미확인&#x27;이나 순현금 구조로 부담 무시 가능. 금융비용 2025 606억(대부분 환·수수료 추정).</li>
+</ul>
+<hr>
+<p>③ 미래 실적 + 컨센서스 (증권사 추정) ━━━━━━━━━━━━━━━ [인용: report-hub consensus.py 4소스 집계 2026.09.23, stockeasy·naver·fnguide·hankyung]</p>
+<ul>
+<li>연간 컨센(억, EPS 원):</li>
+<li>FY26E: 매출 23,717 / 영익 4,142 / 순익 3,508 / EPS 7,826 / PER 31.1 / ROE 38.3%</li>
+<li>FY27E: 매출 26,285 / 영익 5,245 / EPS 9,334 / PER 26.0</li>
+<li>FY28E: 매출 30,086 / 영익 6,558 / EPS 11,568 / PER 21.0</li>
+<li>분기 컨센: 3Q26 매출 5,966 / 영익 1,072 / 순익 857.</li>
+<li>★주의신호 — 영업이익 컨센 하향 중: 현재 4,142 ← 3M전 4,397 ← 6M전 4,485 ← 1Y전 4,634. 목표주가는 올리는데(육상엔진 장기 스토리) 당해년도 이익추정은 깎이는 &#x27;스토리-실적 괴리&#x27;.</li>
+<li>목표주가 컨센 평균 326,815원(최고 448,000 유안타 / 최저 240,000), 상승여력 <span class="up">+34.5%</span>. 투자의견 Buy 27 / NR 2.</li>
+<li>최근: SK증권 340,000(9.17) / 유안타 448,000 상향(9.15) / 한국투자 320,000 상향(9.15) / NH 310,000 상향(9.11) / LS 320,000(9.8) / 하나 330,000(7.28) / 메리츠 300,000(7.28).</li>
+<li>달성 가능성 판정 [中]:</li>
+<li>FY26 영익 4,142 달성엔 H2 2,232억 필요(H1 1,910 대비 <span class="up">+17%</span>). 3Q 컨센 1,072(QoQ <span class="up">+9.8%</span>)는 하반기 계절 강세·LTSA 재계약 사이클로 달성 가능 범위이나, 컨센 하향 추세가 하방 리스크. 육상엔진 MRO 본격 이익 기여는 2028~2030 → FY26~27 실적은 &#x27;기존 선박 AM+LTSA&#x27;가 좌우.</li>
+</ul>
+<hr>
+<p>④ 밸류에이션 → 목표가 도출 ━━━━━━━━━━━━━━━ [실측: KIS/enrich 2026.09.23, 현재가 243,000원]</p>
+<ul>
+<li>현 멀티플: Trailing PER 40.4배(EPS 6,013) / PBR 13.2배(BPS 18,396) / 시총 10.89조 / ROE 38%.</li>
+</ul>
+<p>Forward PER: FY26 31.1배 · FY27 26.0배 · FY28 21.0배.</p>
+<ul>
+<li>peer·밴드 비교: 조선 평균 PER 12배(블로거)와 직접 비교는 부적절 — 본질은 조선이 아니라 반복매출·고마진 엔진 AM 서비스. 글로벌 엔진 AM peer(Wärtsilä·MAN ES)는 통상 15~25배. 그럼에도 FY27 26배는 ROE 38%·순현금·MRO 성장성 감안해도 상단권.</li>
+<li>자체 목표가 산식 [추정]:</li>
+<li>1차 = FY27E EPS 9,334 × 31배 = 289,000원(≈52주 최고 287,000 재돌파 구간, 확률가중 Base와 정합)</li>
+<li>2차 = FY28E EPS 11,568 × 28.5배 = 330,000원(증권사 컨센 중앙값·SK/하나 TP 근처)</li>
+<li>증권사 평균 326,815은 대략 FY28 EPS × 28배 또는 FY27 EPS × 35배 → 다소 공격적.</li>
+<li>결론: 현재가는 &#x27;적정 성장 프리미엄&#x27;의 상단. 상승여력은 있으나(1차 <span class="up">+19%</span>) 밸류가 얇은 안전마진.</li>
+</ul>
+<hr>
+<p>⑤ 손익비 계산 (진입 243,000원 기준) ━━━━━━━━━━━━━━━</p>
+<ul>
+<li>상방: 목표 290,000원 → <span class="up">+19.3%</span> (2차 330,000 → <span class="up">+35.8%</span>)</li>
+<li>하방: 손절 222,000원(MA20 224,700 하향이탈) → <span class="down">-8.6%</span></li>
+<li>손익비 = 19.3 ÷ 8.6 = 1:2.2 (2차까지 1:4.2)</li>
+</ul>
+<p>→ 눌림(228,000~235,000)에서 진입 시 하락폭 축소로 1:3 이상으로 개선. 현재가 추격은 1:2.2로 &#x27;가능하나 최적 아님&#x27;.</p>
+<hr>
+<p>⑥ 진입 전략 (선물 레버리지 반영) ━━━━━━━━━━━━━━━ [실측: KIS 일봉 2026.09.23]</p>
+<ul>
+<li>위치: 현재가 243,000 / 52주 158,000~287,000의 84.7% 지점(고점권). MA5 241,500·MA20 224,700·MA60 208,610 완전 정배열(강세). 20일 <span class="up">+10.2%</span>, ret60 <span class="up">+9.0%</span>.</li>
+<li>지지: MA20 224,700 → MA60 208,610 → 20일 저점 199,000. 저항: 20일 고점 247,000 → 52주 고점 287,000.</li>
+<li>선물(A1V610) 레버리지 스윙 3라인:</li>
+<li>진입: 228,000~243,000 (눌림 우선, MA20 근접 시 비중 확대)</li>
+<li>손절: 종가 222,000 이탈 시 전량(MA20 하향 확인)</li>
+<li>익절: 1차 290,000(절반 익절) → 2차 330,000(잔량)</li>
+<li>⚠️ 리스크 경고: ①밸류 40배·컨센 하향으로 실적 미스 시 -폭 큼 ②공매도 20일 평균 13.9%(높음)로 되돌림 매물 ③고점권 추격은 갭·변동성 확대 국면. 개별주식선물 레버리지는 손실도 배수 → 손절 기계적 준수 필수. 50% 집중 금지, 아래 사이징 준용.</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9) ━━━━━━━━━━━━━━━ 9-1 제품 분해(2025 연결, 억) [실측: 사업보고서]</p>
+<ul>
+<li>AM솔루션 9,351(47%) — 엔진부품·유지보수·육상발전 O&amp;M·유무상보증대행 / 고마진(SK증권 AM OPM 50~60% 추정)</li>
+<li>벙커링 7,834(39%) — HD현대 신조선 출항유 공급 / 저마진(유류 사입, OPM 1~3%)</li>
+<li>친환경 1,723(9%) — FSRU·EGCS·BWTS 개조 / 수주형</li>
+<li>디지털 919(5%) — 통합제어·스마트쉽</li>
+</ul>
+<p>9-2 고객·납품 구조 [실측: 사업보고서 주요매출처]</p>
+<ul>
+<li>상위 5사 합계 매출비중 24.1%(2025)/26.9%(26반기), 1사 최대 9%대(익명 A사). 1사≥30% 없음 → 고객집중 리스크 낮음(그룹사 HD현대 계열 물량 다수 추정).</li>
+</ul>
+<p>9-3 시장·경쟁 [일부 미확인]</p>
+<ul>
+<li>힘센엔진 누적 15,000대 100% AM권한 + MAN-WinGD 2행정 엔진 AM 권한(블로거 주장, 회사 IR 교차 필요 → 점유율 수치 미확인).</li>
+<li>육상발전 힘센 CAPA: HD현대중공업 온산 신공장으로 3GW 추가→4GW(2028.5 준공)[인용: 머니투데이]. 글로벌 경쟁자(Wärtsilä·MAN·Cummins) CAPA·점유율은 미확인.</li>
+<li>TAM: 육상엔진 MRO 누적 4.8조(2059까지, 한투 추정 단일출처). 글로벌 선박 AM TAM 미확인.</li>
+</ul>
+<p>9-4 단가·원가 [실측: 반기보고서]</p>
+<ul>
+<li>제품단가: 품목 다양·프로젝트 독립성으로 회사가 단가공시 생략(미공시).</li>
+<li>원재료(USD): 구리 9,965→13,122(26반기 <span class="up">+32%</span>), 니켈 15,447→17,931, 원유(두바이) 69.13→90.97. → AM 부품원가·벙커링 원가 동반 상승이 OPM 하락(17%→16%대)의 실측 원인.</li>
+</ul>
+<p>9-5 CAPA·수주</p>
+<ul>
+<li>자체 생산설비 없음(서비스업, 사업보고서 &#x27;생산실적 해당없음&#x27;). 유형자산 극소=자산경량.</li>
+<li>수주잔고(별도, 친환경만 해당): 26반기말 2,068억(25말 2,306억 대비 감소, 제재영향 2건 제외). AM·벙커링은 반복매출로 수주잔고 개념 아님.</li>
+</ul>
+<p>9-6 전방 수요</p>
+<ul>
+<li>전방=HD현대 그룹 신조 인도량(벙커링·유무상보증) + 글로벌 운항선대 AM + 데이터센터 육상엔진. 데이터센터 발전수요 급증(AEG 684MW 등)이 중기 MRO 풀을 키우나 이익 인식은 2028~2030 시차.</li>
+</ul>
+<p>9-7 바텀업 모델 (연결, 억) [추정: H1 실적 런레이트 + 컨센 대조]</p>
+<ul>
+<li>FY26 영익: Bear 3,850 / Base 4,142(컨센) / Bull 4,400</li>
+<li>산식: H1 실측 1,910 + H2(Base 2,232 = 3Q 1,072 + 4Q 1,160). Bear는 마진 추가하락·원재료高 반영, Bull은 LTSA 재계약·육상 O&amp;M 조기 반영.</li>
+<li>3Q26 분기 영익: Bear 900 / Base 1,072(컨센) / Bull 1,180</li>
+<li>민감도: OPM ±1%p(매출 ~6,000억 가정) → 분기 영익 ±60억. 벙커링 비중 <span class="up">+5%</span>p → 믹스 악화로 OPM <span class="down">-0.4%</span>p 내외.</li>
+<li>★결론 문장: &quot;3Q26 연결 영업이익 ≥ 1,072억(Base 컨센)이면 논지 유지·추가매수 검토, &lt; 900억(Bear)이면 논지 폐기·비중 축소.&quot;</li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응 ━━━━━━━━━━━━━━━</p>
+<ul>
+<li>촉매 캘린더(날짜 확정):</li>
+<li>2026-11-16(전후): 3Q26 분기보고서 법정기한 → 3Q 영익 컨센 1,072 확인 분기점.</li>
+<li>2026.1Q~2028.5: HD현대중공업 온산 3GW 힘센 신공장 착공~준공(육상엔진 CAPA→4GW). MRO 파이프라인 선행지표.</li>
+<li>상시: 추가 데이터센터 엔진 MRO 계약/MOU 공시(AEG 후속 등).</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>3Q26 연결 영업이익 &lt; 900억 → 논지 폐기·전량 청산 / ≥ 1,072억 → 유지·추가매수 검토</li>
+<li>종가 222,000원(MA20) 이탈 → 전량 청산</li>
+<li>FY26 영익 컨센 4,142억 → 3,800억 미만으로 추가 하향(이미 하향 추세) → 밸류 정당화 실패, 비중 축소</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(3Q 실적일):</li>
+<li>쇼크(&lt;900) × 갭하락 → 손절·관망 / 쇼크 × 갭상승 → 반등 시 축소</li>
+<li>인라인(~1,072) × 보합 → 홀드 / 인라인 × 갭하락 → 지지(MA20) 확인 후 판단</li>
+<li>서프(&gt;1,150) × 갭상승 → 1차 목표까지 홀드·추가는 눌림에서</li>
+<li>확률가중 시나리오(목표가·확률):</li>
+<li>Bear 30%: 컨센 추가하향·마진하락 지속, FY27 EPS×25배 = 233,000</li>
+<li>Base 50%: 3Q 인라인, FY27 EPS×31배 = 289,000</li>
+<li>Bull 20%: 육상 MRO 가시화·서프, FY28 EPS×30배 = 347,000</li>
+<li>기대값 = 0.3×233,000 + 0.5×289,000 + 0.2×347,000 = 283,800원(현재 대비 <span class="up">+16.8%</span>)</li>
+<li>수급·유동성 [실측: KIS 20일]: 외국인 -133억(매도)·기관 <span class="up">+331</span>억(매수 주도)·개인 -195억. 공매도 20일 평균 13.9%(높음, 밸류부담 반영). 20일 평균 거래대금 262억 → 1일 체결 상한(ADV 10%) 약 26억.</li>
+<li>포지션 사이징(자산 대비 %): 고변동 레짐 손실예산 0.5% ÷ 손절폭 8.6% = 자산의 5.8%. 집중상한 50%·이벤트(3Q실적) 전 상한 25% 중 최소값 = 5.8% 채택. 분할 3회(각 1/3), 눌림 우선.</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용 · 매수/매도 강요 아님. 블로거·증권사 추정치는 &#x27;추정&#x27;. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>힘센 15,000대/2행정 80% AM 점유율 수치(블로거 주장, IR 교차 미확인)</li>
+<li>글로벌 선박·육상엔진 AM TAM 및 경쟁자 CAPA·점유율</li>
+<li>이자보상배율 세부(이자비용 단독 미분해, 금융비용 606억만 확인)</li>
+<li>2023 연결 영업이익은 2024 사업보고서 전기비교치로 확보(2023 단독 사업보고서 없음)</li>
+<li>제품별 단가(회사 공시 생략)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART: 사업보고서 20260316001512(2025) / 반기보고서 20260814001752(2026반기), fnlttSinglAcntAll CFS</li>
+<li>KIS 시세·투자자별·일봉(enrich.py 2026.09.23)</li>
+<li>report-hub consensus.py(stockeasy·naver·fnguide·hankyung, 2026.09.23)</li>
+<li>뉴스: 서울신문·머니투데이·이투데이·시사저널e(2026.05~09) — AEG MOU/684MW/온산 3GW</li>
+<li>kis_futures_check.py: 선물 상장 A1V610</li>
+</ul>
+<p>[검산] H1 26 영익 1,910 = Q1 934 + Q2 976 ✓ / 25 연간 영익 3,501 = 3Q누적 2,596 + Q4 905 ✓ / 손익비 헤더=본문 1:2.2 ✓ / 시나리오 확률합 30<span class="up">+50</span><span class="up">+20</span>=100% ✓ / 전 수치 연결 라벨 표기 ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-23 08:07 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 243,000원 (<span class="up">+0.0%</span>) · 시총 10.89조 · 5일 <span class="up">+2.7%</span> / 20일 <span class="up">+10.2%</span> / 60일 <span class="up">+9.0%</span></li>
+<li>MA5 241,500원 / MA20 224,700원 / MA60 208,610원 → MA20 이격 <span class="up">+8.1%</span> · MA60 이격 <span class="up">+16.5%</span></li>
+<li>52주 고 287,000원 / 저 158,000원 → 고점 대비 <span class="down">-15.3%</span> · 20일 고 247,000원 / 저 199,000원</li>
+<li>후행 PER 40.41 / PBR 13.21 (EPS 6,013원 · BPS 18,396원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 262.1억 (5일 237.9억)</li>
+<li>외국인 순매수 5일 17.0억 / 20일 -133.0억 · 기관 5일 3.9억 / 20일 331.4억 · 개인 20일 -195.2억</li>
+<li>개별주식선물: ⚡ 상장 (A1V610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 14.26% / 20일 평균 13.92% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 22.87% (09/18) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 290,000원 (<span class="up">+19.3%</span>) ÷ 하방 222,000원 (−8.6%) = <strong>1:2.24</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 8.6% = <strong>자산의 5.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 5.8%</strong></li>
+<li>유동성 참고: 20일 ADV 262.1억 · 1일 소화 한도는 ADV의 10%(26.21억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 8.6% · ATR14 12,071원 (손절폭/ATR 1.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 8.6% = ATR14 × 1.7배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 218,857원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.95</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 有 현재가: 243,000원 진입: 228,000~243,000원 (눌림 우선, MA20 근접 시 비중 확대) 손절: 222,000원 (종가 MA20 이탈) 목표: 1차 290,000원 (2차 330,000원) 손익비: 1:2.2 기간: 스윙 6~12주 (3Q 실적 전후) 촉매: 2026-11-16 전후 3Q26 분기보고서(영익 컨센 1,072억) 반증: 3Q26 연결 영업이익 &lt; 900억이면 논지 폐기·전량 청산 / 종가 222,000원 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
