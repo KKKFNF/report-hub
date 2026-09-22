@@ -1,0 +1,221 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SK가스-018670-LPG단가-영업이익-분석 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260922-131824-SK가스-018670-LPG단가-영업이익-분석.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 수동 지정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>손익비</b> 1:1.57</div><div class="tp-c"><b>결론 발췌</b> - CP 레벨 자체와 SK가스 분기 영업이익의 상관은 사실상 0(=+0.12). &quot;CP 오르면 SK가스 좋다&quot;는 통념은 틀렸다. SK가스 트레이딩은 원가전가 구조라 CP 레벨보다 급변동(방향 전환) 이 손익을 흔든다. - 적자·부진 분기 4번 중 3번(20Q4·21Q4·23Q4)이 CP가 전분기比 +18~28% 급등한 국면에 몰렸다. 재고평가·트레이딩 타이밍 손실 + 연말 일회성. 2026Q2 -439억(연결)도 같은 결. - 2025년 사상 최대 영업이익 4,428억은 CP가 낮고($576) 안정적이던 해에 나왔다. 실적 엔진은 CP가 아니라 울산GPS 발전(SMP-연료 스프레드) 으로 이동 중. → CP는 이제 SK가스의 &quot;리스크 변…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정: 수동지정</span><h1>SK가스-018670-LPG단가-영업이익-분석</h1>
+<div class="meta">📊 deepresearch · 2026-09-22 13:18 · 코드 018670</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-22 13:18)</div><div class="kpi-v">236,500원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2.2조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">9.29</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.73</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.57</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.57</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">300,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 236500</span><span class="dc dn">손절 196,000원</span><span class="dc up">목표 300,000원</span><span class="dc">손익비 진입 1:1.57 · 현재가 1:1.57</span><span class="dc-src">수동</span></div></div>
+
+<div class="body"><h1>SK가스(018670) 정밀 리포트 V2 — LPG 원가(아람코 CP) 시계열 × 영업이익 정량분석</h1>
+<p class="note">현물만 거래 가능(<strong>개별주식선물 미상장</strong> — 한투 마스터 확인, 레버리지 불가). 코스피, corp_code 00144164. 현재가 <strong>236,500원</strong> · PBR <strong>0.73</strong> · PER <strong>9.29</strong> · 시총 <strong>2.19조</strong> · 52주 196,100~302,000원 (KIS 실측 2026-09-22).</p>
+<p>이번 판은 앞선 리포트가 비어 있던 <strong>&quot;LPG 원자재 단가(아람코 CP) 시계열 → SK가스 영업이익 연결&quot;</strong> 을 리포트의 핵심으로 정량·시각화했다. 데이터: 재무는 DART 연결(fnlttSinglAcnt) 실측, CP는 Argus/S&amp;P/석유공사·가스신문 보도 및 월별 CP공시(bzglpg·mizanest) 집계.</p>
+<hr>
+<h2 id="1-핵심-결론-3줄">1. 핵심 결론 3줄</h2>
+<ul>
+<li><strong>CP 레벨 자체와 SK가스 분기 영업이익의 상관은 사실상 0(=<span class="up">+0.12</span>).</strong> &quot;CP 오르면 SK가스 좋다&quot;는 통념은 틀렸다. SK가스 트레이딩은 원가전가 구조라 CP <strong>레벨</strong>보다 <strong>급변동(방향 전환)</strong> 이 손익을 흔든다.</li>
+<li><strong>적자·부진 분기 4번 중 3번(20Q4·21Q4·23Q4)이 CP가 전분기比 <span class="up">+18</span>~28% 급등한 국면</strong>에 몰렸다. 재고평가·트레이딩 타이밍 손실 + 연말 일회성. 2026Q2 -439억(연결)도 같은 결.</li>
+<li><strong>2025년 사상 최대 영업이익 4,428억은 CP가 낮고($576) 안정적이던 해에 나왔다.</strong> 실적 엔진은 CP가 아니라 <strong>울산GPS 발전(SMP-연료 스프레드)</strong> 으로 이동 중. → CP는 이제 SK가스의 &quot;리스크 변수&quot;이지 &quot;실적 동력&quot;이 아니다.</li>
+</ul>
+<hr>
+<h2 id="2-사우디-아람코-cp-월별-시계열-201901202609">2. 사우디 아람코 CP 월별 시계열 (2019.01~2026.09)</h2>
+<p>CP(Contract Price)는 아람코가 매월 1일 고시하는 프로판·부탄 기준가($/톤)로, 전 세계 LPG 트레이딩·발전연료 원가의 벤치마크다. SK가스 매입원가의 핵심 인풋.</p>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/skgas-018670-cp-monthly.png" alt="아람코 CP 프로판·부탄 월별 시계열" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<p><strong>연평균 프로판 CP($/톤):</strong> 2019 $440 → 2020 $396(코로나 저점, 4월 $230) → <strong>2021 $652(급등)</strong> → <strong>2022 $736(피크, 4월 $940)</strong> → 2023 $575(하락) → 2024 $607 → 2025 $576 → 2026 YTD $567.</p>
+<p>주요 변곡점:</p>
+<ul>
+<li><strong>2020.04 $230</strong> — 코로나 수요붕괴 사상 저점.</li>
+<li><strong>2021 하반기~2022.04 $940</strong> — 수요회복 + 러-우 전쟁 에너지 패닉, 역사적 고점.</li>
+<li><strong>2023</strong> — 급락·안정. 2월 일시 반등($790) 후 7월 $400까지.</li>
+<li><strong>2024~2025</strong> — $550~640 박스권. 미국 셰일 프로판 수출 급증으로 상단 제한.</li>
+<li><strong>2026</strong> — 1월 $525 저점권에서 여름 반등, 8월 $620·9월 $625(부탄 $660)로 동절기 대비 상승.</li>
+</ul>
+<p class="note">2026년 값은 웹검증 앵커(1월 P525/B520, 2월 P540/B545, 7월 P580/B600, 8월 P620/B640, 9월 P625/B660) 기준. 2019~2025 월별은 시장 공지 CP를 집계했으며 일부 월은 ±$5~15 근사가 있을 수 있으나 방향·변곡점은 실제 데이터다.</p>
+<hr>
+<h2 id="3-sk가스-영업이익-시계열-cp-연간">3. SK가스 영업이익 시계열 × CP (연간)</h2>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/skgas-018670-op-vs-cp-annual.png" alt="SK가스 연간 영업이익 vs 프로판 CP 연평균" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<p>연간 실적(DART 연결):</p>
+<ul>
+<li>2019: 매출 49,311억 / 영업익 1,896억</li>
+<li>2020: 매출 44,123억 / 영업익 1,902억</li>
+<li>2021: 매출 64,945억 / 영업익 <strong>1,055억</strong> (CP 급등기인데 오히려 최저)</li>
+<li>2022: 매출 80,662억 / 영업익 3,905억</li>
+<li>2023: 매출 69,923억 / 영업익 3,036억</li>
+<li>2024: 매출 70,959억 / 영업익 2,872억</li>
+<li>2025: 매출 76,763억 / 영업익 <strong>4,428억</strong> (CP 낮은데 사상 최대)</li>
+</ul>
+<p><strong>패턴이 결정적이다.</strong> CP가 가장 높았던 2022($736)에 영업이익이 반짝 컸지만, CP가 폭등 중이던 2021($652)엔 오히려 1,055억으로 최저였다. 반대로 CP가 낮고 잔잔했던 2025($576)에 사상 최대 4,428억. → <strong>연간으로도 CP-영업이익은 단순 정(+)의 관계가 아니다.</strong> 2024~2025 도약은 울산GPS 발전소(2024년 상업가동) 기여.</p>
+<hr>
+<h2 id="4-분기-영업이익-cp-적자분기-해부">4. 분기 영업이익 × CP + 적자분기 해부</h2>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/skgas-018670-op-vs-cp-quarterly.png" alt="SK가스 분기 영업이익 vs 프로판 CP 분기평균" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<p>분기 단일 영업이익(억, DART 연결 thstrm 기준, Q4=연간−누적):</p>
+<div class="tablewrap"><table><thead><tr><th>분기</th><th>영업익</th><th>프로판CP분기평균</th><th>CP QoQ</th><th>메모</th></tr></thead><tbody><tr><td>22Q1</td><td>1,057</td><td>803</td><td><span class="down">-2%</span></td><td>CP 고점권, 트레이딩 양호</td></tr><tr><td>22Q4</td><td>1,619</td><td>600</td><td><span class="down">-12%</span></td><td>CP 하락 국면 이익</td></tr><tr><td>23Q1</td><td>2,078</td><td>700</td><td><span class="up">+17%</span></td><td>분기 최대급</td></tr><tr><td>23Q4</td><td><strong>-287</strong></td><td>607</td><td><strong><span class="up">+28%</span></strong></td><td>CP 급반등 → 평가손·연말</td></tr><tr><td>24Q4</td><td>1,227</td><td>625</td><td><span class="up">+7%</span></td><td>발전 기여 본격화</td></tr><tr><td>25Q3</td><td>1,735</td><td>568</td><td><span class="down">-3%</span></td><td>발전+트레이딩 호조</td></tr><tr><td>25Q4</td><td>357</td><td>525</td><td><span class="down">-8%</span></td><td>—</td></tr><tr><td>26Q1</td><td><strong>2,277</strong></td><td>542</td><td><span class="up">+3%</span></td><td>분기 사상 최대</td></tr><tr><td>26Q2</td><td><strong>-439</strong></td><td>552</td><td><span class="up">+2%</span></td><td>급반전 적자</td></tr></tbody></table></div>
+<p><strong>적자·부진 분기의 공통점 — CP 급등 직후:</strong></p>
+<ul>
+<li>20Q4 -20억: CP QoQ <span class="up">+18%</span></li>
+<li>21Q4 -122억: CP QoQ <strong><span class="up">+27%</span></strong></li>
+<li>23Q4 -287억: CP QoQ <strong><span class="up">+28%</span></strong></li>
+<li>26Q2 -439억: 26Q1 사상최대(2,277억) 직후 급반전 → 1분기 트레이딩·재고 이익의 반작용 + 발전 정기보수/스프레드 축소 추정.</li>
+</ul>
+<p><strong>상관계수(19Q1~26Q2, n=30):</strong> corr(영업익, CP레벨) = <strong><span class="up">+0.12</span></strong>(무상관), corr(영업익, CP QoQ변화) = <strong>-0.20</strong>(약한 역상관). → <strong>CP가 오르는 국면에 오히려 단기 손익이 눌린다</strong>(재고·트레이딩 타이밍). 원가전가 시차 때문.</p>
+<p class="note">※ 시장에 회자된 &quot;2Q26 -796억&quot;은 특정 부문(트레이딩) 또는 잠정치일 수 있고, DART 연결 기준 2026Q2 영업이익은 -439억이다. 본 리포트는 DART 실측을 사용.</p>
+<hr>
+<h2 id="5-왜-cp영업이익이-안-붙나-사업구조-분해">5. 왜 CP-영업이익이 안 붙나 — 사업구조 분해</h2>
+<p>SK가스 이익은 성격이 다른 두 엔진의 합이다. 하나로 묶으면 CP와의 관계가 상쇄된다.</p>
+<ul>
+<li><strong>① LPG 트레이딩·유통(원가전가형):</strong> CP는 매입원가이자 판가의 기준. 국내 공급가에 시차를 두고 전가되므로 <strong>CP 레벨엔 중립</strong>. 다만 CP가 급등·급락하며 <strong>방향이 바뀌는 국면</strong>엔 재고평가손익·트레이딩 포지션 손익이 출렁 → 적자분기의 원인. &quot;5개월 연속 인상에도 팔수록 손해&quot;(조선비즈 2026-07) 보도가 전가 시차의 증거.</li>
+<li><strong>② 울산GPS 복합발전(스프레드형, 2024~):</strong> 실적 동인은 <strong>SMP(전력도매가) − 연료비(LNG/LPG)</strong> 스프레드. CP와 별개 로직. 2024~2025 이익 레벨업의 주역. 여기서 LPG는 원가 인풋이므로 CP 하락이 오히려 발전마진에 유리할 수 있다(트레이딩과 반대 방향).</li>
+</ul>
+<p>→ <strong>결론: SK가스는 &quot;CP 방향 베팅&quot;이 아니라 &quot;발전 스프레드 + 트레이딩 안정성&quot;으로 봐야 하는 주식.</strong> CP 급변동은 분기 노이즈(리스크), 구조적 실적은 발전.</p>
+<hr>
+<h2 id="6-국내-lpg-공급가환율-참고">6. 국내 LPG 공급가·환율 참고</h2>
+<ul>
+<li>CP는 달러표시 → 원화 실적엔 <strong>원/달러 환율</strong>도 변수(현재 고환율은 원가 부담이나 트레이딩 마진엔 전가).</li>
+<li>국내 공급가: 2026년 2~7월 5개월 연속 인상(누적 <span class="up">+295</span>원/kg), 9월 <span class="up">+50</span>원/kg 인상요인(에너지플랫폼뉴스). CP 여름 반등의 시차 전가.</li>
+<li>7월 수입가 평균 -$200/톤 급락 후 8월부터 반등(가스신문·녹색경제) → CP의 계절적 저점이 여름, 동절기 대비 상승 패턴 재확인.</li>
+</ul>
+<hr>
+<h2 id="7-향후-cp-전망-h2-2026-2027">7. 향후 CP 전망 (H2 2026 ~ 2027)</h2>
+<p>기관 컨센(EIA STEO, Expert Market Research, BPN/Propane Insider 종합):</p>
+<ul>
+<li><strong>방향: 견조하나 변동성(firm but volatile).</strong> 가을로 갈수록 유가 강세에 소폭 상승, 다만 <strong>미국 재고가 평년 대비 크게 높아 상단 제한.</strong> 동절기 한파가 최대 스윙 변수.</li>
+<li><strong>상방 요인:</strong> 중동 지정학, 중국 PDH(프로판탈수소) 신증설 가동 → 프로판 수요, 동절기 난방수요, 유가 강세.</li>
+<li><strong>하방 요인:</strong> 미국 셰일 NGL·프로판 수출능력 확대(구조적 공급증), 높은 재고, 중국 경기 둔화.</li>
+<li><strong>레인지 가정:</strong> 프로판 CP 기준 <strong>하 $500 / 중 $600 / 상 $720</strong>(동절기 스파이크 시 일시 $800+ 가능).</li>
+</ul>
+<hr>
+<h2 id="8-투자-포인트리스크">8. 투자 포인트·리스크</h2>
+<p><strong>포인트:</strong></p>
+<ul>
+<li>PBR 0.73·PER 9.3의 저평가 + 고배당(밸류업 수혜). 실적 엔진이 CP 의존 트레이딩→발전 스프레드로 이동하며 <strong>이익 변동성 축소·레벨업</strong>.</li>
+<li>2025 사상 최대 영업익, 26Q1 분기 사상 최대 → 발전 풀가동 시 구조적 이익체력 상향.</li>
+</ul>
+<p><strong>리스크:</strong></p>
+<ul>
+<li><strong>CP 급변동 분기의 재고·트레이딩 평가손</strong>(26Q2 -439억이 최근 사례). CP가 급반등하는 분기엔 어닝쇼크 반복 가능.</li>
+<li>울산GPS 발전마진(SMP-연료 스프레드) 축소·정기보수. LNG가 강세면 LPG발전 경제성↑지만 SMP 동반 변수.</li>
+<li>고환율 지속 시 원가부담.</li>
+</ul>
+<hr>
+<h2 id="9-cp-시나리오별-fy2627-영업이익-민감도-바텀업">9. CP 시나리오별 FY26~27 영업이익 민감도 (바텀업)</h2>
+<p>두 엔진을 분리해 합산. 기준: 트레이딩은 CP <strong>레벨엔 둔감</strong>하나 <strong>급변동 분기 평가손</strong> 리스크, 발전은 CP 하락 시 원가 유리(스프레드 확대).</p>
+<div class="tablewrap"><table><thead><tr><th>시나리오</th><th>프로판 CP 가정</th><th>트레이딩 부문 영업익</th><th>발전(울산GPS) 영업익</th><th><strong>연 영업이익 합</strong></th><th>코멘트</th></tr></thead><tbody><tr><td><strong>상 (CP $720, 급등·변동성↑)</strong></td><td>동절기 스파이크</td><td>900~1,300억 (급변동 평가손 리스크)</td><td>1,400억 (연료비↑로 스프레드 압박)</td><td><strong>2,300~2,700억</strong></td><td>CP고점=트레이딩 반짝, 발전 눌림. 순효과 제한</td></tr><tr><td><strong>중 (CP $600, 안정)</strong></td><td>박스권</td><td>1,600~2,000억</td><td>1,900억</td><td><strong>3,500~3,900억</strong></td><td>가장 균형. FY26 기본 시나리오</td></tr><tr><td><strong>하 (CP $500, 하향안정)</strong></td><td>낮고 잔잔</td><td>1,800~2,200억 (전가 안정)</td><td>2,300억 (연료비↓ 스프레드 확대)</td><td><strong>4,100~4,500억</strong></td><td><strong>역설적 최상.</strong> 2025년형(4,428억) 재현 가능</td></tr></tbody></table></div>
+<p><strong>핵심 함의:</strong> SK가스는 <strong>CP가 낮고 안정적일 때 가장 돈을 잘 번다.</strong> &quot;유가·LPG 급등 = SK가스 수혜&quot;라는 직관은 틀렸다. 실제로는 (1) 낮은 CP → 발전 연료비↓·스프레드↑, (2) 안정된 CP → 트레이딩 평가손 리스크 소멸. FY26 영업이익 기본(중) <strong>3,500~3,900억</strong>, CP 하향안정 시 4,000억+ 재도전.</p>
+<p class="note">민감도 표의 부문별 수치는 2024~2026 실적 실측(트레이딩+발전 합)과 CP-손익 관계를 근거로 한 추정이며, 발전 부문 상세공시가 제한적이라 레인지로 제시.</p>
+<hr>
+<h2 id="결정-카드-sk가스018670"><span id="card-018670"></span>📋 결정 카드 — SK가스(018670)</h2>
+<ul>
+<li><strong>스탠스: 관찰(watch→저가매수 후보).</strong> 현물만(선물 미상장, 레버리지 불가).</li>
+<li><strong>논리:</strong> 저PBR(0.73)·저PER(9.3)·고배당 밸류업 + 이익엔진이 CP 트레이딩→발전 스프레드로 이동해 변동성 축소·레벨업. <strong>역발상 포인트: CP 하락·안정이 오히려 실적에 유리.</strong></li>
+<li><strong>진입 아이디어:</strong> 236,500원 부근~52주 저점권(196,100원) 분할. 26Q2 어닝쇼크(-439억)로 눌린 지금이 밸류 매력 구간.</li>
+<li><strong>반증(무효화) 신호:</strong> ① CP가 급등하는 분기에 트레이딩 평가손으로 어닝쇼크 재발(26Q2 재현), ② 울산GPS 발전 스프레드(SMP-연료) 구조적 축소, ③ 밸류업/배당정책 후퇴.</li>
+<li><strong>촉매:</strong> 3Q26 발전 풀가동·트레이딩 정상화 시 실적 회복, 밸류업 배당 확대, CP 하향안정.</li>
+</ul>
+<hr>
+<p class="note">데이터 한계 고지: (1) 아람코 CP는 유료 데이터(Argus/S&amp;P)의 월별 원본 대신 공개 보도·월별 CP공시를 집계 — 2026년은 웹검증 앵커, 2019~2025는 시장 공지 CP로 방향·변곡점은 실제이나 일부 월 ±$5~15 근사 가능. (2) 부문별(트레이딩/발전) 영업이익 분리공시가 제한적이라 §9 부문 수치는 전사 실측 기반 추정 레인지. (3) 상관분석은 DART 연결 분기 영업이익 vs 프로판 CP 분기평균, n=30(19Q1~26Q2).</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-22 13:18 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 236,500원 (<span class="down">-3.1%</span>) · 시총 2.19조 · 5일 <span class="down">-1.5%</span> / 20일 <span class="up">+0.2%</span> / 60일 <span class="up">+16.5%</span></li>
+<li>MA5 240,100원 / MA20 238,900원 / MA60 230,225원 → MA20 이격 <span class="down">-1.0%</span> · MA60 이격 <span class="up">+2.7%</span></li>
+<li>52주 고 302,000원 / 저 196,100원 → 고점 대비 <span class="down">-21.7%</span> · 20일 고 252,000원 / 저 228,000원</li>
+<li>후행 PER 9.29 / PBR 0.73 (EPS 25,453원 · BPS 325,701원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 25.5억 (5일 13.4억)</li>
+<li>외국인 순매수 5일 -4.8억 / 20일 -75.6억 · 기관 5일 2.3억 / 20일 119.8억 · 개인 20일 -46.7억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 13.21% / 20일 평균 14.08% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 25.37% (09/15) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 300,000원 (<span class="up">+26.8%</span>) ÷ 하방 196,000원 (−17.1%) = <strong>1:1.57</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 17.1% = <strong>자산의 2.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.9%</strong></li>
+<li>유동성 참고: 20일 ADV 25.5억 · 1일 소화 한도는 ADV의 10%(2.55억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 17.1% · ATR14 8,821원 (손절폭/ATR 4.6배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 17.1% = ATR14 × 4.6배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 223,267원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:4.80</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
