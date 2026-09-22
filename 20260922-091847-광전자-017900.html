@@ -1,0 +1,220 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>광전자(017900) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260922-091847-광전자-017900.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:3</div><div class="tp-c"><b>결론 발췌</b> 실체 없는 개인 주도 테마성 급등. 실적(OPM 3%대)·밸류(PER 140배, 자체 적정가 5,700~9,600원 전부 현재가 하회) 어느 쪽도 10,250원을 정당화 못 함 → 관망(추격 금지). 반등 시도 매매 국한 시에만 손익비 1:3(눌림 지지 확인 전제), 추격 시 1:1 이하로 열위. 자체 상향 목표가 미제시(적정 밴드 상단 9,600원이 이미 현재가 아래). ① 포착 신호 • 회전율(포착시점) 15.7% (거래대금 1076.6억 / 시총 6861억) [인용: trendscan 스냅샷 2026-09-22 장초] • 추세: MA정배열 O(포착시점) / 연속상승 2일 / 5일 +15.2% • ★실시간 재확인 시 반전: 현재가 1…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>광전자(017900)</h1>
+<div class="meta">📊 trend · 2026-09-22 09:18 · 코드 017900</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-22 09:18)</div><div class="kpi-v">10,330원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">5,986억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">141.51</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.16</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:-0.17</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">10,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 8,600~9,000원 (MA20 지지 확인 후, 추격금지)</span><span class="dc dn">손절 8,400원</span><span class="dc up">목표 10,000원</span><span class="dc">손익비 진입 1:3 · 현재가 1:-0.17</span><span class="dc">기간 스윙 2~4주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026 3Q 분기보고서(11/14 예상)</div><div class="dc-l">🛑 반증: 3Q 연결 영업이익 &lt;5억이면 저마진 고착·논지 폐기 / 종가 MA20(8,592) 이탈 시 되돌림</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 광전자(017900) ※선물 無</p>
+<p>📌 한줄 결론: 실체 없는 개인 주도 테마성 급등. 실적(OPM 3%대)·밸류(PER 140배, 자체 적정가 5,700~9,600원 전부 현재가 하회) 어느 쪽도 10,250원을 정당화 못 함 → 관망(추격 금지). 반등 시도 매매 국한 시에만 손익비 1:3(눌림 지지 확인 전제), 추격 시 1:1 이하로 열위. 자체 상향 목표가 미제시(적정 밴드 상단 9,600원이 이미 현재가 아래).</p>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율(포착시점) 15.7% (거래대금 1076.6억 / 시총 6861억) [인용: trendscan 스냅샷 2026-09-22 장초]</li>
+<li>추세: MA정배열 O(포착시점) / 연속상승 2일 / 5일 <span class="up">+15.2%</span></li>
+<li>★실시간 재확인 시 반전: 현재가 10,250원, 당일 <span class="down">-7.32%</span>, 시총 5,939억 [실측: KIS 2026-09-22 09:14]. 포착시점 대비 시총·등락 모두 하향 → 급등 후 되돌림 국면.</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업: 전자부품 제조. Discrete(개별소자) 반도체·광센서·LED. 제품별 매출비중 PKG 78.7% / FAB 21.1% / 기타 0.2% [실측: 사업보고서 2025.12, 접수 20260319000424]. 전방은 모바일·자동차·디지털가전, IR상 로봇·AI 성장 편승 서술.</li>
+<li>급등사유 검증 = 실체 없음(수급·테마성):</li>
+<li>KRX 8/7 현저한 시황변동 조회공시 요구 → 회사 8/10 &quot;중요공시 대상 없음&quot; 답변 [실측: DART 접수 20260807800731 / 20260810800085]. 회사 스스로 급등 배경 부인.</li>
+<li>8/5 <span class="up">+24%</span>, 9/16 코스피 거래량 1위 등 &#x27;거래상위&#x27; 데이터랩성 기사만 반복, 수주·실적·신사업 발표 뉴스 전무 [인용: 네이버증권 종목뉴스 20260805~20260922].</li>
+<li>유사 사명 &#x27;파커스(065690)의 광전자 플랫폼&#x27; 뉴스가 섞여 있으나 별개 회사(엘포톤 자회사 편입). 광전자(017900)와 무관 — 사명 혼동성 수급 가능성 [인용: 이데일리 20260903].</li>
+<li>결론: 펀더멘털 촉매 부재. 개인 주도 회전매매성 급등(외인 이탈·개인 순매수, ⑦ 참조).</li>
+</ul>
+<p>③ 실적 (DART 실측·연결)</p>
+<ul>
+<li>연간 추세 [실측: DART fnlttSinglAcnt CFS]</li>
+<li>FY2023: 매출 1,257억 / 영익 -44억(적자) / 순익 -11억 / OPM <span class="down">-3.5%</span></li>
+<li>FY2024: 매출 1,302억 / 영익 <span class="up">+15</span>억(흑전) / 순익 <span class="up">+106</span>억 / OPM 1.1%</li>
+<li>FY2025: 매출 1,327억 / 영익 <span class="up">+12</span>억 / 순익 <span class="up">+42</span>억 / OPM 0.9%</li>
+<li>최근 분기(연결·3개월, DART 단분기) [실측]</li>
+<li>2026 1Q: 매출 345억 / 영익 6.8억 / 순익 41.3억 / OPM 2.0%</li>
+<li>2026 2Q: 매출 368억 / 영익 13.0억 / 순익 26.1억 / OPM 3.5%</li>
+<li>상반기 합: 매출 713억 / 영익 19.8억 / 순익 67.4억 / OPM 2.8%</li>
+<li>방향성: 매출 YoY 소폭 증가, 영업이익 흑자 안착했으나 OPM 3% 미만 저마진 지속. 순익(67.4억)이 영업이익(19.8억)보다 큼 = 영업외(지분법·투자·환) 기여가 본업보다 큼 → 순익의 질 낮음.</li>
+<li>재무건전성 [실측: 2025.12 CFS]: 부채총계 172억 / 자본총계 2,411억 → 부채비율 7.1%(초저부채·순현금). 유동자산 1,545억 vs 유동부채 170억. 재무 자체는 매우 안전하나 &#x27;안전한 저성장·저마진&#x27; 회사이지 성장주 아님.</li>
+<li>판정: 실적 모멘텀이 주가 급등(저점 7,900→고점 12,190, <span class="up">+54%</span>)을 정당화 못 함.</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: 미확인(최근 6개월 목표가 리포트 0건, naver/fnguide/stockeasy/hankyung 4소스 추정치 없음) [실측: consensus.py 2026-09-22]. → 기관 커버리지 없는 스몰캡.</li>
+<li>자체 추정(⑧ 참조): FY2026 영익 Base 42억. 별도 상향 촉매(대형 수주·신제품) 미확인.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 멀티플 [실측: KIS 2026-09-22]: PER 140.4배(EPS 73), PBR 2.14배(BPS 4,784).</li>
+<li>PER 140배는 순익의 영업외 의존성·저성장 감안 시 정당화 불가. 순익 변동성 커 EPS 목표가 신뢰도 낮음 → PBR 밴드 접근.</li>
+<li>자체 적정가(PBR 밴드 × BPS 4,784) [추정]:</li>
+<li>보수 1.2배 → 5,741원 / 중립 1.5배 → 7,176원 / 낙관 1.8배 → 8,611원 / 급등프리미엄 2.0배 → 9,568원</li>
+<li>★적정 밴드 상단(9,568원)조차 현재가 10,250원 하회 → 펀더멘털상 이미 고평가. 자체 상향 목표가 미제시(근거 없음).</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>위치: 52주 고 22,450 / 저 1,760 [실측]. 현재 10,250원은 밴드 중단, 8월 급등 후 되돌림 구간.</li>
+<li>이평 [실측: KIS 일봉]: MA5 10,508 / MA10 9,764 / MA20 8,592. 현재가 MA5 아래(단기 조정), MA20이 1차 지지.</li>
+<li>지지: 9,764(MA10)·8,592(MA20)·7,900(급등 시작점) / 저항: 12,190(9/21 고점)·22,450(52주고).</li>
+<li>선물 無 → 레버리지 불가, 현물만 가능.</li>
+<li>추격매수 비권장. 기술적 반등만 노릴 경우(권장 아님):</li>
+<li>진입 8,600~9,000원(MA20 지지 확인 후) / 손절 8,400원(MA20 종가 이탈) / 목표 1차 10,000원·2차 11,000원</li>
+<li>손익비(진입 8,800): 익 1,200 / 손 400 = 1:3.0. 현재가 10,250 추격 시 1:1 이하 역전.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (연결) 9-1 제품/전방: PKG(78.7%)·FAB(21.1%). Discrete·광센서·LED. 전방 모바일·차량·가전 [실측: 사업보고서 2025.12]. 9-2 단가 [실측: 사업·반기보고서]: PKG 142(제40기)→148→159(2025)→205원(2026 상반기) 상승. FAB 6~7원 횡보. PKG 단가 상승은 믹스개선 신호이나 물량 미공개로 물량×단가 완전분해 불가(&#x27;미확인&#x27;). 9-3 원재료 [실측]: CHIP(디비하이텍 등) 39%, LEAD FRAME 12%, 기타 49%. 9-4 CAPA/점유율: 공시상 정량치 미제공 → &#x27;미확인&#x27;. 9-5 실측 앵커: 2026 상반기 매출 713억 / 영익 19.8억 / OPM 2.8% [실측]. 9-6 계절성: 과거 하반기 매출 상반기와 유사~소폭 변동, OPM 저마진 지속 가정. 9-7 바텀업 표 (FY2026E, 산식: H2매출 × OPM + 상반기 실측)</p>
+<ul>
+<li>Bear(40%): H2 700억×1.5%=영익 10.5억 → FY 매출 1,413억 / 영익 30.3억</li>
+<li>Base(45%): H2 740억×3.0%=영익 22.2억 → FY 매출 1,453억 / 영익 42.0억</li>
+<li>Bull(15%): H2 800억×5.0%=영익 40.0억 → FY 매출 1,513억 / 영익 59.8억</li>
+<li>3Q 배분(Base): 매출 ≈365억 / 영익 ≈10억. 4Q ≈375억 / 12억.</li>
+<li>민감도: OPM ±1%p → FY 영익 ±약 14억(연매출 1,450억 기준).</li>
+<li>★결론: 3Q(2026) 연결 영업이익 ≥ 12억이면 마진개선 논지 유지, &lt; 5억이면 저마진 고착·급등 정당성 폐기. 어느 시나리오도 FY 영익 60억 미만 → 시총 5,939억 대비 PER 100배 이상, 밸류 정당화 불가라는 핵심 논지 불변.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(확정): 2026 3Q 분기보고서 법정기한 11/14(예상). 그 외 확정 IR·수주 미확인.</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>3Q 연결 영익 ≥ 12억 발표 → 마진개선 확인, 관망→중립 재검토(PER 부담 여전).</li>
+<li>회사 구체 수주·신사업 공시(로봇/광센서 대형 계약) → 테마→실체 전환 재평가.</li>
+<li>종가가 MA20(8,592) 지지 후 반등+외인 3일 연속 순매수 → 반등매매 한정 진입 검토.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스: 3Q 호실적+수주공시→재평가 11,000원 회복 / 3Q 저마진+무공시→급등분 반납 8,592→7,900 / 지수조정 겹침→고베타 낙폭 확대.</li>
+<li>확률가중 시나리오(합 100%): Bear 40% 8,000~8,600원(테마 소멸) / Base 45% 9,000~11,000원 박스(방향성 없음) / Bull 15% 12,000원 재돌파(신규 촉매 시).</li>
+<li>수급·유동성 [실측: KIS 20일]: 외국인 순매도 -37.4만주(이탈), 기관 <span class="up">+2.2</span>만주(중립), 개인 순매수 주도. 급등 동력이 개인 = 지속성 낮음. ADV 9/15 3,443만주 등 급증 후 감소. 유동성 충분하나 변동성 극대.</li>
+<li>포지션 사이징: 실체 없는 테마·컨센 부재·고평가 3중 악재 → 신규 진입 비권장. 반등매매 국한 시에도 리스크예산 관점 자산의 5% 이하 소액 단타 이상은 부적합(이벤트 전 상한 25%·집중상한 50% 중 최소값보다 훨씬 보수).</li>
+</ul>
+<p>⚠️ 리서치 참고용. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 컨센서스·목표주가(커버리지 0건)</li>
+<li>제품별 물량(단가만 공개 → 물량×단가 분해 불가)</li>
+<li>CAPA·시장점유율 정량치</li>
+<li>급등의 구체적 실체 사유(회사 &quot;중요공시 없음&quot;)</li>
+<li>3Q 2026 실적(11월 발표 예정)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 사업보고서 2025.12(20260319000424), 반기보고서 2026.06(20260814001564), 조회공시(20260807800731/20260810800085)</li>
+<li>DART fnlttSinglAcnt(CFS, FY2023~2026 2Q)</li>
+<li>KIS 시세/투자자별매매(2026-09-22)</li>
+<li>consensus.py(4소스, 2026-09-22, 추정치 0)</li>
+<li>네이버증권 종목뉴스(2026-05~09)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합=연간(상반기): 매출 345<span class="up">+368</span>=713억 ✓ / 영익 6.8<span class="up">+13.0</span>=19.8억 ✓</li>
+<li>연결·별도 라벨: 전 수치 연결(CFS) 명기 ✓</li>
+<li>손익비 산식: (10,000-8,800)/(8,800-8,400)=1,200/400=1:3.0 ✓ / 추격 시 1:1 이하 ✓</li>
+<li>시나리오 확률합: 40<span class="up">+45</span><span class="up">+15</span>=100% ✓</li>
+<li>PBR 밴드: 4,784×2.0=9,568원 &lt; 현재가 10,250원 ✓(고평가 근거)</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-22 09:18 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 10,330원 (<span class="down">-6.6%</span>) · 시총 5,986억 · 5일 <span class="down">-3.1%</span> / 20일 <span class="up">+35.2%</span> / 60일 <span class="up">+61.4%</span></li>
+<li>MA5 10,524원 / MA20 8,596원 / MA60 7,267원 → MA20 이격 <span class="up">+20.2%</span> · MA60 이격 <span class="up">+42.2%</span></li>
+<li>52주 고 22,450원 / 저 1,760원 → 고점 대비 <span class="down">-54.0%</span> · 20일 고 11,060원 / 저 6,880원</li>
+<li>후행 PER 141.51 / PBR 2.16 (EPS 73원 · BPS 4,784원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 811.4억 (5일 1,304.6억)</li>
+<li>외국인 순매수 5일 -86.1억 / 20일 -44.3억 · 기관 5일 -0.1억 / 20일 1.9억 · 개인 20일 52.5억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.31% / 20일 평균 0.72% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 3.54% (08/28) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비</strong></p>
+<ul>
+<li>현재가 10,330원가 손절 8,400~목표 10,000 구간 밖 → 라인 재설정 필요</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 18.7% = <strong>자산의 2.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.7%</strong></li>
+<li>유동성 참고: 20일 ADV 811.4억 · 1일 소화 한도는 ADV의 10%(81.14억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 18.7% · ATR14 1,078원 (손절폭/ATR 1.8배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 18.7% = ATR14 × 1.8배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 8,713원</li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-017900"></span>📋 결정카드 — 광전자(017900) 판정: 관망 선물: 無 현재가: 10,250원 진입: 8,600~9,000원 (MA20 지지 확인 후, 추격금지) 손절: 8,400원 목표: 1차 10,000원 (2차 11,000원) 손익비: 1:3.0 (눌림 지지 확인 전제, 현재가 추격 시 1:1 이하) 기간: 스윙 2~4주 촉매: 2026 3Q 분기보고서(11/14 예상) 반증: 3Q 연결 영업이익 &lt;5억이면 저마진 고착·논지 폐기 / 종가 MA20(8,592) 이탈 시 되돌림</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
