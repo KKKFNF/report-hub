@@ -1,0 +1,185 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>비엠티(반도체 소부장) 딥리서치 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260924-081235-비엠티-반도체-소부장-딥리서치.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.41</div><div class="tp-c"><b>결론 발췌</b> 2Q26 턴어라운드는 DART로 실측 확인된 &#x27;실체&#x27;다(연결 영업이익 63.0억·OPM 12.9%·창사 최대 매출). 다만 현재가(19,390원)는 52주 신고가권(-12.7%)에서 이미 급등(60일 +22.7%)해 추격 손익비는 1:0.8로 불리 → 판정 &#x27;관심&#x27;, 눌림(17,200~18,300) 대기. 눌림 진입 시 손익비 1:2.3(진입 17,800 / 손절 15,900 / 1차목표 22,200). 선물 미상장이라 현물 스윙만 가능. ────────── ① 사실관계 검증 (IR 주장 vs 실체) • 실제 사업: 산업용 정밀 피팅(SUPERLOK)·밸브 제조 + 전기사업부(분전반·배전반). 전방은 반도체·조선/해양·발전(원전)·석유가…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>비엠티(반도체 소부장) 딥리서치</h1>
+<div class="meta">📊 benine · 2026-09-24 08:12 · 코드 086670</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-24 08:12)</div><div class="kpi-v">19,390원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,925억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">9.57</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.29</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.41</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.81</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">22,200원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 17,200~18,300원 (눌림 대기)</span><span class="dc dn">손절 15,900원</span><span class="dc up">목표 22,200원</span><span class="dc">손익비 진입 1:2.41 · 현재가 1:0.81</span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 분기보고서 2026-11-14 · 삼성 P5/SK 용인 수주공시 · 부산2공장 가동</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 45억이면 논지 폐기·전량 청산 / 종가 15,900원 이탈 시 손절</div></div>
+
+<div class="body"><p>🚀 딥리서치 — 비엠티(086670) · 반도체 소부장(피팅·밸브·UHP)  ※선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 2Q26 턴어라운드는 DART로 실측 확인된 &#x27;실체&#x27;다(연결 영업이익 63.0억·OPM 12.9%·창사 최대 매출). 다만 현재가(19,390원)는 52주 신고가권(<span class="down">-12.7%</span>)에서 이미 급등(60일 <span class="up">+22.7%</span>)해 추격 손익비는 1:0.8로 불리 → <strong>판정 &#x27;관심&#x27;</strong>, 눌림(17,200~18,300) 대기. 눌림 진입 시 손익비 1:2.3(진입 17,800 / 손절 15,900 / 1차목표 22,200). 선물 미상장이라 현물 스윙만 가능.</p>
+<p>────────── ① 사실관계 검증 (IR 주장 vs 실체)</p>
+<ul>
+<li>실제 사업: 산업용 정밀 피팅(SUPERLOK)·밸브 제조 + 전기사업부(분전반·배전반). 전방은 반도체·조선/해양·발전(원전)·석유가스 플랜트. [실측: 사업보고서 2025.12, 접수 20260320000579]</li>
+<li>&quot;2Q 턴어라운드&quot; → ✅ 사실. 연결 2Q26 매출 486.5억·영업이익 63.0억·순이익 48.8억, YoY 매출 <span class="up">+23.9%</span>·영익 <span class="up">+84.2%</span>·순익 <span class="up">+345.9%</span>, 창사 이래 최대 분기매출. [실측: 반기보고서 접수 20260814000742 / 인용: 머니투데이 2026-08-10, alphasquare]</li>
+<li>&quot;삼성·SK 공급·UHP 국산화&quot; → ✅ 실체 있음. 삼성전자·SK하이닉스 승인이력 확보, 초고순도(UHP) 가스배관 부품 국산화, 2026년 삼성 평택 P5·SK 용인 클러스터 입찰 대응. [인용: 더벨 2026-07-16 &#x27;비엠티 줌인&#x27;, 다음뉴스]</li>
+<li>&quot;판가인상 2분기부터&quot; → △ 부분확인. DART 단가표상 VALVE 내수 단가는 반기 65,011원으로 직전 61,162원 대비 반등(2025말 저점)했으나, FITTING 단가는 소폭 하락 지속. 전면적 판가인상 증거는 미확인(IR 구두). [실측: 반기 단가표 / 추정]</li>
+<li>&quot;미국 장비사 납품&quot; → ❌ 미확인. 공시·뉴스에서 직접 확인 못 함(수출은 존재하나 미국 장비사 특정 근거 없음). [미확인]</li>
+<li>&quot;매출 70%가 반도체&quot; → △ 회사 IR 추정치. DART 제품별 매출은 FITTING/VALVE/상품으로만 구분, 전방(반도체/조선)별 비중은 미공시. &#x27;반도체 매출 1.5배 목표&#x27;(윤종찬 대표)는 회사 목표. [인용: 머니투데이 2026-04-12 / 미공시]</li>
+<li>⚠️ 급등의 상당부분은 &#x27;기대감&#x27; 선반영: 부산2공장 가동·삼성/SK 입찰 수주는 아직 &#x27;예정/입찰단계&#x27;이지 확정 수주공시 아님.</li>
+</ul>
+<p>② 실적 분석 (DART 실측 · 연결)</p>
+<ul>
+<li>연간 추세(연결, 억원): 2023 매출1,496/영익174/순익167(OPM11.6%) → 2024 1,328/64.7/40.5(OPM4.9%, 실적 급감) → 2025 1,469.9/153.1/189.4(OPM10.4%, V자 회복). [실측: 각 사업보고서 fnlttSinglAcntAll·연결]</li>
+<li>분기 추세(연결·단일3개월, 억원):</li>
+<li>25Q1 366/27.8(7.6%) · 25Q2 392.7/34.2(8.7%) · 25Q3 374.6/58.1(15.5%) · 25Q4 336.6/33.0(9.8%)</li>
+<li>26Q1 355.7/17.7(5.0%, 부진) · <strong>26Q2 486.5/63.0(12.9%, 턴어라운드)</strong></li>
+<li>순이익 주의: 25Q3 순익 125.4억은 영업이익 58.1억을 크게 상회 → 대규모 일회성 이익(자산·금융 등, 세부 미확인) 추정. 2025 연간 순익 189.4억·PER 9.57(EPS 2,027원)에 이 일회성이 포함돼 있어 trailing PER은 실제보다 낮게 보임. [실측/추정]</li>
+<li>재무건전성(2025 연결): 자산 2,626억·부채 1,132억 → 부채비율 75.8%(2023 105.6%·2024 102.9%에서 개선). 단, 금융기관 차입금 937.9억(2026반기)으로 차입의존도 높음. 순차입금 ≈ 808억(현금성 129.8억 차감). [실측: 반기 BS]</li>
+<li>이자보상배율 ≈ 2.6x(영익153.1÷금융원가58.7, FX손실 포함 보수적) ~ 3.3x(순이자 추정). 넉넉하지 않음. [실측/추정]</li>
+<li>현금흐름 경고: 2025 영업CF <span class="up">+101.5</span>억(양호)이나 <strong>26년 반기 영업CF -64.0억</strong>(연결) — 매출 급증에 따른 매출채권·재고 등 운전자본 <span class="up">+151.9</span>억 증가 탓. 성장기 전형이나 차입 증가 압박. [실측: 반기 CF]</li>
+</ul>
+<p>③ 미래 실적 + 달성 가능성</p>
+<ul>
+<li>증권사 컨센서스: FY26E 매출 1,840억·영업이익 200억·순이익 190억(FnGuide). <strong>목표주가 없음(커버리지 Not Rated)</strong> — 한국투자증권 2026-08-31 탐방노트(&#x27;반도체 피팅 선두주자&#x27;)가 유일, 투자의견·목표가 미제시. [인용: FnGuide/Naver 컨센 2026-09-24]</li>
+<li>분기 컨센: 26Q3 매출 500억·영익 60억 / 26Q4 매출 500억. [인용: Naver·WiseReport]</li>
+<li>FY26E 달성가능성 = 中~高: 반기누적 영익 80.7억, 하반기 119억 필요. 26Q2 런레이트(63억/분기)면 2공장 가동·반도체 램프 시 충분히 도달권. 리스크는 26Q1(17.7억)처럼 분기 변동성. [추정: 산식 80.7<span class="up">+60</span>×2≈200]</li>
+<li>블로거 &#x27;FY27 영익 400~550억&#x27; 달성가능성 = 低~中: 현 최대 분기 영익 63억 대비 분기 100~140억을 요구. 캐파 3,500억 풀가동+대형 FAB 수주 확정이 전제. 자체 Base 추정은 FY27 영익 280~320억(아래 ⑧). 400~550억은 Bull 상단 초과 → &#x27;추정의 추정&#x27;으로 과도. [추정]</li>
+</ul>
+<p>④ 밸류에이션 → 목표가</p>
+<ul>
+<li>현재 실측: 주가 19,390원 · 시총 1,925억 · PER 9.57x(trailing, 일회성 포함) · PBR 1.29x · BPS 15,049원. [실측: KIS 2026-09-24]</li>
+<li>EV 기준: 시총 1,925 + 순차입 808 = EV 2,733억. FY26E 영익 200억 → EV/OP(POR) 13.7x, EV/EBITDA ≈ 10.5x(감가 ~60억 가산). → <strong>차입이 많아 EV로 보면 저평가가 아니다.</strong> [추정: 산식]</li>
+<li>블로거 &#x27;POR 4배&#x27; 검증: 시총 1,900 ÷ FY27 영익 475(블로거 중간값) = 4.0x는 맞지만, ①FY27 영익 475는 미검증 추정 ②EV 기준으론 (2,733÷475)=5.8x. 실적이 실현돼야만 성립하는 &#x27;선반영 밸류&#x27;. [검증: 산식]</li>
+<li>자체 목표가(포워드): FY26E EPS ≈ 1,913원(순익190억÷9.93백만주). 반도체 소부장 성장주 프리미엄 반영 적정 PER 12x 적용 → <strong>적정주가 ≈ 22,950원</strong>. FY27 자체 Base 순익 240억(EPS 2,418) × PER 11x = 26,600원. [추정: 산식]</li>
+<li>목표가: 1차 22,200원(52주 신고가·PER 11.6x FY26E), 2차 26,000원(FY27 성장 반영). 증권사 목표가는 미확인(NR).</li>
+</ul>
+<p>⑤ 손익비 (진입가 기준)</p>
+<ul>
+<li>현재가(19,390) 추격 시: 상방 22,200 <span class="up">+14.5%</span> ÷ 하방 15,900 <span class="down">-18.0%</span> = <strong>1:0.8 → 부적합</strong>.</li>
+<li>눌림 진입(17,800) 시: 상방 22,200 <span class="up">+24.7%</span> ÷ 하방 15,900 <span class="down">-10.7%</span> = <strong>1:2.3</strong>(1차), 2차목표 26,000이면 1:4.3. → 눌림 대기가 정답.</li>
+</ul>
+<p>⑥ 진입 전략 (선물 無 · 현물 스윙)</p>
+<ul>
+<li>위치: 52주 10,610~22,200. 현재 19,390 = 신고가 대비 <span class="down">-12.7%</span>(고점권). 60일 <span class="up">+22.7%</span>·20일 <span class="up">+14.9%</span>·5일 <span class="up">+16.5%</span> 단기 과열. 정배열(MA5 18,270&gt;MA20 17,207&gt;MA60 16,091). [실측: KIS]</li>
+<li>수급: 외국인 5일 <span class="up">+19.1</span>억·20일 <span class="up">+10.1</span>억 순매수 / 기관 20일 <span class="up">+13.2</span>억 / 개인 20일 -25.3억. 공매도 비중 0.06%(특이 없음). [실측: KIS 투자자별]</li>
+<li>3라인(현물 스윙): 진입 17,200~18,300 눌림(MA20~MA5) 분할 / 손절 15,900 종가이탈(MA60 하향<span class="up">+20</span>일저점 16,520 하회) / 익절 1차 22,200·2차 26,000.</li>
+<li>⚠️ 소형주 리스크: 시총 1,925억, 20일 평균 거래대금 8.3억(최근 5일 18.1억으로 급증) → 1일 체결상한(ADV 10%) 0.83억. 유동성 얇아 급락 시 슬리피지 큼. 선물 미상장이라 헤지·레버리지 불가·현물 100%.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (§9) [9-1 제품별 매출·별도 2025] FITTING 633억(43.4%) · VALVE 388억(26.6%) · 기타(Clamp 등) 118억(8.1%) · 상품(전기·차단기) 311억(21.3%). 반기 2026 FITTING 비중 52.9%로 상승. [실측: dart_biz] [9-2 고객·전방] 전방=반도체·조선/해양·발전·석유가스. 삼성전자·SK하이닉스 UHP 승인 고객(집중도 미공시). 판매경로 직판·대리점·직수출. 수주잔고는 &#x27;30~60일 단기발주&#x27;라 미작성(공시). → 수주가시성 낮음이 구조적 특성. [실측: 사업보고서] [9-3 시장·경쟁] UHP 가스공급장치 국산화(회사 주장 &#x27;5년내 점유율 40%&#x27;=IR 목표·추정). 국내외 경쟁자 CAPA·점유율 정량치는 미확인(2개 교차 출처 확보 실패). [인용: 회사 IR / 미확인] [9-4 단가·원가] VALVE 내수단가 79,999(&#x27;23)→83,140(&#x27;24)→61,162(&#x27;25)→65,011(26반기, 반등). FITTING 내수 6,520→5,965→5,787→5,199 하락. 원재료 HEX/ROUND BAR(신흥메탈·신흥금속, 특수관계 일부). 판가전가력은 제품믹스(고부가 시스템) 개선에 의존. [실측: 단가표] [9-5 CAPA·증설] FITTING 캐파 8,100→11,000천개(2025, <span class="up">+36%</span>)·VALVE 520→1,500천개(<span class="up">+188%</span>). 가동률 88.3%(&#x27;25)→86.7%(26반기)로 이미 높음. 건설중인자산 94억(&#x27;25말)→192.9억(26반기)로 부산2공장 CAPEX 진행. 회사 IR: 캐파 2,500억→3,500억, 2공장 2026.9 가동, 분기매출 600~800억 대응. [실측/인용] [9-6 전방] 삼성 평택 P5·SK 용인 클러스터 2026 입찰(입찰단계, 수주확정 아님). 반도체 메모리 투자 회복 + 조선 친환경 선박(연료전환 SKID). [인용: 다음뉴스·더벨 2026-07] [9-7 바텀업 실적모델(자체추정)]</p>
+<ul>
+<li>FY26E: 매출 1,850억(반기842+H2 ~1,010, 2공장·반도체램프) × OPM 11% = 영익 200억(컨센 부합).</li>
+<li>FY27 Bear: 매출 2,000 × OPM 11% = 220억 / Base: 매출 2,200(캐파3,500의 63%) × OPM 13% = 286억 / Bull: 매출 2,600 × OPM 15% = 390억.</li>
+<li>분기배분 3Q26: 컨센 영익 60억, 2공장 초기가동비로 2Q(63억) 대비 소폭. 4Q26 계절성 강세.</li>
+<li>민감도: OPM ±2%p → FY27 영익 ±44억(매출 2,200 기준). 전방 CAPEX 1분기 지연 → 분기매출 -100~150억.</li>
+<li><strong>결론 임계: 3Q26 연결 영업이익 ≥ 70억이면 논지 강화·추가매수 검토, &lt; 45억이면 턴어라운드 지속 실패로 논지 폐기.</strong> (컨센 60억)</li>
+<li>블로거 FY27 400~550억은 자체 Bull(390억)도 초과 → 과도한 낙관으로 판단.</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오</p>
+<ul>
+<li>촉매(날짜확정): 3Q26 분기보고서 법정기한 2026-11-14(턴어라운드 지속 확인) / 부산2공장 2026.9 가동 정상화(뉴스 확인) / 삼성 P5·SK 용인 수주공시 시점(미정, 최대 촉매) / 중간배당 여부(작년 주당 600원 이력·비과세 배당재원 300억, IR 주장).</li>
+<li>반증 3개(수치→행동): ①3Q26 연결 영업이익 &lt; 45억 → 논지 폐기·전량 청산 ②종가 15,900원 이탈 → 손절 청산 ③2026 하반기 대형 FAB 수주공시 부재 + 26Q3 매출 &lt; 420억(QoQ 감소) → 기대감 소멸, 비중축소.</li>
+<li>이벤트 매트릭스(3Q 실적×당일): [영익≥70·갭상승]→익절 일부·홀드 / [인라인 55~70·보합]→홀드 / [쇼크&lt;45·갭하락]→전량 청산.</li>
+<li>확률가중 시나리오: Bear(30%) 목표 15,900(수주지연·OPM&lt;10%) / Base(50%) 목표 22,200(FY26E 컨센 달성) / Bull(20%) 목표 26,000(FY27 성장 가시화). 기대값 = 15,900×0.3<span class="up">+22,200</span>×0.5<span class="up">+26,000</span>×0.2 = 21,070원 → 현재가 19,390 대비 <span class="up">+8.7%</span>. 눌림 17,800 진입 시 기대수익률 <span class="up">+18.4%</span>.</li>
+<li>수급·유동성: 20일 평균 거래대금 8.3억 → 1일 체결상한 0.83억. 외인·기관 동반 순매수 우호적이나 개인 이탈.</li>
+<li>포지션 사이징(자산 대비 %): 고변동 레짐 손실예산 0.5% ÷ 손절폭 10.7% = <strong>자산의 4.7%</strong>. 집중상한 50%·이벤트전 상한 25% 중 최소값 채택 → 4.7%. 3회 분할(각 1/3), 손절선 아래 추가매수 금지. 선물 없어 레버리지 불가.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수·매도 강요 아님. 블로거·IR·회사 목표치는 &#x27;추정&#x27;, 실측 못한 값은 &#x27;미확인&#x27;. [미확인 목록] 미국 장비사 납품 / 반도체 전방 매출비중 정확치(미공시) / UHP 시장규모·경쟁자 CAPA·점유율 정량치 / 25Q3 일회성이익 세부 / 이자비용 세부(FX 분리) / 증권사 목표주가(NR) [출처] DART 사업보고서 20260320000579·반기 20260814000742 / KIS 2026-09-24 / FnGuide·Naver 컨센 / 머니투데이 2026-04-12·2026-08-10 / 더벨 2026-07-16 [검산] 25 분기합 366<span class="up">+392.7</span><span class="up">+374.6</span><span class="up">+336.6</span>=1,469.9=연간 ✓ · 26H1 355.7<span class="up">+486.5</span>=842.2 ✓ · 영익 27.8<span class="up">+34.2</span><span class="up">+58.1</span><span class="up">+33.0</span>=153.1 ✓ · 손익비 헤더·본문 1:2.3(진입17,800) 일치 ✓ · 시나리오 확률합 30<span class="up">+50</span><span class="up">+20</span>=100% ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-24 08:12 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 19,390원 (<span class="up">+3.4%</span>) · 시총 1,925억 · 5일 <span class="up">+16.5%</span> / 20일 <span class="up">+14.9%</span> / 60일 <span class="up">+22.7%</span></li>
+<li>MA5 18,270원 / MA20 17,206원 / MA60 16,091원 → MA20 이격 <span class="up">+12.7%</span> · MA60 이격 <span class="up">+20.5%</span></li>
+<li>52주 고 22,200원 / 저 10,610원 → 고점 대비 <span class="down">-12.7%</span> · 20일 고 19,390원 / 저 16,520원</li>
+<li>후행 PER 9.57 / PBR 1.29 (EPS 2,027원 · BPS 15,049원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 8.3억 (5일 18.1억)</li>
+<li>외국인 순매수 5일 19.1억 / 20일 10.1억 · 기관 5일 -1.7억 / 20일 13.2억 · 개인 20일 -25.3억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.06% (공매도 46주 · 0.0억) · 5일 평균 0.51% / 20일 평균 1.23% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 3.06% (09/04) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 22,200원 (<span class="up">+14.5%</span>) ÷ 하방 15,900원 (−18.0%) = <strong>1:0.81</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 18.0% = <strong>자산의 2.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.8%</strong></li>
+<li>유동성 참고: 20일 ADV 8.3억 · 1일 소화 한도는 ADV의 10%(0.83억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 18.0% · ATR14 706원 (손절폭/ATR 4.9배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 18.0% = ATR14 × 4.9배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 17,977원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.99</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-086670"></span>📋 결정카드 — 비엠티(086670) 판정: 관심 선물: 無 현재가: 19,390원 진입: 17,200~18,300원 (눌림 대기) 손절: 15,900원 목표: 1차 22,200원 (2차 26,000원) 손익비: 1:2.3 기간: 스윙 6~12주 촉매: 3Q26 분기보고서 2026-11-14 · 삼성 P5/SK 용인 수주공시 · 부산2공장 가동 반증: 3Q26 연결 영업이익 &lt; 45억이면 논지 폐기·전량 청산 / 종가 15,900원 이탈 시 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
