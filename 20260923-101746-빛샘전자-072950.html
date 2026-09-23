@@ -1,0 +1,265 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>빛샘전자(072950) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260923-101746-빛샘전자-072950.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.74</div><div class="tp-c"><b>결론 발췌</b> 방산 흡수합병+솔더 자회사 동반호조로 2025년 사상최대 실적 진행 중인 실적턴어라운드株. 다만 4거래일 +70% 단기 과열·증권사 커버리지 전무. 관심(눌림목 대응), 손익비 1:2.2, 자체 목표가 17,800원. ━━━━━━━━━━━━━━━</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>빛샘전자(072950)</h1>
+<div class="meta">📊 trend · 2026-09-23 10:17 · 코드 072950</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-23 10:17)</div><div class="kpi-v">15,070원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,214억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">16.07</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.46</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.74</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.58</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">17,800원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 12,700~13,500원 (MA5~MA20 눌림)</span><span class="dc dn">손절 10,400원</span><span class="dc up">목표 17,800원</span><span class="dc">손익비 진입 1:1.74 · 현재가 1:0.58 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.2</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.2로 적었지만 진입·손절·목표로 계산하면 1:1.74다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 3~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q 분기보고서(2026.11 중순 예상)</div><div class="dc-l">🛑 반증: 4Q25 단독 연결 영업이익 &lt; 12억(연간 &lt;68억)이면 성장둔화로 프리미엄 폐기</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 빛샘전자(072950)  ※선물 無(현물만 가능·레버리지 불가)</p>
+<p>📌 한줄 결론: 방산 흡수합병+솔더 자회사 동반호조로 2025년 사상최대 실적 진행 중인 실적턴어라운드株. 다만 4거래일 <span class="up">+70%</span> 단기 과열·증권사 커버리지 전무. 관심(눌림목 대응), 손익비 1:2.2, 자체 목표가 17,800원.</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 71.8% (거래대금 863.3억 / 시총 1,202억) [인용: trendscan 2026-09-23]</li>
+<li>당일 등락 <span class="up">+16.08%</span>, 현재가 15,090원 [실측: KIS FHKST01010100 2026-09-23]</li>
+<li>추세: MA정배열(MA5 13,894 &gt; MA20 10,444 &gt; MA60 8,758) [실측: KIS 일봉 FHKST03010100]</li>
+<li>최근 4거래일 폭등: 9/15 종가 10,700 → 9/23 15,190 (<span class="up">+42%</span>), 9/10 8,900 대비 <span class="up">+71%</span> [실측: KIS 일봉]</li>
+<li>9/16, 9/18 거래량 1,485만·1,484만주 폭발(평소 30만주 대비 40배 이상) [실측: KIS 일봉]</li>
+</ul>
+<p>② 사업·급등사유 [사업구조 — 연결기준 2025 사업보고서]</p>
+<ul>
+<li>방산사업부(케이블조립체·와이어링하네스, 국방무기용): 매출 548억, 비중 45.4% [실측: 사업보고서 2025.12·접수 20260316001265]</li>
+<li>솔더사업부(비엔에프머티리얼즈, 솔더바·와이어·페이스트): 412억, 34.1% [실측: 동]</li>
+<li>네트워크(CATV·초고속인터넷): 117억, 9.7% / LED전광판: 69억, 5.7% / 광통신: 62억, 5.1% [실측: 동]</li>
+<li>★핵심 변화: 방산사업부가 2025년 9월 종속회사에서 빛샘전자(주)로 흡수합병됨 [실측: 사업보고서 주2]</li>
+</ul>
+<p>[급등사유 — 검증된 사실]</p>
+<ul>
+<li>실적 급증이 실체적 배경. 2025년 연결 매출·영익이 사상최대 경신 중(③④ 참조) [실측: DART]</li>
+<li>방산 내재화(흡수합병) + 솔더 소재 단가 상승(솔더바 25.01~ 68,303원 vs 24년 40,000원 <span class="up">+71%</span>, 솔더와이어 56,176 vs 47,000 <span class="up">+20%</span>) [실측: 사업보고서 가격변동추이]</li>
+</ul>
+<p>[급등사유 — 기대감(미검증)]</p>
+<ul>
+<li>방산 테마·수주 기대감이 단기 수급을 증폭시켰을 가능성. 단, 구체적 신규 대형수주 공시는 최근 200일 내 미확인(정기보고서·주총·지분변동만 존재) [실측: DART 공시목록 200일]</li>
+<li>급등 촉발 뉴스는 봇차단으로 원문 미확인 → [미확인 목록] 등재</li>
+</ul>
+<p>③ 실적 (DART 실측·연결) [3개년 연결 손익 — 사업보고서 11011]</p>
+<ul>
+<li>2022: 매출 930.1억 / 영익 25.2억(OPM 2.7%) / 순익 22.0억</li>
+<li>2023: 매출 741.0억 / 영익 36.7억(OPM 5.0%) / 순익 41.1억</li>
+<li>2024: 매출 851.2억 / 영익 50.7억(OPM 6.0%) / 순익 51.6억</li>
+</ul>
+<p>→ 매출은 등락하나 영익·OPM은 2년 연속 개선 [실측: DART finstate CFS]</p>
+<p>[분기 연결 환산 — 누적차감·2025]</p>
+<ul>
+<li>1Q25: 매출 280.7억 / 영익 15.4억(OPM 5.5%) [실측: 1Q누적]</li>
+<li>2Q25: 매출 292.2억 / 영익 14.8억(OPM 5.1%) [추정: 반기누적 572.9억·30.2억 − 1Q]</li>
+<li>3Q25: 매출 319.2억 / 영익 25.2억(OPM 7.9%) [추정: 3Q누적 892.1억·55.4억 − 반기]</li>
+<li>2025 3Q 누적: 매출 892.1억 / 영익 55.4억 / 순익 49.6억 [실측: DART finstate CFS 11014]</li>
+</ul>
+<p>→ ★3Q 누적만으로 이미 2024 연간 매출(851억)·영익(50.7억) 초과. 사상최대 확정적 [검산: 연결]</p>
+<p>[연결 vs 별도 격차]</p>
+<ul>
+<li>2024 별도: 매출 251.2억 / 영익 22.0억 (연결의 약 30% 수준) [실측: DART OFS]</li>
+<li>자회사 비엔에프머티리얼즈(솔더) 기여가 연결 실적의 절반 이상 → 반드시 연결로 판단</li>
+</ul>
+<p>[재무건전성 — 2024 연결]</p>
+<ul>
+<li>부채비율 33.5% (부채 254억 / 자본 759억) — 매우 건전 [실측: DART, 계산 254/759]</li>
+<li>자본총계 759억, 자산 1,013억 [실측: DART CFS 2024]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: 미확인 — 최근 6개월 목표가 제시 리포트 0건, naver/fnguide 추정치 없음 [인용: consensus.py 2026-09-23]</li>
+<li>스몰캡·커버리지 부재 종목. 애널리스트 추정 부재 → 밸류에이션은 실적 실측 기반 자체추정만 가능</li>
+<li>자체 2025E 연결(3Q누적 연율화): 매출 약 1,189억 / 영익 약 73.9억 [추정: 892.1×4/3, 55.4×4/3]</li>
+</ul>
+<p>→ 달성가능성 中~高 (3Q 누적이 이미 확정, 4Q 계절성 변수)</p>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 지표: PER 16.09배 / PBR 1.46배 / EPS 938원 / BPS 10,357원 [실측: KIS 2026-09-23]</li>
+<li>시총 1,215억 / 상장주식수 805.3만주 [실측: KIS]</li>
+<li>2025E EPS 추정: 순익 연율화 66.1억 ÷ 805.3만주 = 821원 [추정: 49.6억×4/3÷주식수]</li>
+<li>밸류 목표가 계산: 성장 프리미엄 PER 19배(방산+실적턴 반영) × 후행EPS 938원 = 17,822원 [추정: 938×19]</li>
+<li>→ 자체 목표가 17,800원 (현재가 대비 <span class="up">+18%</span>). 밸류 부담은 크지 않으나 폭등분이 이미 상당 반영</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>52주 고저: 25,700 / 4,600원 [실측: KIS]. 현재 52주고 대비 58.7% 수준(과거 급등이력 존재)</li>
+<li>지지선: MA20 10,444원 / 심리 12,000원 / MA5 13,894원</li>
+<li>저항선: 9/18 장중고 16,330원 / 120일 고점 16,550원 / 심리 20,000원</li>
+<li>손익비 = 상승여력 ÷ 하락리스크</li>
+<li>진입 12,700원(눌림), 목표 17,800원(1차), 손절 10,400원(MA20 이탈)</li>
+<li>상승여력 5,100원 / 하락리스크 2,300원 = 1:2.2 (눌림 진입 시)</li>
+<li>현재가 15,090 즉시진입 시: 상승 2,710 / 하락(손절 12,000) 3,090 = 1:0.9 (불리→추격 비권장)</li>
+<li>→ 추격매수는 손익비 열위. MA5~MA20 눌림 확인 후 분할접근이 유효</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 [매출구조 — 반기 2026.06 연결·접수 20260814000391]</p>
+<ul>
+<li>방산 257.8억(32.2%) / 솔더 429.9억(53.7%) / 네트워크 40.1억(5.0%) / LED 39.7억(5.0%) / 광통신 33.3억(4.2%) [실측: 반기보고서]</li>
+</ul>
+<p>[9-7 바텀업 모델]</p>
+<ul>
+<li>솔더사업부(핵심동력): 단가 급등이 실적 견인</li>
+<li>솔더바 68,303원(<span class="up">+71%</span> YoY), 솔더와이어 56,176원(<span class="up">+20%</span> YoY) [실측: 가격변동추이]</li>
+<li>물량 유지 가정 시 단가상승만으로 두 자릿수 매출성장 → OPM 개선 설명 (3Q OPM 7.9%로 상승)</li>
+<li>방산사업부: 흡수합병으로 마진 내재화. 국방예산 사이클 수혜 잠재. 물량(무기체계 케이블)×단가 안정적 45% 비중</li>
+<li>결론 문장: 3Q(누적) 연결 영업이익 ≥ 55억이면 실적턴 유지(이미 55.4억 달성·충족). 4Q 단독 영익 &lt; 12억(→연간 &lt;68억)이면 성장둔화로 밸류 프리미엄 폐기.</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오 [촉매]</p>
+<ul>
+<li>3Q 분기보고서(2026.11 중순 예상) — 실적 재확인 [추정: 법정기한]</li>
+<li>방산 신규수주 공시(발생 시) — 날짜 미확정</li>
+<li>솔더 원자재(주석/은) 가격 상승 지속 시 단가 추가 인상</li>
+</ul>
+<p>[반증 3개 → 행동]</p>
+<ol>
+<li>4Q25 단독 연결 영익 &lt; 12억(연간 &lt;68억) → 성장둔화, 프리미엄 폐기·비중축소</li>
+<li>MA20(10,444원) 종가 이탈 → 추세훼손, 손절</li>
+<li>거래대금 급감(일 100억 미만 3일 지속)+음봉 연속 → 수급소멸, 관망전환</li>
+</ol>
+<p>[이벤트 매트릭스]</p>
+<ul>
+<li>3Q 호실적 지속(영익 QoQ+) → 상승 / 과열완화 급락 → 하락 / 방산수주 공시 → 급등</li>
+</ul>
+<p>[확률가중 시나리오 — 합 100%]</p>
+<ul>
+<li>Bear(35%): 단기 폭등 되돌림, MA20 회귀 → 10,400원 (−31%)</li>
+<li>Base(45%): 실적 뒷받침 속 고점 눌림·재상승 → 15,000~16,500원 박스 (±5%)</li>
+<li>Bull(20%): 방산테마 재점화+수주 → 20,000원 돌파 (<span class="up">+33%</span>)</li>
+<li>기대값 ≈ 14,300원 (현재가 대비 −5%) [추정: 확률가중]</li>
+</ul>
+<p>[수급·유동성]</p>
+<ul>
+<li>최근 외인·기관 수급 혼조(9/22 외인<span class="up">+3.3</span>만·개인−2.8만, 9/21 개인<span class="up">+5.6</span>만) [실측: KIS 투자자별]</li>
+<li>개인 주도 급등 성격 강함 → 변동성 극대. 거래대금 863억은 시총 대비 과열권</li>
+</ul>
+<p>[포지션 사이징]</p>
+<ul>
+<li>개별주식선물 미상장 → 현물만, 레버리지 불가</li>
+<li>단기 과열+커버리지 부재 스몰캡 → 고위험. 자산의 3~5% 이내 소액 스윙 한정, 추격 지양</li>
+<li>집중한도(자산 50%) 대비 매우 보수적 접근 권고</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>급등 촉발 직접 뉴스 원문(봇차단으로 web_search/web_fetch 전부 차단)</li>
+<li>증권사 목표가·컨센서스(커버리지 0건)</li>
+<li>반기 사업부문표(800.8억)와 반기 손익(572.9억) 산정범위 차이 원인</li>
+<li>4Q25 실적·2026 가이던스</li>
+<li>방산 신규수주 구체 규모</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 사업보고서 2025.12 접수 20260316001265 / 반기보고서 2026.06 접수 20260814000391</li>
+<li>DART finstate CFS/OFS 2022~2025</li>
+<li>KIS FHKST01010100·FHKST03010100·FHKST01010900·kis_futures_check</li>
+<li>consensus.py 2026-09-23</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>3Q누적 892.1억 = 1Q 280.7 + 2Q 292.2 + 3Q 319.2 ✓</li>
+<li>부채비율 254/759 = 33.5% ✓</li>
+<li>손익비 눌림 1:2.2 = 5,100/2,300 ✓ / 즉시 1:0.9 = 2,710/3,090 ✓</li>
+<li>시나리오 확률합 35<span class="up">+45</span><span class="up">+20</span> = 100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-23 10:17 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 15,070원 (<span class="up">+15.9%</span>) · 시총 1,214억 · 5일 <span class="up">+11.4%</span> / 20일 <span class="up">+73.6%</span> / 60일 <span class="up">+86.5%</span></li>
+<li>MA5 13,870원 / MA20 10,438원 / MA60 8,756원 → MA20 이격 <span class="up">+44.4%</span> · MA60 이격 <span class="up">+72.1%</span></li>
+<li>52주 고 25,700원 / 저 4,600원 → 고점 대비 <span class="down">-41.4%</span> · 20일 고 15,070원 / 저 8,180원</li>
+<li>후행 PER 16.07 / PBR 1.46 (EPS 938원 · BPS 10,357원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 388.9억 (5일 887.4억)</li>
+<li>외국인 순매수 5일 -5.7억 / 20일 -3.9억 · 기관 5일 -0.9억 / 20일 -0.9억 · 개인 20일 5.1억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.00% / 20일 평균 1.88% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 7.87% (09/01) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 17,800원 (<span class="up">+18.1%</span>) ÷ 하방 10,400원 (−31.0%) = <strong>1:0.58</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 31.0% = <strong>자산의 1.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.6%</strong></li>
+<li>유동성 참고: 20일 ADV 388.9억 · 1일 소화 한도는 ADV의 10%(38.89억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 31.0% · ATR14 1,546원 (손절폭/ATR 3.0배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 31.0% = ATR14 × 3.0배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 12,751원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.18</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-072950"></span>📋 결정카드 — 빛샘전자(072950) 판정: 관심 선물: 無 현재가: 15,090원 진입: 12,700~13,500원 (MA5~MA20 눌림) 손절: 10,400원 (MA20 종가 이탈) 목표: 1차 17,800원 (2차 20,000원) 손익비: 1:2.2 기간: 스윙 3~6주 촉매: 3Q 분기보고서(2026.11 중순 예상) 반증: 4Q25 단독 연결 영업이익 &lt; 12억(연간 &lt;68억)이면 성장둔화로 프리미엄 폐기</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
