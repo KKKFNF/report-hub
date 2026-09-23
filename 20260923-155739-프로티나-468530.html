@@ -1,0 +1,252 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>프로티나(468530) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260923-155739-프로티나-468530.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.18</div><div class="tp-c"><b>결론 발췌</b> SPID 단일분자 PPI 플랫폼 기반의 신생 R&amp;D 적자 바이오. JP모건 지분매입·삼성바이오에피스 협력 기대감에 MA 정배열 급등 진행 중이나, 실측 실적은 3Q누적 매출 5.8억·영업손실 -29.5억으로 PBR 27.7배는 순수 기대가치. 선물 미상장으로 현물만 가능(레버리지 불가). 모멘텀 스윙 &#x27;관심&#x27;, 진입 44,000원 부근·손절 38,500원·1차목표 56,000원 기준 손익비 약 1:2.2. ━━━━━━━━━━━━━━━ ① 포착 신호 (KIS 실측) - 현재가 47,250원, 전일比 +18.27% [실측: KIS 현재가 2026-09-23] - 시가총액 5,247억, 상장주식수 1,110.5만주 [실측: KIS] - 당일 …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>프로티나(468530)</h1>
+<div class="meta">📊 trend · 2026-09-23 15:57 · 코드 468530</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-23 15:57)</div><div class="kpi-v">47,250원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">5,247억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">27.7</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.18</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">56,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 44,000원 (눌림목)</span><span class="dc dn">손절 38,500원</span><span class="dc up">목표 56,000원</span><span class="dc">손익비 진입 1:2.18 · 현재가 1:1</span><span class="dc">기간 스윙 3~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026 3분기보고서(11월 중순, 정확일 미확인)</div><div class="dc-l">🛑 반증: 3분기 영업손실 -15억 이상 확대 &amp; 분기매출 2억 미만이면 실적논지 폐기·정리 / 종가 38,500원 하회 시 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 프로티나(468530)  ※개별주식선물 無</p>
+<p>📌 한줄 결론: SPID 단일분자 PPI 플랫폼 기반의 신생 R&amp;D 적자 바이오. JP모건 지분매입·삼성바이오에피스 협력 기대감에 MA 정배열 급등 진행 중이나, 실측 실적은 3Q누적 매출 5.8억·영업손실 -29.5억으로 PBR 27.7배는 순수 기대가치. 선물 미상장으로 현물만 가능(레버리지 불가). 모멘텀 스윙 &#x27;관심&#x27;, 진입 44,000원 부근·손절 38,500원·1차목표 56,000원 기준 손익비 약 1:2.2.</p>
+<hr>
+<p>① 포착 신호 (KIS 실측)</p>
+<ul>
+<li>현재가 47,250원, 전일比 <span class="up">+18.27%</span> [실측: KIS 현재가 2026-09-23]</li>
+<li>시가총액 5,247억, 상장주식수 1,110.5만주 [실측: KIS]</li>
+<li>당일 거래대금 194.0억, 거래량 41.7만주 [실측: KIS]</li>
+<li>당일 회전율 3.75% (거래량/상장주식수) [실측: KIS vol_tnrt]</li>
+<li>MA 정배열: MA5 39,120 &gt; MA20 33,082 &gt; MA60 28,707 &gt; 전부 상회 [실측: KIS 일봉 계산]</li>
+<li>거래대금 추세 급증: 9/11 7.8억 → 9/16 53억 → 9/21 62억 → 9/23 194억 (약 25배) [실측: KIS 일봉]</li>
+<li>최근 7거래일 연속 상승 흐름(9/15 저점 28,650 → 9/23 47,250, <span class="up">+65%</span>) [실측: KIS 일봉]</li>
+<li>52주 밴드 15,500~120,100, 현재는 저점比 <span class="up">+205%</span>·고점比 <span class="down">-61%</span> 위치 [실측: KIS]</li>
+</ul>
+<p>② 사업·급등사유 [검증된 사실]</p>
+<ul>
+<li>단일분자 단백질상호작용(PPI) 분석 플랫폼 &#x27;SPID&#x27; 보유. 정제 없이 단일분자 수준서 PPI 직접 관측·정량화 [실측: 사업보고서 2025.12 접수 20260320001240]</li>
+<li>2개 핵심 솔루션: ①PPI PathFinder®(약물 기전분석·바이오마커·동반진단) ②PPI Landscape®(항체 설계·AI 신약개발) [실측: 동 사업보고서]</li>
+<li>2015.8 설립, 대표 윤태영, 코스닥 상장 신생기업 [실측: DART 기업개황]</li>
+</ul>
+<p>[기대감(미검증 촉매)]</p>
+<ul>
+<li>JP모건 아태지부 지분 5.16%(56만주, 약 96억) 취득 공시가 외국인 매수 촉발 [인용: 이데일리/한국경제 2026-09, blog 2차인용 — 원공시 직접확인 미완]</li>
+<li>삼성바이오에피스 협력·글로벌 빅파마 7건 기술제휴 언급 [인용: moneyland·stockeasy IV리서치 2026-04-07]</li>
+<li>골관절염 DMOAD 후보 PRT101(SOX9 활성화), 파킨슨재단(MJFF) 협력 등 신약전환 스토리 [인용: stockeasy IV리서치 2026-04-07]</li>
+<li>※급등은 실적·계약 확정공시가 아닌 수급·테마(외국인·바이오랠리) 기반. 8/25 이후 신규 계약·실적 공시 없음 [실측: DART 공시목록 08/01~09/23]</li>
+</ul>
+<p>③ 실적 (DART 실측 — 별도 OFS 기준)</p>
+<ul>
+<li>2025 3Q누적: 매출 5.82억 / 영업손실 -29.48억 / 순손실 -25.66억 [실측: 3분기보고서 재무제표 OFS]</li>
+<li>2025 반기누적: 매출 9.64억 / 영업손실 -23.97억 (※3Q단독으로 매출 역성장·손실확대 추정) [실측: 반기보고서 OFS]</li>
+<li>판관비 3Q누적 31.7억 (매출의 5배 이상) — R&amp;D·인건비 중심 비용구조 [실측: 3분기보고서]</li>
+<li>EPS -912원, BPS 1,706원, PER -51.8(적자), PBR 27.70배 [실측: KIS]</li>
+<li>재무구조: 자산총계 334.8억, 자본총계 309.7억, 부채총계 25.2억 → 부채비율 약 8% (매우 낮음) [실측: 3분기보고서]</li>
+<li>현금및현금성자산 15.5억(3Q말) vs 반기말 89.9억 → 반기~3Q 현금 급감. 연간 영업현금 유출 약 30억 페이스면 추가 자금조달 필요성 상존 [실측: DART / 추정: 소진율 연환산]</li>
+<li>자본잠식 아님(자본금·잉여금 충분) [실측: 3분기보고서]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 정식 목표가 리포트: 최근 6개월 0건, 투자의견 NR(Not Rated) 1건뿐 [실측: consensus.py 2026-09-23]</li>
+<li>연간/분기 컨센서스: 미확인 (naver·fnguide 추정치 없음) [실측: consensus.py]</li>
+<li>실적 달성가능성 판단: 흑자전환 가시성 低. 현 매출규모(연 10억 미만)로는 밸류 정당화 불가, 오직 기술이전(L/O)·빅파마 계약 성사 여부가 실적 변수 [추정: 정성판단]</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 PBR 27.70배는 R&amp;D 바이오 중에서도 고평가 구간. PER은 적자로 무의미 [실측: KIS]</li>
+<li>Peer(퀀타매트릭스 등 PPI·진단 플랫폼)와 함께 테마 동조 상승 중이나, 매출 대비 PSR로도 수백 배 수준 [추정]</li>
+<li>증권사 목표가 부재 → 밸류 앵커는 순수 기대감·수급. 52주 밴드(15,500~120,100) 내 기술적 되돌림이 주된 판단축 [실측: KIS]</li>
+<li>기술적 목표: 1차 56,000원(직전 급락 되돌림 40% 구간·심리선), 2차 68,000원(전고점 매물대 하단) [추정: 차트 되돌림]</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: MA5 39,120 / MA20 33,082 / 심리 38,000</li>
+<li>저항: 심리 50,000 / 1차 56,000 / 매물대 68,000</li>
+<li>52주고 대비 <span class="down">-61%</span> 위치 → 위로 매물부담 크나 단기 눌림 후 재상승 여지</li>
+<li>스윙 진입: 44,000원 부근(당일 급등 눌림목·MA5 근접 회귀 시)</li>
+<li>손절: 38,500원 (MA20 하회·상승추세 훼손)</li>
+<li>익절: 1차 56,000원 / 2차 68,000원</li>
+<li>손익비 산식 = 상승여력 ÷ 하락리스크</li>
+</ul>
+<p>· 1차: (56,000-44,000)/(44,000-38,500) = 12,000/5,500 = 1:2.18 · 2차: (68,000-44,000)/5,500 = 1:4.36</p>
+<ul>
+<li>※선물 미상장으로 형이 선호하는 개별주식선물 레버리지 불가 — 현물 비중 진입만 가능</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (신생기업 TAM·파이프라인 중심)</p>
+<ul>
+<li>제품군: PPI PathFinder®(약물반응 바이오마커/CDx), PPI Landscape®(AI 항체설계) [실측: 사업보고서]</li>
+<li>원재료: Pi-View(센서·현미경 스테이지), Pi-Chip. 2025 매입 11.1억 [실측: 사업보고서 원재료 표]</li>
+<li>TAM 시나리오(정성):</li>
+</ul>
+<p>· 서비스 모델(현재): 빅파마 분석·공동개발 계약 건당 매출 → 연 10~수십억 규모, 성장 완만 · 전환 모델(기대): 자체 후보물질(PRT101 등) 기술이전(L/O) 성사 시 계약금+마일스톤 → 건당 수백~수천억 잠재 [인용: IV리서치]</p>
+<ul>
+<li>상용화 임계: 흑자전환은 서비스 매출만으론 불가. 유의미한 L/O 계약(최소 계약금 수십억+마일스톤) 1건 성사가 실적 레벨업의 최소조건 [추정]</li>
+<li>결론 문장: 현 밸류(시총 5,247억)는 SPID 플랫폼의 기술이전 성공을 이미 선반영. 계약 확정공시 전까지는 실적이 아닌 기대·수급으로만 지지되는 구조.</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오·수급 [촉매 — 날짜 확정 이벤트만]</p>
+<ul>
+<li>2026 3분기보고서(11월 중순 예정): 매출·현금소진율·L/O 진척 확인 (정확일 미확인)</li>
+<li>※빅파마 계약·기술이전·삼성바이오에피스 협력은 날짜 미확정 → 촉매로 계상 불가(기대치)</li>
+</ul>
+<p>[반증 3개 (조건 → 행동)]</p>
+<ol>
+<li>3분기보고서에서 분기 영업손실이 -15억 이상으로 확대되고 매출이 분기 2억 미만이면 → 실적 정당화 논지 폐기, 보유 전량 정리 [실측기준: 3분기 IS]</li>
+<li>종가가 MA20(현 33,082원·상승 반영) 및 38,500원 하회 마감 시 → 상승추세 훼손, 손절 [실측기준: KIS 종가]</li>
+<li>JP모건·외국인 지분 대량감소 공시(5% 룰 변동) 또는 락업 해제 대량 출회 시 → 수급 논지 폐기, 비중 축소 [실측기준: DART 지분공시]</li>
+</ol>
+<p>[이벤트 매트릭스]</p>
+<ul>
+<li>L/O·빅파마 계약 확정공시: 발생 시 상한가권 재급등 / 미발생 지속 시 기대감 소멸·되돌림</li>
+<li>3분기 적자폭 축소+매출 개선: 리레이팅 / 손실확대: 급락</li>
+<li>코스닥 바이오섹터 랠리 지속: 동반강세 / 조정: 고베타 급락(하방 취약)</li>
+</ul>
+<p>[확률가중 시나리오 (합 100%)]</p>
+<ul>
+<li>Bull 25%: L/O/빅파마 계약 or 외국인 매수 지속 → 68,000원+ 재도전</li>
+<li>Base 45%: 재료 소진·차익매물, MA20 지지받으며 33,000~50,000 박스 등락</li>
+<li>Bear 30%: 바이오 조정·수급이탈, 38,500 하회 → 33,000~28,700(MA60)까지 반락</li>
+</ul>
+<p>[수급·유동성]</p>
+<ul>
+<li>일 거래대금 194억으로 유동성 충분, 단 회전율 급등은 단타 유입 신호(변동성 확대) [실측: KIS]</li>
+<li>상장주식수 1,110만주로 유통물량 적어 수급 쏠림 시 변동성 극단적. 외국인(JP모건) 매수 지속성이 핵심 변수</li>
+</ul>
+<p>[포지션 사이징 (자산 대비 %로만)]</p>
+<ul>
+<li>고변동·적자 신생주 + 선물 無(현물 헤지불가) → 자산의 3~5% 이내 소액 스윙 권고</li>
+<li>손절 <span class="down">-12.5%</span> 감안, 1회 최대손실이 자산의 0.5% 넘지 않는 사이즈로 제한 [추정: 리스크예산]</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>JP모건 지분취득 원공시(DART) 직접확인 미완(2차 인용만)</li>
+<li>삼성바이오에피스 협력·빅파마 7건 계약의 공식 확정공시 미확인(기대치)</li>
+<li>정확한 상장일(KIS 첫거래 2026-04-29 vs 외부블로그 2025-07-29 불일치)·공모가 미확정</li>
+<li>3분기보고서 발표 정확일 미확인</li>
+<li>증권사 목표가·연간 컨센서스 미확인(NR만 존재)</li>
+<li>3Q 단독 실적(반기-3Q누적 차이)의 정밀 분해 미완</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS 시세 API (현재가·일봉·시총·회전율·PBR/EPS) 2026-09-23</li>
+<li>DART 사업보고서 2025.12 접수 20260320001240 / 반기보고서 2026.06 접수 20260814001510 / 3분기보고서 재무제표</li>
+<li>DART 기업개황·공시목록 (corp_code 01688568)</li>
+<li>consensus.py 2026-09-23 (증권사 컨센 수집)</li>
+<li>stockeasy IV리서치 2026-04-07·그로쓰리서치 2026-01 (기업리포트)</li>
+<li>이데일리·한국경제·moneyland (급등사유 2차 인용, 신뢰도 유의)</li>
+<li>kis_futures_check.py (선물 미상장 확인)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총: 47,250원 × 1,110.5만주 = 5,247억 ✓ (KIS hts_avls 5,247 일치)</li>
+<li>PBR: 47,250 ÷ 1,706(BPS) = 27.70 ✓ (KIS 일치)</li>
+<li>회전율: 41.69만주 ÷ 1,110.5만주 = 3.75% ✓</li>
+<li>손익비1: (56,000-44,000)÷(44,000-38,500) = 2.18 ✓</li>
+<li>시나리오 확률합: 25<span class="up">+45</span><span class="up">+30</span> = 100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-23 15:57 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 47,250원 (<span class="up">+18.3%</span>) · 시총 5,247억 · 5일 <span class="up">+45.2%</span> / 20일 <span class="up">+25.8%</span> / 60일 <span class="up">+51.0%</span></li>
+<li>MA5 39,120원 / MA20 33,082원 / MA60 28,707원 → MA20 이격 <span class="up">+42.8%</span> · MA60 이격 <span class="up">+64.6%</span></li>
+<li>52주 고 120,100원 / 저 15,500원 → 고점 대비 <span class="down">-60.7%</span> · 20일 고 47,250원 / 저 26,000원</li>
+<li>후행 PER -51.81 / PBR 27.7 (EPS -912원 · BPS 1,706원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 36.9억 (5일 74.2억)</li>
+<li>외국인 순매수 5일 -9.9억 / 20일 -22.1억 · 기관 5일 58.3억 / 20일 48.1억 · 개인 20일 -22.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 2.65% (공매도 11,039주 · 5.2억) · 5일 평균 6.33% / 20일 평균 7.00% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 15.95% (09/14) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 56,000원 (<span class="up">+18.5%</span>) ÷ 하방 38,500원 (−18.5%) = <strong>1:1.00</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 18.5% = <strong>자산의 2.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.7%</strong></li>
+<li>유동성 참고: 20일 ADV 36.9억 · 1일 소화 한도는 ADV의 10%(3.69억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 18.5% · ATR14 3,238원 (손절폭/ATR 2.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 18.5% = ATR14 × 2.7배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 42,393원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.80</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-468530"></span>📋 결정카드 — 프로티나(468530) 판정: 관심 선물: 無 현재가: 47,250원 진입: 44,000원 (눌림목) 손절: 38,500원 목표: 1차 56,000원 (2차 68,000원) 손익비: 1:2.2 기간: 스윙 3~6주 촉매: 2026 3분기보고서(11월 중순, 정확일 미확인) 반증: 3분기 영업손실 -15억 이상 확대 &amp; 분기매출 2억 미만이면 실적논지 폐기·정리 / 종가 38,500원 하회 시 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
