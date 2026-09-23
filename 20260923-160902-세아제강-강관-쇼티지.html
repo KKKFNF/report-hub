@@ -1,0 +1,240 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>세아제강(306200) · 세아제강(강관 쇼티지) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260923-160902-세아제강-강관-쇼티지.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-buy">🟢 매수 추천 ⓘ</span><span class="tip"><div class="tp-h">🟢 매수 추천 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 명시적 매수 문구(매수추천·비중확대·진입 유효·최선호 등)가 있거나, 결론의 손익비가 1:2 이상이면서 &#x27;추격 금지/자제/부적합·눌림 대기·조건부&#x27; 같은 유보 문구가 전혀 없을 때. = 현재가 부근에서 지금 진입 가능.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 매수 · 손익비 1:3</div><div class="tp-c"><b>결론 발췌</b> 실적·밸류 뒷받침되는 실체形 순환 상승. 현물 138,500원 부근 분할매수·손절 130,000원·1차 목표 160,000원 → 손익비 1:2.5(2차 189,000원 시 1:5.9). 자체·컨센 목표가 190,000~200,000원 수렴. 판정 매수(단, 개별선물 없어 레버리지 불가·현물 한정). ※리서치 참고용, 매수/매도 강요 아님. 증권사·블로거 추정치는 &#x27;추정&#x27;, 최종 판단·책임은 투자자 본인. ━━━━━━━━━━━━━━━</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 매수</span><h1>세아제강(306200) · 세아제강(강관 쇼티지)</h1>
+<div class="meta">📊 benine · 2026-09-23 16:09 · 코드 306200</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-23 16:09)</div><div class="kpi-v">138,500원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3,928억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">13.09</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.35</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.53</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">160,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 136,000~139,000원</span><span class="dc dn">손절 130,000원</span><span class="dc up">목표 160,000원</span><span class="dc">손익비 진입 1:3 · 현재가 1:2.53 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.5</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.5로 적었지만 진입·손절·목표로 계산하면 1:3다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 3Q26 분기보고서(다올 잠정 매출4,625·OP241억)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 150억이면 폐기·비중축소 / 종가 130,000원 이탈 시 전량청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 세아제강(306200)  ※개별주식선물 無(현물만) / 관계사 세아제강지주(003030) 선물 有</p>
+<p>📌 한줄 결론: 실적·밸류 뒷받침되는 실체形 순환 상승. 현물 138,500원 부근 분할매수·손절 130,000원·1차 목표 160,000원 → 손익비 1:2.5(2차 189,000원 시 1:5.9). 자체·컨센 목표가 190,000~200,000원 수렴. 판정 매수(단, 개별선물 없어 레버리지 불가·현물 한정). ※리서치 참고용, 매수/매도 강요 아님. 증권사·블로거 추정치는 &#x27;추정&#x27;, 최종 판단·책임은 투자자 본인.</p>
+<hr>
+<p>① 사업·급등사유 (사실관계 검증)</p>
+<ul>
+<li>주력: 강관 단일 사업. 2025년 매출 14,848억 중 강관제품 92%·상품등 8% [실측: 2025 사업보고서 20260312000989]. 배관용·유정용(OCTG)·구조용·상수도용. 원재료 HR Coil 97.7%(포스코 등) [실측: 동 보고서].</li>
+<li>전방: 미국 에너지(유정관 시추)·AI 데이터센터(가스터빈 발전 라인파이프+냉각배관)·LNG 터미널. 2025 수출비중 52%(수출 7,791/내수 5,872억), 2Q26 미국 수출비중 약 40% [인용: 다올 2026-09-23].</li>
+<li>급등사유 실체 검증 = 실체 확인. 미국 OCTG 스팟가 8월 <span class="up">+11%</span> MoM $2,838/톤, P110 이음매없는관 리드타임 4Q26·90일+ 지연 [인용: steelprices.com·guavy.com 2026-08, 복수 독립출처]. 다올은 9/18 북미 OCTG $2,625/톤 인용. 쇼티지·판가상승은 트레이드 매체로 교차확인된 실체(테마성 루머 아님). 단, &quot;AI데이터센터 핵심 수혜 퀀텀점프&quot;의 폭·속도는 증권사·블로거 기대치이며 아직 분기실적으로 완전 입증 전.</li>
+</ul>
+<p>② 실적 (DART 실측·연결)</p>
+<ul>
+<li>연간 매출/영업이익/OPM: 2023 18,609억/미확인(DART 2023 CFS 무응답)/– · 2024 18,094억/2,029억/11.2% · 2025 14,848억/496억/3.3% [실측: fnlttSinglAcntAll]. → 2024 피크 후 2025 급랭(판가↓·물량↓), 2026 회복 국면.</li>
+<li>분기(연결·3개월) 매출/영업이익/OPM/순익:</li>
+<li>25Q1 3,789/256/6.8%/188</li>
+<li>25Q2 4,149/209/5.0%/87</li>
+<li>25Q3 3,317/−52/−1.6%/185</li>
+<li>25Q4 3,593/83/2.3%/−160</li>
+<li>26Q1 4,486/241/5.4%/210</li>
+<li>26Q2 4,952/349/7.0%/535</li>
+</ul>
+<p>[실측: 분기·반기·사업보고서. 검산 25 분기합 매출14,848·OP496·NI300=연간 일치 / H1&#x27;26 매출9,438=반기보고서 943,738백만 일치]</p>
+<ul>
+<li>모멘텀: OPM 25Q3 −1.6% 저점 → 26Q2 7.0% V자 반등. 26Q2 순익 535억은 영업익 349억 초과(비영업 이익 결합, 세부 미확인). 실적 방향성이 상승추세를 정당화.</li>
+<li>사업부문: 단일(강관). 고객집중 — 연결 10%+ 단일고객 A가 H1&#x27;26 매출 3,838억(전체 9,438억의 41%) [실측: 반기보고서]. 1사 41%≥30% → 집중 리스크 명시(고객명 비공개).</li>
+<li>재무건전성: 부채비율 26H1 81%(부채 9,478억/자본총계 11,640억) [실측], 영업CF 2025년 −1,083억(재고축적)→26H1 <span class="up">+646</span>억 전환 [실측]. 금융비용 26H1 83억 대비 영업익 590억 → 커버리지 약 7배(금융비용 proxy, 이자비용 별도 미확인).</li>
+</ul>
+<p>③ 미래실적·컨센서스 (4소스 자동수집)</p>
+<ul>
+<li>목표가 컨센 평균 200,286원(최고 220,000/최저 170,000·14건) [인용: stockeasy/fnguide/naver 2026-09-23]. 현재가 138,500원 대비 상승여력 <span class="up">+44.6%</span>. 투자의견 Buy 14건.</li>
+<li>최근 리포트: 다올 200,000(유지·9/23) / 상상인 220,000(유지·9/18) / 유진 170,000(신규·9/1) / 하나 200,000(8/18) / 한화 207,000(7/22) [인용].</li>
+<li>연간 컨센(억·EPS원): FY26E 매출 18,686·OP 1,118·NI 900·EPS 31,749 / FY27E 19,646·1,247·939·33,112 [인용: fnguide 6개사]. OP 컨센 상향 추세(1Y전 665→현재 1,118).</li>
+<li>분기 컨센: 3Q26 매출 4,528·OP 254·순익 182 [인용: naver], 다올 3Q 추정 매출 4,625(YoY<span class="up">+39.4%</span>·QoQ−6.6%)·OP 241 [인용: 다올 9/23].</li>
+<li>달성가능성: 中~高. 26Q2 OP 349(OPM 7.0%)가 이미 3Q 컨센(254)·다올(241)을 상회하는 런레이트. 판가($2,838/톤·리드타임 4Q26)·수출비중 유지·여유 CAPA(가동률 75~93%)가 근거. 단 QoQ 계절 둔화·환율·수출 인식시점이 변수.</li>
+</ul>
+<p>④ 밸류에이션·목표가</p>
+<ul>
+<li>현재 PER 13.09(트레일링, 2025 저점실적 EPS 10,577 기준)·PBR 0.35 [실측: KIS]. Forward PER FY26E 4.4배·FY27E 4.2배(EPS 31,749/33,112) → 회복실적 반영 시 저평가.</li>
+<li>밴드: PBR 0.35는 자기 역사밴드 하단권. Peer(넥스틸·휴스틸 등 미국 OCTG주) 정밀 멀티플 미확인.</li>
+<li>자체 목표가 산식: FY26E EPS 31,749 × 6.0~6.3배 = 190,000~200,000원 [추정] / 자본총계 BPS 410,500 × PBR 0.5 = 205,000원 [추정]. → 자체 190,000~205,000원, 증권사 컨센 200,286원·다올 200,000원과 수렴.</li>
+</ul>
+<p>⑤ 진입전략·손익비 (306200 현물)</p>
+<ul>
+<li>위치: 138,500원(당일 −2.94%, 오늘이 20일 저점). MA5 144,680·MA20 144,620 아래, MA60 134,303 위 [실측]. 52주고 189,000(−26.7%)·52주저 112,000(<span class="up">+23.7%</span>). ret60 <span class="up">+10.7%</span>. ATR14 5,621.</li>
+<li>지지 MA60 134,303→130,000(1.5ATR·라운드)→112,000. 저항 MA20 144,600→20일고 151,400→189,000.</li>
+<li>3라인: 진입 136,000~139,000(MA60 지지권 눌림) / 손절 130,000(종가 이탈 시) / 목표 1차 160,000·2차 189,000.</li>
+<li>손익비: 상승여력 15.5%(→160,000) ÷ 하락리스크 6.1%(→130,000) = 1:2.5. 2차 189,000 기준 36.5%÷6.1% = 1:5.9.</li>
+<li>★개별주식선물 미상장 → 레버리지 스윙 불가, 현물 한정 [실측: kis_futures_check 306200 ❌].</li>
+</ul>
+<p>⑥ 선물 우회(세아제강지주 003030) — 조건부·성격 다름</p>
+<ul>
+<li>003030 선물 상장(근월물 A0N610) [실측]. 지주가 306200 최대주주. 그러나 지주는 세아윈드(英 해상풍력 모노파일) 대규모 적자·충당금 결합 → FY26E 순이익 −198억(적자), FY27E <span class="up">+1,365</span>억 회복 컨센 [인용: fnguide/naver]. BNK 8/19 &quot;풍력에 발목 잡힌 파이프&quot; 목표가 130,000 하향.</li>
+<li>즉 지주 선물 우회 = 강관 쇼티지 순수 베팅 아님(사업회사는 흑자 900억인데 지주는 풍력으로 FY26 적자). 강관 테마만 원하면 현물 306200이 순수, 지주는 딥밸류(PBR 0.20)+풍력 턴어라운드 별도 베팅.</li>
+<li>지주 시세 101,000원(당일 −6.05%), 52주저 94,200 근접·ret60 −16.0%·MA 전부 아래(하락추세) [실측]. 강관 상승과 디커플링. 판정: 레버리지 필수면 소액·별도카드로만, 강관 논지의 대체재 아님.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9)</p>
+<ul>
+<li>9-1 제품분해: 강관 92%(2025 13,663억)·상품등 8%(1,185억). 강관 ASP 2023 1,597→2024 1,447→2025 1,346→26H1 1,399 천원/톤(반등) [실측].</li>
+<li>9-2 고객: 단일고객 A H1&#x27;26 41%(3,838억)·전기 고객B 860억 [실측]. 미국 유통/에너지사 추정, 명칭 비공개. 집중도 리스크 有.</li>
+<li>9-3 시장·경쟁: 미국 OCTG. 국내 경쟁 넥스틸·휴스틸, 글로벌 Tenaris·US Steel Tubular. 세아 미국 수출비중 2Q~40%[인용:다올]. TAM 정밀치 미확인. 쇼티지 근거 = 스팟 $2,838/톤(<span class="up">+11%</span> MoM)·리드타임 4Q26·90일+ [인용: steelprices.com·guavy 2026-08, 2개 교차].</li>
+<li>9-4 단가·스프레드: 원재료 HR Coil 2023 885→2024 863→2025 809→26H1 846 천원/톤. 스프레드(ASP−HRC) 2025 537 → 26H1 553 천원/톤(개선) [실측]. 원재료 97.7% HR Coil(포스코). 단가는 미국 스팟 연동·분기 협상.</li>
+<li>9-5 CAPA·수주: 4공장 160만톤, 2025 생산 79.4만톤(가동률 포항75/군산84/순천83/창원93%) → 여유 CAPA로 물량 증대 여력 [실측]. 수주잔고 26H1 577억(카타르LNG 종료·천연가스PIPE 578억 진행)로 낮음(프로젝트성).</li>
+<li>9-6 전방: 미국 AI데이터센터 가스발전용 라인파이프·유정 시추·멕시코만 LNG. 리그카운트·데이터센터 CAPEX가 소요량 결정변수(정밀 소요량 산식 미확인).</li>
+<li>9-7 바텀업(3Q·FY26, 억원):</li>
+<li>Bear: 3Q 매출 4,200·OP 150·OPM 3.6%(수출둔화·환율)</li>
+<li>Base: 3Q 매출 4,528·OP 240·OPM 5.3%(다올 241·컨센 254 준거)</li>
+<li>Bull: 3Q 매출 4,800·OP 290·OPM 6.0%(판가 지속·비중 유지)</li>
+<li>FY26E: Base 매출 18,686·OP 1,118(컨센), 민감도 단가±10%→OP±약 300억·점유율(수출비중)±5%p→분기 OP±약 40억 [추정].</li>
+<li>결론문장: 3Q26 연결 영업이익 ≥ 240억이면 논지 유지·추가매수 검토, &lt; 150억이면 논지 폐기.</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오</p>
+<ul>
+<li>촉매 캘린더(날짜 확정): 3Q26 분기보고서 법정기한 2026-11-14(다올 잠정 매출4,625·OP241) / 미국 OCTG 월간 스팟가(Argus·steelprices 월초) / 베이커휴즈 리그카운트(매주 금) [인용].</li>
+<li>반증 3개(수치→행동):</li>
+</ul>
+<p>1) 3Q26 연결 영업이익 &lt; 150억이면 논지 폐기·비중 축소(컨센 254·다올 241 크게 하회=판가 전가 실패). 2) 종가 130,000원 이탈 시 전량 청산(MA60·1.5ATR 지지 붕괴). 3) 미국 OCTG 스팟 $2,300/톤 하회(현 $2,838) or 수출비중 30% 하회 = 쇼티지 완화 신호, 신규진입 중단.</p>
+<ul>
+<li>이벤트 매트릭스(3Q 실적×당일):</li>
+<li>서프(OP≥290)×갭상승 → 추격 자제·눌림 대기 / ×갭하락 → 분할매수</li>
+<li>인라인(OP 200~290)×보합 → 보유 / ×갭하락 → 손절선까지 홀드</li>
+<li>쇼크(OP&lt;150)×갭하락 → 반증①발동 청산</li>
+<li>확률가중 시나리오: Bull 30% 목표 200,000(<span class="up">+44%</span>) / Base 50% 165,000(<span class="up">+19%</span>) / Bear 20% 120,000(−13%) → 기대수익 <span class="up">+20.1%</span>.</li>
+<li>수급·유동성: 20일 평균 거래대금 12.7억(1일 체결상한 10%=약 1.27억, 유동성 낮음). 외국인 20일 순매수 우위·기관/개인 순매도 [실측: KIS].</li>
+<li>포지션 사이징(자산 대비 %): 고변동 레짐(VKOSPI 42) 손실예산 0.5% ÷ 손절폭 6.1% = 자산의 8.2%(통상 레짐 1%면 16.4%). 집중상한 50%·실적발표 전 상한 25% 중 최소값 → 8.2% 채택. 분할 3회(각 1/3). 손절선 아래 추가매수 금지.</li>
+</ul>
+<p>[미확인 목록] 2023 연간 영업이익/순익(DART CFS 무응답)·Peer 정밀 멀티플·미국 OCTG TAM 절대치·고객A 실명·26Q2 순익&gt;영업익 비영업 세부·전방 소요량 정밀 산식. [출처 목록] DART 사업보고서 20260312000989·반기보고서 20260814003277·fnlttSinglAcntAll(연결)·KIS 시세·stockeasy/fnguide/naver 컨센·다올 2026-09-23·상상인 9/18·BNK 8/19·steelprices.com/guavy 2026-08. [검산] 25 분기합 매출14,848·OP496·NI300=연간 일치 / H1&#x27;26 매출9,438=반기보고서 일치 / 손익비 15.5÷6.1=2.5 헤더·본문 일치 / 시나리오 확률합 100%.</p>
+<p>⚠️ 블로그·단일 증권사 의견은 참고용이며 사실 확정 아님. 증권사·블로거 추정치는 &#x27;추정&#x27; 표기. 최종 투자 판단·책임은 투자자 본인.</p>
+<p>&lt;!-- hub:enrich:begin:306200 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-23 16:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 138,500원 (<span class="down">-2.9%</span>) · 시총 3,928억 · 5일 <span class="down">-4.7%</span> / 20일 <span class="up">+0.2%</span> / 60일 <span class="up">+10.7%</span></li>
+<li>MA5 144,680원 / MA20 144,620원 / MA60 134,303원 → MA20 이격 <span class="down">-4.2%</span> · MA60 이격 <span class="up">+3.1%</span></li>
+<li>52주 고 189,000원 / 저 112,000원 → 고점 대비 <span class="down">-26.7%</span> · 20일 고 151,400원 / 저 138,500원</li>
+<li>후행 PER 13.09 / PBR 0.35 (EPS 10,577원 · BPS 395,605원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 12.7억 (5일 7.8억)</li>
+<li>외국인 순매수 5일 8.3억 / 20일 50.9억 · 기관 5일 -10.4억 / 20일 -24.5억 · 개인 20일 -25.7억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 1.14% (공매도 87주 · 0.1억) · 5일 평균 2.69% / 20일 평균 3.96% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 12.03% (09/04) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 160,000원 (<span class="up">+15.5%</span>) ÷ 하방 130,000원 (−6.1%) = <strong>1:2.53</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 6.1% = <strong>자산의 8.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 8.1%</strong></li>
+<li>유동성 참고: 20일 ADV 12.7억 · 1일 소화 한도는 ADV의 10%(1.27억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 6.1% · ATR14 5,621원 (손절폭/ATR 1.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 6.1% = ATR14 × 1.5배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 127,257원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.91</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:306200 --&gt;</p>
+<p><span id="card-306200"></span>📋 결정카드 — 세아제강(306200) 판정: 매수 선물: 無 현재가: 138,500원 진입: 136,000~139,000원 손절: 130,000원 목표: 1차 160,000원 (2차 189,000원) 손익비: 1:2.5 기간: 스윙 6~12주 촉매: 2026-11-14 3Q26 분기보고서(다올 잠정 매출4,625·OP241억) 반증: 3Q26 연결 영업이익 &lt; 150억이면 폐기·비중축소 / 종가 130,000원 이탈 시 전량청산</p>
+<p>&lt;!-- hub:enrich:begin:003030 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-23 16:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 101,600원 (<span class="down">-5.5%</span>) · 시총 4,208억 · 5일 <span class="down">-2.9%</span> / 20일 <span class="down">-0.2%</span> / 60일 <span class="down">-15.5%</span></li>
+<li>MA5 105,760원 / MA20 104,460원 / MA60 105,412원 → MA20 이격 <span class="down">-2.7%</span> · MA60 이격 <span class="down">-3.6%</span></li>
+<li>52주 고 260,000원 / 저 94,200원 → 고점 대비 <span class="down">-60.9%</span> · 20일 고 108,300원 / 저 99,700원</li>
+<li>후행 PER 6.65 / PBR 0.2 (EPS 15,274원 · BPS 510,476원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 16.5억 (5일 19.2억)</li>
+<li>외국인 순매수 5일 -3.6억 / 20일 7.2억 · 기관 5일 -8.6억 / 20일 -20.1억 · 개인 20일 12.3억</li>
+<li>개별주식선물: ⚡ 상장 (A0N610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 5.88% (공매도 1,782주 · 1.8억) · 5일 평균 4.86% / 20일 평균 3.89% → 증가 · 20일 평균 상회 연속 3일</li>
+<li>공매도 20일 최대 7.54% (09/07) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 130,000원 (<span class="up">+28.0%</span>) ÷ 하방 93,000원 (−8.5%) = <strong>1:3.30</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 8.5% = <strong>자산의 5.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 5.9%</strong></li>
+<li>유동성 참고: 20일 ADV 16.5억 · 1일 소화 한도는 ADV의 10%(1.65억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 8.5% · ATR14 3,914원 (손절폭/ATR 2.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 8.5% = ATR14 × 2.2배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 95,728원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:4.84</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:003030 --&gt;</p>
+<p><span id="card-003030"></span>📋 결정카드 — 세아제강지주(003030) 판정: 관망 선물: 有 현재가: 101,000원 진입: 대기(94,000~96,000원 52주저 지지 확인 시 소액) 손절: 93,000원 목표: 1차 130,000원 (2차 160,000원) 손익비: 진입부적합(하락추세·FY26 풍력적자, 강관 논지 대체재 아님 — 조건 충족 전 관망) 기간: 스윙 8~16주(풍력 정상화 확인 전 관망) 촉매: 2026-11-14 3Q26 분기보고서(세아윈드 적자폭 축소 여부) 반증: FY26 세아윈드 적자·충당금 추가 확대 or 종가 93,000원 이탈 시 회피</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
