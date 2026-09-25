@@ -1,0 +1,177 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>이수페타시스(007660) · AI 서버 고다층 PCB (이수페타시스·두산) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260926-081001-AI-서버-고다층-PCB-이수페타시스-두산.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.22</div><div class="tp-c"><b>결론 발췌</b> · 이수페타시스(007660): 이 테마의 실적 대표주(PCB 순수도 100%). 선물 有(A2P610)로 레버리지 가능. 밸류 부담(현 PER 52.8, FY27E PER 20.5) 있으나 판가(P)+수주잔고+증설의 3박자. 판정 관심(눌림 대기) — 손익비 1:2.1(현재가 진입)~1:3.2(눌림 진입). · 두산(000150): 선물 有(AGT610)로 레버리지 가능하나, CCL(전자BG)은 연결매출의 9.5%(2025)→12.2%(H1 2026)에 불과한 지주사 → PCB 테마 순수도 낮음. 밥캣(44%)·에너빌리티(38%)가 실적 본체. 테마 베팅보다 종합 지주 베팅에 가까움.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>이수페타시스(007660) · AI 서버 고다층 PCB (이수페타시스·두산)</h1>
+<div class="meta">📊 benine · 2026-09-26 08:10 · 코드 007660</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-26 08:10)</div><div class="kpi-v">119,200원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">8.8조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">52.81</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">11.58</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.22</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.11</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">145,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 113,000~119,000원 (눌림 2회 분할)</span><span class="dc dn">손절 107,000원</span><span class="dc up">목표 145,000원</span><span class="dc">손익비 진입 1:3.22 · 현재가 1:2.11 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.1</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.1로 적었지만 진입·손절·목표로 계산하면 1:3.22다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 실적발표(11/14 전후)·6공장 투자확정 공시</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 800억이면 전량 청산 / 종가 107,000원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 산업·테마 딥리서치 — AI 서버 고다층(초다층) PCB 부족 수혜주</p>
+<p>원문: 비나인 블로그 &quot;AI 서버 고다층 PCB가 부족한 이유(층을 쌓을수록 불량이 곱해진다)&quot; (engineerinvestor, 2026-09-25) — 블로거 의견·참고용. 아래는 원문 논지를 실측·공시로 교차검증한 리서치이며 매수/매도 강요가 아님.</p>
+<p>📌 한줄 결론 · 이수페타시스(007660): 이 테마의 실적 대표주(PCB 순수도 100%). 선물 有(A2P610)로 레버리지 가능. 밸류 부담(현 PER 52.8, FY27E PER 20.5) 있으나 판가(P)+수주잔고+증설의 3박자. 판정 관심(눌림 대기) — 손익비 1:2.1(현재가 진입)~1:3.2(눌림 진입). · 두산(000150): 선물 有(AGT610)로 레버리지 가능하나, CCL(전자BG)은 연결매출의 9.5%(2025)→12.2%(H1 2026)에 불과한 지주사 → PCB 테마 순수도 낮음. 밥캣(44%)·에너빌리티(38%)가 실적 본체. 테마 베팅보다 종합 지주 베팅에 가까움.</p>
+<hr>
+<p>■ 테마 구조 요약 (원문 논지 검증) ━━━━━━━━━━━━━━━━━━ 원문 핵심: ①2026 상반기까지 기판사는 증설 없이 단가(P) 인상으로 이익 확대 → ②층수↑일수록 다중적층(멀티램) 수율이 곱셈으로 하락, 증설 면적만큼 공급이 안 늘어남 → ③병목이 기판 → 재료(CCL·고급동박 HVLP)로 상방 이동, 재료 증설(두산 2028 하반기, 미쓰이 동박 2031+)이 기판 증설보다 1.5~4년 늦음 → 2027~2028 &quot;기판설비는 있으나 재료부족&quot; 구간.</p>
+<p>교차검증 결과(실측): · 판가 인상 사실 확인 [실측: DART 사업보고서·반기보고서]. 이수페타시스 수출 ㎡단가 2023년 3,054천원 → 2024년 3,739천원 → 2025년 4,477천원 → 2026반기 4,875천원(평균단가). 원문의 &quot;372만→488만원(<span class="up">+31%</span>)&quot;은 내수·수출 혼합 평균 흐름과 방향 일치. · 원재료(CCL 소재) 가격도 동반 상승 [실측: 반기보고서]. THIN CORE 수입단가 USD/㎡ 2024 56.16 → 2026반기 61.29(<span class="up">+9%</span>), COPPER FOIL 국내 2.89 → 3.53(<span class="up">+22%</span>). 병목이 재료로 이동한다는 원문 논지와 정합. · 이수페타시스의 CCL 주 매입처에 &quot;두산전자(주)&quot;가 명시 [실측: 반기보고서 원재료 매입처] → 재료 상방 이동 시 두산 전자BG가 수혜 사슬. 다만 두산은 지주 특성상 순수도 희석(아래).</p>
+<hr>
+<p>■ 밸류체인 Tier 분류 (실적베타 × 선물상장) ━━━━━━━━━━━━━━━━━━ · Tier1 (실적수혜 高 + 선물 有 = 레버리지 스윙 가능): 이수페타시스(007660) — ★선물 재검증 결과 상장 확정(근월물 A2P610). 원문/과거 노트의 &quot;미상장&quot;은 오류. PCB 순수 실적주. · Tier2 (레버리지 가능 대안, 테마 순수도 낮음): 두산(000150) — 선물 有(AGT610). 그러나 CCL 비중 12%대 지주. · 참고 (테마결 다름 + 선물 無): 대덕전자(353200) — 개별주식선물 미상장 확인. FC-BGA 패키지기판으로 이 글의 서버 고다층 기판과 제품군이 다름(아래 코멘트).</p>
+<hr>
+<p>【Ⅰ】 이수페타시스 (007660) — 풀리포트 ═══════════════════════ 선물: 有 (근월물 A2P610) · 현재가 119,200원(09-23 종가, <span class="up">+5.58%</span>) · 시총 87,504억</p>
+<p>① 사실관계 검증 · 사업: 인쇄회로기판(PCB) 단일사업 100%. 수출 비중 98%(2025). 대구 단일공장 + 중국 생산·미국/태국 판매법인 [실측: 2025 사업보고서]. · 전방·고객: 제품이 &quot;글로벌 빅테크·데이터센터·AI·통신장비&quot; 기업에 공급 [실측: 반기보고서 주요매출처 주석]. 단일 최대고객 &#x27;A사&#x27; 매출비중 41.1%(2025)→40.1%(H1 2026) — 원문의 &quot;고객쏠림 40%&quot;와 일치. 고객집중 리스크 실재(1사 ≥30%). · 자금유입 사유 실체: 테마 기대감이 아니라 실적·수주로 뒷받침. 수주잔고 2025말 3,576억 → 2026반기 6,222억(<span class="up">+74%</span>) [실측: 반기보고서 수주상황]. 가동률 96.8%(2026반기)로 사실상 풀가동. 실체 有.</p>
+<p>② 실적 분석 (DART 연결 실측) 연간(억원): · 2023: 매출 6,753 / 영업익 622 / OPM 9.2% · 2024: 매출 8,369 / 영업익 1,019 / OPM 12.2% · 2025: 매출 10,880 / 영업익 2,047 / 순익 1,605 / OPM 18.8% 분기(연결·3개월, 억원): · 25 1Q 2,525 / 477 / OPM 18.9% · 25 2Q 2,414 / 421 / OPM 17.4% · 25 3Q 2,961 / 584 / OPM 19.7% · 25 4Q(역산) 2,980 / 565 / OPM 19.0% · 26 1Q 3,403 / 672 / OPM 19.7% (YoY 매출 <span class="up">+34.8%</span>) · 26 2Q 3,799 / 771 / OPM 20.3% (YoY 매출 <span class="up">+57.4%</span>, 사상최대) 재무건전성: 부채비율 2024 141.3% → 2025 70.5% → 2026반기 70.6%(부채 6,070/자본 8,598억) [실측]. 2025 자본확충으로 개선. 영업이익률이 9%→20%로 2년새 배증 → 상승추세를 실적이 정당화. · 검산: 분기합 2,525<span class="up">+2,414</span><span class="up">+2,961</span><span class="up">+2,980</span>=10,880=연간 ✓. Q1+Q2(2026)=7,202=반기보고서 매출 720,170백만 ✓.</p>
+<p>③ 미래실적·컨센서스 (수집 2026-09-26) · 목표가 컨센 평균 175,400원(최고 200,000/최저 160,000, 25건) · 현재가 대비 <span class="up">+47.1%</span> [인용: fnguide/naver 집계] · 최근 리포트: 신한 170,000(상향, 09-22)·메리츠 160,000(09-22)·유안타 180,000(08-26)·DB 170,000(08-19), 대부분 Buy(26/28) · 연간 컨센(억원): FY26E 매출 16,210 / 영업익 3,486 / 순익 2,753 / EPS 3,751(PER 31.7) · FY27E 매출 22,680 / 영업익 5,293 / EPS 5,808(PER 20.5) · FY28E 영업익 6,478 [인용: fnguide, 추정기관 9] · 3Q26 컨센: 매출 4,333 / 영업익 965 / 순익 775 [인용: naver] · 달성가능성 中~高: 1H26 영업익 실적 1,443억, 하반기 컨센 2,043억(3Q 965<span class="up">+4</span>Q 1,078). 수주잔고 6,222억·가동률 96.8%·판가 상승·6공장 후속증설(EBN/케미컬뉴스 09월 보도, 기존 4천억대<span class="up">+1</span>천억대 중반 추가)로 런레이트 상방. 다만 FY27 매출 <span class="up">+40%</span>(22,680) 컨센은 증설 양산·수율 안착 전제 → 中.</p>
+<p>④ 밸류에이션 → 목표가 · 현 PER 52.8(trailing)·PBR 11.58·EPS 2,257·BPS 10,292 [실측 KIS]. Trailing 기준 명백한 고평가지만 성장주는 선행 PER으로 평가. · 선행 PER: FY26E 31.7배 / FY27E 20.5배. AI 고성장 프리미엄 반영 시 20배대 후반~30배 정당화 여지. · 자체 목표가 산식: FY27E EPS 5,808원 × 적정 PER 25배(성장 프리미엄, peer AI부품주 밴드 중상단) = 145,200원(1차). PER 30배 적용 시 174,240원 ≈ 증권사 컨센 175,400원과 수렴. · 결론: 1차 목표 145,000원(현재가 <span class="up">+21.6%</span>), 2차 164,000원(전고·52주고, <span class="up">+37.6%</span>). 증권사 컨센 175,400원 병기.</p>
+<p>⑤ 진입전략·손익비 · 위치: 52주고 164,400 대비 <span class="down">-27.5%</span>, 저점 57,900 대비 <span class="up">+105.9%</span>. MA5 110,420 / MA20 110,445 / MA60 99,312 → 정배열. 현재가는 MA20 위 <span class="up">+7.9%</span>·20일 신고가(119,200) 부근 → 당일 <span class="up">+5.58%</span> 후라 추격 주의. · ATR14 6,307원(약 5.3%) — 고변동. · 진입: 눌림 분할 권장 113,000~119,000원(2회 분할). 추격 진입은 변동성 감안 비중 축소. · 손절: 종가 107,000원 이탈(MA20·MA60 하단 이탈 = 추세 훼손). · 손익비: (진입 119,200 기준) 상방 목표 145,000 = <span class="up">+21.6%</span> ÷ 하방 손절 107,000 = <span class="down">-10.2%</span> → 1:2.1. 눌림 진입(116,000) 시 <span class="up">+25.0%</span> ÷ <span class="down">-7.8%</span> = 1:3.2. · 수급: 외인 20일 -254억 순매도 vs 기관 <span class="up">+425</span>억 순매수 [실측]. 공매도 20일 평균 12.55%(높음), 당일 9.42%로 감소세. 20일 평균 거래대금 707억 → 1일 체결상한(ADV 10%) 약 71억.</p>
+<p>⑧ 산업·제품 바텀업 모델 (§9) 9-1 제품분해 [실측 사업보고서]: PCB 단일 100%(2025 매출 10,880억 중 제품 95.1%·기타 4.9%). 사실상 순수 PCB. 9-2 고객: A사(글로벌 빅테크 추정) 41% 단독, 상위 1사만 10%↑ 공시. 고객집중 高. 9-3 시장·경쟁: AI 서버·스위치용 초다층 PCB. TAM 정량치 미확인(단일 산업리포트만). 원문 주장 &quot;저불량 고다층 소수 과점&quot;은 정성. 국내 peer 대덕전자는 FC-BGA로 세그먼트 상이 → 이수의 서버 고다층 국내 경쟁 제한적이나 글로벌(대만 Unimicron·미국 TTM 등) CAPA 미확인. 9-4 단가이력 [실측]: 수출 ㎡단가 3,055(23)→3,739(24)→4,477(25)→4,875천원(26반기). 원재료 THIN CORE 수입 49.6→61.3 USD/㎡, 동박 국내 2.93→3.53. 판가 전가 우위 확인(단가 상승&gt;원가 상승). 9-5 CAPA·수주 [실측]: 연 CAPA 228천㎡(25)/반기 119천㎡, 가동률 93.7%(25)→96.8%(26반기, 풀가동). 6공장 후속 증설 검토 공시(투자액 확정치 미확인, 기존 4천억대+추가 1천억대 중반 보도). 수주잔고 6,222억(26반기, <span class="up">+74%</span> YoY). 9-6 전방: 빅테크 AI CAPEX 지속(정성). 재료 병목으로 2027~28 공급 타이트 전망(원문). 9-7 바텀업 실적모델 (연결, 억원): · Bear: 매출 15,000 / OPM 18% → 영업익 2,700 (A사 발주둔화·CPO 층수감소) · Base: 매출 16,000 / OPM 20% → 영업익 3,200 (컨센 3,486 근접) · Bull: 매출 16,500 / OPM 22% → 영업익 3,630 (판가 추가인상<span class="up">+6</span>공장 조기) · 3Q 배분: Bear 800 / Base 965(컨센) / Bull 1,050 · 민감도: 단가 ±10% × 점유율(가동률) 고정 시 영업익 약 ±650억. 전방 CAPEX 1분기 지연 시 3Q 매출 -400억 내외. · 결론 문장: 3Q26 연결 영업이익 ≥ 965억(Base=컨센)이면 논지 유지·추가매수 검토, &lt; 800억(Bear)이면 논지 폐기.</p>
+<p>⑦ 촉매·반증·시나리오 · 촉매 캘린더: 3Q26 실적발표(11월 초중순, 법정기한 11/14 전후) — 판가·믹스·수주잔고 확인 / 6공장 투자 확정공시(시점·금액) / 빅테크 4Q CAPEX 가이던스. · 반증 3개(수치→행동): ①3Q26 연결 영업익 &lt; 800억이면 논지 폐기·전량 청산 / ②종가 107,000원 이탈 시 청산 / ③A사 매출비중 30% 이하로 급락(발주이탈 신호) 또는 수주잔고 QoQ 감소 시 비중 축소. · 이벤트 매트릭스: [실적 서프(영업익≥1,050) × 갭상승]→추세추종 홀드 / [인라인(≈965) × 보합]→보유·눌림 추가 / [쇼크(&lt;800) × 갭하락]→손절 청산. · 확률가중 시나리오: Bull 30%(목표 175,000, <span class="up">+46.8%</span>)·Base 50%(목표 145,000, <span class="up">+21.6%</span>)·Bear 20%(95,000, <span class="down">-20.3%</span>) → 기대수익률 <span class="up">+20.8%</span>. · 포지션 사이징(자산 대비 %): 고변동 레짐 손실예산 0.5% ÷ 손절폭 10.2% = 자산의 4.9%. 집중상한 50%·이벤트전 상한 25% 중 최소값 채택 → 4.9%. 3회 분할, 각 1/3. 선물 레버리지 시 손절폭×배수만큼 손실확대 — 손절 규율 필수.</p>
+<hr>
+<p>【Ⅱ】 두산 (000150) — 6축 요약 (지주사·순수도 정직평가) ═══════════════════════ 선물: 有 (근월물 AGT610) · 현재가 1,515,000원(<span class="up">+2.85%</span>) · 시총 245,337억</p>
+<p>① 사실: 지주회사. 연결 사업부문 비중(2025/H1 2026) [실측 사업보고서·반기보고서] — 두산밥캣 44.4%/44.2%, 두산에너빌리티 39.4%/38.5%, ㈜두산 전자BG(CCL) 9.5%/12.2%, 퓨얼셀 2.0%/1.5%, 기타 4.5%/3.4%. ★AI PCB 소재(CCL)는 연결의 9~12%에 불과 → 이 테마 순수도 낮음. 주가 본체는 밥캣(건설기계)·에너빌리티(원전). ② 실적(연결, 억원): 2023 매출 191,301/영업익 14,363 → 2024 181,329/10,038 → 2025 197,841/10,627/순익 2,495. 26 1Q 50,603/3,408/1,015, 26 2Q 55,861/4,884/5,356(순익 급증). 전자BG CCL 단가 51,022(24)→60,127원(25, <span class="up">+17.8%</span>)로 소재 판가 상승 확인. ③ 컨센(수집 2026-09-25): 목표가 평균 2,125,484원(최고 2,750,000 DS투자/최저 1,370,000, 편차 큼) <span class="up">+40.3%</span>. FY26E 매출 218,530/영업익 17,947/EPS 23,291(PER 64.9), FY27E 25,095/EPS 36,197(PER 41.8). 전자BG 9,684억 증설 공시(2028 하반기, 원문과 일치, 라인수 <span class="up">+167%</span> 전망 메리츠) — 소재 병목 수혜의 정공법. ④ 밸류: 현 PER 427(연결순익 기준·지주 특성상 무의미), PBR 17.33. 지주 NAV·부문가치 합산이 적합하나 본 요약 범위 밖. 증설 스토리로 리레이팅 중이나 밸류 대부분은 비(非)PCB. ⑤ 손익비: 현재가 1,515,000, MA20 1,300,350 위 <span class="up">+16.5%</span>·ret20 <span class="up">+28.4%</span>로 과열. 진입 눌림 1,400,000~1,455,000 대기 권장. 손절 종가 1,400,000 이탈(<span class="down">-7.6%</span>). 목표 1차 1,840,000(대신, <span class="up">+21.5%</span>)/2차 2,125,000(컨센, <span class="up">+40.3%</span>). 손익비(진입 1,455,000 기준) 상방 <span class="up">+26.5%</span> ÷ 하방 <span class="down">-3.8%</span> = 1:7.0(눌림 진입 전제), 현재가 추격 시 상방 <span class="up">+21.5%</span> ÷ 하방 <span class="down">-7.6%</span> = 1:2.8. ⑥ 진입전략: 52주고 2,489,000 대비 <span class="down">-39.1%</span>(고점 대비 여유). 외인 20일 -3,973억 순매도 vs 기관 <span class="up">+2,964</span>억 순매수. 선물 레버리지 가능하나 ATR 78,357원(5.2%)·지주 복합변수(밥캣 다운사이클·환율·에너빌리티 원전) → 테마 순수 베팅으로는 부적합. PCB 테마만 노린다면 이수페타시스가 정타.</p>
+<p>【참고】 대덕전자(353200): 개별주식선물 미상장(현물만). 주력이 FC-BGA(플립칩 패키지기판)로 CPU/GPU 패키징용 → 원문의 서버 &#x27;고다층 백플레인/멀티램&#x27; PCB와 제품 세그먼트가 다름. 이 테마의 직접 수혜로 보긴 어렵고 별도 패키지기판 사이클로 접근해야 함. 본 리포트 심층분석 대상 제외.</p>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거·증권사 추정치는 &#x27;추정&#x27; 표기. 아래 값은 실측 우선.</p>
+<p>[미확인 목록] 이수 A사 실명·글로벌 서버 고다층 TAM 정량치·글로벌 경쟁사 CAPA/점유율·6공장 투자확정 금액과 양산일·이수 3Q26 순이익 컨센(영업익만 확보)·두산 지주 NAV/부문 SOTP. [출처 목록] DART 이수페타시스 사업보고서(20260323000847)·반기보고서(20260814002283), 두산 사업보고서(20260323000945)·반기보고서(20260814004047), KIS 시세(09-23 종가·MA·52주), fnguide/naver/stockeasy/hankyung 컨센(09-25~26), EBN·케미컬뉴스 6공장 보도(09월), kis_futures_check 선물마스터. [검산] 이수 분기합=연간 ✓ / Q1+Q2=반기 ✓ / 손익비 산식 헤더·본문 일치 ✓ / 태그 표기 ✓ / 시나리오 확률합 100% ✓.</p>
+<p>&lt;!-- hub:enrich:begin:007660 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-26 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 119,200원 (<span class="up">+5.6%</span>) · 시총 8.75조 · 5일 <span class="up">+10.8%</span> / 20일 <span class="up">+7.6%</span> / 60일 <span class="up">+8.7%</span></li>
+<li>MA5 110,420원 / MA20 110,445원 / MA60 99,312원 → MA20 이격 <span class="up">+7.9%</span> · MA60 이격 <span class="up">+20.0%</span></li>
+<li>52주 고 164,400원 / 저 57,900원 → 고점 대비 <span class="down">-27.5%</span> · 20일 고 119,200원 / 저 103,700원</li>
+<li>후행 PER 52.81 / PBR 11.58 (EPS 2,257원 · BPS 10,292원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 706.9억 (5일 1,380.5억)</li>
+<li>외국인 순매수 5일 -319.3억 / 20일 -254.2억 · 기관 5일 96.3억 / 20일 425.2억 · 개인 20일 -161.8억</li>
+<li>개별주식선물: ⚡ 상장 (A2P610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 9.42% (공매도 87,506주 · 103.1억) · 5일 평균 10.76% / 20일 평균 12.55% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 26.90% (09/01) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 145,000원 (<span class="up">+21.6%</span>) ÷ 하방 107,000원 (−10.2%) = <strong>1:2.11</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 10.2% = <strong>자산의 4.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.9%</strong></li>
+<li>유동성 참고: 20일 ADV 706.9억 · 1일 소화 한도는 ADV의 10%(70.69억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 10.2% · ATR14 6,307원 (손절폭/ATR 1.9배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 10.2% = ATR14 × 1.9배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 107,280원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.16</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:007660 --&gt;</p>
+<p><span id="card-007660"></span>📋 결정카드 — 이수페타시스(007660) 판정: 관심 선물: 有 현재가: 119,200원 진입: 113,000~119,000원 (눌림 2회 분할) 손절: 107,000원 (종가 이탈) 목표: 1차 145,000원 (2차 164,000원) 손익비: 1:2.1 기간: 스윙 6~12주 촉매: 3Q26 실적발표(11/14 전후)·6공장 투자확정 공시 반증: 3Q26 연결 영업이익 &lt; 800억이면 전량 청산 / 종가 107,000원 이탈 시 청산</p>
+<p>&lt;!-- hub:enrich:begin:000150 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-26 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 1,515,000원 (<span class="up">+2.9%</span>) · 시총 24.53조 · 5일 <span class="up">+9.2%</span> / 20일 <span class="up">+28.4%</span> / 60일 <span class="up">+2.5%</span></li>
+<li>MA5 1,454,400원 / MA20 1,300,350원 / MA60 1,252,450원 → MA20 이격 <span class="up">+16.5%</span> · MA60 이격 <span class="up">+21.0%</span></li>
+<li>52주 고 2,489,000원 / 저 522,000원 → 고점 대비 <span class="down">-39.1%</span> · 20일 고 1,515,000원 / 저 1,121,000원</li>
+<li>후행 PER 427.24 / PBR 17.33 (EPS 3,546원 · BPS 87,399원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,107.3억 (5일 1,729.9억)</li>
+<li>외국인 순매수 5일 -2,087.7억 / 20일 -3,972.8억 · 기관 5일 1,140.3억 / 20일 2,964.3억 · 개인 20일 919.2억</li>
+<li>개별주식선물: ⚡ 상장 (AGT610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 6.34% (공매도 5,020주 · 74.9억) · 5일 평균 7.64% / 20일 평균 6.61% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 10.95% (09/16) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 1,840,000원 (<span class="up">+21.5%</span>) ÷ 하방 1,400,000원 (−7.6%) = <strong>1:2.83</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 7.6% = <strong>자산의 6.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 6.6%</strong></li>
+<li>유동성 참고: 20일 ADV 1,107.3억 · 1일 소화 한도는 ADV의 10%(110.73억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 7.6% · ATR14 78,357원 (손절폭/ATR 1.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 7.6% = ATR14 × 1.5배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 1,363,500원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.15</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:000150 --&gt;</p>
+<p><span id="card-000150"></span>📋 결정카드 — 두산(000150) 판정: 관망 선물: 有 현재가: 1,515,000원 진입: 1,400,000~1,455,000원 (눌림 대기) 손절: 1,400,000원 (종가 이탈) 목표: 1차 1,840,000원 (2차 2,125,000원) 손익비: 1:2.8 기간: 스윙 8~16주 촉매: 3Q26 실적발표(11월)·전자BG 증설 진행공시 반증: 3Q26 연결 영업이익 &lt; 3,500억이면 논지 약화·비중축소 / 종가 1,400,000원 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
