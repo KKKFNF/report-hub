@@ -1,0 +1,303 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>져스텍 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260928-081124-져스텍.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.5</div><div class="tp-c"><b>결론 발췌</b> 디스플레이→반도체 체질전환 + 2Q26 흑자전환은 실체가 있으나, ①증권사 목표가 커버리지 0건 ②밸류 지표(PBR 9.95배·정상화 PER 60배권) 고평가 ③주가 역배열·하락추세(20일 -18%) ④현물만 가능(선물 미상장)이라 레버리지 스윙 불가. 기술적 반등 손익비는 진입 10,000원 기준 1:3.0(1차 11,750)이나 추세·밸류 미비로 판정은 관심(3Q 흑자지속 + MA20 회복 확인 후 진입). ⚠️블로거·본 리포트 모두 참고용, 매수강요 아님. ━━━━━━━━━━━━━━━━</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>져스텍</h1>
+<div class="meta">📊 benine · 2026-09-28 08:11 · 코드 153890</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-28 08:11)</div><div class="kpi-v">10,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,205억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">9.95</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:3.5</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">11,750원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 관심(MA20 10,600원 회복 + 3Q 흑자 확인 시), 눌림 9,900~10,100원</span><span class="dc dn">손절 9,500원</span><span class="dc up">목표 11,750원</span><span class="dc">손익비 현재가 1:3.5</span><span class="dc">기간 스윙 6~12주(3Q 실적 전후)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11월 중순 3Q26 분기보고서(2Q 흑자 지속 여부)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 0억(적자 재전환) 또는 종가 9,500원 이탈</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 져스텍(153890)  ※개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 디스플레이→반도체 체질전환 + 2Q26 흑자전환은 실체가 있으나, ①증권사 목표가 커버리지 0건 ②밸류 지표(PBR 9.95배·정상화 PER 60배권) 고평가 ③주가 역배열·하락추세(20일 <span class="down">-18%</span>) ④현물만 가능(선물 미상장)이라 레버리지 스윙 불가. 기술적 반등 손익비는 진입 10,000원 기준 1:3.0(1차 11,750)이나 추세·밸류 미비로 판정은 <strong>관심</strong>(3Q 흑자지속 + MA20 회복 확인 후 진입). ⚠️블로거·본 리포트 모두 참고용, 매수강요 아님.</p>
+<hr>
+<p>① 사업·급등사유 (사실관계 검증)</p>
+<ul>
+<li>정체: 초정밀 모션시스템 업체(1999년 설립, 제28기). 국내 최초 리니어모터 자체개발 원천기술 → 모터·센서·드라이버·제어기·시스템 수직계열화. 4개 사업부문: 반도체용/디스플레이용/산업자동화용/우주용 모션시스템. 업종 &#x27;전동기 및 발전기 제조업(C28111)&#x27;. [실측: 반기보고서 2026.06, 접수 20260814000195]</li>
+</ul>
+<ul>
+<li>급등사유 아님 — 오히려 하락추세: 상장(2026-06-29) 초기 급등(52주고 42,500원) 후 급락, 현재 10,000원으로 공모가(12,500원) <span class="down">-20%</span>, 최근 20일 <span class="down">-18.0%</span>. &#x27;자금유입 급등&#x27;이 아니라 상장 버블 소진 국면. [실측: KIS 2026-09-28]</li>
+</ul>
+<ul>
+<li>언론 검증: [인용: 블로터/다음 2026-09-22 &quot;코스닥 루키즈 점검 — 져스텍 반도체 중심 체질 전환&quot;] &quot;상반기 외형은 줄었지만 2분기 흑자 전환, 반도체용 모션시스템이 최대 매출원으로 부상, 디스플레이→반도체 사업 전환.&quot; → DART 사업부문 실측과 일치(아래 ③).</li>
+</ul>
+<ul>
+<li>블로거 3축 논지 vs 실체:</li>
+<li>Laser Cutting/Grooving(이오테크닉스 경유 삼성·SK·해외), Laser Annealing(DIT 경유 SK독점), Die Bonder용 특주 리니어모터(일본업체 경유 TSMC향 60% 과점) → <strong>DART 반기보고서상 &#x27;주요 매출처&#x27;는 &quot;기재 생략&quot;(영업기밀), &#x27;제품 단가&#x27;·&#x27;원재료 매입처&#x27;도 기재생략.</strong> 따라서 이오테크닉스/DIT/TSMC 공급관계·점유율 수치는 <strong>[블로거 추정·공식 미확인]</strong>. 회사 공시로 교차확인 불가.</li>
+<li>확인 가능한 사실: 판매경로에 &quot;현지법인(일본 중심 수출)&quot; 명시 → 일본 경유 수출 구조는 실체 있음. [실측: 반기보고서 &#x27;판매경로&#x27;]</li>
+<li>신규 App(Inspection/Metrology, Glass Substrate, Substrate Litho, SiC Cutting): 회사·언론 공식 매출 기여 수치 없음 → <strong>미확인(개발·초도 단계 주장)</strong>.</li>
+</ul>
+<hr>
+<p>② 실적 (DART 연결 실측 — 신규상장이라 3개년은 감사보고서, 반기는 반기보고서)</p>
+<ul>
+<li>3개년 추세 (연결, 단위 억원) [실측: 연결감사보고서 2025.12 접수 20260330001767 / 반기보고서 2026.06]</li>
+<li>2024(제26기): 매출 198.5 / 매출총이익 66.6(GPM 33.6%) / 영업이익 <span class="up">+9.4</span>(OPM 4.7%) / 순이익 <span class="up">+4.4</span></li>
+<li>2025(제27기): 매출 221.6(<span class="up">+11.6%</span> YoY) / 매출총이익 58.4(GPM 26.4%) / 영업이익 <strong>-8.4(적자전환, OPM <span class="down">-3.8%</span>)</strong> / 순이익 <strong>-15.2</strong></li>
+<li>2026 상반기: 매출 85.3 / 매출총이익 41.0(GPM <strong>48.0%</strong>) / 영업이익 <span class="up">+8.2</span>(OPM 9.6%) / 순이익 <span class="up">+8.8</span></li>
+</ul>
+<ul>
+<li>분기 분해 (연결, 2026) [실측: 1분기보고서 접수 20260703000262 / 반기보고서]</li>
+<li>1Q26: 영업이익 -2.84억(적자) / 순이익 -2.80억</li>
+<li>2Q26: 영업이익 <strong><span class="up">+11.0</span>억</strong> / 순이익 <span class="up">+11.6</span>억 → <strong>흑자전환</strong>(Q2가 상반기 실적 견인, Q1은 적자)</li>
+<li>검산: 1Q(-2.84)<span class="up">+2</span>Q(<span class="up">+11.0</span>)=H1 <span class="up">+8.2</span>억 ✓ (반기 누적 815M원과 일치)</li>
+</ul>
+<ul>
+<li>해석: 2025년은 GPM이 33.6%→26.4%로 급락하며 영업적자 전환(디스플레이 부진 추정). 2026년 반도체 비중 확대 + 고마진 제품믹스로 GPM 48%까지 회복, 2Q 흑자전환. <strong>실적 모멘텀은 개선 방향이나, 단 1개 분기 흑자로 정상화 단정은 이르다.</strong> 상반기 매출은 YoY 감소(외형 축소).</li>
+</ul>
+<ul>
+<li>사업부문별 매출비중 추이 (체질전환 실측) [실측: 반기보고서 제품별 매출]</li>
+<li>반도체: 2024 30.1% → 2025 43.5% → H1 2026 <strong>46.9%(40.0억)</strong> ← 최대 매출원</li>
+<li>디스플레이: 2024 50.2% → 2025 44.3% → H1 2026 35.9%(30.7억) ← 축소</li>
+<li>산업자동화 11.6%(9.9억) / 우주 1.5%(1.3억) / AS 4.1%(3.5억)</li>
+<li>→ 블로거·언론의 &quot;디스플레이→반도체 전환&quot; 논지는 <strong>숫자로 확인됨</strong>.</li>
+</ul>
+<ul>
+<li>수주잔고 (2026.06, 총 200.55억) [실측: 반기보고서 &#x27;수주현황&#x27;]</li>
+<li>디스플레이 143.0억 / 반도체 39.1억 / 산업 12.4억 / 우주 3.0억 / AS 3.1억</li>
+<li>★역설: 잔고는 오히려 디스플레이가 최대 → 하반기 디스플레이 매출 반등 여지(반도체 성장 스토리와 별개로 실제 인식은 디스플레이 비중 재상승 가능).</li>
+</ul>
+<ul>
+<li>재무건전성 (연결) [실측: 반기보고서 2026.06 / 전기말 2025.12]</li>
+<li>2026.06: 자산 436.5억 / 자본 312.1억 / 부채 124.4억 → <strong>부채비율 39.9%</strong>(우량), 현금성자산 <strong>220.0억</strong>(IPO 유입 200억 반영)</li>
+<li>2025말: 자산 200.5억 / 자본 104.5억 / 부채 96.0억 → 부채비율 91.8%</li>
+<li>→ IPO로 재무구조 대폭 개선, 순현금 사실상 무차입 우량. 유동성 리스크 낮음.</li>
+</ul>
+<hr>
+<p>③ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: <strong>미확인(0건)</strong>. [실측: stockeasy·네이버·FnGuide·한경 4소스 2026-09-28] IPO 시점 유진투자증권(2026-06-09 NR)·KB증권(2026-06-02 NR) &#x27;초정밀 모션기술 선도기업&#x27; 소개 리포트뿐, 목표가·FY26/27 추정치 제시 없음. 신규상장 소형주라 정규 커버리지 부재 → <strong>컨센 미확인, 이하 전량 [자체 추정]</strong>.</li>
+</ul>
+<ul>
+<li>자체 추정 (연간, [추정: 산식]):</li>
+<li>Bear: H2=H1수준(85억) → FY26 매출 170억, 영업이익 ~16억</li>
+<li>Base: 수주잔고 소진·계절성 반영 H2 100억 → FY26 매출 185억, 영업이익 ~19억</li>
+<li>Bull: H2 120억 → FY26 매출 205억, 영업이익 ~27억</li>
+<li>근거: H1 실측 85억·OPM 9.6% 런레이트 + 수주잔고 200억(1년내 상당 소진 가정). 장비업 특성상 하반기 인식 통상 강함.</li>
+</ul>
+<ul>
+<li>달성 가능성: <strong>中</strong>. 근거 — ①2Q 흑자 실체 있음(마진 회복 확인) ②단 1분기 실적이라 지속성 미검증 ③신규 App 매출 기여 미확인 ④수주잔고는 확보(가시성 일부). 흑자 지속은 개연성 있으나 고성장 단정 불가.</li>
+</ul>
+<hr>
+<p>④ 밸류에이션·목표가</p>
+<ul>
+<li>현 지표 [실측: KIS 2026-09-28, 시총 1,205억]</li>
+<li>PBR <strong>9.95배</strong>(BPS 1,005원) — 단, 자본 312억 중 IPO현금 220억 포함이라 영업순자산 대비 과대. 순현금 감안해도 높음.</li>
+<li>PER: TTM 순이익 적자(EPS -147원)로 <strong>산정 무의미</strong>(2025 적자<span class="up">+1</span>Q26 적자 반영). KIS 표기 PER -68배는 참고불가.</li>
+<li>EV ≈ 시총 1,205 - 순현금 약 220 = 약 985억. EV/영업이익(FY26 Base 19억) ≈ <strong>52배</strong> → 고평가권.</li>
+</ul>
+<ul>
+<li>정상화 PER [추정: 산식]: FY26 순이익 Base ~17억 가정 → EPS ≈ 141원(17억/12.05백만주) → 현재가 10,000원 기준 <strong>정상화 PER 약 71배</strong>. Bull(순익 24억) 가정해도 EPS 199원·PER 50배.</li>
+</ul>
+<ul>
+<li>Peer: 이오테크닉스·한미반도체는 대형·고성장(PER 20~40배대)이나 매출·이익 규모·트랙레코드가 압도적 상위 → 직접 밴드 비교 부적합. 져스텍은 소형·이익규모 작고 상장 3개월 → 프리미엄 정당화 근거 취약.</li>
+</ul>
+<ul>
+<li>자체 목표가: <strong>밸류 기반 목표가 산출 부적합</strong>. 정상화 PER 50~70배는 소형 소부장 초기 이익국면에 과도. 실적 가시성(3~4Q 흑자 지속) 확인 전까지 밸류로 상단을 제시하기 어렵다. → 목표가는 <strong>기술적 저항 기준</strong>으로만 제시: 1차 11,750원(20일고), 2차 12,500원(공모가 회복). 밸류에이션상으로는 현재가도 저렴하지 않음.</li>
+</ul>
+<hr>
+<p>⑤ 진입전략·손익비 (선물 無 → 현물 스윙만, 레버리지 불가)</p>
+<ul>
+<li>기술적 위치 [실측: KIS 2026-09-28]</li>
+<li>현재가 10,000원, MA5 10,104 / MA20 10,602 / MA60 10,430 → <strong>주가가 3개 이평선 아래(역배열 초기·단기 약세)</strong></li>
+<li>20일 고 11,750 / 저 9,900, ATR14 675원(일변동성 6.8% — 高)</li>
+<li>수익률 5일 <span class="down">-0.5%</span> / 20일 <span class="down">-18.0%</span> / 60일 <span class="down">-39.9%</span> → 하락추세 진행</li>
+<li>수급: 외인 20일 <span class="up">+9.97%</span>·5일 <span class="up">+0.91%</span>(순매수) / 기관 20일 <span class="down">-13.91%</span>(순매도) / 공매도 미미(20일 0.56%)</li>
+<li>변동성 레짐 &#x27;고변동&#x27;(RV20 31.4%, 83.7분위) → 리스크예산 축소 필요</li>
+</ul>
+<ul>
+<li>라인 (진입 10,000원 기준)</li>
+<li>지지: 10,000(심리)·9,900(20일저), 이탈 시 9,500(라운드+ATR)</li>
+<li>저항: 10,430(MA60)·10,600(MA20)·11,750(20일고)·12,500(공모가)</li>
+<li>손절: 종가 9,500원 이탈 (진입가 대비 <span class="down">-5.0%</span>)</li>
+<li>익절: 1차 11,750원(<span class="up">+17.5%</span>) / 2차 12,500원(<span class="up">+25.0%</span>)</li>
+</ul>
+<ul>
+<li>손익비 = 상승여력 17.5% ÷ 하락리스크 5.0% = <strong>1:3.5</strong>(1차 기준). 단 이는 기술적 반등 베팅이며, 현재 역배열·하락추세라 진입 타이밍은 부적합 → 손익비 양호해도 <strong>추세 전환(MA20 회복) 확인 후 진입</strong> 권고.</li>
+</ul>
+<hr>
+<p>⑥ 산업·제품 바텀업 모델 (§9)</p>
+<ul>
+<li>9-1 제품 분해 [실측: 반기보고서, 단위 억원]</li>
+<li>반도체용 모션: H1 40.0(46.9%) | 2025 96.3 | 2024 59.8 — 레이저 가공장비용 정밀 스테이지·모터</li>
+<li>디스플레이용: H1 30.7(35.9%) | 2025 98.1 | 2024 99.7</li>
+<li>산업자동화: H1 9.9 | 우주: H1 1.3 | AS: H1 3.5</li>
+</ul>
+<ul>
+<li>9-2 고객·납품구조: <strong>주요 매출처 기재생략(영업기밀)</strong> → 고객명·비중 <strong>미확인</strong>. 판매경로만 공시(직판 / 일본 현지법인 수출 / 국내 대리점). 블로거 주장 이오테크닉스·DIT·TSMC 경유는 <strong>공식 미확인</strong>. 수출 비중 H1 42.1%(3,589/8,531백만원)로 해외 의존 높음.</li>
+</ul>
+<ul>
+<li>9-3 시장규모·경쟁: TAM·글로벌 경쟁사 CAPA·점유율 <strong>전량 미확인</strong>(회사 미공시, 산업리포트 부재). &quot;리니어모터 국내 최초 개발&quot;은 회사 주장(원천기술 수직계열화는 사실이나 글로벌 점유율 근거 없음).</li>
+</ul>
+<ul>
+<li>9-4 단가·원가: 제품단가·원재료 매입처 <strong>기재생략(영업기밀)</strong>. 확인 가능한 원재료 매입액(H1): 가공/판금 21.3억, 베이스 12.3억, 구동 15.7억, 전장 13.0억, 합계 62.3억. GPM 회복(26%→48%)이 믹스 개선인지 단가인상인지 <strong>분해 불가(미확인)</strong>.</li>
+</ul>
+<ul>
+<li>9-5 CAPA·가동률: <strong>주문생산 특성상 기재생략(미확인)</strong>. 수주잔고 200.6억(2026.06)이 유일한 가시성 지표.</li>
+</ul>
+<ul>
+<li>9-6 전방수요: 전방 반도체 후공정(HBM 박막웨이퍼 레이저가공·Advanced Packaging)은 구조적 성장 스토리 유효하나, 져스텍 소요량·점유율 산식 <strong>미확인</strong>.</li>
+</ul>
+<ul>
+<li>9-7 바텀업 모델 (연결, [추정])</li>
+</ul>
+<p>| 항목 | Bear | Base | Bull |</p>
+<p>| FY26 매출(억) | 170 | 185 | 205 |</p>
+<p>| OPM | 9% | 10% | 13% |</p>
+<p>| 영업이익(억) | 16 | 19 | 27 |</p>
+<p>| 산식 | H2=H1 | H2 100억·잔고소진 | H2 120억 |</p>
+<ul>
+<li>3Q 배분(계절성): Base 시 3Q 영업이익 ~5억, 4Q ~6억 [추정]</li>
+<li>민감도: OPM ±3%p → 영업이익 ±6억 / 수주인식 1분기 지연 → 3Q 매출 <span class="down">-20%</span></li>
+<li><strong>결론 문장: 3Q26 연결 영업이익 ≥ 5억이면 흑자기조·논지 유지(추가 검토), 적자 재전환(&lt; 0억)이면 논지 폐기.</strong></li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정)</li>
+<li>2026-11월 중순(법정기한 11/16): <strong>3Q26 분기보고서</strong> — 2Q 흑자 지속 여부 최대 분수령</li>
+<li>2027-06-29: 강석주·정진화 등 1년 의무보유 해제(약 7.5% 오버행)</li>
+<li>2026년 하반기~: 기관 의무보유확약분(15일/1·3·6개월) 순차 해제 → 단계적 오버행</li>
+</ul>
+<ul>
+<li>반증 조건 3개 (수치→행동)</li>
+</ul>
+<ol>
+<li>3Q26 연결 영업이익 &lt; 0억(적자 재전환) → 흑자전환 논지 폐기·전량 청산</li>
+<li>종가 9,500원 이탈 → 기술적 손절 전량 청산</li>
+<li>3Q26 반도체 매출비중 &lt; 40%(체질전환 후퇴) + GPM &lt; 35% → 스토리 약화, 비중 축소</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스 (3Q 실적)</li>
+<li>서프라이즈(OP≥8억) × 갭상승 → 11,750 저항 돌파 시 추격, 아니면 눌림 매수</li>
+<li>인라인(OP 3~8억) × 보합 → MA20 회복 확인 후 분할 진입</li>
+<li>쇼크(OP&lt;0억) × 갭하락 → 진입 보류·논지 폐기</li>
+</ul>
+<ul>
+<li>확률가중 시나리오 (12개월)</li>
+<li>Bear 40%: 흑자 미지속·오버행 → 목표 8,000원(<span class="down">-20%</span>)</li>
+<li>Base 40%: 흑자기조·완만회복 → 목표 11,750원(<span class="up">+17.5%</span>)</li>
+<li>Bull 20%: 반도체 성장 가속·신규App 가시화 → 목표 14,000원(<span class="up">+40%</span>)</li>
+<li>기대수익률 = 0.4×(<span class="down">-20%</span>) + 0.4×(<span class="up">+17.5%</span>) + 0.2×(<span class="up">+40%</span>) = <strong><span class="up">+7.0%</span></strong> → 확률가중 기대치 낮음(추세·밸류 부담).</li>
+</ul>
+<ul>
+<li>수급·유동성 [실측: KIS]: 외인 20일 순매수(<span class="up">+9.97%</span>)는 긍정 신호이나 기관 순매도(<span class="down">-13.91%</span>) 상충. 20일 평균거래대금 22.8억 → 1일 체결상한(ADV 10%) 약 2.3억. 소형주 유동성 제약.</li>
+</ul>
+<ul>
+<li>포지션 사이징 (자산 대비 %로만): 손실예산 1% ÷ 손절폭 5.0% = 자산의 <strong>20.0%</strong>. 단 고변동 레짐(리스크예산 0.5%로 축소 권고 시 10.0%)·신규상장·선물미상장 감안 → <strong>집중상한 50%·이벤트 전 상한 25% 중 최소값</strong>. 실질 상한 10~20% 권고, 3분할(각 1/3).</li>
+</ul>
+<hr>
+<p>⑧ 신규상장 리스크 경고</p>
+<ul>
+<li>공모가 12,500원(2026-06-29 상장, 삼성증권 주관, 공모 200억/160만주). 일반청약 과열(약 11.1억주 신청/40만주 배정). [실측: 증권발행실적보고서 20260623000136]</li>
+<li>유통구조: 상장주식 12,050,305주. 최대주주 김용일 43.79% → <strong>2년 의무보유(~2028-06)</strong>. 상장직후 유통가능 3,541,095주(29.39%). [실측: 투자설명서 20260616000250]</li>
+<li>상장초 42,500원 급등 후 10,000원까지 <span class="down">-76%</span> 붕괴 → <strong>극단적 변동성 이력</strong>. 공모가 하회(<span class="down">-20%</span>). 신규상장주 특유의 수급 불안정·오버행 리스크 상존.</li>
+</ul>
+<hr>
+<p>[미확인 목록] 증권사 목표가·FY26/27 컨센 / 주요 고객사명·비중(이오테크닉스·DIT·TSMC 공식 확인 불가) / 제품 단가·원재료 매입처 / TAM·글로벌 경쟁사 CAPA·점유율 / CAPA·가동률 / GPM 회복의 단가vs믹스 분해 / 신규App 매출기여 [출처 목록] 반기보고서 2026.06(20260814000195) · 1분기보고서(20260703000262) · 연결감사보고서 2025.12(20260330001767) · 투자설명서(20260616000250) · 증권발행실적보고서(20260623000136) · KIS 시세 2026-09-28 · stockeasy/네이버/FnGuide/한경 컨센 2026-09-28 · 블로터 2026-09-22 [검산] 1Q(-2.84)<span class="up">+2</span>Q(<span class="up">+11.0</span>)=H1(<span class="up">+8.2</span>억) ✓ / 사업부문 합 95.9%+AS 4.1%=100% ✓ / 손익비 17.5÷5.0=3.5 헤더·본문 일치 ✓ / 시나리오 확률합 40<span class="up">+40</span><span class="up">+20</span>=100% ✓</p>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거 의견·증권사 소개자료는 &#x27;추정/참고&#x27;로만 사용. 실측 못한 값은 &#x27;미확인&#x27; 정직표기.</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-28 08:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 10,000원 (<span class="up">+0.0%</span>) · 시총 1,205억 · 5일 <span class="down">-0.5%</span> / 20일 <span class="down">-18.0%</span> / 60일 <span class="down">-39.9%</span></li>
+<li>MA5 10,104원 / MA20 10,602원 / MA60 10,430원 → MA20 이격 <span class="down">-5.7%</span> · MA60 이격 <span class="down">-4.1%</span></li>
+<li>52주 고 42,500원 / 저 5,180원 → 고점 대비 <span class="down">-76.5%</span> · 20일 고 11,750원 / 저 9,900원</li>
+<li>후행 PER -68.03 / PBR 9.95 (EPS -147원 · BPS 1,005원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 22.8억 (5일 18.8억)</li>
+<li>외국인 순매수 5일 0.9억 / 20일 10.0억 · 기관 5일 0.0억 / 20일 -13.9억 · 개인 20일 3.9억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.35% / 20일 평균 0.56% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 5.20% (08/31) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 11,750원 (<span class="up">+17.5%</span>) ÷ 하방 9,500원 (−5.0%) = <strong>1:3.50</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 5.0% = <strong>자산의 10.0%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 10.0%</strong></li>
+<li>유동성 참고: 20일 ADV 22.8억 · 1일 소화 한도는 ADV의 10%(2.28억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 5.0% · ATR14 676원 (손절폭/ATR 0.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 5.0% = ATR14 × 0.7배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 8,986원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.73</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-153890"></span>📋 결정카드 — 져스텍(153890) 판정: 관심 선물: 無 현재가: 10,000원 진입: 관심(MA20 10,600원 회복 + 3Q 흑자 확인 시), 눌림 9,900~10,100원 손절: 9,500원(종가 이탈) 목표: 1차 11,750원 (2차 12,500원 공모가) 손익비: 1:3.5 기간: 스윙 6~12주(3Q 실적 전후) 촉매: 2026-11월 중순 3Q26 분기보고서(2Q 흑자 지속 여부) 반증: 3Q26 연결 영업이익 &lt; 0억(적자 재전환) 또는 종가 9,500원 이탈</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
