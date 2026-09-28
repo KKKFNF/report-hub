@@ -1,0 +1,279 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>샘씨엔에스(252990) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260928-155921-샘씨엔에스-252990.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.14</div><div class="tp-c"><b>결론 발췌</b> HBM/DRAM 프로브카드 슈퍼사이클의 세라믹STF 독과점주. 실적이 급등을 뒷받침(2Q26 별도 매출 +58.5%·OP +150% YoY)하나 현재가는 52주 신고가 근접·PER 24~31배로 이미 상당히 반영. 추격보다 눌림목 분할이 유리 — 눌림 진입 기준 손익비 1:1.9(1차)~1:3.7(2차), 자체 목표가 21,700원(증권사 컨센 23,300원). 판정: 관심(눌림목 매수). ━━━━━━━━━━━━━━━ ① 포착 신호 (KIS 실측) • 현재가 18,550원 (+3.46%) [실측: KIS inquire-price 2026-09-28] • 당일거래대금 138.8억 / 20일평균거래대금(ADV20) 115.8억 → 자금 지속…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>샘씨엔에스(252990)</h1>
+<div class="meta">📊 trend · 2026-09-28 15:59 · 코드 252990</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-28 15:59)</div><div class="kpi-v">18,550원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.1조</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.14</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.16</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">21,500원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 17,500~18,000원 (눌림목 분할, 추격 자제)</span><span class="dc dn">손절 16,000원</span><span class="dc up">목표 21,500원</span><span class="dc">손익비 진입 1:2.14 · 현재가 1:1.16</span><span class="dc">기간 스윙 6~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026년 10월말~11월초 3Q26 실적발표</div><div class="dc-l">🛑 반증: 3Q26 별도 영업이익 &lt; 72억 → 비중축소·손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 샘씨엔에스(252990)  ※개별주식선물 無(현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: HBM/DRAM 프로브카드 슈퍼사이클의 세라믹STF 독과점주. 실적이 급등을 뒷받침(2Q26 별도 매출 <span class="up">+58.5%</span>·OP <span class="up">+150%</span> YoY)하나 현재가는 52주 신고가 근접·PER 24~31배로 이미 상당히 반영. 추격보다 눌림목 분할이 유리 — 눌림 진입 기준 손익비 1:1.9(1차)~1:3.7(2차), 자체 목표가 21,700원(증권사 컨센 23,300원). 판정: 관심(눌림목 매수).</p>
+<hr>
+<p>① 포착 신호 (KIS 실측)</p>
+<ul>
+<li>현재가 18,550원 (<span class="up">+3.46%</span>) [실측: KIS inquire-price 2026-09-28]</li>
+<li>당일거래대금 138.8억 / 20일평균거래대금(ADV20) 115.8억 → 자금 지속 유입 [실측: KIS 일봉]</li>
+<li>시총 약 11,170억 (60,217,889주×18,550) [실측: KIS lstn_stcn]</li>
+<li>거래회전율 당일 1.24% [실측: KIS vol_tnrt]</li>
+<li>추세: MA5 17,852 &gt; MA20 15,212 &gt; MA60 13,858 → 완전 정배열 [실측: KIS 일봉 계산]</li>
+<li>수익률: 5일 <span class="up">+10.7%</span> / 20일 <span class="up">+39.2%</span> / 60일 <span class="up">+40.3%</span> [실측: KIS 일봉]</li>
+<li>현위치: 52주고 19,000원 대비 <span class="down">-2.4%</span>, 52주저 6,140원 대비 <span class="up">+202%</span> → 신고가권 상단 [실측: KIS]</li>
+</ul>
+<p>→ 해석: 9월 급등(20일 <span class="up">+39%</span>)이 거래대금 동반 상승추세. 다만 신고가 바로 아래라 추격 진입은 위치 부담.</p>
+<hr>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력: 반도체 테스트공정 프로브카드용 &#x27;세라믹STF(Space Transformer)&#x27; 제조·판매 단일사업. 프로브카드의 핵심부품으로 MEMS Pin 지지·전기신호 전달 [실측: 사업보고서 2025.12 접수 20260316001120]</li>
+<li>제품비중(2026 상반기 별도): NAND STF 64.7% / DRAM STF 32.0% / 비메모리 0.2% / 기타 3.1% [실측: 반기보고서 2026.06 접수 20260814001644]</li>
+<li>전방: 국내외 프로브카드 제조사(고객사 T사·K사·일본 J사 합산 70~80%), 최종수요=반도체 제조사. 국내공급 63%·해외 37% [실측: 사업보고서; 인용: LS증권 2026-09-11]</li>
+<li>급등사유(사실 검증):</li>
+<li>HBM/DRAM 프로브카드 슈퍼사이클 진입 — DRAM STF 매출이 2023년 30억→2024년 122억→2025년 213억으로 폭증, 2026 상반기만 187억(연환산 시 사상최대) [실측: DART 매출실적표]</li>
+<li>신규 고객사 HBM 시장 진입 + 기존 고객사 DRAM 물량 확대 [인용: 대신증권 2026-09-01 &#x27;DRAM 확장 모멘텀 최대 수혜주&#x27; 목표 20,000원]</li>
+<li>LS증권 신규 커버리지 목표가 25,000원 제시(9/11) → 당일 급등·이후 52주 신고가 경신 [인용: LS증권 2026-09-11 &#x27;Riding the probe card upcycle&#x27;]</li>
+<li>외국인/기관 동시 순매수 포착(9/20~21) [인용: 뉴스핌·ThinkPool 2026-09-21]</li>
+</ul>
+<p>→ 판정: 테마성 급등이 아니라 실적·구조적 성장(DRAM/HBM 침투)이 뒷받침. 실체 있음. 다만 리포트 집중 발간(8~9월 5건)으로 기대감이 빠르게 선반영된 구간.</p>
+<hr>
+<p>③ 실적 (DART 실측, 별도 기준·연결 미공시)</p>
+<ul>
+<li>연간 매출: 2023년 309억 → 2024년 533억(<span class="up">+72%</span>) → 2025년 780억(<span class="up">+46%</span>) [실측: 사업보고서 각 접수번호]</li>
+<li>연간 영업이익: 2023년 -29억(적자) → 2024년 <span class="up">+52</span>억(흑전) → 2025년 <span class="up">+147</span>억 [실측: DART]</li>
+<li>연간 OPM: 2023년 적자 → 2024년 9.8% → 2025년 18.8% [추정: 영업이익÷매출]</li>
+<li>연간 순이익: 2023년 -13억 → 2024년 <span class="up">+33</span>억 → 2025년 <span class="up">+151</span>억 [실측: DART 당기순이익(손실)]</li>
+</ul>
+<p>※ 2025 순이익(151억)이 영업이익(147억)보다 큼 → 영업외수익(이자·기타) 기여, 영업악화 아님 [추정: 항목 분해]</p>
+<ul>
+<li>2026 상반기(별도): 매출 584.4억(NAND 378억+DRAM 187억), 영업이익 95.3억, 순이익 113억 [실측: 반기보고서 접수 20260814001644 / finstate 누적]</li>
+</ul>
+<p>→ 2026 상반기 매출만으로 2025 연간의 75% 달성. OPM 약 16%(반기 누적) [추정]</p>
+<ul>
+<li>2Q26 단독(별도): 매출 297억(<span class="up">+58.5%</span> YoY), 영업이익 86억(<span class="up">+150.3%</span> YoY), OPM 29.1% → 컨센(OP 81억) <span class="up">+6.6%</span> 상회 [인용: 메리츠증권 2026-07-20]</li>
+<li>가동률: 2025년 58.8% → 2026 상반기 82%로 급상승(수요 견인) [실측: 반기보고서 가동률표]</li>
+<li>재무건전성: 2026 상반기말 부채총계 783억/자본 1,950억 → 부채비율 약 40% [실측: DART / 추정 계산] — 저부채, 건전</li>
+<li>자산 253억→273억(반기), 자본 166억→195억 → 이익잉여금 축적 [실측: DART]</li>
+</ul>
+<p>→ 흑자전환 2년차에 이익 레버리지 폭발 중. 매출·이익·가동률·제품믹스(DRAM 비중 상승) 모두 우상향.</p>
+<hr>
+<p>④ 미래실적·컨센서스 (consensus.py 실측)</p>
+<ul>
+<li>FY26E: 매출 1,231억 / OP 348억 / 순익 359억 / EPS 597원 [인용: fnguide 컨센, 추정기관 2]</li>
+<li>FY27E: 매출 1,587억 / OP 465억 / 순익 468억 / EPS 777원 [인용: fnguide]</li>
+<li>FY28E: 매출 1,941억 / OP 590억 / 순익 595억 / EPS 988원 [인용: fnguide]</li>
+<li>분기컨센: 2026Q3 매출 320억·OP 97억·순익 94억 / 2026Q4 매출 332억 [인용: naver·wisereport]</li>
+<li>목표가 컨센서스: 평균 23,333원(최고 25,000 LS / 최저 20,000 대신, 3건) [인용: 리포트 집계 2026-09]</li>
+<li>투자의견: Buy 3 / NR 11 (최근 6개월), 의견평균 4.0/5 [인용: consensus.py]</li>
+<li>영업이익 컨센 상향추세: 1Y전 138억 → 6M전 270억 → 3M전 319억 → 현재 348억 (지속 상향) [인용: fnguide]</li>
+<li>달성가능성 판정: 中~高.</li>
+<li>근거(高측): 2026 상반기 별도 OP 이미 95억, 가동률 82%로 하반기 여력 有, 컨센 상향 지속. FY26 OP 348억은 하반기 253억 필요 → 3Q 97억<span class="up">+4</span>Q 156억, 다소 공격적이나 물량 확대 시 가능.</li>
+<li>근거(中측): 목표가·컨센이 8~9월에 급격히 상향돼 이미 주가 선반영. 신규고객 HBM 물량 램프업 속도가 변수. [추정]</li>
+</ul>
+<hr>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 PER: FY26E 31.1배 / FY27E 23.9배 / FY28E 18.8배 [추정: 18,550÷EPS]</li>
+<li>현 PBR: 6.7배 (BPS 2,765원, 25말 별도자본÷주식수) [추정] — 성장주 프리미엄 구간</li>
+<li>Peer: 프로브카드/반도체 후공정 소부장(티에스이·이오테크닉스 등) 슈퍼사이클 성장주는 통상 fwd PER 20~30배 밴드. 샘씨엔에스는 세라믹STF 독과점·고성장으로 밴드 상단 정당화 여지 [추정: 섹터 통념, peer 개별 실측 미확인]</li>
+<li>자체 목표가 산출(계산식 노출):</li>
+<li>적정멀티플 28배 × FY27E EPS 777원 = 21,756원 (성장 지속 가정, 밴드 상단)</li>
+<li>보수 23배 × 777원 = 17,871원 / 공격 30배 × 777원 = 23,310원</li>
+</ul>
+<p>→ 자체 목표가 21,700원(적정), 밴드 17,900~23,300원</p>
+<ul>
+<li>증권사 목표가 병기: LS 25,000 / 대신 20,000 / 컨센평균 23,333원</li>
+</ul>
+<p>→ 현재가 18,550원은 자체 적정가 대비 <span class="down">-15%</span>, 컨센 대비 <span class="down">-21%</span> 여지. 단 이는 FY27 EPS를 100% 달성한다는 전제.</p>
+<hr>
+<p>⑥ 진입전략·손익비 (※선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: MA5 17,850 / MA20 15,200 / 심리 16,000(9월 상승 시작구간) / MA60 13,860</li>
+<li>저항: 52주고 19,000 / 심리 20,000 / 컨센권 23,000~25,000</li>
+<li>52주고 대비 <span class="down">-2.4%</span> → 추격 진입 시 위치 부담 큼</li>
+<li>권장 전략: 눌림목 분할 매수 (신고가권이라 추격 자제)</li>
+<li>진입: 17,500~18,000원(MA5 부근 눌림), 평단 17,900원 가정. 미체결 시 소량만 현가.</li>
+<li>손절: 16,000원 (MA20 하향이탈·9월 상승분 절반 반납, 하락 <span class="down">-10.6%</span>)</li>
+<li>익절: 1차 21,500원(<span class="up">+20.1%</span>) / 2차 25,000원(LS 목표, <span class="up">+39.7%</span>)</li>
+<li>손익비(눌림 진입 17,900 기준): 1차 1:1.9 / 2차 1:3.7 [산식: 상승여력%÷하락리스크%]</li>
+</ul>
+<p>※ 현가추격(18,550, 손절 16,000) 시 1차 1:1.2로 열위 → 추격 비권장</p>
+<ul>
+<li>⚠️ 개별주식선물 미상장 → 레버리지 스윙 불가, 현물 비중조절로만 대응. 신고가권 고PBR(6.7배)로 조정 시 낙폭 클 수 있어 분할·손절 엄격.</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC §9) 9-1 사업구조: 세라믹STF 단일제품. 프로브카드 BOM 내 핵심부품. 물량(매) × 단가(스펙별 상이) 구조. 9-2 고객비중: 프로브카드사 T사(상장)·K사(비상장)·일본 J사 합산 70~80% [인용: LS증권 2026-09-11]. 최종수요 반도체제조사 국내63%·해외37% [실측: 사업보고서]. 개별 고객사 매출비중 표는 영업기밀로 미공개 [실측: 반기보고서]. 9-3 TAM·경쟁·점유율:</p>
+<ul>
+<li>세라믹STF는 프로브카드 슈퍼사이클(HBM 검사수요↑)의 후방 수혜. 글로벌 프로브카드 시장 성장에 연동 [인용: LS증권·메리츠].</li>
+<li>점유율: 세라믹STF 분야 국내 독과점적 지위로 언급되나 정량 글로벌 점유율은 미확인 [출처 부족]</li>
+<li>경쟁 CAPA 정량 미확인 [미확인]</li>
+</ul>
+<p>9-4 단가이력: 회사가 &quot;고객사·스펙별 편차로 제품당 가격 산정 불가&quot;로 단가 미공개 [실측: 반기보고서]. → 물량×평균단가 분해 불가, 매출총액·믹스로 대체. 9-5 증설(CAPA): 세라믹STF 생산능력 2023년 5,640매 → 2024년 5,790 → 2025년 6,240매(연). 2026 반기 3,120매(연환산 6,240 유지). 생산실적 2025년 3,668매→2026반기 2,551매(연환산 5,102매, <span class="up">+39%</span> YoY 페이스). 가동률 58.8%→82% [실측: 사업보고서·반기보고서]. → 추가 증설 없이 가동률 상승으로 물량 대응 중, 향후 CAPA 증설 시 추가 레버리지 여지. 9-6 전방 CAPEX: HBM/DRAM 검사수요 확대(메모리 3사 HBM 증설) → 프로브카드 교체·신규수요 → STF 수요. 구체 전방 CAPEX 금액은 본 리서치 범위 외 [미확인]. 9-7 바텀업 모델표 (물량 프록시 기반, 단가 미공개로 매출·OPM 기반 추정): 입력값: 2026 상반기 별도 매출 584억, OP 95억(OPM 16.3% 누적, 2Q 단독 OPM 29%) 하반기 가동률 상승·DRAM 물량 확대 가정.</p>
+<ul>
+<li>Bear: 3Q 매출 290억·OPM 25% → OP 72억 / 4Q 300억·OP 75억 → FY26 OP ≈ 242억 (컨센 348 하회)</li>
+<li>Base: 3Q 매출 320억·OPM 30% → OP 96억 / 4Q 335억·OP 100억 → FY26 OP ≈ 291억 (컨센 근접)</li>
+<li>Bull: 3Q 매출 340억·OPM 31% → OP 105억 / 4Q 360억·OP 115억 → FY26 OP ≈ 315억↑ (컨센 상회)</li>
+</ul>
+<p>민감도: OPM 1%p 변화 → 분기 OP 약 3억 변동. 물량(가동률) 5%p 상승 → 분기 매출 약 16억↑. ★결론문장: 3Q26 별도 영업이익 ≥ 95억이면 슈퍼사이클 논지 유지, &lt; 72억이면 램프업 둔화로 밸류 부담 부각 → 논지 폐기.</p>
+<hr>
+<p>⑦ 촉매·반증·이벤트·시나리오</p>
+<ul>
+<li>촉매 캘린더(날짜확정):</li>
+<li>2026년 10월 하순~11월 초: 3Q26 실적발표(잠정) — 최대 촉매. 별도 OP 95억 상회 여부가 논지 분기점</li>
+<li>2026년 11~12월: 반도체 3사 2027 CAPEX 가이던스·HBM 증설 뉴스 흐름</li>
+<li>(상시) 추가 증권사 커버리지·목표가 상향 여부</li>
+<li>반증 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>[분기실적] 3Q26 별도 OP &lt; 72억 → 슈퍼사이클 램프업 실패, 즉시 비중축소·손절</li>
+<li>[수급] 외국인·기관 5일 연속 순매도 전환 + MA20(15,200) 하향이탈 → 추세훼손, 청산</li>
+<li>[밸류] 목표가 추가상향 없이 주가 25,000 도달 시 fwd PER 32배(FY27)로 과열 → 차익실현</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스:</li>
+<li>3Q 서프라이즈(OP&gt;105억) → Bull, 25,000 돌파 시도 / 컨센부합(90~100억) → Base, 21,000~23,000 박스 / 미스(&lt;72억) → Bear, 16,000 지지테스트</li>
+<li>확률가중 시나리오(합=100%):</li>
+<li>Bull 30%: 3Q 서프라이즈+HBM 물량가시화 → 목표 25,000원 (<span class="up">+35%</span>)</li>
+<li>Base 50%: 컨센 부합·완만상승 → 21,500~23,000원 (<span class="up">+16</span>~24%)</li>
+<li>Bear 20%: 램프업 둔화·조정 → 15,500~16,000원 (-14~16%)</li>
+<li>기대값 ≈ 30%×25,000 + 50%×22,000 + 20%×15,800 = 21,660원 → 자체 목표가와 정합</li>
+<li>수급·유동성: 외인·기관 9월 동시 순매수 확인(정량 20일 순매수액 미확인). ADV20 115.8억, ADV10% = 11.6억 → 유동성 충분, 스윙 진입·청산 원활 [실측: KIS / 인용: 뉴스핌]</li>
+<li>포지션 사이징: 신고가권 고밸류·선물無 → 자산대비 관심종목 소액(1~2회 분할, 각 회차 소량). 눌림 미도래 시 추격 자제. 집중한도(자산 50%) 대비 현물 단일종목 과대편입 금지.</li>
+</ul>
+<p>⚠️ 본 리서치는 참고용이며 투자판단·책임은 본인에게 있습니다. 추정치는 &#x27;추정&#x27;으로 명시했고 확인 못한 값은 아래 &#x27;미확인 목록&#x27;에 정직 표기했습니다.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>연결재무제표(회사가 별도만 공시하는 것으로 보임, 연결 수치 미확인)</li>
+<li>제품 단가(회사 영업기밀로 미공개) → 물량×단가 분해 불가</li>
+<li>세라믹STF 글로벌 정량 점유율·경쟁사 CAPA</li>
+<li>전방 반도체 CAPEX 구체 금액</li>
+<li>개별 고객사별 매출비중(영업기밀)</li>
+<li>외국인·기관 20일 순매수 누적액(정량)</li>
+<li>3Q26 실적발표 확정일(잠정공시 前)</li>
+<li>EV/EBITDA(순현금 데이터 부족)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI inquire-price·일봉 (2026-09-28 실측)</li>
+<li>DART 사업보고서 2025.12 접수 20260316001120</li>
+<li>DART 반기보고서 2026.06 접수 20260814001644</li>
+<li>DART finstate 2023~2026 (연간·분기 손익)</li>
+<li>consensus.py 집계(fnguide·naver·wisereport·stockeasy·hankyung) 2026-09-28</li>
+<li>LS증권 2026-09-11 목표 25,000 / 대신증권 2026-09-01 목표 20,000 / 메리츠 2026-07-20 NR</li>
+<li>news_search.py(뉴스핌·ThinkPool·한국경제·네이버) 2026-09-20~28</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총: 60,217,889주 × 18,550원 = 11,170억 ✓</li>
+<li>MA정배열: 17,852&gt;15,212&gt;13,858 ✓</li>
+<li>손익비 1차: 상승20.1%÷하락10.6% = 1.90 (헤더 1:1.9 일치) ✓</li>
+<li>손익비 2차: 상승39.7%÷하락10.6% = 3.74 (1:3.7 일치) ✓</li>
+<li>시나리오 확률합: 30<span class="up">+50</span><span class="up">+20</span> = 100% ✓</li>
+<li>제품매출합(반기): 378<span class="up">+187</span><span class="up">+1</span>(비메모리)<span class="up">+18</span>(기타) ≈ 584억 = 반기매출 584.4억 ✓</li>
+<li>FY26 OP 컨센 348억 vs 바텀업 Base 291억 → 컨센이 다소 공격적(달성가능성 中~高 판정 근거) ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-28 15:59 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 18,550원 (<span class="up">+3.5%</span>) · 시총 1.12조 · 5일 <span class="up">+10.7%</span> / 20일 <span class="up">+39.2%</span> / 60일 <span class="up">+40.3%</span></li>
+<li>MA5 17,852원 / MA20 15,212원 / MA60 13,858원 → MA20 이격 <span class="up">+21.9%</span> · MA60 이격 <span class="up">+33.9%</span></li>
+<li>52주 고 19,000원 / 저 6,140원 → 고점 대비 <span class="down">-2.4%</span> · 20일 고 18,550원 / 저 12,730원</li>
+<li>후행 PER 0.0 / PBR 0.0 (EPS 0원 · BPS 0원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 115.8억 (5일 128.8억)</li>
+<li>외국인 순매수 5일 24.8억 / 20일 76.8억 · 기관 5일 40.1억 / 20일 100.8억 · 개인 20일 -158.5억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 1.70% (공매도 12,690주 · 2.4억) · 5일 평균 2.49% / 20일 평균 2.61% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 9.92% (09/02) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 21,500원 (<span class="up">+15.9%</span>) ÷ 하방 16,000원 (−13.7%) = <strong>1:1.16</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 13.7% = <strong>자산의 3.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.6%</strong></li>
+<li>유동성 참고: 20일 ADV 115.8억 · 1일 소화 한도는 ADV의 10%(11.58억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 13.7% · ATR14 1,221원 (손절폭/ATR 2.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 13.7% = ATR14 × 2.1배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 16,695원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.59</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-252990"></span>📋 결정카드 — 샘씨엔에스(252990) 판정: 관심 선물: 無 현재가: 18,550원 진입: 17,500~18,000원 (눌림목 분할, 추격 자제) 손절: 16,000원 목표: 1차 21,500원 (2차 25,000원) 손익비: 1:1.9 기간: 스윙 6~10주 촉매: 2026년 10월말~11월초 3Q26 실적발표 반증: 3Q26 별도 영업이익 &lt; 72억 → 비중축소·손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
