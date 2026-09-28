@@ -1,0 +1,240 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>엑스게이트(356680) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260928-094515-엑스게이트-356680.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 (추세 유효하나 밸류 극단 과열 — 추격 비권장) · 손익비 1:5</div><div class="tp-c"><b>결론 발췌</b> 양자암호 테마로 3주만에 주가 3배(6,100→30,550→19,100)난 순수 테마주. 본업(네트워크보안 VPN/방화벽)은 견실하나 성장률 한자릿수라 현 PER 136배·PBR 12.3배는 실적으로 정당화 불가. [실측] 추격매수는 테마 지속성에만 베팅하는 고위험 단타이며, 개별주식선물 미상장으로 레버리지 불가·현물만 가능. 판정은 관망(추세 유효하나 밸류 과열).</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망 (추세 유효하나 밸류 극단 과열 — 추격 비권장)</span><h1>엑스게이트(356680)</h1>
+<div class="meta">📊 trend · 2026-09-28 09:45 · 코드 356680</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-28 09:45)</div><div class="kpi-v">19,170원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">5,472억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">136.93</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">12.31</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:5</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.08</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">22,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 눌림목 17,000~17,900(MA5 지지) / 추격 시 19,100</span><span class="dc dn">손절 16,540원</span><span class="dc up">목표 22,000원</span><span class="dc">손익비 진입 1:5 · 현재가 1:1.08 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:3</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:3로 적었지만 진입·손절·목표로 계산하면 1:5다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 단기 스윙(수일~2주, 테마 지속성 종속)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 양자암호 수주공시 · 4Q 실적 ≥55억 · PQC 정책</div><div class="dc-l">🛑 반증: 3Q 누적 영업이익 &lt; -10억 · 테마 순환매 소멸 · MA20 이탈</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 엑스게이트(356680)  ※선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론 양자암호 테마로 3주만에 주가 3배(6,100→30,550→19,100)난 순수 테마주. 본업(네트워크보안 VPN/방화벽)은 견실하나 성장률 한자릿수라 현 PER 136배·PBR 12.3배는 실적으로 정당화 불가. [실측] 추격매수는 테마 지속성에만 베팅하는 고위험 단타이며, 개별주식선물 미상장으로 레버리지 불가·현물만 가능. 판정은 관망(추세 유효하나 밸류 과열).</p>
+<p>① 포착 신호 [실측]</p>
+<ul>
+<li>회전율 15.9%, 당일거래대금 863.6억(포착시점) / 시총 5,452억</li>
+<li>최근 실측 거래대금 987.4억(최근거래일), 거래량 511만주</li>
+<li>MA 정배열: MA5 17,876 &gt; MA20 14,558 &gt; MA60 12,440 [실측]</li>
+<li>연속상승 2일, 5일 <span class="up">+10.2%</span>, 현재가 19,100(등락 <span class="up">+4.83%</span>)</li>
+<li>52주 저 6,100 → 고 30,550. 현재가는 고점 대비 <span class="down">-37%</span>, 저점 대비 <span class="up">+213%</span> [실측]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업: 2010년 설립 통합 네트워크보안 솔루션사. VPN·방화벽(FW)·UTM 등 &#x27;AXGATE Series&#x27; HW/SW가 매출 68.5%, 보안관제 20.5%, 유지보수 11.0% [인용:2025 사업보고서]. HW는 OEM 매입 후 자체 SW 탑재 구조라 설비투자 부담 적음.</li>
+<li>급등사유 [인용:news_search 2026-09-23]: &quot;양자암호·양자컴퓨팅 테마 상승세&quot; 순환매. 당일 <span class="up">+16.38%</span>, VI 발동, 동진쎄미켐·원익홀딩스·우리넷 등 양자 관련주 동반 강세. → 본업 실적 모멘텀이 아닌 순수 테마 수급.</li>
+<li>[추정] 양자내성암호(PQC) 전환 기대가 보안솔루션사에 재료로 작용. 단, 엑스게이트의 구체적 양자암호 매출 기여·수주는 공시상 확인 안 됨(미확인).</li>
+</ul>
+<p>③ 실적 (DART 별도, 연결재무제표 없음 — 종속기업 없어 별도=전체) [실측]</p>
+<ul>
+<li>2023: 매출 428.2억 | 영업이익 41.0억(OPM 9.6%) | 순이익 2.9억</li>
+<li>2024: 매출 432.2억 | 영업이익 34.9억(OPM 8.1%) | 순이익 40.0억</li>
+<li>2025: 매출 481.4억 | 영업이익 37.5억(OPM 7.8%) | 순이익 38.7억</li>
+<li>★2023 순이익 급감(2.9억) 분해: 영업이익은 41억 정상이었으나 기타비용 56.3억[실측] 일회성 손실 발생(전기 0.1억 대비 급증) → 법인세차감전 -11억. 즉 영업악화 아닌 일회성 비용. 2024부터 정상화(순익 40억).</li>
+<li>반기 추세 [실측]: 2026 상반기 매출 120.9억(YoY <span class="up">+13.2%</span>), 영업이익 <span class="up">+3.7</span>억(전년 -3.2억서 흑전), 순이익 <span class="up">+5.8</span>억. → 본업은 완만한 회복.</li>
+<li>★계절성 [실측]: 3Q 누적까지 영업적자, 4Q에 이익 몰림(연말 보안예산 집중). 2025년 3Q누적 영업 -18.9억 → 연간 <span class="up">+37.5</span>억 = 4Q 단독 <span class="up">+56</span>억 추정. 상반기 수치만으로 연간 판단 금물.</li>
+</ul>
+<p>④ 미래실적·컨센</p>
+<ul>
+<li>증권사 컨센서스: 미확인 [실측:consensus.py 4소스 0건]. 커버 애널리스트 없는 소형주 → 목표가·추정치 시장 부재.</li>
+<li>[추정] 자체 추정: 2026E 매출 500~520억(<span class="up">+4</span>~8%), 영업이익 40~45억, 순이익 40~48억 가정(계절성·상반기 흑전 반영). 양자암호 실매출 반영 시 상향 여지 있으나 근거 자료 없음(미확인).</li>
+</ul>
+<p>⑤ 밸류에이션 → 목표가 (산식 노출)</p>
+<ul>
+<li>현재 [실측]: PER 136.4x(EPS 140), PBR 12.27x(BPS 1,557), 시총/순익 140.7x</li>
+<li>산식: 시총 5,452억 = 19,100원 × 28,543,492주 [실측]</li>
+<li>적정가 역산(순수 실적 기준, 순익 40억 가정):</li>
+</ul>
+<p>· 보안업종 정상 PER 15~20배 적용 → 적정시총 600~800억 → 적정주가 2,100~2,800원 · 즉 현재가는 실적 대비 7~9배 오버슈팅 → 테마 프리미엄이 주가의 대부분</p>
+<ul>
+<li>목표가 시나리오(순익 시나리오 × PER):</li>
+</ul>
+<p>· Bear: 순익 25억 × PER 20 = 500억시총 → 1,750원 · Base(테마 유지+실적정상): 순익 45억 × PER 30(테마프리미엄) = 1,350억 → 4,700원 · Bull(양자 실적화): 순익 70억 × PER 40 = 2,800억 → 9,800원</p>
+<ul>
+<li>★결론: 어떤 실적 시나리오로도 현재가 19,100은 정당화 불가. 목표가 개념보다 &#x27;테마 모멘텀 소진 시 되돌림 리스크&#x27;가 핵심 변수.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물만, 레버리지 불가) [실측 라인]</p>
+<ul>
+<li>추세추종 관점(단타/스윙):</li>
+</ul>
+<p>· 진입: 19,100(현재가) 또는 눌림 시 MA5 17,900 부근 지지 확인 후 · 손절: 16,540(직전 저점·9/22 종가) 이탈 시 → 진입가 대비 <span class="down">-13.4%</span> · 1차 목표: 22,000(심리선), 2차: 30,550(52주 전고) 재도전 · 손익비: 진입 19,100 / 손절 16,540(-2,560) / 목표 22,000(<span class="up">+2,900</span>) = 1:1.13 (빈약) · 목표 24,000 기준: (<span class="up">+4,900</span>)/(−2,560) = 1:1.91</p>
+<ul>
+<li>★손익비 경고: 이미 급등한 상태 진입이라 손절폭 크고 손익비 열위. 눌림목(17,000~17,900) 대기가 손익비 우월(진입 17,500/손절 16,000/목표 22,000 = 1:3.0).</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>스탁이지 기업/산업 리포트 0건 [실측], DART 사업보고서 인용 [실측]:</li>
+<li>제품별 매출(2025, 억): HW/SW(VPN·UTM) 330.1(68.5%) / 보안관제 98.5(20.5%) / 유지보수 52.8(11.0%). 합 481.4억</li>
+<li>원재료(HW) 매입 2025 126.8억 vs 2024 57.6억 → 매입 급증(<span class="up">+120%</span>). 재고선확보·수주대비로 해석 [추정].</li>
+<li>바텀업 모델 (물량×단가 미공시 → 사업부문 성장률 기반):</li>
+</ul>
+<p>· HW/SW: 국내 공공·기업 보안장비 교체수요. 2025 <span class="up">+8.5%</span> YoY. 2026E <span class="up">+5%</span> → 347억 · 보안관제: 3년 CAGR <span class="up">+10%</span>, 구독형 안정. 2026E <span class="up">+12%</span> → 110억 · 유지보수: 설치기반 확대로 <span class="up">+10%</span> → 58억 · 2026E 매출 합 ≈ 515억, OPM 8% → 영업이익 41억 [추정]</p>
+<ul>
+<li>분기 배분(계절성 반영, 백만원):</li>
+</ul>
+<p>· 3Q: 통상 적자~소폭. 2026 3Q 영업이익 예상 -5~<span class="up">+3</span>억 (누적으로 봐야 함) · 4Q: 연말 예산집중, 단독 영업이익 40~55억 [추정]</p>
+<ul>
+<li>민감도: HW/SW 성장률 ±3%p → 영업이익 ±10억</li>
+<li>★결론: 3Q 연결(=별도) 누적 영업이익이 흑자 전환 유지(≥ 0억, 즉 상반기 <span class="up">+3.7</span>억 대비 3Q 추가 적자 없음)면 실적 스토리 유효. 3Q 누적 영업이익 &lt; -10억(재악화)이면 실적 근거 폐기하고 순수 테마로만 취급.</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오</p>
+<ul>
+<li>촉매(수치→행동):</li>
+</ul>
+<p>· 양자암호 관련 실제 수주·계약 공시 → 재료 실체화, 상향 · 4Q 실적 서프라이즈(영업이익 ≥ 55억) → 실적+테마 동반 · 정부 PQC(양자내성암호) 전환 정책 구체화 → 섹터 재점화</p>
+<ul>
+<li>반증(수치→행동):</li>
+</ul>
+<p>· 3Q 누적 영업이익 &lt; -10억 → 실적 스토리 폐기 [분기실적 임계] · 양자 테마 순환매 소멸(동진·우리넷 동반 하락) → 즉시 이탈 · MA20(14,558) 이탈 → 추세 훼손, 청산</p>
+<ul>
+<li>이벤트 매트릭스:</li>
+</ul>
+<p>· 3Q 잠정실적(11월) — 최대 분수령 · 양자 관련 공시/뉴스 — 수시 · 테마 순환매 지속성 — 일간 모니터</p>
+<ul>
+<li>확률가중 시나리오(합 100%):</li>
+</ul>
+<p>· Bear 45%: 테마 소진·되돌림, 12,000~14,000 회귀(MA60 부근) · Base 40%: 고변동 박스(16,000~24,000), 테마 유지되나 실적 정당화 안 됨 · Bull 15%: 양자 실적화+전고 돌파, 30,000 재도전</p>
+<ul>
+<li>수급·유동성: 회전율 15.9%·거래대금 863~987억 [실측] → 유동성 충분, 단 테마 급등락으로 슬리피지·VI 리스크 큼.</li>
+<li>사이징(자산대비%): 순수 테마 단타이므로 집중한도(자산 50%)의 극히 일부로 제한 권고. 테마주 특성상 총자산 대비 5% 이내 소액·분할, 손절 기계적 준수 전제 [추정].</li>
+</ul>
+<p>⚠️ [미확인 목록]</p>
+<ul>
+<li>엑스게이트의 양자암호 실제 매출·수주·기술 보유 여부 (공시 미확인)</li>
+<li>증권사 컨센서스·목표가 (커버 애널 부재, 4소스 0건)</li>
+<li>2026 3Q 실적 (미발표)</li>
+<li>2023 기타비용 56.3억의 구체 항목 (손상·소송 등 미분류)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 별도재무 2023~2025 사업보고서·2026 반기보고서 [실측]</li>
+<li>DART 사업보고서 제품별 매출·원재료 (dart_biz.py) [실측]</li>
+<li>KIS 현재가·MA·52주·PER/PBR (inquire-price, itemchartprice) [실측]</li>
+<li>news_search.py 급등사유 6건 (2026-09-23, 매경·CBC·초이스·와이드·잡포스트) [인용]</li>
+<li>consensus.py 4소스 (stockeasy·naver·fnguide·hankyung) 0건 [실측]</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총: 19,100 × 28,543,492 = 5,451.8억 ≈ KIS표시 5,452억 ✓</li>
+<li>PER: 19,100 ÷ 140(EPS) = 136.4x ✓</li>
+<li>2025 순익/EPS: 3,874백만 ÷ 28,543,492 ≈ 136원 ≈ 기본EPS 136 ✓</li>
+<li>MA정배열: 17,876 &gt; 14,558 &gt; 12,440 ✓</li>
+<li>반기 매출 YoY: 12,091.9/10,683.1 = <span class="up">+13.2%</span> ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-28 09:45 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 19,170원 (<span class="up">+5.2%</span>) · 시총 5,472억 · 5일 <span class="up">+11.1%</span> / 20일 <span class="up">+62.5%</span> / 60일 <span class="up">+11.8%</span></li>
+<li>MA5 17,868원 / MA20 14,556원 / MA60 12,439원 → MA20 이격 <span class="up">+31.7%</span> · MA60 이격 <span class="up">+54.1%</span></li>
+<li>52주 고 30,550원 / 저 6,100원 → 고점 대비 <span class="down">-37.3%</span> · 20일 고 19,170원 / 저 10,760원</li>
+<li>후행 PER 136.93 / PBR 12.31 (EPS 140원 · BPS 1,557원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 870.4억 (5일 1,312.7억)</li>
+<li>외국인 순매수 5일 10.9억 / 20일 -112.1억 · 기관 5일 -2.3억 / 20일 0.2억 · 개인 20일 117.0억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.41% / 20일 평균 0.64% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 6.40% (08/31) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 22,000원 (<span class="up">+14.8%</span>) ÷ 하방 16,540원 (−13.7%) = <strong>1:1.08</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 13.7% = <strong>자산의 3.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.6%</strong></li>
+<li>유동성 참고: 20일 ADV 870.4억 · 1일 소화 한도는 ADV의 10%(87.04억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 13.7% · ATR14 1,574원 (손절폭/ATR 1.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 13.7% = ATR14 × 1.7배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 16,808원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.20</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드</p>
+<ul>
+<li>판정: 관망 (추세 유효하나 밸류 극단 과열 — 추격 비권장)</li>
+<li>선물: 無 (현물만 · 레버리지 불가)</li>
+<li>현재가: 19,100원 [실측]</li>
+<li>진입: 눌림목 17,000~17,900(MA5 지지) / 추격 시 19,100</li>
+<li>손절: 16,540 이탈 (MA20 14,558 완전이탈 시 전량)</li>
+<li>목표: 1차 22,000 / 2차 24,000 (전고 30,550은 Bull)</li>
+<li>손익비: 눌림진입 기준 1:3.0 / 현재가 추격 시 1:1.1(열위)</li>
+<li>기간: 단기 스윙(수일~2주, 테마 지속성 종속)</li>
+<li>촉매: 양자암호 수주공시 · 4Q 실적 ≥55억 · PQC 정책</li>
+<li>반증: 3Q 누적 영업이익 &lt; -10억 · 테마 순환매 소멸 · MA20 이탈</li>
+</ul></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
