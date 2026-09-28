@@ -1,0 +1,245 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HLB이노베이션(024850) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260928-155743-HLB이노베이션-024850.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:3.8</div><div class="tp-c"><b>결론 발췌</b> 그룹 테마(HLB 리픽투 FDA)에 편승한 계열사 상한가로, 본업(반도체 부품)은 미미하고 자체 바이오(Verismo CAR-T)는 12월 ASH 이벤트 전까지 적자 지속 — 실적 근거 없는 수급·기대감 급등. 손익비 1:0.6(진입 부적합), 자체 산출 목표가 밴드 없음(적자·SOTP 신약가치 기반) → 판정 관망. ━━━━━━━━━━━━━━━━━━ ① 포착 신호 (KIS 실측) • 현재가 19,680원, 등락 +29.99%(상한가) [실측: KIS inquire-price 2026-09-28] • 시총 6,249억, 상장주식 3,175만주 [실측: KIS hts_avls·lstn_stcn] • 당일 거래대금 247억(거래량 125.8…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>HLB이노베이션(024850)</h1>
+<div class="meta">📊 trend · 2026-09-28 15:57 · 코드 024850</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-28 15:57)</div><div class="kpi-v">19,680원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">6,249억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.7</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.8</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.06</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">20,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 15,000~15,500원(MA20 눌림 지지 확인 후, 상한가 추격 금지)</span><span class="dc dn">손절 14,000원</span><span class="dc up">목표 20,000원</span><span class="dc">손익비 진입 1:3.8 · 현재가 1:0.06 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.1</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.1로 적었지만 진입·손절·목표로 계산하면 1:3.8다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~8주(12월 ASH 이벤트 겨냥)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-12월 ASH SynKIR-310 임상1상 중간결과</div><div class="dc-l">🛑 반증: 익분기 연결 영업손실 &lt; -80억 지속 시 실적논지 폐기·이탈 / 종가 MA20(15,480) 하회 시 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — HLB이노베이션(024850)  ※선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 그룹 테마(HLB 리픽투 FDA)에 편승한 계열사 상한가로, 본업(반도체 부품)은 미미하고 자체 바이오(Verismo CAR-T)는 12월 ASH 이벤트 전까지 적자 지속 — 실적 근거 없는 수급·기대감 급등. 손익비 1:0.6(진입 부적합), 자체 산출 목표가 밴드 없음(적자·SOTP 신약가치 기반) → 판정 관망.</p>
+<hr>
+<p>① 포착 신호 (KIS 실측)</p>
+<ul>
+<li>현재가 19,680원, 등락 <span class="up">+29.99%</span>(상한가) [실측: KIS inquire-price 2026-09-28]</li>
+<li>시총 6,249억, 상장주식 3,175만주 [실측: KIS hts_avls·lstn_stcn]</li>
+<li>당일 거래대금 247억(거래량 125.8만주) vs 20일 평균거래대금 45.4억 → 5.4배 급증 [실측: KIS acml_tr_pbmn / inquire-daily-itemchartprice 20D평균]</li>
+<li>회전율(당일 거래량÷상장주식) ≈ 4.0% [추정: 125.8만÷3,175만]</li>
+<li>추세: MA5 15,492 &gt; MA20 15,480 &gt; MA60 12,625 — 정배열, 오늘 급등으로 MA 상단 대폭 이탈 [실측: KIS 일봉 87일]</li>
+<li>연속상승 2일(직전 조정 후 반등) [실측: 최근 종가 09/23 15,140 → 09/28 19,680]</li>
+<li>52주 저점 1,580 → 현재 19,680 = 12.5배 / 52주 고점 28,100 대비 <span class="down">-30%</span> 위치 [실측: KIS w52]</li>
+</ul>
+<p>→ 자금유입 강도: 거래대금 5배 급증은 강하나, 오늘 하루 이벤트성. 지속성 근거는 실적이 아닌 그룹 테마.</p>
+<p>② 사업·급등사유</p>
+<ul>
+<li>본업: 반도체 부품 제조. 리드프레임 67.3%(일반·파워모듈·프리몰드), 컨택핀(테스트소켓) 15.5%, 기타 17.1% [실측: [기재정정]사업보고서 접수 20260629000350, 제49기]</li>
+<li>바이오: 종속회사 Verismo Therapeutics(미국)의 CAR-T 세포치료제. KIRCAR 플랫폼(split-chain 구조로 T세포 탈진 해결), 파이프라인 SynKIR-110(고형암·담관암·난소암)·SynKIR-310(혈액암). 바이오 매출 비중 0.16~0.49%(사실상 R&amp;D 단계) [실측: 사업보고서·반기보고서 / 인용: 현대차증권 2026-05-06]</li>
+<li>급등사유(사실 확인): 2026-09-23 그룹 본사 HLB가 담관암 신약 &#x27;리픽투&#x27;(리라푸그라티닙, FGFR2 표적, 미국 자회사 엘레바 개발)로 FDA 품목허가 획득 → 국내기업 항암신약 직접 허가 첫 사례. 이 호재로 HLB·HLB생명과학·HLB제약 등 그룹주 무더기 상한가, HLB이노베이션도 계열사로 동반 급등 [인용: 연합뉴스·중앙일보·조선비즈 2026-09-28]</li>
+</ul>
+<p>→ 냉정한 판단: 리픽투는 HLB 본사(엘레바)의 약물이며 HLB이노베이션의 자체 파이프라인이 아니다. HLB이노베이션 급등은 그룹 브랜드·지분관계에 의한 순수 테마·기대감 편승. 자체 촉매(Verismo CAR-T)는 별개이며 임상 초기 단계.</p>
+<p>③ 실적(DART 실측 · 연결 기준)</p>
+<ul>
+<li>연간 추이(연결):</li>
+<li>2022(제46기): 매출 507억 / 영업이익 <span class="up">+8.5</span>억 / OPM <span class="up">+1.7%</span> [실측: 사업보고서 CFS]</li>
+<li>2023: 매출 206억(별도) → 급감 / 영업손실 -9.4억 [실측: 2023 OFS, 연결 미공시분]</li>
+<li>제48~49기(2024~25 회계연도): 연간 매출 254억→322억대, 영업손실 -119억 [실측: 접수 20260629000350·2024 CFS]</li>
+<li>최근 분기(연결, 회계연도 제50기 진행분):</li>
+<li>1Q: 매출 75.5억 / 영업손실 -98.3억 / 영업CF -92.6억 [실측: 접수 25_1Q CFS]</li>
+<li>2Q: 매출 90.0억 / 영업손실 -95.2억 (반기 누적 매출 165억·영손 -193억) [실측: 반기 CFS]</li>
+<li>3Q: 매출 75.6억 / 영업손실 -95.4억 (3Q 누적 매출 241억·영손 -289억·영업CF -258억) [실측: 3Q CFS]</li>
+<li>검산: 1Q75.5<span class="up">+2</span>Q90.0<span class="up">+3</span>Q75.6 = 241.1억 ≈ 누적 241.0억 ✓ / 영손 -98.3-95.2-95.4 = -288.9억 ≈ 누적 -288.9억 ✓</li>
+<li>순익 급감 분해: 영업손실 자체가 매분기 -95~98억으로 구조적 적자. 매출(75~90억) 대비 영업비용 압도 → CAR-T R&amp;D비용·판관비가 원인(영업악화, 일회성 아님). 영업CF도 -258억 누적으로 현금 유출 지속 [실측: CFS 영업활동현금흐름]</li>
+<li>재무구조: 자본총계 1,091억, 부채총계 495억, 부채비율 ≈ 45% [추정: 495÷1,091 / 실측 3Q CFS]. 부채비율은 낮으나 이자보상배율은 영업적자로 산출불가(음수).</li>
+</ul>
+<p>→ 결론: 본업 반도체는 흑자여력 미미(매출 급감), 바이오는 대규모 적자. 연결 실적은 신약가치 기대로만 지탱.</p>
+<p>④ 미래실적·컨센서스 (consensus.py 실측)</p>
+<ul>
+<li>연간 컨센서스(억원, fnguide+naver): FY26E 매출 390·영업손실 -370·순손실 -350·EPS -1,089 / FY27E 매출 440·영손 -330 / FY28E 매출 530·영손 -320 [인용: fnguide+naver 2026-09-28]</li>
+</ul>
+<p>→ 향후 3년 영업적자 지속 전망. 흑자전환 시점 컨센 없음.</p>
+<ul>
+<li>투자의견: Buy 2건 / 의견평균 4.0</li>
+<li>목표가 컨센서스: 평균 15,600원(최고 24,300 / 최저 6,900, 리포트 2건). 외부집계 naver·fnguide 24,300원 [인용: consensus.py]</li>
+<li>최근 리포트:</li>
+<li>현대차증권 2026-09-18 Buy 24,300원(하향, 기존 34,300) — &quot;ASH를 기다리며&quot;. 12월 미국혈액학회(ASH)서 SynKIR-310 임상1상 중간결과 발표 예정, 코호트4까지 증량. 고형암 SynKIR-110 성공확률 20%→13% 하향 반영해 목표가 하향 [인용: 현대차증권]</li>
+<li>현대차증권 2026-05-06 Buy 6,900원(신규) — Verismo SOTP 적정기업가치 9,972억 [인용: 현대차증권]</li>
+<li>달성가능성 판정: 低. 목표가가 실적이 아닌 신약 파이프라인 SOTP(성공확률 가정)에 100% 의존 → 임상 데이터 하나로 ±50% 변동. 컨센 목표가 6,900↔24,300 3.5배 격차가 불확실성을 방증.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 밸류(KIS 실측): PER -17.0(적자·무의미), PBR 2.70, EPS -1,156, BPS 7,282 [실측: KIS]</li>
+<li>Peer/자기밴드: 적자 바이오라 PER 비교 불가. PBR 2.70은 순자산(주당 7,282원) 대비 2.7배 프리미엄 = 시장이 Verismo 신약가치를 장부가의 1.7배만큼 추가 반영.</li>
+<li>자체 목표가 산출: 실적 기반 산출 불가(영업적자·EPS 음수). 파이프라인 SOTP는 임상 성공확률 가정이 핵심이라 애널리스트 영역 → 자체 멀티플×EPS 방식 부적합, 자체 목표가 &#x27;미확인(산출불가)&#x27;.</li>
+<li>증권사 목표가 병기: 현대차증권 24,300원(2026-09-18, SynKIR-110 성공확률 13% 가정). 현재가 19,680원 → 컨센 대비 상승여력 <span class="up">+23%</span>.</li>
+</ul>
+<p>→ 밸류 결론: 순자산 기준으론 이미 고평가(PBR 2.7), 상방은 오직 CAR-T 임상 성공 시나리오. 이벤트 도박 성격.</p>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: MA20 15,480 / MA60 12,625 / 직전 박스 14,000~15,000 [실측: KIS 일봉]</li>
+<li>저항: 52주 고점 28,100 / 오늘 상한가 19,680(가격제한폭 상단)</li>
+<li>52주 고점 대비 <span class="down">-30%</span> 위치, 저점 대비 12.5배 → 이미 큰 폭 상승 후 고변동 구간</li>
+<li>진입 관점(참고): 상한가 당일 추격매수는 익일 갭·되돌림 리스크 큼. 눌림 지지 확인 후(MA20 15,480 부근 지지) 접근이 정석.</li>
+<li>손익비 계산(현재가 19,680 기준):</li>
+<li>상승여력: 컨센 목표 24,300 → <span class="up">+23.5%</span> [산식: (24,300-19,680)/19,680]</li>
+<li>하락리스크: 손절 MA20 15,480 → <span class="down">-21.3%</span> [산식: (19,680-15,480)/19,680]</li>
+<li>손익비 = 23.5 ÷ 21.3 = 1:1.10 → 상한가 추격 기준 손익비 열위. 눌림 15,500 진입 시 목표24,300·손절14,000 → 상승 <span class="up">+56.8%</span>÷하락 <span class="down">-9.7%</span> = 1:5.9로 개선(단 이벤트 리스크 별도).</li>
+<li>상한가 당일 추격 진입은 손익비 1:1.1로 부적합. 선물 없어 레버리지 불가 → 현물 눌림 대기 전략만 유효.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 미확인은 &#x27;미확인&#x27;.</p>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 [한계 명시] 본 종목은 매출의 99.5%가 성숙기 반도체 부품(리드프레임·컨택핀)이고, 주가 상방은 매출 0.16%인 바이오 신약 임상에 의존 → 물량×단가 바텀업 모델이 밸류에 무의미. 아래는 본업만 실측 반영.</p>
+<ul>
+<li>9-1 제품 매출(반기, 접수 20260813001458): 리드프레임 123.1억(61.4%) / 컨택핀 39.9억(19.9%) / 기타 36.3억(18.1%) / 바이오 0.97억(0.49%) [실측]</li>
+<li>9-4 단가 이력(달러, 단순평균): 리드프레임 제47기 41.48 → 48기 42.69 → 49기 48.53 → 당반기 52.59(상승세) / 컨택핀 9.32→9.67→15.10→11.31 [실측: dart_biz]</li>
+<li>9-3 원재료: LEAD FRAME 소재 매입 76.5%가 (주)풍산 단일 공급 → 구리·소재가 변동 노출 [실측]</li>
+<li>9-7 바텀업(본업, 반기 연율화): 반기 매출 200억 → 연 400억 수준, 반도체 부문 영업기여는 소폭. 바이오 R&amp;D 적자가 전사 영업손실 -290억(3Q누적)을 좌우.</li>
+<li>결론 문장: 본업 바텀업으론 흑자 근거 부족. 3Q 연결 영업이익 실측 -95.4억(적자) → 이미 발생. 향후 3Q 연결 영업이익이 흑자전환(≥0)이면 본업 개선 논지 성립, &lt; -80억(적자 지속)이면 실적 아닌 임상 이벤트 베팅으로 성격 확정 — 현재 후자.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트</p>
+<ul>
+<li>촉매 캘린더:</li>
+<li>2026-12월 미국혈액학회(ASH): Verismo SynKIR-310 임상1상 중간결과 발표 [인용: 현대차증권 2026-09-18] ★핵심 촉매</li>
+<li>그룹 리픽투 미국 상업화·매출 개시 뉴스플로우(HLB 본사 이벤트, 계열사 동반) [인용: 조선비즈 2026-09-28]</li>
+<li>반증 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>3Q(익분기) 연결 영업손실이 -95억 수준 지속 확인 시(현재 -95.4억) → 실적 개선 부재, 테마 소멸 시 이탈 [실측 임계: 분기 영업이익 &lt; -80억이면 실적논지 폐기]</li>
+<li>종가가 MA20(15,480) 하회 마감 → 추세 훼손, 손절 [실측: KIS]</li>
+<li>12월 ASH 데이터가 안전성·유효성 기대 하회 → SOTP 가치 급락, 관망 [인용: 현대차증권 SynKIR-110 성공확률 13% 전제 붕괴]</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스:</li>
+<li>ASH 긍정 + 그룹 리픽투 매출 가시화 → Bull</li>
+<li>ASH 중립 + 테마 소멸 → 급등분 반납(Base)</li>
+<li>ASH 부정 or 임상 지연 → 순자산가치(PBR 1배≈7,282원)로 회귀 압력(Bear)</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 45%: 테마 소멸·눌림. 목표 13,000~15,000(MA60 회귀)</li>
+<li>Base 40%: 박스 등락 15,000~20,000, ASH 대기</li>
+<li>Bull 15%: ASH 긍정+그룹모멘텀, 24,300~28,100 재도전</li>
+<li>기대값 ≈ 45%×14,000 + 40%×17,500 + 15%×26,000 = 17,200원 → 현재가 19,680 대비 <span class="down">-13%</span>(하방 기대)</li>
+<li>수급·유동성: 외인/기관 20일 순매수 미확인. 20일 평균거래대금 45.4억, 그 10% = 4.5억(1회 체결 상한 참고) [실측: KIS]</li>
+<li>포지션 사이징(자산 대비 %): 테마·적자·선물無 조합 → 고위험. 진입 시 자산의 5% 이내, 2~3회 분할(눌림 확인 시마다 1/3씩). 50% 집중 절대 금지.</li>
+</ul>
+<p>⚠️ 종합: 실적 근거 없는 그룹 테마 편승 상한가. 자체 촉매(ASH 12월)까지 시간 갭 존재, 상한가 추격은 손익비 열위. 관망하며 MA20 눌림 지지 확인 후에만 소액 접근.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>외인/기관 20일 순매수 동향 (KIS 수급 API 미조회)</li>
+<li>자체 목표가(적자·SOTP 기반이라 실적 멀티플 방식 산출불가)</li>
+<li>분기 컨센서스(consensus.py &#x27;분기 미확인&#x27;)</li>
+<li>EV/EBITDA(EBITDA 음수로 무의미)</li>
+<li>2023 연결 전체(연결 미공시분, 별도만 확인)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS: inquire-price·inquire-daily-itemchartprice 2026-09-28 실측</li>
+<li>DART: [기재정정]사업보고서 접수 20260629000350(제49기), 반기보고서 접수 20260813001458(2026.06), 2024·2025 CFS</li>
+<li>consensus.py 2026-09-28(stockeasy·naver·fnguide)</li>
+<li>현대차증권 리포트 2026-09-18(24,300원)·2026-05-06(6,900원)</li>
+<li>뉴스: 연합뉴스·중앙일보·조선비즈·머니투데이·CBC 2026-09-24~28(리픽투 FDA)</li>
+<li>kis_futures_check 2026-09-28(선물 미상장)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합 매출 241.1억 ≈ 3Q누적 241.0억 ✓</li>
+<li>분기합 영업손실 -288.9억 ≈ 3Q누적 -288.9억 ✓</li>
+<li>손익비 상한가기준 1:1.10 = 상승23.5%÷하락21.3% (헤더·본문 일치)</li>
+<li>시나리오 확률합 45<span class="up">+40</span><span class="up">+15</span> = 100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-28 15:57 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 19,680원 (<span class="up">+30.0%</span>) · 시총 6,249억 · 5일 <span class="up">+31.6%</span> / 20일 <span class="up">+37.6%</span> / 60일 <span class="up">+62.2%</span></li>
+<li>MA5 15,492원 / MA20 15,480원 / MA60 12,625원 → MA20 이격 <span class="up">+27.1%</span> · MA60 이격 <span class="up">+55.9%</span></li>
+<li>52주 고 28,100원 / 저 1,580원 → 고점 대비 <span class="down">-30.0%</span> · 20일 고 19,680원 / 저 13,710원</li>
+<li>후행 PER -17.02 / PBR 2.7 (EPS -1,156원 · BPS 7,282원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 45.3억 (5일 71.6억)</li>
+<li>외국인 순매수 5일 23.9억 / 20일 -47.5억 · 기관 5일 -52.0억 / 20일 26.4억 · 개인 20일 38.2억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 1.22% (공매도 15,383주 · 3.0억) · 5일 평균 4.57% / 20일 평균 7.26% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 19.18% (09/04) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 20,000원 (<span class="up">+1.6%</span>) ÷ 하방 14,000원 (−28.9%) = <strong>1:0.06</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 28.9% = <strong>자산의 1.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.7%</strong></li>
+<li>유동성 참고: 20일 ADV 45.3억 · 1일 소화 한도는 ADV의 10%(4.53억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 28.9% · ATR14 1,268원 (손절폭/ATR 4.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 28.9% = ATR14 × 4.5배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 17,712원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.16</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-024850"></span>📋 결정카드 — HLB이노베이션(024850) 판정: 관망 선물: 無 현재가: 19,680원 진입: 15,000~15,500원(MA20 눌림 지지 확인 후, 상한가 추격 금지) 손절: 14,000원(MA20 하회 종가) 목표: 1차 20,000원 (2차 24,300원·현대차증권) 손익비: 1:1.1(상한가 추격) / 눌림진입시 1:5.9 기간: 스윙 4~8주(12월 ASH 이벤트 겨냥) 촉매: 2026-12월 ASH SynKIR-310 임상1상 중간결과 반증: 익분기 연결 영업손실 &lt; -80억 지속 시 실적논지 폐기·이탈 / 종가 MA20(15,480) 하회 시 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
