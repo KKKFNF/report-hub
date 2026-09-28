@@ -1,0 +1,275 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한화솔루션(009830) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260928-094719-한화솔루션-009830.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 자동판정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 카드 판정 매수였으나 현재가 기준 손익비 1:1.49 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 / 조건부 매수(정책+실적 턴어라운드, 급등 직후 눌림 분할) · 손익비 1:3.3</div><div class="tp-c"><b>결론 발췌</b> 미국 태양광 판가 급등(Section 232 12/4 시행)이 촉발한 신재생 부문 실적 개선 사이클 진입 종목. 26.2Q 영업이익 3,065억으로 흑자 폭 확대 확인, 3Q 컨센 2,061억 부합 예상. 케미칼 적자가 상쇄 요인이나 방향성은 개선. 선물 상장으로 레버리지 스윙 가능. [실측+인용]</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(자동판정): 카드 판정 매수였으나 현재가 기준 손익비 1:1.49 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 · 조건부 매수(정책+실적 턴어라운드, 급등 직후 눌림 분할)</span><h1>한화솔루션(009830)</h1>
+<div class="meta">📊 trend · 2026-09-28 09:47 · 코드 009830</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-28 09:47)</div><div class="kpi-v">33,500원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">7.5조</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.7</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.3</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.2</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">39,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 1라인 31,000~31,500(눌림) / 2라인 33,500 돌파 / 3라인 36,000 돌파, 분할</span><span class="dc dn">손절 28,900원</span><span class="dc up">목표 39,000원</span><span class="dc">손익비 진입 1:3.3 · 현재가 1:1.2 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.8</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.8로 적었지만 진입·손절·목표로 계산하면 1:3.3다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주(3Q 실적 10월말~11월 + 12/4 Section 232 커버)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 12/4 Section 232 MIP 38센트, 3Q26 영익 ≥ 2,100억, 카터스빌 풀가동 AMPC 확대</div><div class="dc-l">🛑 반증: 3Q26 영익 &lt; 1,500억, 케미칼 스프레드 추가 악화, 28,900 종가 이탈</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 한화솔루션(009830) ※ 개별주식선물 有(실측: 근월물 ACB610, std KR4ACB6A0000)</p>
+<p>📌 한줄 결론 미국 태양광 판가 급등(Section 232 12/4 시행)이 촉발한 신재생 부문 실적 개선 사이클 진입 종목. 26.2Q 영업이익 3,065억으로 흑자 폭 확대 확인, 3Q 컨센 2,061억 부합 예상. 케미칼 적자가 상쇄 요인이나 방향성은 개선. 선물 상장으로 레버리지 스윙 가능. [실측+인용]</p>
+<hr>
+<p>① 포착 신호 [실측 · KIS 2026-09-28]</p>
+<ul>
+<li>현재가 32,950원 (전일 <span class="up">+3,750</span>원, <span class="up">+12.84%</span>) — 오늘 VI 발동 급등</li>
+<li>당일 거래대금 1,242억 / 거래량 384만주 (20일평균 195만주 대비 1.97배)</li>
+<li>시가총액 7.41조 / 상장주식수 2.25억주</li>
+<li>52주 밴드 22,000 ~ 59,300 (현재가는 저점 대비 <span class="up">+49.8%</span>, 고점 대비 <span class="down">-44.4%</span>)</li>
+<li>이동평균: MA5 29,110 / MA20 30,015 / MA60 30,569 — 현재가가 3개 MA 모두 상향 돌파(오늘 급등으로)</li>
+</ul>
+<p>※ MA배열 자체는 아직 정배열 아님(MA5&lt;MA20&lt;MA60, 횡보 후 돌파 초기 국면)</p>
+<ul>
+<li>5일 수익률 <span class="up">+15.85%</span> / 20일 수익률 <span class="down">-1.5%</span> (직전 횡보 후 당일 점프)</li>
+<li>연속상승 2일 (9/23 <span class="up">+6.4%</span>, 9/28 <span class="up">+12.8%</span>) — 급등 초기</li>
+</ul>
+<p>② 사업·급등사유 [실측+인용] ▶ 사업 구조 (2026 반기 기준 · DART):</p>
+<ul>
+<li>신재생에너지(한화큐셀, 셀·모듈) 55.7% (반기 55,750억)</li>
+<li>기초소재(케미칼: LDPE·PVC·가성소다·TDI) 31.1% (31,118억)</li>
+<li>가공소재(첨단소재: 자동차부품·태양광소재) 7.5% (7,462억)</li>
+<li>기타(한화이센셜 FCCL 등) 5.7%</li>
+</ul>
+<p>▶ 급등사유 (2026-09-28 뉴스 실측):</p>
+<ul>
+<li>조선비즈: &quot;美 태양광 가격 급등 수혜 평가에 한화솔루션 12% 급등&quot;</li>
+<li>아이뉴스24·이투데이: &quot;미국 태양광 가격 상승에 한화솔루션·OCI홀딩스 10%대 급등&quot;</li>
+<li>CBC: &quot;한화솔루션 VI 발동, 주가 급등&quot;</li>
+<li>머니투데이: &quot;태양광 업체 매수 나서야 증권가 조언&quot;</li>
+</ul>
+<p>▶ 정책 촉매(핵심): 12월 4일 Section 232 최저수입가격(MIP) 제도 시행 → 미국 유틸리티급 모듈 가격 W당 38센트 이상으로 상승 전망. 동남아산 저가 물량 덤핑 방지 → 미국 내 제조사(카터스빌 수직계열화 보유) 수익성 개선 가속 [인용: NH·메리츠·KB]</p>
+<p>③ 실적 [실측 · DART 연결] ▶ 연간(억원):</p>
+<ul>
+<li>2023: 매출 132,887 / 영익 6,045 / 순익 -1,553</li>
+<li>2024: 매출 123,940 / 영익 -3,002 / 순익 -13,690 (대규모 적자)</li>
+<li>2025: 매출 133,331 / 영익 -3,648 / 순익 -6,153 (적자 지속)</li>
+</ul>
+<p>▶ 분기 개별(억원) — 뚜렷한 턴어라운드:</p>
+<ul>
+<li>25.1Q 영익 <span class="up">+303</span> / 25.2Q <span class="up">+1,021</span> / 25.3Q -74(적자) / 25.4Q(역산) 부진</li>
+<li>26.1Q 매출 38,820 / 영익 <span class="up">+926</span></li>
+<li>26.2Q 매출 45,827 / 영익 <span class="up">+3,065</span> ← 흑자 폭 급확대, 반기 누적 영익 3,991억</li>
+</ul>
+<p>▶ 부문 시황:</p>
+<ul>
+<li>신재생: 모듈 판매량 증가(1.3→2.5GW) + AMPC 세액공제 확대(3Q 컨센 약 2,297억). 카터스빌 셀 설비 3Q말~4Q초 풀가동 → 웨이퍼-셀-모듈 수직계열화 완성으로 DCA 모듈 AMPC 수취액 확대 [인용 NH]</li>
+<li>케미칼: 수요 약세·스프레드 축소로 3Q 영업적자(컨센 약 -92억) 예상. 에틸렌 원가 상승(812→1,110 USD/톤)이 부담. 여수 석유화학 구조재편 통합법인 출자로 중장기 체질 개선 진행 [인용 메리츠]</li>
+</ul>
+<p>④ 미래실적·컨센 [인용 · consensus.py 2026-09-28] ▶ 연간 컨센(fnguide, 억원 / EPS원):</p>
+<ul>
+<li>FY26E: 매출 183,055 / 영익 8,898 / 순익 4,412 / EPS 2,079 / PER 14.0 / ROE 4.5%</li>
+<li>FY27E: 매출 196,540 / 영익 12,985 / 순익 6,669 / EPS 2,899 / PER 10.1 / ROE 6.4%</li>
+<li>FY28E: 매출 204,337 / 영익 14,593 / 순익 8,137 / EPS 3,552 / PER 8.2 / ROE 7.4%</li>
+</ul>
+<p>▶ 분기 컨센: 3Q26 매출 46,490 / 영익 2,083 / 순익 692 (naver) · 4Q26 매출 51,919 / 순익 1,112 ▶ 컨센 추이(당해FY 영익): 현재 8,898 ← 3M전 7,496 ← 6M전 6,193 (상향 흐름) ▶ 투자의견: Buy 29 / Hold 8 / NR 4 / Sell 1 (의견평균 4.00/5)</p>
+<p>⑤ 밸류에이션·목표가 [실측+추정] ▶ 목표가 컨센: 증권사별 최신 평균 44,556원(16개사) / 최고 80,000 / 최저 25,000</p>
+<ul>
+<li>최근: NH 43,000(9/21) · 메리츠 39,000(9/15신규) · KB 50,000(8/31하향) · 유진 60,000 · 키움 60,000 · 신한 40,000</li>
+</ul>
+<p>▶ 밸류 방식: 증권사 다수 SOTP/NAV(부문별 2027E EBITDA × peer EV/EBITDA) 적용 — PER 무의미(현재 적자, EPS -3,377) ▶ 목표가 계산 [추정]:</p>
+<ul>
+<li>Base: FY27E EPS 2,899 × 화학/신재생 blended PER 14배 ≒ 40,600원 (컨센 중앙값 대역 부합)</li>
+<li>컨센 평균 44,556원 채택 시 현재가(32,950) 대비 상승여력 <span class="up">+35.2%</span></li>
+<li>보수 하단 39,000원(메리츠 신규) 채택 시 <span class="up">+18.4%</span></li>
+</ul>
+<p>⑥ 진입전략·손익비 [실측 기반 · 선물 有] ▶ 선물 실측: 개별주식선물 상장 ✅ 근월물 ACB610 → 레버리지 스윙 가능 ▶ 레버리지 스윙 3라인(선물, 현물환산 가격 기준):</p>
+<ul>
+<li>1라인(현 위치 눌림 대기): 31,000~31,500 (오늘 급등분 일부 되돌림 지지 확인 후)</li>
+<li>2라인(돌파 추격): 33,500 상향 돌파 확정 시 (당일 고점·MA60 위 안착)</li>
+<li>3라인(52주 중단 돌파): 36,000 돌파 시 추세 가속 추가</li>
+</ul>
+<p>▶ 기계적 규칙:</p>
+<ul>
+<li>손절: 종가 기준 28,900원 이탈(MA20·직전 저점 하회) → 무조건 청산</li>
+<li>1차 익절: 39,000원(메리츠 목표·1차 저항) 50% 축소</li>
+<li>2차 익절: 44,500원(컨센 평균) 잔량</li>
+</ul>
+<p>▶ 손익비 [계산, 2라인 33,500 진입 기준]:</p>
+<ul>
+<li>리스크: 33,500 - 28,900 = 4,600원</li>
+<li>리워드(1차 39,000): 5,500원 → 손익비 1:1.2</li>
+<li>리워드(2차 44,500): 11,000원 → 손익비 1:2.4</li>
+<li>블렌디드(50:50): 손익비 ≈ 1:1.8</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 [실측 · DART 반기 + stockeasy] ▶ 부문별 매출·단가(반기/연간):</p>
+<ul>
+<li>신재생 셀 179→199원/W(26.2Q), 모듈 253원/W 유지 — 미국 프리미엄 판가 상승은 하반기 반영 예정</li>
+<li>케미칼 LDPE 1,479→2,020(천원/톤), PVC 998→1,265 — 단가는 올랐으나 원가(에틸렌 812→1,110)가 더 급등 → 스프레드 압박</li>
+</ul>
+<p>▶ 바텀업 임계 시나리오(3Q26 연결 영업이익, 억원):</p>
+<ul>
+<li>Bear: 신재생 AMPC 약화+케미칼 적자 확대 → 영익 1,500 이하</li>
+<li>Base: 신재생 선방(모듈 2.5GW·AMPC 2,297억) + 케미칼 소폭적자 → 영익 2,000~2,100 (컨센 부합)</li>
+<li>Bull: 판가 조기 반영+AMPC 상단 → 영익 2,500 이상</li>
+</ul>
+<p>▶ 민감도: 신재생 모듈 판가 W당 <span class="up">+10</span>원 → 연간 영익 약 <span class="up">+1,000</span>억대 레버리지(판매량 GW 규모 감안, 추정) ▶ 결론: 3Q26 연결 영업이익 ≥ 2,000억이면 턴어라운드 시나리오 유지, &lt; 1,500억이면(신재생 둔화+케미칼 적자 심화) 폐기.</p>
+<p>⑦ 촉매·반증·시나리오 ▶ 촉매(수치→행동):</p>
+<ul>
+<li>12/4 Section 232 시행으로 모듈 MIP 38센트 확정 → 판가 상승 → 신재생 4Q·FY27 영익 컨센 상향 → 3라인 추격</li>
+<li>3Q26 실적 영익 ≥ 2,100억(10월 말~11월 발표) → 1차 익절 상향</li>
+<li>카터스빌 풀가동 확인 → AMPC 수취액 확대</li>
+</ul>
+<p>▶ 반증(수치→행동):</p>
+<ul>
+<li>3Q26 영익 &lt; 1,500억 → 포지션 청산(턴어라운드 논리 훼손)</li>
+<li>케미칼 스프레드 추가 악화(에틸렌 1,200 USD 돌파) → 비중 축소</li>
+<li>28,900원 종가 이탈 → 기계적 손절</li>
+</ul>
+<p>▶ 이벤트 매트릭스:</p>
+<ul>
+<li>10월말~11월초: 3Q26 실적발표 (임계 2,000억)</li>
+<li>12/4: Section 232 MIP 시행</li>
+<li>상시: 미국 태양광 현물가·AMPC 정책 변동</li>
+</ul>
+<p>▶ 확률가중 시나리오(합 100%):</p>
+<ul>
+<li>상승(45%): 정책+실적 동시 확인, 44,500원 도달 → 기대수익 <span class="up">+35%</span></li>
+<li>횡보(35%): 급등 후 눌림, 30,000~34,000 박스 → 기대수익 0~<span class="up">+3%</span></li>
+<li>하락(20%): 케미칼 악화·정책 지연, 28,900 이탈 → 기대손실 <span class="down">-12%</span></li>
+<li>기대값 ≈ 0.45×35% + 0.35×1.5% + 0.20×(<span class="down">-12%</span>) ≈ <span class="up">+13.9%</span> (양(+))</li>
+</ul>
+<p>▶ 수급·유동성: 시총 7.41조 대형주, 당일 거래대금 1,242억으로 유동성 충분. 선물 병행으로 레버리지 진입 용이. ▶ 사이징(자산 대비 %): 대형주·정책 모멘텀이나 케미칼 적자 상쇄·급등 직후라 변동성 높음 → 초기 진입 자산 대비 10~15% 권고, 3Q 실적 확인 후 최대 집중한도(자산 50%) 내 증액. 단일 종목 급등 추격이므로 분할 진입 필수.</p>
+<p>⚠️ [미확인 목록]</p>
+<ul>
+<li>25.4Q·26.3Q 개별 순이익(분기 순익 계정 DART 미표기)</li>
+<li>AMPC 정확한 3Q 계상액(컨센 2,297억은 인용치)</li>
+<li>오늘(9/28) 장중 실시간 외국인·기관 수급 방향</li>
+<li>회전율 원데이터(스캐너 미기재 — 거래대금/시총으로 간접 확인: 1,242억/7.41조 = 1.68%)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI 시세(현재가·MA·시총·52주) 2026-09-28</li>
+<li>DART 연결재무 3개년+분기(fnlttSinglAcntAll) / 사업보고서·반기보고서 부문 매출</li>
+<li>consensus.py(fnguide·naver·wisereport·stockeasy·hankyung) 2026-09-28</li>
+<li>news_search.py 급등사유 6건 2026-09-28</li>
+<li>stockeasy 리포트(NH 9/21·메리츠 9/15·KB 8/31 등)</li>
+<li>kis_futures_check.py 선물 상장 실측(ACB610)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총 7.41조 = 32,950원 × 2.25억주 ≈ 7.41조 ✓</li>
+<li>반기 매출 84,646억 = 부문 합계(31,118<span class="up">+7,462</span><span class="up">+55,750</span><span class="up">+5,737</span>-15,421) ✓</li>
+<li>26 반기 영익 3,991억 = 1Q 926 + 2Q 3,065 ✓</li>
+<li>손익비(2라인): (39,000-33,500)/(33,500-28,900)=1.20 ✓ / (44,500-33,500)/4,600=2.39 ✓</li>
+<li>시나리오 확률합 45<span class="up">+35</span><span class="up">+20</span>=100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-28 09:47 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 33,500원 (<span class="up">+14.7%</span>) · 시총 7.53조 · 5일 <span class="up">+18.0%</span> / 20일 <span class="up">+0.3%</span> / 60일 <span class="down">-1.3%</span></li>
+<li>MA5 29,230원 / MA20 30,045원 / MA60 30,579원 → MA20 이격 <span class="up">+11.5%</span> · MA60 이격 <span class="up">+9.6%</span></li>
+<li>52주 고 59,300원 / 저 22,000원 → 고점 대비 <span class="down">-43.5%</span> · 20일 고 33,850원 / 저 27,450원</li>
+<li>후행 PER -9.92 / PBR 0.7 (EPS -3,377원 · BPS 47,898원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 597.4억 (5일 762.7억)</li>
+<li>외국인 순매수 5일 -137.6억 / 20일 166.3억 · 기관 5일 76.6억 / 20일 -846.3억 · 개인 20일 681.0억</li>
+<li>개별주식선물: ⚡ 상장 (ACB610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 5.68% / 20일 평균 6.89% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 13.88% (09/02) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 39,000원 (<span class="up">+16.4%</span>) ÷ 하방 28,900원 (−13.7%) = <strong>1:1.20</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 13.7% = <strong>자산의 3.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.6%</strong></li>
+<li>유동성 참고: 20일 ADV 597.4억 · 1일 소화 한도는 ADV의 10%(59.74억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 13.7% · ATR14 1,489원 (손절폭/ATR 3.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 13.7% = ATR14 × 3.1배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 30,521원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.85</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드</p>
+<ul>
+<li>판정: 조건부 매수(정책+실적 턴어라운드, 급등 직후 눌림 분할)</li>
+<li>선물(실측): 有 — 근월물 ACB610 / std KR4ACB6A0000 (레버리지 스윙 가능)</li>
+<li>현재가: 32,950원 (<span class="up">+12.84%</span>, 2026-09-28)</li>
+<li>진입: 1라인 31,000~31,500(눌림) / 2라인 33,500 돌파 / 3라인 36,000 돌파, 분할</li>
+<li>손절: 28,900원 종가 이탈</li>
+<li>목표: 1차 39,000원(메리츠) / 2차 44,500원(컨센 평균)</li>
+<li>손익비: 1:1.8 (블렌디드) / 2차만 1:2.4</li>
+<li>기간: 스윙 4~10주(3Q 실적 10월말~11월 + 12/4 Section 232 커버)</li>
+<li>촉매: 12/4 Section 232 MIP 38센트, 3Q26 영익 ≥ 2,100억, 카터스빌 풀가동 AMPC 확대</li>
+<li>반증: 3Q26 영익 &lt; 1,500억, 케미칼 스프레드 추가 악화, 28,900 종가 이탈</li>
+</ul></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
