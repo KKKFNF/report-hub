@@ -1,0 +1,217 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>씨어스(458870) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260928-113921-씨어스-458870.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:1.44</div><div class="tp-c"><b>결론 발췌</b> 원격환자모니터링(RPM) 국내 1위·2Q 이연 쇼크 후 반등 초입. 52주 저점(19,820) 대비 +43% 오른 자리라 급등 초입은 아니며, 3Q 실적으로 이연물량 회수 여부가 판가름. 손익비 1:1.1로 열위 → 관망 우위, 3Q 확인 후 대응. 자체 목표가 34,600원(20x FY27E EPS). ━━━━━━━━━━━━━━━━</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>씨어스(458870)</h1>
+<div class="meta">📊 trend · 2026-09-28 11:39 · 코드 458870</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-28 11:39)</div><div class="kpi-v">28,050원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.1조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">66</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">26.95</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.44</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.3</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">34,600원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 27,000~28,500원 (3Q 실적 확인 후 또는 MA20 눌림 분할)</span><span class="dc dn">손절 23,000원</span><span class="dc up">목표 34,600원</span><span class="dc">손익비 진입 1:1.44 · 현재가 1:1.3 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.1</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.1로 적었지만 진입·손절·목표로 계산하면 1:1.44다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11월 중순(잠정) 3Q26 실적발표 / 미국 FDA 승인분 4Q 수가시장 진출</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 120억 또는 연결 매출 &lt; 300억이면 논지 폐기 / UAE·미국 매출 4Q 재이연 공시 시 폐기</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 씨어스(458870) ※선물 無</p>
+<p>📌 한줄 결론: 원격환자모니터링(RPM) 국내 1위·2Q 이연 쇼크 후 반등 초입. 52주 저점(19,820) 대비 <span class="up">+43%</span> 오른 자리라 급등 초입은 아니며, 3Q 실적으로 이연물량 회수 여부가 판가름. 손익비 1:1.1로 열위 → 관망 우위, 3Q 확인 후 대응. 자체 목표가 34,600원(20x FY27E EPS).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율/거래대금: 당일 거래대금 86억 [실측: KIS FHKST01010100 acml_tr_pbmn], 20일 평균거래대금 35억 [실측: KIS 일봉], 시총 10,909억 [실측: KIS hts_avls]. 당일 거래대금/시총 회전율 ≈ 0.79% [추정: 86÷10,909]. 20일평균 대비 당일 2.5배 급증 → 자금유입 강도 확대.</li>
+<li>추세: 현재가 28,450원(<span class="up">+13.57%</span>) [실측: KIS]. MA5 25,770 / MA20 23,278 / MA60 26,078 [실측: KIS 일봉]. 현재가 &gt; MA5 &gt; MA20 이나 MA60이 MA20 위 → 완전 정배열 아님(직전 급락 잔재). 연속상승 1일(09-23 조정 후 재반등) [실측].</li>
+<li>위치: 5일 <span class="up">+21.0%</span> / 20일 <span class="up">+31.0%</span> / 60일 −27.3% [실측: KIS 일봉]. 즉 60일 급락(고점 대비 반토막권)에서의 기술적 반등 구간. 52주 고 192,600(상장 초 이론치·액면/권리락 이전 값 추정) / 52주 저 19,820 / 250일 고 64,235·저 18,977 [실측: KIS]. 250일 고점 64,235 대비 −55.7%, 52주 저점 대비 <span class="up">+43.5%</span> 위치 → &#x27;초입&#x27;과 &#x27;고점권&#x27; 사이 중간, 낙폭과대 반등 성격.</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력 사업: 생체신호 AI + 웨어러블 의료기기 기반 IoMT 플랫폼. 2대 서비스 — ①입원환자모니터링 thynC(씽크), ②심전도분석 mobiCARE(모비케어) [실측: 사업보고서 20260319000571].</li>
+<li>매출 구성(2026 반기 제품별) [실측: [기재정정]반기보고서 20260813000297]: 입원환자모니터링(thynC) 580.3억·95.28%, 심전도(mobiCARE) 27.9억·4.59% → thynC 편중 심화(2024 51.6%→2025 89.0%→2026H1 95.3%). 사업 성장 = 사실상 thynC 병상 확대 스토리.</li>
+<li>급등/재평가 사유(검증): (a) 2026-09-21 IBK투자증권 커버리지 개시 Buy·목표 30,000원 [인용: 매일경제/인포스탁 2026-09-21]. (b) UAE 퓨어헬스 모비케어 공급 본계약 + 국내 요양병원 병상 공급 시작 기대 [인용: 메디파나 2026-09-22, 스탁이지 IBK리포트]. (c) 6월30일 미국 FDA 승인 확보로 4Q 수가시장 진출 기대 [인용: DB금투 2026-07-01].</li>
+<li>실체 vs 기대 구분: 국내 RPM 1위(도입병상 4만개 중 67% 공급)는 실체 [인용: IBK 리포트 스탁이지]. 반면 UAE·미국 수출은 계약·허가는 확보됐으나 매출 인식은 3Q26 이후 예정 → 아직 기대감 단계. 2Q26 매출이 상급종합병원 집중·중동 물량 이연으로 컨센 하회(&#x27;어닝쇼크&#x27;)한 것이 직전 급락의 원인 [인용: DB금투·미래에셋 2026-08]. 이번 반등은 &#x27;3Q 이연물량 회수&#x27; 기대 선반영 성격.</li>
+</ul>
+<p>③ 실적 (DART 실측 · 연결 기준 명시)</p>
+<ul>
+<li>연간 추이 [실측: DART finstate]:</li>
+<li>2024(별도 OFS): 매출 81.0억 / 영업손실 −86.8억 / 순손실 −88.7억 (적자)</li>
+<li>2025(연결 CFS): 매출 481.7억 / 영업이익 163.3억 / 순이익 160.5억 / OPM 33.9% → 흑자전환·매출 <span class="up">+495%</span> YoY [검산: 접수 20260319000571]</li>
+<li>분기 추이(연결 CFS, 3개월) [실측: DART finstate_all thstrm/thstrm_add]:</li>
+<li>2025 Q3: 매출 157.4억 / 영업익 67.3억 (OPM 42.8%)</li>
+<li>2025 Q4(도출): 매출 204.4억 / 영업익 86.8억 [검산: 연간482−3Q누적277.6=204.4 / OP 163.0−76.2=86.8]</li>
+<li>2026 Q1: 매출 325.3억 / 영업익 138.5억 (OPM 42.6%)</li>
+<li>2026 Q2: 매출 283.7억 / 영업익 129.5억 (OPM 45.6%) [검산: H1누적609.0−Q1 325.3=283.7 / OP 268.0−138.5=129.5]</li>
+<li>2026 H1누적: 매출 609.0억 / 영업익 268.0억 / 순익 266.6억 (OPM 44.0%) — 이미 2025 연간 매출(482억) 초과</li>
+<li>YoY/QoQ: 2Q26 매출 283.7억(2Q25 대비 대폭 증가, 절대금액은 컨센 334억 하회) / QoQ −12.8%(325.3→283.7). 순익 급감 아님 — Q1→Q2 소폭 감소는 상급종합병원 집중·수출 이연에 따른 매출 순연이 원인이며 OPM은 오히려 42.6%→45.6% 개선 → 마진 훼손 아닌 매출 타이밍 문제 [인용: 미래에셋 2026-08-18].</li>
+<li>재무건전성 [실측: 2026 반기말 연결 BS]: 자산 858.9억 / 부채 175.3억 / 자본 683.6억 → 부채비율 25.6%(우량). 현금및현금성자산 259.2억. 이자보상배율: 영업익 대비 이자비용 규모 미미(무차입 성격) → 사실상 재무리스크 낮음. 영업현금흐름: 반기 연결 CF 정형데이터 미제공(nan) → 순이익 266.6억 흑자 기반이나 정확한 OCF 수치는 미확인.</li>
+</ul>
+<p>④ 미래실적·컨센서스 [인용: consensus.py 4소스 2026-09-28 / fnguide·naver·stockeasy]</p>
+<ul>
+<li>연간 컨센서스(억원): FY26E 매출 1,291 / 영업익 564 / 순익 538 / EPS 1,411 / PER 17.8x. FY27E 매출 1,724 / 영업익 781 / EPS 1,730. FY28E 매출 2,150 / 영업익 1,001 / EPS 2,210.</li>
+<li>영업이익 컨센 추이(당해FY, fnguide): 현재 564 ← 3M전 604 ← 6M전 494 ← 1Y전 147 → 최근 3개월간 소폭 하향(604→564)됐으나 1년 전 대비 대폭 상향된 궤적.</li>
+<li>분기 컨센(억원): 2026Q3 매출 334 / 영업익 149 / 순익 126 [naver]. 2026Q4 매출 348 / 순익 85 [wisereport].</li>
+<li>증권사 목표가: IBK 30,000(신규 09-22) / 신한 37,000(하향 08-20) / DB금투 38,000(하향 08-14) / 상상인 50,000(하향 08-14) / 미래에셋 NR. 컨센 평균 목표 47,000원(5개사 최신) [인용: consensus.py].</li>
+<li>달성가능성 판정: 中. 근거 — H1 매출 609억으로 FY26E 1,291억의 47% 달성, 3Q 이연물량+요양병원+UAE 인식 시 하반기 682억 필요(H1 대비 <span class="up">+12%</span>)로 산술적 달성 가능. 다만 (a)3Q 컨센 매출 334억은 이미 눈높이 하향분이라 재차 하회 시 신뢰 훼손, (b)UAE·미국 수출 매출 인식 시점이 계속 이연돼 온 이력 → 상방보다 하방 변동성 큼. 高가 아닌 中.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 밸류 [실측: KIS per/pbr]: PER 66.9x(후행 EPS 425 기준), PBR 27.3x, BPS 1,041원. 후행 PER은 적자 직후라 의미 낮음.</li>
+<li>선행 기준 [추정]: FY26E EPS 1,411 → 현재가 28,450원 = 12M FWD PER 20.2x. FY27E EPS 1,730 → PER 16.4x.</li>
+<li>Peer/밴드: 코스닥 헬스케어 12M FWD PER 26x, 글로벌 의료기기 peer 25x [인용: IBK·미래에셋 리포트]. 자기밴드는 고점 42x(2026초)→저점 14~15x(2Q쇼크). 현재 20x는 고점과 저점 중간.</li>
+<li>자체 목표가 산출: 적정멀티플 20x × FY27E EPS 1,730 = 34,600원 [추정: 20×1,730]. (보수적: 18x × FY26E EPS 1,411 = 25,398원, IBK와 유사한 방식). 성장률(FY27 매출 <span class="up">+33%</span> YoY) 감안 20x는 코스닥 헬스케어 26x 대비 23% 할인으로 무리한 프리미엄 아님.</li>
+<li>결론: 자체 목표 34,600원(상단), 보수 25,400원(하단). 증권사 컨센 평균 47,000원은 수출 매출 조기 인식 가정이 큰 편으로 낙관적. 자체 산출을 우선.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (개별주식선물 未상장 → 현물만, 레버리지 불가) [실측: kis_futures_check.py 미상장]</p>
+<ul>
+<li>지지: MA20 23,278 / 심리 23,000(직전 박스 상단·현 지지 전환) / 52주 저 19,820. 저항: 심리 30,000(IBK 목표)·전고 단기 / 33,000~34,600(자체목표·MA60 상단 돌파 시).</li>
+<li>52주 위치: 250일 고점 64,235 대비 −55.7%, 저점 18,977 대비 <span class="up">+50%</span> → 낙폭과대 반등 중턱.</li>
+<li>스윙 3라인(현물): 진입 27,000~28,500(현 반등 눌림 분할), 손절 23,000(MA20·박스하단 이탈 시), 익절 1차 34,600(자체목표)·2차 41,000(컨센 naver/fnguide 외부집계).</li>
+<li>손익비 [산식]: 진입 28,450 기준 상승여력 (34,600/28,450−1)=<span class="up">+21.6%</span>, 하락리스크 (1−23,000/28,450)=−19.2% → 손익비 1:1.13. 3Q 실적 불확실성 대비 손익비 매력 낮음. 손절선(23,000) 아래 추가매수 금지.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC §9)</p>
+<ul>
+<li>스탁이지 인용: 국내 원격환자모니터링 도입병상 4만개 중 씨어스 67% 공급 1위. 국내 침투율 3~6%로 초기 [인용: IBK·신한 2026-08~09 스탁이지].</li>
+<li>제품별 매출(2026 반기, 천원) [실측: dart_biz.py / 반기보고서 20260813000297]: thynC 입원환자모니터링 58,029,530·95.28%, mobiCARE 심전도 2,793,305·4.59%, 용역 54,545·0.09%, 기타 23,893·0.04% → 총 60,901,273(제품표 기준). ※재무제표 연결 H1매출 609억과 정합.</li>
+<li>원재료(2025, 천원) [실측: 사업보고서]: MAIN PBA 4,896,002(국내3,936,888+수입959,114), CABLE 215,207, MOLD BOTTOM 302,095, BOX 2,340 → 원재료 매입 총 5.4억 규모로 매출(482억) 대비 극소 → 기기 하드웨어 원가비중 낮고 서비스·수가 매출 구조가 고마진(OPM 40%대)의 근거.</li>
+<li>9-2 고객·납품비중: 상급종합병원 레퍼런스 기반 → 2차병원·요양병원 확대. 재계약율 90%+ [인용: 미래에셋 2026-08-18] → 락인 강함. 구체 고객사별 비중은 미확인.</li>
+<li>9-3 TAM·경쟁·점유율: 국내 RPM 도입병상 4만개 중 67% 점유(1위) [인용: IBK]. 요양병원 침투율 1%·전체 침투율 3~6%로 TAM 확장 초기. 경쟁사별 CAPA·점유 수치는 출처 2개 교차 미확보 → &#x27;국내 유일/독점&#x27; 아닌 &#x27;점유 1위&#x27;로 표기. 경쟁자 정량표 미확인.</li>
+<li>9-4 단가이력: 회사가 서비스 가격 경쟁요소로 기재 생략 [실측: 사업보고서] → 단가 이력 미확인.</li>
+<li>9-5 CAPA증설 / 9-6 전방 CAPEX: 병상 공급형 서비스라 전통적 CAPA 개념 약함. 요양병원 병상 확대·UAE/미국 진출이 물량 드라이버. 정량 CAPEX 계획 미확인.</li>
+<li>9-7 바텀업 모델(3Q26·4Q26, 억원) [추정: 컨센+H1 실측 기반]:</li>
+<li>3Q26 Base: 매출 334(컨센) × OPM 44%(H1평균) = 영업익 ≈ 147 [산식: 334×0.44]. 컨센 영업익 149와 정합.</li>
+<li>3Q26 Bear: 이연물량 재순연 → 매출 300 × OPM 43% = 영업익 ≈ 129 (2Q와 유사).</li>
+<li>3Q26 Bull: 이연회수+요양병원 조기 → 매출 380 × OPM 46% = 영업익 ≈ 175.</li>
+<li>4Q26 Base: 매출 348(컨센) × OPM 43% = 영업익 ≈ 150.</li>
+<li>FY26 합산(Base): H1 268 + 3Q 147 + 4Q 150 = 영업익 ≈ 565 → 컨센 564와 정합 [검산].</li>
+<li>민감도: OPM 1%p 변동 → 3Q 영업익 ±3.3억. 매출 10% 변동 → 3Q 영업익 ±15억.</li>
+<li>결론 문장: &quot;3Q26 연결 영업이익 ≥ 147억이면 이연물량 회수·논지 유지·눌림 분할매수 검토, &lt; 120억이면 이연이 구조적 수요둔화로 재확인 → 논지 폐기.&quot;</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정 이벤트만):</li>
+<li>2026-11월 중순(잠정): 3Q26 실적발표 — 2Q 이연물량 회수·요양병원·UAE 인식 여부 확인. 최대 분기점. [추정: 분기보고서 법정기한 기준, 확정일 미확인]</li>
+<li>2026-06-30 완료: 미국 FDA 승인(mobiCARE) → 4Q 수가시장 진출·2027초 매출 발생 예정 [인용: DB금투].</li>
+<li>반증 조건 3개:</li>
+</ul>
+<ol>
+<li>(분기 임계) 3Q26 연결 영업이익 &lt; 120억 → 이연이 아닌 구조적 둔화, 논지 폐기.</li>
+<li>(분기 임계) 3Q26 연결 매출 &lt; 300억(2Q 수준 정체) → 하반기 회복 시나리오 붕괴.</li>
+<li>UAE·미국 매출 인식이 4Q26에도 재차 이연 공시 → 수출 스토리 신뢰 훼손, 밸류 리레이팅 근거 소멸.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(3Q 실적×당일 반응):</li>
+<li>쇼크(OP&lt;120억) × 갭하락 → 손절/관망(진입 금지)</li>
+<li>쇼크 × 갭상승 → 되돌림 매도(악재 소진 반등은 짧음)</li>
+<li>인라인(OP 147±) × 보합 → MA20 지지 확인 후 소량 진입</li>
+<li>서프(OP&gt;175억) × 갭상승 → 34,600 목표 스윙 진입, 눌림 추가</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 35%: 3Q 재차 하회·수출 이연 → 목표 22,000원(FY26 EPS 하향×15x) → 수익률 −22.7%</li>
+<li>Base 45%: 3Q 컨센 부합·하반기 회복 → 목표 34,600원(20x FY27E) → <span class="up">+21.6%</span></li>
+<li>Bull 20%: 이연회수+수출 조기 인식 → 목표 41,000원(외부집계) → <span class="up">+44.1%</span></li>
+<li>확률가중 기대수익률 = 0.35×(−22.7)<span class="up">+0.45</span>×(<span class="up">+21.6</span>)<span class="up">+0.20</span>×(<span class="up">+44.1</span>) = <span class="up">+10.5%</span> [산식]. 기대값 플러스지만 Bear 확률·손익비 1.1 감안 공격적 진입 부적합.</li>
+<li>수급·유동성 [실측: KIS FHKST01010900·일봉]: 최근 20일 외국인 −30.8만주 순매도 / 기관 <span class="up">+13.7</span>만주 순매수 → 외국인 이탈·기관 저가매수 엇갈림. 20일 평균거래대금 35억 → 1일 체결상한(ADV 10%) ≈ 3.5억. 유동성 보통(대형주 대비 얇음).</li>
+<li>포지션 사이징(자산 대비 %): 리스크예산 1%÷손절폭 19.2% = 자산의 5.2% / 집중상한 50% / 이벤트(3Q실적)전 상한 25% → 최소값 5.2%. 즉 3Q 실적 전에는 자산의 5% 내외로 제한, 실적 확인 후 증액 판단. 선물 미상장이라 레버리지 불가·현물 한도 내에서만.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록] 반기 연결 영업활동현금흐름(정형데이터 nan)·이자보상배율 정확수치 / 제품 단가 이력(회사 기재 생략) / 경쟁사별 CAPA·점유율 정량표 / 고객사별 납품비중 / 3Q26 실적발표 확정일 / 52주 최고가 192,600의 권리락 조정 여부 / 회전율 상세필드(큐 turnover=0).</p>
+<p>[출처 목록] DART finstate/finstate_all(사업보고서 20260319000571·[기재정정]반기보고서 20260813000297) / KIS FHKST01010100·FHKST03010100·FHKST01010900 (2026-09-28) / consensus.py 4소스(fnguide·naver·stockeasy·hankyung 2026-09-28) / stockeasy_reports.py(IBK 09-22·신한 08-20·미래에셋 08-18·DB금투 08-14) / news_search.py(메디파나·인포스탁·매경 2026-09) / kis_futures_check.py(선물 미상장) / dart_biz.py.</p>
+<p>[검산] H1누적 영업익 268 = Q1 138.5 + Q2 129.5 ✓ / 연간 482 = 3Q누적 277.6 + Q4 204.4 ✓ / FY26 컨센 영업익 564 ≈ 바텀업 Base 565 ✓ / 손익비 1:1.13 = 21.6%÷19.2%(헤더·본문 일치) ✓ / 시나리오 확률합 35<span class="up">+45</span><span class="up">+20</span>=100% ✓.</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-28 11:39 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 28,050원 (<span class="up">+12.0%</span>) · 시총 1.08조 · 5일 <span class="up">+18.9%</span> / 20일 <span class="up">+28.7%</span> / 60일 <span class="down">-28.5%</span></li>
+<li>MA5 25,670원 / MA20 23,252원 / MA60 26,069원 → MA20 이격 <span class="up">+20.6%</span> · MA60 이격 <span class="up">+7.6%</span></li>
+<li>52주 고 192,600원 / 저 19,820원 → 고점 대비 <span class="down">-85.4%</span> · 20일 고 28,050원 / 저 20,700원</li>
+<li>후행 PER 66.0 / PBR 26.95 (EPS 425원 · BPS 1,041원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 35.3억 (5일 52.1억)</li>
+<li>외국인 순매수 5일 -19.1억 / 20일 -72.7억 · 기관 5일 1.0억 / 20일 32.6억 · 개인 20일 23.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 8.58% / 20일 평균 9.29% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 22.91% (09/23) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 34,600원 (<span class="up">+23.4%</span>) ÷ 하방 23,000원 (−18.0%) = <strong>1:1.30</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 18.0% = <strong>자산의 2.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.8%</strong></li>
+<li>유동성 참고: 20일 ADV 35.3억 · 1일 소화 한도는 ADV의 10%(3.53억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 18.0% · ATR14 1,386원 (손절폭/ATR 3.6배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 18.0% = ATR14 × 3.6배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 25,278원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.36</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관망 선물: 無 현재가: 28,450원 진입: 27,000~28,500원 (3Q 실적 확인 후 또는 MA20 눌림 분할) 손절: 23,000원 목표: 1차 34,600원 (2차 41,000원) 손익비: 1:1.1 기간: 스윙 6~10주 촉매: 2026-11월 중순(잠정) 3Q26 실적발표 / 미국 FDA 승인분 4Q 수가시장 진출 반증: 3Q26 연결 영업이익 &lt; 120억 또는 연결 매출 &lt; 300억이면 논지 폐기 / UAE·미국 매출 4Q 재이연 공시 시 폐기</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
