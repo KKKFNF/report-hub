@@ -1,0 +1,245 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>이지케어텍(099750) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260929-101759-이지케어텍-099750.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:4.32</div><div class="tp-c"><b>결론 발췌</b> 실적 턴어라운드(적자→FY26 영익50억)와 공공병원 AI클라우드 362억 국책사업 주관 선정이 겹친 실체 있는 급등이나, 이미 60일 +25%·PER 18배로 밸류 부담 구간 → 관심(추격 자제). 손익비 1:1.0, 자체 목표가 9,000원(단기). ━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 7.6% (당일거래대금 83.4억 / 시총 1,093억) [실측: KIS FHKST01010100 2026-09-29 / 거래량 100.7만주] — 20일 평균 거래대금 12.5억의 6.7배 폭증, 강한 자금유입. • 추세: MA정배열 O (MA5 7,494 &gt; MA20 6,950 &gt; MA60 6,660) / 연속상승 3일 / 60일 +…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>이지케어텍(099750)</h1>
+<div class="meta">📊 trend · 2026-09-29 10:17 · 코드 099750</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-29 10:17)</div><div class="kpi-v">7,940원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,085억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">17.8</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.42</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:4.32</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.83</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">9,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 6,900~7,300원 (눌림 분할, 추격 자제)</span><span class="dc dn">손절 6,660원</span><span class="dc up">목표 9,000원</span><span class="dc">손익비 진입 1:4.32 · 현재가 1:0.83 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1로 적었지만 진입·손절·목표로 계산하면 1:4.32다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 27기 반기보고서(2026-11월경)·NIA 공공 클라우드 HIS 후속 수주</div><div class="dc-l">🛑 반증: 27기 반기 연결 영업이익 &lt; 30억이면 하반기 급증 전제 붕괴로 논지 폐기</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 이지케어텍(099750) ※선물 無</p>
+<p>📌 한줄 결론: 실적 턴어라운드(적자→FY26 영익50억)와 공공병원 AI클라우드 362억 국책사업 주관 선정이 겹친 실체 있는 급등이나, 이미 60일 <span class="up">+25%</span>·PER 18배로 밸류 부담 구간 → 관심(추격 자제). 손익비 1:1.0, 자체 목표가 9,000원(단기).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 7.6% (당일거래대금 83.4억 / 시총 1,093억) [실측: KIS FHKST01010100 2026-09-29 / 거래량 100.7만주] — 20일 평균 거래대금 12.5억의 6.7배 폭증, 강한 자금유입.</li>
+<li>추세: MA정배열 O (MA5 7,494 &gt; MA20 6,950 &gt; MA60 6,660) / 연속상승 3일 / 60일 <span class="up">+25.2%</span>·20일 <span class="up">+21.2%</span>·5일 <span class="up">+14.8%</span> [실측: KIS 일봉 100일]</li>
+<li>현 위치: 52주 5,780~23,600원 중 8,000원 = 저점 대비 <span class="up">+38%</span>, 고점 대비 <span class="down">-66%</span>. 바닥권 반등 초입~중반. 당일 상한가 9,450 근접했다 <span class="up">+10.04%</span>로 마감(고가권 매물 확인).</li>
+<li>수급(20영업일): 외국인 -5.2만주 순매도 / 기관 <span class="up">+0.9</span>만주 / 개인 <span class="up">+2.6</span>만주 순매수 [실측: KIS FHKST01010900] — 급등을 개인이 주도, 외인·기관 동참 약함(수급 질 낮음).</li>
+</ul>
+<hr>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력: 의료정보시스템(HIS) 개발·구축·운영·유지보수. 2001년 서울대병원 분사. 온프레미스 &#x27;BESTCare&#x27;(SI 39%) + 유지보수 &#x27;SM&#x27;(55%) + 클라우드 &#x27;EDGE&amp;NEXT&#x27;(6%) [실측: 사업보고서 접수 20260617000359]. 국내 상급종합병원 HIS 시장 약 26% 점유 [인용: 한국IR협의회 2025-12-26].</li>
+<li>급등사유(검증된 사실): 2026-09-28 과기정통부·한국지능정보사회진흥원(NIA) &#x27;공공 병원정보 AI 클라우드 서비스 개발·검증 지원 사업&#x27; 주관 수행기관 선정, 규모 362억원, 협약 체결 [인용: 남도일보·데이터투자·Bing News 2026-09-28~29]. 정부출연금 97억원 국책과제 주관 병기 보도.</li>
+<li>판정: 테마성이 아닌 실체 있는 수주형 이벤트(공공 클라우드 HIS 전환 정책의 직접 수혜). 다만 362억은 다년 컨소시엄 사업일 가능성 높아 단년 매출 인식분·이지케어텍 실수령분은 미확인 → 실적 기여 규모 정량화 불가(공시 원문 배분 미확인).</li>
+</ul>
+<hr>
+<p>③ 실적 (DART 실측·연결·회계연도 3월 결산)</p>
+<ul>
+<li>매출/영익/순익 추이 (연결, 억원) [실측: DART fnlttSinglAcntAll CFS]</li>
+<li>FY24.03(24년3월결산): 731 / -42 / -96 (적자)</li>
+<li>FY25.03: 679 / <span class="up">+2</span> / <span class="up">+12</span> (흑자전환)</li>
+<li>FY26.03: 788 / <span class="up">+50</span> / <span class="up">+60</span> ← 최근 완결연도, OPM 6.3%</li>
+<li>27기 1Q(26.04~26.06): 204 / <span class="up">+2</span> / <span class="up">+7</span> [실측: bsns2026 11013]</li>
+<li>추세 해석: 3년 연속 개선(적자탈출→이익 레벨업). FY26 영익 50억은 전년(2억) 대비 25배, 매출은 <span class="up">+16%</span> [추정: 788/679-1]인데 이익이 급증 → 외주 축소·반복(유지보수) 매출 비중 상승에 따른 수익성 레벨업 [인용: 한국IR협의회]. 실적 모멘텀이 상승추세를 부분적으로 정당화.</li>
+<li>사업부문 비중(26기): SM용역(유지보수) 55.2% / SI용역 39.0% / 클라우드 5.8% [실측: 사업보고서]. 유지보수 반복매출이 절반 이상 → 이익 안정성 높음.</li>
+<li>재무건전성: 부채비율 FY26.03 43.4%(부채194/자본447), FY25.03 32.8% [실측: DART]. 원가구조 인건비 55.6%+외주 32.8%=88.4%(인력집약형) [실측: 사업보고서].</li>
+<li>영업현금흐름: FY25.03 <span class="up">+108</span>억(양호) → FY26.03 -13억(순유출) [실측: DART]. 이익은 늘었으나 현금흐름은 운전자본·미청구공사 등으로 악화 → 주의(질적 점검 필요).</li>
+</ul>
+<hr>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>정식 목표주가 컨센서스: 없음(최근 6개월 목표가 제시 리포트 0건, 커버리지 대부분 Not Rated) [실측: consensus.py 2026-09-29].</li>
+<li>추정치(비 NR 참고):</li>
+<li>키움증권 2026-08-19: FY26 매출 960억(<span class="up">+21.7%</span> YoY)·영익 95억(<span class="up">+89.3%</span> YoY) [인용: stockeasy]. ※단, DART 실측 FY26.03 완결치는 매출788·영익50 → 키움의 &#x27;2026&#x27;은 27기(26.04~27.03) 전망치로 해석.</li>
+<li>한국IR협의회 2025-12-26: 매출 761억·영익 45억(OPM 6.0%) [인용]. FY26.03 실측(788/50)이 이미 상회 달성.</li>
+<li>fnguide FY27E: 매출 960 / 영익 95 / 순익 113 / EPS 827 / PER 8.8 [실측: consensus.py fnguide].</li>
+<li>달성가능성 판정: 中 (근거 ↑: 국내 HIS 26% 점유·유지보수 반복매출·공공 클라우드 전환 정책·중동 SKHIC 100억 공급계획. 근거 ↓: 27기 1Q 매출204·영익2로 런레이트 상 연 810억/8억 수준 → 컨센 960/95 달성엔 하반기 대형 프로젝트·국책사업 매출인식 급증이 전제. 1Q만으로는 컨센 대비 진도율 낮음).</li>
+</ul>
+<hr>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 지표 [실측: KIS]: 주가 8,000원, PER 17.94(EPS 446), PBR 2.44(BPS 3,282), 시총 1,093억.</li>
+<li>자체 목표가 산출:</li>
+<li>방법1(자체밴드·보수): 적정PER 18배 × 예상EPS. FY27E EPS 컨센 827원 적용 시 → 827×18 = 14,886원(낙관). 단 컨센 달성 불확실성 高 → 할인 필요.</li>
+<li>방법2(런레이트·현실): 27기1Q 순익7억×4 = 연 28억 → EPS 205원 [추정: 28억/1,366만주]. 여기에 국책·중동 성장 프리미엄 PER 22배 → 4,510원(초보수). FY26.03 실측 순익60억 기준 EPS 439원 × PER 18 = 7,902원(현 주가와 유사).</li>
+<li>결론: 현 주가 8,000원은 FY26.03 실적(EPS439) 기준 적정~약간 고평가. 컨센 성장(EPS827)이 실현돼야 상방 열림. 단기 자체 목표가 9,000원(FY27E EPS 진도 확인 전 PER 18~20 상단), 컨센 실현 시 12개월 12,000~14,000원.</li>
+<li>증권사 목표가: 병기 없음(NR).</li>
+</ul>
+<hr>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: MA20 6,950 / MA60 6,660 / 직전 박스 6,700~6,830. 저항: 당일고가·상한가 9,450 / 심리 10,000 / 갭구간.</li>
+<li>손익비 (현 주가 8,000 기준):</li>
+<li>상방(1차 목표 9,000) 여력: <span class="up">+12.5%</span></li>
+<li>하방(손절 MA20 6,900) 리스크: <span class="down">-13.8%</span></li>
+<li>손익비 = 12.5 ÷ 13.8 = 1:0.91 (≈1:1.0)</li>
+<li>판정: 손익비 1:1 미만 → 현 8,000원 추격진입은 부적합. 눌림 대기 전략 우위.</li>
+<li>진입전략(현물): 급등 당일 추격 금지. 6,900~7,300원(MA20~5) 눌림 확인 시 분할 1회차, 6,700 이탈 시 무효. 상한가 근접 마감은 익일 갭·변동성 확대 신호 → 관망.</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>9-1 제품 구성(26기 연결) [실측: dart_biz 사업보고서 20260617000359]:</li>
+<li>SM용역(유지보수) 435억(55.2%) — 반복·안정</li>
+<li>SI용역(BESTCare 판매) 308억(39.0%) — 프로젝트성</li>
+<li>클라우드 46억(5.8%) — 성장축(EDGE&amp;NEXT)</li>
+<li>9-2 고객·납품: 국내 상급종합병원·국립대·공공병원 중심. 서울대병원 레퍼런스 기반 [인용: 사업보고서·키움]. 개별 고객 납품비중 미확인.</li>
+<li>9-3 TAM·점유율: 국내 상급종합병원 HIS 약 26% 점유 [인용: 한국IR협의회 2025-12-26]. 글로벌 HIS 시장 2033년까지 CAGR 18.19% [인용: 동]. 국내 공공의료원 37개소 2030년까지 클라우드 HIS 전면교체 정책 [인용: 동]. 경쟁사 CAPA·점유율 정량표 미확인.</li>
+<li>9-4 단가: HIS는 프로젝트 인프라·커스터마이징 규모별 상이하여 단위단가 비교 불가(용역비 변동이 핵심) [실측: 사업보고서].</li>
+<li>9-5 CAPA증설: 인력집약형(인건비 55.6%), 물리적 증설 개념 약함. 개발인력 확충이 CAPA.</li>
+<li>9-6 전방 CAPEX: 정부 공공의료 클라우드 전환 예산·병원 IT투자.</li>
+<li>9-7 바텀업 시나리오(27기 27.03결산, 연결 영익):</li>
+<li>Bear(35%): 국책사업 매출인식 지연·SI 둔화 → 매출 810억·영익 40억. 전제: 1Q 런레이트(매출204×4) 유지, 하반기 특이 없음.</li>
+<li>Base(45%): 유지보수 안정+국책 일부 반영 → 매출 870억·영익 65억(OPM 7.5%). 전제: 362억 사업 중 단년 인식분 발생.</li>
+<li>Bull(20%): 국책·중동 동시 가속 → 매출 960억·영익 95억(컨센 도달) [인용: 키움/fnguide]. 전제: 대형 프로젝트 매출인식 집중.</li>
+<li>결론 문장: &quot;27기(27.03결산) 연결 영업이익 ≥ 65억이면 성장 논지 유지·눌림 추가매수, &lt; 40억이면 실적 정당화 실패로 논지 폐기.&quot;</li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만):</li>
+<li>2026-11월 중순 예상: 27기 반기보고서 법정기한(9월 반기결산 아님, 3월결산사 반기=9월말→반기보고서 11월경) → 국책·중동 매출 반영 여부 [실측: 자본시장법 정기공시 기한 / 결산월 3월]</li>
+<li>상시: 공공병원 클라우드 HIS 추가 수주 공시(NIA 사업 후속)</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>27기 반기 연결 영업이익 &lt; 30억(반기 기준) → 하반기 급증 전제 붕괴, 논지 폐기·청산.</li>
+<li>종가 MA60(6,660) 하향 이탈 → 추세 훼손, 잔여 청산.</li>
+<li>362억 국책사업 이지케어텍 실수령·매출인식분이 연 30억 미만으로 공시 확인 → 급등 근거 약화, 목표가 하향.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(반기실적 × 당일주가):</li>
+<li>서프라이즈+갭상승 → 관심자 눌림 진입, 추격 자제</li>
+<li>인라인+보합 → MA20 눌림만 대응</li>
+<li>쇼크+갭하락 → 진입 보류·기존분 손절</li>
+<li>확률가중 시나리오(12개월 목표):</li>
+<li>Bear 35%: 6,000원(런레이트 회귀, PER 조정)</li>
+<li>Base 45%: 9,000원(FY26 실적 유지+소폭성장)</li>
+<li>Bull 20%: 13,000원(컨센 달성·재평가)</li>
+<li>기대값 = 6,000×0.35 + 9,000×0.45 + 13,000×0.20 = 2,100<span class="up">+4,050</span><span class="up">+2,600</span> = 8,750원 [추정] → 현 8,000 대비 <span class="up">+9.4%</span> 기대. 손익비 부실.</li>
+<li>수급·유동성: 20일 평균 거래대금 12.5억 → 1일 체결상한(ADV 10%) 약 1.25억원 [실측: KIS 일봉]. 소형주로 유동성 얕음, 대량 진입·청산 시 슬리피지 주의. 외국인 20일 -5.2만주 순매도 [실측].</li>
+<li>포지션 사이징(자산 대비 %): 손실 1% ÷ 손절폭 13.8% = 자산의 7.2%. 집중상한 50%·이벤트전 상한 25%보다 손실예산 기준(7.2%)이 최소 → 신규 진입 시 자산의 7% 이내. 급등 직후·손익비 1:1 감안 시 실제로는 그 절반 이하 권고.</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>362억 국책사업 중 이지케어텍 단년 매출인식분·실수령 배분(공시 원문 미확인)</li>
+<li>정식 증권사 목표주가(전 커버 NR)</li>
+<li>분기 컨센서스(fnguide 분기 미제공)</li>
+<li>개별 고객 납품비중·경쟁사 정량 점유율표</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI FHKST01010100·FHKST03010100·FHKST01010900 (2026-09-29 실측)</li>
+<li>DART fnlttSinglAcntAll CFS bsns2023~2026·11013 / 사업보고서 20260617000359 / 분기보고서 20260807000168</li>
+<li>news_search.py (남도일보·데이터투자·Bing 2026-09-28~29)</li>
+<li>consensus.py·stockeasy_reports.py (키움 2026-08-19·한국IR협의회 2025-12-26·fnguide FY27E)</li>
+<li>kis_futures_check.py 099750 (선물 미상장)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>손익비: (9,000-8,000)/8,000=<span class="up">+12.5%</span> ÷ (8,000-6,900)/8,000=13.8% = 1:0.91 → 헤더·본문 일치 ✓</li>
+<li>MA정배열: 7,494&gt;6,950&gt;6,660 ✓</li>
+<li>시나리오 확률합: 35<span class="up">+45</span><span class="up">+20</span>=100% ✓</li>
+<li>부채비율 FY26.03: 194/447=43.4% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-29 10:17 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 7,940원 (<span class="up">+9.2%</span>) · 시총 1,085억 · 5일 <span class="up">+13.9%</span> / 20일 <span class="up">+20.3%</span> / 60일 <span class="up">+24.3%</span></li>
+<li>MA5 7,482원 / MA20 6,946원 / MA60 6,659원 → MA20 이격 <span class="up">+14.3%</span> · MA60 이격 <span class="up">+19.2%</span></li>
+<li>52주 고 23,600원 / 저 5,780원 → 고점 대비 <span class="down">-66.4%</span> · 20일 고 7,940원 / 저 6,360원</li>
+<li>후행 PER 17.8 / PBR 2.42 (EPS 446원 · BPS 3,282원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 12.5억 (5일 46.6억)</li>
+<li>외국인 순매수 5일 -4.1억 / 20일 -4.3억 · 기관 5일 0.6억 / 20일 0.6억 · 개인 20일 2.5억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.20% / 20일 평균 0.72% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 6.40% (09/23) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 9,000원 (<span class="up">+13.4%</span>) ÷ 하방 6,660원 (−16.1%) = <strong>1:0.83</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 16.1% = <strong>자산의 3.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.1%</strong></li>
+<li>유동성 참고: 20일 ADV 12.5억 · 1일 소화 한도는 ADV의 10%(1.25억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 16.1% · ATR14 474원 (손절폭/ATR 2.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 16.1% = ATR14 × 2.7배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 7,146원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.34</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-099750"></span>📋 결정카드 — 이지케어텍(099750) 판정: 관심 선물: 無 현재가: 8,000원 진입: 6,900~7,300원 (눌림 분할, 추격 자제) 손절: 6,660원 (MA60 이탈) 목표: 1차 9,000원 (2차 12,000원·컨센 실현 시) 손익비: 1:1.0 기간: 스윙 4~8주 촉매: 27기 반기보고서(2026-11월경)·NIA 공공 클라우드 HIS 후속 수주 반증: 27기 반기 연결 영업이익 &lt; 30억이면 하반기 급증 전제 붕괴로 논지 폐기</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
