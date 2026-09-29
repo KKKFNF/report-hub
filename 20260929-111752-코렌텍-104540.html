@@ -1,0 +1,240 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>코렌텍(104540) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260929-111752-코렌텍-104540.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:3.12</div><div class="tp-c"><b>결론 발췌</b> 인공관절 국산 1위·PBR 0.75배 저평가 자산주지만, 오늘 급등은 뉴스·실적 촉매 없는 저유동성 수급 스파이크(평소 거래량 수천주 → 오늘 116만주). 추세 진입은 부적합, 손익비 1:1.0 수준으로 [관망]. 자산가치 관심권은 4,000원 이하 회귀 시 별도 검토. ━━━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 8.72% [실측: KIS inquire-price vol_tnrt] — 당일거래대금 53.9억 / 시총 589억 [실측: acml_tr_pbmn 5,390,162,430원, hts_avls 589억]. 평상시 거래대금 약 2.9억(20일 근사) [추정: 최근20일 종가×거래량 평균, KIS 일봉] → 당일 약 1…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>코렌텍(104540)</h1>
+<div class="meta">📊 trend · 2026-09-29 11:17 · 코드 104540</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-29 11:17)</div><div class="kpi-v">4,340원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">582억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">9.29</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.74</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.12</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.68</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">4,675원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 4,000~4,100원 (박스 상단 눌림 확인 후, 현재가 추격 비권장)</span><span class="dc dn">손절 3,850원</span><span class="dc up">목표 4,675원</span><span class="dc">손익비 진입 1:3.12 · 현재가 1:0.68 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:4.6</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:4.6로 적었지만 진입·손절·목표로 계산하면 1:3.12다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 3분기보고서 법정기한</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 연환산 &lt; 26억이면 마진회복 논지 폐기(자산주만) / 종가 3,850원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 코렌텍(104540)  ※개별주식선물 無 (현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 인공관절 국산 1위·PBR 0.75배 저평가 자산주지만, 오늘 급등은 뉴스·실적 촉매 없는 저유동성 수급 스파이크(평소 거래량 수천주 → 오늘 116만주). 추세 진입은 부적합, 손익비 1:1.0 수준으로 [관망]. 자산가치 관심권은 4,000원 이하 회귀 시 별도 검토.</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 8.72% [실측: KIS inquire-price vol_tnrt] — 당일거래대금 53.9억 / 시총 589억 [실측: acml_tr_pbmn 5,390,162,430원, hts_avls 589억]. 평상시 거래대금 약 2.9억(20일 근사) [추정: 최근20일 종가×거래량 평균, KIS 일봉] → 당일 약 18배 폭증. 자금유입 &quot;강도&quot;라기보다 저유동성 종목의 일시적 쏠림.</li>
+<li>추세: MA 정배열 X [실측: MA5 4,070 &gt; MA20 4,020 &gt; MA60 4,038 아님 — MA20&lt;MA60로 역배열 잔존, KIS 일봉 87거래일]. 연속상승 3일 [실측]. 5일 <span class="up">+7.7%</span>·20일 <span class="up">+8.3%</span>·60일 <span class="up">+7.0%</span> [실측: KIS 일봉].</li>
+<li>현 위치: 52주 고점 7,440원 대비 59% 수준, 52주 저점 3,385원 대비 <span class="up">+30%</span> [실측: w52_hgpr/lwpr]. 오늘 전까지 9/10~9/28 종가 3,970~4,065원 완전 횡보 박스 → 오늘 하루 9.61% 갭성 급등으로 박스 상단 돌파. &quot;추세 지속&quot;이 아니라 &quot;박스 이탈 첫날&quot;이 정확한 진단.</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력 사업: 국내 최초·1위 인공관절(정형외과 임플란트) 전문 제조사(2000년 설립). 인공고관절(BENCOX)·인공슬관절(LOSPA/EXULT)이 매출의 약 86% [실측: 사업보고서 2025.12, 접수 20260319001143]. 세계 최초 3D프린팅 인공관절 양산 기술 보유. 척추(LOSPA IS)·견관절(CORALIS)·족관절로 확장 중.</li>
+<li>전방산업: 고령화·정형외과 수술 수요 구조적 성장. 수입 대체(국산화) + 수출(2025 별도 수출 308.7억, 매출의 40%) [실측].</li>
+<li>급등 사유: news_search.py(Google News RSS→네이버→네이버금융→Bing 폴백) 및 &quot;코렌텍 공시&quot; 검색 결과 급등 관련 확인된 뉴스·공시 없음 [실측: news_search.py 2026-09-29, 유효 기사 개인 투자분석 블로그 1건뿐]. 컨센서스·증권사 리포트도 최근 6개월 0건 [실측: consensus.py 4소스]. → 검증된 촉매 부재. 수급·테마성(정형외과·의료기기 순환매 추정) 급등 가능성 高.</li>
+</ul>
+<p>③ 실적 (DART 실측, 연결 기준 · 별도 병기)</p>
+<ul>
+<li>연결 매출: 2022년 639.1억 → 2023년 920.5억 → 2024년 936.7억 [실측: fnlttSinglAcntAll CFS, 각 사업보고서]. 완만한 성장.</li>
+<li>연결 영업이익/OPM: 2022년 58.5억(9.2%) → 2023년 70.5억(7.7%) → 2024년 38.9억(4.2%) [실측]. → 2024년 영업이익 45% 급감·마진 반토막이 핵심 약점.</li>
+<li>2025년 반기(연결): 매출 234.2억, 영업이익 13.7억(OPM 5.8%) [실측: 2025 반기보고서 CFS]. 영업은 흑자 유지.</li>
+<li>★순손익 분해(연결·별도 구분): 2024년 연결 순손실 -13.2억, 그러나 세전이익은 <span class="up">+1.6</span>억 [실측]. 원인은 영업악화가 아니라 법인세비용 14.9억 [실측] — 이연법인세 등 회계요인. 2025 반기도 동일: 세전 <span class="up">+3.1</span>억인데 법인세 13.5억으로 순손실 -10.4억 [실측]. → &quot;적자기업&quot;으로 오독 금지. 영업은 흑자, 순손실은 세무·회계성.</li>
+<li>별도 매출(사업부문 기준): 2023년 698.3억 → 2024년 647.5억 → 2025년 764.8억(<span class="up">+18.1%</span> yoy) [실측: 사업보고서 매출실적, 접수 20260319001143]. 별도 기준 2025 회복.</li>
+<li>부채비율(연결): 2024년 121% → 2025반기 110% [실측: 부채총계/자본총계]. 다소 높으나 완화 중.</li>
+<li>현금흐름(연결 영업활동): 2023 <span class="up">+26.3</span>억 → 2024 -66.1억(악화) → 2025반기 <span class="up">+143.6</span>억(대폭 개선) [실측: CF]. 2024 운전자본 부담 후 2025 회복.</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 추정치·목표가: 최근 6개월 커버리지 0건 [실측: consensus.py naver/fnguide/stockeasy/hankyung 4소스, 2026-09-29]. 애널리스트 미커버 소형주 → 컨센 미확인.</li>
+<li>자체 추정 방향(⑧ 참조): 별도 매출 회복(<span class="up">+18%</span>)·인공슬관절 단가 상승 vs 원재료(PE·티타늄) 급등 마진 압박이 상충. 2026 별도 매출 H1 391.9억 [실측] → 연환산 약 784억(전년比 소폭 성장) [추정: H1×2 단순환산].</li>
+<li>달성 가능성: 컨센 부재로 판단 근거 자체가 [中·근거 약함]. 자체 바텀업은 ⑧.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 지표: PER 9.40배 / PBR 0.75배 / EPS 467원 / BPS 5,844원 [실측: KIS inquire-price, 별도 기준 추정]. 시총 589억 [실측].</li>
+<li>PBR 밴드(BPS 5,844 기준): PBR 1.0=5,844원 / 0.9=5,260원 / 0.8=4,675원 / 현재 0.75=4,383원 [산식: BPS×멀티플].</li>
+<li>자체 목표가(자산가치 접근): 순자산 대비 저평가·영업흑자 지속을 감안, 적정 PBR 0.85배 부여 → 목표 5,844×0.85 = 4,970원 [추정: 산식]. 상승여력 현재가 대비 <span class="up">+13%</span>.</li>
+<li>단, 이익모멘텀(순손실·마진하락) 감안하면 PBR 0.75~0.80 박스가 시장 현실. 자산주로서 하방은 견고하나 상방 촉매 부재.</li>
+<li>증권사 목표가: 미확인(커버리지 0건) [실측].</li>
+</ul>
+<p>⑥ 진입전략·손익비 (★선물 無 — 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: 4,000원(9월 박스 상단·심리선), 3,850~3,900원(60일선 부근), 3,385원(52주 저점) [실측: 일봉].</li>
+<li>저항: 4,830원(당일 고가), 5,200원(상한가), 5,844원(PBR 1.0) [실측].</li>
+<li>현물 스윙 3라인(참고): 진입 4,000~4,100원(박스 상단 눌림 확인 후) / 손절 3,850원(60일선·박스하단 이탈) / 익절 1차 4,675원(PBR0.8)·2차 4,970원(목표).</li>
+</ul>
+<p>※ 오늘 종가권 4,390원 추격 진입은 비권장 — 급등 첫날 고가권, 눌림 확인 필요.</p>
+<ul>
+<li>손익비(진입 4,050원 가정): 상승여력 (4,970-4,050)/4,050 = <span class="up">+22.7%</span> ÷ 하락리스크 (4,050-3,850)/4,050 = <span class="down">-4.9%</span> = 1:4.6 [산식]. 진입가를 잘 잡으면 손익비는 양호하나, 상방 촉매가 없어 익절선 도달 확률이 관건.</li>
+</ul>
+<p>※ 현재가 추격(4,390 진입) 시: 상승여력 (4,970-4,390)/4,390=<span class="up">+13.2%</span> ÷ 하락 (4,390-3,850)/4,390=<span class="down">-12.3%</span> = 1:1.1 [산식] → 추격은 손익비 열위.</p>
+<p>⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC §9)</p>
+<ul>
+<li>스탁이지 기업·산업 리포트: 0건 [실측: stockeasy_reports.py --code / --industry, 2026-09-29].</li>
+<li>9-1 제품 포트폴리오(별도 2025) [실측: dart_biz.py, 접수 20260319001143]:</li>
+<li>인공슬관절 KNEE(LOSPA/EXULT) 352.8억·46.1%</li>
+<li>인공고관절 HIP(BENCOX) 307.5억·40.2%</li>
+<li>인공견관절 SHOULDER(CORALIS) 50.8억·6.6%</li>
+<li>척추 SPINE(LOSPA IS) 34.9억·4.6%</li>
+<li>기타 18.8억·2.5%</li>
+<li>9-2 고객·납품: 국내외 병원·대리점. 수출 비중 40%(별도 수출 308.7억) [실측]. 세부 고객사·납품비중 미공시 → 미확인.</li>
+<li>9-3 TAM·점유율: 국내 인공관절 시장 국산 1위(자사 사업보고서 서술) [인용: 사업보고서]. 정량 점유율·경쟁사 CAPA는 교차출처 2개 확보 실패 → 미확인.</li>
+<li>9-4 단가 이력(별도) [실측]: 인공고관절 1Set 1,636(2024)→1,792(2025)→1,921(2026 2Q)천원(<span class="up">+17%</span> 2년). 인공슬관절 1,377→1,349→1,539천원(<span class="up">+12%</span>). → 단가 상승 우호적.</li>
+<li>9-5 CAPA·가동률 [실측: 2026 2Q 반기보고서, 접수 20260814001886]: 슬관절 Femoral 94%·Patella 94%·Baseplate 96%로 고가동. 고관절 Stem 47%·Bone Screw 38%로 여유. 슬관절 병목 존재.</li>
+<li>9-6 전방 CAPEX·원재료: PE BAR 40mm 271→310→400천원/kg(<span class="up">+29%</span> 2년), 티타늄 Plate 120→139→157천원/kg [실측]. → 원가율 상승 압박, 단가 인상으로 일부 상쇄.</li>
+<li>9-7 바텀업 표 (2026 연결 영업이익 추정, 억원):</li>
+</ul>
+<p>입력: 별도 매출 H1 391.9억 [실측] → 연환산 방식별.</p>
+<ul>
+<li>Bear(확률 30%): 원재료 급등 마진잠식, 매출 정체 760억·OPM 3.5% → 영업 26.6억 [산식: 760×3.5%]</li>
+<li>Base(확률 50%): 매출 785억(<span class="up">+2%</span> yoy)·OPM 4.5%(단가인상 방어) → 영업 35.3억 [산식: 785×4.5%]</li>
+<li>Bull(확률 20%): 슬관절 수출호조 매출 830억·OPM 6.0% → 영업 49.8억 [산식: 830×6.0%]</li>
+</ul>
+<p>※ 연결 기준. 3Q·4Q 배분은 정형외과 계절성 미미로 H2 = 연간×약 51% 가정 [추정].</p>
+<ul>
+<li>컨센 대조: 컨센 0건이라 대조 불가.</li>
+<li>결론 문장: &quot;2026 연결 영업이익 ≥ 40억이면 마진회복 논지 유지·관심 상향, &lt; 26억이면 원가압박 논지 확정·자산주로만 접근.&quot; (X=40억 / Y=26억 — 결정카드 반증에 반영)</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만):</li>
+<li>2026년 3분기 보고서: 법정기한 2026-11-14 [실측: 분기보고서 45일 기한].</li>
+<li>그 외 확정 이벤트·정책 공시 미확인.</li>
+<li>반증 조건 3개:</li>
+</ul>
+<p>1) [실적 임계] 3Q26 누적 연결 영업이익 환산 &lt; 26억(연 26억 미달 페이스)이면 마진회복 논지 폐기 → 자산주 관점만 유지. 2) [실적 임계] 별도 분기매출이 전년동기 대비 역성장 전환하면 성장 스토리 폐기. 3) [가격] 종가 3,850원(60일선·박스하단) 이탈 시 단기 포지션 청산.</p>
+<ul>
+<li>이벤트 매트릭스(3Q 실적 × 당일 주가):</li>
+<li>쇼크(영업&lt;26억)×갭하락 → 청산/관망 / ×보합 → 반등 매도 / ×갭상승 → 차익실현</li>
+<li>인라인(26~40억)×갭하락 → 홀드 / ×보합 → 홀드 / ×갭상승 → 부분익절</li>
+<li>서프(≥40억)×갭하락 → 눌림 매수 / ×보합 → 추가 관심 / ×갭상승 → 추세 편승(단 촉매 확인)</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 30%: 촉매 소멸·수급 이탈, 박스 회귀 3,900원 → 현재가 대비 <span class="down">-11%</span></li>
+<li>Base 50%: 자산주 리레이팅 소폭, PBR0.8 목표 4,675원 → <span class="up">+6.5%</span></li>
+<li>Bull 20%: 마진회복+테마 지속, PBR1.0 5,844원 → <span class="up">+33%</span></li>
+<li>기대수익률 = 0.3×(<span class="down">-11%</span>) + 0.5×(<span class="up">+6.5%</span>) + 0.2×(<span class="up">+33%</span>) = <span class="down">-3.3%</span> <span class="up">+3.25%</span> <span class="up">+6.6%</span> = <span class="up">+6.6%</span> [산식]. → 기대값 양(+)이나 낮음, 추격 시 음전.</li>
+<li>수급·유동성: 외국인 최근 19거래일 -34,837주 순매도, 기관 사실상 무매매(<span class="up">+192</span>주) [실측: KIS inquire-investor]. 오늘 급등은 개인 수급 추정. 20일 평균 거래대금 약 2.9억 [추정: KIS 일봉] → 1일 체결 상한(ADV 10%) 약 2,900만원 수준으로 유동성 매우 얕음 → 대량 진입·청산 시 슬리피지 위험 大.</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭(진입 4,050·손절 3,850 = <span class="down">-4.9%</span>) = 자산의 약 20% 이론상한 [산식]. 그러나 유동성 상한(ADV 10%가 극히 얕음)과 촉매 부재가 실질 제약 → 자산의 5% 이내 소액·분할(2~3회차, 회차당 40/30/30%) 권고. 이벤트 전 상한 25%·집중상한 50%는 이 종목엔 무의미(유동성이 먼저 제약).</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>오늘 급등의 확인된 촉매(뉴스·공시) — news_search·공시검색 0건</li>
+<li>증권사 컨센서스·목표가 — 커버리지 0건</li>
+<li>정량 시장점유율·경쟁사 CAPA(교차출처 2개)</li>
+<li>세부 고객사·납품비중</li>
+<li>당일 확정 투자자 순매수(장중 blank), 3Q/4Q 계절성 정밀 배분</li>
+<li>2026 연결 손익(반기 연결 데이터는 2025까지만 확보)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS inquire-price/일봉/inquire-investor (2026-09-29 실측)</li>
+<li>DART fnlttSinglAcntAll CFS 2022~2025반기 (각 사업·반기보고서)</li>
+<li>DART 사업보고서 2025.12 접수 20260319001143 / 반기보고서 2026.06 접수 20260814001886</li>
+<li>consensus.py 4소스(2026-09-29) / news_search.py(2026-09-29) / stockeasy 0건</li>
+<li>kis_futures_check.py — 개별주식선물 미상장</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>별도매출 부문합: 307.49<span class="up">+352.80</span><span class="up">+34.93</span><span class="up">+50.82</span><span class="up">+18.76</span> = 764.8억 = 연간합 ✓</li>
+<li>H1 2026 별도: 148.17<span class="up">+187.24</span><span class="up">+16.26</span><span class="up">+30.35</span><span class="up">+9.93</span> = 391.9억 ✓</li>
+<li>손익비 산식 헤더(1:1.0 추격)·본문(추격 1:1.1, 눌림진입 1:4.6) 일치 ✓</li>
+<li>시나리오 확률합 30<span class="up">+50</span><span class="up">+20</span> = 100% ✓</li>
+<li>연결/별도 라벨 전수 표기 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-29 11:17 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 4,340원 (<span class="up">+8.4%</span>) · 시총 582억 · 5일 <span class="up">+6.8%</span> / 20일 <span class="up">+7.3%</span> / 60일 <span class="up">+6.0%</span></li>
+<li>MA5 4,062원 / MA20 4,018원 / MA60 4,037원 → MA20 이격 <span class="up">+8.0%</span> · MA60 이격 <span class="up">+7.5%</span></li>
+<li>52주 고 7,440원 / 저 3,385원 → 고점 대비 <span class="down">-41.7%</span> · 20일 고 4,340원 / 저 3,965원</li>
+<li>후행 PER 9.29 / PBR 0.74 (EPS 467원 · BPS 5,844원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 3.1억 (5일 11.3억)</li>
+<li>외국인 순매수 5일 -0.2억 / 20일 -1.4억 · 기관 5일 0.0억 / 20일 0.0억 · 개인 20일 1.3억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.00% / 20일 평균 0.99% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 4.71% (09/03) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 4,675원 (<span class="up">+7.7%</span>) ÷ 하방 3,850원 (−11.3%) = <strong>1:0.68</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 11.3% = <strong>자산의 4.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.4%</strong></li>
+<li>유동성 참고: 20일 ADV 3.1억 · 1일 소화 한도는 ADV의 10%(0.31억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 11.3% · ATR14 195원 (손절폭/ATR 2.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 11.3% = ATR14 × 2.5배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 3,965원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.89</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-104540"></span>📋 결정카드 — 코렌텍(104540) 판정: 관망 선물: 無 현재가: 4,390원 진입: 4,000~4,100원 (박스 상단 눌림 확인 후, 현재가 추격 비권장) 손절: 3,850원 목표: 1차 4,675원 (2차 4,970원) 손익비: 1:4.6 (눌림진입 기준 / 현재가 추격 시 1:1.1) 기간: 스윙 4~8주 촉매: 2026-11-14 3분기보고서 법정기한 반증: 3Q26 연결 영업이익 연환산 &lt; 26억이면 마진회복 논지 폐기(자산주만) / 종가 3,850원 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
