@@ -1,0 +1,225 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>뷰노(338220) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260929-093756-뷰노-338220.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:1.1</div><div class="tp-c"><b>결론 발췌</b> 흑자 전환 스토리에 &#x27;中 진출&#x27; 테마가 얹혀 이틀 급등했으나, 11/17 314억 유상증자(주식수 +45% 희석)라는 대형 오버행이 코앞이고 中 계약은 매출 미실현 PoC 단계다. 손익비 1:1.1로 열위 → 관망. 자체 산출 적정가 6,300원(현재가 7,740원 대비 하회), 증권사 목표가 28,000원(2025.11 DB금융, 유증·희석 미반영). ① 포착 신호 • 회전율 11.0% [실측: 9/28 거래대금 120억 ÷ 시총 1,084억, KIS 2026-09-29] — 자금유입 폭발적(20일 평균 거래대금 13억의 9배) • 시총 1,084억 [실측: 종가 7,740원 × 상장주식 14,001,823주, KIS] • 추세: MA…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>뷰노(338220)</h1>
+<div class="meta">📊 trend · 2026-09-29 09:37 · 코드 338220</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-29 09:37)</div><div class="kpi-v">7,640원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,070억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.96</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.45</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">8,860원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 관망(신규 진입 부적합) / 진입 시 6,800~7,000원 지지 확인 후 소량</span><span class="dc dn">손절 6,800원</span><span class="dc up">목표 8,860원</span><span class="dc">손익비 현재가 1:1.45</span><span class="dc">기간 스윙 2~4주(단, 11/17 유증 납입 전까지)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-04 유증 확정발행가 / 2026-11-17 유증 납입 / 3Q26 실적발표(11월)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업손실 ≤ -30억 → 논지 폐기·청산 / 종가 6,800원 하회 → 손절 / 유증 확정가 5,000원 하회 → 관망 유지</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 뷰노(338220) ※선물 無(개별주식선물 미상장·현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: 흑자 전환 스토리에 &#x27;中 진출&#x27; 테마가 얹혀 이틀 급등했으나, 11/17 314억 유상증자(주식수 <span class="up">+45%</span> 희석)라는 대형 오버행이 코앞이고 中 계약은 매출 미실현 PoC 단계다. 손익비 1:1.1로 열위 → 관망. 자체 산출 적정가 6,300원(현재가 7,740원 대비 하회), 증권사 목표가 28,000원(2025.11 DB금융, 유증·희석 미반영).</p>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 11.0% [실측: 9/28 거래대금 120억 ÷ 시총 1,084억, KIS 2026-09-29] — 자금유입 폭발적(20일 평균 거래대금 13억의 9배)</li>
+<li>시총 1,084억 [실측: 종가 7,740원 × 상장주식 14,001,823주, KIS]</li>
+<li>추세: MA5 6,152 &gt; MA20 5,281 &lt; MA60 6,831 [실측: KIS 일봉] — MA60은 아직 하회, 완전 정배열 아님(X). 9/18부터 저점 4,325→고점 8,230 반등, 2거래일(9/28 <span class="up">+13%</span>대·9/29 장중 <span class="up">+17%</span>) 급등 초입이나 8월 고점(7,400)·유증 발표 급락(<span class="down">-24%</span>) 직후 되돌림 성격</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업: 국내 1호 AI 의료기기 기업. 주력은 예후·예측 솔루션 &#x27;DeepCARS&#x27;(입원환자 24시간 내 심정지 위험 예측) — 2026 상반기 매출의 86% [실측: 반기보고서 접수 20260814002777, 예후예측 104.3억/합계 121.6억]. 그 외 진단솔루션(Chest X-ray·Fundus·DeepBrain), 심전도 기기 Hativ P30</li>
+<li>급등사유(검증됨): DeepCARS 中 하이난성 독점 판매계약(파트너 궈룬) [인용: 머니투데이·데일리한국 2026-09-28]. 단, 현지 병원 PoC(개념검증) 추진 단계 [인용: 이데일리팜 2026-09-28] → 계약 체결이지 매출 실현 아님. 기대감 성격 강함</li>
+<li>직전 악재(중요): 8/28 314억 규모 유상증자 결정, 증자비율 45%, 최대주주 참여 7%뿐 → 8/31 <span class="down">-24%</span> 급락 [실측: KIS 종가 8/28 7,400→8/31 5,590 / 인용: 조선비즈·한국경제 2026-08-31]. 이번 급등은 그 급락의 되돌림 위에 中 테마가 얹힌 구조</li>
+</ul>
+<p>③ 실적 (DART 실측·연결 CFS, 단위 억원)</p>
+<ul>
+<li>연간 매출: 2023 132.8 → 2024 258.7(<span class="up">+94.9%</span>) → 2025 348.5(<span class="up">+34.7%</span>) [실측: 사업보고서]</li>
+<li>연간 영업이익: 2023 -156.8 → 2024 -124.5 → 2025 -49.3 [실측] — 적자 축소 추세지만 여전히 적자</li>
+<li>연간 순이익: 2023 -156.3 → 2024 -130.2 → 2025 -57.8 [실측]</li>
+<li>2025 3Q 누적(9M) 영업이익 <span class="up">+10.2</span>억 흑자전환 [실측: 2025 3분기보고서 11014] — 단 Lung CT·BoneAge 파이프라인 양도수익 30억 일회성 인식 효과 [인용: DB금융 2025-11-13]. 양도익 제외 시 본사업 적자</li>
+<li>2026 상반기 누적(6M): 매출 121.6억(전년동기 대비 <span class="down">-27.6%</span>, 2025 상반기 167.9억), 영업손실 -83.2억, 순손실 -? [실측: 반기 add_amount 12,160·-8,316백만] — 다시 적자 확대. 2Q 단독 매출 61.1억, 영업손실 -42.1억 [실측: thstrm]</li>
+<li>재무: 2026 상반기말 자본 356.9억·부채 122.6억 → 부채비율 34.4% [실측: 부채 12,258 ÷ 자본 35,687백만]. 순손실 지속으로 자본잠식 우려는 없으나 현금소진 중 → 314억 유증이 이를 방증</li>
+<li>판정: 실적 모멘텀이 현 급등을 정당화하지 못함. 2025 흑전은 일회성, 2026 상반기 재차 적자 확대</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>컨센서스 미확인 [실측: consensus.py 2026-09-29, naver/fnguide/hankyung 추정치 0건] — 최근 6개월 신규 목표가 리포트 없음</li>
+<li>캐시 리포트(참고): DB금융투자 2025-11-13 Buy 목표가 28,000원(당시 4Q25E 영업적자 -1억 전망), 삼성증권 2025-09-30 Buy [인용: 스탁이지 캐시] — 모두 유상증자(8월) 및 2026 상반기 실적 이전 리포트, 현 상황 미반영</li>
+<li>FDA: DeepCARS 미국 FDA 510(k) 2025년말 목표, 획득 시 2026 NTAP 수가·매출 기대 [인용: DB금융] — 미확인(획득 여부 확인 안 됨)</li>
+<li>달성 가능성: 中 매출 기여도 低(PoC 단계, 시기·규모 미확인). 흑자 지속성 中→低</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 PBR 3.0배, BPS 2,579원 [실측: KIS]. PER는 적자로 산정 불가(EPS -413)</li>
+<li>적자 기업이라 PER 무의미 → PBR·PSR 접근. 2025 매출 348.5억 기준 PSR = 시총1,084÷348.5 = 3.1배 [추정: 산식]</li>
+<li>자체 목표가: 적자·희석 감안, 유증 예정발행가 4,980원과 증자후 시총 접근. 증자후 주식수 20,301,823주. 본사업 흑자 전환이 확인되지 않은 상태에서 적정 PBR 2.0배 적용 시 → BPS 2,579 × 2.0 ≒ 5,160원(증자전). 유입현금 314억 반영 BPS 상향(약 <span class="up">+1,000</span>원) 감안해도 6,000원대. 자체 적정가 6,300원 [추정: PBR 2.0×조정BPS]</li>
+<li>증권사 목표가 28,000원은 유증·2026 적자 미반영이라 현 시점 참고 제한적</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>52주 위치: 고점 28,350 / 저점 4,235 [실측: KIS]. 현재 7,740은 저점권에서 반등 중이나 고점 대비 <span class="down">-73%</span></li>
+<li>지지: 6,820(9/28 종가)·5,570(9/23)·5,000(심리)  / 저항: 8,230(9/29 고점)·8,860(상한가)·상단 갭 9,000대</li>
+<li>진입 가정 7,740 / 목표 8,860(상한 부근, <span class="up">+14.5%</span>) / 손절 6,800(9/28 저점 하회, <span class="down">-12.1%</span>)</li>
+<li>손익비 = 상승여력 14.5% ÷ 하락리스크 12.1% = 1:1.1 [실측 산식] — 열위. 급등 2일차·유증 오버행 감안 시 추격 매수 위험</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>스탁이지 산업 리포트: 별도 산업 리포트 미확인(기업 리포트 2건만)</li>
+<li>9-1 제품별 매출(2026 상반기 누적, 단위 억원) [실측: dart_biz 반기보고서 20260814002777]:</li>
+<li>예후·예측(DeepCARS): 104.3 (86%) / 진단솔루션: 4.07 (3%) / 상품(서버 등): 12.2 (10%) / 기술이전 등: 1.03 (1%) → 합계 121.6</li>
+<li>2025 연간: DeepCARS 256.95(74%) / 진단 16.14 / 상품 19.26 / 기술이전 56.13 [실측: 사업보고서 20260318000614]</li>
+<li>9-2 고객·납품: DeepCARS 국내 상급종합병원 SaaS 구독형. 도입 병상 4.8만(침투율 34%) [인용: 삼성증권 2025-09-30]. 신규 도입 정체로 병상 증가 둔화 [인용: DB금융 2025-11-13]</li>
+<li>9-3 TAM·경쟁: 국내 AI의료 경쟁사 루닛·제이엘케이·딥노이드 등. 中 하이난 진입은 신규 TAM이나 규모 미확인 [미확인: 中 매출 목표]</li>
+<li>9-4 단가 이력: SaaS 구독 단가 개별 미공시 [미확인]</li>
+<li>9-5 CAPA: SW 기업이라 물리 CAPA 개념 약함</li>
+<li>9-6 전방 CAPEX: 병원 IT 예산·수가 정책 의존</li>
+<li>9-7 바텀업 모델(2026 연간 추정, 단위 억원) [추정: 상반기 실적 연율화]:</li>
+<li>Bear(확률 40%): 상반기 121.6 × 2 = 243, 中 기여 0, 영업손실 -160 유지 → 적자 지속</li>
+<li>Base(확률 45%): 하반기 DeepCARS 국내 회복+양도익 부재, 연 매출 260, 영업손실 -120</li>
+<li>Bull(확률 15%): 中 PoC→초기 매출+FDA 획득, 연 매출 300+, 영업손실 -80으로 축소</li>
+<li>결론 문장: 3Q26 연결 영업이익이 흑자(≥ <span class="up">+5</span>억)로 전환되고 中 매출이 확인되면 리레이팅 논지 유지. 3Q26 영업손실 ≤ -30억(적자 확대 지속)이면 급등 논지 폐기·유증 부담만 남음</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정):</li>
+<li>2026-11-04: 유상증자 확정발행가 결정 [실측: 유증공시 20260828001315]</li>
+<li>2026-11-09~10: 구주주 청약</li>
+<li>2026-11-17: 납입일(신주 물량 유입 시작) → 오버행 정점</li>
+<li>3Q26 실적발표(11월 중, 잠정 미확정) [미확인: 정확일]</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>3Q26 연결 영업손실 ≤ -30억(적자 확대) → 전량 청산/신규 진입 금지 [분기 실적 임계]</li>
+<li>종가 6,800원(9/28 저점) 하회 마감 → 손절</li>
+<li>유증 확정발행가(11/4)가 5,000원 하회 확정 → 희석 심화, 관망 유지</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(실적 × 당일):</li>
+<li>실적 쇼크 × 갭하락: 손절/관망 / 실적 쇼크 × 갭상승: 반등 시 비중 축소</li>
+<li>인라인 × 보합: 유증 종료(11/17) 이후 재평가</li>
+<li>서프라이즈(中매출·흑전) × 갭상승: 소량 분할 진입 검토(그래도 유증 물량 확인 후)</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 40%: 유증 희석+적자 지속, 목표 5,600원(<span class="down">-27.6%</span>)</li>
+<li>Base 45%: 테마 소멸·박스권, 목표 7,000원(<span class="down">-9.6%</span>)</li>
+<li>Bull 15%: 中·FDA 모멘텀 지속, 목표 9,500원(<span class="up">+22.7%</span>)</li>
+<li>기대수익률 = 0.4×(-27.6)<span class="up">+0.45</span>×(-9.6)<span class="up">+0.15</span>×(22.7) = <span class="down">-11.9%</span> [추정 산식] → 음(-)</li>
+<li>수급·유동성: 외국인/기관 20일 순매수 [미확인: 데이터 미조회]. 20일 평균 거래대금 13.0억 → 1일 체결상한(ADV 10%) 1.3억 [실측: KIS 일봉 20일]. 유동성 얇아 급등락 심함</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1%÷손절폭 12.1% = 8.3%, 집중상한 50%, 이벤트(유증·실적) 전 상한 25% → 최소값 8.3%. 다만 손익비 열위·기대수익 음(-)이라 신규 진입 부적합, 관망 권고</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 최신 컨센서스(6개월 내 신규 리포트 0건) • 외국인/기관 20일 순매수 • DeepCARS 中 매출 목표·시기 • FDA 510(k) 획득 여부 • SaaS 구독 단가 • 3Q26 실적발표 정확일 • 2026 상반기 순손실 정확액(영업손실만 확인)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 사업보고서 2025 접수 20260318000614 / 반기보고서 2026.06 접수 20260814002777 / 유상증자결정 접수 20260828001315</li>
+<li>KIS OpenAPI 시세·일봉 2026-09-29</li>
+<li>news_search: DeepCARS 中 하이난 계약(머니투데이·데일리한국·이데일리팜 2026-09-28), 유증(조선비즈·한국경제 2026-08-31)</li>
+<li>스탁이지 캐시: DB금융투자 2025-11-13(Buy 28,000원), 삼성증권 2025-09-30(Buy)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합=연간: 2026 1Q 60.5 + 2Q 61.1 = 상반기 121.6 ✓ (add_amount 일치)</li>
+<li>사업부문합: DeepCARS 104.3 + 진단 4.07 + 상품 12.2 + 기타 1.03 = 121.6 ✓</li>
+<li>손익비: 상승 14.5% ÷ 하락 12.1% = 1.1 ✓ (헤더·본문 일치)</li>
+<li>시나리오 확률합: 40<span class="up">+45</span><span class="up">+15</span> = 100% ✓</li>
+<li>시총: 7,740 × 14,001,823 = 1,084억 ✓ (KIS hts_avls 1,084 일치)</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-29 09:37 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 7,640원 (<span class="up">+12.0%</span>) · 시총 1,070억 · 5일 <span class="up">+51.9%</span> / 20일 <span class="up">+3.2%</span> / 60일 <span class="down">-3.3%</span></li>
+<li>MA5 6,132원 / MA20 5,276원 / MA60 6,829원 → MA20 이격 <span class="up">+44.8%</span> · MA60 이격 <span class="up">+11.9%</span></li>
+<li>52주 고 28,350원 / 저 4,235원 → 고점 대비 <span class="down">-73.1%</span> · 20일 고 7,640원 / 저 4,320원</li>
+<li>후행 PER -18.5 / PBR 2.96 (EPS -413원 · BPS 2,579원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 15.5억 (5일 44.2억)</li>
+<li>외국인 순매수 5일 -3.3억 / 20일 7.3억 · 기관 5일 -1.2억 / 20일 -19.8억 · 개인 20일 13.6억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.64% / 20일 평균 5.00% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 18.13% (09/08) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 8,860원 (<span class="up">+16.0%</span>) ÷ 하방 6,800원 (−11.0%) = <strong>1:1.45</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 11.0% = <strong>자산의 4.5%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.5%</strong></li>
+<li>유동성 참고: 20일 ADV 15.5억 · 1일 소화 한도는 ADV의 10%(1.55억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 11.0% · ATR14 369원 (손절폭/ATR 2.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 11.0% = ATR14 × 2.3배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 6,902원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.65</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-338220"></span>📋 결정카드 — 뷰노(338220) 판정: 관망 선물: 無 현재가: 7,740원 진입: 관망(신규 진입 부적합) / 진입 시 6,800~7,000원 지지 확인 후 소량 손절: 6,800원 목표: 1차 8,860원 (2차 9,500원) 손익비: 1:1.1 기간: 스윙 2~4주(단, 11/17 유증 납입 전까지) 촉매: 2026-11-04 유증 확정발행가 / 2026-11-17 유증 납입 / 3Q26 실적발표(11월) 반증: 3Q26 연결 영업손실 ≤ -30억 → 논지 폐기·청산 / 종가 6,800원 하회 → 손절 / 유증 확정가 5,000원 하회 → 관망 유지</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
