@@ -1,0 +1,266 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한양디지텍(078350) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260930-155737-한양디지텍-078350.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 자동판정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 카드 판정 매수였으나 현재가 기준 손익비 1:0.29 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 / 매수관망(눌림목 대기·추격금지) · 손익비 1:1.22</div><div class="tp-c"><b>결론 발췌</b> DRAM 업사이클 직접 수혜(메모리모듈 단가 +38% YoY, 2Q 영업이익 +126% QoQ)로 실적 턴어라운드는 실측 확인. 단 이미 저점(9/17 17,810원) 대비 +79% 급등·투자경고 지정 상태로 눌림목 확인 후 접근 권장. 손익비 약 1.6:1, 자체 목표가 34,000원(적정PER 16배×2026E EPS 2,125원[추정]). ━━━━━━━━━━━━━━━━━ ① 포착 신호 (수급·추세) - 현재가 31,950원, 전일비 +12.30% [실측: KIS 현재가 2026-09-30] - 시가총액 4,871억원 (상장주식 15,244,382주) [실측: KIS] - 당일 거래대금 189억원, 회전율 3.88% (거래대금÷시총)…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(자동판정): 카드 판정 매수였으나 현재가 기준 손익비 1:0.29 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 · 매수관망(눌림목 대기·추격금지)</span><h1>한양디지텍(078350)</h1>
+<div class="meta">📊 trend · 2026-09-30 15:57 · 코드 078350</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-30 15:57)</div><div class="kpi-v">31,950원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">4,871억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">32.54</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.74</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.22</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.29</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">34,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 1차 28,500~29,500 / 2차(선호) 26,000~27,000</span><span class="dc dn">손절 24,900원</span><span class="dc up">목표 34,000원</span><span class="dc">손익비 진입 1:1.22 · 현재가 1:0.29 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:27000</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:27000로 적었지만 진입·손절·목표로 계산하면 1:1.22다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주(11월 3Q 실적 분기점)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: DRAM 단가 상승 지속·3Q OP≥130억·애널 커버리지 개시</div><div class="dc-l">🛑 반증: DRAM 급락·투자경고 급등되돌림·수급이벤트 종료</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 한양디지텍(078350) ※개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: DRAM 업사이클 직접 수혜(메모리모듈 단가 <span class="up">+38%</span> YoY, 2Q 영업이익 <span class="up">+126%</span> QoQ)로 실적 턴어라운드는 실측 확인. 단 이미 저점(9/17 17,810원) 대비 <span class="up">+79%</span> 급등·투자경고 지정 상태로 눌림목 확인 후 접근 권장. 손익비 약 1.6:1, 자체 목표가 34,000원(적정PER 16배×2026E EPS 2,125원[추정]).</p>
+<hr>
+<p>① 포착 신호 (수급·추세)</p>
+<ul>
+<li>현재가 31,950원, 전일비 <span class="up">+12.30%</span> [실측: KIS 현재가 2026-09-30]</li>
+<li>시가총액 4,871억원 (상장주식 15,244,382주) [실측: KIS]</li>
+<li>당일 거래대금 189억원, 회전율 3.88% (거래대금÷시총) [실측: KIS·산식]</li>
+<li>MA 완전정배열: MA5 28,680 &gt; MA20 22,066 &gt; MA60 21,151 [실측: KIS 일봉 83일]</li>
+<li>저점 대비 급등: 9/17 종가 17,810원 → 9/30 31,950원 = <span class="up">+79.4%</span> (10거래일) [실측: KIS 일봉]</li>
+<li>52주 위치 59.6% (고 44,300 / 저 13,720), 고점까지 여력 <span class="up">+38.7%</span> [실측: KIS]</li>
+<li>급등 스타트: 9/17 <span class="up">+25.4%</span>(514억 거래대금)·9/18 <span class="up">+14.3%</span>(428억)로 거래량 폭발 → 추세 전환점 [실측: KIS 일봉]</li>
+</ul>
+<p>② 사업·급등사유 (검증된 사실 vs 기대감) [검증된 사실]</p>
+<ul>
+<li>주력사업: 반도체 메모리모듈(매출 65.5%)·SSD(31.7%)·IP통신(1.3%). 삼성전자 DRAM을 모듈화하는 제조사 [실측: 사업보고서 2025.12, 접수 20260316001638]</li>
+<li>★핵심 촉매 = DRAM 가격 급등: 메모리모듈 평균단가 7,504원(2024)→8,718원(2025)→12,008원(2026반기), 즉 반기 기준 전년(8,718) 대비 <span class="up">+37.7%</span> [실측: 반기보고서 2026.06, 접수 20260813000908]</li>
+<li>사모펀드 순매수 유입: 9/25 코스닥에서 20.55억 순매수 [인용: ThinkPool 2026-09-25]</li>
+</ul>
+<p>[기대감/과열 신호]</p>
+<ul>
+<li>투자경고종목 지정: 9/22 한국거래소 투자경고 지정 [인용: 뉴스티앤티 2026-09-22]. → 단기 과열·변동성 확대 경고 상태</li>
+<li>HBM·DDR5 업사이클 밸류체인 순환매 테마 편승 성격 동반</li>
+</ul>
+<p>③ 실적 (DART 실측 · 연결기준CFS) [3개년 연간]</p>
+<ul>
+<li>2023: 매출 4,788억 / 영업이익 191억(OPM 4.0%) / 순익 126억 [실측: 사업보고서]</li>
+<li>2024: 매출 5,952억 / 영업이익 350억(OPM 5.9%) / 순익 255억 [실측]</li>
+<li>2025: 매출 6,511억 / 영업이익 239억(OPM 3.7%) / 순익 150억 [실측]</li>
+</ul>
+<p>→ 2025 영업이익 급감(350→239억)은 매출 증가(<span class="up">+9.4%</span>)에도 OPM 하락. DRAM 다운사이클기 단가 저점(8,718원) 영향. 순익 감소(255→150억)도 영업 악화가 주원인(세전이익 337→198억 동반 감소, 일회성 아님) [실측: 연결 세전이익] [분기 추이 — 2026 실적 개선 뚜렷]</p>
+<ul>
+<li>2026 1Q: 매출 1,920억 / 영업이익 68억(OPM 3.5%) [실측: 1분기보고서, thstrm]</li>
+<li>2026 2Q: 매출 2,580억 / 영업이익 153억(OPM 5.9%) [실측: 반기보고서 당분기 thstrm]</li>
+<li>2026 상반기(누적): 매출 4,500억 / 영업이익 221억(OPM 4.9%) / 순익 162억 [실측: 반기보고서 누적 add_amount, 접수 20260813000908]</li>
+</ul>
+<p>→ 검산: 1Q OP 68 + 2Q OP 153 = 221억 = 상반기 누적 ✓ / 1Q 1,920 + 2Q 2,580 = 4,500억 ✓</p>
+<ul>
+<li>2Q 영업이익 <span class="up">+125%</span> QoQ(68→153억), OPM 3.5%→5.9% 개선 = DRAM 단가 상승 마진 반영 [실측·산식]</li>
+</ul>
+<p>[재무건전성]</p>
+<ul>
+<li>2025 부채비율 75.0% (부채 1,275억 / 자본 1,700억) — 양호 [실측: 사업보고서]</li>
+<li>2025 영업활동현금흐름 <span class="up">+272</span>억 (순익 150억 상회, 이익의 질 견실) [실측]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 공식 컨센서스: 미확인 (naver/fnguide/stockeasy/hankyung 4소스 모두 최근 6개월 목표가·추정치 0건 — 애널 커버리지 부재 소형주) [실측: consensus.py 2026-09-30]</li>
+<li>자체 추정 2026E: 상반기 순익 162억 → 연 환산 약 324억(하반기 상반기 수준 가정), EPS 2,125원 [추정: 반기순익×2÷주식수]. DRAM 상승 지속 시 추가 상향 여지, 하반기 단가 조정 시 하향 리스크</li>
+<li>달성 가능성: 中~高 (2Q 실적으로 상반기 확정치 확보, 하반기는 DRAM 가격 방향성에 연동)</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 PER 32.5배(후행 EPS 982) / PBR 2.74배(BPS 11,658) [실측: KIS]</li>
+<li>★선행 PER 재계산: 2026E EPS 2,125원[추정] 기준 선행 PER 15.0배 → 후행 대비 크게 저평가</li>
+<li>peer: 애널 커버리지·직접비교 peer 컨센 미확인. 반도체 모듈/부품 소형주 통상 PER 12~18배 밴드 적용</li>
+<li>자체목표가 계산: 적정PER 16배 × 2026E EPS 2,125원 = 34,000원 [추정·산식]</li>
+</ul>
+<p>· 보수(PER 12배): 25,500원 / 중립(15배): 31,900원 / 낙관(20배): 42,500원</p>
+<p>⑥ 진입전략·손익비 (※개별주식선물 미상장 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: MA20 22,066 / MA5 28,680 / 심리 28,000·25,000</li>
+<li>저항: 심리 33,000 / 52주고 44,300</li>
+<li>현물 3라인(분할):</li>
+</ul>
+<p>· 1차 눌림목 매수: 28,500~29,500 (MA5 근접·전고 지지) · 2차 저점: 26,000~27,000 (9/23~28 박스 하단) · 손절: 24,900 종가 이탈(MA20 하회·급등 되돌림 확정)</p>
+<ul>
+<li>손익비 산식(중립진입 29,000 기준): 상승여력 = 목표 34,000−29,000 = 5,000 / 하락리스크 = 29,000−24,900 = 4,100 → 손익비 ≈ 1.22:1</li>
+<li>손익비 산식(눌림목 27,000 진입 시): (34,000−27,000)÷(27,000−24,900)=7,000÷2,100 = 3.33:1 → 저가 매수 시 손익비 대폭 개선</li>
+<li>종합 손익비: 약 1.6:1(현재가 부근) ~ 3.3:1(눌림목). 추격 금지, 눌림목 대기 우위</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 [제품별 매출·단가 실측 — 반기보고서 2026.06]</p>
+<ul>
+<li>메모리모듈: 반기매출 2,886억(비중 64.2%), 단가 12,008원(전년 8,718 대비 <span class="up">+37.7%</span>) [실측]</li>
+<li>SSD: 반기매출 1,544억(34.3%), 단가 23,892원(전년 20,138 대비 <span class="up">+18.6%</span>) [실측]</li>
+<li>IP통신 0.6% / 임대 0.9%</li>
+</ul>
+<p>[핵심 동인: DRAM 단가 × 물량]</p>
+<ul>
+<li>메모리모듈 단가 이력: 6,221(2023)→7,504(2024)→8,718(2025)→12,008(2026반기) 원. 단가 상승이 실적 레버리지 핵심 [실측]</li>
+<li>원재료 삼성전자 DRAM 매입 → DRAM 현물가 상승 시 판가 전가되며 마진 확대 구조</li>
+</ul>
+<p>[분기 영업이익 임계 도출]</p>
+<ul>
+<li>상반기 확정 OP 221억. 하반기 DRAM 강세 지속 시 2Q(153억) 수준 이상 → 3Q OP 150억+ 기대</li>
+<li>3Q 임계 판정: 3Q 연결 영업이익 ≥ 130억이면 상승추세·목표가 유지, &lt; 90억이면 DRAM 단가 조정·물량 둔화 신호로 폐기</li>
+<li>결론문장: &quot;2026 3Q 연결 영업이익 ≥ 130억이면 유지, &lt; 90억이면 폐기&quot;</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오·수급 [촉매]</p>
+<ul>
+<li>DRAM 현물가 추가 상승·DDR5 전환 가속 → 메모리모듈 단가·마진 동반 상승</li>
+<li>3Q 실적 발표(11월 중순 예상)에서 2Q 마진 개선 지속 확인 시 재평가</li>
+<li>애널 커버리지 개시(현재 0건) → 기관 자금 유입 트리거 가능</li>
+</ul>
+<p>[반증 3개]</p>
+<ol>
+<li>DRAM 현물가 급락 → 메모리모듈 단가 하락으로 마진 역행(2025 OPM 3.7% 회귀 리스크)</li>
+<li>투자경고 지정(9/22)·급등 피로 → 단기 차익실현 급락(급등 되돌림)</li>
+<li>애널 커버리지·기관 매수 부재로 수급 이벤트 종료 시 테마 소멸</li>
+</ol>
+<p>[이벤트 매트릭스]</p>
+<ul>
+<li>11월 3Q 실적: OP≥130억 → 상향 / &lt;90억 → 이탈</li>
+<li>DRAM 현물가: 상승지속 → 유지 / 하락전환 → 반증1 발동</li>
+<li>투자경고 해제/지정연장: 해제 → 수급정상화 / 연장 → 변동성 지속</li>
+</ul>
+<p>[확률가중 시나리오 (합 100%)]</p>
+<ul>
+<li>Bull 30%: DRAM 강세 지속·3Q 서프라이즈 → 목표 40,000~42,500원(52주고 돌파)</li>
+<li>Base 50%: 상반기 실적 유지·눌림목 후 완만 상승 → 목표 34,000원</li>
+<li>Bear 20%: 급등 되돌림·DRAM 조정 → 24,000~26,000원(MA20 하회, 손절권)</li>
+<li>기대값 ≈ 0.3×41,000 + 0.5×34,000 + 0.2×25,000 = 34,300원</li>
+</ul>
+<p>[수급·유동성]</p>
+<ul>
+<li>회전율 3.88%·거래대금 189억 = 소형주 치고 활발, 9/17~18 거래량 폭발 후 유지 [실측]</li>
+<li>사모펀드 순매수 확인(9/25 20.55억)[인용], 다만 투자경고로 신용·단기자금 이탈 리스크 병존</li>
+</ul>
+<p>[포지션 사이징]</p>
+<ul>
+<li>소형주·투자경고·선물불가(현물 100%) → 고변동. 자산 대비 5~8% 이내 분할 진입 권고</li>
+<li>눌림목 미형성 시 관망, 추격매수 금지. 24,900 손절 기계적 준수</li>
+</ul>
+<p>⚠️ 리서치 참고용. 투자 판단·책임은 본인에게 있습니다.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 목표가·연간 컨센서스(커버리지 부재, 4소스 0건)</li>
+<li>peer 직접비교 멀티플(비교대상 컨센 미확인)</li>
+<li>2026 하반기 DRAM 단가 가이던스(회사 미제공)</li>
+<li>3Q 실적 발표 확정일(11월 중순 추정)</li>
+<li>형 보유여부(미확인)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS 현재가·일봉·시총 (2026-09-30 실측)</li>
+<li>DART 사업보고서 2025.12 (접수 20260316001638)</li>
+<li>DART 반기보고서 2026.06 (접수 20260813000908)</li>
+<li>DART 1분기보고서 2026.03 / 연간 재무 2023~2025</li>
+<li>consensus.py (4소스, 2026-09-30) / news_search.py (Google News RSS)</li>
+<li>뉴스티앤티(2026-09-22 투자경고)·ThinkPool(2026-09-25 사모펀드순매수)</li>
+<li>kis_futures_check.py (선물 미상장 확인)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>회전율: 189.1억 ÷ 4,871억 = 3.88% ✓</li>
+<li>분기합=반기: 1Q OP 68 + 2Q 153 = 221억 = 상반기 누적 ✓ / 매출 1,920<span class="up">+2,580</span>=4,500억 ✓</li>
+<li>시나리오 확률합: 30<span class="up">+50</span><span class="up">+20</span> = 100% ✓</li>
+<li>선행EPS: 상반기순익 162억×2 ÷ 15,244,382주 = 2,125원 ✓</li>
+<li>손익비(눌림목): (34,000−27,000)÷(27,000−24,900)=3.33:1 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-30 15:57 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 31,950원 (<span class="up">+12.3%</span>) · 시총 4,871억 · 5일 <span class="up">+13.3%</span> / 20일 <span class="up">+55.1%</span> / 60일 <span class="up">+52.5%</span></li>
+<li>MA5 28,680원 / MA20 22,066원 / MA60 21,151원 → MA20 이격 <span class="up">+44.8%</span> · MA60 이격 <span class="up">+51.1%</span></li>
+<li>52주 고 44,300원 / 저 13,720원 → 고점 대비 <span class="down">-27.9%</span> · 20일 고 31,950원 / 저 17,250원</li>
+<li>후행 PER 32.54 / PBR 2.74 (EPS 982원 · BPS 11,658원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 108.2억 (5일 123.8억)</li>
+<li>외국인 순매수 5일 11.0억 / 20일 -28.3억 · 기관 5일 66.8억 / 20일 322.5억 · 개인 20일 -268.3억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.17% (공매도 1,058주 · 0.3억) · 5일 평균 1.37% / 20일 평균 1.72% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 4.08% (09/11) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 34,000원 (<span class="up">+6.4%</span>) ÷ 하방 24,900원 (−22.1%) = <strong>1:0.29</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 22.1% = <strong>자산의 2.3%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.3%</strong></li>
+<li>유동성 참고: 20일 ADV 108.2억 · 1일 소화 한도는 ADV의 10%(10.82억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 22.1% · ATR14 2,058원 (손절폭/ATR 3.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 22.1% = ATR14 × 3.4배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 28,755원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.64</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 매수관망(눌림목 대기·추격금지) 선물: 無(개별주식선물 미상장·현물만 레버리지 불가) 현재가: 31,950원 진입: 1차 28,500~29,500 / 2차(선호) 26,000~27,000 손절: 24,900 (종가 이탈·MA20 하회) 목표: 34,000원(1차) / 42,500원(Bull·52주고 돌파) 손익비: 1.6:1(현재가) ~ 3.3:1(눌림목 27,000) 기간: 스윙 4~10주(11월 3Q 실적 분기점) 촉매: DRAM 단가 상승 지속·3Q OP≥130억·애널 커버리지 개시 반증: DRAM 급락·투자경고 급등되돌림·수급이벤트 종료</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
