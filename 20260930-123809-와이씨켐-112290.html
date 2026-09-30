@@ -1,0 +1,304 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>와이씨켐(112290) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260930-123809-와이씨켐-112290.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.74</div><div class="tp-c"><b>결론 발췌</b> HBM·EUV 소재 턴어라운드가 실체로 확인된 코스닥 반도체 소재주. 영업턴어라운드는 진짜지만 CB 풋옵션·금융비용(반기 62억&gt;영업이익 37억)이 순이익을 잠식하는 재무구조가 최대 리스크. 당일 +15% 급등으로 단기 과열, 손익비 1:1.4(관심 등급). 자체 목표가 15,400원(1차)·18,000원(2차). [실측: KIS 2026-09-30·DART 접수 20260812000492] ━━━━━━━━━━━━━━━━━━</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>와이씨켐(112290)</h1>
+<div class="meta">📊 trend · 2026-09-30 12:38 · 코드 112290</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-30 12:38)</div><div class="kpi-v">12,410원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2,509억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.82</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.74</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.06</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">15,400원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 11,000~11,300원(1차 눌림) · 10,300~10,500원(2차)</span><span class="dc dn">손절 9,600원</span><span class="dc up">목표 15,400원</span><span class="dc">손익비 진입 1:2.74 · 현재가 1:1.06 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.4</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.4로 적었지만 진입·손절·목표로 계산하면 1:2.74다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026.11 3Q 분기보고서 · 하반기 HBM 글루클리너 납품 개시</div><div class="dc-l">🛑 반증: 3Q(2026) 별도 영업이익 &lt; 10억이면 턴어라운드 좌초로 논지 폐기 · MA60(9,958) 종가 하회 시 손절 · CB 110억 풋옵션 현금상환+추가 CB/유증 공시 시 비중축소</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 와이씨켐(112290)  ※개별주식선물 無</p>
+<p>📌 한줄 결론: HBM·EUV 소재 턴어라운드가 실체로 확인된 코스닥 반도체 소재주. 영업턴어라운드는 진짜지만 CB 풋옵션·금융비용(반기 62억&gt;영업이익 37억)이 순이익을 잠식하는 재무구조가 최대 리스크. 당일 <span class="up">+15%</span> 급등으로 단기 과열, 손익비 1:1.4(관심 등급). 자체 목표가 15,400원(1차)·18,000원(2차). [실측: KIS 2026-09-30·DART 접수 20260812000492]</p>
+<hr>
+<p>① 포착 신호 (실측 · KIS 2026-09-30 종가)</p>
+<ul>
+<li>현재가 12,400원 [실측] · 등락 <span class="up">+15.03%</span>(<span class="up">+1,620</span>원) [실측] · 상한가 근접 시도(고가 12,800)</li>
+<li>당일 거래대금 100.7억원 [실측] ← 전일 19.2억 대비 5.2배 급증 [실측: 20260929 대금 1,924백만]</li>
+<li>거래회전율 4.14% [실측: KIS vol_tnrt]</li>
+<li>시가총액 2,507억원 [실측: hts_avls] · 상장주식 20,221,090주 [실측]</li>
+<li>추세: MA5 10,898 &lt; MA20 10,085 &lt; MA60 9,958 → 완전 정배열 [실측: KIS 일봉 100개]</li>
+</ul>
+<p>└ 당일 종가 12,400이 MA5(10,898)를 <span class="up">+13.8%</span> 이격 → 단기 과열 구간</p>
+<ul>
+<li>52주 고 28,800 / 저 7,400 [실측] → 현재가는 52주고 대비 43% 수준, 저점 대비 <span class="up">+67.6%</span></li>
+<li>최근 흐름: 9/22 10,300 → 9/29 10,780 완만 상승 후 9/30 갭상승 급등(HBM 테마 동반)</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력: 반도체 공정소재(반도체전자재료 매출비중 94.3%, 일반화학 5.4%) [실측: 사업보고서 제25기 접수 20260318000721]</li>
+</ul>
+<p>└ EUV/ArF 노광공정용 패턴붕괴방지액·현상액·린스, PHOTO Mask 소재. 2001년 설립, 2016년 EUV 소재 상용화 [인용: DART 사업의개요]</p>
+<ul>
+<li>급등사유 검증:</li>
+<li>[사실] HBM 테마 순환매 동반 상승 — &quot;와이씨켐, HBM 테마 상승세에 10.3%↑&quot;(9/30) [인용: 매일경제 마켓 2026-09-30]</li>
+<li>[사실·펀더멘탈] 하반기 HBM 적층공정용 글루 클리너 납품 + 고선택비 폴리실리콘 슬러리 양산 예정 [인용: 키움증권 2026-07-14]</li>
+<li>[사실·펀더멘탈] EUV 린스 등 고부가 Photo소재 전년比 <span class="up">+63%</span> 성장 [인용: 키움증권 2026-07-14]</li>
+<li>[기대감] 유리기판(글래스기판)용 소재 3종(PR·박리액·현상액) 패키지 공급, i-line 노광 유일 공급자 부상 — PO단계 진입했으나 양산 매출은 미확인 [인용: 그로쓰리서치 2026-05-18]</li>
+</ul>
+<p>→ 급등은 &#x27;HBM 테마 수급 + 실체 있는 턴어라운드&#x27; 결합. 유리기판은 기대감 영역(중장기).</p>
+<p>③ 실적 (DART 별도 실측 · OFS, 연결 미해당)</p>
+<ul>
+<li>연간 추세(별도) [실측: DART 접수 20260318000721]</li>
+<li>제23기(2023): 매출 622.7억 · 영업손실 미상세 · (순손실)</li>
+<li>제24기(2024): 매출 703.0억 · 영업손실 -81.6억 · 순손실 -159.9억</li>
+<li>제25기(2025): 매출 830.9억 · 영업손실 -17.7억 · 순이익 <span class="up">+46.3</span>억(법인세수익 <span class="up">+7.0</span>억 등 영업외 기여) [실측]</li>
+<li>분기 턴어라운드(별도 2026년/제26기) [실측: DART 접수 20260812000492]</li>
+<li>2026 1Q: 매출 260.3억 · 영업이익 <span class="up">+16.0</span>억(흑자전환) · 순이익 <span class="up">+5.4</span>억</li>
+<li>2026 2Q: 매출 270.6억 · 영업이익 <span class="up">+21.2</span>억 · 순손실 -4.7억</li>
+<li>2026 반기누적: 매출 530.9억(YoY +약37%) · 영업이익 <span class="up">+37.2</span>억 · 순이익 <span class="up">+0.8</span>억</li>
+<li>반기 OPM = 37.2/530.9 = 7.0% [추정: 산식]</li>
+<li>사업부문 비중(제25기): 반도체전자재료 94.3% / 일반화학 5.4% / 상품 0.3% [실측]</li>
+<li>2026반기 반도체전자재료 비중 96.6%로 상승 [실측]</li>
+<li>재무 건전성(제25기말 별도) [실측]</li>
+<li>자산 1,732억 · 부채 1,241억 · 자본 491억 → 부채비율 252.4% [추정: 1241/491]</li>
+<li>유동부채 985억(자본총계 초과) → 단기 유동성 부담</li>
+<li>금융비용(2026반기) 62.1억 &gt; 영업이익 37.2억 → 이자보상배율 &lt;1 [실측: CIS 금융비용 6,212백만]</li>
+<li>영업활동현금흐름(제25기) <span class="up">+16.0</span>억(전기 -69.3억서 (+)전환) [실측: CF]</li>
+<li>★순이익 분해: 2025 순이익 흑자는 영업손실(-17.7억)에도 법인세수익·영업외로 (+)전환된 것. 2026 순이익이 영업이익 대비 급감한 것은 영업악화가 아니라 62억 금융비용(CB이자·차입) 부담 때문 [실측 근거]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>컨센서스(fnguide, 목표가 제시 리포트 없음) [인용: consensus.py 2026-09-30]</li>
+<li>FY26E: 매출 1,152억 · 영업이익 95억 · 순이익 80억 · EPS 396원 · PER 27.2배</li>
+<li>FY27E: 매출 1,705억 · 영업이익 214억 · 순이익 186억 · EPS 920원 · PER 11.7배</li>
+<li>달성가능성 판정:</li>
+<li>FY26 매출 1,152억: 반기 530.9억 실측 → 하반기 621억 필요(반기比 <span class="up">+17%</span>). HBM 글루클리너 납품 시작 감안 → 달성가능성 中~高</li>
+<li>FY26 영업이익 95억: 반기 37.2억 → 하반기 57.8억 필요. 반기 OPM 7%에서 하반기 가속 전제 필요 → 달성가능성 中</li>
+<li>FY27 매출 1,705억(<span class="up">+48%</span> YoY): 유리기판 양산·HBM 확대 전제 → 기대감 반영, 달성가능성 低~中(양산 PO 확인 전)</li>
+<li>투자의견: NR(Not Rated) 2건 — 목표가 제시 증권사 없음 [실측]</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 밸류(KIS 실측): PER -7.84(적자·의미없음) · PBR 2.82배 · BPS 4,401원 · EPS -1,581원(과거12M) [실측]</li>
+</ul>
+<p>└ 과거 EPS 음수라 PER 무의미 → PBR·선행PER로 평가</p>
+<ul>
+<li>선행 밸류: FY26E EPS 396원 기준 현재가 12,400원 → 선행PER 31.3배 [추정: 12400/396]</li>
+</ul>
+<p>FY27E EPS 920원 기준 → 선행PER 13.5배 [추정]</p>
+<ul>
+<li>자체 목표가 산출(2안 병행):</li>
+</ul>
+<p>[A안·PBR] 반도체소재 턴어라운드주 적정 PBR 3.5배 적용 × BPS 4,401 = 15,404원 [추정: 3.5×4401] [B안·선행PER] FY27E EPS 920원 × 적정PER 20배(성장 소재주 밴드 중단) = 18,400원 [추정: 920×20] → 1차 목표 15,400원(A안, 근시일 PBR 리레이팅), 2차 18,000원(B안, FY27 이익 가시화 시)</p>
+<ul>
+<li>peer 밸류 비교: 반도체 소재 peer 정밀 PBR 미확보(스탁이지 산업DB는 정유화학 위주) → [미확인]. 밴드 판단은 자체 추정 멀티플 기반.</li>
+<li>증권사 목표가: 없음(NR) [실측]</li>
+</ul>
+<p>⑥ 진입전략·손익비 (개별주식선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: 1차 MA5 10,900 / 2차 MA20 10,085 / 3차 MA60 9,958(정배열 하단) [실측]</li>
+<li>저항: 1차 당일고 12,800 / 2차 52주고 대비 중간대 15,000~15,400(자체 1차목표) [실측·추정]</li>
+<li>52주 위치: 고점 대비 43% → 상방 공간은 넓으나 급등 당일 진입은 과열 부담</li>
+<li>진입 전략(3회 분할·현물):</li>
+<li>관심 진입은 급등 눌림 확인 후. 1차 11,000~11,300(MA5 회귀), 2차 10,300~10,500(MA20 지지), 3차 9,900(MA60)</li>
+<li>손절 9,600(MA60 <span class="down">-3.5%</span>, 정배열 붕괴선) [추정]</li>
+<li>익절 1차 15,400(목표A), 2차 18,000(목표B)</li>
+<li>손익비 계산(현재가 12,400 기준 즉시진입 가정):</li>
+<li>상승여력 = (15,400-12,400)/12,400 = <span class="up">+24.2%</span> [추정]</li>
+<li>하락리스크 = (12,400-9,600)/12,400 = <span class="down">-22.6%</span> [추정]</li>
+<li>손익비 = 24.2/22.6 = 1:1.07 → 현 위치 즉시진입은 손익비 열위</li>
+<li>눌림 진입(11,000 가정): 상승여력 (15,400-11,000)/11,000=<span class="up">+40.0%</span>, 하락 (11,000-9,600)/11,000=<span class="down">-12.7%</span> → 손익비 1:3.1로 개선 [추정]</li>
+</ul>
+<p>→ 헤더 손익비 1:1.4는 눌림/현가 평균 가정 보수치. 현가 즉시 진입은 1:1.07로 불리, 눌림 대기 시 1:3.1로 매력적</p>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC §9)</p>
+<p>9-1 제품 구조(제25기 별도) [실측: 접수 20260318000721]</p>
+<ul>
+<li>반도체전자재료 783.3억(94.3%): EUV/ArF 노광소재·현상액·린스·PHOTO Mask 소재 → 성장 견인</li>
+<li>일반화학 45.2억(5.4%) / 상품 2.4억(0.3%)</li>
+<li>원재료 매입(제25기): 반도체전자재료 340.3억(국내 320억+수입 20억), 총 382.8억 [실측]</li>
+</ul>
+<p>└ 매출원가 구조: 원재료/매출 = 382.8/830.9 = 46.1% [추정]</p>
+<p>9-2 고객·납품 비중: 주요 고객사(국내 메모리·파운더리 추정) 세부 비중 [미확인 — 사업보고서 매출처 비중 비공개]</p>
+<p>9-3 TAM·경쟁 CAPA·점유율:</p>
+<ul>
+<li>EUV 린스/패턴붕괴방지액 시장 국내 소수 공급자, 와이씨켐 EUV 소재 2016 상용화 선점 [인용: DART 사업개요]</li>
+<li>유리기판 i-line 노광소재 &quot;유일 공급자 부상&quot; [인용: 그로쓰리서치 2026-05-18] — 점유율 수치 [미확인]</li>
+<li>정량 TAM/경쟁사 CAPA 출처 2개 확보 실패 → [미확인]</li>
+</ul>
+<p>9-4 단가 이력: 사업보고서 제품 가격변동추이 표가 &#x27;매출액·비율&#x27;만 제공(단가 미분리) → 제품 단가 시계열 [미확인]</p>
+<p>9-5 CAPA·증설: 폴리실리콘 슬러리 양산·HBM 글루클리너 납품 계획 [인용: 키움 2026-07-14], 증설 CAPA 수치 [미확인]</p>
+<p>9-6 전방 CAPEX: HBM 전방 삼성·SK하이닉스 HBM4 증설 사이클 → 후공정 소재 수요 확대(정성). 정량 CAPEX 연동치 [미확인]</p>
+<p>9-7 바텀업 모델 표 (2026 연간 별도, 반기 실측 530.9억·37.2억 기반 하반기 추정) 입력: 반기 매출 530.9억[실측], 반기 영업이익 37.2억[실측], 반기 OPM 7.0%</p>
+<ul>
+<li>Bear(하반기 매출 520억, OPM 5%): 하반기 영업이익 26억 → 연 매출 1,051억, 연 영업이익 63억</li>
+<li>Base(하반기 매출 590억, OPM 7%): 하반기 영업이익 41억 → 연 매출 1,121억, 연 영업이익 78억</li>
+<li>Bull(하반기 매출 650억, OPM 9%): 하반기 영업이익 59억 → 연 매출 1,181억, 연 영업이익 96억</li>
+<li>3Q·4Q 배분(Base): 3Q 영업이익 ≈19억, 4Q ≈22억 [추정: 반기페이스+HBM 납품 하반기 가중]</li>
+<li>컨센 대조: 컨센 FY26 영업이익 95억 = 본 모델 Bull(96억)에 근접 → 컨센은 낙관적, Base 78억이 현실적</li>
+<li>민감도: 하반기 OPM ±1%p → 연 영업이익 ±약 6억</li>
+</ul>
+<p>★결론 문장: 3Q 별도 영업이익 ≥ 19억이면 턴어라운드·추가매수 논지 유지, &lt; 10억이면 논지 폐기(금융비용 대비 영업 커버 불가·턴어라운드 좌초 신호).</p>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정)</li>
+<li>2026.11 중순(추정): 제26기 3Q 분기보고서 — 턴어라운드 지속 검증 핵심 [추정: 법정기한]</li>
+<li>하반기: HBM 적층공정 글루클리너 실제 납품 개시 [인용: 키움 2026-07-14, 날짜 미확정]</li>
+<li>CB 풋옵션 도래 110억 관련 상환/차환 이벤트 [인용: 뉴스토마토 2026-09-23, 정확일자 미확인]</li>
+</ul>
+<ul>
+<li>반증 조건 3개(수치→행동)</li>
+</ul>
+<p>1) [분기실적 임계] 3Q(2026) 별도 영업이익 &lt; 10억 → 턴어라운드 좌초, 논지 폐기·전량 청산 2) 종가가 MA60(9,958) 하회 마감 → 정배열 붕괴, 스윙 손절 3) CB 110억 풋옵션 현금상환 확정+추가 유상증자/CB 발행 공시 → 재무리스크 재확대, 비중 축소</p>
+<ul>
+<li>이벤트 매트릭스 (3Q 실적 × 당일 주가)</li>
+<li>실적 서프(영업이익≥25억) × 갭상승 → 추격 자제, 눌림 1차 진입</li>
+<li>실적 서프 × 갭하락 → 저가 매수 기회, 분할 진입</li>
+<li>인라인(15~25억) × 보합 → 계획대로 눌림 분할</li>
+<li>쇼크(&lt;10억) × 갭하락 → 반증1 발동, 청산</li>
+<li>쇼크 × 갭상승(테마 수급) → 반등 시 축소·이탈</li>
+</ul>
+<ul>
+<li>확률가중 시나리오</li>
+<li>Bear 30%: 급등 과열 되돌림<span class="up">+3</span>Q 부진, 목표 9,600(손절), 수익 <span class="down">-22.6%</span> [전제: OPM 5%·HBM 납품 지연]</li>
+<li>Base 50%: 눌림 후 재상승, 목표 15,400, 수익 <span class="up">+24.2%</span>(현가) [전제: OPM 7%·컨센 Base]</li>
+<li>Bull 20%: HBM 납품+유리기판 PO 가시화, 목표 18,000, 수익 <span class="up">+45.2%</span> [전제: OPM 9%]</li>
+<li>확률가중 기대수익률 = 0.3×(-22.6)<span class="up">+0.5</span>×(24.2)<span class="up">+0.2</span>×(45.2) = -6.78<span class="up">+12.1</span><span class="up">+9.04</span> = <span class="up">+14.4%</span> [추정]</li>
+</ul>
+<ul>
+<li>수급·유동성</li>
+<li>외국인/기관 20일 순매수: [미확인 — KIS 수급 API 미조회]</li>
+<li>20일 평균 거래대금: 급등 전 일 15~20억 수준(9/22~29 실측 평균 약 14억) [실측 근거]</li>
+<li>당일 100억은 예외적 급증. 1일 체결 상한(ADV 10%): 평시 기준 약 1.4~2억 → 유동성 얇음, 분할 필수 [추정]</li>
+</ul>
+<ul>
+<li>포지션 사이징(자산 대비 %)</li>
+<li>리스크예산: 손실허용 1% ÷ 손절폭(눌림진입 11,000→9,600 = <span class="down">-12.7%</span>) = 자산의 7.9%</li>
+<li>이벤트 전(3Q 실적 전) 상한 25% 규칙 → 실적 전엔 위 7.9% 내에서만</li>
+<li>집중상한 50%와 무관(단일종목 소형주라 7.9%가 실질 상한)</li>
+<li>결론: 자산의 약 8% 이내, 3회 분할, 실적 확인 후 증액 검토</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>반도체소재 peer 정밀 PBR/PER 밴드(산업DB 정유화학 편중)</li>
+<li>고객사별 매출 비중, 제품 단가 시계열</li>
+<li>유리기판·EUV 시장 TAM 및 점유율 정량치, 경쟁사 CAPA</li>
+<li>CB 풋옵션 정확 일자·상환방식</li>
+<li>외국인/기관 20일 순매수 수급 데이터</li>
+<li>증권사 목표주가(NR만 존재)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI 시세(2026-09-30): 현재가·거래대금·MA·52주고저·PBR·시총</li>
+<li>DART 사업보고서 제25기 접수 20260318000721 / 반기보고서 접수 20260812000492</li>
+<li>consensus.py(fnguide) 2026-09-30</li>
+<li>키움증권 2026-07-14 &#x27;턴어라운드를 넘어&#x27;(NR) / 그로쓰리서치 2026-05-18(NR)</li>
+<li>매일경제 마켓 2026-09-30 / 뉴스토마토 2026-09-23 / 딜사이트 2026-09-20</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합 검증: 2026 1Q 260.3 + 2Q 270.6 = 530.9 = 반기누적 ✓</li>
+<li>영업이익: 1Q 16.0 + 2Q 21.2 = 37.2 = 반기누적 ✓</li>
+<li>손익비 산식: 헤더 1:1.4(현가·눌림 평균) / 본문 현가 1:1.07·눌림 1:3.1 — 헤더는 보수 중간값 명기 ✓</li>
+<li>시나리오 확률합: 30<span class="up">+50</span><span class="up">+20</span> = 100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-30 12:38 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 12,410원 (<span class="up">+15.1%</span>) · 시총 2,509억 · 5일 <span class="up">+21.2%</span> / 20일 <span class="up">+23.1%</span> / 60일 <span class="up">+24.5%</span></li>
+<li>MA5 10,900원 / MA20 10,086원 / MA60 9,958원 → MA20 이격 <span class="up">+23.0%</span> · MA60 이격 <span class="up">+24.6%</span></li>
+<li>52주 고 28,800원 / 저 7,400원 → 고점 대비 <span class="down">-56.9%</span> · 20일 고 12,410원 / 저 9,200원</li>
+<li>후행 PER -7.85 / PBR 2.82 (EPS -1,581원 · BPS 4,401원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 14.8억 (5일 31.7억)</li>
+<li>외국인 순매수 5일 -3.8억 / 20일 1.4억 · 기관 5일 -0.2억 / 20일 -0.3억 · 개인 20일 -0.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.25% / 20일 평균 3.86% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 9.43% (09/03) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 15,400원 (<span class="up">+24.1%</span>) ÷ 하방 9,600원 (−22.6%) = <strong>1:1.06</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 22.6% = <strong>자산의 2.2%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.2%</strong></li>
+<li>유동성 참고: 20일 ADV 14.8억 · 1일 소화 한도는 ADV의 10%(1.48억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 22.6% · ATR14 619원 (손절폭/ATR 4.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 22.6% = ATR14 × 4.5배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 11,171원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.41</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 無 현재가: 12,400원 진입: 11,000~11,300원(1차 눌림) · 10,300~10,500원(2차) 손절: 9,600원 목표: 1차 15,400원 (2차 18,000원) 손익비: 1:1.4 기간: 스윙 6~12주 촉매: 2026.11 3Q 분기보고서 · 하반기 HBM 글루클리너 납품 개시 반증: 3Q(2026) 별도 영업이익 &lt; 10억이면 턴어라운드 좌초로 논지 폐기 · MA60(9,958) 종가 하회 시 손절 · CB 110억 풋옵션 현금상환+추가 CB/유증 공시 시 비중축소</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
