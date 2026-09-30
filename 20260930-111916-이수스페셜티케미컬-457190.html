@@ -1,0 +1,263 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>이수스페셜티케미컬(457190) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20260930-111916-이수스페셜티케미컬-457190.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:5.6</div><div class="tp-c"><b>결론 발췌</b> 황화리튬(전고체 소재) 4Q 마더플랜트 정상가동 기대감 + 본업 스프레드 개선 실적턴어라운드가 겹친 실체 있는 스토리이나, PER 200배대·PBR 17.8배의 극단적 고평가 구간에서 외국인·기관은 20일 순매도 중인 수급 부담 상황. 신규 추격진입은 손익비 불리(약 1:1.4)로 관망 권고 — 눌림목 대기가 유효. ━━━━━━━━━━━━━━━━ ① 포착 신호 • 현재가 78,300원 (전일 +15.15%) [실측: KIS inquire-price 2026-09-30 11:14] • 당일 거래대금 536억원 / 거래량 69.8만주 [실측: KIS acml_tr_pbmn] • 시가총액 2조3,661억원 (상장주식 3,021.9만주) [실측…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>이수스페셜티케미컬(457190)</h1>
+<div class="meta">📊 trend · 2026-09-30 11:19 · 코드 457190</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 09-30 11:19)</div><div class="kpi-v">78,400원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2.4조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">3136</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">17.83</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:5.6</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.61</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">88,400원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 65,000~67,000원 (눌림 대기, 현재가 추격 비권장)</span><span class="dc dn">손절 62,000원</span><span class="dc up">목표 88,400원</span><span class="dc">손익비 진입 1:5.6 · 현재가 1:0.61</span><span class="dc">기간 스윙 3~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026 4Q 황화리튬 마더플랜트 정상가동, 2026 11월경 3Q 실적발표</div><div class="dc-l">🛑 반증: 2026 3Q 연결 영업이익 &lt; 20억이면 본업 개선 논지 폐기·비중 축소 / 종가 62,000원 이탈 시 스윙 청산 / 4Q 가동 지연 공시 시 프리미엄 소멸</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 이수스페셜티케미컬(457190) ※개별주식선물 有(근월물 A0T610)</p>
+<p>📌 한줄 결론: 황화리튬(전고체 소재) 4Q 마더플랜트 정상가동 기대감 + 본업 스프레드 개선 실적턴어라운드가 겹친 실체 있는 스토리이나, PER 200배대·PBR 17.8배의 극단적 고평가 구간에서 외국인·기관은 20일 순매도 중인 수급 부담 상황. 신규 추격진입은 손익비 불리(약 1:1.4)로 관망 권고 — 눌림목 대기가 유효.</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>현재가 78,300원 (전일 <span class="up">+15.15%</span>) [실측: KIS inquire-price 2026-09-30 11:14]</li>
+<li>당일 거래대금 536억원 / 거래량 69.8만주 [실측: KIS acml_tr_pbmn]</li>
+<li>시가총액 2조3,661억원 (상장주식 3,021.9만주) [실측: KIS hts_avls]</li>
+<li>20일 평균 거래대금 113.1억 → 당일 536억으로 약 4.7배 급증 [실측: KIS 일봉 20일 acml_tr_pbmn 평균]</li>
+<li>추세: MA 정배열 O (MA5 67,860 &gt; MA20 65,690 &gt; MA60 62,508) [실측: KIS 일봉]</li>
+<li>연속상승 3일(종가) / 최근 5거래일 <span class="up">+22.8%</span> / 20거래일 <span class="up">+12.1%</span> [실측: KIS 일봉]</li>
+<li>현 위치: 52주고 131,800 대비 59.4%, 52주저 44,400 대비 <span class="up">+76%</span> — 고점권 아님(중단), 다만 3~4주 박스(63,000~65,000) 상단 돌파 직후 급등초입 [실측: KIS w52_hgpr/lwpr]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>2023년 5월 이수화학에서 인적분할 설립. 2개 사업부문 [실측: 사업보고서 2025.12 접수 20260319001027]</li>
+<li>정밀화학(매출 대부분): TDM·IPA·Solvent(D-SOL)·NOM/NDM 등. TDM은 ABS·SBR 고무용 분자량조절제, D-SOL은 산업용 용제(국내 M/S 50%) [인용: LS증권 2026-04-08]</li>
+<li>전고체전지소재: 황화리튬(Li2S) — 황화물계 전고체 배터리 고체전해질의 원료</li>
+<li>2026 반기 제품별 매출비중: 정밀화학 제품 63.2% / 정밀화학 상품 34.3% / 기타 2.5% [실측: 반기보고서 2026.06 접수 20260814002108] → 현재 매출은 사실상 100% 정밀화학, 황화리튬은 아직 매출 미미(2026 판매량 10~20톤 예상 수준) [인용: LS증권 2026-04-08]</li>
+<li>급등사유(검증): &quot;황화리튬 상업생산 기대감&quot;에 30일 장중 7%대 강세 [인용: 뉴스투데이 2026-09-30]. 실체 근거 = ①황화리튬 마더플랜트 6월 조기준공→시운전 종료 후 4Q 정상가동 임박(현 Capa 150톤, 기반설비 500톤) ②세계 유일 연속식 공법으로 배치식 경쟁사 대비 원가곡선 우위·증설 시 단위 CapEx 감소 ③증자 없이 본업 이익으로 500톤 증설 커버 [인용: 신한투자증권 2026-09-22 NDR후기]</li>
+<li>판정: 테마성 기대감 + 4Q 가동이라는 날짜 있는 실체 촉매가 결합. 다만 황화리튬 자체 매출 기여는 2027년 전고체 양산 본격화 전까지 제한적 → 현 급등은 &#x27;기대선반영&#x27; 성격이 강함</li>
+</ul>
+<p>③ 실적 (DART 연결 실측)</p>
+<ul>
+<li>연간 추세(연결) [실측: DART finstate/finstate_all]</li>
+<li>2023: 매출 1,175억 / 영업이익 -61억(적자) / OPM <span class="down">-5.2%</span> (분할 첫해 5~12월)</li>
+<li>2024: 매출 3,321억 / 영업이익 14억 / OPM 0.4%(별도OFS 4.3%, 연결 기준 회복 초기)</li>
+<li>2025: 매출 4,115억 / 영업이익 16억 / 순이익 7.7억 / OPM 0.4%</li>
+<li>분기 추세(연결) — 실적 턴어라운드가 핵심 [실측: DART]</li>
+<li>2025 3Q 단독: 영업이익 -14.6억(적자), 3Q누적 영업이익 -0.16억</li>
+<li>2026 Q1: 매출 1,086억 / 영업이익 34.8억 (H1누적-Q2 역산) [추정: 산식 H1 112.2억 - Q2 77.4억]</li>
+<li>2026 Q2: 매출 1,080억(<span class="down">-1%</span> QoQ) / 영업이익 77.4억(<span class="up">+122%</span> QoQ) / 순이익 36.3억 [실측: 반기보고서 IS 당기]</li>
+<li>2026 H1: 매출 2,166억 / 영업이익 112.2억 / 순이익 55.1억 / EPS 182원 [실측: 반기보고서 IS 누적]</li>
+<li>방향성: 2025 영업이익 16억 → 2026 H1만으로 112억. 중동 지정학 이슈發 디졸·IPA 스프레드 확대 + NDM 신규 애플리케이션 물량 확대가 본업 이익 급증 견인 [인용: 신한 2026-09-22]. 실적 모멘텀은 상승추세를 &#x27;일부&#x27; 정당화(단, 주가 상승폭이 실적 개선폭을 크게 앞섬)</li>
+<li>재무건전성 [실측: 반기보고서 2026.06 연결]</li>
+<li>부채비율 201.1% (부채 2,784억 / 자본 1,385억) — 높음</li>
+<li>이자보상 취약: H1 영업이익 112억 / H1 금융비용 96억 = 1.17배 [추정: 산식] (금융비용에 이자 외 포함 가능, 보수적 해석)</li>
+<li>H1 순이익 55억 중 금융비용 부담이 크다 → 증설 CapEx 국면에서 재무 레버리지 리스크 상존</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>컨센서스 [실측: consensus.py 4소스, fnguide]</li>
+<li>FY26E: 매출 4,273억 / 영업이익 267억 / 순이익 55억 / EPS 182원</li>
+<li>FY27E: 매출 4,380억 / 영업이익 312억 / 순이익 39억 / EPS 129원</li>
+<li>FY28E: 매출 4,818억 / 영업이익 525억 / 순이익 76억 / EPS 252원</li>
+<li>분기: 2026Q3 매출 1,059억·영업이익 49억(naver) / 2026Q4 매출 1,048억·순이익 -4억(wisereport)</li>
+<li>영업이익 컨센 상향 추세: 현재 267억 ← 3개월전 90억 ← 6개월전 91억 (본업 개선 반영 가속) [실측: fnguide]</li>
+<li>목표가: 최근 6개월 목표주가 제시 리포트 0건. 신한·LS 모두 Not Rated(수익 가시화 시점 불확실) [실측: consensus.py / 인용: 신한 2026-09-22, LS 2026-04-08]</li>
+<li>달성 가능성 판정: 中</li>
+<li>FY26 영업이익 267억: H1 이미 112억 + Q3컨센 49억 → 3Q누적 161억. 4Q에 106억이 필요한데 Q4 컨센 순이익은 오히려 -4억 → FY26 267억은 다소 공격적, 본업 스프레드 유지 여부가 관건 (달성 中·하방리스크)</li>
+<li>황화리튬 마더플랜트 4Q 정상가동은 날짜 있는 촉매지만 2026 매출기여 미미(판매 10~20톤) → 밸류 정당화는 2027~2028 전고체 양산 스토리에 의존 (가시성 낮음, 컨센 FY28 EPS 252원도 EPS 감소 구간 존재)</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 밸류 [실측: KIS / 계산]</li>
+<li>PER(연율화): 78,300 / (H1 EPS 182×2=364) = 약 215배 [추정: 산식]</li>
+<li>PER(FY26 컨센 EPS 182): 78,300 / 182 = 430배 [추정: 산식] / 신한 언급 2026 PER 348배 [인용: 신한 2026-09-22]</li>
+<li>PBR: 78,300 / BPS 4,398 = 17.8배 [실측: KIS]</li>
+<li>Peer·과거밴드 비교: 정밀화학 순수 peer(PER 한 자릿수~10배대) 대비 압도적 고평가. 현 밸류는 전고체 소재 성장옵션 프리미엄이 100% 반영된 상태. 이수스페셜은 실적(본업 PER 20~30배 수준)이 아니라 &#x27;황화리튬 옵션가치&#x27;로 거래되는 종목</li>
+<li>자체 목표가 산출(2가지 관점) [추정: 산식]</li>
+<li>(A) 본업 정상화 관점: FY26 영업이익 컨센 267억, 세후·소수주주 감안 순이익 약 120~150억 가정 시 EPS 약 400~500원. 성장소재 프리미엄 PER 60배 부여 시 적정가 24,000~30,000원 → 현재가는 본업 대비 크게 초과</li>
+<li>(B) 옵션가치 반영 시장관점: 시장은 이미 2027~28 전고체 스토리를 선반영. 이 관점에서 &#x27;적정가&#x27; 산출은 불확실성이 커 신뢰구간 넓음. 신한·LS 모두 목표가 미제시가 이를 방증</li>
+<li>결론: 실측 EPS 기준 자체 적정가(2.4만~3만원)는 현재가의 절반 이하. 주가는 밸류가 아닌 촉매·수급으로 움직이는 국면 → 목표가는 밸류가 아니라 &#x27;차트·촉매 기반&#x27;으로만 접근해야 함</li>
+</ul>
+<p>⑥ 진입전략·손익비 (개별주식선물 有 → 레버리지 스윙 가능)</p>
+<ul>
+<li>지지: 1차 MA5 67,860 / 2차 MA20 65,690·박스상단 65,000 / 3차 MA60 62,508 [실측: KIS]</li>
+<li>저항: 당일 상한가 88,400 / 심리선 80,000·전고 인근 / 상위 저항 100,000·52주고 131,800 [실측: KIS]</li>
+<li>52주고 대비 59.4% — 고점권은 아니나 3~4주 박스 상단을 하루 <span class="up">+15%</span>로 이탈한 급등 직후 → &#x27;추격&#x27;은 단기 과열 리스크</li>
+<li>레버리지 스윙 3라인(신규진입 관점, 추격 아님):</li>
+<li>진입: 65,000~67,000원 눌림(MA5~MA20/박스상단 재테스트) 확인 후 분할 — 현재가 78,300 즉시 추격은 비권장</li>
+<li>손절: 62,000원(MA60·박스 이탈) 종가 이탈 시</li>
+<li>익절: 1차 88,400(당일 상한가), 2차 100,000(라운드피겨·심리저항)</li>
+<li>손익비(현재가 78,300 즉시 진입 가정): 상승여력 =(88,400-78,300)/78,300 = <span class="up">+12.9%</span> / 하락리스크 =(78,300-62,000)/78,300 = <span class="down">-20.8%</span> → 1:0.62 (불리, 진입 부적합)</li>
+<li>손익비(눌림 진입 66,000 가정): 상승여력 =(88,400-66,000)/66,000 = <span class="up">+33.9%</span> / 하락리스크 =(66,000-62,000)/66,000 = <span class="down">-6.1%</span> → 1:5.6 (양호) [추정: 산식]</li>
+<li>판정: 현재가 추격은 손익비 불리 → 66,000 부근 눌림 대기 시에만 레버리지 스윙 성립. 자산 50% 집중·선물 레버리지 동반 시 4Q 가동 뉴스 기대감 소진 후 급락 위험 경고</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>스탁이지·증권사 리포트 요약 [인용: 신한 2026-09-22 / LS 2026-04-08]</li>
+<li>황화리튬 Capa 로드맵: 2025년 40톤 → 2026년 150톤(마더플랜트) → 2028년 500톤 목표</li>
+<li>2026 예상 판매량 10~20톤(가동률·수율 확보가 관건, 본격 수익기여 이전 단계)</li>
+<li>글로벌 황화물계 전고체 양산 2027년 본격화, 2028년 수요 5GWh 추산(기관별 편차 큼)</li>
+<li>9-1 제품별 매출/비중(2026 반기, 연결) [실측: dart_biz 반기 2026.06]</li>
+<li>정밀화학 제품(TDM·IPA·Solvent) 1,369억(63.2%) / 정밀화학 상품(Base Oil·MEK 등) 744억(34.3%) / 기타 53억(2.5%)</li>
+<li>9-4 단가·스프레드: 2026 반기 Solvent 내수 단가 1,894천원/톤(2025 1,340→상승), Base Oil 수출 1,488(2025 1,109→상승) [실측: dart_biz]. 원재료 Raffinate 비중 49.8%로 최대 → 나프타·라피네이트 스프레드가 본업 이익 변수</li>
+<li>9-7 바텀업(본업 중심, 황화리튬은 옵션) [추정: 산식·컨센 병용]</li>
+<li>Base: FY26 매출 4,273억, 영업이익 267억(컨센). H1 112억 + H2 155억 필요. Q3 49억(컨센)+Q4 106억 가정 → 4Q 스프레드 유지가 전제</li>
+<li>Bear: 중동 스프레드 정상화·본업 둔화 시 FY26 영업이익 180억 수준(H2 68억)</li>
+<li>Bull: 스프레드 강세 지속 + 황화리튬 조기 매출 → FY26 영업이익 300억+</li>
+<li>결론 문장: &quot;2026 3Q 연결 영업이익 ≥ 49억(컨센 수준)이면 본업 개선 논지 유지·눌림 매수 검토, &lt; 20억(본업 급둔화)이면 논지 폐기·비중 축소&quot; — 이 임계를 결정카드 반증에 사용</li>
+</ul>
+<p>★ 촉매별 정량 분석(§10): 급등사유가 &#x27;황화리튬 마더플랜트 4Q 정상가동(증설)&#x27;이라는 증설·양산 촉매 → 다만 2026 매출기여 미미(10~20톤)로 정량 기여는 2027 이후. 현 국면은 촉매 &#x27;기대선반영&#x27;이며 실제 매출 임팩트는 지연 → 정량 시나리오는 본업(§8) 중심으로 판단, 황화리튬은 프리미엄 옵션으로만 반영</p>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정 이벤트만)</li>
+<li>2026 4분기: 황화리튬 마더플랜트 정상가동(시운전 종료 후) [인용: 신한 2026-09-22] — 가동 공시/IR이 주가 트리거</li>
+<li>2026 11월경(추정): 3분기 실적발표 — 본업 스프레드 유지 여부 확인 [추정: 법정기한 기반]</li>
+<li>반증 조건 3개(이 수치면 논지 폐기)</li>
+</ul>
+<ol>
+<li>2026 3Q 연결 영업이익 &lt; 20억(2025 3Q 적자 회귀) → 본업 개선 논지 폐기, 비중 축소 [분기 실적 임계]</li>
+<li>종가 62,000원(MA60·박스) 이탈 → 기술적 상승추세 붕괴, 스윙 청산</li>
+<li>황화리튬 마더플랜트 4Q 정상가동 지연/무산 공시 → 프리미엄 근거 소멸</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(3Q 실적 기준)</li>
+<li>실적 서프라이즈 × 갭상승: 익절 일부 실현·나머지 홀딩</li>
+<li>실적 인라인 × 보합: 눌림 지지(66,000) 유지 시 홀딩, 이탈 시 축소</li>
+<li>실적 쇼크 × 갭하락: 62,000 손절 규칙 즉시 집행, 추가매수 금지</li>
+<li>확률가중 시나리오(3~6주)</li>
+<li>Bear 35%: 기대감 소진·수급 이탈, 목표 60,000원(<span class="down">-23%</span> from 78,300) [전제: 외인·기관 순매도 지속]</li>
+<li>Base 45%: 박스(65,000~80,000) 재편입 후 등락, 목표 72,000원(<span class="down">-8%</span>) [전제: 본업 유지·촉매 대기]</li>
+<li>Bull 20%: 4Q 가동 공시·전고체 모멘텀 재점화, 목표 100,000원(<span class="up">+28%</span>) [전제: 스프레드 강세+촉매]</li>
+<li>확률가중 기대수익률 = 0.35×(<span class="down">-23%</span>)<span class="up">+0.45</span>×(<span class="down">-8%</span>)<span class="up">+0.20</span>×(<span class="up">+28%</span>) = <span class="down">-8.05%</span>~<span class="down">-8.1%</span> → 현재가 추격의 기대값은 마이너스 [추정: 산식]</li>
+<li>수급·유동성 [실측: KIS inquire-investor 20일]</li>
+<li>외국인 20일 순매수 -179,665주(순매도), 기관 -118,694주(순매도) → 급등에도 외인·기관 이탈, 개인·수급/테마 주도</li>
+<li>20일 평균 거래대금 113.1억 → 1일 체결 상한(ADV 10%) 약 11억 수준</li>
+<li>포지션 사이징(자산 대비 %로만)</li>
+<li>리스크예산: 손실예산 1% ÷ 손절폭. 눌림진입 66,000·손절 62,000 시 손절폭 6.1% → 1%/6.1% = 자산의 약 16% 상한</li>
+<li>집중상한 50% / 이벤트(3Q실적·4Q가동) 전 상한 25% / 리스크예산 16% → 최소값 자산의 16% 이내</li>
+<li>선물 레버리지 동반 시 명목 노출이 위 %를 넘지 않도록 계약수 환산(고평가·고변동 종목이라 레버리지 축소 권고)</li>
+</ul>
+<p>⚠️ 본 자료는 리서치 참고용이며 매수·매도 강요가 아니다. 증권사·블로거 추정치는 &#x27;추정&#x27;으로 명시했고, 실측 못한 값은 &#x27;미확인&#x27;으로 표기했다.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 목표주가(6개월 내 제시 0건, 신한·LS 모두 Not Rated)</li>
+<li>황화리튬 2026 실제 판매량·단가·마진(공시 미확정, 리포트 추정 10~20톤)</li>
+<li>2026 3Q 확정 실적(발표 전)</li>
+<li>EV/EBITDA(리스 등 조정 데이터 미수집)</li>
+<li>사업부문별 영업이익(제품별 매출만 공시, 부문 이익 분해 불가)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI inquire-price / inquire-daily-itemchartprice / inquire-investor (2026-09-30 실측)</li>
+<li>DART finstate·finstate_all: 사업보고서 2025.12(접수 20260319001027), 반기보고서 2026.06(접수 20260814002108), 2025 3분기보고서</li>
+<li>consensus.py 4소스(fnguide·naver·stockeasy·hankyung) 2026-09-30</li>
+<li>신한투자증권 2026-09-22 &#x27;NDR 후기 전고체는 순항 중&#x27;(Not Rated), LS증권 2026-04-08 &#x27;Corporate Day 시사점&#x27;(Not Rated)</li>
+<li>news_search.py: 뉴스투데이 2026-09-30, 핀포인트뉴스 2026-09-25</li>
+<li>kis_futures_check 2026-09-30(선물 상장·근월물 A0T610)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합 검증: 2026 H1 영업이익 112.2억 = Q1 34.8억 + Q2 77.4억 ✓ / H1 매출 2,166억 = Q1 1,086억 + Q2 1,080억 ✓</li>
+<li>손익비 산식 헤더·본문 일치: 즉시추격 1:0.62(하락리스크 큼), 눌림진입 1:5.6 — 본문·결정카드 동일값</li>
+<li>시나리오 확률합 = 35<span class="up">+45</span><span class="up">+20</span> = 100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-09-30 11:19 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 78,400원 (<span class="up">+15.3%</span>) · 시총 2.37조 · 5일 <span class="up">+22.7%</span> / 20일 <span class="up">+12.0%</span> / 60일 <span class="up">+17.2%</span></li>
+<li>MA5 67,840원 / MA20 65,685원 / MA60 62,506원 → MA20 이격 <span class="up">+19.4%</span> · MA60 이격 <span class="up">+25.4%</span></li>
+<li>52주 고 131,800원 / 저 44,400원 → 고점 대비 <span class="down">-40.5%</span> · 20일 고 78,400원 / 저 62,800원</li>
+<li>후행 PER 3136.0 / PBR 17.83 (EPS 25원 · BPS 4,398원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 113.4억 (5일 207.0억)</li>
+<li>외국인 순매수 5일 -45.9억 / 20일 -121.1억 · 기관 5일 -4.3억 / 20일 -74.1억 · 개인 20일 187.5억</li>
+<li>개별주식선물: ⚡ 상장 (A0T610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 8.86% / 20일 평균 10.42% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 18.94% (09/02) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 88,400원 (<span class="up">+12.8%</span>) ÷ 하방 62,000원 (−20.9%) = <strong>1:0.61</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 20.9% = <strong>자산의 2.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.4%</strong></li>
+<li>유동성 참고: 20일 ADV 113.4억 · 1일 소화 한도는 ADV의 10%(11.34억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 20.9% · ATR14 3,179원 (손절폭/ATR 5.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 20.9% = ATR14 × 5.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 72,042원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.57</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-457190"></span>📋 결정카드 — 이수스페셜티케미컬(457190) 판정: 관망 선물: 有 현재가: 78,300원 진입: 65,000~67,000원 (눌림 대기, 현재가 추격 비권장) 손절: 62,000원 목표: 1차 88,400원 (2차 100,000원) 손익비: 1:5.6 (눌림진입 기준 / 현재가 즉시추격은 1:0.62 불리) 기간: 스윙 3~6주 촉매: 2026 4Q 황화리튬 마더플랜트 정상가동, 2026 11월경 3Q 실적발표 반증: 2026 3Q 연결 영업이익 &lt; 20억이면 본업 개선 논지 폐기·비중 축소 / 종가 62,000원 이탈 시 스윙 청산 / 4Q 가동 지연 공시 시 프리미엄 소멸</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
