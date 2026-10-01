@@ -1,0 +1,311 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HD건설기계 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261002-080959-HD건설기계.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:4.14</div><div class="tp-c"><b>결론 발췌</b> 포워드 밸류(FY26E PER 9.2배)는 분명 싸지만, 주가는 전 이평선 아래 역배열·52주고 대비 -45%의 하락추세 한복판이다. &quot;싸보이는 것&quot;과 &quot;싼 것&quot;의 분기점은 2026년 이익 급증이 ①합병 효과를 뺀 &#x27;건설기계 업황 회복의 구조적 지속&#x27;인지 ②피크아웃 전 일회성인지인데, 엔진부문 영업이익 YoY -11%로 성장 스토리는 아직 &#x27;기대&#x27;에 머문다. 판정 관심 — 밸류는 매력적이나 추세·수급이 비우호적이라 지금 추격은 &#x27;떨어지는 칼&#x27;. 눌림 지지 확인(112,000~118,000) 또는 MA20(134,540) 회복·3Q 실적 확인 후 진입. 손익비 1:4.1(진입 115,000 / 손절 108,000 / 1차목표 144,000…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>HD건설기계</h1>
+<div class="meta">📊 benine · 2026-10-02 08:09 · 코드 267270</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-02 08:09)</div><div class="kpi-v">119,600원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">5.7조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">21.31</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.15</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:4.14</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.1</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">144,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 112,000~118,000원 (눌림 지지 확인 또는 MA20 134,540 회복 후)</span><span class="dc dn">손절 108,000원</span><span class="dc up">목표 144,000원</span><span class="dc">손익비 진입 1:4.14 · 현재가 1:2.1</span><span class="dc">기간 스윙 6~12주 (3Q 실적까지)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11월 3Q26 분기보고서(법정기한 11/14)·증권사 목표가 재조정</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 1,500억이면 논지 폐기·청산 / 종가 108,000 이탈 시 전량 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — HD건설기계(267270)  ※개별주식선물 有 (근월물 A3N610)</p>
+<p>📌 <strong>한줄 결론</strong>: 포워드 밸류(FY26E PER 9.2배)는 분명 싸지만, 주가는 전 이평선 아래 역배열·52주고 대비 <span class="down">-45%</span>의 하락추세 한복판이다. &quot;싸보이는 것&quot;과 &quot;싼 것&quot;의 분기점은 2026년 이익 급증이 ①합병 효과를 뺀 &#x27;건설기계 업황 회복의 구조적 지속&#x27;인지 ②피크아웃 전 일회성인지인데, 엔진부문 영업이익 YoY <span class="down">-11%</span>로 성장 스토리는 아직 &#x27;기대&#x27;에 머문다. <strong>판정 관심</strong> — 밸류는 매력적이나 추세·수급이 비우호적이라 지금 추격은 &#x27;떨어지는 칼&#x27;. 눌림 지지 확인(112,000~118,000) 또는 MA20(134,540) 회복·3Q 실적 확인 후 진입. 손익비 1:4.1(진입 115,000 / 손절 108,000 / 1차목표 144,000).</p>
+<hr>
+<h2 id="포착-신호-블로그-스크랩-유입-실측-검증">① 포착 신호 (블로그 스크랩 유입 → 실측 검증)</h2>
+<ul>
+<li>비나인 블로그 &quot;[관심종목] HD건설기계 - 싸보이는 건가, 싼 건가&quot;(umgimae, 2026-10-01) 통과분. 논지: 건설기계 업황 바닥 통과·회복, 2Q26 호실적, 밸류 저평가 여부. [인용: 비나인 블로그, 2026-10-01 · 참고용]</li>
+<li><strong>현재가 119,600원</strong> (2026-10-02 08:03) [실측: KIS enrich.py]</li>
+<li>52주 고 217,500 / 저 85,800 → <strong>고점 대비 <span class="down">-45.0%</span>, 저점 대비 <span class="up">+39.4%</span></strong> (저점권에 근접한 하단부)</li>
+<li>MA5 123,300 / MA20 134,540 / MA60 131,765 → <strong>현재가가 5·20·60 전부 하회(역배열), 당일 20일 저가(119,600)에 안착</strong> = 명백한 하락추세</li>
+<li>수익률 5일 <span class="down">-7.8%</span> / 20일 <span class="down">-4.1%</span> / 60일 <span class="down">-3.3%</span> [실측: KIS]</li>
+<li>ATR14 6,021원(≈현재가의 5.0%) = 변동성 高(RV20 32%, 84분위 &#x27;고변동&#x27;) [실측: KIS]</li>
+<li><strong>수급 비우호</strong>: 외국인 20일 순매도 -438억, 기관 -74억, 개인 <span class="up">+488</span>억 / 공매도 20일 평균 5.94%(09/16 최대 14.7%) [실측: KIS 투자자별·공매도]</li>
+<li>20일 평균 거래대금 322억 (ADV 10% = 1일 체결상한 약 32억) [실측: KIS]</li>
+</ul>
+<p>→ <strong>포착 성격</strong>: 추세추종 돌파가 아니라 &#x27;낙폭과대 밸류&#x27; 테마. 자금유입(매수) 신호가 아니라 밸류 스크리닝이므로, 기술적으로는 하단이지만 추세는 하락 중임을 전제로 접근.</p>
+<hr>
+<h2 id="사업투자논지-검증-기대감-vs-실체">② 사업·투자논지 검증 (기대감 vs 실체)</h2>
+<p><strong>실체(검증됨)</strong></p>
+<ul>
+<li>HD건설기계는 굴착기·휠로더 등 건설기계 제조사. <strong>2026.01.01 HD현대인프라코어 흡수합병</strong>으로 건설기계+엔진 양 부문을 보유하게 됨(연결 종속 10사→25사). [실측: DART 반기보고서 2026.06, 접수 20260814004300]</li>
+<li><strong>2Q26 연결 매출 2조4,342억(<span class="up">+18.2%</span> YoY)·영업이익 2,489억(<span class="up">+91.9%</span> YoY)·OPM 10.2%</strong> → 컨센서스 25% 상회 서프라이즈. [실측: DART 반기보고서 / 인용: 신한·흥국 2026-07-30~09-04]</li>
+<li>호실적 드라이버: <strong>자원국(아프리카 금광·중남미 광산) 중대형 장비 수요 + 제품 믹스 개선 → 건설기계 OPM 9.9%</strong>. 지역별 중동아프리카 <span class="up">+51%</span>·유럽 <span class="up">+26%</span>·북미 <span class="up">+7%</span>(블로그). 유럽 차세대 통합모델 5기종 상반기 판매 <span class="up">+53%</span>. [인용: 신한투자증권 2026-07-30 / 블로그]</li>
+<li>최근 뉴스(2026-09-25~30): 프랑스 Manitou와 소형 건설장비 협력, 유럽 차세대 신모델 대량공급, 중국 161조 인프라 집행 수혜 거론, 엔진 성장축 확장 등 <strong>회복·성장 서사가 뉴스로 지속 확인</strong>. [인용: 뉴시스·edaily·동아 2026-09-27~30, news_search.py]</li>
+</ul>
+<p><strong>기대감(아직 미실현)</strong></p>
+<ul>
+<li><strong>엔진부문 2Q 영업이익 YoY <span class="down">-11%</span></strong> — 북미 Oil&amp;Gas 부진. 발전기용·데이터센터·방산 엔진 수요는 <strong>&quot;하반기부터 본격화 전망&quot;으로 아직 기대 단계</strong>(실적-기대 괴리). [인용: 신한 2026-07-30]</li>
+<li>즉 시장이 열광하는 &#x27;AI·데이터센터 전력용 엔진&#x27; 스토리는 숫자로 아직 안 나왔다. 현 호실적은 <strong>건설기계(자원국 믹스)</strong>가 끌었고, 엔진은 오히려 역성장.</li>
+</ul>
+<p>→ <strong>결론</strong>: 건설기계 회복은 실체. 엔진 성장은 기대. 2026 이익 급증의 상당분은 <strong>합병에 따른 외형 2배 확대(연 3.8조→9.5조대)</strong>가 겹친 것이라, 유기적 사이클 지속성은 3Q·4Q로 확인해야 함.</p>
+<hr>
+<h2 id="실적-분석-dart-연결-실측">③ 실적 분석 (DART 연결 실측)</h2>
+<p><strong>연간 추세 (합병 전, 연결·12개월)</strong> [실측: DART 사업보고서, 접수 20260602000456]</p>
+<ul>
+<li>2023: 매출 38,250억 / 영업이익 2,572억 / 순이익 1,275억 / <strong>OPM 6.7%</strong></li>
+<li>2024: 매출 34,381억 / 영업이익 1,904억 / 순이익 860억 / <strong>OPM 5.5%</strong></li>
+<li>2025: 매출 37,765억 / 영업이익 1,709억 / 순이익 870억 / <strong>OPM 4.5%</strong></li>
+</ul>
+<p>→ 합병 전 본체(현대 브랜드 건설기계)는 2023→2025 <strong>이익 하락 사이클</strong>이었음(OPM 6.7%→4.5%). 바닥은 2025.</p>
+<p><strong>분기 추세 (연결·3개월)</strong> [실측: DART 분기·반기보고서]</p>
+<ul>
+<li>25Q1: 매출 9,068억 / OP 417억 / OPM 4.6% / 순익 257억</li>
+<li>25Q2: 매출 9,677억 / OP 400억 / OPM 4.1% / 순익 6억</li>
+<li>25Q3: 매출 9,547억 / OP 558억 / OPM 5.8% / 순익 423억</li>
+<li><strong>26Q1: 매출 23,049억 / OP 1,907억 / OPM 8.3% / 순익 1,739억</strong> (합병 반영)</li>
+<li><strong>26Q2: 매출 24,342억 / OP 2,489억 / OPM 10.2% / 순익 1,807억</strong> (합병 반영)</li>
+</ul>
+<p>→ 26Q1·Q2의 매출 2배·OPM 급등은 <strong>(a)인프라코어 합병 외형 + (b)건설기계 믹스 개선</strong> 동시 효과. 단순 YoY는 합병 때문에 왜곡 — 블로그의 &#x27;건설기계부문 매출 <span class="up">+22%</span>&#x27;가 유기적 성장치. ⚠️ 25Q2 순익 6억은 환율·일회성 영향으로 추정(미확인, 분해 필요).</p>
+<p><strong>재무건전성</strong> [실측: DART 2025 연결]</p>
+<ul>
+<li>부채비율: 2023 86.2% → 2024 85.3% → 2025 86.6% (안정적 중립, 과다 아님)</li>
+<li>영업활동현금흐름 2025 <strong><span class="up">+1,660</span>억</strong>(흑자) [실측: DART CF]</li>
+<li>이자보상배율: 금융비용 주석 미확보로 <strong>미확인</strong>(단, OP 1,709억 흑자·금융수익 740억·영업CF 흑자로 부도리스크 낮음)</li>
+</ul>
+<p><strong>검산</strong>: 25Q1+Q2 매출 9,068<span class="up">+9,677</span>=18,745억, 25Q1+Q2+Q3=28,292억 → 연간 37,765억에서 역산 Q4≈9,473억(정합). 26H1 OP 1,907<span class="up">+2,489</span>=4,396억 ✓.</p>
+<hr>
+<h2 id="미래실적컨센서스-실측-20261002-수집">④ 미래실적·컨센서스 (실측, 2026-10-02 수집)</h2>
+<ul>
+<li><strong>목표가 컨센서스 평균 214,143원</strong>(최고 270,000 / 최저 180,000 · 14건) · 증권사별 최신 7개사 평균 205,429원 · 현재가 대비 <strong>상승여력 <span class="up">+71.7%</span></strong> · 외부집계 naver/fnguide 207,667원</li>
+<li>투자의견: <strong>Buy 14 / NR 2</strong> (최근 6개월), 의견평균 4.00/5</li>
+<li>연간 컨센서스(fnguide 6개사, 억원·EPS원):</li>
+<li>FY26E 매출 95,467 / 영업이익 7,933 / 순이익 6,227 / EPS 13,056 / <strong>PER 9.2</strong> / ROE 18.6%</li>
+<li>FY27E 매출 105,690 / 영업이익 9,501 / 순이익 6,737 / EPS 14,206 / <strong>PER 8.4</strong> / ROE 13.0%</li>
+<li>FY28E 매출 114,089 / 영업이익 11,644 / EPS 17,611 / PER 6.8</li>
+<li>분기 컨센: <strong>2026Q3 매출 23,978억 · 영업이익 1,907억</strong> · 순익 1,281억 (naver) / 4Q 매출 24,528억 (wisereport)</li>
+<li>영업이익 컨센 추이(FY26, fnguide): 현재 7,933 ← 3M전 6,829 ← 6M전 6,229 ← 1Y전 2,426 → <strong>상향 지속</strong></li>
+<li>최근 리포트: 다올 270,000(상향)·대신 200,000(신규)·삼성 192,000(하향)·흥국 190,000(신규)·신한 180,000(하향). ⚠️ <strong>목표가 하향(삼성 250,000→192,000, 신한 230,000→180,000)과 상향(다올)이 혼재</strong> = 애널리스트도 사이클 지속성 두고 의견 분열.</li>
+</ul>
+<p><strong>달성 가능성 판정</strong></p>
+<ul>
+<li>FY26E 영업이익 7,933억 → <strong>달성가능성 高</strong>. 근거: H1 이미 OP 4,396억(연간 컨센의 55%), H1 순익 3,546억(컨센 6,227억의 57%). 런레이트상 오히려 상회 소지. 단 <strong>H2 엔진 모멘텀·자원국 수요 지속이 전제</strong>.</li>
+<li>FY27E 영업이익 9,501억(<span class="up">+20%</span> YoY) → <strong>달성가능성 中</strong>. 건설기계 사이클 2년 연속 확장 + 엔진(데이터센터) 실적화가 둘 다 필요. 엔진은 아직 미실현이라 하향 리스크.</li>
+</ul>
+<hr>
+<h2 id="밸류에이션-목표가-도출">⑤ 밸류에이션 → 목표가 도출</h2>
+<p><strong>현재 밸류</strong> [실측: KIS]</p>
+<ul>
+<li>트레일링 PER 21.3 (EPS 5,613, 합병 전후 혼재로 신뢰도 낮음) / <strong>포워드 PER 9.2(FY26E)·8.4(FY27E)</strong></li>
+<li>PBR 1.15 (BPS 104,016)</li>
+</ul>
+<p><strong>Peer 비교</strong> [실측: DART 2025 / KIS 시세]</p>
+<ul>
+<li>두산밥캣(241560): 주가 54,700 / PER 13.1 / <strong>PBR 0.73</strong> / 2025 매출 6.18조·OPM 7.8%·ROE 5.6%·부채비율 70.8%</li>
+<li>글로벌(캐터필러·볼보·일중 업체) 2025A 평균 PER 16.1배 [인용: 신한 2026-07-30]</li>
+</ul>
+<p>→ HD건설기계 포워드 PER 9.2는 글로벌 평균(16.1)·밥캣(13.1)보다 낮다. 단 <strong>PBR 1.15는 밥캣(0.73)보다 높아</strong> 순자산 기준으론 저평가라 보기 어려움. ROE(FY26E 18.6%)가 높아 PER 저평가는 설명되나, 이는 합병 첫해 피크 ROE라 지속성 의문.</p>
+<p><strong>자체 목표가 계산 (사이클주 정상 할인 반영)</strong></p>
+<ul>
+<li>앵커 EPS: FY26E 13,056원(fnguide 6개사 컨센, 달성가능성 高) / FY27E 14,206원</li>
+<li>적정 PER: 사이클 중단(mid-cycle) 가정. 피크 할인·엔진 미실현 반영해 글로벌 16.1배에 <strong>30~45% 할인 → 9~11배</strong> 적용(증권사 신한 11.27배·흥국 13.7배 대비 보수적)</li>
+<li>Base: 13,056 × 11 = <strong>143,616 ≈ 144,000원</strong> (현재가 대비 <span class="up">+20.4%</span>)</li>
+<li>Bull: 14,206(FY27E) × 12 = 170,472 ≈ <strong>170,000원</strong> (<span class="up">+42%</span>, 증권사 목표 하단)</li>
+<li>Bear: 사이클 피크아웃·EPS 11,000 회귀 × PER 9 = 99,000 ≈ <strong>100,000원</strong> (<span class="down">-16%</span>)</li>
+<li><strong>증권사 목표 평균 214,143은 PER 13~16배·FY27 EPS를 함께 쓴 값</strong>으로, 본 리포트는 사이클 피크·엔진 미실현 리스크를 감안해 보수적 11배를 채택(자체 1차 144,000).</li>
+</ul>
+<hr>
+<h2 id="진입전략손익비-선물-레버리지-반영">⑥ 진입전략·손익비 (선물 레버리지 반영)</h2>
+<p><strong>레벨</strong> [실측: KIS]</p>
+<ul>
+<li>저항: MA60 131,765 → MA20 134,540 → 20일고 143,000 → 심리 150,000</li>
+<li>지지: 당일가=20일저 119,600 → 심리 110,000 → 100,000 → 52주저 85,800</li>
+<li>현재 역배열·20일저 안착 = <strong>추세 미전환</strong>. 추격매수는 떨어지는 칼.</li>
+</ul>
+<p><strong>진입 시나리오 (택1)</strong></p>
+<ul>
+<li>(A) 눌림 분할: <strong>112,000~118,000</strong> 지지 확인(일봉 양봉·거래감소) 후 3회 분할, 각 1/3</li>
+<li>(B) 추세전환 확인: <strong>MA20(134,540) 종가 회복 후</strong> 추격(돌파형, 손절 폭 넓어짐 주의)</li>
+<li>손절: <strong>108,000 종가 이탈</strong>(20일저·심리선 동반 이탈 = 전저점 85,800 방향 open)</li>
+<li>익절: 1차 144,000(비중 1/2 축소) / 2차 170,000(잔량)</li>
+</ul>
+<p><strong>손익비 (진입 115,000 기준)</strong></p>
+<ul>
+<li>상방: (144,000-115,000)/115,000 = <strong><span class="up">+25.2%</span></strong></li>
+<li>하방: (115,000-108,000)/115,000 = <strong>-6.1%</strong></li>
+<li><strong>손익비 = 25.2 ÷ 6.1 = 1:4.1</strong> (1차목표 기준, 진입이 눌림 지지에서 성사될 때만 유효. 현재가 119,600 즉시진입 시 상방 <span class="up">+20.4%</span>/하방 <span class="down">-9.7%</span> = 1:2.1로 저하)</li>
+</ul>
+<hr>
+<h2 id="invalidation">⑦ 촉매·반증·이벤트 대응</h2>
+<p><strong>촉매 캘린더 (날짜 확정)</strong></p>
+<ul>
+<li><strong>2026-11월 중순 전후: 3Q26 분기보고서</strong>(법정기한 11/14) — 분기 영업이익·엔진 턴 여부 결정적. [실측: 자본시장법 분기보고서 기한]</li>
+<li>3Q 실적시즌 증권사 목표가 재조정 — 하향(삼성·신한) vs 상향(다올) 분열 해소 분기점</li>
+<li>전방: 중국 161조 인프라 집행 개시(2026-09, 동아일보) / 유럽 차세대모델·Manitou 협력 신모델 공급</li>
+</ul>
+<p><strong>반증 조건 3개 (수치→행동)</strong></p>
+<ol>
+<li><strong>3Q26 연결 영업이익 &lt; 1,500억</strong>이면 (피크아웃·일회성 판정) <strong>논지 폐기·전량 청산</strong> / <strong>≥ 2,000억</strong>이면 사이클 지속 확인·추가매수 검토 (컨센 1,907억)</li>
+<li><strong>종가 108,000 이탈</strong> 시 전량 청산(기술적 전저점 방향 전환)</li>
+<li><strong>엔진부문 3Q 영업이익 YoY 플러스 전환 실패</strong>(2Q <span class="down">-11%</span> 지속)면 &#x27;성장 스토리&#x27; 가치부여 철회 → 목표 사이클 할인(100,000)로 하향</li>
+</ol>
+<p><strong>이벤트 매트릭스 (3Q 실적 × 당일 주가)</strong></p>
+<ul>
+<li>서프라이즈(OP&gt;2,000억) × 갭상승 → 1차 추격, MA20 위 홀드</li>
+<li>인라인(1,500~2,000억) × 보합 → 눌림 분할 유지, 손절 108,000</li>
+<li>쇼크(&lt;1,500억) × 갭하락 → 반증①발동, 전량 청산</li>
+</ul>
+<p><strong>확률가중 시나리오</strong></p>
+<ul>
+<li>Bear 30%: 사이클 피크아웃·엔진 부진, 목표 100,000 (<span class="down">-16.4%</span>)</li>
+<li>Base 50%: FY26 OP 7,900억대 달성·건설기계 회복 지속, 목표 144,000 (<span class="up">+20.4%</span>)</li>
+<li>Bull 20%: 엔진 데이터센터 실적화+FY27 성장, 목표 170,000 (<span class="up">+42.1%</span>)</li>
+<li><strong>확률가중 기대수익률 = 0.3×(-16.4) + 0.5×(20.4) + 0.2×(42.1) = -4.9<span class="up">+10.2</span><span class="up">+8.4</span> = <span class="up">+13.7%</span></strong></li>
+</ul>
+<p><strong>수급·유동성</strong> [실측: KIS]</p>
+<ul>
+<li>외국인 20일 -438억·기관 -74억 순매도(비우호) / 개인 <span class="up">+488</span>억 / 공매도 20일 평균 5.9%(압력 높음)</li>
+<li>20일 평균 거래대금 322억 → 1일 체결상한(ADV 10%) ≈ 32억</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 %)</strong></p>
+<ul>
+<li>리스크예산: 손실예산 1% ÷ 손절폭 6.1% = <strong>자산의 약 16.4%</strong></li>
+<li>집중상한 50% · 이벤트(3Q실적) 전 상한 25% 중 <strong>최소값 16.4% 채택</strong></li>
+<li>선물 레버리지 시 ATR 5%·고변동·역배열 구간이므로 명목노출을 리스크예산 내로 환산(레버리지 배수만큼 손절폭 환산 축소). 손절 108,000 하회 시 레버리지 포지션 추가매수 금지(물타기 금지).</li>
+</ul>
+<hr>
+<h2 id="산업제품-바텀업-실적-모델-9">⑧ 산업·제품 바텀업 실적 모델 (§9)</h2>
+<p><strong>9-1 제품별 매출 (H1 2026 연결, 백만원)</strong> [실측: DART 반기보고서 20260814004300]</p>
+<ul>
+<li>건설기계(제품) 3,572,942 (75.4%) / 산업차량 200,508 (4.2%) / 부품외 373,564 (7.9%) / <strong>엔진 592,024 (12.5%)</strong> / 합계 4,739,038</li>
+</ul>
+<p>→ 매출의 87.5%가 건설기계·부품, 엔진은 12.5%. <strong>현 실적은 건설기계가 주도</strong>, 엔진은 아직 소수 비중.</p>
+<p><strong>9-2 고객·납품</strong></p>
+<ul>
+<li>B2B 딜러·자원개발(광산)·인프라·물류 전방. 지역 믹스 중동아프리카<span class="up">+51%</span>·유럽<span class="up">+26%</span>·북미<span class="up">+7%</span>(블로그·신한). 특정 1사 ≥30% 집중 공시 없음(딜러망 분산). 상세 고객 비중 <strong>미공시</strong>.</li>
+</ul>
+<p><strong>9-3 시장규모·경쟁</strong></p>
+<ul>
+<li>글로벌 건설기계 TAM·점유율 수치는 사업보고서 미기재로 <strong>미확인</strong>. 경쟁: 글로벌 캐터필러·코마츠·볼보·존디어, 국내/아시아 두산밥캣·SANY·XCMG. HD건설기계 글로벌 점유율 한 자릿수 추정(출처 미확보 → 미확인).</li>
+<li>건설기계 시장 성장률 전망 <strong>연초 2~3% → 10% 이상 상향</strong>(흥국, 자원국 수요) [인용: 흥국 2026-09-04]</li>
+</ul>
+<p><strong>9-4 단가·원가</strong> [실측: DART 반기]</p>
+<ul>
+<li>굴착기 20톤급 165→169, 30톤급 204→206(소폭 인상) / 원재료 Excavator Bucket 1,767→1,824→1,900천원(강재↑ 지속) → <strong>원가 상방압력을 믹스(중대형·자원국)·판가로 상쇄 중</strong>. 가격 결정: 강재연동·설계변경 반영.</li>
+</ul>
+<p><strong>9-5 CAPA·가동률</strong> [실측: DART 2025 사업보고서]</p>
+<ul>
+<li>국내 굴착·휠로더 가동률 52%, 해외 39%, 엔진 인천공장 55~56% → <strong>가동률 낮음 = 수요 회복 시 영업레버리지 여력 큼</strong>(고정비 레버리지). 합병으로 엔진 CAPA(인천 15만대급) 추가 확보.</li>
+</ul>
+<p><strong>9-6 전방 수요 시나리오</strong></p>
+<ul>
+<li>자원국(금·구리 등) 광산 CAPEX 증가 + 중국 161조 인프라 집행(2026-09) + 유럽 신모델 → 건설기계 수요 Base. 엔진은 데이터센터·방산 전력용 수요(기대, 미실현).</li>
+</ul>
+<p><strong>9-7 바텀업 모델 (FY26·FY27, 연결 억원)</strong></p>
+<ul>
+<li>H1 실측: 매출 47,391 / OP 4,396 / OPM 9.3%</li>
+</ul>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>Bear</th><th>Base</th><th>Bull</th><th>산식/근거</th></tr></thead><tbody><tr><td>FY26 매출</td><td>92,000</td><td>95,000</td><td>98,000</td><td>H1 47,391 + H2(계절성·엔진)</td></tr><tr><td>FY26 OPM</td><td>7.8%</td><td>8.7%</td><td>9.2%</td><td>H1 9.3%에서 H2 완화(컨센 8.3%)</td></tr><tr><td>FY26 영업이익</td><td>7,200</td><td>8,300</td><td>9,000</td><td>컨센 7,933 대비 Base 소폭상회</td></tr><tr><td><strong>3Q26 OP</strong></td><td><strong>1,500</strong></td><td><strong>1,900</strong></td><td><strong>2,200</strong></td><td>컨센 1,907, 계절성</td></tr><tr><td>4Q26 OP</td><td>1,400</td><td>1,800</td><td>2,000</td><td>—</td></tr><tr><td>FY27 영업이익</td><td>8,500</td><td>9,500</td><td>11,000</td><td>엔진 실적화 여부</td></tr></tbody></table></div>
+<ul>
+<li>민감도: 건설기계 OPM ±1%p → 연 OP ±약 830억(건설기계 매출 83조원 기준의 10분의 1 아님, H2 건설기계 매출 약 4.1조×1%p). 엔진 턴어라운드 1분기 지연 → 분기 OP -100~200억.</li>
+<li><strong>결론 문장</strong>: <strong>3Q26 연결 영업이익 ≥ 1,900억(Base)이면 논지 유지·추가매수 검토, &lt; 1,500억(Bear)이면 논지 폐기·청산.</strong> (실적 캘린더 임계 연동)</li>
+</ul>
+<p><strong>9-8 미확인 목록</strong>: 글로벌 건설기계 TAM·HD 점유율, 엔진부문 세부 수주잔고, 이자보상배율(금융비용 주석), 25Q2 순익 급감 분해, 합병 후 발행주식수 정확값.</p>
+<hr>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 비나인 블로그·증권사 목표가는 <strong>&#x27;추정/인용&#x27;</strong>이며 사실이 아님. 실측 못한 값은 &#x27;미확인&#x27; 표기.</p>
+<p><strong>[미확인 목록]</strong> 글로벌 TAM·점유율 / 엔진 수주잔고 / 이자보상배율 / 25Q2 순익 급감 원인 / 합병 후 정확 주식수 <strong>[출처 목록]</strong> DART 사업보고서(20260602000456)·반기보고서(20260814004300)·분기보고서 / KIS enrich·futures_check / stockeasy_consensus(stockeasy·naver·fnguide·hankyung, 2026-10-02) / news_search(뉴시스·edaily·동아 2026-09) / 신한·삼성·키움·다올·대신·흥국 리포트(2026-07~09) <strong>[검산]</strong> 25Q1+Q2+Q3=28,292억→연간 역산 Q4 9,473억 정합 / 26H1 OP 1,907<span class="up">+2,489</span>=4,396억 ✓ / 손익비 25.2÷6.1=1:4.1 (헤더=본문 일치) / 시나리오 확률합 30<span class="up">+50</span><span class="up">+20</span>=100% ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 08:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 119,600원 (<span class="up">+0.0%</span>) · 시총 5.68조 · 5일 <span class="down">-7.8%</span> / 20일 <span class="down">-4.1%</span> / 60일 <span class="down">-3.3%</span></li>
+<li>MA5 123,300원 / MA20 134,540원 / MA60 131,765원 → MA20 이격 <span class="down">-11.1%</span> · MA60 이격 <span class="down">-9.2%</span></li>
+<li>52주 고 217,500원 / 저 85,800원 → 고점 대비 <span class="down">-45.0%</span> · 20일 고 143,000원 / 저 119,600원</li>
+<li>후행 PER 21.31 / PBR 1.15 (EPS 5,613원 · BPS 104,016원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 322.0억 (5일 246.6억)</li>
+<li>외국인 순매수 5일 -41.1억 / 20일 -438.1억 · 기관 5일 -394.7억 / 20일 -74.1억 · 개인 20일 488.0억</li>
+<li>개별주식선물: ⚡ 상장 (A3N610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 5.34% / 20일 평균 5.94% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 14.71% (09/16) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 144,000원 (<span class="up">+20.4%</span>) ÷ 하방 108,000원 (−9.7%) = <strong>1:2.10</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 9.7% = <strong>자산의 5.2%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 5.2%</strong></li>
+<li>유동성 참고: 20일 ADV 322.0억 · 1일 소화 한도는 ADV의 10%(32.20억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 9.7% · ATR14 6,021원 (손절폭/ATR 1.9배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 9.7% = ATR14 × 1.9배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 107,640원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.04</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 有 현재가: 119,600원 진입: 112,000~118,000원 (눌림 지지 확인 또는 MA20 134,540 회복 후) 손절: 108,000원 목표: 1차 144,000원 (2차 170,000원) 손익비: 1:4.1 기간: 스윙 6~12주 (3Q 실적까지) 촉매: 2026-11월 3Q26 분기보고서(법정기한 11/14)·증권사 목표가 재조정 반증: 3Q26 연결 영업이익 &lt; 1,500억이면 논지 폐기·청산 / 종가 108,000 이탈 시 전량 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
