@@ -1,0 +1,214 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>윈팩(097800) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261001-093837-윈팩-097800.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:2.55</div><div class="tp-c"><b>결론 발췌</b> 반도체 후공정(패키징·테스트) 외주업체. 가동률 급반등(패키징 39.6%→68.3%)으로 2026 2Q 영업흑자전환한 &#x27;턴어라운드 실체&#x27;는 확인되나, 현재가 52주고 93%·MA20 대비 +60% 과열권 + 선물 미상장(레버리지 불가)이라 추격 진입 손익비 열위. 판정 &#x27;관망&#x27;, 눌림 확인 시에만 소액 관심. 자체목표가 산정불가(흑전 초기·EPS 적자). [실측: KIS·DART] ① 포착 신호 • 회전율 14.69% [실측: KIS vol_tnrt], 당일 거래대금 137.3억 / 시총 988억 = 자금유입강도 13.9% [실측: KIS acml_tr_pbmn÷hts_avls] — 소형주 폭발적 수급 • 추세: MA 완전 정배열 [실측…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>윈팩(097800)</h1>
+<div class="meta">📊 trend · 2026-10-01 09:38 · 코드 097800</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-01 09:38)</div><div class="kpi-v">3,555원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">970억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">6.26</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.55</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.33</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">3,900원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 눌림 시 2,754~3,035원(현 위치 추격 비권고)</span><span class="dc dn">손절 2,500원</span><span class="dc up">목표 3,900원</span><span class="dc">손익비 진입 1:2.55 · 현재가 1:0.33 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:0.48</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:0.48로 적었지만 진입·손절·목표로 계산하면 1:2.55다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 2~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q 분기보고서 2026-11-14·SK하이닉스 외주 공시(미확정)</div><div class="dc-l">🛑 반증: 3Q26 별도 영업이익&lt;+15억이면 폐기 / 거래대금 50억 미만 3일+MA5 이탈 시 정리</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 윈팩(097800)  ※개별주식선물 無(실측), 현물만 가능(레버리지 불가)</p>
+<p>📌 한줄 결론: 반도체 후공정(패키징·테스트) 외주업체. 가동률 급반등(패키징 39.6%→68.3%)으로 2026 2Q 영업흑자전환한 &#x27;턴어라운드 실체&#x27;는 확인되나, 현재가 52주고 93%·MA20 대비 <span class="up">+60%</span> 과열권 + 선물 미상장(레버리지 불가)이라 추격 진입 손익비 열위. 판정 &#x27;관망&#x27;, 눌림 확인 시에만 소액 관심. 자체목표가 산정불가(흑전 초기·EPS 적자). [실측: KIS·DART]</p>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 14.69% [실측: KIS vol_tnrt], 당일 거래대금 137.3억 / 시총 988억 = 자금유입강도 13.9% [실측: KIS acml_tr_pbmn÷hts_avls] — 소형주 폭발적 수급</li>
+<li>추세: MA 완전 정배열 [실측: MA5 2,754 &gt; MA20 2,256 &gt; MA60 2,005, KIS 일봉]. 현재가 3,620원이 MA20 대비 <span class="up">+60%</span>, MA5 대비 <span class="up">+31%</span> 이격 → 단기 과열</li>
+<li>연속상승: 9/29 2,335 → 9/30 3,035(<span class="up">+30%</span> 상한가) → 10/1 3,620(<span class="up">+19.3%</span>), 2거래일 <span class="up">+55%</span> [실측: KIS 일봉]</li>
+<li>현위치: 52주고 3,900 대비 92.8%, 52주저 385 대비 <span class="up">+840%</span> [실측: KIS w52]. → 바닥에서 9배 오른 뒤 고점 재돌파 시도 구간. 초입 아님, 고점권 추격 주의</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력사업: 반도체 후공정(패키징+테스트) 외주. 칩을 Substrate에 탑재·밀봉(패키징) + 작동 이상유무 검사(테스트). 두 공정 동시 영위가 차별점 [인용: DART 사업보고서 2025.12, 접수 20260319000027]</li>
+<li>매출 구성(2025 별도): 패키징 582.3억(77.1%)·테스트 169.4억(22.4%)·상품 3.8억(0.5%) [실측: DART dart_biz]</li>
+<li>급등사유: &#x27;SK하이닉스 D램 후공정 외주 확대 기대&#x27; + HBM 테마 [인용: 금강일보 2026-09-30 &quot;SK하이닉스 D램 후공정 외주 확대 기대감에 윈팩 상한가&quot;; 매일경제 2026-10-01 &quot;윈팩-HBM 테마 상승세 18.29%↑&quot;]</li>
+<li>실체 판단: 테마 기대감이 방아쇠지만, 아래 ③처럼 가동률·2Q 흑전이라는 펀더멘털 반등이 &#x27;동반&#x27;된 점에서 순수 테마주보다 실체 있음. 다만 SK하이닉스 외주 확대의 &#x27;구체적 계약·공시&#x27;는 미확인(기대감 단계)</li>
+</ul>
+<p>③ 실적(DART 별도 실측)</p>
+<ul>
+<li>영업이익 추세: 2023 -228.6억 → 2024 -232.7억 → 2025 -142.9억 [실측: DART fnlttSinglAcnt 11011, 별도]. 3년 연속 적자이나 적자폭 축소</li>
+<li>매출: 2023 862.1억 → 2024 741.4억 → 2025 755.5억 [실측: 동일]</li>
+<li>★턴어라운드 핵심: 2026 1Q 영익 -20.6억 → 2026 반기 누적 영익 <span class="up">+7.9</span>억 → 2Q 단독 영익 약 <span class="up">+28.5</span>억 흑자전환 [실측: DART 반기보고서 접수 20260814004005, 산식 7.9-(-20.6)=28.5억]</li>
+<li>2Q 매출 301.8억, 2Q 단독 OPM 약 9.4% [추정: 28.5÷301.8]. H1 매출 523.7억(패키징 427.4억+테스트 94.6억) [실측: dart_biz]</li>
+<li>가동률 급반등: 패키징 2024 30.4% → 2025 39.6% → H1 2026 68.3% / 테스트 14.5%→24.1%→31.9% [실측: DART 생산능력·가동률]. 고정비 레버리지가 흑전 견인</li>
+<li>재무: 부채비율 H1 114.3% [실측: 부채 695.7억÷자본 608.5억, DART 반기 BS], 영업현금흐름 H1 <span class="up">+57.6</span>억 흑자 [실측: DART CF]</li>
+<li>순이익: 2026 2Q 단독 <span class="up">+1.27</span>억 흑전, H1 누적 -21.5억(1Q 적자 반영) [실측: DART 11012]</li>
+</ul>
+<p>④ 미래실적·컨센</p>
+<ul>
+<li>증권사 컨센서스: 미확인(4소스 시도: stockeasy 0건·네이버 추정치 없음·fnguide 추정기관 없음·한경 0건) [실측: consensus.py 2026-10-01]. 애널리스트 커버리지 전무한 소형주</li>
+<li>자체 판단: 가동률이 60%대 후반까지 올라온 만큼, SK하이닉스 외주 물량이 실제 확대되면 70~80%대 진입 시 연간 흑자 전환 가능성. 다만 &#x27;구체적 수주·증설 공시 미확인&#x27;이라 달성가능성 中(기대 기반, 계약 미확인)</li>
+</ul>
+<p>⑤ 밸류·목표가</p>
+<ul>
+<li>현 지표: PER -11.75(적자, 무의미), PBR 6.37, EPS -308원, BPS 568원 [실측: KIS]</li>
+<li>적자·흑전 초기라 PER/EPS 기반 목표가 산정 불가. PBR 6.37은 흑자 후공정 peer(한미반도체 PBR 35, SK하이닉스 10.2 등 참고 — 고멀티플군) 대비 절대값은 낮으나, 윈팩은 여전히 연간 적자라 PBR 프리미엄 정당화엔 &#x27;연간 흑자 지속&#x27; 입증 필요</li>
+<li>자체목표가: 산정불가(연간 EPS 음수·컨센 미확인). 기술적 저항 3,900원(52주고)이 1차 상단, 돌파 시 신고가 영역</li>
+<li>증권사 목표가: 미확인(커버리지 없음)</li>
+</ul>
+<p>⑥ 진입전략·손익비 (현물 기준, 선물 無 → 레버리지 불가)</p>
+<ul>
+<li>지지: MA5 2,754 / 직전 상한가 바닥 3,035 / MA20 2,256 [실측: KIS]</li>
+<li>저항: 52주고 3,900원(현재가 바로 위) [실측: KIS]</li>
+<li>추격 진입 시 손익비(현재가 3,620 기준): 상방 3,900까지 <span class="up">+7.7%</span>, 하방 손절 3,035(직전 급등 시작가)까지 <span class="down">-16.2%</span> → 손익비 7.7÷16.2 = 1:0.48 (상방&lt;하방, 진입부적합)</li>
+<li>결론: 현 위치 추격은 손익비 열위. 눌림목(MA5 2,754 또는 전고점 3,035 지지 확인) 재진입이 유일하게 손익비 성립 가능 구간</li>
+<li>★선물 미상장이라 형의 주력 전략(개별주식선물 레버리지 스윙) 적용 불가 — 현물만 가능</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트</p>
+<ul>
+<li>촉매 캘린더: 2026 3Q 분기보고서 법정기한 2026-11-14(3Q 가동률·흑자 지속 여부 핵심) / SK하이닉스 D램 후공정 외주 관련 구체 공시(날짜 미확정) [추정: 자본시장법 분기보고서 기한]</li>
+<li>반증 3개(수치→행동):</li>
+<li>반증1(분기실적 임계): 3Q26 별도 영업이익 &lt; <span class="up">+15</span>억이면 &#x27;가동률 반등=일시적&#x27;으로 폐기, 비중 축소 [기준: 2Q 28.5억의 절반 하회 시]</li>
+<li>반증2(수급): 거래대금 50억 미만으로 3일 연속 축소 + 종가 MA5(2,754) 이탈 시 추세 종료로 간주, 전량 정리</li>
+<li>반증3(테마검증): SK하이닉스 외주 확대가 1개월 내 구체 계약·공시로 확인 안 되면 &#x27;기대감 소멸&#x27;로 테마 디레이팅</li>
+<li>이벤트 매트릭스(실적×당일갭): 3Q 흑자 지속+갭상승 → 추세 유지 / 3Q 흑자 지속+갭하락 → 차익실현 눌림, 지지 매수 / 3Q 적자 재전환 → 전량 정리</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 40%: 테마 소멸<span class="up">+3</span>Q 흑전 미지속 → 급등분 되돌림, 2,500원(<span class="down">-31%</span>) [전제: 외주 확대 공시 부재]</li>
+<li>Base 40%: 흑전 지속되나 추격과열 해소 → 3,000~3,300원 박스(-9~<span class="down">-17%</span>) [전제: 가동률 60%대 유지]</li>
+<li>Bull 20%: SK하이닉스 외주 확대 구체화+연간 흑전 가시화 → 4,500원(<span class="up">+24%</span>) [전제: 가동률 75%+·수주 공시]</li>
+<li>기대수익률: 0.4×(<span class="down">-31%</span>)<span class="up">+0.4</span>×(<span class="down">-13%</span>)<span class="up">+0.2</span>×(<span class="up">+24%</span>) = <span class="down">-12.8%</span> → 현 추격 진입은 음(-)의 기대값</li>
+<li>수급: 20일 평균거래대금 미확인(급등 전 일평균 1~5억 수준으로 유동성 낮음, ADV 10% 매우 작아 소액만 체결 가능) [실측: KIS 일봉 거래대금, 9/14~9/28 평균 수억원대]</li>
+<li>포지션 사이징(자산 대비 %만): 선물 불가·소형주·흑전 초기라 리스크 예산 1%÷손절폭 16% = 자산 6% 이하가 산식상 최대이나, 유동성·과열 감안 이벤트 전 3% 이내로 축소 권고. 50% 집중 전략 대상 아님</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델</p>
+<ul>
+<li>제품 구조(2025 별도): 패키징 582억(77%)·테스트 169억(22%). 패키징 단가 상승 추세 $0.24(2023)→$0.27(2025)→$0.29(H1 2026) [실측: dart_biz 가격변동]</li>
+<li>물량×단가×가동률 핵심: 패키징 생산실적 2024 165M → 2025 145M, 가동률은 CAPA 축소(542M→367M)로 역설적 상승. H1 2026 CAPA 145M·실적 99.4M·가동률 68.3% [실측: DART]</li>
+<li>바텀업 추정(연간 환산, 추정):</li>
+<li>Bear: H2 가동률 55%, 매출 ~900억/년, 영익 적자 재전환(-30억) [산식: 가동률 하락 시 고정비 미회수]</li>
+<li>Base: H2 가동률 65% 유지, 2026 연매출 ~1,050억, 연영익 <span class="up">+20</span>~40억(상저하고) [산식: 2Q OPM 9.4% 유지, H2&gt;H1]</li>
+<li>Bull: H2 가동률 75%+(SK하이닉스 외주), 2026 연매출 1,150억+, 연영익 <span class="up">+80</span>억 [산식: 가동률 10%p↑당 OPM 4~5%p 레버리지]</li>
+<li>결론문장: 3Q26 별도 영업이익 ≥ <span class="up">+20</span>억이면 턴어라운드 유지·눌림 시 관심 / &lt; <span class="up">+15</span>억이면 &#x27;가동률 반등 일시적&#x27;으로 폐기</li>
+<li>데이터 한계: SK하이닉스 외주 구체 물량·수주잔고 공시 미확인 → Bull 시나리오는 기대 기반</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시, 미확인값은 아래 목록.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 컨센서스·목표가(커버리지 전무)</li>
+<li>SK하이닉스 D램 후공정 외주 확대의 구체 계약·공시(기대감 단계)</li>
+<li>수주잔고·3Q 가동률</li>
+<li>20일 평균거래대금 정확값(급등 전 수억원대 추정)</li>
+<li>연결 재무(상기 전부 &#x27;별도&#x27; 기준 — 연결 공시 여부 미확인)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS 시세 2026-10-01(현재가·시총·MA·52주·회전율)</li>
+<li>DART 사업보고서 2025.12 접수 20260319000027(제품·가동률·단가)</li>
+<li>DART 반기보고서 2026.06 접수 20260814004005(H1 실적·가동률·재무)</li>
+<li>DART fnlttSinglAcnt 11011/11012/11013(3개년·분기 손익)</li>
+<li>금강일보 2026-09-30·매일경제 2026-10-01(급등사유)</li>
+<li>consensus.py 2026-10-01(컨센 미확인 확인)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>손익비 산식 헤더(1:0.48)=본문(상방 7.7%÷하방 16.2%=0.48) 일치 ✓</li>
+<li>2Q 영익=반기 7.9억-1Q(-20.6억)=28.5억 ✓</li>
+<li>시나리오 확률합 40<span class="up">+40</span><span class="up">+20</span>=100% ✓</li>
+<li>모든 실적 &#x27;별도(OFS)&#x27; 라벨 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-01 09:38 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 3,555원 (<span class="up">+17.1%</span>) · 시총 970억 · 5일 <span class="up">+43.9%</span> / 20일 <span class="up">+78.6%</span> / 60일 <span class="up">+70.5%</span></li>
+<li>MA5 2,741원 / MA20 2,253원 / MA60 2,004원 → MA20 이격 <span class="up">+57.8%</span> · MA60 이격 <span class="up">+77.4%</span></li>
+<li>52주 고 3,900원 / 저 385원 → 고점 대비 <span class="down">-8.8%</span> · 20일 고 3,555원 / 저 1,920원</li>
+<li>후행 PER -11.54 / PBR 6.26 (EPS -308원 · BPS 568원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 11.9억 (5일 40.7억)</li>
+<li>외국인 순매수 5일 0.2억 / 20일 3.2억 · 기관 5일 0.0억 / 20일 0.0억 · 개인 20일 -3.7억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.15% / 20일 평균 5.03% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 10.12% (09/16) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 3,900원 (<span class="up">+9.7%</span>) ÷ 하방 2,500원 (−29.7%) = <strong>1:0.33</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 29.7% = <strong>자산의 1.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.7%</strong></li>
+<li>유동성 참고: 20일 ADV 11.9억 · 1일 소화 한도는 ADV의 10%(1.19억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 29.7% · ATR14 219원 (손절폭/ATR 4.8배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 29.7% = ATR14 × 4.8배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 3,199원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.97</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-097800"></span>📋 결정카드 — 윈팩(097800) 판정: 관망 선물: 無 현재가: 3,620원 진입: 눌림 시 2,754~3,035원(현 위치 추격 비권고) 손절: 2,500원(2,754 이탈·MA20 하향 시) 목표: 1차 3,900원 (2차 신고가 영역) 손익비: 1:0.48 (현 추격 기준, 진입부적합) 기간: 스윙 2~6주 촉매: 3Q 분기보고서 2026-11-14·SK하이닉스 외주 공시(미확정) 반증: 3Q26 별도 영업이익&lt;<span class="up">+15</span>억이면 폐기 / 거래대금 50억 미만 3일+MA5 이탈 시 정리</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
