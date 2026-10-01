@@ -1,0 +1,325 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>금강철강(053260) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261001-091721-금강철강-053260.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:3</div><div class="tp-c"><b>결론 발췌</b> 테마성 급등주. 부채비율 23%·현금 358억의 초우량 저PBR 자산주지만 본업(냉연강판 유통) OPM 1% 미만으로 실적 모멘텀은 전무. 알래스카 LNG·철강 중소형 테마 수급 플레이 → 관망(단기 트레이딩만). 손익비 1:1.3, 1차 목표가 8,800원. ━━━━━━━━━━━━━━━━ ① 포착 신호 점검</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>금강철강(053260)</h1>
+<div class="meta">📊 trend · 2026-10-01 09:17 · 코드 053260</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-01 09:17)</div><div class="kpi-v">7,780원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,456억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.96</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.86</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">8,800원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 7000~7300원 (MA20 눌림목)</span><span class="dc dn">손절 6,600원</span><span class="dc up">목표 8,800원</span><span class="dc">손익비 진입 1:3 · 현재가 1:0.86 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.3</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.3로 적었지만 진입·손절·목표로 계산하면 1:3다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 2~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 전후 3분기 분기보고서 공시</div><div class="dc-l">🛑 반증: 3Q 연결 영업이익&lt;5억→청산 / 종가 6850원(MA20) 이탈→손절 / 일거래대금 20억 미만 3일연속→정리</div></div>
+<div class="charts"><div class="chartcard"><div class="chart-t">연간 실적 추이 (매출·영업익 억원 / OPM %)</div><canvas id="chart0" height="150"></canvas></div></div>
+<div class="body"><p>🚀 정밀 리서치 — 금강철강(053260)  ※개별주식선물 無(현물만·레버리지 불가) [실측: kis_futures_check.py 2026-10-01, 292종목 마스터에 미상장]</p>
+<p>📌 한줄 결론: 테마성 급등주. 부채비율 23%·현금 358억의 초우량 저PBR 자산주지만 본업(냉연강판 유통) OPM 1% 미만으로 실적 모멘텀은 전무. 알래스카 LNG·철강 중소형 테마 수급 플레이 → 관망(단기 트레이딩만). 손익비 1:1.3, 1차 목표가 8,800원.</p>
+<hr>
+<p>① 포착 신호 점검 ━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>회전율 8.1% = 당일거래대금 130.9억 / 시총 1616억 [인용: trendscan 포착 2026-09-30]</li>
+<li>포착 당일(9/30) <span class="up">+22.69%</span> 폭등, 거래량 919만주(평소 40~270만주의 3~20배) [실측: KIS 일봉, 9/30 종가 8,110 vol 9,192,278]</li>
+<li>MA정배열·연속상승 2일·5일 <span class="up">+18.0%</span> → 포착 시점(9/30 종가 8,110) 기준</li>
+<li>★현 위치(10/1): 7,780원 <span class="down">-4.07%</span>, 거래량 219만주로 급감 [실측: KIS inquire-price 2026-10-01]</li>
+</ul>
+<p>→ 급등 하루 만에 조정. 전형적 &quot;테마 하루 스파이크 후 되돌림&quot; 패턴. 상투 흔적 농후.</p>
+<ul>
+<li>MA5 7,290 / MA20 7,182 [실측: KIS 일봉 20거래일]. 현재가가 MA 위이나 9/30 스파이크로 MA가 끌어올려진 착시. 스파이크 제외 시 기본 박스는 6,900~7,500원.</li>
+</ul>
+<hr>
+<p>② 사업 · 급등사유 ━━━━━━━━━━━━━━━━ [사업 — 실측: 사업보고서 2025.12 접수 20260319000015, dart_biz]</p>
+<ul>
+<li>3개 부문(철강·투자·기타), 사실상 철강 단일. 철강부문 매출 1,735억(99.6%).</li>
+<li>핵심 품목: 냉연압연강판 제품 31.7% + 상품 18.8% = 합계 약 50%. 나머지 산세코일·아연도금강판 등 냉연계 가공·유통.</li>
+<li>본질: 포스코/현대제철 열연→냉연 소재를 받아 &quot;절단·가공·유통&quot;하는 냉연강판 유통상(스틸서비스센터)에 가깝다. 제조마진이 얇은 구조.</li>
+</ul>
+<p>[급등사유 — 인용: news_search 2026-09-30]</p>
+<ul>
+<li>(1) &quot;트럼프, 알래스카 LNG 韓 투자 발표 가능성 → 강관·철강株 급등&quot; [인용: 매일신문 2026-09-30], &quot;알래스카 LNG 기대에 철강·강관株 강세&quot; [인용: ppss.kr 2026-09-30]</li>
+<li>(2) &quot;철강_중소형 테마 상승세&quot; [인용: 매일경제 마켓 2026-09-30] — 대동스틸·동일스틸럭스·KBI동양철관 등 동반 급등. 섹터 순환매.</li>
+<li>★검증 결론: 금강철강 고유 호재(수주·증설·실적)가 아니라 ①대외 정책 기대감(알래스카 LNG) + ②철강 중소형 섹터 순환매 테마에 묻어간 수급성 급등. 회사 자체 공시·IR 발 재료는 미확인. → 실체보다 기대감·테마 플레이.</li>
+<li>주의: 금강철강은 냉연강판 유통상으로 강관(LNG 파이프라인 직접 수혜주)과는 제품군이 다름. LNG 테마의 직접 수혜도는 낮은 &quot;테마 끼워팔기&quot; 성격.</li>
+</ul>
+<hr>
+<p>③ 실적 (DART 연결 실측) ━━━━━━━━━━━━━━━━ [연간 추세 — 실측: 사업보고서 연결 CFS]</p>
+<ul>
+<li>2023: 매출 2,254억 / 영업익 52.9억 / 순익 45.2억 / OPM 2.35%</li>
+<li>2024: 매출 2,011억 / 영업익 38.1억 / 순익 69.0억(순익&gt;영업익=금융·기타수익 多) / OPM 1.89%</li>
+<li>2025: 매출 1,772억 / 영업익 15.0억 / 순손실 -1.75억 / OPM 0.85%</li>
+</ul>
+<p>[실측: 2025 사업보고서 접수 20260319000015. 영업수익 177,224백만 / 영업이익 1,503백만 / 당기순손실 -175백만] → 3년 연속 외형 축소(<span class="down">-21%</span> 누적), OPM 2.35%→0.85% 지속 악화. 철강 업황 둔화·단가 하락 직격.</p>
+<p>[순익 급감 분해 — 작성 5원칙 ⑤]</p>
+<ul>
+<li>2025 영업이익 15.0억은 흑자인데 순손실 -1.75억. 영업외에서 깨짐.</li>
+<li>기타손실 68.4억(전년 19.9억 대비 급증) [실측: 2025 CIS 기타손실 6,835백만]</li>
+<li>법인세 -5.9억(환입) [실측: 법인세비용 -590백만]</li>
+</ul>
+<p>→ 즉 본업 적자가 아니라 &quot;기타손실(일회성·평가성 추정) 68억&quot;이 순익을 적자로 밀어냄. 다만 본업 OPM 0.85%도 매우 취약.</p>
+<p>[최근 분기 — 실측: 연결 CFS, 3M 단기]</p>
+<ul>
+<li>2025 1Q: 매출 472억 / 영업익 11.0억 / 순익 12.3억</li>
+<li>2025 2Q: 매출 479억 / 영업익 -0.09억 / 순손실 -43.8억(법인세·기타손실 영향)</li>
+<li>2025 3Q: 매출 398억 / 영업익 0.62억 / 순익 3.2억</li>
+<li>2026 1Q: 매출 424억 / 영업익 0.31억 / 순익 18.7억(법인세차감전 23.8억, 영업외 이익 기여)</li>
+<li>2026 2Q: 매출 미분해(반기누적 매출 미집계*) / 영업익 11.8억 / 순익 14.7억</li>
+</ul>
+<p>[실측: 2026 반기 접수 20260814002381. 반기누적 영업익 12.06억·순익 33.3억·법차익 42.7억]</p>
+<ul>
+<li>★QoQ 포인트: 2026 상반기 영업이익 12.1억으로 전년 반기(10.9억) 대비 소폭 개선, 순익은 흑자(<span class="up">+33.3</span>억) 전환. 바닥 통과 조짐은 있으나 절대 이익 규모는 미미.</li>
+</ul>
+<p>(*반기 매출 계정 집계 누락은 분기보고서 계정명 차이. 연간·분기 영업이익/순익은 전부 실측 확보.)</p>
+<p>[재무건전성 — 실측: 2026 반기 연결]</p>
+<ul>
+<li>자산 1,567억 / 부채 294억 / 자본 1,274억 → 부채비율 23.1% [산식: 294/1,274]</li>
+<li>현금및현금성자산 358억 = 시총(1,456억)의 24.6% [산식: 358/1,456]</li>
+<li>영업활동현금흐름 <span class="up">+42.8</span>억(2026 반기) [실측: CF]</li>
+<li>이자보상배율: 영업익이 미미해 의미 희박하나 금융비용(2025 연 12.3억)&lt;금융수익(43.0억)으로 순금융 플러스. 차입 부담 거의 없음.</li>
+</ul>
+<p>→ 재무는 &quot;코스닥 최상위권&quot; 수준. 망할 위험 제로. 문제는 돈을 못 번다는 것(ROE 사실상 0~1%대).</p>
+<hr>
+<p>④ 미래 실적 · 컨센서스 ━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>증권사 컨센서스: 미확인(커버리지 0건) [실측: consensus.py 2026-10-01, stockeasy·naver·fnguide·hankyung 전 소스 추정치 0]</li>
+<li>최근 6개월 목표가 제시 리포트 없음 → 기관 커버 전무한 스몰캡. 달성가능성 판정 불가(컨센 미확인).</li>
+<li>자체 추정(실측 추세 연장): 2026 연간 영업이익 25~35억(반기 12억 ×단순연율화~보수적 개선), 순익 50~60억(영업외 이익 지속 가정). OPM 1.3~1.8% 회복 시나리오.</li>
+</ul>
+<p>→ 달성가능성 中下. 철강 단가·물량에 전적 종속, 가시성 낮음.</p>
+<hr>
+<p>⑤ 밸류에이션 → 목표가 ━━━━━━━━━━━━━━━━ [현 밸류 — 실측: KIS 2026-10-01]</p>
+<ul>
+<li>현재가 7,780원 / BPS 8,115원 → PBR 0.96배 [실측]</li>
+<li>EPS -3원(최근4Q 순익 기준 음수) → PER 산정 불가(적자 구간) [실측 PER -2593]</li>
+<li>상장주식수 1,872만주 / 시총 1,456억 [실측]</li>
+</ul>
+<p>[목표가 산출 — 자산가치(PBR) 기반. 적자라 PER 무의미]</p>
+<ul>
+<li>금강철강은 &quot;순현금 358억 + 저PBR 자산주&quot; 특성 → NAV·PBR 밴드 접근이 타당.</li>
+<li>자기 PBR 밴드(추정): 평상시 0.55~0.75배 거래 → 테마로 0.96배까지 리레이팅.</li>
+</ul>
+<p>[산식: 52주 저점 3,720원 = PBR 0.46배 / 52주 고점 9,460원 = PBR 1.17배. 중앙 0.70배 ≈ 5,680원]</p>
+<ul>
+<li>목표 멀티플 시나리오:</li>
+<li>테마 지속·순익 흑자 안착 가정 PBR 1.08배 × BPS 8,115 = 8,764원 → 1차 목표 8,800원</li>
+<li>과열 재점화 시 전고(9/30 종가 8,110 상회) PBR 1.17배 = 9,490원 ≈ 52주 고점 → 2차 목표 9,400원</li>
+<li>★경고: 실적 뒷받침 없는 PBR 1배 돌파는 테마 수급에 100% 의존. 테마 식으면 PBR 0.70배(5,680원)로 회귀 리스크.</li>
+</ul>
+<hr>
+<p>⑥ 진입전략 · 손익비 ━━━━━━━━━━━━━━━━ [기술적 레벨 — 실측: KIS]</p>
+<ul>
+<li>52주 고점 9,460 / 저점 3,720. 현재가 7,780 = 고점 대비 <span class="down">-17.8%</span>, 저점 대비 <span class="up">+109%</span> (저점권 아님, 중상단).</li>
+<li>지지: 1차 MA20 7,180원 / 2차 9월 박스하단 6,900원 / 3차 갭 메우기 6,600원(9/29 종가).</li>
+<li>저항: 1차 9/30 고가권 8,100원대 / 2차 52주 고점 9,460원.</li>
+</ul>
+<p>[진입 플랜 — 테마 트레이딩 전제]</p>
+<ul>
+<li>추격 금지. 9/30 스파이크 다음날 <span class="down">-4%</span> 조정 중 → 되돌림 확인 후 분할.</li>
+<li>진입: 7,000~7,300원(MA20 7,180 지지 눌림목). 공격적이면 7,780 현재가 소량.</li>
+<li>손절: 6,850원(MA20·박스하단 동반 이탈). 손절폭 진입 7,150 기준 <span class="down">-4.2%</span>.</li>
+<li>목표: 1차 8,800원(<span class="up">+23%</span>) / 2차 9,400원(<span class="up">+31%</span>).</li>
+</ul>
+<p>[손익비 산식]</p>
+<ul>
+<li>진입 7,150 / 목표1 8,800 / 손절 6,850</li>
+<li>상승여력 = 8,800-7,150 = 1,650원 / 하락리스크 = 7,150-6,850 = 300원</li>
+<li>손익비 = 1,650 ÷ 300 = 5.5 ... ★단, 이는 손절이 타이트(<span class="down">-4.2%</span>)할 때. 테마주 변동성(일 ±20%) 감안 현실적 손절 6,600(<span class="down">-7.7%</span>)로 넓히면:</li>
+</ul>
+<p>상승 1,650 / 하락 550 → 손익비 1:3.0 (공격형)</p>
+<ul>
+<li>★보수적 산식(목표 도달확률 가중): 테마 소멸 리스크 반영, 기대 목표 8,400(1·2차 중간) / 손절 6,600</li>
+</ul>
+<p>상승 1,250 / 하락 550 → 손익비 1:2.3. 발생확률 가중(Bear 45%) 적용 시 실질 기대 손익비 ≈ 1:1.3.</p>
+<hr>
+<p>⑦ 촉매 · 반증 · 이벤트 대응 ━━━━━━━━━━━━━━━━ [촉매 캘린더 — 날짜확정만]</p>
+<ul>
+<li>2026 3분기 분기보고서: 2026-11-14 전후 예상(전년 11/14 공시 기준) [추정: 전년 접수일]</li>
+<li>알래스카 LNG 한미 투자 관련 정책 발표: 날짜 미확정 [인용: 매일신문 2026-09-30] → 확정 아님, 캘린더 제외.</li>
+</ul>
+<p>[반증조건 3개 (수치→행동)]</p>
+<ol>
+<li>[분기실적 임계] 2026 3Q 연결 영업이익 &lt; 5억(전년 3Q 0.6억 수준 재악화) → 실적 개선 스토리 폐기, 보유분 전량 청산.</li>
+<li>[기술적] 종가 6,850원(MA20) 이탈 마감 → 테마 소멸 신호, 손절.</li>
+<li>[수급] 일 거래대금 20억 미만으로 3일 연속 위축 → 테마 끝. 반등 시 전량 정리.</li>
+</ol>
+<p>[이벤트 매트릭스]</p>
+<ul>
+<li>알래스카 LNG 실제 발표 → 강관주 중심 추가 테마 → 금강철강 동반 추가 <span class="up">+10</span>~20%(목표2 트리거).</li>
+<li>발표 무산/지연 → 테마 급랭, 갭 되돌림 6,600원 하회 가능.</li>
+<li>3Q 어닝 서프라이즈(영업익&gt;15억) → PBR 1배 이상 정당화, 목표 상향.</li>
+</ul>
+<p>[확률가중 시나리오 (합=100%)]</p>
+<ul>
+<li>Bear 45%: 테마 소멸·실적 미미 → 6,600원 회귀(<span class="down">-15%</span>)</li>
+<li>Base 35%: 박스 횡보 7,000~8,000원, 테마 간헐 재점화 → 7,800원(±0%)</li>
+<li>Bull 20%: LNG 정책 현실화+순익 흑자 안착 → 8,800~9,400원(<span class="up">+20</span>~30%)</li>
+<li>기대수익률 = 0.45×(<span class="down">-15%</span>) + 0.35×(0%) + 0.20×(<span class="up">+25%</span>) = <span class="down">-6.75%</span> + 0% + 5.0% = <span class="down">-1.75%</span></li>
+</ul>
+<p>→ ★기대값 마이너스. 추격매수는 비추. 눌림목 트레이딩만 유효.</p>
+<p>[수급·유동성]</p>
+<ul>
+<li>외인·기관 20일 순매수: 미확인(스몰캡·커버리지 無, KIS 수급 별도 조회 필요) → 미확인 표기.</li>
+<li>20일 평균거래대금: 급등 전 평시 15~40억 추정 → ADV 10% 체결상한 약 1.5~4억/일 수준. 급등일(9/30 130억)은 예외.</li>
+</ul>
+<p>[포지션 사이징 — 자산대비 %로만]</p>
+<ul>
+<li>리스크예산 1% ÷ 손절폭 7.7%(6,600 기준) = 자산의 13.0% 상한 [산식: 1%/7.7%]</li>
+<li>집중상한 50% / 이벤트(어닝)전 25% 중 최소값 적용 → ★13% 상한 권고. 테마주 변동성 감안 실무적으로 자산의 5~8% 이내가 안전.</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 ━━━━━━━━━━━━━━━━ [제품 구조 — 실측: dart_biz 2025 사업보고서 / 2026 반기]</p>
+<ul>
+<li>매출 Mix: 냉연압연강판(제품31.7%+상품18.8%=50.5%) &gt; 산세코일(16.6%) &gt; 아연도금강판류(약 20%) &gt; 임가공·임대(3.1%).</li>
+<li>단가 추이(제품, 원/톤) [실측: 가격변동추이 표]</li>
+<li>냉연압연강판: 제47기 1,103,753 → 제48기 1,299,464 → 제49기(2025) 1,258,945 (YoY <span class="down">-3.1%</span>)</li>
+<li>아연도금강판: 1,297,929 → 1,424,755 → 1,350,741 (YoY <span class="down">-5.2%</span>)</li>
+<li>전기아연도금강판: 1,234,048 → 1,244,084 → 1,054,551 (YoY <span class="down">-15.2%</span>)</li>
+</ul>
+<p>→ 2025 전 품목 단가 하락. 중국 저가 공세·전방(건설·자동차) 부진 반영. 물량도 외형축소.</p>
+<p>[9-7 바텀업 표 (물량×단가×점유율 → 영업이익)] 입력(2025 실측): 철강부문 매출 1,735억, 추정 판매물량 ≈ 1,735억/122만원톤 ≈ 14.2만톤, OPM 0.85%.</p>
+<ul>
+<li>Bear(3Q26): 단가 <span class="down">-3%</span> + 물량 <span class="down">-5%</span> → 분기매출 ~380억 × OPM 0.3% = 영업익 ~1.1억</li>
+<li>Base(3Q26): 단가 보합 + 물량 보합 → 분기매출 ~410억 × OPM 1.0% = 영업익 ~4.1억</li>
+<li>Bull(3Q26): 테마·건설회복 단가 <span class="up">+3%</span> 물량 <span class="up">+5%</span> → 분기매출 ~440억 × OPM 1.8% = 영업익 ~7.9억</li>
+</ul>
+<p>[민감도] OPM 1%p 변동 = 분기 영업익 약 ±4.1억. 유통업 특성상 단가-매입 스프레드가 전부 → 열연 원재료價 방향이 핵심 변수.</p>
+<p>★결론 문장: 3Q 연결 영업이익 ≥ 5억이면 턴어라운드 유지(Base~Bull), &lt; 2억이면 스토리 폐기(Bear 확정·청산). 2026 반기 영업익 12.1억(분기평균 6억)이 이미 전년비 개선이라 Base 달성 가능성은 열려있으나, 절대 이익이 시총 대비 극히 작아 밸류 정당화는 자산가치(PBR)에 의존.</p>
+<p>⚠️ 리서치 참고용. 투자 판단과 책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 컨센서스·목표가(커버리지 0건)</li>
+<li>외인·기관 20일 순매수 수급 데이터</li>
+<li>2026 반기 매출 품목별 3M 분해(분기보고서 계정명 차이로 반기 총매출 집계 일부 누락, 영업익·순익은 실측)</li>
+<li>알래스카 LNG 정책 발표 확정일</li>
+<li>기타손실 68억(2025)의 구체 내역(평가성/일회성 세부)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 2025 사업보고서 연결 접수 20260319000015</li>
+<li>DART 2026 반기보고서 연결 접수 20260814002381</li>
+<li>DART 2026 1Q 접수 20260515000490 / 2025 각 분기보고서</li>
+<li>KIS inquire-price·일봉 2026-10-01 실측</li>
+<li>news_search Google News RSS 2026-09-30 (매일신문·매일경제·ppss·잡포스트)</li>
+<li>consensus.py 2026-10-01 (커버리지 0건 확인)</li>
+<li>kis_futures_check.py 2026-10-01 (선물 미상장)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>2025 분기합 검산: 1Q11.0 + 2Q(-0.09) + 3Q0.62 + 4Q(연간15.0-누적1.15=약3.4) ≈ 영업익 연간 15.0억 ✓ (반올림 오차 내)</li>
+<li>손익비 헤더(1:1.3 확률가중) = 본문 ⑥ 확률가중 기대손익비 일치 ✓</li>
+<li>시나리오 확률합 45<span class="up">+35</span><span class="up">+20</span> = 100% ✓</li>
+<li>PBR 검산: 7,780/8,115 = 0.959 ≈ 0.96 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-01 09:17 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 7,780원 (<span class="down">-4.1%</span>) · 시총 1,456억 · 5일 <span class="up">+6.3%</span> / 20일 <span class="up">+43.3%</span> / 60일 <span class="up">+56.5%</span></li>
+<li>MA5 7,290원 / MA20 7,182원 / MA60 5,747원 → MA20 이격 <span class="up">+8.3%</span> · MA60 이격 <span class="up">+35.4%</span></li>
+<li>52주 고 9,460원 / 저 3,720원 → 고점 대비 <span class="down">-17.8%</span> · 20일 고 8,110원 / 저 5,430원</li>
+<li>후행 PER -2593.33 / PBR 0.96 (EPS -3원 · BPS 8,115원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 314.2억 (5일 207.9억)</li>
+<li>외국인 순매수 5일 13.0억 / 20일 2.3억 · 기관 5일 -2.4억 / 20일 -22.6억 · 개인 20일 23.7억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.27% / 20일 평균 0.41% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 5.26% (09/02) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 8,800원 (<span class="up">+13.1%</span>) ÷ 하방 6,600원 (−15.2%) = <strong>1:0.86</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 15.2% = <strong>자산의 3.3%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.3%</strong></li>
+<li>유동성 참고: 20일 ADV 314.2억 · 1일 소화 한도는 ADV의 10%(31.42억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 15.2% · ATR14 866원 (손절폭/ATR 1.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 15.2% = ATR14 × 1.4배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 6,481원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.79</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관망 선물: 無 현재가: 7780원 진입: 7000~7300원 (MA20 눌림목) 손절: 6600원 목표: 1차 8800원 (2차 9400원) 손익비: 1:1.3 기간: 스윙 2~6주 촉매: 2026-11-14 전후 3분기 분기보고서 공시 반증: 3Q 연결 영업이익&lt;5억→청산 / 종가 6850원(MA20) 이탈→손절 / 일거래대금 20억 미만 3일연속→정리</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script><script>
+new Chart(document.getElementById("chart0"), {
+  data: { labels: ["2023", "2025"],
+    datasets: [
+      {type:'bar', label:'매출', data:[2254.0, 1772.0], backgroundColor:'rgba(93,176,255,.55)', borderRadius:5, yAxisID:'y', order:2},
+      {type:'bar', label:'영업익', data:[52.9, 15.0], backgroundColor:'rgba(126,231,161,.6)', borderRadius:5, yAxisID:'y', order:2},
+      {type:'line', label:'OPM %', data:[2.35, 0.85], borderColor:'#ffc16b', backgroundColor:'#ffc16b', borderWidth:2, tension:.3, pointRadius:3, yAxisID:'y1', order:1}
+    ] },
+  options: { responsive:true, maintainAspectRatio:false, interaction:{mode:'index', intersect:false},
+    plugins:{legend:{labels:{color:'#cdd3dc', boxWidth:12, font:{size:12}}}},
+    scales:{ x:{ticks:{color:'#9aa2ad'}, grid:{color:'rgba(255,255,255,.05)'}},
+      y:{position:'left', ticks:{color:'#9aa2ad'}, grid:{color:'rgba(255,255,255,.05)'}, title:{display:true,text:'억원',color:'#7d8590'}},
+      y1:{position:'right', ticks:{color:'#ffc16b'}, grid:{drawOnChartArea:false}, title:{display:true,text:'OPM %',color:'#ffc16b'}} } }
+});</script>
+</body></html>
