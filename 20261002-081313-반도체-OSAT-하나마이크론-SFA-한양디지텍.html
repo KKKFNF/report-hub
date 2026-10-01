@@ -1,0 +1,415 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>하나마이크론(067310) · 반도체 OSAT (하나마이크론·SFA·한양디지텍) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261002-081313-반도체-OSAT-하나마이크론-SFA-한양디지텍.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.33</div><div class="tp-c"><b>결론 발췌</b> • 논지(삼성·SK가 HBM 자체 패키징에 집중→범용메모리 외주 OSAT 수혜)는 실체 있음. 단 3종목의 &#x27;질&#x27;은 크게 다르다. • Tier 1 하나마이크론 — 유일하게 &#x27;흑자 가속 + 선물 상장(레버리지) + fwd PER 14배&#x27;. 눌림 매수 1순위. 손익비 1:2.3. • Tier 2 SFA반도체 — 선물 상장(★의뢰 브리핑의 &#x27;선물 無&#x27;는 오류, 실측 결과 AF2610 상장). 삼성 DDR5 외주 &#x27;기대&#x27;는 최대지만 FY26 아직 적자. 흑전은 FY27. 외국인 12일 연속 순매수 동력. 모멘텀·눌림 트레이딩. • Tier 3 한양디지텍 — 선물 미상장(현물만, 레버리지 불가). 흑자지만 이익 역성장, 컨센 공백. +84% 급등…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>하나마이크론(067310) · 반도체 OSAT (하나마이크론·SFA·한양디지텍)</h1>
+<div class="meta">📊 benine · 2026-10-02 08:13 · 코드 067310</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-02 08:13)</div><div class="kpi-v">51,200원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3.4조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">89.04</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">8.52</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.33</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.95</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">58,500원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 47,000~49,000원 (눌림 2회 분할)</span><span class="dc dn">손절 43,500원</span><span class="dc up">목표 58,500원</span><span class="dc">손익비 진입 1:2.33 · 현재가 1:0.95</span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11월 중순 3Q26 실적(컨센 영업익 1,073억)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 700억이면 논지 폐기·전량 청산 / 종가 43,500원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 반도체 OSAT 3종목 (하나마이크론·SFA반도체·한양디지텍)</p>
+<p>출처: 비나인 블로그 &quot;반도체 소부장 투자_ OSAT 아이디어 (feat. 가동률)&quot; (kvv8_10_100, 2026-10-01). 블로거·증권사 수치는 &#x27;추정/인용&#x27;으로 구분 표기, 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>📌 한줄 결론</p>
+<ul>
+<li>논지(삼성·SK가 HBM 자체 패키징에 집중→범용메모리 외주 OSAT 수혜)는 실체 있음. 단 3종목의 &#x27;질&#x27;은 크게 다르다.</li>
+<li>Tier 1 하나마이크론 — 유일하게 &#x27;흑자 가속 + 선물 상장(레버리지) + fwd PER 14배&#x27;. 눌림 매수 1순위. 손익비 1:2.3.</li>
+<li>Tier 2 SFA반도체 — 선물 상장(★의뢰 브리핑의 &#x27;선물 無&#x27;는 오류, 실측 결과 AF2610 상장). 삼성 DDR5 외주 &#x27;기대&#x27;는 최대지만 FY26 아직 적자. 흑전은 FY27. 외국인 12일 연속 순매수 동력. 모멘텀·눌림 트레이딩.</li>
+<li>Tier 3 한양디지텍 — 선물 미상장(현물만, 레버리지 불가). 흑자지만 이익 역성장, 컨센 공백. <span class="up">+84%</span> 급등 후 단기과열 거래정지 예고·애프터마켓 <span class="down">-11%</span> → 과열. 관망.</li>
+</ul>
+<hr>
+<p>【Tier 분류 요약】 ━━━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>하나마이크론(067310) ─ 선물 ✅(A4C610) / 가동률 71.9→81.7% / 흑자 OPM 8→12% 가속 / fwd PER 14배 / 판정 관심(눌림매수)</li>
+<li>SFA반도체(036540) ─ 선물 ✅(AF2610) / 가동률 본사 33→40% / FY26 적자·FY27 흑전 / PBR 3.8·턴어라운드 선반영 / 판정 관심(눌림)</li>
+<li>한양디지텍(078350) ─ 선물 ❌ / 가동률 모듈 81.8% / 흑자지만 OP <span class="down">-32%</span>YoY / 컨센 공백·과열 / 판정 관망</li>
+</ul>
+<p>[선물 재확인: KIS 개별주식선물 마스터 2026-10-02 — 하나마이크론 A4C610 ✅ / SFA반도체 AF2610 ✅ / 한양디지텍 ❌]</p>
+<hr>
+<p>① 하나마이크론 (067310) ─ Tier 1  [선물 有] ════════════════════</p>
+<p>① 포착·수급 [실측: enrich.py 2026-10-02]</p>
+<ul>
+<li>현재가 51,200원 · 시총 34,043억(3.4조) · 52주 22,400~58,500(고점 <span class="down">-12.5%</span>, 저점 <span class="up">+128%</span>)</li>
+<li>MA5 48,440 &gt; MA20 40,223 &gt; MA60 36,586 완전 정배열 · 20일 <span class="up">+44.8%</span> · 60일 <span class="up">+31.3%</span> · ATR14 2,284</li>
+<li>수급 20일: 기관 <span class="up">+843</span>억(강력 매수) / 외국인 -72억 / 개인 -826억 → 기관 주도</li>
+<li>공매도 20일평균 5.28%(압력 높음), 최대 11.76%(9/10) · ADV20 751억(유동성 풍부)</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>반도체 후공정(OSAT) 전문. 패키징(PKG) 79.1% + 실리콘부품(자회사 하나머티리얼즈) 13.7%. 수출 82%. [실측: 반기보고서 2026.06, 접수 20260814003753]</li>
+<li>주 고객: SK하이닉스(메모리 패키징 메인). 수출 비중 82%가 이를 뒷받침.</li>
+<li>급등사유: 마이크론 호실적·국내 반도체 수출 사상최대에 메모리 업황·설비투자 기대 확산(2026-10-01, 뉴스1 Bing). 7월 폭락 후 후공정 강세 복귀. 실체 있는 실적 모멘텀 동반 상승.</li>
+</ul>
+<p>③ 실적 (DART 연결 실측)</p>
+<ul>
+<li>FY24: 매출 1.25조 · 영업익 1,068억(OPM 8.5%)</li>
+<li>FY25: 매출 1.53조 · 영업익 1,277억(OPM 8.3%)</li>
+<li>1H26: 매출 1.19조 · 영업익 1,423억(OPM 11.9%) [실측: 1H25 영업익 302억 → 1H26 1,423억 = <span class="up">+371%</span> YoY]</li>
+<li>분기: 1Q26 영업익 720억(OPM 14.2%, 인용 메리츠 5/15) · 2Q26 영업익 703억 [잔차: 1H26 1,423 − 1Q 720]</li>
+<li>재무: 부채총계 1.61조 / 자본 8,272억 → 부채비율 194%(증설 투자로 높음, OSAT 특성). [실측: 반기보고서]</li>
+<li>영업레버리지 실증: 가동률 2025 71.9% → 1H26 81.7%(<span class="up">+9.8%</span>p)와 함께 OPM 8%→12% 동반 상승 — 블로거의 &#x27;가동률→영업레버리지&#x27; 논지가 숫자로 확인됨.</li>
+</ul>
+<p>④ 미래실적·컨센서스 [인용: consensus.py 2026-10-02, stockeasy·naver·fnguide·hankyung]</p>
+<ul>
+<li>목표가 평균 58,286원(최고 한국투자 68,000 / 최저 47,000, 7건) · 현재가 대비 <span class="up">+13.8%</span> · Buy 8 / NR 1</li>
+<li>FY26E 매출 24,942억 · 영업익 4,168억 · EPS 3,574 · fwd PER 14.3 · ROE 44.9%</li>
+<li>FY27E 매출 28,336억 · 영업익 4,332억 · EPS 3,916 · PER 13.1</li>
+<li>분기 컨센 3Q26: 매출 6,452억 · 영업익 1,073억</li>
+<li>영업익 컨센 추이: 현재 4,168 ← 3M전 3,155 ← 6M전 2,316 (지속 상향) → 달성가능성 <strong>高</strong> (1H26 런레이트 1,423억 반기 + 가동률 81.7% + 베트남 증설)</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 PBR 8.5(높음)이나 ROE 44.9%로 정당화 구간. trailing PER 89배는 과거이익, fwd 14.3배가 유효.</li>
+<li>자체 목표가 = FY26E EPS 3,574 × 적정 PER 16배(흑자 가속 성장주, 피어 대비 보수) = <strong>57,184원</strong></li>
+</ul>
+<p>보조: FY27E EPS 3,916 × 15배 = 58,740원 → 증권사 평균 58,286원과 수렴.</p>
+<ul>
+<li>2차(Bull): FY27E EPS 3,916 × 17배 = 66,572원 ≈ 한투 68,000원.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 레버리지)</p>
+<ul>
+<li>현재가 51,200은 전고 58,500 근접 + 20일 <span class="up">+44.8%</span> 과열 → 추격 부적합, <strong>눌림 분할 진입</strong>이 유리.</li>
+<li>진입: 47,000~49,000원(MA5·직전 돌파 되돌림) 2회 분할</li>
+<li>손절: 43,500원 종가 이탈(MA20 하단)</li>
+<li>목표: 1차 58,500(전고) · 2차 65,000</li>
+<li>손익비(진입 48,000 기준): 상방 58,500(<span class="up">+21.9%</span>) ÷ 하방 43,500(<span class="down">-9.4%</span>) = <strong>1:2.3</strong></li>
+</ul>
+<hr>
+<p>② SFA반도체 (036540) ─ Tier 2  [선물 有 ★브리핑 정정] ════════════════════</p>
+<p>① 포착·수급 [실측: enrich.py 2026-10-02]</p>
+<ul>
+<li>현재가 11,000원 · 시총 18,091억(1.8조) · 52주 3,735~11,850(고점 <span class="down">-7%</span>, 저점 <span class="up">+194%</span>)</li>
+<li>MA 완전 정배열 · 20일 <span class="up">+89.6%</span> · 60일 <span class="up">+110%</span> · ATR14 769</li>
+<li>수급 20일: 외국인 <span class="up">+1,388</span>억(12일 연속 순매수, 강력!) / 기관 -567억 / 개인 -843억 → 외국인 주도</li>
+<li>공매도 20일평균 6.31%(높음), 최대 25.86%(9/4) → 숏 커버·외인 매수 공방</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>반도체 조립·검사(패키징) 전문. 메모리 패키징 83.3% [실측: 반기보고서 2026.06, 접수 20260812000313]. 고객 삼성전자.</li>
+<li>급등사유: 시스템반도체·반도체 후공정 &#x27;대이동&#x27; 테마(삼성 DDR5 외주화). 외국인 12일 연속 순매수 <span class="up">+6.86%</span>(2026-10-01, 뉴스핌). iM증권 &quot;반도체 후공정 대이동, 내년 사상 최대 실적&quot;(9/21).</li>
+<li>논지 실체: 삼성이 HBM 자체 패키징 집중→범용 DDR5 패키징·파이널테스트를 SFA로 이관(온양공장)이라는 &#x27;구조적 외주&#x27; 스토리 — 증권사 복수 확인. 단 현재는 &#x27;기대&#x27; 단계, 실적은 미도달.</li>
+</ul>
+<p>③ 실적 (DART 연결 실측)</p>
+<ul>
+<li>FY24: 매출 4,005억 · 영업익 -0.03억(BEP)</li>
+<li>FY25: 매출 3,674억 · 영업익 -196억(적자 확대)</li>
+<li>1H26: 매출 약 2,336억(1Q 1,073 + 2Q 1,262) · 영업익 -61.5억(적자 지속) [실측: 반기보고서. 2Q 매출 1,262억은 하나증권 9/2 인용과 일치]</li>
+<li>재무: 자본 4,799억 / 부채 979억 → 부채비율 20%(우량, 턴어라운드 체력은 충분)</li>
+<li>가동률: 본사 2025 33% → 1H26 40% / 필리핀 2025 40%. CAPA 조정(패키지 438→330→175백만개), 2025 설비투자 207억. [실측: 사업·반기보고서]</li>
+</ul>
+<p>※ 블로거의 &#x27;필리핀 34→63%, 본사 21→40%(26Q2)&#x27;는 분기 순간치 추정 — DART 반기 평균은 본사 40%. 가동률 상승 방향은 일치하나 &#x27;60%대 아직 BEP 미만&#x27;이 핵심.</p>
+<p>④ 미래실적·컨센서스 [인용: consensus.py 2026-10-01]</p>
+<ul>
+<li>목표가 평균 12,000원(한국투자 9/14 상향, BNK) · 외부집계 naver 10,500</li>
+<li>FY26E 매출 5,588억 · 영업익 -56억(적자) · EPS -4 — 올해는 적자</li>
+<li>FY27E 매출 8,085억 · 영업익 795억(흑전) · EPS 384 · PER 28.1</li>
+<li>분기 3Q26: 매출 1,479억 · 영업익 -31억(적자 지속), 4Q26 흑전 전망</li>
+<li>★주의: 영업익 컨센이 하향(현 -56 ← 3M전 <span class="up">+102</span> ← 6M전 <span class="up">+328</span>) → 흑전 시점이 밀리고 있음. 달성가능성 <strong>中(FY27 레버리지는 유효하나 FY26 적자·컨센 하향 리스크)</strong></li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>적자로 PER 무의미. PBR 3.81. 시총 1.8조는 FY27E 영업익 795억 기준 EV/OP ≈ 22배 → <strong>턴어라운드를 상당폭 선반영</strong>.</li>
+<li>자체 목표가 = FY27E EPS 384 × 적정 PER 28배(흑전 초기 프리미엄) = 10,752원 ≈ 현재가. 즉 현재가 11,000은 이미 FY27 흑전 가정의 적정가 부근.</li>
+<li>블로거 &#x27;한양 대비 밸류 비교&#x27;의 함정: SFA 시총 1.8조는 &#x27;이익&#x27;이 아니라 &#x27;기대&#x27;에 매겨진 값. 현재이익(적자)만 보면 비쌈.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 가능하나 적자+고변동 → 고위험)</p>
+<ul>
+<li>현재가 11,000 전고 근접. 적자기업 레버리지는 변동성 리스크 큼 → 소량·눌림 원칙.</li>
+<li>진입: 9,300~9,700원(MA20 8,621 상단) 눌림 대기</li>
+<li>손절: 8,500원(MA20 이탈)</li>
+<li>목표: 12,000(컨센) · 돌파 시 14,000</li>
+<li>손익비(진입 9,500 기준): 상방 12,000(<span class="up">+26.3%</span>) ÷ 하방 8,500(<span class="down">-10.5%</span>) = <strong>1:2.5</strong>. 단 현재가 11,000 직진입 시 상방 <span class="up">+9%</span> ÷ 하방 <span class="down">-13.6%</span> = 1:0.7 → <strong>현재가 추격 부적합</strong>.</li>
+</ul>
+<hr>
+<p>③ 한양디지텍 (078350) ─ Tier 3  [선물 無 · 현물만] ════════════════════</p>
+<p>① 포착·수급 [실측: enrich.py 2026-10-02]</p>
+<ul>
+<li>현재가 36,000원 · 시총 5,488억 · 52주 13,720~44,300(고점 <span class="down">-18.7%</span>, 저점 <span class="up">+162%</span>)</li>
+<li>MA 정배열 · 5일 <span class="up">+30.2%</span>(단기 급등) · 20일 <span class="up">+83.8%</span> · ATR14 2,336 · ADV20 119억(유동성 작음)</li>
+<li>수급 20일: 기관 <span class="up">+325</span>억 / 외국인 -53억 / 개인 -261억</li>
+<li>★과열 경보: 9/30 KRX 단기과열 &#x27;거래정지 예고&#x27;(뉴스티앤티 공시종합) + 10/1 애프터마켓 <span class="down">-11.25%</span>(종가 36,000→31,950, 연합뉴스) → 투기 과열 냉각 신호</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>메모리모듈 64.2% + SSD. 삼성향 DRAM 모듈. 생산 베트남(한양디지텍VINA). [실측: 반기보고서 2026.06, 접수 20260813000908]</li>
+<li>급등사유: OSAT·소부장 순환매 + 검색상위 신규등장(ThinkPool 9/25) 등 수급·테마성. 증권사 커버 공백 상태의 개인·테마 주도 급등 성격.</li>
+</ul>
+<p>③ 실적 (DART 연결 실측)</p>
+<ul>
+<li>FY24: 매출 5,952억 · 영업익 350억(OPM 5.9%)</li>
+<li>FY25: 매출 6,511억 · 영업익 239억(OPM 3.7%, <strong>YoY <span class="down">-32%</span></strong>) — 매출 늘고 이익 감소</li>
+<li>1H26: 매출 2,580억 · 영업익 154억(OPM 6.0%, 회복 중)</li>
+<li>가동률: 2025 메모리모듈 81.8% / SSD 63.9%. 블로거 &#x27;모듈 52→84%, SSD 61→82%&#x27;는 분기 추정 — 방향 일치. [실측: 사업보고서 2025.12]</li>
+<li>재무: 자본 2,031억 / 부채 1,756억 → 부채비율 86%</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>컨센서스 <strong>미확인</strong>(4소스 시도 — 증권사 미커버). 목표가·추정치 없음.</li>
+<li>자체 추정[추정]: 1H26 OP 154억 × 2 ≈ FY26 OP 308억, 세후 순익 ~230억 / 주식수 약 1,524만주 = EPS ~1,510원.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가 (블로거 &#x27;저평가&#x27; 주장 검증)</p>
+<ul>
+<li>블로거 주장: 한양 시총 4,800억 vs SFA 1.77조 → 한양 1조 가능.</li>
+<li>검증 결과: <strong>부분 타당, 결론은 과장</strong>.</li>
+<li>타당: 한양은 &#x27;흑자&#x27;(FY25 OP 239억, 순익 흑자 EPS 982)인데 SFA는 &#x27;적자&#x27;. 현재이익 기준이면 한양이 분명 더 싸다.</li>
+<li>과장: ①한양 이익은 FY25 <span class="down">-32%</span> 역성장, ②이미 <span class="up">+84%</span> 급등으로 현재가 36,000 = trailing PER 36.7배. 자체 fwd PER = 36,000/1,510 ≈ <strong>24배</strong>로 저평가 아님. ③블로거 &#x27;시총 1조(=65,600원)&#x27;는 fwd PER 43배로 과도.</li>
+<li>자체 목표가[추정] = fwd EPS 1,510 × 적정 PER 15배(무선물·중소형·역성장 디스카운트) = <strong>22,650원</strong> → 현재가가 이미 상회. 신규 진입 메리트 낮음.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (현물 전용 · 레버리지 불가)</p>
+<ul>
+<li>과열권(52주 고점 <span class="down">-18.7%</span>, 5일 <span class="up">+30%</span>) + 거래정지 예고 + 애프터 <span class="down">-11%</span> → <strong>신규 진입 부적합</strong>.</li>
+<li>손익비: 현재가 36,000, 상방 44,300(<span class="up">+23%</span>) ÷ 하방 30,000(<span class="down">-16.7%</span>) = 1:1.4 → 기준 미달.</li>
+<li>대안: 과열 해소 후 MA20(23,674)~MA60(21,644) 지지 재확인 시에만 현물 소량 저가 매수 검토. 지금은 관망.</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 모델 (대표주 하나마이크론) ════════════════════</p>
+<p>9-1 제품 분해(하나마이크론, 반기·연결) [실측: 반기보고서]</p>
+<ul>
+<li>PKG(패키징) 79.1% · 실리콘부품(하나머티리얼즈) 13.7% · 기타 7.2%</li>
+<li>PKG 단가: 내수 366→377→475원(상승), 수출 219→194→186원 — 내수 단가 강세</li>
+</ul>
+<p>9-2 고객·납품 [실측: 판매경로 반기]</p>
+<ul>
+<li>수출 82%(SK하이닉스 메모리 패키징 중심 추정) · 내수 2.6% · 실리콘부품 국내 10.9%</li>
+<li>고객 집중 리스크: SK하이닉스 의존도 높음(정확 비중 미공개 → &#x27;미확인&#x27;)</li>
+</ul>
+<p>9-3 시장·경쟁</p>
+<ul>
+<li>OSAT 전방: 삼성·SK가 HBM 자체 TSV 패키징에 집중 → 범용 DRAM/NAND 패키징을 외부 OSAT로 이관하는 구조. [인용: 증권사 복수 리포트·블로거]</li>
+<li>국내 메모리 OSAT: 하나마이크론(SK향)·SFA반도체(삼성향)·한양디지텍(삼성 모듈)·엘비세미콘 등. 글로벌 CAPA·점유율 수치 <strong>미확인</strong>(산업 TAM 교차 2출처 미확보).</li>
+</ul>
+<p>9-5 CAPA·가동률 [실측]</p>
+<ul>
+<li>반도체 CAPA: 2023 20.1억개 → 2024 21.9억개 → 2025 26.7억개(<span class="up">+22%</span> YoY). 2026 베트남 증설 진행.</li>
+<li>가동률: 2025 71.9% → 1H26 81.7%(<span class="up">+9.8%</span>p) → 영업레버리지 구간 진입</li>
+</ul>
+<p>9-7 바텀업 실적 모델 (하나마이크론 연결)</p>
+<ul>
+<li>Base(컨센 기반): FY26 매출 24,942억 × OPM 16.7% = 영업익 4,168억</li>
+<li>3Q26 영업익 1,073억(컨센) / 4Q26 매출 6,583억</li>
+<li>Bull: 가동률 85%+ 베트남 조기 램프 → FY26 영업익 4,600억(OPM 18%)</li>
+<li>Bear: 메모리 피크아웃·단가 하락 → 3Q26 영업익 700억대, FY26 3,400억</li>
+<li>민감도: 가동률 ±5%p → 영업익 약 ±500억(고정비 레버리지)</li>
+<li>결론 문장: <strong>3Q26 연결 영업이익 ≥ 1,000억이면 논지 유지·추가매수 검토, &lt; 700억이면 논지 폐기.</strong> (실적 발표 11월 중순 예정)</li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·시나리오 (대표주 하나마이크론) ════════════════════</p>
+<ul>
+<li>촉매 캘린더:</li>
+<li>2026-11월 중순: 3Q26 분기보고서(법정기한 11/14) — 영업익 1,073억 컨센 확인</li>
+<li>2026-10월: 마이크론·SK하이닉스 실적·메모리 가격 흐름(전방 수요 바로미터)</li>
+<li>베트남 증설 램프업 공시(시점 미확정)</li>
+</ul>
+<ul>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>3Q26 연결 영업이익 &lt; 700억 → 논지 폐기·전량 청산</li>
+<li>종가 43,500원 이탈 → 전량 청산(손절선)</li>
+<li>메모리 현물가 2개월 연속 하락 전환 → 비중 축소</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(3Q26 실적×당일):</li>
+<li>서프라이즈(OP≥1,200억)×갭상승 → 눌림 없이 보유·추격 자제</li>
+<li>인라인(900~1,200억)×보합 → 눌림 분할 매수 유지</li>
+<li>쇼크(&lt;700억)×갭하락 → 손절 집행</li>
+</ul>
+<ul>
+<li>확률가중 시나리오(하나마이크론):</li>
+<li>Bull 30%: 목표 66,000원(FY27 EPS×17배)</li>
+<li>Base 50%: 목표 58,000원(컨센 수렴)</li>
+<li>Bear 20%: 목표 40,000원(피크아웃)</li>
+<li>기대값 = 66,000×0.3 + 58,000×0.5 + 40,000×0.2 = 56,800원 (현재가 51,200 대비 <span class="up">+10.9%</span>)</li>
+</ul>
+<ul>
+<li>수급·유동성: ADV20 751억, 1일 체결상한(ADV 10%) 약 75억 → 유동성 충분. 공매도 20일평균 5.3%로 반등 시 숏커버 탄력.</li>
+</ul>
+<ul>
+<li>포지션 사이징(자산 대비 %로만): 손실예산 1% ÷ 손절폭 9.4% = 자산의 10.6%. 집중상한 50%·이벤트(실적) 전 상한 25% 중 <strong>최소값 10.6% 채택</strong>. 고변동 레짐(VKOSPI 43, RV20 32%)이므로 분할 진입 권고.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거·증권사 추정치는 &#x27;추정/인용&#x27;. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>하나마이크론 SK하이닉스 매출 비중 정확치(판매경로 &#x27;수출 82%&#x27;로만 공개)</li>
+<li>OSAT 글로벌 TAM·점유율(2출처 교차 미확보)</li>
+<li>SFA 26Q2 공장별 분기 순간 가동률(DART는 반기 평균만 공개)</li>
+<li>한양디지텍 증권사 컨센서스(미커버)</li>
+<li>한양디지텍 &#x27;거래정지 예고&#x27; 정확 사유(단기과열 추정, 개별 KRX 공시 원문 미확인)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART: 하나마이크론 사업보고서 20260319000032·반기 20260814003753 / SFA 사업 20260323000826·반기 20260812000313 / 한양 사업 20260316001638·반기 20260813000908</li>
+<li>consensus.py(stockeasy·naver·fnguide·hankyung) 2026-10-01~02</li>
+<li>enrich.py·kis_futures_check.py 2026-10-02</li>
+<li>news_search.py(뉴스1·뉴스핌·연합뉴스·iM/하나/SK증권) 2026-09~10</li>
+<li>비나인 블로그 2026-10-01</li>
+</ul>
+<p>[검산] 하나 1H26 영업익 1,423억 = 1Q 720 + 2Q 703 ✓ / 손익비 헤더=본문 일치(하나 1:2.3, SFA 1:2.5) ✓ / 시나리오 확률합 100% ✓</p>
+<p>&lt;!-- hub:enrich:begin:067310 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 08:13 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 51,200원 (<span class="up">+0.0%</span>) · 시총 3.40조 · 5일 <span class="up">+10.8%</span> / 20일 <span class="up">+44.8%</span> / 60일 <span class="up">+31.3%</span></li>
+<li>MA5 48,440원 / MA20 40,222원 / MA60 36,586원 → MA20 이격 <span class="up">+27.3%</span> · MA60 이격 <span class="up">+39.9%</span></li>
+<li>52주 고 58,500원 / 저 22,400원 → 고점 대비 <span class="down">-12.5%</span> · 20일 고 51,200원 / 저 33,450원</li>
+<li>후행 PER 89.04 / PBR 8.52 (EPS 575원 · BPS 6,007원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 750.6억 (5일 668.7억)</li>
+<li>외국인 순매수 5일 -26.9억 / 20일 -72.3억 · 기관 5일 116.4억 / 20일 842.7억 · 개인 20일 -826.1억</li>
+<li>개별주식선물: ⚡ 상장 (A4C610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.63% / 20일 평균 5.28% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 11.76% (09/10) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 58,500원 (<span class="up">+14.3%</span>) ÷ 하방 43,500원 (−15.0%) = <strong>1:0.95</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 15.0% = <strong>자산의 3.3%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.3%</strong></li>
+<li>유동성 참고: 20일 ADV 750.6억 · 1일 소화 한도는 ADV의 10%(75.06억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 15.0% · ATR14 2,284원 (손절폭/ATR 3.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 15.0% = ATR14 × 3.4배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 46,632원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.60</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:067310 --&gt;</p>
+<p><span id="card-067310"></span>📋 결정카드 — 하나마이크론(067310) 판정: 관심 선물: 有 현재가: 51,200원 진입: 47,000~49,000원 (눌림 2회 분할) 손절: 43,500원 목표: 1차 58,500원 (2차 65,000원) 손익비: 1:2.3 기간: 스윙 4~10주 촉매: 2026-11월 중순 3Q26 실적(컨센 영업익 1,073억) 반증: 3Q26 연결 영업이익 &lt; 700억이면 논지 폐기·전량 청산 / 종가 43,500원 이탈 시 청산</p>
+<p>&lt;!-- hub:enrich:begin:036540 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 08:13 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 11,000원 (<span class="up">+0.0%</span>) · 시총 1.81조 · 5일 <span class="up">+4.1%</span> / 20일 <span class="up">+89.7%</span> / 60일 <span class="up">+109.9%</span></li>
+<li>MA5 10,780원 / MA20 8,621원 / MA60 6,485원 → MA20 이격 <span class="up">+27.6%</span> · MA60 이격 <span class="up">+69.6%</span></li>
+<li>52주 고 11,850원 / 저 3,735원 → 고점 대비 <span class="down">-7.2%</span> · 20일 고 11,000원 / 저 5,610원</li>
+<li>후행 PER -94.83 / PBR 3.81 (EPS -116원 · BPS 2,884원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 690.2억 (5일 603.4억)</li>
+<li>외국인 순매수 5일 392.9억 / 20일 1,387.8억 · 기관 5일 -381.6억 / 20일 -567.3억 · 개인 20일 -842.9억</li>
+<li>개별주식선물: ⚡ 상장 (AF2610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.25% / 20일 평균 6.31% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 25.86% (09/04) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 12,000원 (<span class="up">+9.1%</span>) ÷ 하방 8,500원 (−22.7%) = <strong>1:0.40</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 22.7% = <strong>자산의 2.2%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.2%</strong></li>
+<li>유동성 참고: 20일 ADV 690.2억 · 1일 소화 한도는 ADV의 10%(69.02억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 22.7% · ATR14 769원 (손절폭/ATR 3.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 22.7% = ATR14 × 3.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 9,846원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.87</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:036540 --&gt;</p>
+<p><span id="card-036540"></span>📋 결정카드 — SFA반도체(036540) 판정: 관심 선물: 有 현재가: 11,000원 진입: 9,300~9,700원 (눌림 대기, 소량) 손절: 8,500원 목표: 1차 12,000원 (2차 14,000원) 손익비: 1:2.5 기간: 스윙 4~8주 촉매: 2026-11월 3Q26 실적(흑전 시점 확인), 4Q26 흑전 전환 반증: 3Q26 연결 영업이익 적자 -50억 이상 확대 또는 4Q26 적자 지속 시 논지 폐기 / 종가 8,500원 이탈 시 청산</p>
+<p>&lt;!-- hub:enrich:begin:078350 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 08:13 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 36,000원 (<span class="up">+0.0%</span>) · 시총 5,488억 · 5일 <span class="up">+30.2%</span> / 20일 <span class="up">+83.8%</span> / 60일 <span class="up">+74.3%</span></li>
+<li>MA5 31,880원 / MA20 23,674원 / MA60 21,644원 → MA20 이격 <span class="up">+52.1%</span> · MA60 이격 <span class="up">+66.3%</span></li>
+<li>52주 고 44,300원 / 저 13,720원 → 고점 대비 <span class="down">-18.7%</span> · 20일 고 36,000원 / 저 17,250원</li>
+<li>후행 PER 36.66 / PBR 3.09 (EPS 982원 · BPS 11,658원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 119.5억 (5일 121.5억)</li>
+<li>외국인 순매수 5일 -16.0억 / 20일 -53.4억 · 기관 5일 20.1억 / 20일 325.3억 · 개인 20일 -260.7억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.63% / 20일 평균 1.51% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 4.08% (09/11) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비</strong></p>
+<ul>
+<li>현재가 36,000원가 손절 43,500~목표 22,650 구간 밖 → 라인 재설정 필요</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:078350 --&gt;</p>
+<p><span id="card-078350"></span>📋 결정카드 — 한양디지텍(078350) 판정: 관망 선물: 無 현재가: 36,000원 진입: 관망 (과열 해소 후 22,000~24,000원 지지 재확인 시 현물 소량 재검토) 손절: 미설정(신규 진입 보류) 목표: 미설정(자체 적정가 추정 22,650원으로 현재가 하회) 손익비: 진입 부적합(1:1.4) 기간: - 촉매: 단기과열 해소, 3Q26 실적 반증: 3Q26 연결 영업이익 &lt; 100억이면 성장 스토리 폐기</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
