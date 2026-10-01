@@ -1,0 +1,249 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HT로보틱스(396300) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261001-120042-HT로보틱스-396300.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.77</div><div class="tp-c"><b>결론 발췌</b> ESS·AIDC 전력부품 수주잔고 6,119억 기반 실적 턴어라운드가 실제로 확인되는 &#x27;관심&#x27; 종목. 다만 급등 후 PER 60배대·고변동 테마 국면이라 추격매수는 손익비 열위. 조정 시 분할 접근 권고. 손익비 1:2.8(조정진입), 1차 목표 7,030원. ━━━━━━━━━━━━━━ ① 포착 신호 (전부 실측) • 현재가 6,030원 (+11.46%, 전일 5,410원) [실측: KIS inquire-price FHKST01010100 2026-10-01] • 회전율 ≈ 30.2% [추정 산식: 거래대금 482억 ÷ 시총 1,597억 ×100]    - 당일거래대금 481.0억 / 거래량 813.4만주 [실측: KIS]    - 시총…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>HT로보틱스(396300)</h1>
+<div class="meta">📊 trend · 2026-10-01 12:00 · 코드 396300</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-01 12:00)</div><div class="kpi-v">6,170원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,634억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">64.27</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.25</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.77</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.77</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">7,030원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 5,400~5,750원 (조정 시 분할, 추격 비권장)</span><span class="dc dn">손절 5,050원</span><span class="dc up">목표 7,030원</span><span class="dc">손익비 진입 1:2.77 · 현재가 1:0.77</span><span class="dc">기간 스윙 4~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 4Q26 AIDC 첫 납품 인식 / 2026-11월 중순 3Q 분기보고서</div><div class="dc-l">🛑 반증: 3Q26 분기 영업이익 &lt; 15억 → 비중축소 / 종가 MA20(5,172) 이탈 → 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — HT로보틱스(396300) ※개별주식선물 無(현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: ESS·AIDC 전력부품 수주잔고 6,119억 기반 실적 턴어라운드가 실제로 확인되는 &#x27;관심&#x27; 종목. 다만 급등 후 PER 60배대·고변동 테마 국면이라 추격매수는 손익비 열위. 조정 시 분할 접근 권고. 손익비 1:2.8(조정진입), 1차 목표 7,030원.</p>
+<hr>
+<p>① 포착 신호 (전부 실측)</p>
+<ul>
+<li>현재가 6,030원 (<span class="up">+11.46%</span>, 전일 5,410원) [실측: KIS inquire-price FHKST01010100 2026-10-01]</li>
+<li>회전율 ≈ 30.2% [추정 산식: 거래대금 482억 ÷ 시총 1,597억 ×100]</li>
+<li>당일거래대금 481.0억 / 거래량 813.4만주 [실측: KIS]</li>
+<li>시총 1,597억 (상장 2,648.95만주 × 6,030원) [실측: KIS hts_avls·lstn_stcn]</li>
+<li>추세: MA 완전 정배열 ⭕ — MA5 5,780 &gt; MA20 5,172 &gt; MA60 4,300 [실측: KIS 일봉 FHKST03010100]</li>
+<li>9/23 상한가(<span class="up">+29.9%</span>, 4,625→6,010) 포함, 9월 저점(8/26 4,355) 대비 <span class="up">+38%</span> [실측]</li>
+<li>52주 고저 7,340 / 2,270 → 현재가는 52주고 대비 <span class="down">-18%</span>, 52주저 대비 <span class="up">+166%</span> [실측]</li>
+</ul>
+<p>② 사업·급등사유 (검증된 사실 vs 기대감)</p>
+<ul>
+<li>기업 실체: 종목명 &#x27;HT로보틱스&#x27;이나 본질은 ㈜세아메카닉스 — 알루미늄 다이캐스팅·정밀가공 기반 ESS/2차전지/전기차/전장/로봇 부품 제조사 [실측: 반기보고서 2026.06 접수 20260813001552]</li>
+<li>급등사유(검증된 사실):</li>
+</ul>
+<p>(1) 글로벌 AIDC 전력 인프라 공급망 진입 — 4분기 첫 납품 확정 [인용: 머니투데이·이투데이 2026-09-01~02] (2) 9/23 상한가 — &quot;수주잔고 1조 넘어서나, 글로벌 빅테크 AIDC 공급망 진입&quot; [인용: 데이터투자 2026-09-23] (3) 10/1 산업부 &#x27;월드클래스 플러스&#x27; 선정, ESS·로봇·AIDC 3축 [인용: 이투데이 2026-10-01]</p>
+<ul>
+<li>검증된 펀더멘털: 수주잔고 6,119억(1Q26, 향후 5년 매출기반) [인용: 한양증권 2026-06-02 via stockeasy]. ESS 매출 2024년 12억 → 1Q26 162억 급성장 [인용: 동일]</li>
+<li>기대감(미확정): AIDC 납품 규모·단가 미공개, 로봇부품은 LG전자 레퍼런스 단계, 전장은 2027년 매출 인식 예정 [인용: 키움증권 2026-02-05]</li>
+</ul>
+<p>③ 실적 (DART 실측 · 연결 CFS, corp_code 00534701)</p>
+<ul>
+<li>2023연간: 매출 867.8억 / 영업이익 <span class="up">+19.9</span>억 / OPM <span class="up">+2.3%</span></li>
+<li>2024연간: 매출 923.4억 / 영업이익 -26.6억 / OPM <span class="down">-2.9%</span> (적자전환)</li>
+<li>2025연간: 매출 858.3억 / 영업이익 -18.5억 / OPM <span class="down">-2.2%</span> (적자지속)</li>
+<li>2026 Q1(단독): 매출 336.2억 / 영업이익 <span class="up">+16.5</span>억 / OPM <span class="up">+4.9%</span> [실측: DART finstate / 분기단독 추정]</li>
+<li>2026 Q2(단독): 매출 374.5억 / 영업이익 <span class="up">+20.4</span>억 / OPM <span class="up">+5.4%</span> [실측: 반기보고서]</li>
+</ul>
+<p>→ 2026 상반기 ≈ 710.7억(YoY <span class="up">+87%</span>, vs 2025상반기 379억) / 영익 <span class="up">+36.9</span>억 흑자전환 [추정: Q1+Q2]</p>
+<ul>
+<li>재무건전성: 2026반기 자산 1,642.8억 / 부채 846.3억 / 자본 796.5억 → 부채비율 106.3% [실측·추정]</li>
+</ul>
+<p>(2023 45% → 2026반기 106%, 증설·운전자본 부담 상승)</p>
+<ul>
+<li>사업부문: ①2차전지 End Plate ②ESS 부품 ③전기차 부품(DC case) ④전장 ⑤로봇. ESS가 턴어라운드 핵심 [실측: 사업보고서 2025.12]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>정식 목표가 제시 리포트: 최근 6개월 0건 (전부 Not Rated) [실측: consensus.py 2026-10-01]</li>
+<li>비공식 추정(NR 리포트):</li>
+<li>한양증권(6/2): 2026E 매출 1,291억(<span class="up">+50.4%</span>) / 영업이익 76억 흑자전환 [인용]</li>
+<li>키움증권(2/5): 2026E 매출 1,369억(<span class="up">+66%</span>) / 영업이익 74억 흑자전환 [인용]</li>
+<li>달성 가능성: 中~高 — 상반기 710억으로 연 1,300억 추정의 약 55% 선달성, 수주잔고 6,119억이 가시성 뒷받침. 단 AIDC 4Q 첫 인식이라 하반기 집중 → 이행지연 리스크 存</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 밸류: PER 62.81배 / PBR 2.20배 / EPS 96원 / BPS 2,745원 [실측: KIS]</li>
+</ul>
+<p>(PER 62배는 적자탈출 직후 저EPS 왜곡 → 포워드로 판단)</p>
+<ul>
+<li>포워드 추정: 2026E 영익 75억 → 순익률 보수적 환산 EPS ≈ 235원 [추정 / 순익 미확정]</li>
+</ul>
+<p>포워드 PER = 6,030 ÷ 235 ≈ 25.7배 [추정]</p>
+<ul>
+<li>자체 목표가: 2026E EPS 235원 × 적정멀티플 30배 = 7,050원 [추정: EPS×멀티플]</li>
+</ul>
+<p>→ 52주고(7,340)·상한가(7,030) 구간과 수렴</p>
+<ul>
+<li>증권사 목표가: 공식 제시 없음(NR) [실측]</li>
+</ul>
+<p>⑥ 진입전략·손익비 (※선물 無 → 현물 스윙만)</p>
+<ul>
+<li>지지: 1차 MA5 5,780 / 2차 MA20 5,172 / 3차 MA60 4,300 [실측]</li>
+<li>저항: 1차 당일고 6,300 / 2차 상한가·전고 7,030~7,340 [실측]</li>
+<li>현 위치: MA 정배열 유지하나 당일 변동폭 17%(5,370~6,300)로 과열</li>
+<li>현물 스윙 3라인 [추정]:</li>
+<li>진입: 5,400~5,750 분할(1차 50% 5,750 / 2차 50% 5,400, MA20 지지 확인 시)</li>
+<li>손절: 5,050 (MA20 종가 하향이탈)</li>
+<li>익절: 1차 7,030 / 2차 7,340</li>
+<li>손익비 = (7,030-5,575)÷(5,575-5,050) = 1,455÷525 ≈ 1:2.8 (조정 진입)</li>
+<li>현재가 추격 시: (7,030-6,030)÷(6,030-5,050) ≈ 1:1.0 → 손익비 열위, 추격 비권장</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (INDUSTRY_MODEL_SPEC §9)</p>
+<ul>
+<li>제품축: ESS부품(핵심), 2차전지 End Plate, 전기차, AIDC 전력부품(신규), 로봇(초기)</li>
+<li>고객·전방: LG에너지솔루션(ESS), 글로벌 빅테크 AIDC(신규), LG전자(로봇 레퍼런스) [인용: 키움·한양]</li>
+<li>물량×단가×점유율(ESS): 매출 2024년 12억 → 1Q26 162억(분기), 연환산 ~650억 잠재 [인용: 한양]</li>
+</ul>
+<p>CAPA: 다이캐스팅 주조기 다수, 850톤 신규라인 가동률 상승(13호기 30%→114%) → 증설여력 有 [실측: 반기 생산표]</p>
+<ul>
+<li>2026 연간 영업이익 시나리오:</li>
+<li>Bear: 매출 1,050억 / OPM 3% → 영익 ≈ 32억 (AIDC 지연·ESS 둔화)</li>
+<li>Base: 매출 1,290억 / OPM 5.8% → 영익 ≈ 75억 (컨센 수렴)</li>
+<li>Bull: 매출 1,450억 / OPM 7% → 영익 ≈ 100억 (AIDC 조기확대)</li>
+<li>결론: &quot;2026 연간 영업이익 ≥ 60억 유지 시 턴어라운드 유효 · &lt; 40억이면 고PER 정당화 불가로 밸류 논리 폐기&quot;</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더:</li>
+<li>4Q26: AIDC 전력부품 첫 납품 인식 [인용: 머니투데이 2026-09-02]</li>
+<li>2026-11월 중순: 3Q26 분기보고서(실적 1차 분수령) [실측: 전년 11/14 공시이력]</li>
+<li>2027: 전장 디스플레이 모듈 매출 인식 개시 [인용: 키움]</li>
+<li>반증 3개 (수치→행동):</li>
+</ul>
+<p>(1) 3Q26 분기 영업이익 &lt; 15억 → 턴어라운드 둔화, 비중축소 [분기 실적 임계] (2) 종가 MA20(5,172) 하향이탈 → 추세훼손, 손절 5,050 집행 (3) AIDC 4Q 납품 지연·수주잔고 감소 공시 → 내러티브 붕괴, 전량 청산</p>
+<ul>
+<li>이벤트 매트릭스:</li>
+<li>3Q 실적 서프라이즈 → 7,340 돌파 / 쇼크 → 5,000선 재테스트</li>
+<li>AIDC 납품 확정공시 → 재급등 / 지연 → 급락</li>
+<li>확률가중 시나리오 (합 100%):</li>
+<li>Bear 35%: 테마소멸·실적지연, 4,300(MA60)까지 (<span class="down">-29%</span>)</li>
+<li>Base 45%: 수주 가시화·완만한 개선, 6,000~7,000 박스 (±8%)</li>
+<li>Bull 20%: AIDC 본격화·재평가, 8,000+ (<span class="up">+33%</span>)</li>
+<li>수급·유동성: 외인지분 0.89%(미미), 급등일 외인 순매도(-26만주 9/23)·개인 주도 테마성 [실측: KIS inquire-investor]. 거래대금 482억으로 유동성 충분하나 고변동</li>
+<li>포지션 사이징: 고변동·고PER·테마성 감안, 집중한도(자산 50%) 내에서 보수적 소형 비중, 조정 2회 분할 권고 [추정]</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치 &#x27;추정&#x27; 명시. 미확인은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>AIDC 납품 수주금액·단가·고객사명 (공시 미확인)</li>
+<li>2026 순이익·EPS 확정치 (DART 순이익 추출 실패, 포워드 EPS 추정)</li>
+<li>분기 thstrm &#x27;단독/누적&#x27; 라벨 (finstate 반환 불안정 → 분기단독 추정)</li>
+<li>공식 증권사 목표가 (전부 NR)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS: inquire-price(FHKST01010100)·일봉(FHKST03010100)·inquire-investor(FHKST01010900) 2026-10-01</li>
+<li>DART: finstate corp_code 00534701, 사업보고서 20260318000562, 반기보고서 20260813001552</li>
+<li>stockeasy: 한양증권 2026-06-02, 키움증권 2026-02-05 (NR)</li>
+<li>consensus.py 2026-10-01 (목표가 0건)</li>
+<li>news_search: 머니투데이/이투데이/데이터투자 2026-09-01~10-01</li>
+<li>kis_futures_check 396300: 선물 미상장</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>Q1(336.2)+Q2(374.5)=710.7억 ✓ / YoY <span class="up">+87%</span> (vs 2025 196<span class="up">+183</span>=379억) ✓</li>
+<li>손익비: 조정진입 1,455÷525≈1:2.8, 추격 1,000÷980≈1:1.0 — 헤더·본문 일치 ✓</li>
+<li>시나리오 확률합 35<span class="up">+45</span><span class="up">+20</span>=100% ✓</li>
+<li>포워드 6,030÷235≈25.7배 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-01 12:00 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 6,170원 (<span class="up">+14.1%</span>) · 시총 1,634억 · 5일 <span class="up">+33.4%</span> / 20일 <span class="up">+18.7%</span> / 60일 <span class="up">+87.0%</span></li>
+<li>MA5 5,808원 / MA20 5,179원 / MA60 4,302원 → MA20 이격 <span class="up">+19.1%</span> · MA60 이격 <span class="up">+43.4%</span></li>
+<li>52주 고 7,340원 / 저 2,270원 → 고점 대비 <span class="down">-15.9%</span> · 20일 고 6,170원 / 저 4,575원</li>
+<li>후행 PER 64.27 / PBR 2.25 (EPS 96원 · BPS 2,745원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 186.9억 (5일 525.9억)</li>
+<li>외국인 순매수 5일 -10.6억 / 20일 -25.3억 · 기관 5일 0.2억 / 20일 11.6억 · 개인 20일 10.1억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.13% / 20일 평균 0.65% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 3.41% (09/11) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 7,030원 (<span class="up">+13.9%</span>) ÷ 하방 5,050원 (−18.2%) = <strong>1:0.77</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 18.2% = <strong>자산의 2.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.8%</strong></li>
+<li>유동성 참고: 20일 ADV 186.9억 · 1일 소화 한도는 ADV의 10%(18.69억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 18.2% · ATR14 473원 (손절폭/ATR 2.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 18.2% = ATR14 × 2.4배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 5,460원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.21</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-396300"></span>📋 결정카드 — HT로보틱스(396300) 판정: 관심 선물: 無 (현물만, 레버리지 불가) 현재가: 6,030원 진입: 5,400~5,750원 (조정 시 분할, 추격 비권장) 손절: 5,050원 목표: 1차 7,030원 (2차 7,340원) 손익비: 1:2.8 (조정진입 / 추격 시 1:1.0) 기간: 스윙 4~8주 촉매: 4Q26 AIDC 첫 납품 인식 / 2026-11월 중순 3Q 분기보고서 반증: 3Q26 분기 영업이익 &lt; 15억 → 비중축소 / 종가 MA20(5,172) 이탈 → 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
