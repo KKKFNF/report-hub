@@ -1,0 +1,245 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>덕우전자(263600) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261001-143707-덕우전자-263600.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.38</div><div class="tp-c"><b>결론 발췌</b> 46파이 원통형 배터리 부품 5년 4000억 수주 + 상한가 포착. PBR 0.67·PER 10.2의 저평가 + 실적 바닥 탈출 스토리는 매력적이나, 2Q 영업적자 재전환·자본구조 불안·연속상승 無(단발 상한가)로 추격매수는 부담. 판정 &#x27;관심&#x27; / 손익비 1:2.0 / 1차 목표 5,000원(관찰 후 눌림 진입 전제). ━━━━━━━━━━━━━━━━ ① 포착 신호 - 현재가 4,410원 (+29.90%, 상한가) [실측: KIS inquire-price, 2026-10-01 14:33] - 전일 종가 3,395원 → 당일 상한가 직행(갭+저가 3,340, 고가=상한 4,410) [실측: KIS 일봉] - 당일 거래대금 22.4억 / 거…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>덕우전자(263600)</h1>
+<div class="meta">📊 trend · 2026-10-01 14:37 · 코드 263600</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-01 14:37)</div><div class="kpi-v">4,410원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">703억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">10.16</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.67</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.38</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.78</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">5,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 4000~4100원 (상한가 익일 눌림 확인 후)</span><span class="dc dn">손절 3,650원</span><span class="dc up">목표 5,000원</span><span class="dc">손익비 진입 1:2.38 · 현재가 1:0.78 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2로 적었지만 진입·손절·목표로 계산하면 1:2.38다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 3~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-12 멕시코 46시리즈 양산 돌입</div><div class="dc-l">🛑 반증: 2026 3Q 연결 영업이익 &lt; 0(2개 분기 연속 영업적자) → 턴어라운드 폐기·전량 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 덕우전자(263600) ※선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 46파이 원통형 배터리 부품 5년 4000억 수주 + 상한가 포착. PBR 0.67·PER 10.2의 저평가 + 실적 바닥 탈출 스토리는 매력적이나, 2Q 영업적자 재전환·자본구조 불안·연속상승 無(단발 상한가)로 추격매수는 부담. 판정 &#x27;관심&#x27; / 손익비 1:2.0 / 1차 목표 5,000원(관찰 후 눌림 진입 전제).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>현재가 4,410원 (<span class="up">+29.90%</span>, 상한가) [실측: KIS inquire-price, 2026-10-01 14:33]</li>
+<li>전일 종가 3,395원 → 당일 상한가 직행(갭+저가 3,340, 고가=상한 4,410) [실측: KIS 일봉]</li>
+<li>당일 거래대금 22.4억 / 거래량 52.2만주 [실측: acml_tr_pbmn 2,239,563,825]</li>
+</ul>
+<p>· 직전 20일 평균 거래대금 약 0.7~1.0억 → 거래대금 20배 이상 급증</p>
+<ul>
+<li>회전율 3.28% [산식: 52.2만주 ÷ 상장 1,593만주] [추정]</li>
+<li>시총 702.5억 [산식: 4,410 × 15,930,310주] [실측: KIS hts_avls 703억]</li>
+<li>추세: MA5 3,586 · MA20 3,555 · MA60 3,465 → 상한가 전까지는 3,400~3,700 횡보(정배열 약하게 유지) [실측: KIS 일봉 60개]</li>
+<li>52주 위치: 2,810~6,880 중 39.3% (고점 대비 <span class="down">-36%</span>, 저점 대비 <span class="up">+57%</span>) [산식]</li>
+<li>연속상승: 無. 9월 내내 3,400~3,600 박스 → 10/1 단발 상한가 [실측]</li>
+</ul>
+<p>② 사업 · 급등사유</p>
+<ul>
+<li>사업(1992년 설립, 2017년 코스닥, 34기): 구미공장=모바일 카메라모듈 정밀부품(Stiffener·Bracket), 김천공장=이차전지 부품(Cap Ass&#x27;y·집전판·벤트)+자동차 전장(ABS·EPS모터) [실측: 사업보고서 2025.12, 접수 20260323000904]</li>
+<li>급등사유(사실 검증 完): &quot;46시리즈 원통형 배터리 부품에서 향후 5년 약 4,000억원 수주잔고 확보. 2025년 김천공장 양산 개시, 2026년 12월 멕시코 법인 양산 돌입&quot; [인용: 이투데이 2026-09-30 / etoday.co.kr/news/view/2630946]</li>
+</ul>
+<p>· 납품부품: 46파이(지름 46㎜ 대형 원통형) 배터리용 벤트(압력배출)·양/음극 집전판·인슐레이터 · 고객사: 기사 미명시 [미확인]</p>
+<ul>
+<li>실체 판단: 테마성 아님. 반기보고서 제품표에 이미 &#x27;Cap Ass&#x27;y·집전판&#x27;이 신규 등재(2025년엔 없던 항목) → 이차전지 부품 실제 양산·매출 반영 중인 &#x27;실체 있는 전환 스토리&#x27;. 다만 4,000억은 5년 누적 수주잔고(연 환산 약 800억)이며 연간 인식 속도·수율·가동률은 미확인.</li>
+</ul>
+<p>③ 실적 분석 (DART 실측) — ★연결(CFS) 기준</p>
+<ul>
+<li>연간 추세(억원) [실측: fnlttSinglAcntAll CFS, 접수 20260323]</li>
+</ul>
+<p>· 매출: 2023 1,651 → 2024 1,610 → 2025 1,770 (YoY <span class="up">+9.9%</span>) · 영업이익: -99.3 → -9.9 → <span class="up">+15.8</span> (2025 흑자전환) · 순이익: -85.7 → -4.0 → <span class="up">+64.9</span> (흑전) · OPM: <span class="down">-6.0%</span> → <span class="down">-0.6%</span> → <span class="up">+0.9%</span></p>
+<ul>
+<li>분기 추세(연결, 누적→단독 환산, 억원)</li>
+</ul>
+<p>· 2025 반기누적 영업 -36.1 / 3Q누적 <span class="up">+25.3</span> → 3Q단독 영업 <span class="up">+61.4</span> [산식: 25.3-(-36.1)] (하반기 턴어라운드) · 2026 1Q누적 영업 <span class="up">+14.7</span> / 순익 <span class="up">+171.1</span>  ← 순익 급등은 영업이 아님 · 2026 반기누적 영업 -5.6 / 순익 -19.8 → ★2Q단독 영업 -20.3 [산식: -5.6-14.7], 순익 -190.9 [산식: -19.8-171.1]</p>
+<ul>
+<li>★순익 급변 분해(원칙5): 2026 1Q 순익 <span class="up">+171</span>억은 영업(<span class="up">+14.7</span>억)으로 설명 불가. 법인세수익 <span class="up">+38.1</span>억 + 매각예정 처분자산·관계기업지분 평가/처분이익 등 일회성으로 추정 [추정: 코넥트 2026-09-21 리포트 &quot;시총을 넘어서는 매각예정 처분자산·관계기업지분, CB 180억 소멸&quot; 정황]. 2Q 순익 -190.9억은 그 기저효과(일회성 소멸)+영업적자 재전환의 합성 → 2Q 숫자만 보고 공포 매도할 근거는 약하나, 영업이 적자로 되돌아온 것은 명백한 적신호.</li>
+<li>재무건전성(2025 연결): 부채 1,268 / 자본 1,092 → 부채비율 116.1% [산식]. 2026 반기 자본 1,241 / 부채 1,250 → 100.7%로 개선 [실측]</li>
+</ul>
+<p>· 이자보상배율: 이자비용 항목 미파싱 [미확인] → ④ 반증조건에 반영 · 영업현금흐름: 금번 파싱 범위 外 [미확인]</p>
+<ul>
+<li>별도(OFS) 참고: 2025 매출 1,597 / 영업 <span class="up">+50.0</span> / 순익 <span class="up">+15.4</span> → 연결 영업이익(<span class="up">+15.8</span>)과 유사, 연결-별도 괴리 작음</li>
+</ul>
+<p>④ 미래 실적 · 컨센서스</p>
+<ul>
+<li>증권사 정식 컨센서스: 미확인 (최근 6개월 목표가 제시 리포트 0건) [실측: consensus.py 2026-10-01, naver/fnguide 추정치 없음]</li>
+<li>유일 커버리지: 코넥트 2026-09-21 &#x27;Not Rated&#x27;, 목표가 無. 요지 &quot;시총 넘는 매각예정 처분자산·관계기업지분 + 영업흑자 전환 + CB 180억 소멸 주목&quot; [인용: fnguide 경유]</li>
+<li>자체 추정: 46시리즈 연 약 800억 수주물량이 멕시코 양산(2026.12~)부터 본격 인식 시 2025 연결매출 1,770억 대비 <span class="up">+45%</span> 잠재 기여 [추정: 4,000억÷5년, 수율·단가·가동률 가정 無]. 단 2026은 멕시코 램프업 초기라 기여 제한적.</li>
+<li>달성가능성 판정: 수주잔고 확보·양산 개시는 사실 → 중장기 매출 성장성 &#x27;中&#x27;. 2026 연간 흑자 지속은 2Q 영업적자 재전환으로 &#x27;中~低&#x27;. 멕시코 가동률·단가가 핵심 변수.</li>
+</ul>
+<p>⑤ 밸류에이션 → 목표가 도출</p>
+<ul>
+<li>현 멀티플 [실측: KIS, EPS 434·BPS 6,629]: PER 10.16배 / PBR 0.67배</li>
+<li>과거/피어 맥락: 부품주 평균 PBR 0.8~1.2, 흑전·성장 테마 반영 시 리레이팅 여지. 다만 EPS 434는 2025 흑전 첫해 기저로 변동성 큼.</li>
+<li>자체 목표가(계산식 노출):</li>
+</ul>
+<p>· 밸류법A(PBR): BPS 6,629 × 0.8배 = 5,300원 [산식] · 밸류법B(PER): EPS 434 × 12배 = 5,208원 [산식]  / ×15배 = 6,510원 · ★1차 목표 5,000~5,300원(PBR 0.75~0.8/PER 12 수렴대), 2차 6,500원(PER 15, 수주 실적화 확인 시)</p>
+<ul>
+<li>증권사 목표가 병기: 제시 기관 없음 [미확인]</li>
+</ul>
+<p>⑥ 진입전략 · 손익비 ※선물 無 → 현물만, 레버리지 불가</p>
+<ul>
+<li>지지: 5,300(상한가 상단=저항전환)·4,100(상한 직후 눌림 1차지지)·3,700(MA선·전고)·3,400(박스하단) [실측: 일봉 구조]</li>
+<li>저항: 5,000~5,300(심리·PBR 0.8)·6,880(52주 고가)</li>
+<li>★추격 상한가 당일 진입 금지. 익일 갭·눌림 확인 후 분할:</li>
+</ul>
+<p>· 진입: 4,000~4,100원(상한가 후 첫 눌림 지지 확인 시) · 손절: 3,650원(박스 상단 3,700 하향이탈 = 모멘텀 소멸) · 1차 익절: 5,000원 / 2차: 5,300원 · 손익비 1:2.0 [산식: 상승여력 22.0% ((5,000-4,100)/4,100) vs 하락리스크 11.0% ((4,100-3,650)/4,100)]</p>
+<ul>
+<li>기간: 스윙 3~6주 (멕시코 양산·3Q 실적 확인까지)</li>
+<li>⚠️ 경고: 개별주식선물 미상장 → 레버리지 스윙 불가, 현물 비중관리가 유일 수단. 시총 702억 소형주·회전율 3.3%로 변동성·슬리피지 큼. 자산 집중 50% 상한은 이 종목엔 부적합(소형·단발 모멘텀), 이벤트 전 상한 25% 중 더 낮은 쪽 권고.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델</p>
+<ul>
+<li>사업부문: ①모바일 카메라 정밀부품(Stiffener·Bracket, 주력·성숙) ②이차전지 부품(Cap Ass&#x27;y·집전판·벤트, 신규 성장축) ③자동차 전장(ABS·EPS모터)</li>
+<li>생산능력(모바일 정밀부품): 2023 62만Kpcs → 2024 68만 → 2025 72만Kpcs, 금액 CAPA 약 1,352억 [실측: 사업보고서 라.생산능력]</li>
+<li>★바텀업 산식(이차전지 신규): 46시리즈 수주 4,000억 ÷ 5년 = 연 800억(풀가동 가정). 가동률 램프업 가정 — 2026E 10%(80억)·2027E 40%(320억)·2028E 70%(560억) [추정: 멕시코 2026.12 양산 → 2027부터 본격]</li>
+<li>영업이익 임계 시나리오(연결·연간):</li>
+</ul>
+<p>· Bear(확률 35%): 모바일 부진+멕시코 램프 지연, 2026 영업 0~흑자 턱걸이, 매출 1,750억 수준 → 멀티플 디레이팅, 3,400~3,700 회귀 · Base(확률 45%): 2026 매출 1,850억·영업 <span class="up">+40</span>억 내외, 이차전지 기여 시작 → 5,000원 수렴 · Bull(확률 20%): 멕시코 조기 가동+수율 안정, 2027 이차전지 320억+ 기여로 성장주 리레이팅 → 6,500원</p>
+<ul>
+<li>★결론 문장: 3Q25 단독 영업이익이 이미 <span class="up">+61</span>억으로 하반기 체력을 보였으므로, 2026 3Q(연결) 단독 영업이익 ≥ <span class="up">+30</span>억이면 턴어라운드 지속으로 &#x27;유지&#x27;, &lt; 0억(2개 분기 연속 영업적자)이면 턴어라운드 가설 폐기.</li>
+</ul>
+<p>⑦ 촉매 · 반증 · 이벤트</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만):</li>
+</ul>
+<p>· 2026-12 멕시코 법인 46시리즈 양산 돌입 [인용: 이투데이 2026-09-30] · 2026 3Q 실적(11월 중순 예상, 날짜 미확정 [미확인])</p>
+<ul>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>(★분기실적) 2026 3Q 연결 영업이익 &lt; 0 (2개 분기 연속 영업적자) → 턴어라운드 가설 폐기·전량 청산</li>
+<li>종가 3,650원 하향이탈(박스 상단·모멘텀선 붕괴) → 손절</li>
+<li>멕시코 양산 지연 공시 or 수주 취소/축소 공시 → 비중 절반 감축</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스:</li>
+</ul>
+<p>· 양산 정상+수주 확정물량 공시 → Bull 전환, 2차 목표 상향 · 양산 지연/무소식 → Base→Bear, 박스 회귀 · 추가 CB/증자 → 자본희석 경계, 중립~악재</p>
+<ul>
+<li>확률가중 시나리오(합 100%): Bear 35% / Base 45% / Bull 20% (⑧과 동일)</li>
+<li>수급·유동성: 외인/기관 20일 순매수 데이터 금번 미수집 [미확인]. 당일 거래대금 22.4억 = ADV의 20배↑로 유동성 일시 급증했으나 평시 ADV 1억 미만 → ADV의 10% 룰 적용 시 평시 진입 가능 물량 극소, 분할·지정가 필수.</li>
+<li>포지션 사이징(자산 대비 %): 이벤트 전 상한 25% / 소형주 변동성 리스크예산 고려 시 더 낮게 → 권고 10~15% 이내.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>46시리즈 고객사명 / 연간 매출 인식 스케줄·단가·수율</li>
+<li>증권사 정식 컨센서스·목표가(커버리지 사실상 無)</li>
+<li>이자보상배율(이자비용 미파싱)·영업현금흐름</li>
+<li>2026 3Q 실적 발표 확정일</li>
+<li>외인/기관 20일 순매수 수급</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS inquire-price·inquire-daily-itemchartprice (2026-10-01 14:33 실측): 현재가 4,410·시총 703억·PER 10.16·PBR 0.67·EPS 434·BPS 6,629·52주 2,810~6,880·MA</li>
+<li>DART fnlttSinglAcntAll CFS/OFS (접수 20260323000904 사업보고서2025.12, 20260814002345 반기2026.06): 3개년+분기 손익·재무</li>
+<li>DART 사업보고서 제품표·생산능력 (접수 20260323000904)</li>
+<li>이투데이 2026-09-30 (etoday.co.kr/news/view/2630946): 46시리즈 4,000억 수주·멕시코 양산</li>
+<li>코넥트 2026-09-21 Not Rated (fnguide 경유): 처분자산·CB소멸·흑전</li>
+<li>kis_futures_check.py: 개별주식선물 미상장 확인</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합=연간 검산: 2025 3Q누적 영업 <span class="up">+25.3</span> / 반기 -36.1 → 3Q단독 <span class="up">+61.4</span> (하반기 턴 확인). 2026 반기 -5.6 = 1Q <span class="up">+14.7</span> + 2Q -20.3 ✓</li>
+<li>손익비: (5,000-4,100)/4,100=22.0% ÷ (4,100-3,650)/4,100=11.0% = 2.0 ✓</li>
+<li>시총: 4,410×15,930,310 = 702.5억 ≈ KIS 703억 ✓</li>
+<li>시나리오 확률합: 35<span class="up">+45</span><span class="up">+20</span> = 100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-01 14:37 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 4,410원 (<span class="up">+29.9%</span>) · 시총 703억 · 5일 <span class="up">+29.5%</span> / 20일 <span class="up">+19.7%</span> / 60일 <span class="up">+27.3%</span></li>
+<li>MA5 3,586원 / MA20 3,555원 / MA60 3,465원 → MA20 이격 <span class="up">+24.1%</span> · MA60 이격 <span class="up">+27.3%</span></li>
+<li>52주 고 6,880원 / 저 2,810원 → 고점 대비 <span class="down">-35.9%</span> · 20일 고 4,410원 / 저 3,365원</li>
+<li>후행 PER 10.16 / PBR 0.67 (EPS 434원 · BPS 6,629원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1.8억 (5일 5.0억)</li>
+<li>외국인 순매수 5일 -0.6억 / 20일 -2.8억 · 기관 5일 0.0억 / 20일 0.0억 · 개인 20일 0.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.20% / 20일 평균 0.17% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 0.94% (09/23) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 5,000원 (<span class="up">+13.4%</span>) ÷ 하방 3,650원 (−17.2%) = <strong>1:0.78</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 17.2% = <strong>자산의 2.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.9%</strong></li>
+<li>유동성 참고: 20일 ADV 1.8억 · 1일 소화 한도는 ADV의 10%(0.18억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 17.2% · ATR14 231원 (손절폭/ATR 3.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 17.2% = ATR14 × 3.3배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 3,969원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.34</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-263600"></span>📋 결정카드 — 덕우전자(263600) 판정: 관심 선물: 無 현재가: 4410원 진입: 4000~4100원 (상한가 익일 눌림 확인 후) 손절: 3650원 목표: 1차 5000원 (2차 6500원) 손익비: 1:2.0 기간: 스윙 3~6주 촉매: 2026-12 멕시코 46시리즈 양산 돌입 반증: 2026 3Q 연결 영업이익 &lt; 0(2개 분기 연속 영업적자) → 턴어라운드 폐기·전량 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
