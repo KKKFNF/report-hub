@@ -1,0 +1,249 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>에이팩트(200470) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261001-100110-에이팩트-200470.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 자동판정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 카드 판정 매수였으나 현재가 기준 손익비 1:0.16 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 / 中립(눌림목 전술매수, 추격금지) · 손익비 1:0.9</div><div class="tp-c"><b>결론 발췌</b> 2Q 흑자전환·HBM 외주 수혜 기대로 11거래일 +69% 급등한 반도체 OSAT 모멘텀주. 다만 PBR 8배 과열·부채비율 212%·당일거래대금 121억 소형주 변동성. 매력도 中, 눌림목 대응 전술매수만 — 손익비 1.9:1(눌림진입)·추격시 0.76:1 불리, 자체 적정주가 7,800원(현재가 하회, 추격 비권장). ━━━━━━━━━━━━━━━ ① 포착 신호 (전부 KIS 실측 2026-10-01) - 현재가 10,450원 / 전일대비 +1,130원 (+12.12%) [실측: KIS inquire-price] - 당일 거래대금 121.1억원 [실측: acml_tr_pbmn] · 거래량 120.8만주 - 시가총액 4,580억원 [실측…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(자동판정): 카드 판정 매수였으나 현재가 기준 손익비 1:0.16 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 · 中립(눌림목 전술매수, 추격금지)</span><h1>에이팩트(200470)</h1>
+<div class="meta">📊 trend · 2026-10-01 10:01 · 코드 200470</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-01 10:01)</div><div class="kpi-v">10,160원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">4,452억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">7.79</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:0.9</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.27</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">11,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 9,000~9,300원(눌림 분할)</span><span class="dc dn">손절 7,100원</span><span class="dc up">목표 11,000원</span><span class="dc">손익비 진입 1:0.9 · 현재가 1:0.27</span><span class="dc">기간 스윙 1~3개월(3Q 실적 전후)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q 영업익≥25억·HBM SOCAMM2/LPDDR 양산수주·신규 커버리지 개시</div><div class="dc-l">🛑 반증: 3Q 단독 영업익&lt;15억 or 적자재전환→전량손절 / MA20(7,130) 종가이탈→손절 / 추가 CB·유증 공시→비중축소</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 에이팩트(200470)  ※개별주식선물 無(현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: 2Q 흑자전환·HBM 외주 수혜 기대로 11거래일 <span class="up">+69%</span> 급등한 반도체 OSAT 모멘텀주. 다만 PBR 8배 과열·부채비율 212%·당일거래대금 121억 소형주 변동성. 매력도 中, 눌림목 대응 전술매수만 — 손익비 1.9:1(눌림진입)·추격시 0.76:1 불리, 자체 적정주가 7,800원(현재가 하회, 추격 비권장).</p>
+<hr>
+<p>① 포착 신호 (전부 KIS 실측 2026-10-01)</p>
+<ul>
+<li>현재가 10,450원 / 전일대비 <span class="up">+1,130</span>원 (<span class="up">+12.12%</span>) [실측: KIS inquire-price]</li>
+<li>당일 거래대금 121.1억원 [실측: acml_tr_pbmn] · 거래량 120.8만주</li>
+<li>시가총액 4,580억원 [실측: 상장주식수 43,823,556주 × 10,450원 = KIS hts_avls 일치]</li>
+<li>회전율 2.76% [실측: KIS vol_tnrt = 거래량/상장주식수] · 거래대금/시총 2.64%</li>
+<li>MA 완전 정배열 [실측: 일봉산출] 현재가 10,450 &gt; MA5 8,782 &gt; MA20 7,126 &gt; MA60 5,985</li>
+<li>연속상승 4거래일 [실측: 9/28 7,790→9/29 8,190→9/30 9,320→10/1 10,450]</li>
+<li>N일 수익률 <span class="up">+68.8%</span> [실측: 9/16 저점 6,190 → 10/1 10,450, 11거래일] / 최근 3일 <span class="up">+34.1%</span></li>
+<li>52주 위치: 고점 13,100 대비 <span class="down">-20.2%</span>(회복여력 <span class="up">+25.4%</span>), 저점 3,790 대비 <span class="up">+176%</span> [실측: w52_hgpr/lwpr]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업: 반도체 후공정(OSAT) 전문. 패키징(조립)+테스트 턴키. [실측: 사업보고서 2025.12 접수 20260323001417] 2025년 매출비중 패키징 71.7% / 테스트 23.7%. 2026 반기 기준 패키징 84.4% / 테스트 15.6% [실측: 반기보고서 접수 20260814000068] — 패키징 집중도 심화.</li>
+<li>주 고객: 삼성전자·SK하이닉스 등 대형 IDM + LX세미콘 등 팹리스. 소수 대형고객 의존 구조.</li>
+<li>급등사유(검증된 사실):</li>
+</ul>
+<p>· [인용: 미래에셋증권 2026-01-29] 핵심고객 H사(하이닉스 추정) HBM 전환 가속 → 레거시 후공정 외주물량 증가, SOCAMM2 실장테스트·LPDDR 패키징 수주로 &quot;2분기부터 분기 120억+ 매출 기여&quot; 전망. · [인용: 하나증권 2026-09-02 fnguide] &quot;SKH OSAT 사업으로 성과 낸다, 후공정 가동률 업&quot; — 급등 직전 리포트 촉매. · [실측: DART] 2026 2Q 단독 영업이익 <span class="up">+30.2</span>억 흑자전환 확인(아래 ③). · [인용: 뉴스핌 2026-09-30] 외국인·기관 동시 순매수 / [인용: ThinkPool 2026-09-30] 사모펀드 28.77억 순매수 — 수급 유입.</p>
+<ul>
+<li>기대감(미검증): HBM 낙수효과·AI 후공정 테마. 실제 HBM 직접 매출 아님(레거시 외주 반사). 테마 프리미엄 성격 강함.</li>
+<li>⚠️ 리스크 공시: [실측: 2026-09-29 공시] 150억 단기차입금 증가 결정(자기자본 701.9억 대비 21.37%). 급등 중 차입확대 = 재무부담 신호.</li>
+</ul>
+<p>③ 실적 (DART 별도기준[실측], 에이팩트는 연결 미작성 단일법인) 연간 손익:</p>
+<ul>
+<li>2023: 매출 937억 / 영업익 -229억 / 순익 -167억 [실측: OFS]</li>
+<li>2024: 매출 867억 / 영업익 -215억 / 순익 -507억 (대규모 적자)</li>
+<li>2025: 매출 1,110억(YoY<span class="up">+28.0%</span>) / 영업익 <span class="up">+53</span>억(흑전) / 순익 <span class="up">+52</span>억 [실측: 접수 20260323001417]</li>
+</ul>
+<p>· OPM 2025 = <span class="up">+4.8%</span> (24년 <span class="down">-24.8%</span>에서 반전). 매출원가율 117.9%→91.1% 개선 [인용: 한국IR협의회 2026-04-27]. 분기 손익(별도, 누적→단독 분해)[실측]:</p>
+<ul>
+<li>25.반기 영업익 <span class="up">+9.3</span>억 / 25.3Q누적 <span class="up">+19.8</span>억 → 25.3Q 단독 <span class="up">+10.5</span>억</li>
+<li>26.1Q: 매출 304.6억 / 영업익 -19.1억 (적자전환, 비수기+원가)</li>
+<li>26.반기: 매출 452.2억 / 영업익 <span class="up">+11.1</span>억 누적 → ★26.2Q 단독: 매출 147.6억 / 영업익 <span class="up">+30.2</span>억 (강한 흑자전환)</li>
+</ul>
+<p>· 1Q 적자(-19.1)를 2Q(<span class="up">+30.2</span>)가 뒤집음 = 하반기 모멘텀의 핵심 근거. 재무건전성[실측]:</p>
+<ul>
+<li>자본총계: 25말 702억 → 26반기 816억 / 부채총계: 25말 1,117억 → 26반기 1,734억</li>
+<li>부채비율: 25말 159% → 26반기 212% (악화). 총차입금 약 950억<span class="up">+150</span>억 추가차입 [인용: 한국IR협의회·2026-09-29공시]</li>
+<li>순손익 분해: 2025 흑전은 영업개선(원가율 개선)이 주동력 — 일회성 아닌 구조적 턴어라운드. 단 금융비용(차입 950억) 부담이 순익 잠식 요인.</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>[실측: consensus.py 2026-09-30] 최근 6개월 목표가 제시 리포트 0건. 투자의견 NR(Not Rated) 2건. 연간·분기 정량 컨센서스 미확인.</li>
+<li>커버리지: 미래에셋·하나·한국IR협의회 모두 &#x27;Not Rated&#x27;(목표가 미제시) — 정식 커버 증권사 부재, 수치 컨센서스 공백.</li>
+<li>정성 전망: [인용: 미래에셋 2026-01-29] 26년 H사 HBM전환 레거시 외주 확대 + 팹리스 비중 22년 6%→1H25 23% 상승으로 비메모리 고마진 믹스 개선.</li>
+<li>달성가능성 판정: 中. 근거 — 2Q 흑자(<span class="up">+30</span>억)로 방향성 확인(高요소)이나, 1Q 적자·부채급증·목표가 컨센 부재(低요소). 분기 변동성 큼.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 지표[실측: KIS]: PER -8.73(적자, 무의미) / PBR 8.01 / BPS 1,304 / EPS -1,197(TTM 적자) / 시총 4,580억</li>
+<li>Peer 비교[인용: 미래에셋 2026-01-29]: 12M Trailing PBR 6.6배 vs 동종 OSAT 평균 3.3배 → 이미 2배 프리미엄. 현재 8.01배는 그보다 더 고평가 구간.</li>
+<li>PBR밴드: 52주 저 3,790(PBR≈2.9) ~ 고 13,100(PBR≈10.0). 현재 8.0은 밴드 상단권.</li>
+<li>자체 적정주가 계산식:</li>
+</ul>
+<p>· EPS 흑자 안정화 전 → PBR 기준 평가. 적정 PBR 가정 6.0배(동종 2배 프리미엄 유지, 턴어라운드 반영) × BPS 1,304 = 7,824원 [추정: 6.0×1,304] · 낙관(Bull) PBR 8.0배 × 반기말 자본증가 반영 BPS 1,370 추정 ≈ 10,960원 [추정] · → 자체 적정주가 ≈ 7,800원(중립), 현재가 10,450원은 적정가 대비 <span class="up">+34%</span> 선반영.</p>
+<ul>
+<li>증권사 목표가: 전무(NR). 병기 불가.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (개별주식선물 無 → 현물만, 레버리지 불가. 소형주 변동성 유의)</p>
+<ul>
+<li>지지: MA5 8,780 / MA20 7,130 / 심리 9,000 / 전고 8,160(9/23)</li>
+<li>저항: 당일 상한가권 12,110 / 52주고 13,100 / 라운드 11,000</li>
+<li>현물 눌림목 전술 3라인:</li>
+</ul>
+<p>· 진입: 9,000~9,300원(MA5 하회 눌림, 과열완화 대기) — 10,450 추격 비권장 · 손절: 7,100원(MA20 이탈 = 추세훼손) → 진입 9,150 기준 <span class="down">-22%</span> · 익절: 1차 11,000 / 2차 13,000(52주고 저항)</p>
+<ul>
+<li>손익비(진입 9,150 기준): 상승여력 13,000-9,150 = 3,850 / 하락리스크 9,150-7,100 = 2,050 → 손익비 ≈ 1.9:1</li>
+<li>현재가(10,450) 추격 시: 상승 13,000-10,450=2,550 / 하락 10,450-7,100=3,350 → 0.76:1 (불리). ★추격매수 손익비 역전 — 눌림 대기 필수.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델</p>
+<ul>
+<li>9-2 제품: 패키징(임가공) + 테스트. 2026반기 패키징 84.4%/테스트 15.6% [실측: 반기보고서]</li>
+<li>9-3 CAPA·가동률[실측: 사업보고서]: 패키징 생산능력 586,189천개(가동률 23→26% 상승) / 테스트 710,368천개(가동률 14%, 저조). 패키징 가동률 개선이 흑전 동력, 테스트는 유휴.</li>
+<li>9-4 단가추이[실측]: 비메모리 수출단가 급등(패키징 비메모리수출 2024 573 → 2025 2,750 → 26상반기 3,984원) — 고부가 믹스 전환 뚜렷. 메모리수출단가 26상반기 602원(회복).</li>
+<li>9-5 원재료[실측]: Substrate 내수 26상반기 263,908원(25년 101,774 대비 급등), Gold Wire 289,915원(상승) — 원가압력 존재, 마진 희석 요인.</li>
+<li>9-6 물량×단가×점유율: 패키징 생산실적 150,598천개(2025) 가동률 26% → CAPA 여유 큼. 가동률 상승 시 고정비 레버리지로 OPM 급개선 구조.</li>
+<li>9-7 영업이익 임계 시나리오(3Q 단독):</li>
+</ul>
+<p>· Bear: 반도체 외주 둔화·원가압력 → 3Q 단독 영업익 ≤ <span class="up">+10</span>억 (2Q 30억에서 역성장) · Base: 가동률 유지·HBM 외주 지속 → 3Q 단독 <span class="up">+25</span>~35억 · Bull: SOCAMM2·LPDDR 양산 본격 → 3Q 단독 ≥ <span class="up">+45</span>억</p>
+<ul>
+<li>★결론문장: 3Q 별도 영업이익 ≥ 25억 유지 시 턴어라운드 지속 → 보유. 3Q 단독 &lt; 15억 또는 적자 재전환 시 → 폐기(모멘텀 소멸).</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오·수급·사이징 촉매(수치→행동):</p>
+<ol>
+<li>3Q 실적 발표(11월 예상) 영업익 ≥ 25억 → 홀딩/익절 상향</li>
+<li>H사 HBM SOCAMM2·LPDDR 양산 수주 공시 → 분기 120억+ 매출 확인 시 추가진입</li>
+<li>신규 증권사 커버리지 개시(목표가 제시) → 밸류 리레이팅 트리거</li>
+</ol>
+<p>반증 3개(수치→행동):</p>
+<ol>
+<li>★3Q 단독 영업익 &lt; 15억 or 적자 → 즉시 전량 손절(실적 임계 위반)</li>
+<li>종가 MA20(7,130) 이탈 → 손절 7,100 발동</li>
+<li>추가 유상증자·전환사채 발행 공시(부채 212%<span class="up">+150</span>억차입 상태) → 희석/재무악화, 비중 축소</li>
+</ol>
+<p>이벤트 매트릭스:</p>
+<ul>
+<li>3Q 실적(11월): 호재면 Bull / 악재면 Bear 직결</li>
+<li>HBM 수주공시: 상시 모니터링</li>
+<li>전환청구권 추가행사(9/17 50.6만주 발행 선례): 오버행 체크</li>
+</ul>
+<p>확률가중 시나리오(합 100%):</p>
+<ul>
+<li>Bear 40%: 과열 조정, 3Q 모멘텀 둔화 → 7,100~8,000원 (적정가 회귀)</li>
+<li>Base 40%: 턴어라운드 지속, 밴드 상단 등락 → 9,500~11,500원</li>
+<li>Bull 20%: HBM 수주 가시화·커버리지 개시 → 13,000~15,000원</li>
+<li>기대값 ≈ 0.4×7,500 + 0.4×10,500 + 0.2×14,000 = 10,000원 [추정] → 현재가 10,450 소폭 하회, 상방 제한적.</li>
+</ul>
+<p>수급: [인용: 2026-09-30] 외국인·기관 동시 순매수 + 사모펀드 28.77억 순매수 — 단기 수급 양호하나 소형주(시총 4,580억·당일거래대금 121억)로 변동성·슬리피지 유의. 포지션 사이징: 소형주·선물無·PBR과열 → 자산 대비 5~8% 이내 소액 전술. 추격 금지, 9,000대 눌림 분할만.</p>
+<p>⚠️ 리서치 참고용. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 정량 컨센서스(매출·영업익 추정치) 및 목표가 — 전 기관 NR, 미확인</li>
+<li>3Q 실적 발표 확정일 — 미확인(11월 중순 추정)</li>
+<li>H사 HBM 수주 구체 금액·양산 시점 확정치 — 미확인(정성 전망만)</li>
+<li>연결재무제표 — 에이팩트 단일법인(별도만 존재), 해당없음</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>[실측] KIS inquire-price(FHKST01010100)·daily-chart(FHKST03010100) 2026-10-01</li>
+<li>[실측] DART 사업보고서 2025.12 접수 20260323001417 / 반기보고서 2026.06 접수 20260814000068 / fnlttSinglAcntAll OFS</li>
+<li>[인용] 미래에셋증권 2026-01-29 / 하나증권 2026-09-02 / 한국IR협의회 2026-04-27 (stockeasy)</li>
+<li>[인용] 뉴스핌·ThinkPool·디지털투데이 2026-09-29~30 / 2026-09-29 단기차입 공시</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합 검산: 26.1Q(-19.1) + 26.2Q(<span class="up">+30.2</span>) = 반기누적 <span class="up">+11.1</span>억 ✓ 일치</li>
+<li>시총 검산: 43,823,556주 × 10,450원 = 4,580억 = KIS hts_avls ✓</li>
+<li>부채비율: 1,733.6/816.4 = 212% ✓</li>
+<li>손익비 헤더(1.9:1 눌림진입)=본문 일치 / 추격(10,450)=0.76:1 — 라벨 일치</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-01 10:01 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 10,160원 (<span class="up">+9.0%</span>) · 시총 4,452억 · 5일 <span class="up">+29.9%</span> / 20일 <span class="up">+71.0%</span> / 60일 <span class="up">+62.0%</span></li>
+<li>MA5 8,724원 / MA20 7,112원 / MA60 5,980원 → MA20 이격 <span class="up">+42.9%</span> · MA60 이격 <span class="up">+69.9%</span></li>
+<li>52주 고 13,100원 / 저 3,790원 → 고점 대비 <span class="down">-22.4%</span> · 20일 고 10,160원 / 저 6,070원</li>
+<li>후행 PER -8.49 / PBR 7.79 (EPS -1,197원 · BPS 1,304원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 75.9억 (5일 121.5억)</li>
+<li>외국인 순매수 5일 -9.9억 / 20일 64.6억 · 기관 5일 56.7억 / 20일 88.1억 · 개인 20일 -154.0억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.76% / 20일 평균 2.65% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 11.88% (09/04) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 11,000원 (<span class="up">+8.3%</span>) ÷ 하방 7,100원 (−30.1%) = <strong>1:0.27</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 30.1% = <strong>자산의 1.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.7%</strong></li>
+<li>유동성 참고: 20일 ADV 75.9억 · 1일 소화 한도는 ADV의 10%(7.59억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 30.1% · ATR14 611원 (손절폭/ATR 5.0배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 30.1% = ATR14 × 5.0배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 9,144원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.83</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-200470"></span>📋 결정카드 — 에이팩트(200470) 판정: 中립(눌림목 전술매수, 추격금지) 선물: 無(현물만, 레버리지 불가) 현재가: 10,450원 [실측 2026-10-01] 진입: 9,000~9,300원(눌림 분할) 손절: 7,100원(MA20 이탈) 목표: 1차 11,000 / 2차 13,000원 (자체적정 7,800원) 손익비: 1.9:1(눌림진입 기준) / 추격시 0.76:1 불리 기간: 스윙 1~3개월(3Q 실적 전후) 촉매: 3Q 영업익≥25억·HBM SOCAMM2/LPDDR 양산수주·신규 커버리지 개시 반증: 3Q 단독 영업익&lt;15억 or 적자재전환→전량손절 / MA20(7,130) 종가이탈→손절 / 추가 CB·유증 공시→비중축소</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
