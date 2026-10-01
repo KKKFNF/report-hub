@@ -1,0 +1,260 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>엑시콘(092870) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261001-095823-엑시콘-092870.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 자동판정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 카드 판정 매수였으나 현재가 기준 손익비 1:0.10 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 / 비중확대 아님 / 눌림목 소액 대응 한정 (추격매수 비권장) · 손익비 1:1.1</div><div class="tp-c"><b>결론 발췌</b> CXL/CLT 테마 + 2026 턴어라운드가 결합된 고베타 모멘텀주. 단 60일 +189% 급등으로 밸류 과열(PER 77·컨센 목표가 하회), 손익비 약 0.8:1로 신규 추격매수는 불리. 눌림목 대응 한정. 자체 적정가 42,000~47,000원(현재가 53,500원보다 아래). ━━━━━━━━━━━━━━━ ① 포착 신호 (전부 KIS 실측, 2026-10-01 09:5x) - 현재가: 53,500원 (+9.18% / 전일비 +4,500원) [실측: KIS inquire-price FHKST01010100] - 당일 거래대금: 135.6억원 / 거래량 257,009주 [실측: 同] - 시가총액: 6,982억원 (상장주식 13,050,…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(자동판정): 카드 판정 매수였으나 현재가 기준 손익비 1:0.10 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 · 비중확대 아님 / 눌림목 소액 대응 한정 (추격매수 비권장)</span><h1>엑시콘(092870)</h1>
+<div class="meta">📊 trend · 2026-10-01 09:58 · 코드 092870</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-01 09:58)</div><div class="kpi-v">53,800원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">7,021억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">78.31</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">3.56</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.1</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.07</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">54,600원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 48,000원(MA5) 1차 / 42,950원(전고) 2차 분할</span><span class="dc dn">손절 42,000원</span><span class="dc up">목표 54,600원</span><span class="dc">손익비 진입 1:1.1 · 현재가 1:0.07</span><span class="dc">기간 스윙 2~6주 (3Q 실적 공시 전후)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q 영익 ≥88억 / CLT 수주 / 목표가 상향</div><div class="dc-l">🛑 반증: ①3Q 연결 영익&lt;50억→청산 ②종가 42,000 이탈→손절 ③CXL테마 냉각+외인 순매도→보수전환</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 엑시콘(092870)  ※개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: CXL/CLT 테마 + 2026 턴어라운드가 결합된 고베타 모멘텀주. 단 60일 <span class="up">+189%</span> 급등으로 밸류 과열(PER 77·컨센 목표가 하회), 손익비 약 0.8:1로 신규 추격매수는 불리. 눌림목 대응 한정. 자체 적정가 42,000~47,000원(현재가 53,500원보다 아래).</p>
+<hr>
+<p>① 포착 신호 (전부 KIS 실측, 2026-10-01 09:5x)</p>
+<ul>
+<li>현재가: 53,500원 (<span class="up">+9.18%</span> / 전일비 <span class="up">+4,500</span>원) [실측: KIS inquire-price FHKST01010100]</li>
+<li>당일 거래대금: 135.6억원 / 거래량 257,009주 [실측: 同]</li>
+<li>시가총액: 6,982억원 (상장주식 13,050,797주) [실측: 同]</li>
+<li>거래량 회전율(당일): 1.97% [실측: KIS vol_tnrt] — 전일 급등일엔 1,152,464주(회전율 급증)로 터졌고 당일은 숨고르기</li>
+<li>MA 정배열: MA5 48,070 &gt; MA20 35,710 &gt; MA60 23,924 → 완전 정배열 [실측: KIS 일봉 FHKST03010100]</li>
+<li>연속상승: 5거래일 연속 [실측: 일봉]</li>
+<li>N일 수익률: 5일 <span class="up">+40.5%</span> / 20일 <span class="up">+92.1%</span> / 60일 <span class="up">+189.6%</span> [실측: 일봉]</li>
+<li>52주 위치: 52주고 54,600 / 52주저 10,110 → 고점 대비 98.0%(사실상 신고가권) [실측: KIS]</li>
+<li>업종: 반도체 후공정 검사장비(메모리 테스터) [실측: DART 사업보고서 20260316001681]</li>
+<li>상한가 63,700 / 하한가 34,300 (당일 가격제한폭) [실측: KIS]</li>
+</ul>
+<p>② 사업 · 급등사유 (검증된 사실 vs 기대감) ▸ 사업: DRAM·SSD·SoC 반도체 성능/신뢰성 검사장비. 메모리 테스터가 매출 88~91% 주력. [실측: DART 사업보고서] ▸ 급등사유(검증된 사실):</p>
+<ul>
+<li>CXL(컴퓨트익스프레스링크) 테마 동반상승. 9/23 장중 <span class="up">+14</span>~18%, 외국인·기관 동시 순매수 [인용: 매일경제·뉴스핌·핀포인트 2026-09-23]</li>
+<li>&quot;AI 서버 커지자 CXL株 들썩…엑시콘 14%·파두 10% 급등&quot; [인용: 핀포인트뉴스 2026-09-23]</li>
+<li>한화투자증권 &#x27;CLT가 가져올 성장&#x27; Not Rated 리포트 발간 [인용: 뉴스핌 2026-09-30]</li>
+</ul>
+<p>▸ 기대감(아직 실적 미반영):</p>
+<ul>
+<li>CLT(Chamber Type Low-Frequency Tester) 신규장비 양산 → Recurring 부품(CIB) 매출 확대</li>
+<li>2027년 Gen6 SSD 테스터·PCIe 6.0/CXL 수혜 [인용: 신한·대신·iM증권 NR 리포트]</li>
+</ul>
+<p>→ 테마(CXL)는 &#x27;연관&#x27;이지 핵심 매출원은 아님. 실체는 &#x27;메모리 테스터 수요회복 + CLT 신장비&#x27;. CXL은 기대감 레이어.</p>
+<p>③ 실적 (DART 연결 실측) ▸ 연간 매출/영업이익 [실측: DART fnlttSinglAcnt 연결CFS]</p>
+<ul>
+<li>2022: 매출 911.6억 / 영익 102.5억 (OPM 11.2%)</li>
+<li>2023: 매출 823.0억 / 영익 14.6억 (OPM 1.8%)</li>
+<li>2024: 매출 316.1억 / 영익 -158.9억 (적자전환, 메모리 혹한기)</li>
+<li>2025: 매출 660.3억 / 영익 <span class="up">+0.8</span>억 (BEP 턴어라운드)</li>
+</ul>
+<p>▸ 2025~2026 분기 환산(연결) [실측: DART 분기누적 차분]</p>
+<ul>
+<li>2025 1Q누적 매출 19.2억 (영익 -57.1억)</li>
+<li>2025 반기누적 75.7억 / 3Q누적 114.1억 (영익 -20.3억)</li>
+<li>2026 1Q누적 매출 98.1억 (영익 -19.7억)</li>
+<li>2026 2Q 단독 매출 216.6억 / 영익 <span class="up">+61.0</span>억 (OPM 28.2%) ← 극적 반전 [실측: 반기314.7억-1Q98.1억]</li>
+<li>2026 반기누적 매출 314.7억 / 영익 <span class="up">+41.3</span>억 (OPM 13.1%)</li>
+</ul>
+<p>* dart_biz 반기 제품합 412.7억은 별도(단순합) 기준, 상기 314.7억은 연결 기준 — 라벨 구분 ▸ 재무 건전성(2026 반기 연결) [실측: DART]</p>
+<ul>
+<li>부채총계 478.9억 / 자본총계 2,029.5억 → 부채비율 23.6% (매우 양호)</li>
+</ul>
+<p>▸ 핵심: 2026 2Q에 메모리 테스터 수요 급반등으로 OPM 28%까지 회복. 턴어라운드는 &#x27;실체&#x27;. 단 3Q(11014) 아직 미공시 → 지속성 검증 필요.</p>
+<p>④ 미래실적 · 컨센서스 [인용: consensus.py 2026-10-01, fnguide/naver]</p>
+<ul>
+<li>FY26E: 매출 1,336억 / 영익 213억 / 순익 265억 / EPS 2,018원 (PER 24.3·ROE 12.8%)</li>
+<li>FY27E: 매출 1,982억 / 영익 383억 / 순익 391억 / EPS 3,004원 (PER 16.3·ROE 16.2%)</li>
+<li>FY28E: 매출 2,782억 / 영익 674억 / 순익 632억 / EPS 4,858원 (PER 10.1·ROE 22.5%)</li>
+<li>분기 컨센: 2026 3Q 매출 440억·영익 89억 / 4Q 매출 498억 [인용: naver/wisereport]</li>
+<li>목표가 컨센: 41,000원(대신증권 2026-09-01 Buy, 유일 제시) → 현재가 53,500원 대비 <span class="down">-23.4%</span></li>
+<li>투자의견: NR 5 / Buy 1 (대부분 목표가 미제시 NR)</li>
+<li>달성 가능성: 中. 2026 반기 매출 314.7억 → 연 1,336억 컨센 달성하려면 하반기 1,021억 필요(2Q 모멘텀 지속 전제). 반기 OPM 13%는 컨센 영익률(16%)에 근접 → 하반기 가속 시 달성 가능. 리스크는 메모리 수요 사이클 변동성.</li>
+</ul>
+<p>⑤ 밸류에이션 · 목표가</p>
+<ul>
+<li>현재 멀티플 [실측: KIS] PER 77.87 / PBR 3.54 / EPS 687 / BPS 15,111</li>
+</ul>
+<p>* 후행 PER 77은 2025 EPS 기준(저점) → 과대. 선행 기준이 유효.</p>
+<ul>
+<li>선행 밸류: FY26E EPS 2,018 → 선행 PER 26.5배 / FY27E EPS 3,004 → 17.8배 [추정: 현재가÷컨센EPS]</li>
+<li>Peer: 글로벌 반도체 검사장비 평균 PER 약 44배(대신 리포트 인용), 국내 후공정 피어 PER 밴드 20~30배대</li>
+<li>자체 목표가 산식:</li>
+</ul>
+<p>· 보수(Base): 적정 PER 20배 × FY27E EPS 3,004 = 60,080원 … 단 할인(사이클 변동성·NR 다수) 30% → 42,000원 · 중립: 적정 PER 18배 × FY26E EPS 2,018 + 성장프리미엄 = 약 47,000원 → 자체 적정가 밴드 42,000~47,000원 (현재가 53,500원 대비 -12~<span class="down">-21%</span>)</p>
+<ul>
+<li>증권사 목표가 41,000원(대신) 병기 → 자체·증권사 모두 현재가 하회. 밸류 부담 명확.</li>
+</ul>
+<p>⑥ 진입전략 · 손익비 (개별주식선물 無 → 현물 스윙만, 레버리지 불가)</p>
+<ul>
+<li>지지: MA5 48,070 / 전고 42,950(9/23) / MA20 35,710 [실측: KIS 일봉]</li>
+<li>저항: 52주고 54,600 / 심리 상한 63,700 [실측: KIS]</li>
+<li>현재가 53,500은 52주고 바로 아래 과열 구간. 추격매수 비권장.</li>
+<li>손익비 계산(신규 추격 가정): 상승여력 61,000(심리저항) - 53,500 = <span class="up">+7,500</span> / 하락리스크 53,500 - 48,000(MA5) = -5,500 → 손익비 약 1.4:1 (단기)</li>
+</ul>
+<p>· 더 보수적으로 상단을 자체목표가 47,000로 보면 상승여력 음수 → 신규진입 손익비 불리(0.8:1 이하)</p>
+<ul>
+<li>눌림목 대응안(현물 스윙):</li>
+</ul>
+<p>· 1차 진입: 48,000원(MA5·단기지지) 되돌림 시 · 2차 진입: 42,950원(전고 지지전환) 접근 시 분할 · 손절: 종가 기준 42,000원 이탈(전고 지지 붕괴 + 자체목표가 하단) → <span class="down">-12.6%</span> · 익절: 1차 54,600(52주고), 2차 60,000 심리선</p>
+<ul>
+<li>결론: 신규 추격은 손익비 열위. 보유자는 54,600 돌파 실패 시 분할 익절, 미보유자는 48,000 이하 눌림 대기.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (dart_biz·stockeasy 인용) ▸ 9-2 제품 구성 [실측: DART 사업보고서 20260316001681 / 반기 20260814001521]</p>
+<ul>
+<li>메모리 테스터(Burn-in 포함): 2025 584.2억(88.4%) → 2026반기 376.0억(91.1%) — CLT 신규 포함</li>
+<li>SSD 테스터: 2025 64.4억(9.8%) → 2026반기 36.7억(8.9%)</li>
+<li>SoC 테스터(CIS): 2025 11.6억(1.8%) → 2026반기 0 (비중 소멸)</li>
+</ul>
+<p>▸ 9-3 원재료(원가구조) [실측: DART] IC 43.7%(ADI 등)·PCB 11.8%·기구물 9.7% → IC 가격이 원가 핵심 변수 ▸ 9-4 전방: DRAM 메모리 제조사(삼성·SK하이닉스 등) CAPEX 및 DDR5/HBM·CXL 전환 투자 사이클 ▸ 9-5 성장축: CLT(신규 Burn-in 계열) 양산 + Recurring CIB 부품 매출 + 2027 Gen6 SSD 테스터 ▸ 9-6 물량×단가×점유율 → 영업이익 시나리오 (3Q 연결 기준) · Bear: 메모리테스터 둔화, 3Q 매출 350억·OPM 15% → 영익 약 53억 · Base: 2Q모멘텀 유지, 3Q 매출 440억(컨센)·OPM 20% → 영익 약 88억 · Bull: CLT 물량 가속, 3Q 매출 520억·OPM 25% → 영익 약 130억 ▸ 9-7 결론 문장: &quot;3Q 연결 영업이익 ≥ 70억 유지 시 턴어라운드 지속 확인(Base 이상) / &lt; 50억이면 모멘텀 과열 되돌림으로 테마 폐기.&quot;</p>
+<p>⑦ 촉매 · 반증 · 매트릭스 · 시나리오 · 수급 · 사이징 ▸ 촉매(수치→행동):</p>
+<ol>
+<li>3Q 영익 ≥ 88억(컨센 상회) → 턴어라운드 가속, 54,600 돌파 시 추세 추종 [시그널: DART 11014]</li>
+<li>CLT 대형 수주공시 → CIB Recurring 가시화, 비중확대 [시그널: DART 단일판매공급계약]</li>
+<li>증권사 목표가 상향(현 41,000 → 상향) → 밸류 리레이팅 트리거 [시그널: 컨센서스 업데이트]</li>
+</ol>
+<p>▸ 반증 3개(수치→행동):</p>
+<ol>
+<li>[분기실적 임계] 3Q 연결 영익 &lt; 50억 → 모멘텀 과열, 즉시 비중축소/청산</li>
+<li>종가 42,000원(전고·자체목표가 하단) 이탈 → 손절 실행, 추세 훼손</li>
+<li>CXL 테마 냉각 + 외국인 순매도 전환 → 테마 프리미엄 소멸, 보수 전환</li>
+</ol>
+<p>▸ 이벤트 매트릭스:</p>
+<ul>
+<li>3Q 잠정실적(10월 중순~말, DART) → 턴어라운드 지속성 판정 핵심</li>
+<li>메모리 업황(DRAM 현물가·HBM 수요) → 전방 CAPEX 방향</li>
+<li>CXL 상용화 뉴스플로우 → 테마 지속성</li>
+</ul>
+<p>▸ 확률가중 시나리오(합 100%):</p>
+<ul>
+<li>Bear 35%: 급등 되돌림, 3Q 실적 기대 미달 → 42,000~45,000 회귀</li>
+<li>Base 45%: 눌림 후 박스 등락, 3Q 컨센 부합 → 48,000~55,000 유지</li>
+<li>Bull 20%: CLT 수주+실적 서프라이즈 → 60,000~65,000 돌파</li>
+</ul>
+<p>* 기대값 가중: 약 50,000~51,000원 (현재가 근처, 추가 상승여력 제한적) ▸ 수급: 9/21·9/23 외국인·기관 동시 순매수로 급등 견인 [인용: 뉴스핌 장중수급포착]. 당일(10/1) 거래 숨고르기. ▸ 포지션 사이징(자산대비 %만): 선물 無·고변동(60일 <span class="up">+189%</span>)·밸류 과열 → 신규는 자산의 3~5% 이내 소액 눌림 분할만 권고. 추격 일괄매수 금지. 집중한도(50%) 대비 극소 비중.</p>
+<p>⚠️ 리서치 참고용. 투자판단·책임은 본인에게 있음.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>2026 3Q(11014) 재무: DART status 013(미공시) → 10월 중순 이후 확인 필요</li>
+<li>분기별 순이익: DART 주요계정에서 당기순이익 None 반환 → 전체재무제표 별도조회 필요(미확보)</li>
+<li>2022 이전 추세·장기 수주잔고: 미확인</li>
+<li>CLT 개별 수주금액·고객사: 공시 세부 미확인</li>
+<li>시장경고(투자주의/경고) 지정 여부: 당일 KIS 상하한가 정상범위, 별도 경고공시 미검출</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS inquire-price(FHKST01010100)·inquire-daily-itemchartprice(FHKST03010100), 2026-10-01 조회</li>
+<li>DART 사업보고서 접수 20260316001681 / 반기보고서 20260814001521 / fnlttSinglAcnt 2023~2026</li>
+<li>consensus.py(fnguide·naver·wisereport·stockeasy·hankyung) 2026-10-01 09:54</li>
+<li>news_search.py: 매일경제·뉴스핌·핀포인트·파이낸셜뉴스 2026-09-21~30</li>
+<li>증권사 리포트: 한화(9/30)·신한(9/10)·대신(9/1 Buy 41,000)·iM(8/10)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합=연간: 2026 1Q 98.1억 + 2Q 216.6억 = 반기 314.7억 ✓ (반기누적 일치)</li>
+<li>영익: 1Q -19.7억 + 2Q <span class="up">+61.0</span>억 = 반기 <span class="up">+41.3</span>억 ✓</li>
+<li>부채비율: 478.9/2,029.5 = 23.6% ✓</li>
+<li>손익비 헤더(0.8:1)=본문: 자체목표가 47,000 기준 상승여력 음수~소폭, 하락리스크 큼 → 추격 불리 일치 ✓</li>
+<li>MA 정배열: 48,070&gt;35,710&gt;23,924 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-01 09:58 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 53,800원 (<span class="up">+9.8%</span>) · 시총 7,021억 · 5일 <span class="up">+41.6%</span> / 20일 <span class="up">+93.5%</span> / 60일 <span class="up">+191.8%</span></li>
+<li>MA5 48,150원 / MA20 35,730원 / MA60 23,931원 → MA20 이격 <span class="up">+50.6%</span> · MA60 이격 <span class="up">+124.8%</span></li>
+<li>52주 고 54,600원 / 저 10,110원 → 고점 대비 <span class="down">-1.5%</span> · 20일 고 53,800원 / 저 27,000원</li>
+<li>후행 PER 78.31 / PBR 3.56 (EPS 687원 · BPS 15,111원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 144.3억 (5일 263.8억)</li>
+<li>외국인 순매수 5일 178.8억 / 20일 115.2억 · 기관 5일 26.1억 / 20일 170.4억 · 개인 20일 -282.4억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.10% / 20일 평균 0.74% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 2.49% (09/30) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 54,600원 (<span class="up">+1.5%</span>) ÷ 하방 42,000원 (−21.9%) = <strong>1:0.07</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 21.9% = <strong>자산의 2.3%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.3%</strong></li>
+<li>유동성 참고: 20일 ADV 144.3억 · 1일 소화 한도는 ADV의 10%(14.43억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 21.9% · ATR14 3,514원 (손절폭/ATR 3.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 21.9% = ATR14 × 3.4배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 48,420원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.15</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-092870"></span>📋 결정카드 — 엑시콘(092870) 판정: 비중확대 아님 / 눌림목 소액 대응 한정 (추격매수 비권장) 선물: 無 (현물만, 레버리지 불가) 현재가: 53,500원 [실측 KIS 2026-10-01] 진입: 48,000원(MA5) 1차 / 42,950원(전고) 2차 분할 손절: 종가 42,000원 이탈 (<span class="down">-12.6%</span>) 목표: 1차 54,600 / 2차 60,000 (자체 적정가 42,000~47,000) 손익비: 약 0.8:1 (자체목표가 기준, 신규 추격 열위) / 단기 심리선 기준 1.4:1 기간: 스윙 2~6주 (3Q 실적 공시 전후) 촉매: 3Q 영익 ≥88억 / CLT 수주 / 목표가 상향 반증: ①3Q 연결 영익&lt;50억→청산 ②종가 42,000 이탈→손절 ③CXL테마 냉각+외인 순매도→보수전환</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
