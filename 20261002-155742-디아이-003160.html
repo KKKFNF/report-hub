@@ -1,0 +1,276 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>디아이(003160) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261002-155742-디아이-003160.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.67</div><div class="tp-c"><b>결론 발췌</b> 2026년 들어 영업이익률이 9%→23%로 레벨업한 HBM 번인테스터 실수혜주. 추세·펀더멘털 모두 강하나 현재가(42,800원)가 이미 컨센 목표가(평균 43,000원) 턱밑. 판정 &#x27;관심&#x27; — 눌림목(MA20 33,400~38,000원대) 분할 접근이 손익비 유리. 손익비 1:2.0, 자체 적정가 49,000원(1차 44,000 / 2차 54,000). ━━━━━━━━━━━━━━ ① 포착 신호 (회전율·추세·현 위치)</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>디아이(003160)</h1>
+<div class="meta">📊 trend · 2026-10-02 15:57 · 코드 003160</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-02 15:57)</div><div class="kpi-v">42,800원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.2조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">237.78</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">6.81</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.67</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.18</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">44,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 38,000~40,000원 (눌림목 분할)</span><span class="dc dn">손절 36,000원</span><span class="dc up">목표 44,000원</span><span class="dc">손익비 진입 1:1.67 · 현재가 1:0.18 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2로 적었지만 진입·손절·목표로 계산하면 1:1.67다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q 실적발표(11월 중순, 법정기한 11/14)</div><div class="dc-l">🛑 반증: 3Q 연결 영업이익&lt;280억(OPM&lt;15%) 전량청산 / 종가 36,000원 2일연속 이탈 손절 / 삼성·SK HBM4 투자지연 뉴스 시 비중 절반축소</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 디아이(003160) ※개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 2026년 들어 영업이익률이 9%→23%로 레벨업한 HBM 번인테스터 실수혜주. 추세·펀더멘털 모두 강하나 현재가(42,800원)가 이미 컨센 목표가(평균 43,000원) 턱밑. 판정 &#x27;관심&#x27; — 눌림목(MA20 33,400~38,000원대) 분할 접근이 손익비 유리. 손익비 1:2.0, 자체 적정가 49,000원(1차 44,000 / 2차 54,000).</p>
+<hr>
+<p>① 포착 신호 (회전율·추세·현 위치) ━━━━━━━━━━━━━━</p>
+<ul>
+<li>현재가 42,800원 (전일 <span class="up">+3.13%</span>) [실측: KIS inquire-price 2026-10-02]</li>
+<li>52주 고점 43,900 / 저점 15,550 → 현재 52주 고점 대비 <span class="down">-2.5%</span>, 저점 대비 <span class="up">+175%</span> [실측: KIS]</li>
+<li>거래대금 당일 534억, 회전율 4.41% [실측: KIS acml_tr_pbmn·vol_tnrt]</li>
+<li>추세: MA5 38,770 / MA20 33,428 / MA60 26,285 → 완전 정배열(현재가&gt;5&gt;20&gt;60) [실측: KIS 일봉 산출]</li>
+<li>20일전 30,600 → 현재 42,800 (<span class="up">+40%</span>), 60일전 23,850 대비 <span class="up">+79%</span> [실측: KIS]</li>
+<li>10/1 거래량 282만주(평소 3~5배) 폭발 + 당일 추가상승 → 신규 모멘텀 유입 국면 [실측: KIS 일봉]</li>
+</ul>
+<hr>
+<p>② 사업·급등사유 ━━━━━━━━━━━━━━</p>
+<ul>
+<li>주력: 반도체 검사장비(번인테스터·Burn-In Tester) — 전체 매출의 93.9% [실측: DART 사업보고서 2025.12, 접수 20260605000334]</li>
+<li>검사장비(Monitoring Burn-In Tester 등) 78.7%, 검사보드 9.3% [실측: 동]</li>
+<li>나머지: 전자부품(EMC) 2.6%, 2차전지장비 4.2%, 음향·영상 3.2%</li>
+<li>급등사유 (검증된 사실):</li>
+<li>[사실] 10/1 삼성전자와 153억원 반도체 검사장비 공급계약 공시 → 당일 10~13% 급등 [인용: news2day·데이터투자 2026-10-01]</li>
+<li>[사실] 올해 삼성·SK향 누적 3,900억 수주 [인용: 경기신문 2026-10-01] — 2025년 연매출 4,323억과 맞먹는 수주잔고</li>
+<li>[기대] HBM4 웨이퍼 테스터/번인테스터 매출 본격화 — 후공정 검사 투자 최대 수혜 [인용: iM증권·신한 2026-09-07]</li>
+<li>[기대] 2027년 베트남 Fab 투자 모멘텀 [인용: 현대차증권 2026-09-02]</li>
+<li>테마: HBM(고대역폭메모리) 후공정 검사 순환매 [인용: 매일경제 2026-10-01]</li>
+<li>판단: 수급·테마가 아니라 &#x27;실제 수주+실적 레벨업&#x27;이 뒷받침된 급등. 다만 10/1 급등 하루 만에 추가상승이라 단기 과열 구간.</li>
+</ul>
+<hr>
+<p>③ 실적 (DART 연결 실측) ━━━━━━━━━━━━━━</p>
+<ul>
+<li>3개년 연결 [실측: DART fnlttSinglAcntAll CFS]</li>
+<li>2023: 매출 2,145억 / 영업이익 61억 / OPM 2.8% / 순이익 20억</li>
+<li>2024: 매출 2,140억 / 영업이익 31억 / OPM 1.4% / 순이익 28억</li>
+<li>2025: 매출 4,323억 / 영업이익 365억 / OPM 8.4% / 순이익 135억 ← 매출 <span class="up">+102%</span>, 영익 <span class="up">+1077%</span></li>
+<li>단분기 환산 [실측: 누적치 차감, 검산 2025 4분기합=4,323 연간일치 ✅]</li>
+<li>2025 Q1 1,100/99(9.0%) · Q2 1,193/123(10.3%) · Q3 1,091/100(9.2%) · Q4 939/43(4.6%)</li>
+<li>2026 Q1 1,057/189(OPM 17.9%) · Q2 1,686/396(OPM 23.5%) ← 마진 레벨업 핵심</li>
+<li>26Q1 영익 YoY <span class="up">+91%</span>, 26H1 영익 YoY <span class="up">+164%</span> [실측: 25Q1누적99→26Q1 189]</li>
+<li>★연결 vs 지배 분해 (반드시 확인) [실측: DART CIS 귀속 항목]</li>
+<li>2025 연결순익 135억 중 지배 51억(38%)·비지배 84억(62%) → 비지배 비중 과다</li>
+<li>2026H1 연결순익 468억 중 지배 349억(75%)·비지배 119억 → 지배 비중 급개선</li>
+<li>해석: 순익 급증은 영업 레버리지(단가·믹스 개선)이며 일회성·법인세 효과 아님. 지배 귀속 비중까지 개선돼 질(質)이 좋아짐</li>
+<li>재무 안정성 [실측: DART CFS]</li>
+<li>부채비율 2023 74% → 2024 91% → 2025 101% (장비 매출 확대 운전자본 증가, 아직 양호 수준)</li>
+</ul>
+<hr>
+<p>④ 미래실적·컨센서스 ━━━━━━━━━━━━━━ [인용: consensus.py 4소스 집계 2026-10-02]</p>
+<ul>
+<li>목표가 컨센 평균 43,000원 (최고 45,000 / 최저 38,000, 4건) · 외부집계 naver·fnguide 40,333</li>
+<li>투자의견 Buy 4 / NR 3</li>
+<li>연간 컨센 (fnguide): FY26E 매출 5,898 / 영익 1,157 / 순익 910 / EPS 1,929 (PER 21.5)</li>
+<li>FY27E 매출 7,189 / 영익 1,427 / EPS 2,145 · FY28E 매출 8,224 / 영익 1,660</li>
+<li>분기 컨센: 26Q3 매출 1,862 / 영익 380 / 순익 293 (naver)</li>
+<li>영익 컨센 상향 추이: 1년전 532 → 6M 669 → 3M 966 → 현재 1,157억 (지속 상향)</li>
+<li>주요 리포트: 현대차 Buy 44,000(09/02), 신한 Buy 38,000(09/07), 하나·iM NR &#x27;사상 최대 실적&#x27;</li>
+<li>달성가능성 판단: [中~高]</li>
+<li>근거(高): 26H1 영익 이미 585억 → 하반기 572억만 하면 FY26E 1,157 달성. 26Q2 단분기 396억 추세면 충분</li>
+<li>근거(리스크): 컨센 FY26E 매출 5,898은 26H1 2,743의 단순2배(5,486)보다 높아 하반기 가속 전제 → 삼성·SK 수주 소화 속도가 변수</li>
+</ul>
+<hr>
+<p>⑤ 밸류에이션·목표가 ━━━━━━━━━━━━━━</p>
+<ul>
+<li>현재 멀티플 [실측: KIS·DART]</li>
+<li>KIS 표기 PER 237·EPS 180 → 이는 2025 &#x27;지배 trailing EPS 180원&#x27; 기준이라 왜곡. 비지배 과다로 지배순익이 적었던 탓</li>
+<li>FY26E fwd PER 22.2배 (컨센 EPS 1,929) / FY27E 20.0배 (EPS 2,145) [추정: 42,800÷컨센EPS]</li>
+<li>PBR 6.81 (BPS 6,287) [실측: KIS]</li>
+<li>자체 목표가 산출 [추정: 산식]</li>
+<li>26H1 지배순익 349억 → 지배EPS 1,233원, 단순 연율화×2 = 2,466원 (26H1 기준, 하반기 보수적 동일가정)</li>
+<li>현재가÷연율화 지배EPS = fwd PER 17.4배 → 컨센보다 실측 기준 밸류 더 쌈</li>
+<li>적정 PER 시나리오 × 연율화 지배EPS 2,466원:</li>
+</ul>
+<p>· PER 18배 → 44,400원 (보수) · PER 20배 → 49,300원 (기준) · PER 22배 → 54,300원 (낙관, 성장주 프리미엄)</p>
+<ul>
+<li>결론: 자체 적정가 1차 44,000원(≈컨센 상단·PER18) / 2차 54,000원(PER22). 증권사 목표가(평균 43,000)는 상반기 실적만 반영돼 보수적일 가능성.</li>
+</ul>
+<hr>
+<p>⑥ 진입전략·손익비  ※개별주식선물 無 → 현물만, 레버리지 불가 [실측: kis_futures_check 미상장] ━━━━━━━━━━━━━━</p>
+<ul>
+<li>지지: MA5 38,770 / 심리 40,000 / MA20 33,400 (강지지)</li>
+<li>저항: 52주·사상 고점 43,900 / 상한가 라인 부근 다음은 미개척(신고가)</li>
+<li>기계적 라인 (현물 스윙):</li>
+<li>진입: 38,000~40,000원 눌림목 분할 (추격매수는 42,800에서 소량만)</li>
+<li>손절: 36,000원 (MA20 하향이탈·직전 박스 상단 붕괴)</li>
+<li>익절: 1차 44,000원 / 2차 49,000~54,000원</li>
+<li>손익비 (진입 39,000 기준) [추정: 산식]</li>
+<li>상승여력 = (49,000−39,000)÷39,000 = <span class="up">+25.6%</span></li>
+<li>하락리스크 = (39,000−36,000)÷39,000 = −7.7%</li>
+<li>손익비 = 25.6 ÷ 7.7 ≈ 1:2.0 (눌림목 진입 시)</li>
+<li>★현재가 42,800 추격 시: 상승(49,000) <span class="up">+14.5%</span> vs 손절(36,000) −15.9% → 손익비 1:0.9로 열위 → 추격 비권장</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC §9) ━━━━━━━━━━━━━━</p>
+<ul>
+<li>제품: Monitoring Burn-In Tester (메모리 번인·신뢰성 검사장비), 전방 = 삼성·SK 메모리/HBM 후공정 [실측: DART 사업보고서]</li>
+<li>단가 이력 (장비 대당, 천원) [실측: DART 가격변동추이]</li>
+<li>검사장비: 제63기 697,393 → 64기 704,848 → 65기 798,989 → 66기 반기 698,534</li>
+<li>단가는 믹스(HBM 고사양) 따라 변동, 핵심은 &#x27;물량(Q)×믹스&#x27; 레버리지</li>
+<li>경쟁·점유: 국내 번인테스터 사실상 과점(1993년부터 양산, 국내 경쟁우위 유지) [인용: DART 사업개요]</li>
+</ul>
+<p>9-7 바텀업 표 (연결 영업이익, 억원)</p>
+<ul>
+<li>Bear (하반기 둔화, OPM 15% 회귀, 확률 25%)</li>
+<li>하반기 매출 2,600 × OPM 15% = 영익 390 → FY26 합 975억</li>
+<li>Base (26Q2 수준 유지, OPM 20%, 확률 50%)</li>
+<li>하반기 매출 2,900 × OPM 20% = 영익 580 → FY26 합 1,165억 (≈컨센 1,157)</li>
+<li>Bull (HBM4 램프업 가속, OPM 23%, 확률 25%)</li>
+<li>하반기 매출 3,300 × OPM 23% = 영익 760 → FY26 합 1,345억</li>
+</ul>
+<p>★결론 문장: 3Q 연결 영업이익 ≥ 350억(OPM 19%+)이면 Base 이상 유지·눌림목 추가매수. &lt; 280억(OPM 15% 이하)이면 마진 레벨업 훼손 신호로 포지션 축소·폐기.</p>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응 ━━━━━━━━━━━━━━</p>
+<ul>
+<li>촉매 (날짜확정):</li>
+<li>2026 3분기 실적발표 — 11월 중순 전후 (분기보고서 법정기한 11/14) [추정: 법정기한]</li>
+<li>추가 대형 수주공시(삼성·SK HBM4 번인) — 비정기, 상시 모니터</li>
+<li>반증조건 3개 (수치→행동):</li>
+</ul>
+<ol>
+<li>3Q 연결 영업이익 &lt; 280억(OPM&lt;15%) → 마진 레벨업 가설 훼손, 전량 청산</li>
+<li>종가 36,000원(MA20) 하향이탈 2일 연속 → 추세 붕괴, 손절</li>
+<li>삼성·SK 메모리 CAPEX 축소/HBM4 투자 지연 뉴스 → 전방 수요 가설 훼손, 비중 절반 축소</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스:</li>
+<li>3Q 서프라이즈(영익&gt;400) → 신고가 돌파, 2차 목표 54,000 홀딩</li>
+<li>3Q 컨센 부합(350~400) → 44,000 저항 테스트, 눌림목 유지</li>
+<li>3Q 쇼크(&lt;280) → 급락, 반증1 발동 청산</li>
+<li>확률가중 시나리오 (합 100%):</li>
+<li>Bear 25% × 목표 37,000 (PER15×연율EPS2,466÷ 조정)</li>
+<li>Base 50% × 목표 49,000</li>
+<li>Bull 25% × 목표 54,000</li>
+<li>기대값 ≈ 0.25×37,000 + 0.5×49,000 + 0.25×54,000 = 47,250원 → 현재가 42,800 대비 <span class="up">+10%</span></li>
+<li>수급·유동성: 당일 거래대금 534억, 회전율 4.41% → 유동성 충분(ADV 10% 룰 여유). 신고가권 추격 세력 유입·이탈 변동성 큼 [실측: KIS]</li>
+<li>포지션 사이징: 신고가·과열 구간이므로 자산 대비 보수적. 1차 눌림목에서 소량 진입, 3Q 실적 확인 후 증액이 유리. 선물 無라 레버리지 불가 → 현물 비중관리만.</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>2026 하반기 삼성·SK 세부 수주 집행 스케줄 (비정기 공시 의존)</li>
+<li>3Q 실적 확정 발표일 (법정기한 추정, IR 확정일 미공시)</li>
+<li>HBM4 번인테스터 제품별 단가·물량 세부 분해 (사업보고서 집계 단위까지만 공개)</li>
+<li>비지배지분 귀속 종속회사 실체 (지배/비지배 분해만 확인)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI: inquire-price·일봉 (2026-10-02 실측)</li>
+<li>DART: [기재정정]사업보고서 2025.12 접수 20260605000334 / 반기보고서 2026.06 접수 20260814001182 / fnlttSinglAcntAll CFS 2023·2024·2025·2026</li>
+<li>consensus.py 4소스(stockeasy·naver·fnguide·hankyung) 2026-10-02</li>
+<li>news_search.py: news2day·데이터투자·경기신문·매일경제 2026-10-01</li>
+<li>kis_futures_check.py: 선물 미상장 확인</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>2025 단분기 매출합 1,100<span class="up">+1,193</span><span class="up">+1,091</span><span class="up">+939</span>=4,323 = 연간 4,323 ✅</li>
+<li>2026H1 매출 2,743 = Q1 1,057 + Q2 1,686 ✅</li>
+<li>지배+비지배 26H1: 349<span class="up">+119</span>=468 = 연결순익 468 ✅</li>
+<li>손익비 1:2.0 = <span class="up">+25.6%</span>÷7.7% (진입39,000·목표49,000·손절36,000) 헤더·본문 일치 ✅</li>
+<li>시나리오 확률합 25<span class="up">+50</span><span class="up">+25</span>=100% ✅</li>
+</ul>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 15:57 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 42,800원 (<span class="up">+3.1%</span>) · 시총 1.21조 · 5일 <span class="up">+16.5%</span> / 20일 <span class="up">+39.9%</span> / 60일 <span class="up">+79.5%</span></li>
+<li>MA5 38,770원 / MA20 33,428원 / MA60 26,285원 → MA20 이격 <span class="up">+28.0%</span> · MA60 이격 <span class="up">+62.8%</span></li>
+<li>52주 고 43,900원 / 저 15,550원 → 고점 대비 <span class="down">-2.5%</span> · 20일 고 42,800원 / 저 29,350원</li>
+<li>후행 PER 237.78 / PBR 6.81 (EPS 180원 · BPS 6,287원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 251.3억 (5일 416.0억)</li>
+<li>외국인 순매수 5일 168.6억 / 20일 230.9억 · 기관 5일 -20.3억 / 20일 342.8억 · 개인 20일 -564.9억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.54% (공매도 6,754주 · 2.9억) · 5일 평균 0.98% / 20일 평균 2.30% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 6.82% (09/11) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 44,000원 (<span class="up">+2.8%</span>) ÷ 하방 36,000원 (−15.9%) = <strong>1:0.18</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 15.9% = <strong>자산의 3.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.1%</strong></li>
+<li>유동성 참고: 20일 ADV 251.3억 · 1일 소화 한도는 ADV의 10%(25.13억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 15.9% · ATR14 2,146원 (손절폭/ATR 3.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 15.9% = ATR14 × 3.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 38,520원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.28</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-003160"></span>📋 결정카드 — 디아이(003160) 판정: 관심 선물: 無 현재가: 42,800원 진입: 38,000~40,000원 (눌림목 분할) 손절: 36,000원 목표: 1차 44,000원 (2차 49,000~54,000원) 손익비: 1:2.0 기간: 스윙 4~10주 촉매: 3Q 실적발표(11월 중순, 법정기한 11/14) 반증: 3Q 연결 영업이익&lt;280억(OPM&lt;15%) 전량청산 / 종가 36,000원 2일연속 이탈 손절 / 삼성·SK HBM4 투자지연 뉴스 시 비중 절반축소</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
