@@ -1,0 +1,253 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>성호전자(043260) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261002-093811-성호전자-043260.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 자동판정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 카드 판정 매수였으나 현재가 기준 손익비 1:1.18 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 / 관심 (추격금지·눌림매수) · 손익비 1:3</div><div class="tp-c"><b>결론 발췌</b> CPO(광통신) 액티브 정렬장비 &quot;진짜 실체주&quot; — 2027~28년 계단식 실적성장 시나리오는 유효하나 보름새 +70%·PBR 8.9배로 단기 과열. 추격보다 눌림 분할. 손익비 1:2.5(1차)/1:4.8(2차), 자체 목표가 중립 44,000원·공격 62,000원(증권사: 신영 70,000원). ━━━━━━━━━━━━━━━━</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(자동판정): 카드 판정 매수였으나 현재가 기준 손익비 1:1.18 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 · 관심 (추격금지·눌림매수)</span><h1>성호전자(043260)</h1>
+<div class="meta">📊 trend · 2026-10-02 09:38 · 코드 043260</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-02 09:38)</div><div class="kpi-v">31,650원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2.4조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">23.6</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">8.95</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.2</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">42,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 27,000~28,500원 (MA5 눌림 분할)</span><span class="dc dn">손절 23,000원</span><span class="dc up">목표 42,000원</span><span class="dc">손익비 진입 1:3 · 현재가 1:1.2 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.5</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.5로 적었지만 진입·손절·목표로 계산하면 1:3다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 실적(11월 중순) / 엔비디아 CPO 양산 로드맵(26H2~27)</div><div class="dc-l">🛑 반증: ①3Q26 연결 영익 &lt; 35억 → 비중 절반 축소 ②CB/BW 494만주 대량전환 공시 → 신규진입 보류 ③MA20(21,705) 이탈 → 기계적 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 성호전자(043260) ※선물 有 (근월물 A3S610)</p>
+<p>📌 한줄 결론: CPO(광통신) 액티브 정렬장비 &quot;진짜 실체주&quot; — 2027~28년 계단식 실적성장 시나리오는 유효하나 보름새 <span class="up">+70%</span>·PBR 8.9배로 단기 과열. 추격보다 눌림 분할. 손익비 1:2.5(1차)/1:4.8(2차), 자체 목표가 중립 44,000원·공격 62,000원(증권사: 신영 70,000원).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 5.5% (거래대금 1,341억 / 시총 24,409억) [인용:trendscan 2026-10-02]</li>
+<li>당일 <span class="up">+13.33%</span>(장중 스냅 <span class="up">+10.88%</span>, 31,700원) [실측:KIS inquire-price 2026-10-02]</li>
+<li>추세: MA 완전정배열 — MA5 27,050 &gt; MA20 21,705 &gt; MA60 19,198 [실측:KIS 일봉]</li>
+<li>위치: 9/10 18,560원 → 10/2 31,700원 (보름 <span class="up">+70.8%</span>), 52주고 59,600 / 52주저 1,030 [실측:KIS]</li>
+</ul>
+<p>→ 신고가권은 아니나(52주고의 53% 수준) 단기 급등으로 추격매수 위험구간</p>
+<p>② 사업·급등사유 (실체 vs 기대감)</p>
+<ul>
+<li>급등사유 [검증됨]: &quot;AI 데이터센터 기대감…광통신주 20%대 급등&quot;(dailian 2026-10-02), 광통신(광케이블/광섬유) 테마 순환매 [인용:news_search Google News]. 빛샘전자 등 동반급등 → 테마성 수급이 방아쇠.</li>
+<li>단, 테마 꼬리표 뒤에 실체 있음 [검증됨]: 성호전자는 2025.12 자회사 에이디에스테크(ADS테크) 인수 완료. ADS테크 = CPO(Co-Packaged Optics)용 &#x27;액티브 정렬장비&#x27; 제조사로, 전 세계 단 2곳(ADS테크·독일 FiconTEC) [인용:신한투자증권 2026-06-25, 신영증권 2026-06-29].</li>
+<li>사업구조(반기26 매출비중) [실측:반기보고서 20260814003108]:</li>
+<li>콘덴서·파워(필름콘덴서·PSU) 49.1% — 전통 본업</li>
+<li>반도체 22.8% (그중 광통신 공정장비 11.1% = ADS테크 핵심)</li>
+<li>건설 19.1% / 임대 1.6% / 기타 7.4%</li>
+<li>투자논리: AI서버 대역폭 확대 → 고속 광모듈·CPO 침투율 상승 → 고정밀 정렬장비 수요 급증. 엔비디아 26년 하반기 CPO 도입이 트리거 [인용:신영증권 2026-06-29].</li>
+<li>결론: 단순 테마주 아님. 그러나 &quot;광케이블/광섬유&quot; 테마로 묶인 건 부정확한 분류(성호는 장비주). 테마 변동성에 노출되는 이중성 존재.</li>
+</ul>
+<p>③ 실적 (DART 실측 — 연결기준)</p>
+<ul>
+<li>3개년 연결 [실측:사업보고서 fnlttSinglAcnt]:</li>
+<li>2023: 매출 2,081억 / 영익 259억 / 순익 177억 / OPM 12.4%</li>
+<li>2024: 매출 2,073억 / 영익 63억 / 순익 81억 / OPM 3.0% ← 영익 급감(본업 콘덴서 둔화)</li>
+<li>2025: 매출 2,316억 / 영익 76억 / 순익 910억 / OPM 3.3%</li>
+<li>★주의 — 2025 순익 910억은 질 낮은 이익 [실측:fnlttSinglAcntAll 2025 CFS]: 영업이익 76억의 12배. 영업 외 일회성(파생/처분/평가이익 추정)이 대부분. 영업 체력은 OPM 3%대로 여전히 낮았음 → 2025 순익으로 PER 계산 시 왜곡 주의.</li>
+<li>2026 분기 전환점 [실측:반기보고서·분기보고서]:</li>
+<li>1Q26 연결 매출 660억 / 영익 32억</li>
+<li>2Q26 연결 매출 852억 / 영익 69억</li>
+<li>1H26 누적 매출 1,512억(<span class="up">+31%</span> YoY) / 영익 101억(<span class="up">+246%</span> YoY) [인용:신한투자증권 2026-09-15와 일치]</li>
+</ul>
+<p>→ ADS테크 연결편입으로 영익 레벨업 시작. 2025 연간 영익(76억)을 반기만에 추월.</p>
+<ul>
+<li>재무구조 [실측:2025 사업보고서 CFS]: 자산 5,811억 / 부채 3,271억 / 자본 2,540억 → 부채비율 128.8%. 2026 CB 발행으로 차입 상환 진행(신한). 과도하진 않으나 CB 의존 구조.</li>
+<li>[검산] 분기합: 1Q66<span class="up">+2</span>Q85.2=H1 151.2억(매출 백억) ✓ / 영익 32<span class="up">+69</span>=101억 ✓</li>
+</ul>
+<p>④ 미래실적·컨센서스 (4소스 수집)</p>
+<ul>
+<li>연간 컨센 [인용:consensus.py fnguide 2026-10-02]:</li>
+<li>FY26E 매출 2,674억 / 영익 410억 / 순익 2,246억(일회성 포함 추정) / EPS 3,085 / PER 9.2</li>
+<li>FY27E 매출 5,014억 / 영익 1,081억 / EPS 1,056 / PER 27.0</li>
+<li>FY28E 매출 8,956억 / 영익 2,372억 / EPS 1,845 / PER 15.4</li>
+<li>증권사 추정 [인용:stockeasy]:</li>
+<li>신한 2026-06-25: 27E 영익 741억(<span class="up">+118%</span>), 28E 영익 1,774억(<span class="up">+139%</span>) — 계단식 성장</li>
+<li>신영 2026-06-29: Buy, 목표가 70,000원(SOTP, ADS테크 2028 NOPLAT 1,515억×목표PER 50배[경쟁사 Robotechnik 50%할인])</li>
+<li>신한 2026-09-15: 1H26 호실적 확인, 다만 &quot;부품 쇼티지로 26년 가이던스 소폭 하회&quot;, 10월 수급개선 시 27년 상향 기대. 투자의견 NR.</li>
+<li>달성가능성 판정: 中 (조건부 高)</li>
+<li>근거(긍정): 글로벌 2곳뿐인 과점 장비, AI CPO는 구조적 수요, 1H26 실적으로 턴어라운드 입증.</li>
+<li>근거(리스크): ①27E 매출 5,014억은 25년 2,316억의 2.2배 — 공격적. CPO 대량양산 &#x27;시점&#x27;(엔비디아 로드맵)에 전적으로 의존. ②현재 부품 쇼티지로 26년 눈높이 하향 중. ③투자의견 Buy는 신영 1곳뿐, 나머지 전부 NR(목표가 미제시) → 컨센 신뢰도 제한적.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 멀티플 [실측:KIS]: PER 23.56 / PBR 8.94 / EPS 1,341 / BPS 3,536. 시총 23,918억.</li>
+</ul>
+<p>→ PBR 8.9배는 장비주 치곤 매우 높음. 성장 상당부분 선반영(대신증권도 &quot;선반영&quot; 지적).</p>
+<ul>
+<li>자체 목표가 계산 [추정] — 신한 28E 영익 1,774억×세후 0.8 = 세후순익 1,419억, 완전희석주식수 80.4백만주(현 75.5백만+CB전환 최대 494만주):</li>
+</ul>
+<div class="tablewrap"><table><thead><tr><th>시나리오</th><th>적용PER</th><th>28E 시총</th><th>목표가</th></tr></thead><tbody><tr><td>보수</td><td>25배</td><td>35,480억</td><td>44,100원</td></tr><tr><td>중립</td><td>35배</td><td>49,672억</td><td>61,800원</td></tr><tr><td>공격</td><td>50배</td><td>70,960억</td><td>88,300원</td></tr></tbody></table></div>
+<p>→ 중립 62,000원이 신영 목표가 70,000원과 근접. 단 이는 &#x27;28년 실적 선반영&#x27; 가격이므로 2026~27년엔 변동성 큼.</p>
+<ul>
+<li>증권사 병기: 신영 70,000원(Buy) / 그 외 NR.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 有 — 레버리지 3라인)</p>
+<ul>
+<li>선물 상장 확인 [실측:kis_futures_check]: ✅ 근월물 A3S610 (202610) → 레버리지 스윙 가능.</li>
+<li>지지/저항 [실측:KIS 일봉]:</li>
+<li>1차 지지 MA5 27,050 / 2차 지지 MA20 21,705 / 심리 23,650(9/29 종가)</li>
+<li>저항 52주고 59,600, 중간저항 직전고점 구간</li>
+<li>추격 자제 — 당일 <span class="up">+13%</span> 장중가 31,700원은 과열. 눌림 분할이 핵심.</li>
+<li>레버리지 스윙 3라인 [추정:기술적]:</li>
+<li>진입: 27,000~28,500원 (MA5 눌림 분할). 추격 시 29,000원 이상은 비중 축소.</li>
+<li>손절: 23,000원 (MA20 하회 + 심리지지 이탈, 진입 28,500 기준 <span class="down">-19%</span>)</li>
+<li>목표: 1차 42,000원(<span class="up">+47%</span>) / 2차 55,000원(<span class="up">+93%</span>, 52주고 근접)</li>
+<li>손익비 (진입 28,500 / 손절 23,000 기준):</li>
+<li>1차: 상방 <span class="up">+47%</span> ÷ 하방 <span class="down">-19%</span> = 1:2.5</li>
+<li>2차: 상방 <span class="up">+93%</span> ÷ 하방 <span class="down">-19%</span> = 1:4.8</li>
+</ul>
+<p>→ 손익비 양호. 단 변동성(일중 두자릿수)이 커 손절폭도 넓게 잡아야 하므로 레버리지 배수는 보수적으로.</p>
+<p>⑧ 산업·제품 바텀업 모델</p>
+<ul>
+<li>핵심 제품: ADS테크 액티브 정렬장비 — 800G/1.6T 광엔진 제조용. CPO는 기존 광트랜시버 대비 전력효율 3.5배 [인용:신한 2026-06-25].</li>
+<li>밸류체인 위치: 전세계 2곳 과점(ADS·FiconTEC). 진입장벽 높음. 2027년 이후 정렬장비 매출비중 75%+ 전망 [인용:대신 2026-06-09].</li>
+<li>TAM 트리거: 엔비디아 CPO 로드맵 + 하이퍼스케일러 ASIC 광 I/O 채택. 28년 스케일업 광시장 개화 시 현재 대비 10배+ 확대 가능 [인용:대신].</li>
+<li>결론 문장: &quot;3Q26 연결 영업이익 ≥ 60억이면 1H26 분기런레이트(약 50억/분기) 유지·상향 논지 유효, &lt; 35억이면 부품 쇼티지 장기화로 27년 눈높이 하향 → 성장스토리 재검토.&quot;</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더 (날짜 확정):</li>
+<li>3Q26 분기보고서: 2026-11월 중순(법정기한, 정확일 미확인)</li>
+<li>엔비디아 CPO 양산 로드맵: 26년 하반기~27년 (시장 주시)</li>
+<li>반증 3개 (수치→행동):</li>
+</ul>
+<ol>
+<li>[분기실적 임계] 3Q26 연결 영익 &lt; 35억 → 성장논지 훼손, 보유비중 절반 축소.</li>
+<li>[오버행] CB/BW 전환 최대 494만주(발행주식수 61%) 실제 전환·대량출회 공시 → 수급부담, 신규진입 보류.</li>
+<li>[테마 이탈] 광통신 테마지수 동반 하락 + 거래대금 20일평균(아래) 하회 전환 → 추세 종료 간주, 손절 실행.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스:</li>
+<li>엔비디아 CPO 채택 공식화 → 공격 시나리오, 목표 55,000+</li>
+<li>부품 쇼티지 장기화/가이던스 추가 하향 → Bear, 손절</li>
+<li>단순 테마 소멸(순환매 종료) → MA20 이탈 시 기계적 청산</li>
+<li>확률가중 시나리오 (합 100%):</li>
+<li>Bull 30%: CPO 양산 가시화 + 27년 컨센 상향 → 55,000~70,000원</li>
+<li>Base 45%: 테마 진정 후 실적 따라 횡보상승 → 35,000~45,000원</li>
+<li>Bear 25%: 테마 소멸 + 쇼티지 지속 → 21,000~24,000원(MA20·CB전환가 부근)</li>
+<li>수급·유동성: 당일 거래대금 1,341억 — 20일 평균 거래대금 대비 뚜렷한 급증(테마 유입). 급증분이 꺼지면 유동성 리스크. 1회 진입은 일 거래대금의 과소비중으로.</li>
+<li>포지션 사이징: 변동성·오버행 감안 투기성 스윙 → 리스크자산 대비 소액(저비중)으로 한정. 2~3회 분할(최초 40% / 눌림 40% / 돌파확인 20%). 레버리지는 손절폭 <span class="down">-19%</span>를 감내할 수준으로만.</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 미확인은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>2025 순익 910억의 일회성 항목 세부 내역(파생/처분 구분) — 재무제표 주석 미파싱</li>
+<li>사업부문별 &#x27;금액&#x27; 매출(비중만 확보, 반기 세그먼트 금액 미확인)</li>
+<li>3Q26 분기보고서 정확 공시일</li>
+<li>분기 컨센서스(4소스 모두 미제공)</li>
+<li>895억 CB 상세 조건(전환가·콜옵션) — 제목만 확인</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI inquire-price/일봉 2026-10-02 (현재가·MA·52주·PER/PBR)</li>
+<li>DART 사업보고서 20260320001361 / 반기보고서 20260814003108 / 분기보고서</li>
+<li>news_search.py Google News RSS 2026-10-02 (급등사유)</li>
+<li>consensus.py 4소스(stockeasy·naver·fnguide·hankyung) 2026-10-02</li>
+<li>증권사: 신영 2026-06-29(Buy 70,000) / 신한 2026-06-25·09-15(NR) / 대신 2026-06-09(NR) / iM 2026-05-26(NR)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합: 1Q26 영익 32 + 2Q26 69 = H1 101억 ✓ (신한 리포트 일치)</li>
+<li>매출: 1Q 660 + 2Q 852 = H1 1,512억 ✓</li>
+<li>손익비 산식: (42,000-28,500)/(28,500-23,000) = 13,500/5,500 = 2.45 ≈ 1:2.5 ✓ (헤더·본문 일치)</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 09:38 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 31,650원 (<span class="up">+11.1%</span>) · 시총 2.39조 · 5일 <span class="up">+20.8%</span> / 20일 <span class="up">+90.9%</span> / 60일 <span class="up">+48.9%</span></li>
+<li>MA5 27,040원 / MA20 21,702원 / MA60 19,197원 → MA20 이격 <span class="up">+45.8%</span> · MA60 이격 <span class="up">+64.9%</span></li>
+<li>52주 고 59,600원 / 저 1,030원 → 고점 대비 <span class="down">-46.9%</span> · 20일 고 31,650원 / 저 15,600원</li>
+<li>후행 PER 23.6 / PBR 8.95 (EPS 1,341원 · BPS 3,536원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,088.4억 (5일 1,170.2억)</li>
+<li>외국인 순매수 5일 10.7억 / 20일 -73.3억 · 기관 5일 -42.9억 / 20일 -4.4억 · 개인 20일 36.5억</li>
+<li>개별주식선물: ⚡ 상장 (A3S610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 3.84% / 20일 평균 4.31% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 17.31% (09/04) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 42,000원 (<span class="up">+32.7%</span>) ÷ 하방 23,000원 (−27.3%) = <strong>1:1.20</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 27.3% = <strong>자산의 1.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.8%</strong></li>
+<li>유동성 참고: 20일 ADV 1,088.4억 · 1일 소화 한도는 ADV의 10%(108.84억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 27.3% · ATR14 2,459원 (손절폭/ATR 3.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 27.3% = ATR14 × 3.5배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 27,962원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.81</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-043260"></span>📋 결정카드 — 성호전자(043260) 판정: 관심 (추격금지·눌림매수) 선물: 有 (근월물 A3S610) 현재가: 31,700원 (장중 <span class="up">+10.88%</span>) 진입: 27,000~28,500원 (MA5 눌림 분할) 손절: 23,000원 목표: 1차 42,000원 (2차 55,000원) 손익비: 1:2.5 (2차 1:4.8) 기간: 스윙 4~10주 촉매: 3Q26 실적(11월 중순) / 엔비디아 CPO 양산 로드맵(26H2~27) 반증: ①3Q26 연결 영익 &lt; 35억 → 비중 절반 축소 ②CB/BW 494만주 대량전환 공시 → 신규진입 보류 ③MA20(21,705) 이탈 → 기계적 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
