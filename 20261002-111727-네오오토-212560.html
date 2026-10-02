@@ -1,0 +1,255 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>네오오토(212560) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261002-111727-네오오토-212560.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.44</div><div class="tp-c"><b>결론 발췌</b> 자동차 변속기 기어 본업 저평가(PER 8~11배) + &#x27;오토인더스트리 완전자회사 편입(연매출 6,600억 도약)·로봇 감속기 신사업·하이브리드 수주&#x27; 3중 테마가 겹친 실체 있는 급등. 다만 당일 +10.4% 분출로 단기 과열. 관심 등급, 눌림 진입 시 손익비 1:3.1, 자체 목표가 1차 12,800원(2차 14,000원대). ━━━━━━━━━━━━━━━━ ① 포착 신호 - 현재가 11,490원 / 당일 +10.45% [실측: KIS inquire-price 2026-10-02] - 당일 거래대금 63.9억원, 20일 평균 40.4억원 대비 1.58배 [실측: KIS inquire-daily-itemchartprice 20일] - …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>네오오토(212560)</h1>
+<div class="meta">📊 trend · 2026-10-02 11:17 · 코드 212560</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-02 11:17)</div><div class="kpi-v">11,580원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,562억</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.44</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.65</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">12,800원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 10,500~10,700원 (MA20 눌림)</span><span class="dc dn">손절 9,700원</span><span class="dc up">목표 12,800원</span><span class="dc">손익비 진입 1:2.44 · 현재가 1:0.65 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:3.1</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:3.1로 적었지만 진입·손절·목표로 계산하면 1:2.44다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 분기보고서 2026-11-14 / 오토인더스트리 주식교환 효력발생(일정 미확정)</div><div class="dc-l">🛑 반증: 3Q26 별도 영업이익 &lt;30억 → 실적개선 논리 폐기·전량 정리 / 종가 MA60(10,450) 하회 → 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 네오오토(212560) ※개별주식선물 無(현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: 자동차 변속기 기어 본업 저평가(PER 8~11배) + &#x27;오토인더스트리 완전자회사 편입(연매출 6,600억 도약)·로봇 감속기 신사업·하이브리드 수주&#x27; 3중 테마가 겹친 실체 있는 급등. 다만 당일 <span class="up">+10.4%</span> 분출로 단기 과열. 관심 등급, 눌림 진입 시 손익비 1:3.1, 자체 목표가 1차 12,800원(2차 14,000원대).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>현재가 11,490원 / 당일 <span class="up">+10.45%</span> [실측: KIS inquire-price 2026-10-02]</li>
+<li>당일 거래대금 63.9억원, 20일 평균 40.4억원 대비 1.58배 [실측: KIS inquire-daily-itemchartprice 20일]</li>
+<li>거래량 56.8만주 (직전일 5.1만주의 11배 분출) [실측: KIS 일봉]</li>
+<li>시총 1,554억원 (코스닥 소형주) [실측: KIS hts_avls]</li>
+<li>이평: MA5 10,550 / MA20 10,697 / MA60 10,454 → 당일 급등으로 셋 다 상회, 정배열 &#x27;직전&#x27; (급등 전까지 10,100~10,600 횡보) [실측: KIS 종가 산출]</li>
+<li>추세: 5일 <span class="up">+10.4%</span>, 20일 <span class="up">+31.8%</span> (9/15 450만주 급등 1차 → 재분출) [실측: KIS 종가]</li>
+<li>52주 고 16,100 / 저 4,995 → 현 위치 52주고 대비 71%, 52주저 대비 <span class="up">+130%</span> [실측: KIS w52]</li>
+<li>현 위치 판정: 바닥권 아님. 9월 1차 급등(상한가) 후 보름 횡보 → 당일 2차 분출. &#x27;추세 초입&#x27;이 아니라 &#x27;테마 재점화 2파&#x27; 구간. 추격보다 눌림 대응 구간.</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력사업: 자동차 변속기용 정밀 기어 제조 (한국표준산업분류 &#x27;자동차 신품부품 제조업&#x27;). 피니언기어, 디퍼런셜 어셈블리, 대형 기어, EV감속기 부품 [실측: 사업보고서 2025.12 접수 20260319001301]</li>
+<li>전방: 현대차그룹 하이브리드·내연기관·전기차 동력전달계. 고객 집중도 높음.</li>
+<li>급등사유 3축 (사실 검증):</li>
+</ul>
+<p>(1) [사실] 오토인더스트리 완전자회사 편입 — 2026-09-04 이사회에서 비상장 모태사 오토인더스트리(단조)와 포괄적 주식교환 계약, 100% 자회사화. 단조→완성가공 수직계열화. 통합 시 &#x27;연매출 약 6,600억원&#x27; 기업으로 도약 [인용: 뉴스핌·마켓인 2026-09-07, v.daum.net 2026-09-08]. 9/18 NH투자증권 본사 주주간담회 개최 [인용: 특별타임스 2026-09-21] (2) [기대감+진행] 로봇 감속기 신사업 — ICE·xEV 기어 역량을 로봇 액추에이터 감속기로 확장 &#x27;개발 속도&#x27;. 양산·수주 시점은 미확인(기대 단계) [인용: 핀포인트뉴스 2026-09-26, 신한투자 2026-09-30 &#x27;자동차 부품 기업의 로봇 도전장&#x27;] (3) [사실] 하이브리드 수주 증가 — 현대차 하이브리드 판매 호조 + 예산 4공장 가동 본격화가 2026 실적 개선 견인 [인용: 한국IR협의회 2026-09-21]</p>
+<ul>
+<li>종합: 테마성 단순 급등이 아니라 M&amp;A(확정)·실적개선(진행)이 실체. 로봇은 기대감 프리미엄 성격이라 밸류 과열 유발 요인. 공통점: 전 3축이 &#x27;2026년 스토리&#x27;.</li>
+</ul>
+<p>③ 실적 (DART 실측 · 별도기준 OFS, 연결재무 미작성) [중요: 네오오토는 연결재무제표(CFS) 미작성 → 전 수치 별도(OFS). 오토인더스트리 편입 완료 시 연결 전환 예정]</p>
+<ul>
+<li>연간 매출/영업이익/순이익/OPM [실측: DART fnlttSinglAcntAll OFS 11011]</li>
+</ul>
+<p>· 2022: 매출 1,640억 / 영익 79억 / 순익 78억 / OPM 4.8% · 2023: 매출 1,982억(<span class="up">+20.8%</span>) / 영익 103억(<span class="up">+30.4%</span>) / 순익 119억 / OPM 5.2% · 2024: 매출 2,185억(<span class="up">+10.2%</span>) / 영익 126억(<span class="up">+22.3%</span>) / 순익 177억 / OPM 5.8%</p>
+<ul>
+<li>분기 (3개월 개별) [실측: DART thstrm_amount 분기별]</li>
+</ul>
+<p>· 2024 3Q: 매출 536 / 영익 36 / 순익 37 · 2025 1Q: 매출 572 / 영익 33 / 순익 36 · 2025 2Q: 매출 620 / 영익 42 / 순익 51 · 2025 3Q: 매출 573 / 영익 36 / 순익 39 · 2025 3Q 누적: 매출 1,766 / 영익 113 / 순익 127 [실측: 누적 thstrm_add]</p>
+<ul>
+<li>2026 반기·연간 실적: XBRL 미제공으로 fnltt 미반영 → 미확인 (반기보고서 접수 20260814003021는 존재, 수치 재무API 미등록)</li>
+<li>재무구조(2024 별도): 자산 2,170억 / 부채 929억 / 자본 1,240억 → 부채비율 74.9% (양호) [실측: DART]</li>
+<li>순익 분해: 2024 순익 177억 &gt; 영익 126억. 순익이 영익보다 큰 구조 → 영업외수익(지분법/일회성) 기여 추정. 영업 본질 OPM은 5~6% 박스. 순익 급증을 영업개선으로 오독 금지. [실측 영익 vs 순익 괴리 / 추정: 영업외 기여]</li>
+<li>현금흐름: 미확인 (이번 조회 범위 외)</li>
+</ul>
+<p>④ 미래실적·컨센서스 (4소스 수집 완료)</p>
+<ul>
+<li>연간 컨센 [인용: FnGuide/WiseReport 2026-10-02 수집]</li>
+</ul>
+<p>· FY26E: 매출 2,538억 / 영익 159억 / 순익 144억 / EPS 1,130원 · FY27E: 매출 2,868억 / 영익 193억 / 순익 158억 · FY28E: 매출 3,183억 / 영익 220억 / 순익 172억</p>
+<ul>
+<li>한국IR협의회 추정 [인용: 2026-09-21]: 2026 매출 2,457억(<span class="up">+5.9%</span> YoY) / 영익 147억(<span class="up">+7.6%</span> YoY)</li>
+<li>목표주가: 전 증권사 Not Rated(NR), 목표가 제시 &#x27;없음&#x27; (최근 6개월 삼성·한투·신한·한국IR 전부 NR) → 공식 목표가 미확인</li>
+<li>달성 가능성: 中. 본업(하이브리드 수주+예산 4공장)으로 <span class="up">+6</span>~16% 성장은 트랙레코드상 무난(2023 <span class="up">+20.8%</span>, 2024 <span class="up">+10.2%</span>). 단 FY26E 매출 2,538억은 오토인더스트리 연결 편입분을 일부 반영한 수치일 가능성 → 별도만으론 과대. 연결 전환 전까지 컨센 해석 주의. 로봇 매출은 컨센 미반영(기대 only).</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>발행주식수 약 1,352만주 [추정: 시총1,554억÷주가11,490]</li>
+<li>현 PER: 2024 EPS 1,309원 기준 8.8배 / FY26E EPS 1,130원 기준 10.2배 [추정: 산식 순익÷주식수]</li>
+<li>PBR: 자본 1,240억÷시총 1,554억 = 1.25배 [추정]</li>
+<li>peer·과거밴드: 자동차 기어/부품 소형주 평균 PER 7~10배. 로봇 테마 편입 시 12~15배까지 멀티플 확장 가능하나 지속성 불투명.</li>
+<li>자체 목표가 (산식 노출): FY26E EPS 1,065~1,130원 × 적정 PER</li>
+</ul>
+<p>· PER 10배: 10,650원 (본업만 보수) · PER 11배: 11,710원 · PER 12배 (테마 프리미엄 반영): 12,780원 ≈ 1차 목표 12,800원 · PER 13~14배 (로봇 가시화 시): 14,000~15,000원대 = 2차 목표</p>
+<ul>
+<li>증권사 병기: 공식 목표가 없음(전 NR). 자체 산정만 유효.</li>
+</ul>
+<p>⑥ 진입전략·손익비 ※선물 無 → 현물 스윙만, 레버리지 불가</p>
+<ul>
+<li>지지: 1차 10,500(MA5/20 밀집대), 2차 10,100(급등 전 횡보 하단), 3차 9,700(9월 갭 메움)</li>
+<li>저항: 1차 11,940(당일 고가), 2차 13,550(당일 상한가), 3차 16,100(52주고)</li>
+<li>52주고 대비 71% → 상단 여유 있으나 당일 분출로 단기 과열</li>
+<li>손익비 (산식): 진입 10,500 / 목표 13,000 / 손절 9,700</li>
+</ul>
+<p>· 상승여력 (13,000/10,500−1) = <span class="up">+23.8%</span> · 하락리스크 (1−9,700/10,500) = −7.6% · 손익비 = 23.8 ÷ 7.6 = 1:3.1 (양호, 진입 적합)</p>
+<ul>
+<li>전략: 당일 종가 추격은 과열 리스크. MA20(10,700) 부근 눌림 확인 후 분할 진입이 손익비 우위. 선물 미상장으로 현물만 가능.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (별도기준)</p>
+<ul>
+<li>제품별 매출비중 [실측: 반기보고서 2026.06 접수 20260814003021 / 사업보고서]</li>
+</ul>
+<p>· 2025: 대형기어 39.7% / 피니언기어 35.6% / 디프어셈블리 12.4% / EV감속기부품 7.1% / 기타 5.3% (합 2,321억) · 2026 반기: 대형기어 43.9% / 피니언기어 33.7% / 디프어셈블리 12.1% / EV감속기부품 7.6% / 기타 2.7% (반기 1,238억)</p>
+<ul>
+<li>단가 추이(원) [실측: 가격변동추이表]</li>
+</ul>
+<p>· 대형기어: 14,601(&#x27;24)→14,724(&#x27;25)→15,801(&#x27;26반기) 상승추세 · 피니언기어: 2,396→2,456→2,564 완만상승 · 디프어셈블리: 51,482→54,457→53,668 고점 횡보 · EV감속기부품: 83,204→62,023→73,932 변동(EV 수요 부침)</p>
+<ul>
+<li>원재료: 단조품/선삭품이 핵심(2025 매입 826억), CUP/COVER 등 → 오토인더스트리(단조) 편입 시 원재료 내재화·마진개선 기대 [실측: 원재료 매입현황表]</li>
+<li>바텀업 (3Q26 영업이익 임계):</li>
+</ul>
+<p>· Bear: 매출 QoQ 보합 ~570억, OPM 5.5% → 영익 ~31억 · Base: 하이브리드<span class="up">+4</span>공장, 매출 600억, OPM 6.0% → 영익 ~36억 · Bull: 수주확대+단가인상, 매출 650억, OPM 6.5% → 영익 ~42억</p>
+<ul>
+<li>결론문장: 3Q26 별도 영업이익 ≥38억이면 실적개선 스토리 유지·눌림 추가매수, &lt;30억이면 테마 프리미엄 소멸로 폐기(밸류 되돌림). [추정: OPM×매출 시나리오]</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트</p>
+<ul>
+<li>촉매캘린더 (날짜 확정만):</li>
+</ul>
+<p>· 오토인더스트리 포괄적 주식교환 주총·효력발생 일정 — 날짜 미확인(진행중) · 3Q26 분기보고서 — 법정기한 2026-11-14(11월 중순) · 2026 사업보고서 — 2027년 3월 중순</p>
+<ul>
+<li>반증 3개 (수치→행동):</li>
+</ul>
+<p>(1) 3Q26 별도 영업이익 &lt;30억 → 실적개선 논리 폐기, 전량 정리 (2) 종가 MA60(10,450) 하회 마감 → 추세 훼손, 손절 (3) 오토인더스트리 주식교환 무산/비율 하향 공시 → M&amp;A 프리미엄 소멸, 즉시 축소</p>
+<ul>
+<li>이벤트 매트릭스:</li>
+</ul>
+<p>· 주식교환 효력발생 + 연결 6,600억 확정 → 상방 (멀티플 리레이팅) · 로봇 감속기 실제 수주/공급계약 공시 → 강상방 (테마 재점화) · 현대차 하이브리드 판매 둔화 → 하방 (본업 피크아웃) · 교환비율 분쟁·소액주주 반발 → 하방</p>
+<ul>
+<li>확률가중 시나리오 (합 100%):</li>
+</ul>
+<p>· Bear 30%: 테마 소멸+실적 평범 → 9,500~10,000원 (−13~17%) · Base 50%: 본업 성장+M&amp;A 완료, 로봇 기대 유지 → 12,000~13,000원 (목표 PER 11~12배) · Bull 20%: 로봇 수주 가시화+연결 리레이팅 → 14,000~15,000원 (<span class="up">+22</span>~30%) · 기대값 ≈ 11,900~12,300원</p>
+<ul>
+<li>수급·유동성: 외인 1.07%(미미) [실측: KIS hts_frgn_ehrt]. 외인/기관 20일 순매수 세부 미확인. 20일 ADV 거래대금 40.4억 → 1일 상한(ADV 10%) 약 4억 수준, 소형주 유동성 제약. 대량 진입·청산 시 슬리피지 주의.</li>
+<li>포지션 사이징 (자산대비%): 소형주+당일 과열+선물 無 → 자산의 5~8% 이내 권고. 50% 집중 한도 대비 보수적. 분할 진입 필수.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 미확인은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>2026 반기·1분기 재무 실측치 (XBRL 미제공, 접수는 존재)</li>
+<li>연결재무제표 전체 (CFS 미작성)</li>
+<li>증권사 공식 목표주가 (전 NR)</li>
+<li>로봇 감속기 수주·양산 시점·금액</li>
+<li>오토인더스트리 주식교환 효력발생 확정일·교환비율 세부</li>
+<li>영업현금흐름·이자보상배율</li>
+<li>외인/기관 20일 순매수 금액</li>
+<li>분기 컨센서스</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI: 현재가/일봉/MA/52주/시총/외인 (2026-10-02)</li>
+<li>DART fnlttSinglAcntAll OFS: 2022~2025 연·분기 재무 (corp_code 00876865)</li>
+<li>DART 사업보고서 2025.12 접수 20260319001301, 반기보고서 2026.06 접수 20260814003021 (제품별 매출·단가·원재료)</li>
+<li>FnGuide/WiseReport: FY26~28E 컨센 (2026-10-02)</li>
+<li>한국IR협의회 2026-09-21, 신한투자 2026-09-30, 삼성증권 2026-07-06/09-07, 한국투자 2026-09-09 (전 NR)</li>
+<li>뉴스핌·마켓인 2026-09-07, v.daum.net 2026-09-08, 핀포인트뉴스 2026-09-26, 특별타임스 2026-09-21</li>
+<li>kis_futures_check: 선물 미상장</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합 검산(2025 1~3Q): 매출 572<span class="up">+620</span><span class="up">+573</span>=1,765 ≈ 누적 1,766 ✓ / 영익 33<span class="up">+42</span><span class="up">+36</span>=111 ≈ 누적 113 ✓ / 순익 36<span class="up">+51</span><span class="up">+39</span>=126 ≈ 누적 127 ✓ (반올림 오차)</li>
+<li>손익비 헤더(1:3.1) = 본문 23.8÷7.6=3.13 ✓</li>
+<li>시나리오 확률합 30<span class="up">+50</span><span class="up">+20</span>=100 ✓</li>
+<li>EPS: 2024 177억÷1,352만주=1,309원 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 11:17 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 11,580원 (<span class="up">+11.0%</span>) · 시총 1,562억 · 5일 <span class="up">+11.2%</span> / 20일 <span class="up">+32.8%</span> / 60일 <span class="up">+3.2%</span></li>
+<li>MA5 10,568원 / MA20 10,702원 / MA60 10,456원 → MA20 이격 <span class="up">+8.2%</span> · MA60 이격 <span class="up">+10.8%</span></li>
+<li>52주 고 16,100원 / 저 4,995원 → 고점 대비 <span class="down">-28.1%</span> · 20일 고 12,850원 / 저 9,120원</li>
+<li>후행 PER 0.0 / PBR 0.0 (EPS 0원 · BPS 0원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 40.5억 (5일 19.9억)</li>
+<li>외국인 순매수 5일 -4.3억 / 20일 28.7억 · 기관 5일 2.3억 / 20일 3.8억 · 개인 20일 -32.0억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.43% / 20일 평균 0.61% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 6.51% (09/18) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 12,800원 (<span class="up">+10.5%</span>) ÷ 하방 9,700원 (−16.2%) = <strong>1:0.65</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 16.2% = <strong>자산의 3.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.1%</strong></li>
+<li>유동성 참고: 20일 ADV 40.5억 · 1일 소화 한도는 ADV의 10%(4.05억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 16.2% · ATR14 594원 (손절폭/ATR 3.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 16.2% = ATR14 × 3.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 10,422원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.05</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 無 현재가: 11,490원 진입: 10,500~10,700원 (MA20 눌림) 손절: 9,700원 목표: 1차 12,800원 (2차 14,000원대) 손익비: 1:3.1 기간: 스윙 4~8주 촉매: 3Q26 분기보고서 2026-11-14 / 오토인더스트리 주식교환 효력발생(일정 미확정) 반증: 3Q26 별도 영업이익 &lt;30억 → 실적개선 논리 폐기·전량 정리 / 종가 MA60(10,450) 하회 → 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
