@@ -1,0 +1,220 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KODEX 반도체(091160) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261002-153608-KODEX-반도체-091160.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:4.2</div><div class="tp-c"><b>결론 발췌</b> 메모리 슈퍼사이클·AI수요 모멘텀을 그대로 받는 KRX반도체 추종 ETF. 추세는 강한 정배열이나 단기 +6% 급등 직후 &#x27;관심&#x27; 등급 — 눌림목(144,000원대) 매수 시 손익비 1:4.2, 1차 목표 165,000원. ① 포착 신호 • 회전율 5.1% (당일거래대금 3,188.5억 / 시총 62,260억) [실측: KIS inquire-daily, 2026-10-02 거래대금 318,850,470,780원 / trendscan 시총] • 당일거래대금 3,188억 = 20일 평균(2,289억)의 1.39배 [실측: KIS, 20일 ADV 228,950억원/20] • 추세: MA 완전 정배열 — MA5 143,723 &gt; MA20 133…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>KODEX 반도체(091160)</h1>
+<div class="meta">📊 trend · 2026-10-02 15:36 · 코드 091160</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-02 15:36)</div><div class="kpi-v">148,780원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">6.2조</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:4.2</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.66</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">165,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 142,000~146,000원 (눌림목 분할)</span><span class="dc dn">손절 139,000원</span><span class="dc up">목표 165,000원</span><span class="dc">손익비 진입 1:4.2 · 현재가 1:1.66</span><span class="dc">기간 스윙 3~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 삼성전자 3분기 잠정실적(다음 주)·9월 FOMC 의사록(다음 주)</div><div class="dc-l">🛑 반증: 091160 종가 139,000원 이탈 시 전량 청산 / MA20(133,514) 종가 하향 시 신규진입 금지</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — KODEX 반도체(091160)  ※선물 無</p>
+<p>📌 한줄 결론: 메모리 슈퍼사이클·AI수요 모멘텀을 그대로 받는 KRX반도체 추종 ETF. 추세는 강한 정배열이나 단기 <span class="up">+6%</span> 급등 직후 &#x27;관심&#x27; 등급 — 눌림목(144,000원대) 매수 시 손익비 1:4.2, 1차 목표 165,000원.</p>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 5.1% (당일거래대금 3,188.5억 / 시총 62,260억) [실측: KIS inquire-daily, 2026-10-02 거래대금 318,850,470,780원 / trendscan 시총]</li>
+<li>당일거래대금 3,188억 = 20일 평균(2,289억)의 1.39배 [실측: KIS, 20일 ADV 228,950억원/20]</li>
+<li>추세: MA 완전 정배열 — MA5 143,723 &gt; MA20 133,514 &gt; MA60 126,757 [실측: KIS inquire-daily-itemchartprice]</li>
+<li>연속상승 0일(당일 <span class="down">-0.61%</span>), 그러나 5일 <span class="up">+6.0%</span> / 60일 저점 93,675→148,780 (<span class="up">+58.8%</span>) 급등 구간 [실측: KIS]</li>
+<li>위치: 52주 고 188,760 / 저 47,300 → 현재가 52주고 대비 <span class="down">-21.2%</span>, 저점 대비 <span class="up">+214%</span> [실측: KIS inquire-price w52_hgpr/w52_lwpr]</li>
+</ul>
+<p>② ETF 구성·섹터 급등사유</p>
+<ul>
+<li>KODEX 반도체(091160)는 &#x27;KRX 반도체&#x27; 지수를 추종하는 국내 실물복제 ETF. 상위 편입은 삼성전자·SK하이닉스 등 코스피 반도체 대형주 중심(지수 특성상 두 종목 비중이 포트폴리오의 대부분) [인용: 삼성자산운용 상품구조·KRX반도체 지수 / 개별 비중은 미확인]</li>
+<li>급등 사유(검증된 사실):</li>
+<li>&quot;9월 메모리 가격, 또 역대 최고가 경신&quot; [인용: 조선일보 2026-10-01]</li>
+<li>&quot;&#x27;마이크론·반도체 수출&#x27; 훈풍에 코스피 1.95%↑, 코스닥 4.48% 급등&quot; — 반도체 ETF 강세 견인 [인용: 뉴스핌·데일리바이트 2026-10-01]</li>
+<li>&quot;메모리값 급등에 삼성·애플 스마트폰 가격 인상&quot;(D램·낸드 가격 상승 전가) [인용: 프라임경제·뉴스핌 2026-10-02]</li>
+<li>기대감 요소: 삼성전자 3분기 잠정실적 발표 임박(다음 주)에 대한 선반영 [인용: v.daum.net 2026-10-02 &#x27;다음 주 경제일정&#x27;]</li>
+<li>반증 요소(냉정): &quot;메모리반도체 공급 과잉 가능성 놓고 월스트리트·증권가 회의적, 주가 반등엔 변수&quot; [인용: businesspost.co.kr 2026-10-02]</li>
+</ul>
+<p>③ 섹터 실적·업황</p>
+<ul>
+<li>메모리 가격: 9월 D램·낸드 가격 역대 최고가 경신 → 공급가 전가가 세트업체(삼성 갤럭시 S26 15만원 인상) 단계까지 확산 [인용: 조선일보·뉴스핌 2026-10-01]</li>
+<li>전방수요: AI 데이터센터·HBM 수요 견조. 미국 반도체 ETF·엔비디아·시놉시스 동반 강세로 글로벌 AI반도체 모멘텀 유지 [인용: 초이스경제 2026-10-01]</li>
+<li>SK하이닉스: &quot;메모리 수요 견조&quot;로 목표주가 340만원 유지 리포트 / 단 일부 해외IB는 &#x27;HBM 수출 삼성 대비 저조&#x27; 들어 목표가 하향(번스타인) — 사내 온도차 존재 [인용: v.daum.net·Investing.com 2026-09-29~30]</li>
+<li>삼성전자: 3분기 영업익 컨센 고공행진, HBM 점유율 확대 전망 대 공급과잉 우려가 혼재 [인용: nbn시사경제 2026-09-30]</li>
+</ul>
+<p>④ 미래전망·컨센서스</p>
+<ul>
+<li>4분기 전망: &quot;4분기도 역시 반도체&quot; — 증권가 섹터 선호 지속 [인용: 매일일보 2026-09-29]</li>
+<li>상위 편입종목 목표가(섹터 방향성 참고):</li>
+<li>SK하이닉스 목표 340만원 유지(수요 견조) [인용: 클릭e종목 2026-09-30] / 해외IB 일부 하향 [인용: 번스타인 2026-09-29]</li>
+<li>삼성전자 목표가 극심한 분산: 강세 63만원 vs 약세 27~35만원 — 같은 날 리포트도 2배 차이 [인용: 헤럴드경제 2026-09-27]</li>
+<li>섹터 모멘텀 판정: 高 — 메모리 가격 사이클·AI수요·4분기 실적시즌 삼박자. 단 밸류·공급과잉 논쟁이 상단 변동성을 키움(모멘텀 高 / 확신도 中)</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>ETF 특성상 PER/PBR이 아닌 추종지수(KRX반도체) 방향성으로 평가. 보수·NAV괴리율은 미확인(삼성운용 공시 기준 통상 실물복제 ETF 괴리 ±0.5% 내외로 추정, 실측 아님)</li>
+<li>자체 목표가(추정): 섹터 상승 지속 전제 시 직전 저항·52주고(188,760) 복귀 경로상 1차 165,000원(최근 급등 직전 저항권 복귀+신고가 재도전 중간), 2차 180,000원(52주고 근접) [추정: 52주고 188,760 대비 <span class="down">-12%</span>/<span class="down">-5%</span> 수준의 저항대 추정]</li>
+<li>하방 지지: MA20 133,514 / MA60 126,757이 1·2차 지지 [실측: KIS]</li>
+</ul>
+<p>⑥ 진입전략·손익비 (현물 ETF 기준 / 선물 無)</p>
+<ul>
+<li>지지/저항: 지지 ①140,000~142,700(9/29~9/30 종가권) ②MA20 133,514 / 저항 ①149,700(최근 고가) ②52주고 188,760 [실측: KIS]</li>
+<li>MA 위치: 현재가 148,780이 MA5(143,723)보다 <span class="up">+3.5%</span> 위 → 단기 과열, 눌림 대기 유효</li>
+<li>52주 위치: 저점 대비 71.7% 지점, 고점 대비 <span class="down">-21.2%</span> → 중상단, 추가 상단여력은 있으나 급등 직후</li>
+<li>현물 스윙 3라인(태그 [추정: 산식]):</li>
+<li>진입: 144,000원(눌림목, MA5 143,723 접점 142,000~146,000 분할) [추정: MA5 기준]</li>
+<li>손절: 139,000원 이탈 시 전량(9/29 저점 141,160·지지클러스터 하향) [추정: 지지권 하단]</li>
+<li>1차 익절: 165,000원 / 2차 익절: 180,000원</li>
+<li>손익비 산식 [추정]:</li>
+<li>하락리스크 = (144,000-139,000)/144,000 = 3.47%</li>
+<li>1차 상승여력 = (165,000-144,000)/144,000 = 14.58% → 14.58 ÷ 3.47 = 1:4.20</li>
+<li>2차 상승여력 = (180,000-144,000)/144,000 = 25.00% → 1:7.20</li>
+<li>※현재가(148,780) 즉시 진입 시 손익비는 1차 기준 약 1:1.5로 열위 → 눌림 대기 권고</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정/임박 이벤트):</li>
+<li>삼성전자 3분기 잠정실적: 다음 주(10월 초~중순) — ETF 비중 최상위, 섹터 방향 결정 [인용: v.daum.net 2026-10-02]</li>
+<li>9월 FOMC 의사록 공개: 다음 주 — 금리·유동성 변수 [인용: v.daum.net 2026-10-02]</li>
+<li>10월 월간 메모리 고정거래가(DXI/D램·낸드) 발표: 가격 사이클 지속 확인 이벤트 [인용: 조선일보 9월 최고가 경신 흐름 / 구체 일자 미확인]</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>091160 종가 139,000원 이탈 시 → 전량 청산(손절선)</li>
+<li>MA20(133,514) 종가 하향 돌파 시 → 추세훼손, 신규진입 금지·보유분 축소</li>
+<li>월스트리트 &#x27;공급과잉&#x27; 우려 현실화(메모리 고정가 반락 뉴스 확인) 시 → 비중 절반 축소 [인용 반증근거: businesspost.co.kr 2026-10-02]</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스 [섹터 신호 × 당일 갭]:</li>
+<li>섹터 호재 × 갭상승 → 추격 금지, 보유 유지·일부 익절</li>
+<li>섹터 호재 × 보합/갭하락 → 진입 라인(142~146k) 분할 매수</li>
+<li>섹터 중립 × 갭하락 → 손절선(139k) 관찰, 이탈 전 관망</li>
+<li>섹터 악재 × 갭하락 → 139k 이탈 즉시 청산</li>
+<li>섹터 악재 × 갭상승 → 반등 시 비중 축소</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 25%: 공급과잉·실적 피크아웃 우려 부각, MA20 이탈 → 목표 125,000원 (<span class="down">-13.3%</span> from 144k)</li>
+<li>Base 50%: 섹터 모멘텀 유지·눌림 후 재상승 → 목표 165,000원 (<span class="up">+14.6%</span>)</li>
+<li>Bull 25%: 삼성 실적 서프라이즈+메모리 강세 지속 → 목표 180,000원 (<span class="up">+25.0%</span>)</li>
+<li>확률가중 기대수익률 = 0.25×(-13.3) + 0.50×(14.6) + 0.25×(25.0) = <span class="up">+10.9%</span> [추정: 산식]</li>
+<li>수급·유동성: 20일 평균 거래대금 2,289억 → 1일 체결 상한(ADV 10%) 약 229억 [실측: KIS]</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭 3.47% = 28.8% / 집중상한 50% / 이벤트(실적) 전 상한 25% → 셋 중 최소값 적용해 25% 이내. 실적발표 임박 구간이므로 이벤트 상한 25%가 바인딩 [추정: 산식]</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>KODEX 반도체 정확한 상위 편입종목 개별 비중(%)</li>
+<li>ETF 총보수율·NAV 괴리율 실측치</li>
+<li>10월 메모리 고정거래가 발표 정확 일자</li>
+<li>삼성전자 3분기 잠정실적 정확 발표일(다음 주로만 확인)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI inquire-price/inquire-daily-itemchartprice (2026-10-02 실측)</li>
+<li>조선일보 &#x27;9월 메모리 가격 또 역대 최고가 경신&#x27; (2026-10-01)</li>
+<li>뉴스핌·데일리바이트 &#x27;마이크론·반도체 수출 훈풍 코스닥 4.48% 급등&#x27; (2026-10-01)</li>
+<li>프라임경제·뉴스핌 &#x27;메모리값 급등 스마트폰 가격 인상&#x27; (2026-10-02)</li>
+<li>businesspost.co.kr &#x27;메모리 공급과잉 월스트리트 회의적&#x27; (2026-10-02)</li>
+<li>클릭e종목 &#x27;SK하이닉스 목표 340만원 유지&#x27; (2026-09-30) / 번스타인 목표 하향 (2026-09-29)</li>
+<li>헤럴드경제 &#x27;삼성전자 목표 63만 vs 35만&#x27; (2026-09-27)</li>
+<li>v.daum.net &#x27;다음 주 경제일정: 삼성 3분기 잠정실적·FOMC 의사록&#x27; (2026-10-02)</li>
+<li>매일일보 &#x27;4분기도 반도체&#x27; (2026-09-29) / 초이스경제 &#x27;미 반도체ETF 강세&#x27; (2026-10-01)</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 15:36 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 148,780원 (<span class="down">-0.6%</span>) · 시총 6.23조 · 5일 <span class="up">+6.0%</span> / 20일 <span class="up">+22.9%</span> / 60일 <span class="down">-3.1%</span></li>
+<li>MA5 143,723원 / MA20 133,514원 / MA60 126,757원 → MA20 이격 <span class="up">+11.4%</span> · MA60 이격 <span class="up">+17.4%</span></li>
+<li>52주 고 188,760원 / 저 47,300원 → 고점 대비 <span class="down">-21.2%</span> · 20일 고 149,700원 / 저 119,330원</li>
+<li>후행 PER 0.0 / PBR 0.0 (EPS 0원 · BPS 0원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 2,289.5억 (5일 2,480.3억)</li>
+<li>외국인 순매수 5일 -107.5억 / 20일 -26.6억 · 기관 5일 127.4억 / 20일 585.5억 · 개인 20일 -538.5억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.00% / 20일 평균 0.00% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 0.00% (10/02) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 165,000원 (<span class="up">+10.9%</span>) ÷ 하방 139,000원 (−6.6%) = <strong>1:1.66</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 6.6% = <strong>자산의 7.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 7.6%</strong></li>
+<li>유동성 참고: 20일 ADV 2,289.5억 · 1일 소화 한도는 ADV의 10%(228.95억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 6.6% · ATR14 4,240원 (손절폭/ATR 2.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 6.6% = ATR14 × 2.3배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 140,301원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.91</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-091160"></span>📋 결정카드 — KODEX 반도체(091160) 판정: 관심 선물: 無 현재가: 148,780원 진입: 142,000~146,000원 (눌림목 분할) 손절: 139,000원 목표: 1차 165,000원 (2차 180,000원) 손익비: 1:4.2 기간: 스윙 3~6주 촉매: 삼성전자 3분기 잠정실적(다음 주)·9월 FOMC 의사록(다음 주) 반증: 091160 종가 139,000원 이탈 시 전량 청산 / MA20(133,514) 종가 하향 시 신규진입 금지</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
