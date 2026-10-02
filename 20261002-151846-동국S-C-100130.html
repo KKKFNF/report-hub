@@ -1,0 +1,247 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>동국S&amp;C(100130) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261002-151846-동국S-C-100130.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:6.25</div><div class="tp-c"><b>결론 발췌</b> 美 반덤핑 0% 예비판정이라는 실체 있는 호재 + PBR 0.47·순현금의 자산가치 바닥권이나, 2026년은 수주공백 &#x27;보릿고개&#x27;로 실적 적자전환 중 — 관심(저점 분할 트레이딩), 손익비 1:3.5, 1차목표 2,000원. 추세매수가 아니라 가치·이벤트 베팅 성격. [실측: KIS·DART·KB증권] ━━━━━━━━━━━━━━</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>동국S&amp;C(100130)</h1>
+<div class="meta">📊 trend · 2026-10-02 15:18 · 코드 100130</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-02 15:18)</div><div class="kpi-v">1,565원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">894억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.47</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:6.25</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:3</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">2,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 1,480~1,520원 (2차 1,420원 분할)</span><span class="dc dn">손절 1,420원</span><span class="dc up">목표 2,000원</span><span class="dc">손익비 진입 1:6.25 · 현재가 1:3 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:3.5</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:3.5로 적었지만 진입·손절·목표로 계산하면 1:6.25다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11 美중간선거, 반덤핑 최종판정(일자 미확정)</div><div class="dc-l">🛑 반증: 3Q26 연결 누적 영업이익 &lt; -45억이면 전량 청산 / 종가 1,420원 이탈 시 전량 청산 / 반덤핑 최종 관세&gt;3% 부과 시 전량 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 동국S&amp;C(100130)  ※선물 無</p>
+<p>📌 한줄 결론: 美 반덤핑 0% 예비판정이라는 실체 있는 호재 + PBR 0.47·순현금의 자산가치 바닥권이나, 2026년은 수주공백 &#x27;보릿고개&#x27;로 실적 적자전환 중 — 관심(저점 분할 트레이딩), 손익비 1:3.5, 1차목표 2,000원. 추세매수가 아니라 가치·이벤트 베팅 성격. [실측: KIS·DART·KB증권]</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>현재가 1,550원(전일비 <span class="up">+2.85%</span>), 당일 거래대금 76.2억, 거래량 457.6만주, 회전율 8.01% [실측: KIS inquire-price 2026-10-02]</li>
+<li>20일 평균거래대금 ≈ 20.8억 → 당일 76억은 약 3.7배 급증. 자금유입 강도는 &#x27;단발성 이벤트성&#x27;으로 판단 [실측: KIS 일봉 20일]</li>
+<li>추세: MA5 1,517 / MA20 1,425 / MA60 1,457 → MA5&gt;MA60&gt;MA20 으로 정배열 아님(MA20이 MA60 아래). 바닥 다지며 20일선 막 돌파한 초입 국면 [실측: KIS 일봉]</li>
+<li>연속상승 2일, 20일 수익률 <span class="up">+14.9%</span>, 60일 수익률 <span class="down">-3.0%</span>. 52주 고점(2,795) 대비 <span class="down">-45%</span>, 저점(1,229) 대비 <span class="up">+26%</span> → 52주 밴드 하단 20% 지점(저점권) [실측: KIS]</li>
+<li>해석: 고점권 추격이 아니라 장기 하락 후 저점 반등 초입. 추세 지속보다 &#x27;낙폭과대 + 호재 트리거&#x27; 성격</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업구성(2025 연결): 신재생에너지(Wind Tower 외) 64.8%, 건설(풍력단지 건설 외) 35.2%. 반기(2026.06) 기준 신재생 60.6%·건설 39.4% [실측: 사업보고서 20260316001236 / 반기보고서 20260813000877]</li>
+<li>주력은 미국·국내향 대형 풍력타워 제조. 원재료는 후판(포스코 등 국내 제강사 + 중국 NANJING IRON 등) [실측: 반기보고서]</li>
+<li>급등사유(검증된 사실): 2026-09-30(현지) 美 상무부가 한국산 대형 풍력타워 반덤핑 행정재심 예비결과에서 동국S&amp;C 덤핑마진을 0.00%로 산정 [인용: 글로벌이코노믹·서울와이어 2026-09-30~10-01]</li>
+<li>관세 이력(사실): 2026-01 예비 4.99% → 1.95%→1.90% 수정(2026-09-10) → 금번 재심 예비 0.00%. 美 풍력업계 제소가 오히려 관세를 깎는 결과로 연결 [인용: 아시아경제 2026-01-30, 프레스나인 2026-09-17, MSN]</li>
+<li>신규 재심 개시: 2026-10-01(현지) 美 상무부가 변압기·풍력타워 연례 행정재심 공식 개시 [인용: 글로벌이코노믹 2026-10-02]</li>
+<li>판정: 호재는 실체 있음(관세 장벽 완화 = 미국향 수주 경쟁력 회복). 단, 예비판정이며 최종판정·신규 재심 변수가 남아 &#x27;기대감&#x27; 구간. 즉시 실적 반영은 아님</li>
+</ul>
+<p>③ 실적 (DART 실측, 연결 CFS)</p>
+<ul>
+<li>매출 추세: 2023년 3,982.6억 → 2024년 1,657.8억 → 2025년 1,196.8억 (2025 YoY <span class="down">-27.8%</span>). 지속 감소 [실측: 사업보고서 CFS]</li>
+<li>영업이익: 2023년 -317.5억 → 2024년 -55.3억 → 2025년 <span class="up">+69.4</span>억(흑자전환, OPM <span class="up">+5.8%</span>) [실측: DART CFS]</li>
+<li>순이익: 2023 적자 → 2024년 -397.7억 → 2025년 -16.7억(여전히 순손실, 영업흑자에도 순적자 = 금융·일회성 비용 추정) [실측: DART CFS]</li>
+<li>2025 분기별 OP(누적환산): 1Q <span class="up">+63.2</span> / 2Q -22.9 / 3Q -42.2 / 4Q <span class="up">+71.3</span>억 → 프로젝트성 매출로 분기 변동성 극심 [추정: 누적차감, 검산 합 69.4=연간 69.4 일치]</li>
+<li>★2026 실적 급랭(핵심 리스크): 2026 1Q 매출 158억(<span class="down">-65.0%</span> YoY), 영업손실 -9.9억 / 2026 H1 누적 영업손실 -30.6억 [실측: 반기보고서 CFS / 인용: KB증권 1Q26 리뷰]. 풍력 내수 <span class="down">-70.4%</span> YoY·가동률 10.2%로 고정비 부담 [인용: KB증권 2026-05-29]</li>
+<li>재무 건전성(우량): 2025말 자본 1,856억·부채 707억 → 부채비율 38.1%, 순차입금비율 <span class="down">-5.8%</span>(순현금), ROIC 24.2%(2025) [실측: DART / 인용: 한국IR협의회 2026-04-13]</li>
+<li>영업현금흐름: 2023 -86억 → 2024 -283억 → 2025 <span class="up">+661</span>억(대폭 개선) [실측: DART CFS]</li>
+<li>결론: 자산·재무는 바닥을 받쳐주나(순현금·저부채), 2026년 손익은 수주공백으로 적자 재진입. 현 상승추세를 &#x27;실적 모멘텀&#x27;이 정당화하지 못함 → 자산가치·정책기대 베팅</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>컨센서스 커버리지 얕음: 목표가 2,000원(KB증권 단일, 1건) [실측: consensus.py 2026-10-02]. 연간·분기 수치 컨센은 미확인</li>
+<li>KB증권 추정(2026-05-29, Hold): 2026E 매출 978억(<span class="down">-18.3%</span> YoY), 영업이익 19억(<span class="down">-73.3%</span> YoY) — &quot;올해는 수주공백 보릿고개&quot; [인용: KB증권]</li>
+<li>실적 개선 시점: 미국 육상풍력 신규 수주 가시화되는 &#x27;내년(2027)부터&#x27;. 美 11월 중간선거 후 풍력정책·국내 해상풍력 활성화가 핵심 변수 [인용: KB증권]</li>
+<li>달성 가능성 판정: 2026E 축소전망 달성 가능성 中(이미 H1 적자로 하회 리스크). 2027 회복 시나리오는 美 수주·정책 의존도 높아 가시성 中~低</li>
+<li>금번 0% 관세 예비판정은 KB가 리스크로 꼽은 &quot;미국향 수주 지연&quot;의 완화 요인 → 2027 추정 상향 여지 존재(아직 수치 반영 전)</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 PBR 0.47(BPS 3,331), PER 적자(EPS -29)로 무의미, 시총 886억 [실측: KIS]</li>
+<li>PBR 0.47은 순현금·흑자전환 기업치고 과도한 할인(자산가치 대비 저평가) — 다만 2026 적자가 디스카운트 정당화</li>
+<li>자체 목표가(PBR 밴드법): 흑자전환+순현금+정책기대 반영 PBR 0.55~0.65 적용</li>
+<li>PBR 0.55 × BPS 3,331 = 1,832원 (보수)</li>
+<li>PBR 0.60 × BPS 3,331 = 1,999원 (기준) ← 1차목표</li>
+<li>PBR 0.65 × BPS 3,331 = 2,165원 (낙관, 2차)</li>
+<li>증권사 목표가: KB증권 2,000원(Hold, DCF WACC 5.8%·영구성장 3.0%, 2026-05-29 11.5% 하향) [인용: KB증권]</li>
+<li>자체 기준목표(1,999원)와 증권사(2,000원) 수렴 → 1차목표 2,000원 타당</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>선물 미상장 → 레버리지 스윙 불가, 현물만 가능 [실측: kis_futures_check 2026-10-02]</li>
+<li>지지: MA20 1,425 / 20일 저점·심리선 1,360. 저항: 전고 1,794(9/16 장중고)·2,000원 라운드</li>
+<li>52주 고점 대비 <span class="down">-45%</span>(바닥권), 저점 대비 <span class="up">+26%</span></li>
+<li>진입(현물 분할): 1차 1,480~1,520(MA5 되돌림), 2차 1,420(MA20 지지 확인 시). 추격매수 비권장</li>
+<li>손절: 1,420(MA20 종가이탈) 기준</li>
+<li>목표: 1차 2,000원(PBR 0.60·KB목표), 2차 2,165원(PBR 0.65)</li>
+<li>손익비(진입 1,550 기준): 상승여력 <span class="up">+29.0%</span> ÷ 하락리스크 8.4%(손절 1,420) = 1:3.5</li>
+<li>진입 1,480 시: 상승 <span class="up">+35.1%</span> ÷ 하락 4.1%(손절 1,420) = 1:8.6 (저가 분할일수록 유리)</li>
+<li>유동성: 20일 평균거래대금 20.8억 → ADV 10% ≈ 2.1억. 소형주 유동성 제약, 분할 필수</li>
+<li>경고: 2026 실적 적자 진행 중 → 자산·이벤트 베팅임을 명확히. 집중한도 내 소량, 손절 엄격</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정):</li>
+<li>2026-11 美 중간선거(풍력정책 분기점) [인용: KB증권]</li>
+<li>반덤핑 재심 최종판정(일자 미확정, 예비 0% → 최종 확정 시 추가 모멘텀)</li>
+<li>2027.03경 2026 사업보고서(연간 적자 폭 확정)</li>
+<li>반증 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>3Q26 연결 누적 영업이익이 H1(-30.6억) 대비 추가 악화(3Q 단독 &lt; -15억, 누적 &lt; -45억)이면 보릿고개 장기화 → 전량 청산 [실측기준: DART 3Q 보고서]</li>
+<li>반덤핑 최종판정이 예비 0%를 뒤집어 유의미 관세(&gt;3%) 부과 시 핵심 호재 소멸 → 전량 청산</li>
+<li>종가 1,420원(MA20) 이탈 시 추세 훼손 → 전량 청산. 1,420 아래 추가매수 금지</li>
+</ol>
+<p>(※ ≥2,000원 도달 시 1차 익절, 3Q26 흑자전환 확인 시 추가매수 검토)</p>
+<ul>
+<li>이벤트 매트릭스(실적 × 당일갭 → 행동):</li>
+<li>3Q 흑자전환 + 갭상승: 보유·목표 상향(2,165)</li>
+<li>3Q 적자지속 + 갭하락: 전량 청산</li>
+<li>관세 최종 0% 확정 + 갭상승: 2차목표까지 보유</li>
+<li>관세 관세부과 전환: 즉시 청산</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 35%: 수주공백 지속·3Q 적자 심화 → 1,360원(<span class="down">-12%</span>)</li>
+<li>Base 45%: 바닥 다지기·관세호재 유지 → 2,000원(<span class="up">+29%</span>)</li>
+<li>Bull 20%: 美 수주 가시화+최종 0% 확정 → 2,165원(<span class="up">+40%</span>)</li>
+<li>기대수익률 = 0.35×(<span class="down">-12%</span>)<span class="up">+0.45</span>×(<span class="up">+29%</span>)<span class="up">+0.20</span>×(<span class="up">+40%</span>) = -4.2<span class="up">+13.1</span><span class="up">+8.0</span> = <span class="up">+16.9%</span> [추정: 확률가중]</li>
+<li>수급·유동성: 외인/기관 20일 순매수 미확인. 20일 평균거래대금 20.8억 → ADV 10% 상한 2.1억 준수</li>
+<li>포지션 사이징(자산 대비 %): 리스크예산 손실1% ÷ 손절폭 8.4% = 11.9% / 집중상한 50% / 이벤트전 상한 25% → 최소값 적용 11.9% 상한. 소형주·실적적자 감안 더 보수적으로 축소 권고</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>9-1 제품: Wind Tower(풍력발전기용 지주대)·강교. 2026 반기 신재생 126.25억(60.6%)·건설 82.10억(39.4%), 반기 합 208.35억 [실측: 반기보고서 20260813000877]</li>
+<li>9-2 고객·납품: 미국향 유틸리티 규모 풍력타워가 핵심(반덤핑 대상=미국 수출 비중 높음). 구체 고객·납품비중 미확인</li>
+<li>9-3 TAM·경쟁: 미국 육상풍력 타워 시장. 경쟁 CAPA·점유율 수치 미확인(출처 부족)</li>
+<li>9-4 단가 이력(SteelPlate, 천원/Ton): 국내 1,150(2023)→975(2024)→936(2025), 해외 928→906→947(USD 660, 2025). 원재료 후판가는 2024 저점 후 2025 소폭 반등 [실측: 사업보고서 20260316001236]</li>
+<li>9-5 CAPA·증설: 구체 CAPA·증설계획 미확인</li>
+<li>9-6 전방 CAPEX: 미국 육상풍력·국내 해상풍력 투자 사이클 의존. 정량 미확인</li>
+<li>9-7 바텀업 표(연결 영업이익, 억):</li>
+<li>Bear: 2026E 매출 850억 × OPM 0% = OP 0억 (수주공백 심화, 적자근접)</li>
+<li>Base: 2026E 매출 978억 × OPM 1.9% = OP 19억 [인용: KB증권 추정]</li>
+<li>Bull: 2026E 매출 1,100억 × OPM 4% = OP 44억 (관세완화로 미국 수주 조기회복)</li>
+<li>민감도: OPM 1%p = 약 10억 OP 변동</li>
+<li>결론 문장: 3Q26 연결 누적 영업이익 ≥ -15억(3Q 단독 흑자전환)이면 보릿고개 탈출 논지 유지, &lt; -45억(누적)이면 논지 폐기·전량 청산</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;. 추세매수 종목이 아니라 자산가치·관세이벤트 베팅 성격이며, 2026 실적은 적자 진행 중임.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>외인/기관 20일 순매수 수급</li>
+<li>미국향 매출 비중 구체 수치, 주요 고객·납품비중</li>
+<li>풍력타워 TAM·경쟁사 CAPA·점유율</li>
+<li>생산 CAPA·증설계획</li>
+<li>연간/분기 컨센서스 수치(목표가 1건만 존재)</li>
+<li>반덤핑 최종판정 확정일</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI inquire-price·일봉 (2026-10-02 실측)</li>
+<li>DART 사업보고서 20260316001236(2025.12)·반기보고서 20260813000877(2026.06)·연간 CFS</li>
+<li>KB증권 2026-05-29 Hold 목표가 2,000원</li>
+<li>한국IR협의회 2026-04-13 Not Rated</li>
+<li>글로벌이코노믹·서울와이어·아시아경제·프레스나인(반덤핑 관세, 2026-01~10)</li>
+<li>consensus.py·news_search.py·kis_futures_check (2026-10-02)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>2025 분기 OP 합: 63.2-22.9-42.2<span class="up">+71.3</span> = 69.4억 = 연간 69.4억 ✓</li>
+<li>손익비: 상승 29.0% ÷ 하락 8.4% = 1:3.5 (헤더·본문 일치) ✓</li>
+<li>시나리오 확률합: 35<span class="up">+45</span><span class="up">+20</span> = 100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 15:18 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 1,565원 (<span class="up">+3.9%</span>) · 시총 894억 · 5일 <span class="up">+8.8%</span> / 20일 <span class="up">+15.3%</span> / 60일 <span class="down">-0.8%</span></li>
+<li>MA5 1,522원 / MA20 1,427원 / MA60 1,458원 → MA20 이격 <span class="up">+9.7%</span> · MA60 이격 <span class="up">+7.3%</span></li>
+<li>52주 고 2,795원 / 저 1,229원 → 고점 대비 <span class="down">-44.0%</span> · 20일 고 1,565원 / 저 1,340원</li>
+<li>후행 PER -53.97 / PBR 0.47 (EPS -29원 · BPS 3,331원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 22.0억 (5일 30.3억)</li>
+<li>외국인 순매수 5일 0.8억 / 20일 -3.3억 · 기관 5일 0.0억 / 20일 -0.1억 · 개인 20일 3.4억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.50% / 20일 평균 6.46% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 23.17% (09/10) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 2,000원 (<span class="up">+27.8%</span>) ÷ 하방 1,420원 (−9.3%) = <strong>1:3.00</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 9.3% = <strong>자산의 5.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 5.4%</strong></li>
+<li>유동성 참고: 20일 ADV 22.0억 · 1일 소화 한도는 ADV의 10%(2.20억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 9.3% · ATR14 140원 (손절폭/ATR 1.0배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 9.3% = ATR14 × 1.0배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 1,354원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.06</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-100130"></span>📋 결정카드 — 동국S&amp;C(100130) 판정: 관심 선물: 無 현재가: 1,550원 진입: 1,480~1,520원 (2차 1,420원 분할) 손절: 1,420원 목표: 1차 2,000원 (2차 2,165원) 손익비: 1:3.5 기간: 스윙 6~12주 촉매: 2026-11 美중간선거, 반덤핑 최종판정(일자 미확정) 반증: 3Q26 연결 누적 영업이익 &lt; -45억이면 전량 청산 / 종가 1,420원 이탈 시 전량 청산 / 반덤핑 최종 관세&gt;3% 부과 시 전량 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
