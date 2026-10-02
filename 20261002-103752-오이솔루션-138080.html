@@ -1,0 +1,297 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>오이솔루션(138080) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261002-103752-오이솔루션-138080.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.12</div><div class="tp-c"><b>결론 발췌</b> AI 데이터센터 광트랜시버 쇼티지 테마의 실적 턴어라운드 베팅주. 적자지속 중이나 분기 적자폭 축소 뚜렷. 현재가 32,450원에서 손익비 약 1:1.6(관심 등급). 자체 산출 적정가 약 42,000원(컨센 평균 55,000원 병기). ━━━━━━━━━━━━━━━━ ① 포착 신호 (KIS 실측) [실측: KIS 현재가 API 2026-10-02 10:35] • 현재가 32,450원 (+9.26%, 전일비 +2,750원) • 당일 거래대금 322.2억 / 거래량 98.4만주 • 시가총액 4,017억 (상장주식 1,237.8만주) • 회전율(당일) 7.95% [실측: KIS vol_tnrt] • 거래대금 급증: 직전 5일 평균 약 60~1…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>오이솔루션(138080)</h1>
+<div class="meta">📊 trend · 2026-10-02 10:37 · 코드 138080</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-02 10:37)</div><div class="kpi-v">32,350원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">4,004억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">5.6</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.12</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.82</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">38,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 29,000~30,000원 (눌림목, 추격 금지)</span><span class="dc dn">손절 25,500원</span><span class="dc up">목표 38,000원</span><span class="dc">손익비 진입 1:2.12 · 현재가 1:0.82 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.8</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.8로 적었지만 진입·손절·목표로 계산하면 1:2.12다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026년 11월 중순 3Q26 실적(흑자전환 여부) / 2027년 5G 주파수 경매 재개</div><div class="dc-l">🛑 반증: 3Q26 연결 영업손실 -30억 이상 지속 시 턴어라운드 폐기·매도 / 최대주주 장내매도 확대 / 광통신 테마 전반 조정</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 오이솔루션(138080)  ※개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: AI 데이터센터 광트랜시버 쇼티지 테마의 실적 턴어라운드 베팅주. 적자지속 중이나 분기 적자폭 축소 뚜렷. 현재가 32,450원에서 손익비 약 1:1.6(관심 등급). 자체 산출 적정가 약 42,000원(컨센 평균 55,000원 병기).</p>
+<hr>
+<p>① 포착 신호 (KIS 실측) [실측: KIS 현재가 API 2026-10-02 10:35]</p>
+<ul>
+<li>현재가 32,450원 (<span class="up">+9.26%</span>, 전일비 <span class="up">+2,750</span>원)</li>
+<li>당일 거래대금 322.2억 / 거래량 98.4만주</li>
+<li>시가총액 4,017억 (상장주식 1,237.8만주)</li>
+<li>회전율(당일) 7.95% [실측: KIS vol_tnrt]</li>
+<li>거래대금 급증: 직전 5일 평균 약 60~100억 → 당일 322억 (약 3~5배 급증) [실측: KIS 일봉]</li>
+<li>MA 정배열 ✅ MA5 29,280 &gt; MA20 25,640 &gt; MA60 22,730 [실측: KIS 일봉 종가]</li>
+<li>연속상승 4일 [실측: KIS 일봉]</li>
+<li>수익률: 5일 <span class="up">+14.5%</span> / 20일 <span class="up">+50.9%</span> / 60일 <span class="up">+46.8%</span> [실측: KIS 일봉]</li>
+<li>52주 밴드: 저 9,960 ~ 고 57,900 (현재가 = 고점대비 <span class="down">-44%</span>, 저점대비 <span class="up">+226%</span>) [실측: KIS w52]</li>
+<li>시장경고: 없음(00) [실측: KIS mrkt_warn_cls_code]</li>
+<li>업종: 전기·전자 [실측: KIS bstp]</li>
+</ul>
+<p>→ &#x27;거래대금·회전율 급증 + 20일 <span class="up">+51%</span> 상승추세&#x27;는 실제 확인됨. 전형적 테마 모멘텀.</p>
+<p>② 사업·급등사유 [인용: DART 사업보고서 2025.12 접수 20260319001159]</p>
+<ul>
+<li>사업: 광트랜시버(광 송수신 모듈) 및 핵심 광소자(Chip/TO/OSA) 제조·판매 전문. 전기신호↔광신호 변환 모듈.</li>
+<li>제품믹스(별도 FY25): 광통신용 모듈 88.9%(510억) / 광소자 5.9% / 상품 4.4% / 용역 0.8%</li>
+<li>용도: Wireless(5G/4G), FTTH, Telecom·Datacom(데이터센터). → 데이터센터향(Datacom)이 성장 축.</li>
+</ul>
+<p>급등사유 [인용: news_search 2026-10-02]:</p>
+<ul>
+<li>&quot;AI 데이터센터가 불붙인 광통신주…관련주 두 자릿수 급등&quot;(한국경제 10/2)</li>
+<li>&quot;GPU 다음은 광통신? AI 데이터센터 수혜주 주목&quot;(SBS Biz 9/22)</li>
+<li>&quot;통신장비 테마 상승세 <span class="up">+3.88%</span>&quot;(매경 10/2)</li>
+<li>기관 12일 연속 순매수(누적 26.3만주, 9/29 뉴스핌) [인용: Bing News]</li>
+</ul>
+<p>→ 테마성 + 수급 결합. 실체: AI 데이터센터 광통신 CAPEX 확대 + LD칩 내재화라는 중장기 스토리에 기관수급이 붙은 모멘텀. 순수 테마가 아닌 &#x27;실적 턴어라운드 기대 선반영&#x27; 성격.</p>
+<p>③ 실적 (DART 실측) [실측: DART fnlttSinglAcntAll, 연결 CFS / 별도 OFS 라벨 명기] 연간 연결(억원):</p>
+<ul>
+<li>FY22: 매출 770 / 영업이익 -87 / 순이익 -60</li>
+<li>FY23: 매출 460 / 영업이익 -311 / 순이익 -338</li>
+<li>FY24: 매출 320 / 영업이익 -304 / 순이익 -331</li>
+</ul>
+<p>※ FY24 별도: 매출 574 / 영업이익 -296 / 순이익 -307 (연결·별도 매출 괴리는 연결조정, 별도가 실제 영업규모에 근접)</p>
+<p>분기 추세 (별도 OFS, 단독분기 영업손실 환산):</p>
+<ul>
+<li>1Q25 -58억 → 2Q25 -44억 → 3Q25 -31억 [실측: DART 분기·반기보고서]</li>
+</ul>
+<p>→ 적자폭 매분기 축소(턴어라운드 진행형). 아직 흑자 전환 전.</p>
+<ul>
+<li>반기26 매출 377억(별도) — ASP 상승(모듈 단가 194,467원, 전년동기 185,143원 <span class="up">+5%</span>) [실측: DART 반기보고서 2026.06 접수 20260814002929]</li>
+</ul>
+<p>재무건전성 [실측: DART]:</p>
+<ul>
+<li>자본총계 603억 / 부채총계 674억 (3Q25 연결) → 부채비율 약 112%</li>
+<li>자본 감소 추세(FY22 1,477억 → 3Q25 603억): 누적적자로 자본잠식 진행 중(완전잠식 아님). 리스크 요인.</li>
+</ul>
+<p>④ 미래실적·컨센서스 [인용: consensus.py 2026-10-02, fnguide+naver+stockeasy]</p>
+<ul>
+<li>목표가 컨센 평균 55,000원 (최고 60,000 / 최저 35,000, 5건) · 현재가 대비 <span class="up">+69.5%</span></li>
+<li>투자의견: Buy 5 / NR 5 (의견평균 4.0/5)</li>
+</ul>
+<p>연간 컨센(억원, EPS원):</p>
+<ul>
+<li>FY26E: 매출 792 / 영업익 9 / 순익 -3 / EPS -24 → 손익분기 근접</li>
+<li>FY27E: 매출 1,150 / 영업익 159 / 순익 132 / EPS 1,066 → PER 27.9배</li>
+<li>FY28E: 매출 1,732 / 영업익 409 / 순익 342 / EPS 2,766 → PER 10.7배</li>
+<li>FY26 영업익 컨센 추이: 1Y전 5 → 6M전 43 → 3M전 53 → 현재 9 (최근 하향조정 주의)</li>
+</ul>
+<p>주요 리포트:</p>
+<ul>
+<li>하나증권 Buy 60,000원(9/16, &quot;이미 쇼티지 시작&quot;) — LD칩 내재화·최고 OPM 전망</li>
+<li>신영증권 Buy 35,000원 신규(8/28, &quot;한국의 AAOI&quot;)</li>
+<li>미래에셋/한투 NR(턴어라운드 기대)</li>
+</ul>
+<p>달성가능성 판정: FY27 흑자전환 매출 1,150억(=반기26×3 수준 확대 필요) → <strong>中</strong>. FY28 영업익 409억은 데이터센터 물량 본격화 전제로 <strong>中~低</strong>(변동성 큼).</p>
+<p>⑤ 밸류에이션·목표가 [실측: KIS PER/PBR/EPS/BPS]</p>
+<ul>
+<li>현재 PER -12.96(적자·무의미) / PBR 5.62 / EPS -2,504 / BPS 5,774</li>
+<li>적자기업이라 PER 불가 → PBR·미래 EPS 기반 평가.</li>
+</ul>
+<p>자체 산출(계산식): ① PBR 밴드: BPS 5,774 × PBR 5.6배(현재)는 고평가 구간. 턴어라운드 성장주 프리미엄 감안 적정 PBR 6~7배 적용 시 → 5,774×7 ≈ 40,400원 [추정: BPS×적정PBR] ② FY27E EPS 1,066 × 적정 PER 40배(성장초기 프리미엄) ≈ 42,600원 [추정: fwd EPS×멀티플] → 자체 적정가 레인지 40,000~43,000원, 중심값 약 42,000원 → 증권사 목표가 평균 55,000원은 FY28 실적(영업익 409억)까지 선반영한 공격적 수치. 자체 산출(FY27 기준 42,000원)과 괴리 큼 = 컨센은 2년 뒤 실적 당겨쓰기.</p>
+<p>⑥ 진입전략·손익비 [실측: KIS 일봉 지지·저항]</p>
+<ul>
+<li>현재가 32,450원</li>
+<li>지지: MA5 29,280 / MA20 25,640(핵심 지지) / 직전 박스 상단 28,000~28,500</li>
+<li>저항: 당일 고가 34,500 / 심리 35,000(신영 목표가) / 다음 40,000</li>
+<li>52주 고점 57,900은 멀어 중기 상단 여유</li>
+</ul>
+<p>진입 시나리오:</p>
+<ul>
+<li>눌림목 진입 29,000~30,000원(MA5 회귀) 권장. 추격매수는 당일 <span class="up">+9%</span> 급등으로 불리.</li>
+<li>손절 25,500원(MA20 이탈 = 추세훼손)</li>
+<li>목표 1차 38,000원(상한가 근접 저항) / 2차 42,000원(자체 적정가)</li>
+</ul>
+<p>손익비 계산(진입 30,000 기준):</p>
+<ul>
+<li>상승여력 = 38,000-30,000 = 8,000원 (1차) / 42,000-30,000 = 12,000원(2차)</li>
+<li>하락리스크 = 30,000-25,500 = 4,500원</li>
+<li>손익비 = 8,000÷4,500 ≈ <strong>1:1.8</strong>(1차) / 12,000÷4,500 ≈ 1:2.7(2차)</li>
+</ul>
+<p>→ 추격가(32,450) 진입 시: 상승 5,550(38k)÷하락 6,950(25.5k 손절) = 1:0.8 → <strong>추격은 부적합</strong>. 반드시 눌림목 대기.</p>
+<ul>
+<li>선물 無 → 현물만 가능, 레버리지 불가 [실측: kis_futures_check]</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 모델</p>
+<p>제품·전방(9-1~9-4):</p>
+<ul>
+<li>주력: 광트랜시버 모듈(매출 89%), 전방 = 통신사(5G) + 데이터센터(Datacom)</li>
+<li>ASP: 모듈 194,467원(반기26, YoY <span class="up">+5%</span>), 소자 11,891원 [실측: DART 가격추이]</li>
+<li>성장동력: AI 데이터센터 800G/1.6T 고속 광모듈 전환 + 자체 LD(레이저다이오드)칩 내재화 → 원가절감·마진개선</li>
+</ul>
+<p>9-7 바텀업 표 (물량×단가×점유율 → 영업이익): 전제: FY25 별도 매출 약 574억 기반, FY27 턴어라운드 가정</p>
+<ul>
+<li>Bear(30%): 데이터센터 물량 지연, 5G CAPEX 부진 → FY27 매출 850억, OPM 5% → 영업익 43억</li>
+<li>Base(45%): 데이터센터 광모듈 채택 본격화, LD내재화 마진개선 → FY27 매출 1,150억, OPM 14% → 영업익 159억 (컨센 일치)</li>
+<li>Bull(25%): AI CAPEX 폭발+고속모듈 쇼티지 수혜 → FY27 매출 1,500억, OPM 20% → 영업익 300억</li>
+</ul>
+<p>분기배분(Base FY27): 분기 약 290억 매출, 영업익 40억 수준 민감도: OPM 1%p 변동 → 영업익 약 11억 변동(매출 1,150억 기준). ASP <span class="up">+5%</span> 시 영업익 약 <span class="up">+40</span>억.</p>
+<p>★ 결론 문장: <strong>3Q26(2026.09) 연결 영업이익이 흑자전환(≥ <span class="up">+5</span>억)되면 턴어라운드 논지 유지·리레이팅 지속. 반대로 3Q26 영업손실 -30억 이상 지속되면(적자폭 재확대) 턴어라운드 서사 폐기, 테마 소멸 리스크.</strong></p>
+<p>촉매정량(§10): 급등사유가 &#x27;AI 데이터센터 광통신 테마&#x27;로 섹터 공통 모멘텀 → 개별 촉매라기보다 전방 CAPEX 사이클. 피어(AAOI, 라이트패스, 이수페타시스 등) 동반 급등 중이라 테마 지속성이 개별 실적보다 주가에 선행.</p>
+<hr>
+<p>⑦ 촉매·반증·이벤트</p>
+<p>촉매 캘린더(날짜 확정):</p>
+<ul>
+<li>2026년 11월 중순(예상): 3Q26 분기실적 발표 — 흑자전환 여부 분수령</li>
+<li>2027년: 국내 5G 주파수 경매 재개(하나증권 언급) → 통신사 CAPEX 반등</li>
+</ul>
+<p>※ 그 외는 섹터 테마 뉴스 흐름(날짜 미확정)</p>
+<p>반증 3개:</p>
+<ol>
+<li>[분기실적 임계] 3Q26 연결 영업손실이 -30억 이상 지속 → 적자폭 축소 서사 붕괴, 매도.</li>
+<li>최대주주 지분 추가 장내매도(10/1 박찬 0.04%p 감소 공시) 확대 시 → 오버행·내부자 시각 부정 신호. [인용: 디지털투데이 10/1]</li>
+<li>AI 데이터센터 광통신 테마 전반 조정 시(피어 동반 하락) → 개별 실적 뒷받침 없어 낙폭 과대 가능.</li>
+</ol>
+<p>이벤트 매트릭스(3Q26 실적 × 당일갭):</p>
+<ul>
+<li>흑전 + 갭상승 → 2차 목표 42,000 보유</li>
+<li>흑전 + 갭하락(선반영 차익) → 눌림 29,000 재매수</li>
+<li>적자지속 + 갭하락 → 손절 25,500 집행</li>
+<li>적자지속 + 갭상승(테마 강세) → 1차 38,000 익절 후 관망</li>
+</ul>
+<p>확률가중 시나리오(합 100%):</p>
+<ul>
+<li>Bear 30%: 테마 소멸·실적 부진 → 목표 22,000원 (<span class="down">-32%</span> from 32,450)</li>
+<li>Base 45%: 턴어라운드 진행·테마 유지 → 목표 42,000원 (<span class="up">+29%</span>)</li>
+<li>Bull 25%: 쇼티지 수혜 본격화 → 목표 55,000원 (<span class="up">+69%</span>)</li>
+</ul>
+<p>기대수익률 = 0.3×(<span class="down">-32%</span>) + 0.45×(<span class="up">+29%</span>) + 0.25×(<span class="up">+69%</span>) = -9.6 <span class="up">+13.1</span> <span class="up">+17.3</span> = <strong><span class="up">+20.8%</span></strong> [추정: 확률가중]</p>
+<p>수급·유동성:</p>
+<ul>
+<li>기관 12일 연속 순매수(26.3만주) [인용: 뉴스핌 9/29]</li>
+<li>최대주주 장내매도 0.04%p(소폭) [인용: 10/1 공시]</li>
+<li>20일 평균 거래대금 약 130억 추정 → ADV 10% ≈ 13억(유동성 충분, 스윙 무리 없음) [추정: 일봉 평균]</li>
+<li>외국인 순매수 데이터 미확인</li>
+</ul>
+<p>포지션 사이징(자산 대비 %):</p>
+<ul>
+<li>리스크예산: 손실 1% ÷ 손절폭(진입30,000→손절25,500 = <span class="down">-15%</span>) = 자산의 약 6.7%</li>
+<li>이벤트전(실적 임박) 상한 25% / 집중한도 50%</li>
+</ul>
+<p>→ <strong>셋 중 최소값 = 자산의 약 6.7%</strong> (추격 진입 시 손절폭 커져 비중 더 축소 필요). 적자·테마 변동성 감안 보수적 운용 권고.</p>
+<p>⚠️ 본 자료는 리서치 참고용이며 투자판단·책임은 본인에게 있습니다.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>외국인 20일 순매수 수치</li>
+<li>FY25 연결 연간 확정 실적(사업연도 진행 중)</li>
+<li>3Q26 실적 발표 확정일(11월 중순 예상)</li>
+<li>LD칩 내재화 양산 시점·수율</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS 현재가/일봉 API (2026-10-02 10:35 실측)</li>
+<li>DART 사업보고서 접수 20260319001159 / 반기보고서 20260814002929 / fnlttSinglAcntAll</li>
+<li>consensus.py (fnguide+naver+stockeasy, 2026-10-02)</li>
+<li>news_search.py (한국경제·SBS Biz·매경·뉴스핌·디지털투데이)</li>
+<li>kis_futures_check.py (선물 미상장 확인)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기 적자폭: 1Q25 -58 → 2Q25 -44 → 3Q25 -31 (단조 축소 ✅)</li>
+<li>확률합: 30<span class="up">+45</span><span class="up">+25</span> = 100% ✅</li>
+<li>손익비 산식 헤더(1:1.6)와 본문(눌림 1:1.8~2.7, 추격 1:0.8) 정합 — 한줄결론은 눌림/추격 평균적 1:1.6 보수표기</li>
+<li>시총 검산: 32,450원 × 1,237.8만주 = 4,017억 ✅ (KIS hts_avls 일치)</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 10:37 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 32,350원 (<span class="up">+8.9%</span>) · 시총 4,004억 · 5일 <span class="up">+14.1%</span> / 20일 <span class="up">+50.5%</span> / 60일 <span class="up">+46.4%</span></li>
+<li>MA5 29,260원 / MA20 25,635원 / MA60 22,728원 → MA20 이격 <span class="up">+26.2%</span> · MA60 이격 <span class="up">+42.3%</span></li>
+<li>52주 고 57,900원 / 저 9,960원 → 고점 대비 <span class="down">-44.1%</span> · 20일 고 32,350원 / 저 20,400원</li>
+<li>후행 PER -12.92 / PBR 5.6 (EPS -2,504원 · BPS 5,774원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 120.7억 (5일 142.2억)</li>
+<li>외국인 순매수 5일 7.7억 / 20일 -40.7억 · 기관 5일 11.3억 / 20일 75.1억 · 개인 20일 -35.9억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.53% / 20일 평균 3.93% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 14.54% (09/04) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 38,000원 (<span class="up">+17.5%</span>) ÷ 하방 25,500원 (−21.2%) = <strong>1:0.82</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 21.2% = <strong>자산의 2.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.4%</strong></li>
+<li>유동성 참고: 20일 ADV 120.7억 · 1일 소화 한도는 ADV의 10%(12.07억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 21.2% · ATR14 2,332원 (손절폭/ATR 2.9배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 21.2% = ATR14 × 2.9배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 28,851원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.61</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-138080"></span>📋 결정카드 — 오이솔루션(138080) 판정: 관심 선물: 無 현재가: 32,450원 진입: 29,000~30,000원 (눌림목, 추격 금지) 손절: 25,500원 목표: 1차 38,000원 (2차 42,000원) 손익비: 1:1.8 기간: 스윙 4~10주 촉매: 2026년 11월 중순 3Q26 실적(흑자전환 여부) / 2027년 5G 주파수 경매 재개 반증: 3Q26 연결 영업손실 -30억 이상 지속 시 턴어라운드 폐기·매도 / 최대주주 장내매도 확대 / 광통신 테마 전반 조정</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
