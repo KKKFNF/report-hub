@@ -1,0 +1,249 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>피노(033790) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261002-101803-피노-033790.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:2.62</div><div class="tp-c"><b>결론 발췌</b> 테마성 단기 모멘텀(통신장비 순환매)에 올라탄 2차전지 전구체 적자기업. 실적·밸류·지배구조 모두 추격매수 비우호. 매력도 낮음(관망). 단기 눌림 트레이딩만 손익비 1:1.5 수준, 2차 목표 11,000원. ━━━━━━━━━━━━━━ ① 포착 신호 (KIS 실측, 2026-10-02 종가 기준) - 현재가 9,780원 (+8.55%, 전일比 +770원) [실측: KIS inquire-price] - 거래대금 154.5억원 / 거래량 159.5만주 [실측: KIS, acml_tr_pbmn·acml_vol] - 시가총액 8,412억원 (상장주식 86,012,953주) [실측: KIS hts_avls·lstn_stcn] - 회전율 1.85…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>피노(033790)</h1>
+<div class="meta">📊 trend · 2026-10-02 10:18 · 코드 033790</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-02 10:18)</div><div class="kpi-v">9,730원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">8,369억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">3.95</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.62</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.78</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">11,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 8,800~9,000원 (눌림 한정, 추격 비권장)</span><span class="dc dn">손절 8,100원</span><span class="dc up">목표 11,000원</span><span class="dc">손익비 진입 1:2.62 · 현재가 1:0.78</span><span class="dc">기간 스윙 2~4주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11월 중순 3Q 분기보고서(2026.09)</div><div class="dc-l">🛑 반증: 2026 3Q 영업이익 &lt; +20억 또는 적자 전환 시 성장스토리 폐기·즉시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 피노(033790)  ※개별주식선물 無(미상장, 현물만 가능·레버리지 불가)</p>
+<p>📌 한줄 결론: 테마성 단기 모멘텀(통신장비 순환매)에 올라탄 2차전지 전구체 적자기업. 실적·밸류·지배구조 모두 추격매수 비우호. 매력도 낮음(관망). 단기 눌림 트레이딩만 손익비 1:1.5 수준, 2차 목표 11,000원.</p>
+<hr>
+<p>① 포착 신호 (KIS 실측, 2026-10-02 종가 기준)</p>
+<ul>
+<li>현재가 9,780원 (<span class="up">+8.55%</span>, 전일比 <span class="up">+770</span>원) [실측: KIS inquire-price]</li>
+<li>거래대금 154.5억원 / 거래량 159.5만주 [실측: KIS, acml_tr_pbmn·acml_vol]</li>
+<li>시가총액 8,412억원 (상장주식 86,012,953주) [실측: KIS hts_avls·lstn_stcn]</li>
+<li>회전율 1.85% [실측: KIS vol_tnrt] — 중간 수준(폭발적 과열 아님)</li>
+<li>MA 정배열: MA5 8,848 &lt; 현재가, MA20 8,268, MA60 6,734 [실측: KIS 일봉 85개]</li>
+</ul>
+<p>→ 현재가가 MA5 대비 <span class="up">+10.5%</span>, MA20 대비 <span class="up">+18.3%</span> 이격(단기 과열 구간)</p>
+<ul>
+<li>연속상승: 9/28(8,370)→9/29(8,210)→9/30(8,870)→10/1(9,010)→10/2(9,780), 최근 5일 중 4일 상승 [실측: KIS 일봉]</li>
+<li>수익률: MA60(6,734) 대비 <span class="up">+45.2%</span>, 최근 저점 9/23(7,600) 대비 <span class="up">+28.7%</span> [실측]</li>
+<li>52주 고점 19,150 / 저점 3,445 → 현재가는 고점比 −48.9%, 저점比 <span class="up">+183.9%</span> [실측: KIS w52]</li>
+<li>외국인지분율 37.30% [실측: KIS hts_frgn_ehrt] — 높은 편(최대주주 中 전구체社 포함 추정)</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업구조: 舊 통신장비(중계기) 회사 → 2차전지 양극재·전구체로 사실상 전업. 매출의 99.86%가 신에너지사업(전구체 및 관련 소재), 통신장비 0.14%, 게임 0.00% [실측: 반기보고서 2026.06, 접수 20260814001415]</li>
+<li>사업목표 &quot;글로벌 신에너지 소재 과학 기업&quot;, 니켈·코발트·인계·나트륨계 전구체 R&amp;D·생산·판매 [인용: 사업보고서 2025.12, 접수 20260323001684]</li>
+<li>급등사유 1 (10/2 당일): &quot;통신장비 테마 순환매&quot;로 <span class="up">+8.66%</span> [인용: 매일경제 2026-10-02]. AI 데이터센터·글로벌 통신사 네트워크 투자 재개 기대로 통신장비 업종 강세, 피노가 舊중계기 공급 이력으로 테마에 편입 [인용: 핀포인트뉴스 2026-10-01]</li>
+</ul>
+<p>★주의: 실매출의 99.86%는 2차전지 전구체인데 &#x27;통신장비 테마&#x27;로 급등 — 펀더멘털과 테마 미스매치. 테마 소멸 시 급락 위험</p>
+<ul>
+<li>급등사유 2 (10/1 단독): &quot;피노, 3,500억 규모 RCPS 추진…美 진출 앞두고 中 지배구조 조정&quot; — 사모 제3자배정 4,000만주 상환전환우선주 발행 추진 [인용: 매일경제/MSN 2026-10-01]. 최대주주는 중국 전구체 기업</li>
+</ul>
+<p>★RCPS 4,000만주 = 기존 발행주식(8,601만주)의 46.5% 희석 리스크(전환 시)</p>
+<p>③ 실적 (DART 별도재무 OFS 실측, 피노는 연결 미작성·별도만 제출)</p>
+<ul>
+<li>매출액(억): 2023 70 → 2024 307 → 2025 2,648 [실측: fnlttSinglAcntAll OFS, 수익(매출액)]</li>
+<li>영업이익(억): 2023 −21.2 → 2024 <span class="up">+0.08</span> → 2025 <span class="up">+88.5</span> [실측]</li>
+<li>당기순이익(억): 2023 −19.4 → 2024 −24.7 → 2025 −58.5 [실측]</li>
+</ul>
+<p>★순익 급감 분해: 2025 영업흑자(<span class="up">+88.5</span>억)에도 순손실(−58.5억)인 이유 = 금융원가 231.2억 [실측] (차입·전환사채 이자·파생평가 추정) + 지분법손실 8.9억 [실측] 이 영업이익을 초과 잠식. 법인세 아닌 금융비용이 결정타</p>
+<ul>
+<li>매출총이익률(GPM) 2025: 5.37% (매출 2,648억 − 매출원가 2,505억) [실측·산식] → 전구체 저마진 트레이딩성 구조</li>
+</ul>
+<p>분기 흐름 (DART OFS 분기 실측):</p>
+<ul>
+<li>2026 1Q: 매출 1,091억 / 영업이익 <span class="up">+94.7</span>억(OPM 8.68%) / 순익 <span class="up">+88.7</span>억 [실측: 분기보고서 2026.03, 접수 20260515000576]</li>
+<li>2026 2Q: 영업이익 −71.4억 / 순익 −66.1억 (반기누적−1Q 역산) [실측·산식: 반기 2026.06, 접수 20260814001415]</li>
+</ul>
+<p>★1Q 폭발 흑자 → 2Q 급반전 적자. 1Q 이익의 일회성(평가익·단가 스파이크) 의심. 분기 변동성 극심</p>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 커버리지 없음 — 목표가·연간/분기 추정치 전부 미확인 [실측: consensus.py 4소스(stockeasy·naver·fnguide·hankyung) 2026-10-02, 추정기관 0]</li>
+<li>스몰캡+전환구조+중국계 최대주주로 제도권 커버 부재. 컨센서스 기반 밸류 불가 → 자체 추정만 가능</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>PER −79.51(적자, 무의미), EPS −123원 [실측: KIS]</li>
+<li>PBR 3.97배 (BPS 2,462원) [실측: KIS] — 적자 소재주가 PBR 4배는 고평가 영역</li>
+<li>peer(2차전지 전구체: 에코프로머티·엘앤에프 등) 대비 피노는 GPM 5%대로 수익성 최하위권 → 적정 PBR 디스카운트 필요</li>
+<li>자체목표가 산식: 흑자 EPS 부재로 PER법 불가 → PBR법. 보수적 적정 PBR 3.0배 적용 시 2,462×3.0 = 7,386원(현재가 하회), 낙관 PBR 4.5배(테마 프리미엄) 적용 시 11,079원</li>
+</ul>
+<p>→ 적정가 밴드 7,400~11,100원, 중심 약 9,200원 ≈ 현재가 수준(상방 제한적) [추정: PBR×BPS]</p>
+<p>⑥ 진입전략·손익비 (개별주식선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: 1차 MA5 8,850 / 2차 MA20 8,270 / 3차 9/30 갭·MA60 6,730</li>
+<li>저항: 1차 10,070(10/2 장중고) / 2차 전고 11,000선 / 상단 52주 중단 13,000</li>
+<li>52주고(19,150) 대비 −48.9%로 기술적 반등 여지는 있으나 전고까지 매물대 두터움</li>
+<li>단기 눌림 트레이딩만 유효: 진입 8,800~9,000(MA5~MA20 눌림), 손절 8,100(MA20 하단 이탈), 목표 1차 11,000 / 2차 13,000</li>
+</ul>
+<p>→ 손익비 (11,000−8,900)/(8,900−8,100) = 2,100/800 ≈ 1:2.6 (1차목표 기준). 단, 테마성이라 변동성·실패확률 높음</p>
+<ul>
+<li>추격매수(9,780 현재가) 비권장: MA5 대비 <span class="up">+10.5%</span> 이격, RCPS 희석·2Q 적자 미반영</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델</p>
+<ul>
+<li>매출 전량 전구체(니켈·코발트·망간계). 단가·CAPA·가동률은 &quot;영업기밀&quot;로 사업보고서 기재 생략 → 물량×단가 분해 불가(미확인) [실측: dart_biz.py, 가격·원재료 표 &#x27;기재생략&#x27;]</li>
+<li>구조: 소재 도매 매입→(일부 외주가공)→고객사 공급. 전형적 저마진 소재 유통형. 매출 성장률은 높으나 GPM 5%대로 이익체력 약함</li>
+<li>결론문장: 2026 3Q 분기 영업이익 ≥ <span class="up">+50</span>억이면 &#x27;1Q 흑자의 반복성 입증&#x27;으로 재평가 유지, &lt; <span class="up">+20</span>억(또는 적자)이면 &#x27;1Q는 일회성·2Q 적자가 정상&#x27;으로 성장스토리 폐기</li>
+</ul>
+<p>★ ⑩ 촉매 정량분석</p>
+<ul>
+<li>당일 촉매 = &#x27;통신장비 테마&#x27;이나 실매출 0.14%에 불과 → 피노 본질(전구체)과 무관한 수급성 급등. 테마 지속성에 전적 의존, 촉매의 질 낮음</li>
+<li>실질 촉매 후보 = 3,500억 RCPS(美 진출 자금) → 성사 시 외형 확대 기대 but 46.5% 희석 양면성. 확정 전까지 &#x27;소문에 사서 뉴스에 파는&#x27; 변동성 재료</li>
+</ul>
+<p>⑦ 촉매캘린더·반증·시나리오 ▸ 촉매캘린더(날짜 확정):</p>
+<ul>
+<li>2026-11월 중순: 3Q 분기보고서(2026.09) 전망 → 1Q 흑자 반복성·2Q 적자 회복 여부 판가름</li>
+<li>RCPS 발행 결정 공시(시점 미확정) → 주요단일사건 추적 요</li>
+</ul>
+<p>▸ 반증 3개(수치→행동):</p>
+<ol>
+<li>2026 3Q 영업이익 &lt; <span class="up">+20</span>억 또는 적자 → &#x27;1Q 일회성&#x27; 확정, 즉시 청산·관망</li>
+<li>통신장비 테마지수 2일 연속 하락 전환 → 수급 급등 소멸, 손절 8,100 엄수</li>
+<li>RCPS 4,000만주 발행 확정 공시 → 46.5% 희석 반영, 전환가·규모 확인 전 신규진입 금지</li>
+</ol>
+<p>▸ 이벤트 매트릭스:</p>
+<ul>
+<li>3Q 흑자 + 테마 지속 → 13,000 재도전(상방)</li>
+<li>3Q 흑자 + 테마 소멸 → 8,000~9,000 횡보</li>
+<li>3Q 적자 or RCPS 확정 → 7,000 이하 급락 리스크</li>
+</ul>
+<p>▸ 확률가중 시나리오(합 100%):</p>
+<ul>
+<li>Bear 45%: 테마 소멸<span class="up">+2</span>Q적자 지속+RCPS 희석 → 7,000원(−28%)</li>
+<li>Base 40%: 테마 등락 속 박스권 → 8,500~9,500원(±0%)</li>
+<li>Bull 15%: 통신장비 테마 재점화<span class="up">+3</span>Q 흑자 서프라이즈 → 13,000원(<span class="up">+33%</span>)</li>
+<li>기대값 ≈ 8,900원 (현재가 9,780 하회) → 추격매수 비우호</li>
+</ul>
+<p>▸ 수급·유동성: 거래대금 154억으로 스윙 유동성 충분, 회전율 1.85% 중립. 외국인 37.3% 보유(최대주주 中社 포함)로 수급 쏠림 ▸ 포지션 사이징(자산대비 %): 테마성 적자주 → 신규는 자산의 3~5% 이내 단타 한정. 집중한도(50%) 적용 대상 아님. 선물 無로 레버리지 불가</p>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 미확인 값은 아래.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 목표가·연간/분기 컨센서스(커버리지 없음)</li>
+<li>전구체 제품 단가·CAPA·가동률(사업보고서 기재생략)</li>
+<li>RCPS 발행가·전환가·확정일(추진 단독보도만, 공시 미확정)</li>
+<li>2026 연간 가이던스</li>
+<li>금융원가 231억의 세부 구성(이자/파생평가 미분해)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI 시세 inquire-price·일봉(2026-10-02 실측)</li>
+<li>DART fnlttSinglAcntAll OFS: 사업보고서 2025.12(20260323001684), 반기 2026.06(20260814001415), 분기 2026.03(20260515000576)</li>
+<li>DART dart_biz.py 사업부문별 매출</li>
+<li>매일경제 2026-10-02 &quot;피노-통신장비 테마 8.66%↑&quot;</li>
+<li>핀포인트뉴스 2026-10-01 통신장비주 강세</li>
+<li>매일경제/MSN 2026-10-01 &quot;피노 3,500억 RCPS 추진&quot;</li>
+<li>consensus.py 4소스 2026-10-02(추정기관 0)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총 9,780×86,012,953 = 8,412억 ✓(KIS hts_avls 일치)</li>
+<li>2026 2Q 영업이익 = 반기23.2억−1Q94.7억 = −71.4억 ✓</li>
+<li>2025 GPM = 14,216/264,761 = 5.37% ✓</li>
+<li>RCPS 희석 = 40,000,000/86,012,953 = 46.5% ✓</li>
+<li>52주고 대비 = 9,780/19,150−1 = −48.9% ✓</li>
+<li>손익비 = 2,100/800 = 1:2.6 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 10:18 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 9,730원 (<span class="up">+8.0%</span>) · 시총 8,369억 · 5일 <span class="up">+28.0%</span> / 20일 <span class="up">+23.9%</span> / 60일 <span class="up">+58.5%</span></li>
+<li>MA5 8,838원 / MA20 8,266원 / MA60 6,733원 → MA20 이격 <span class="up">+17.7%</span> · MA60 이격 <span class="up">+44.5%</span></li>
+<li>52주 고 19,150원 / 저 3,445원 → 고점 대비 <span class="down">-49.2%</span> · 20일 고 10,200원 / 저 7,420원</li>
+<li>후행 PER -79.11 / PBR 3.95 (EPS -123원 · BPS 2,462원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 207.0억 (5일 170.9억)</li>
+<li>외국인 순매수 5일 -15.2억 / 20일 -208.2억 · 기관 5일 52.3억 / 20일 64.9억 · 개인 20일 149.1억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.78% / 20일 평균 2.02% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 6.01% (09/17) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 11,000원 (<span class="up">+13.1%</span>) ÷ 하방 8,100원 (−16.8%) = <strong>1:0.78</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 16.8% = <strong>자산의 3.0%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.0%</strong></li>
+<li>유동성 참고: 20일 ADV 207.0억 · 1일 소화 한도는 ADV의 10%(20.70억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 16.8% · ATR14 605원 (손절폭/ATR 2.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 16.8% = ATR14 × 2.7배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 8,757원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.31</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-033790"></span>📋 결정카드 — 피노(033790) 판정: 관망 선물: 無 현재가: 9,780원 진입: 8,800~9,000원 (눌림 한정, 추격 비권장) 손절: 8,100원 목표: 1차 11,000원 (2차 13,000원) 손익비: 1:2.6 기간: 스윙 2~4주 촉매: 2026-11월 중순 3Q 분기보고서(2026.09) 반증: 2026 3Q 영업이익 &lt; <span class="up">+20</span>억 또는 적자 전환 시 성장스토리 폐기·즉시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
