@@ -1,0 +1,245 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>나라스페이스테크놀로지(478340) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261002-143946-나라스페이스테크놀로지-478340.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.38</div><div class="tp-c"><b>결론 발췌</b> 우주(초소형위성) 테마 대장 후보이나 적자·고변동 소형주. 밸류는 실적이 아닌 수주잔고·테마 모멘텀에 의존 → 추세추종 관심(Watch). 종가가 상한가로 마감 시 단기 과열, 손익비 1:1.3(얕음)·자체 목표가 중앙값 20,500원 추정. ━━━━━━━━━━━━━━━━━━</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>나라스페이스테크놀로지(478340)</h1>
+<div class="meta">📊 trend · 2026-10-02 14:39 · 코드 478340</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-02 14:39)</div><div class="kpi-v">18,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2,090억</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.38</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.4</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">20,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 14,200~15,000원 (눌림 재진입 / 상한가 추격 비권고)</span><span class="dc dn">손절 13,000원</span><span class="dc up">목표 20,000원</span><span class="dc">손익비 진입 1:3.38 · 현재가 1:0.4</span><span class="dc">기간 스윙 3~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026 3분기보고서(11월 중순 전후)·나르샤 메탄위성 발사(2026말, 일자 미확정)</div><div class="dc-l">🛑 반증: 3Q 누계 별도매출 &lt; 40억 → 흑전 내러티브 폐기·청산 / 종가 MA20(12,300원) 하회 → 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 나라스페이스테크놀로지(478340)  ※개별주식선물 無(현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: 우주(초소형위성) 테마 대장 후보이나 적자·고변동 소형주. 밸류는 실적이 아닌 수주잔고·테마 모멘텀에 의존 → 추세추종 관심(Watch). 종가가 상한가로 마감 시 단기 과열, 손익비 1:1.3(얕음)·자체 목표가 중앙값 20,500원 추정.</p>
+<hr>
+<p>① 포착 신호 [실측: KIS 2026-10-02]</p>
+<ul>
+<li>현재가 17,950원 / 전일대비 <span class="up">+26.77%</span>(<span class="up">+3,790</span>원), 상한가 18,400원 근접 [실측]</li>
+<li>당일 거래대금 1,145억원 / 거래량 700.8만주 [실측: acml_tr_pbmn=114,490,319,875]</li>
+<li>시총 2,084억원 / 상장주식 1,161.0만주 [실측: hts_avls, lstn_stcn]</li>
+<li>회전율(당일) ≈ 700.8만주 ÷ 1,161.0만주 = 60.4% [추정: 거래량÷상장주식] — 하루 거래량이 유통물량 상당분을 소화한 초과열 수치</li>
+<li>20일 평균 거래대금 224억원 [실측: KIS 일봉 20일] → 당일 1,145억은 ADV 대비 5.1배 급증</li>
+<li>추세: MA5 14,802 &gt; MA20 12,320 &gt; MA60 11,094 → 단기 정배열 [실측: KIS 일봉]. MA120은 상장이력 부족(100거래일)으로 미산출</li>
+<li>위치: 52주고 64,600원(26.02.03) 대비 27.8% 수준 / 52주저 7,520원(26.07.30) 대비 <span class="up">+138.7%</span> [실측: w52_hgpr/lwpr]</li>
+<li>바닥권(7월말 7,520원)에서 반등 → 9/17 거래 폭발(거래대금 189억→637억)로 1차 레벨업, 이후 눌림 후 10/2 재급등. &#x27;저점 대비 2.4배·고점 대비 1/3.6&#x27; 중간 구간 [실측]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업: 저궤도 초소형위성(큐브위성) 설계·제조·발사·운용 수직계열화 + 위성영상 데이터플랫폼(Earth Paper) [실측: 사업보고서 2025.12 접수 20260319000778]</li>
+<li>2025 사업부문 매출비중 [실측: 상동]: 위성플랫폼(제조) 83%(110.0억) / 위성운용 9%(11.6억) / 위성영상 6%(7.8억) / 기타 2%(3.0억)</li>
+<li>NASA &#x27;State of the Art 2024&#x27;에 16U 위성플랫폼 등재, 아르테미스 큐브위성 참여 [인용: 유안타증권 2026-05-06 / SK증권 2026-02-09, stockeasy]</li>
+<li>급등사유(사실 검증): 10/1(현지) 메탄 관측 초소형위성 &#x27;경기샛-2A&#x27; 미국 발사 → 10/2 양방향 교신 성공 발표(국내 첫 메탄 관측 위성). 당일 급등을 견인한 실제 이벤트 [인용: 연합/조선비즈/KBS 2026-10-01~02]</li>
+<li>추가 재료: 9/21 초소형위성 자율 근접운용 국방과제 주관(67억원 규모) [인용: 동아사이언스/CBC 2026-09-21~22]</li>
+<li>판정: 발사·교신 성공은 &#x27;사실(이벤트 실현)&#x27;이나, 이는 매출 즉시 기여가 아닌 레퍼런스(헤리티지) 축적 성격 → 실체 있는 모멘텀 + 기대감 혼재. 수급은 개인 주도(아래 ⑦)</li>
+</ul>
+<p>③ 실적 (DART 실측 · 전부 별도 기준 — 연결재무제표 미제출(status013)) [실측: 사업보고서/반기보고서]</p>
+<ul>
+<li>2023 연간: 매출 16.3억 / 영업손실 미표기(과거분) / — (제9기)</li>
+<li>2024 연간: 매출 43.0억 / 영업손실 -44.3억 / 순손실 -107.3억 [실측: 2025보고서 전기컬럼]</li>
+<li>2025 연간: 매출 132.4억(YoY <span class="up">+207.9%</span>) / 영업손실 -54.6억 / 순손실 -76.8억 / OPM <span class="down">-41.2%</span> [실측: fnlttSinglAcntAll OFS]</li>
+<li>2026 1Q: 매출 4.1억 / 영업손실 -30.3억 [실측: 분기보고서 2026.03]</li>
+<li>2026 반기누계: 매출 19.5억 / 영업손실 -36.7억 / 순손실 -35.1억 [실측: 반기보고서 2026.06]</li>
+<li>2026 2Q 단독: 매출 15.3억(=19.5-4.1) / 영업손실 -6.4억(=-36.7-(-30.3)) [추정: 반기누계-1Q, 검산 Q1+Q2=H1 일치]</li>
+<li>사업부문(2025): 위성플랫폼 110.0억(83%)·위성운용 11.6억(9%)·위성영상 7.8억(6%)·기타 3.0억(2%) [실측]</li>
+<li>재무건전성: 자산 577.4억 / 자본 417.3억 / 부채 160.2억 → 부채비율 38.4%(=160.2÷417.3) [실측: 반기 2026.06, 산식]</li>
+<li>완전자본잠식 이력: 2024말 자본 -441.2억이었으나 2025년 상장·자본확충으로 자본 <span class="up">+476.1</span>억 전환 [실측: 2025보고서]</li>
+<li>영업현금흐름: 2025 -35.3억 / 2026 1Q -41.6억 / 2026 반기 -38.3억 → 지속 현금유출(캐시번), 조달자금 소진형 [실측: CF]</li>
+<li>이자보상배율: 영업손실 상태 → 산출 불가(음수) [실측]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 정식 목표가·연간 컨센서스: 미확인 [실측: consensus.py 4소스 — 최근 6개월 목표가 리포트 0건, naver/fnguide 추정치 없음]</li>
+<li>커버리지 2건 모두 Not Rated [인용]:</li>
+</ul>
+<p>· SK증권 2026-02-09: &quot;2025 매출 ~130억, 2026 매출성장+영업이익 달성 가시권&quot;(흑전 기대) — 단, 목표가 없음 · 유안타 2026-05-06: &quot;확장성 긍정적이나 현 시점 관망 필요&quot;</p>
+<ul>
+<li>회사 가이던스성 계획: 수주잔고 176억 확보, 2031년까지 자체 군집위성 84기 구축, Earth Paper 구독형 데이터 수익모델 [인용: 유안타/SK증권]</li>
+<li>2026 흑자전환 달성가능성 판정: 低. 근거 — 반기 누계 매출 19.5억에 불과(연 132억 대비 15%)하고 영업손실 -36.7억 지속. 흑전하려면 하반기 매출이 상반기의 5~6배로 폭증해야 함. 위성플랫폼 매출은 발사·납품 시점 집중인식 특성상 하반기 쏠림 가능성은 있으나, 반기까지 적자폭이 전년 동기 수준을 상회해 &#x27;2026 연간 흑전&#x27;은 보수적으로 低 유지</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>전통 멀티플 적용 불가: EPS -1,194원, BPS -4,583원, PER -15.0배, PBR -3.9배 모두 음수(적자·순자산 대비 시총 과대) [실측: KIS]</li>
+</ul>
+<p>※PBR이 음수로 표기되나 반기 실제 자본 417억 기준 PBR = 2,084÷417 = 5.0배 [추정: 시총÷자본]</p>
+<ul>
+<li>Peer 밴드: 자동 peer(엔켐·코스맥스·SK 등)는 키워드 매칭으로 우주 동종이 아님 → peer 멀티플 비교 신뢰도 낮음(미확인에 준함). 국내 우주 상장사(컨텍·쎄트렉아이·AP위성 등)와의 정식 밴드는 본 자동수집에서 미확보 [실측 한계]</li>
+<li>자체 목표가 — PSR 방식(적자기업이므로 매출 기반):</li>
+</ul>
+<p>· 입력: 2026E 매출 — Base 160억(추정: 2025 132억 + 수주 인식 소폭 증가), 상장주식 1,161만주 · 우주 성장주 PSR 밴드 가정 12~18배(고성장·소형 테마 프리미엄 반영, [추정]) · 적정시총 = 160억 × 15배(중앙) = 2,400억 → 주당 = 2,400억 ÷ 1,161만주 = 20,671원 [추정: 산식] · Bear PSR 12배 → 1,920억 ÷ 1,161만 = 16,537원 / Bull PSR 18배 → 2,880억 ÷ 1,161만 = 24,806원</p>
+<ul>
+<li>자체 목표가 결론: 중앙값 약 20,500원(밴드 16,500~24,800원) [추정: PSR 12~18배×2026E 매출 160억]</li>
+</ul>
+<p>※현재가 17,950원은 PSR 13.0배(=2,084÷160) 수준 → 이미 성장 프리미엄 상당 반영</p>
+<ul>
+<li>증권사 목표가: 없음(Not Rated) [실측]</li>
+</ul>
+<p>⑥ 진입전략·손익비 (★개별주식선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: 1차 14,100~14,300원(9/28~10/1 종가 밀집대·10/2 시가권) / 2차 11,100원(MA60)·12,300원(MA20) [실측: KIS 일봉]</li>
+<li>저항: 1차 상한가 18,400원(당일) / 2차 9/21 장중고 15,500원 돌파 완료 → 다음은 심리 20,000원 / 궁극 52주고 64,600원 [실측]</li>
+<li>현물 스윙 가정 3라인 [추정: 실측 지지·저항 기반]:</li>
+</ul>
+<p>· 진입 14,200~15,000원(눌림 재진입 존 — 상한가 추격 대신 되돌림 대기) · 손절 13,000원(MA20 하회·9/22 저점권 이탈) · 익절 1차 20,000원(심리) / 2차 24,000원(Bull PSR밴드)</p>
+<ul>
+<li>손익비(되돌림 진입가 14,600원 중앙 기준) = 상승여력(20,000-14,600=5,400) ÷ 하락리스크(14,600-13,000=1,600) = 1:3.4 [추정: 산식]</li>
+<li>손익비(현재가 17,950원 추격 기준) = (20,000-17,950=2,050) ÷ (17,950-13,000=4,950) = 1:0.41 → 추격매수는 손익비 열위 [추정]</li>
+<li>결론: 상한가 추격은 손익비 1:0.4로 불리. 14,000원대 눌림 확인 후 진입해야 손익비 1:3 확보</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>9-2 고객·납품: 공공(경기도·정부 국책과제)·국방(국방기술진흥연구소 67억 과제)·해외 레퍼런스(NASA 아르테미스). 특정 상업 대량고객은 미확인 [실측: 공시/뉴스]</li>
+<li>9-3 TAM·경쟁·점유율: 글로벌 소형위성 시장 성장기(군집위성 트렌드)이나 구체 TAM 수치·국내 점유율은 본 자동수집 미확보 — 미확인 [실측 한계]. 국내 경쟁: 쎄트렉아이·컨텍·AP위성 등(정량 비교 미확보)</li>
+<li>9-4 단가이력: 위성플랫폼은 &quot;고객 요구 사양·임무·계약조건별 상이&quot;로 표준단가 비공개 [실측: 사업보고서 가격변동추이 — 표 없음]</li>
+<li>9-5 증설/CAPA: 자체 군집위성 84기(~2031) 구축 로드맵 [인용: 유안타]. 구체 생산CAPA(연간 위성 제작 가능 기수)는 미확인</li>
+<li>9-6 전방 CAPEX: 정부 우주개발 예산·국방 위성 수요가 전방 — 정량 미확보</li>
+<li>9-7 바텀업 표 (2026E 매출, 단위 억원) [추정: 2025 실적·수주잔고 기반]:</li>
+</ul>
+<p>· Bear: 상반기 추세 지속·하반기 수주인식 지연 → 매출 110억 / 영업손실 -60억 / OPM <span class="down">-54%</span> · Base: 하반기 위성플랫폼 납품 집중인식 → 매출 160억 / 영업손실 -45억 / OPM <span class="down">-28%</span> · Bull: 경기샛 운용매출+신규수주 가세 → 매출 210억 / 영업손실 -20억 / OPM <span class="down">-10%</span> · 산식: 위성플랫폼 매출(물량=납품 위성 기수 × 기당단가) + 위성운용/영상 구독매출. 입력단가 비공개로 top-down(수주잔고 176억 인식속도) 역산</p>
+<ul>
+<li>결론 문장: 2026 하반기(3Q<span class="up">+4</span>Q) 별도 매출 ≥ 100억이면 &#x27;연간 고성장+적자축소&#x27; 논지 유지. 반기 누계 매출 19.5억 대비 하반기 급반전이 확인되지 않고 3Q 누계 매출 &lt; 40억이면 &#x27;흑전 가시권&#x27; 내러티브 폐기, 테마성 수급주로 재분류</li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정):</li>
+</ul>
+<p>· 2026.11 중 2025년 발사 예정이던 경기샛-1 관련 후속 — 일자 미확정(미확인) · 2026년 말 메탄 모니터링 위성 &#x27;나르샤&#x27; 발사 계획 [인용: SK증권] — 정확일자 미확인 · 분기실적: 2026 3분기보고서 법정기한 11월 중순 전후(분기보고서 제출 패턴상) — 흑전/매출폭증 확인 분수령</p>
+<ul>
+<li>반증조건 3개(수치→행동):</li>
+</ul>
+<p>1) 3Q 누계 별도 매출 &lt; 40억 → &#x27;2026 흑전&#x27; 내러티브 폐기, 포지션 축소/청산 [분기실적 임계] 2) 종가가 MA20(12,300원) 하회 마감 → 단기 추세 훼손, 손절 13,000원 집행 3) 20일 외인+기관 누적이 추가로 순매도 확대 &amp; 거래대금 ADV(224억) 이하로 급감 → 테마 소멸, 신규진입 보류</p>
+<ul>
+<li>이벤트 매트릭스(실적 × 당일갭):</li>
+</ul>
+<p>· 3Q 매출 급증 + 갭상승 → 20,000원 돌파 시 추세 추종(1차 익절 유보) · 3Q 매출 부진 + 갭상승 → 기대선반영, 반등 시 분할 청산 · 3Q 부진 + 갭하락 → 손절 13,000원 기계적 집행</p>
+<ul>
+<li>확률가중 시나리오(확률합=100%):</li>
+</ul>
+<p>· Bear 40%: 테마 소멸·실적 미반전 → 목표 11,000원(MA60 회귀) → 기대수익률 (11,000-17,950)/17,950 = <span class="down">-38.7%</span> · Base 45%: 수주 인식+테마 유지 → 목표 20,500원(자체 PSR중앙) → <span class="up">+14.2%</span> · Bull 15%: 발사 연속성공+신규수주+흑전 기대 → 목표 24,800원 → <span class="up">+38.2%</span> · 가중 기대수익률 = 0.40×(<span class="down">-38.7%</span>)<span class="up">+0.45</span>×(14.2%)<span class="up">+0.15</span>×(38.2%) = <span class="down">-15.5%</span><span class="up">+6.4%</span><span class="up">+5.7%</span> = <span class="down">-3.4%</span> [추정: 산식] · → 현재가 추격 기준 기대수익률 음(<span class="down">-3.4%</span>). 14,600원 눌림 진입 시 각 목표 대비 기대수익률 재계산하면 Base <span class="up">+40.4%</span>·가중 +약 <span class="up">+13%</span> → 진입가가 손익비·기대수익 모두 결정</p>
+<ul>
+<li>수급·유동성 [실측: KIS]: 20일 외인 -25.6만주·기관 -66.8만주 순매도(개인 주도 급등). 20일 평균 거래대금 224억 → ADV 10% = 22.4억(이 범위 내 분할매매 시 시장충격 최소) [추정: 산식]</li>
+<li>포지션 사이징(자산 대비 %로만):</li>
+</ul>
+<p>· 리스크예산법: 손실 1% ÷ 손절폭. 눌림진입 14,600·손절 13,000 → 손절폭 11.0% → 비중 상한 1%÷11.0% = 자산의 9.1% · 집중상한 50% / 이벤트(실적)전 상한 25% / 위 9.1% 중 최소값 = 자산의 9.1% [추정: 산식] · 고변동·적자주·선물불가(레버리지 X) 특성상 상한 미만에서 분할 접근 권고(1·2·3차 분할)</p>
+<hr>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 못 구한 값 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>연결재무제표(연결 미제출, 별도만 공시) / 증권사 정식 목표가·연간 컨센서스 / 우주 동종 peer 밸류 밴드(쎄트렉아이·컨텍 등) / TAM·국내 점유율 정량 / 위성 표준단가·연간 생산CAPA / 경기샛-1·나르샤 정확 발사일자 / 10/2 당일 외인·기관 확정 순매수(실시간 미집계)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI 2026-10-02(현재가·일봉·수급) / DART 사업보고서 2025.12(20260319000778)·반기보고서 2026.06(20260814002537)·분기보고서 2026.03(20260515001145) / consensus.py 4소스(stockeasy·naver·fnguide·hankyung) / 뉴스: 연합·조선비즈·KBS·동아사이언스 2026-09-21~10-02 / stockeasy 유안타(26-05-06)·SK증권(26-02-09)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>Q1+Q2=H1: 4.1<span class="up">+15.3</span>=19.4 ≈ 반기 19.5억(반올림오차) ✓</li>
+<li>부채비율 160.2÷417.3=38.4% ✓</li>
+<li>손익비 헤더(1:3.4 눌림진입)·본문 산식 일치 ✓ / 추격진입 1:0.4 별도 명기 ✓</li>
+<li>시나리오 확률합 40<span class="up">+45</span><span class="up">+15</span>=100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 14:39 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 18,000원 (<span class="up">+27.1%</span>) · 시총 2,090억 · 5일 <span class="up">+26.8%</span> / 20일 <span class="up">+86.3%</span> / 60일 <span class="up">+37.3%</span></li>
+<li>MA5 14,812원 / MA20 12,322원 / MA60 11,095원 → MA20 이격 <span class="up">+46.1%</span> · MA60 이격 <span class="up">+62.2%</span></li>
+<li>52주 고 64,600원 / 저 7,520원 → 고점 대비 <span class="down">-72.1%</span> · 20일 고 18,000원 / 저 9,660원</li>
+<li>후행 PER -15.08 / PBR -3.93 (EPS -1,194원 · BPS -4,583원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 225.2억 (5일 346.8억)</li>
+<li>외국인 순매수 5일 -4.5억 / 20일 -39.5억 · 기관 5일 0.0억 / 20일 -94.8억 · 개인 20일 134.0억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.10% / 20일 평균 2.73% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 12.65% (09/11) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 20,000원 (<span class="up">+11.1%</span>) ÷ 하방 13,000원 (−27.8%) = <strong>1:0.40</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 27.8% = <strong>자산의 1.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.8%</strong></li>
+<li>유동성 참고: 20일 ADV 225.2억 · 1일 소화 한도는 ADV의 10%(22.52억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 27.8% · ATR14 1,589원 (손절폭/ATR 3.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 27.8% = ATR14 × 3.1배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 15,616원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.84</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-478340"></span>📋 결정카드 — 나라스페이스테크놀로지(478340) 판정: 관심 선물: 無 현재가: 17,950원 진입: 14,200~15,000원 (눌림 재진입 / 상한가 추격 비권고) 손절: 13,000원 목표: 1차 20,000원 (2차 24,000원) 손익비: 1:3.4 (눌림진입 기준 / 추격 시 1:0.4) 기간: 스윙 3~8주 촉매: 2026 3분기보고서(11월 중순 전후)·나르샤 메탄위성 발사(2026말, 일자 미확정) 반증: 3Q 누계 별도매출 &lt; 40억 → 흑전 내러티브 폐기·청산 / 종가 MA20(12,300원) 하회 → 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
