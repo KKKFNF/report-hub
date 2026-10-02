@@ -1,0 +1,224 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TIGER 반도체TOP10레버리지(488080) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261002-093640-TIGER-반도체TOP10레버리지-488080.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.19</div><div class="tp-c"><b>결론 발췌</b> 반도체 메모리 슈퍼사이클·HBM 모멘텀에 2배로 베팅하는 섹터 레버리지 ETF. 추세는 정배열·연속상승으로 강하나 &quot;2배 일일 복리&quot; 구조상 횡보·급락 시 복리붕괴가 치명적 → 매력도 &#x27;관심&#x27;(추세 추종 한정). 단기 손익비 약 1:1.8, 1차 목표 43,500원. [실측:KIS/추정] ① 포착 신호 • 회전율 7.0% (당일거래대금 529.5억 / 시총 7,541억) [인용:trendscan 스냅샷] • 실측 당일거래대금 약 629.9억·누적거래량 155만주 [실측:KIS inquire-price acml_tr_pbmn] • 추세: MA 정배열 O / 연속상승 4일 / 5일수익률 +3.0% [인용:trendscan] • 실측 MA: …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>TIGER 반도체TOP10레버리지(488080)</h1>
+<div class="meta">📊 trend · 2026-10-02 09:36 · 코드 488080</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-02 09:36)</div><div class="kpi-v">40,990원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">7,501억</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.19</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.79</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">43,500원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 40,000~40,800원</span><span class="dc dn">손절 37,800원</span><span class="dc up">목표 43,500원</span><span class="dc">손익비 진입 1:1.19 · 현재가 1:0.79 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.8</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.8로 적었지만 진입·손절·목표로 계산하면 1:1.19다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 2~4주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 삼성전자·SK하이닉스 3분기 실적(10월 하순 예상)</div><div class="dc-l">🛑 반증: 종가 MA20(35,735) 하회 시 청산 / 메모리 대형주 2일 연속 -3% 시 비중 절반 축소</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — TIGER 반도체TOP10레버리지(488080)  ※선물 無(ETF)</p>
+<p>📌 한줄 결론: 반도체 메모리 슈퍼사이클·HBM 모멘텀에 2배로 베팅하는 섹터 레버리지 ETF. 추세는 정배열·연속상승으로 강하나 &quot;2배 일일 복리&quot; 구조상 횡보·급락 시 복리붕괴가 치명적 → 매력도 &#x27;관심&#x27;(추세 추종 한정). 단기 손익비 약 1:1.8, 1차 목표 43,500원. [실측:KIS/추정]</p>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 7.0% (당일거래대금 529.5억 / 시총 7,541억) [인용:trendscan 스냅샷]</li>
+<li>실측 당일거래대금 약 629.9억·누적거래량 155만주 [실측:KIS inquire-price acml_tr_pbmn]</li>
+<li>추세: MA 정배열 O / 연속상승 4일 / 5일수익률 <span class="up">+3.0%</span> [인용:trendscan]</li>
+<li>실측 MA: MA5 38,675 / MA20 35,735, 현재가 40,820 &gt; MA5 &gt; MA20 → 정배열 확인 [실측:KIS 일봉 42개]</li>
+</ul>
+<p>② ETF 개요·급등사유</p>
+<ul>
+<li>상품: TIGER 반도체TOP10레버리지 / 운용사 미래에셋자산운용 [실측:종목명·KIS]</li>
+<li>유형: 국내 반도체 섹터지수 2배 일일추종 레버리지 ETF [추정:상품명·레버리지 분류, 배수 정밀 2.0x 여부 미확인]</li>
+<li>기초지수: 에프앤가이드(KEDI) 반도체 TOP10 류 지수의 2배 일간수익률 추종 [추정:상품명, 정확한 지수명·사업자 미확인]</li>
+<li>추종방식: 구성 1위가 &quot;TIGER 반도체TOP10&quot; 모ETF(비중 25.25%) → 모ETF+개별주+스왑/선물로 2배 익스포저 구성하는 재간접+합성 혼합형 [실측:KIS 구성종목]</li>
+<li>구성종목 TOP(순비중) [실측:KIS inquire-component]</li>
+<li>TIGER 반도체TOP10(모ETF) 25.25%</li>
+<li>삼성전자 23.90%</li>
+<li>SK하이닉스 19.53%</li>
+<li>SK스퀘어 16.31%</li>
+<li>한미반도체 3.40% / DB하이텍 3.39% / 주성엔지니어링 2.38% / 이수페타시스 1.94% / 이오테크닉스 1.35% / 원익IPS 1.33% / 리노공업 1.21%</li>
+</ul>
+<p>→ 삼성전자+SK하이닉스+SK스퀘어 3종목이 약 60% (모ETF 내부 비중까지 합산 시 메모리 3사 쏠림 더 큼) [추정:비중 합산]</p>
+<ul>
+<li>급등사유(검증): 반도체 섹터 전반 모멘텀 — ①마이크론 호실적으로 메모리 호황 확인(10/1) ②HBM·맞춤형 반도체 급부상에 삼성전자·SK하이닉스 재평가 기대 ③9월 ETF 수익률 상위 20개 중 14개가 반도체, &quot;삼전닉스 ETF&quot;가 1~10위 싹쓸이 ④코스닥 4.48% 급등에 레버리지 ETF 동반 강세(10/1) [인용:뉴스핌·뉴시스·여성경제신문·헤럴드경제 2026-09-22~10-01]</li>
+<li>개별종목 뉴스는 아니며 섹터 베타 견인(수급+업황 테마성) — 특정 ETF 단독 악재/호재 없음 [실측:news_search.py]</li>
+<li>KODEX 반도체레버리지(494310)와의 차이 [추정:구조·인용 혼합]</li>
+<li>운용사: TIGER=미래에셋 / KODEX=삼성자산운용</li>
+<li>TIGER는 구성 1위가 자사 모ETF(재간접형) → 메모리 대형주+소부장 포함 &quot;반도체 TOP10&quot; 바스켓 2배</li>
+<li>KODEX 반도체레버리지는 KRX 반도체지수(소부장 비중 상대적으로 더 큼) 추종 2배 → 삼성전자 비중이 TIGER 대비 낮은 경향 [추정, 정밀 비중 미확인]</li>
+<li>9/24 동일 랠리에서 KODEX <span class="up">+15.77%</span>, TIGER도 상위권 → 둘 다 강하나 구성차로 변동폭 미세 차이 [인용:MSN 2026-09-24]</li>
+<li>핵심 구분: TIGER=삼전·하이닉스 메모리 쏠림 더 큼 / KODEX=장비·소부장 분산 더 큼 (단정 아님, 비중 재확인 권장)</li>
+</ul>
+<p>③ 기초지수·업황 (ETF로 DART 기업재무 해당없음)</p>
+<ul>
+<li>ETF라 연결/별도 재무제표 무관. 기초지수 구성종목 펀더멘털로 대체.</li>
+<li>메모리 업황: 마이크론이 &quot;메모리 호황&quot; 확인, HBM 수요 강세 지속 → 삼성전자·SK하이닉스 실적 모멘텀 [인용:v.daum/뉴시스 2026-10-01]</li>
+<li>리스크 톤: &quot;반도체 영원한 승자 없다, 잘 나갈 때 위기 준비&quot; 식 경계론도 등장 → 고점 논쟁 병존 [인용:브레이크뉴스 2026-10-01]</li>
+</ul>
+<p>④ 섹터 전망·컨센서스 (ETF는 개별 목표가 부적합 → 구성종목·섹터 흐름)</p>
+<ul>
+<li>반도체 섹터 컨센서스: HBM·AI 서버 수요로 메모리 업사이클 지속 전망 우세, 삼성전자·SK하이닉스 목표가 상향 기조 [인용:뉴시스·문화일보 2026-10-01]</li>
+<li>ETF 자체 컨센서스/목표가는 존재하지 않음 — 2배 레버리지는 기초지수 방향성의 2배 베팅 수단일 뿐 [실측:ETF 특성]</li>
+<li>수급: 기관이 삼성전자·KODEX 레버리지 등 순매수, 레버리지 상품 전반 매수세 유입 [인용:ThinkPool 2026-09-18·09-28]</li>
+</ul>
+<p>⑤ 밸류에이션 (ETF NAV·추적오차·괴리율·복리붕괴 경고)</p>
+<ul>
+<li>현재가 40,820원 / NAV 40,917.97원 → 괴리율 = (40,820-40,917.97)/40,917.97 = <span class="down">-0.24%</span> (NAV 대비 소폭 할인, 정상범위) [실측:KIS NAV trend]</li>
+<li>PER/PBR: ETF라 0 표기(해당없음). 기초 구성종목 PER로 간접 접근 — 메모리 대형주 이익 레벨업 국면이라 밴드 하단~중단 논쟁 [실측:KIS per/pbr=0 / 추정]</li>
+<li>★복리붕괴(변동성 끌림) 경고: 2배 일일추종은 &quot;기간수익 2배&quot;가 아니라 &quot;일간수익 2배&quot;의 복리. 예시 — 기초지수 <span class="up">+5%</span>/<span class="down">-5%</span> 2일 반복 시 기초는 <span class="down">-0.25%</span>지만 2배 레버는 <span class="down">-1.00%</span> → 약 0.50%p 추가손실. 횡보·고변동 구간이 길수록 손실 가속 [추정:산식 (1<span class="up">+2</span>r)곱, 실측 검증]</li>
+<li>보유비용: 레버리지 ETF는 일반 ETF 대비 총보수 높음(스왑·롤오버비용 포함) → 총보수 추정 0.4~0.7%대 [추정, 정확 수치 미확인]</li>
+<li>추적오차: NAV-지수 괴리는 재간접+스왑 구조상 일반 실물 대비 큼 → 장기보유 비권장 [추정:구조]</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>현재가 40,820원 [실측:KIS]</li>
+<li>지지: MA5 38,675 / MA20 35,735 [실측:KIS]</li>
+<li>저항: 최근 고점권 41,000~41,325(당일 고가) 돌파 여부가 1차 분수령 [실측:KIS 당일 hgpr 41,325]</li>
+<li>★52주 고 101,985 / 저 10,640은 레버리지 ETF 특성상 데이터 왜곡(상장초기·분할·합성가격) 가능성 — 신뢰도 낮아 &#x27;미확인&#x27; 처리, 매매기준에서 제외 [실측:KIS / 데이터 주의]</li>
+<li>★레버리지 변동성 경고: 기초 반도체섹터 일일 ±3% 흔함 → 본 ETF 일일 ±6% 가능. 갭·슬리피지 크다</li>
+<li>3라인(스윙, 2배 변동성 반영) [추정:기술적 산식]</li>
+<li>진입: 40,000~40,800원 (MA5 눌림 또는 41,325 돌파 확인 후 분할)</li>
+<li>손절: 37,800원 (MA20 하회 = 추세훼손, 현재가 대비 <span class="down">-7.4%</span>)</li>
+<li>익절: 1차 43,500원(<span class="up">+6.6%</span>), 2차 46,000원(<span class="up">+12.7%</span>)</li>
+<li>손익비: 진입 40,500 기준, 손실 -2,700 / 1차익 <span class="up">+3,000</span> → 약 1:1.1 / 2차까지 <span class="up">+5,500</span> → 약 1:2.0. 가중 평균 약 1:1.8 [추정:산식]</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜확정만)</li>
+<li>삼성전자 2026 3분기 실적 발표(10월 하순 예상, 잠정 → 확정) [추정:통상 일정, 정확일 미확인]</li>
+<li>SK하이닉스 3분기 실적(10월 하순) [추정:통상 일정]</li>
+<li>미국 반도체(엔비디아·마이크론 등) 실적·가이던스 → 글로벌 메모리 센티먼트 [추정]</li>
+<li>반증 3개(수치→행동)</li>
+</ul>
+<ol>
+<li>종가가 MA20(35,735) 하회 → 추세훼손, 전량 청산 [실측기준]</li>
+<li>삼성전자/SK하이닉스 일간 <span class="down">-3%</span> 이상 급락 2일 연속 → 기초 급락 = 2배 손실 가속, 비중 절반 축소 [가격 임계]</li>
+<li>NAV 대비 괴리율 <span class="up">+1%</span> 초과 과열(프리미엄) 지속 → 추격매수 금지, 익절 우선 [실측기준]</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스</li>
+<li>메모리 가격·HBM 수요 서프라이즈 → Bull 가속</li>
+<li>반도체 고점 경계론·차익실현 확산 → Bear, 레버리지 낙폭 2배</li>
+<li>지수 횡보 장기화 → 복리붕괴로 완만한 잠식(최악 시나리오)</li>
+<li>확률가중 시나리오(합 100%) [추정]</li>
+<li>Bull 35%: HBM·메모리 모멘텀 지속, 섹터 신고가 → 46,000원+</li>
+<li>Base 45%: 추세 유지하나 변동성 확대, 41,000~44,000 박스 상단</li>
+<li>Bear 20%: 반도체 차익실현·조정 → 2배 낙폭으로 36,000원 이탈</li>
+<li>수급·유동성: 당일거래대금 500억대·회전율 7%로 유동성 양호, 레버리지 수요 유입 지속 [실측:KIS]</li>
+<li>포지션 사이징: 2배 레버리지 섹터 ETF는 고위험 → 총자산 대비 소액(예: 변동성 고려 일반 섹터 ETF의 절반 비중) 권고, 손절 엄격 적용 [추정:리스크관리 원칙]</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시, 미확인은 &#x27;미확인&#x27;. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>정확한 기초지수명·지수사업자 (KEDI 반도체TOP10 추정)</li>
+<li>레버리지 배수 2.0x 정밀 확인(상품명 기반 추정)</li>
+<li>총보수율 정확 수치</li>
+<li>상장일 정확일자</li>
+<li>52주 고/저(101,985/10,640) 신뢰도 — 데이터 왜곡 의심, 매매기준 제외</li>
+<li>삼성전자·SK하이닉스 3분기 실적 발표 확정일</li>
+<li>KODEX 494310과의 정밀 구성비중 차이</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI: 현재가·NAV·구성종목·일봉(2026-10-02 실측)</li>
+<li>kis_futures_check.py: 488080 개별주식선물 미상장 확인</li>
+<li>news_search.py: 뉴스핌/뉴시스/여성경제신문/헤럴드경제/문화일보/MSN/ThinkPool (2026-09-08~10-01)</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 09:36 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 40,990원 (<span class="up">+0.6%</span>) · 시총 7,501억 · 5일 <span class="up">+2.5%</span> / 20일 <span class="up">+37.4%</span> / 60일 <span class="down">-33.4%</span></li>
+<li>MA5 38,709원 / MA20 35,744원 / MA60 35,222원 → MA20 이격 <span class="up">+14.7%</span> · MA60 이격 <span class="up">+16.4%</span></li>
+<li>52주 고 101,985원 / 저 10,640원 → 고점 대비 <span class="down">-59.8%</span> · 20일 고 40,990원 / 저 29,225원</li>
+<li>후행 PER 0.0 / PBR 0.0 (EPS 0원 · BPS 0원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,784.0억 (5일 1,704.9억)</li>
+<li>외국인 순매수 5일 13.3억 / 20일 304.9억 · 기관 5일 -232.9억 / 20일 -281.4억 · 개인 20일 -88.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.00% / 20일 평균 0.00% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 0.00% (10/02) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 43,500원 (<span class="up">+6.1%</span>) ÷ 하방 37,800원 (−7.8%) = <strong>1:0.79</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 7.8% = <strong>자산의 6.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 6.4%</strong></li>
+<li>유동성 참고: 20일 ADV 1,784.0억 · 1일 소화 한도는 ADV의 10%(178.40억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 7.8% · ATR14 2,148원 (손절폭/ATR 1.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 7.8% = ATR14 × 1.5배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 36,891원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.61</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-488080"></span>📋 결정카드 — TIGER 반도체TOP10레버리지(488080) 판정: 관심 선물: 無 현재가: 40,820원 진입: 40,000~40,800원 손절: 37,800원 목표: 1차 43,500원 (2차 46,000원) 손익비: 1:1.8 기간: 스윙 2~4주 촉매: 삼성전자·SK하이닉스 3분기 실적(10월 하순 예상) 반증: 종가 MA20(35,735) 하회 시 청산 / 메모리 대형주 2일 연속 <span class="down">-3%</span> 시 비중 절반 축소</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
