@@ -1,0 +1,298 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>티엠씨(217590) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261002-103824-티엠씨-217590.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:2</div><div class="tp-c"><b>결론 발췌</b> AI데이터센터 &#x27;광통신&#x27; 테마 + 미국 광케이블 공급부족 내러티브로 상한가 직행했으나, 실체(광케이블 매출비중 6%·2026 영업이익률 1.2%)는 아직 테마 기대를 못 따라감. 2027년 턴어라운드 스토리는 유효하나 지금 가격은 &#x27;스토리 선반영&#x27;. 신규상장(2025.12.15) 10개월차 고변동주 → 판정 &#x27;관망(과열 되돌림 시 관심)&#x27;. 추격매수 손익비 1:0.8로 진입 부적합, 되돌림 후 관심가 기준 손익비 1:2.0. ━━━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 21.4% (당일거래대금 949.3억 / 시총 4,443억) [인용: trendscan] • 당일 등락 +29.95% = 상한가 [실측: KIS 현재가 18,4…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>티엠씨(217590)</h1>
+<div class="meta">📊 trend · 2026-10-02 10:38 · 코드 217590</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-02 10:38)</div><div class="kpi-v">18,440원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">4,443억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">3.97</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:-0.35</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">16,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 13000원 (MA20 눌림 되돌림 확인 후 · 추격 비권장)</span><span class="dc dn">손절 11,500원</span><span class="dc up">목표 16,000원</span><span class="dc">손익비 진입 1:2 · 현재가 1:-0.35</span><span class="dc">기간 스윙 4~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 분기보고서(11월 예상·날짜비확정), 미국 텍사스 데이터센터향 수주공시(수시)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 12억 → 턴어라운드 논지 폐기·관망전환 / 상한가 익일 거래대금&lt;300억 &amp; MA5(14,774) 하회종가 → 테마소멸 되돌림</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 티엠씨(217590)  ※개별주식선물 無(현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: AI데이터센터 &#x27;광통신&#x27; 테마 + 미국 광케이블 공급부족 내러티브로 상한가 직행했으나, 실체(광케이블 매출비중 6%·2026 영업이익률 1.2%)는 아직 테마 기대를 못 따라감. 2027년 턴어라운드 스토리는 유효하나 지금 가격은 &#x27;스토리 선반영&#x27;. 신규상장(2025.12.15) 10개월차 고변동주 → 판정 &#x27;관망(과열 되돌림 시 관심)&#x27;. 추격매수 손익비 1:0.8로 진입 부적합, 되돌림 후 관심가 기준 손익비 1:2.0.</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 21.4% (당일거래대금 949.3억 / 시총 4,443억) [인용: trendscan]</li>
+<li>당일 등락 <span class="up">+29.95%</span> = 상한가 [실측: KIS 현재가 18,440원 = 상한가 18,440원 일치]</li>
+<li>거래대금 폭발: 당일 949억 vs 20일평균 271.4억 = 3.5배 [실측: KIS 20일 거래대금]</li>
+<li>추세: MA 정배열(현재가 18,440 &gt; MA5 14,774 &gt; MA20 12,954) O / 연속상승 2일 / 5일 <span class="up">+28.7%</span></li>
+<li>위치: 52주 고 38,700 / 저 8,820 대비 현재 18,440 → 고점比 <span class="down">-52%</span>, 저점比 <span class="up">+109%</span> [실측: KIS]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>회사 정체성 [실측: 사업보고서 2025.12 접수 20260318000642]: (주)티엠씨, 선박·해양용 산업케이블 제조. 국내 선박용 케이블 점유율 1위(45~50%) [인용: 유진투자 2025.11.24].</li>
+<li>제품믹스 [실측: 사업보고서 제품별 매출, 2025연간]:</li>
+<li>선박용 케이블(제품) 2,324억 (68%)</li>
+<li>해양용 케이블 281억 (8%)</li>
+<li>광 케이블(제품) 193억 (6%) ← 테마 핵심이지만 비중 작음</li>
+<li>기타·상품·광상품 등 나머지 18%</li>
+<li>2026 반기 사업부문: 선박선 91% / 광 6% / 기타 3% [실측: 반기보고서 2026.06 접수 20260814003281]</li>
+<li>급등사유 [인용: 매일경제 2026-10-02 &quot;티엠씨-광통신(광케이블/광섬유) 테마 상승세&quot;; 뉴스핌 2026-10-01 &quot;AI 데이터센터 투자 확대→광통신 인프라 수요, 머큐리 상한가&quot;]:</li>
+</ul>
+<p>→ AI 데이터센터 CAPEX 확대 기대로 &#x27;광통신(광케이블/광섬유)&#x27; 테마 전반 급등, 티엠씨가 테마 대표주 중 하나로 편입되며 상한가.</p>
+<ul>
+<li>실체 평가(냉정): 광케이블 매출비중은 전사 6%에 불과 → 당장의 광통신 실적 기여는 제한적. 다만 ①국내 유일 원전용 광케이블 제조사(신한울 3·4호기 공급), ②미국 텍사스 법인(TMC TEXAS)으로 AI데이터센터·FTTH 광케이블 진출(코닝·암페놀 고객사향, BABA/BEAD Made-in-USA 요건 충족)이라는 &#x27;실제 투자 스토리&#x27;는 존재 [인용: SK증권 2026-06-22, 유진투자 2026-05-28]. 즉 순수 테마는 아니나, 현 매출 실체 &lt; 기대.</li>
+</ul>
+<p>③ 실적 (DART 실측 · 연결 기준)</p>
+<ul>
+<li>연간 추이 [실측: 사업보고서 2025.12 접수 20260318000642, 연결(CFS)]</li>
+<li>2023: 매출 3,722.6억 / 영업이익 119.9억 / OPM 3.2%</li>
+<li>2024: 매출 3,625.1억 / 영업이익 142.7억 / OPM 3.9%</li>
+<li>2025: 매출 3,408.8억 / 영업이익 64.3억 / OPM 1.9% / 순손실 -5.9억(적자전환)</li>
+</ul>
+<p>→ 2025 YoY: 매출 <span class="down">-6.0%</span>, 영업이익 <span class="down">-55.0%</span>, 순이익 흑→적. 매출·이익 동반 역성장.</p>
+<ul>
+<li>순손실 분해 [실측: 2025연간]: 영업이익 64.3억은 흑자인데 순손실 -5.9억 → 법인세 16.8억 + 영업외(금융/상장비용 등) 부담으로 세후 적자. 즉 &#x27;영업 자체는 흑자이나 상장연도 일회성·금융비용으로 순손실&#x27;로 해석. 다만 영업이익 자체가 전년比 반토막이라 영업악화도 병행.</li>
+<li>분기 추이 [실측: 각 분기보고서, 연결]</li>
+<li>2025 3Q단독: 매출 798억 / 영업이익 14.1억 / 순이익 11.6억 [접수 20251218000217]</li>
+<li>2026 1Q: 매출 939억 / 영업이익 9.75억 / 세전이익≈법인세(9.7억) → 순이익 거의 0 [접수 20260514000711]</li>
+<li>2026 2Q단독: 매출 1,064억 / 영업이익 13.4억 (반기누적 영업이익 23.2억) [접수 20260814003281]</li>
+<li>2026 반기누적: 매출 2,003억 / 영업이익 23.2억 / OPM 1.16% / 매출총이익률 6.9%</li>
+</ul>
+<p>→ 검산: 1Q 939 + 2Q 1,064 = 2,003억 = 반기누적 ✓ / 영업이익 9.75 + 13.4 ≈ 23.2억 ✓</p>
+<ul>
+<li>재무안정성 [실측: 반기보고서 2026.06, 연결]</li>
+<li>자산 2,305.7억 / 부채 1,170.5억 / 자본 1,135.1억 → 부채비율 103.1% (산식 1,170.5/1,135.1)</li>
+<li>2025말 부채비율 113.9% → 2026 상반기 103.1%로 소폭 개선(상장 유상증자 자본확충 효과)</li>
+<li>영업현금흐름: 2025연간 <span class="up">+102.3</span>억이나 2026 반기 -130.7억(운전자본·재고 부담) [실측] → 성장기 운전자본 유출 주의</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>정식 컨센서스(목표가): 미확인 [인용: consensus.py 2026-10-02 — 최근 6개월 목표가 제시 리포트 없음, 투자의견 NR(Not Rated) 2건]. 신규상장주라 커버리지 초기 단계.</li>
+<li>하우스 추정(Not Rated, 참고용) [인용: 유진투자 2026-05-28 &#x27;시즌2를 향해&#x27;]:</li>
+<li>2027E: 매출 4,068억 / 영업이익 171억 / OPM 4.2% — 고마진 광케이블·원전·데이터센터 믹스 개선 가정.</li>
+<li>1Q26은 일시적 비용으로 부진, 본격 성장은 2027년으로 제시(=올해는 과도기).</li>
+<li>달성 가능성 판정: 中.</li>
+<li>긍정: 미국 텍사스 공장 가동률 정상화·인증 취득(2026)→2027 매출 레버리지 논리 일관.</li>
+<li>부정: 2026 반기 OPM 1.16% → 2027 4.2%는 2년 내 <span class="up">+3%</span>p 점프 필요. 광케이블 실매출(연 193억) 대비 데이터센터 수주 가시화가 아직 숫자로 확인 안 됨 [미확인: 미국 데이터센터향 수주잔고].</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 지표 [실측: KIS 2026-10-02]: 주가 18,440원 / PBR 3.97x / BPS 4,647원 / EPS -22원(적자, PER 무의미) / 시총 4,443억.</li>
+<li>PER 산정 불가(순손실). PBR·시총/이익 기반 교차검증:</li>
+<li>시총/2027E영업이익 = 4,443억 / 171억 = 26.0배 (2년 선행 영업이익 기준에도 고평가 영역)</li>
+<li>PBR 3.97x: 전선·케이블 제조업 통상 PBR 1~2x 대비 2배 이상. 성장 프리미엄이 과도하게 선반영.</li>
+<li>자체 목표가 산출(시나리오별, 계산식 노출):</li>
+<li>기준 EPS: 적자라 EPS멀티플 불가 → BPS 4,647 × 적정 PBR로 산출.</li>
+<li>Base(적정 PBR 2.0x, 턴어라운드 진행 가정): 4,647 × 2.0 = 9,300원</li>
+<li>Bull(적정 PBR 3.0x, 2027 실적 조기 가시화): 4,647 × 3.0 = 13,900원</li>
+<li>Bear(적정 PBR 1.5x, 테마 소멸·실적 지연): 4,647 × 1.5 = 7,000원</li>
+</ul>
+<p>→ 자체 적정가치 밴드 7,000~13,900원. 현재가 18,440원은 Bull 시나리오도 초과 = 테마 오버슈팅.</p>
+<ul>
+<li>증권사 목표가: 미확인(전 커버 NR). 공모가 밴드는 8,000~9,300원이었음 [인용: 유진투자 2025.11.24].</li>
+</ul>
+<p>⑥ 진입전략·손익비 (★개별주식선물 미상장 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지/저항 [실측: KIS 일봉]:</li>
+<li>저항: 당일 상한가 18,440(=종가), 다음 심리저항 20,000, 그 위 52주고 38,700(원거리).</li>
+<li>지지: MA5 14,774 → MA20 12,954 → 전저점대 11,000~12,000 → 공모가/52주저 8,820~9,300.</li>
+<li>이평선: 현재가가 MA5·MA20 모두 큰 폭 상회(갭) → 단기 과열, 상한가 익일 변동성 극대.</li>
+<li>추격매수 손익비(현재가 18,440 진입 가정):</li>
+<li>1차목표 20,000(<span class="up">+8.5%</span>) / 손절 14,700(MA5 하단, <span class="down">-20.3%</span>) → 손익비 1:0.42. 부적합.</li>
+<li>Bull 13,900은 이미 현재가 아래 → 상방여력이 자체밸류 밴드로는 사실상 소진. 추격 &#x27;진입 부적합&#x27;.</li>
+<li>되돌림 후 관심 시나리오(권장):</li>
+<li>관심진입 13,000원대(MA20 부근 눌림) 가정 / 1차목표 16,000(<span class="up">+23%</span>)·2차 18,400(<span class="up">+42%</span>) / 손절 11,500(<span class="down">-11.5%</span>)</li>
+<li>손익비 = 23% / 11.5% = 1:2.0 (1차 기준). 2차까지 1:3.7.</li>
+<li>50% 집중 리스크 경고: 신규상장 10개월차·적자·PBR 4x·상한가 익일이라는 3중 고변동. 자산의 50% 집중은 부적합. 테마 변동성상 이벤트전 비중 상한을 엄격히 적용할 것(⑦ 포지션 사이징 참조).</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<p>[제품별 매출 실측 — 2025연간 연결, 단위 억원] [실측: 사업보고서 접수 20260318000642]</p>
+<ul>
+<li>선박용케이블(제품+상품): 2,324 + 219 = 2,543억 (전사 68%<span class="up">+6%</span>)</li>
+<li>해양용케이블: 281억 (8%)</li>
+<li>광케이블(제품+상품): 193 + 28 = 221억 (6%<span class="up">+1%</span>) ← 테마 핵심, 실매출 작음</li>
+<li>기타: 나머지</li>
+<li>원재료: 구리(LME 연동)·알루미늄·절연재(XLPE/PVC/EPDM) — 구리價 변동이 원가 직결 [실측: 사업보고서 가격변동추이]</li>
+<li>고객/인증: 국제선급(DNV·ABS·Lloyd&#x27;s), 미국 BABA/BEAD, 코닝·암페놀향 [인용: SK증권 2026-06-22]</li>
+</ul>
+<p>[9-7 바텀업 영업이익 모델 — 2026 하반기·2027 전환] 전제: 선박케이블은 안정적 캐시카우(조선 발주 회복), 광/특수케이블 믹스 상승이 이익 레버리지. 입력은 반기 실측 연율화 + 하우스 추정.</p>
+<ul>
+<li>2026E(연율화, 반기×2 보수적) [추정: 반기 매출 2,003×2≈4,006억, 영업이익 23.2×2≈46억, OPM 1.2%]</li>
+<li>물량×단가: 선박 사업부 91% 비중 유지, 광 6% → 믹스 개선 미미</li>
+<li>2027E Bull [인용: 유진투자 추정]: 매출 4,068억 × OPM 4.2% = 영업이익 171억</li>
+<li>2027E Base [추정: OPM 3.0% 가정 = 2023~24 수준 회복]: 4,068 × 3.0% = 122억</li>
+<li>2027E Bear [추정: OPM 1.5% 정체]: 4,068 × 1.5% = 61억</li>
+</ul>
+<p>[3Q·4Q 분기배분 — 2026]</p>
+<ul>
+<li>2026 반기 영업이익 23.2억 실측 → 하반기는 조선 납기·운전자본 회수로 상반기 이상 가정</li>
+<li>3Q26E [추정: 2Q 13.4억 수준 유지~소폭↑ = 14~18억], 4Q26E [추정: 16~22억]</li>
+<li>민감도: OPM 1%p 변동 시 연 영업이익 ±40억(매출 4,000억 기준)</li>
+</ul>
+<p>★ 결론 문장(결정카드 반증 연동): &quot;3Q26 연결 영업이익 ≥ 20억이면 하반기 믹스개선·턴어라운드 논지 유지. &lt; 12억이면 &#x27;광통신 스토리의 실적 뒷받침 실패&#x27;로 테마 프리미엄 정당성 소멸 → 논지 폐기.&quot;</p>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정 이벤트):</li>
+<li>2026 3Q 분기보고서: 11월 중순 예상(2025 3Q가 12월 지연공시였던 전례 있어 날짜 비확정 → [미확인: 정확 공시일])</li>
+<li>미국 텍사스 공장 가동률 정상화·AI데이터센터향 수주 공시(수시) [미확인: 구체 일정]</li>
+<li>신한울 3·4호기 원전 케이블 납품 진행(수시)</li>
+</ul>
+<ul>
+<li>반증 조건 3개(최소 1개 분기실적 임계):</li>
+</ul>
+<ol>
+<li>[분기실적 임계] 3Q26 연결 영업이익 &lt; 12억 → 턴어라운드 논지 폐기, 테마 프리미엄 소멸 판단.</li>
+<li>[수급] 상한가 익일 거래대금 급감(&lt;300억)하며 MA5(14,774) 하회 종가 → 테마 단기소멸, 되돌림 본격화.</li>
+<li>[내러티브] 미국 데이터센터향 광케이블 &#x27;수주 숫자&#x27;가 분기보고서/IR에 미등장 → 스토리의 실체 없음 확인.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스 (3Q26 실적 × 당일 주가):</li>
+<li>실적 서프(영업이익≥25억) × 갭상승 → 추세추종, 20,000 돌파 시 분할 관심</li>
+<li>실적 인라인(15~20억) × 보합 → MA20 눌림 확인 후 관심</li>
+<li>실적 쇼크(&lt;12억) × 갭하락 → 테마 프리미엄 붕괴, 관망·숏내러티브(현물이라 회피)</li>
+<li>실적 쇼크 × 갭상승(테마 재료 우선) → 과열, 추격금지·차익실현 구간</li>
+</ul>
+<ul>
+<li>확률가중 시나리오 (확률 합 100%):</li>
+<li>Bear 40%: 테마 소멸 + 3Q 실적 미흡 → PBR 1.5x = 7,000원. 현재比 <span class="down">-62%</span>. 기대기여 <span class="down">-24.8%</span>p</li>
+<li>Base 45%: 되돌림 후 턴어라운드 기대 유지 → PBR 2.0x = 9,300원. 현재比 <span class="down">-50%</span>. 기대기여 <span class="down">-22.3%</span>p</li>
+<li>Bull 15%: 데이터센터 수주 가시화 → PBR 3.0x = 13,900원. 현재比 <span class="down">-25%</span>. 기대기여 <span class="down">-3.7%</span>p</li>
+</ul>
+<p>→ 확률가중 기대가치 ≈ 8,700원 (18,440 × 가중). 현재가 대비 기대수익률 약 <span class="down">-53%</span> → 현재가 추격의 기대값은 명백히 음(-). &#x27;관망&#x27; 결론과 일치.</p>
+<ul>
+<li>수급·유동성 [실측: KIS]: 외국인/기관 20일 순매수 = 미확인(API 필드 공백). 20일 평균 거래대금 271.4억 → ADV 10% = 약 27.1억(현물 유동성 충분, 단 테마 급변 시 변동성 리스크).</li>
+</ul>
+<ul>
+<li>포지션 사이징(자산 대비 %로만):</li>
+<li>리스크예산법: 손실 1% ÷ 손절폭. 추격(손절폭 20.3%) → 4.9%. 되돌림진입(손절폭 11.5%) → 8.7%.</li>
+<li>집중상한 50% / 이벤트전 25% / 위 중 최소값.</li>
+<li>→ 추격은 &#x27;진입부적합(0%)&#x27;. 되돌림 관심 시에도 신규상장·적자·고PBR 감안 리스크예산 5% 내외 권고, 실적공시 전 25% 상한 적용.</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>정식 증권사 목표가/정량 컨센서스 (전 커버 Not Rated)</li>
+<li>미국 데이터센터·FTTH 광케이블 구체 수주잔고/수주금액</li>
+<li>3Q26 분기보고서 정확 공시일 (2025 3Q가 12월 지연공시 전례)</li>
+<li>외국인·기관 20일 순매수 수치 (KIS API 필드 공백)</li>
+<li>EV/EBITDA (순차입·감가상각 상세 미집계)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 사업보고서 2025.12 (접수 20260318000642), 반기보고서 2026.06 (20260814003281), 분기 2026.03 (20260514000711), 분기 2025.09 (20251218000217)</li>
+<li>KIS OpenAPI 현재가·일봉·거래대금 (2026-10-02 조회)</li>
+<li>consensus.py (2026-10-02), 스탁이지/네이버/FnGuide 집계</li>
+<li>SK증권 2026-06-22, 유진투자 2026-05-28·2025-11-24 (전부 Not Rated, 참고용)</li>
+<li>매일경제 2026-10-02, 뉴스핌 2026-10-01 (광통신 테마 급등 기사)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>2026 분기합: 1Q매출 939 + 2Q 1,064 = 2,003억 = 반기누적 ✓</li>
+<li>영업이익: 1Q 9.75 + 2Q 13.4 = 23.2억 = 반기누적 ✓</li>
+<li>부채비율: 부채 1,170.5 / 자본 1,135.1 = 103.1% ✓</li>
+<li>PBR: 주가 18,440 / BPS 4,647 = 3.97x ✓ (KIS 공시치 일치)</li>
+<li>손익비(되돌림): 상방 23% / 하방 11.5% = 2.0 ✓ (헤더·본문 일치)</li>
+<li>시나리오 확률: 40<span class="up">+45</span><span class="up">+15</span> = 100% ✓</li>
+</ul>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 10:38 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 18,440원 (<span class="up">+29.9%</span>) · 시총 4,443억 · 5일 <span class="up">+28.7%</span> / 20일 <span class="up">+78.5%</span> / 60일 <span class="up">+55.1%</span></li>
+<li>MA5 14,774원 / MA20 12,954원 / MA60 12,331원 → MA20 이격 <span class="up">+42.3%</span> · MA60 이격 <span class="up">+49.5%</span></li>
+<li>52주 고 38,700원 / 저 8,820원 → 고점 대비 <span class="down">-52.4%</span> · 20일 고 18,440원 / 저 10,070원</li>
+<li>후행 PER -838.18 / PBR 3.97 (EPS -22원 · BPS 4,647원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 271.9억 (5일 247.3억)</li>
+<li>외국인 순매수 5일 12.7억 / 20일 65.6억 · 기관 5일 0.4억 / 20일 17.6억 · 개인 20일 74.1억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.34% / 20일 평균 0.61% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 4.88% (09/04) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비</strong></p>
+<ul>
+<li>현재가 18,440원가 손절 11,500~목표 16,000 구간 밖 → 라인 재설정 필요</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 37.6% = <strong>자산의 1.3%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.3%</strong></li>
+<li>유동성 참고: 20일 ADV 271.9억 · 1일 소화 한도는 ADV의 10%(27.19억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 37.6% · ATR14 1,315원 (손절폭/ATR 5.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 37.6% = ATR14 × 5.3배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 16,467원</li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-217590"></span>📋 결정카드 — 티엠씨(217590) 판정: 관망 선물: 無 현재가: 18440원 진입: 13000원 (MA20 눌림 되돌림 확인 후 · 추격 비권장) 손절: 11500원 목표: 1차 16000원 (2차 18400원) 손익비: 1:2.0 기간: 스윙 4~8주 촉매: 3Q26 분기보고서(11월 예상·날짜비확정), 미국 텍사스 데이터센터향 수주공시(수시) 반증: 3Q26 연결 영업이익 &lt; 12억 → 턴어라운드 논지 폐기·관망전환 / 상한가 익일 거래대금&lt;300억 &amp; MA5(14,774) 하회종가 → 테마소멸 되돌림</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
