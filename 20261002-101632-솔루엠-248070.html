@@ -1,0 +1,255 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>솔루엠(248070) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261002-101632-솔루엠-248070.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:16</div><div class="tp-c"><b>결론 발췌</b> ESL 흑자전환·북미 확장 + 데이터센터 전력(BBU) 신사업 기대로 수급 쏠린 추세 초입. 다만 당일 +7.7%·2일 +27%로 단기 과열, 손익비 1:2.0(진입 16,600 / 손절 14,900 / 1차 20,000)의 &#x27;관심·눌림목 대응&#x27; 등급. 목표가 20,000원(1차)·22,000원(2차). ━━━━━━━━━━━━━━━ ① 포착 신호 (KIS 실측, 2026-10-02) - 현재가 16,620원 (전일 +1,190원, +7.71%) [실측: KIS inquire-price] - 당일 거래량 648,723주 / 거래대금 108억원 [실측: KIS] - 20일 평균거래량 154,372주 → 당일 4.2배 급증 [실측: KIS 일…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>솔루엠(248070)</h1>
+<div class="meta">📊 trend · 2026-10-02 10:16 · 코드 248070</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-02 10:16)</div><div class="kpi-v">16,620원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">7,947억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">64.17</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.66</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:16</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.97</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">20,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 14,900~15,500원(눌림목) / 공격시 16,600원</span><span class="dc dn">손절 14,900원</span><span class="dc up">목표 20,000원</span><span class="dc">손익비 진입 1:16 · 현재가 1:1.97 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2로 적었지만 진입·손절·목표로 계산하면 1:16다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026년 11월 중순 3Q26 실적발표</div><div class="dc-l">🛑 반증: 3Q26 단독 영업익 &lt; 120억 → 폐기 / 종가 14,900원 이탈 → 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 솔루엠(248070)  ※개별주식선물 無(현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: ESL 흑자전환·북미 확장 + 데이터센터 전력(BBU) 신사업 기대로 수급 쏠린 추세 초입. 다만 당일 <span class="up">+7.7%</span>·2일 <span class="up">+27%</span>로 단기 과열, 손익비 1:2.0(진입 16,600 / 손절 14,900 / 1차 20,000)의 &#x27;관심·눌림목 대응&#x27; 등급. 목표가 20,000원(1차)·22,000원(2차).</p>
+<hr>
+<p>① 포착 신호 (KIS 실측, 2026-10-02)</p>
+<ul>
+<li>현재가 16,620원 (전일 <span class="up">+1,190</span>원, <span class="up">+7.71%</span>) [실측: KIS inquire-price]</li>
+<li>당일 거래량 648,723주 / 거래대금 108억원 [실측: KIS]</li>
+<li>20일 평균거래량 154,372주 → 당일 4.2배 급증 [실측: KIS 일봉 산출]</li>
+<li>회전율(당일거래량/상장주식 4,781만주) 1.36% [실측: 648,723/47,816,236]</li>
+<li>2일 상승률 <span class="up">+27.5%</span> (9/30 13,040 → 10/2 16,620) [실측: KIS 일봉]</li>
+<li>MA5 14,310 / MA20 13,158 / MA60 13,812 [실측: KIS 산출]</li>
+</ul>
+<p>→ 현재가가 MA5·20·60 전부 상회(정배열 &#x27;초입&#x27;). 단 MA20&lt;MA60로 완전정배열 아직 미완성.</p>
+<ul>
+<li>52주 밴드: 저 11,520(7/29) ~ 고 24,350(5/6), 현재는 밴드 하단 40% 지점 [실측: KIS]</li>
+<li>시가총액 7,947억원 [실측: KIS hts_avls = 16,620 × 47,816,236]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업구조(2025 연간, 연결): 전자부품(파워모듈·3IN1보드) 66.2% / ICT(ESL·IoT) 33.8% [실측: 사업보고서 접수 20260325001187]</li>
+</ul>
+<p>· 2026 반기엔 ICT 비중 39.8%로 확대 — ESL 성장이 믹스 개선 견인 [실측: 반기보고서 접수 20260814000937]</p>
+<ul>
+<li>급등사유(복합):</li>
+</ul>
+<p>(1) 실적 모멘텀 — 2Q26 영업익 전년비 <span class="up">+79%</span> 보도, ESL 흑자구간 진입 [인용: 잡포스트 2026-10-01] (2) ESL 북미 업태 확장 — 마트 넘어 드럭스토어·오피스·홈센터로 확장 가속 [인용: 디지털타임스 2026-10-01] (3) 英 웨이트로즈 ESL 200개점 돌파, 글로벌 유통 디지털화(ESL+사이니지+데이터 플랫폼) [인용: 서울경제TV·아시아투데이 2026-09-30] (4) 데이터센터용 BBU(배터리 백업 유닛)·전력 신사업 밸류 재평가 기대 [인용: 유안타 2026-05-29·미래에셋 리포트] (5) 수급 테마 — &#x27;고래 종목&#x27; 단기 매수세 유입 [인용: 머니투데이 2026-10-01]</p>
+<p>③ 실적 (DART 실측, 연결 CFS)</p>
+<ul>
+<li>3개년 추이 (매출 / 영업이익 / 순이익, 억원):</li>
+</ul>
+<p>· 2023: 19,511 / 1,545 / 1,204 [실측: 2023 사업보고서] · 2024: 15,944 / 691 / 377 [실측: 2024 사업보고서] — 매출·이익 급감(보드 업황 부진) · 2025: 17,002 / 465 / 142 [실측: 2025 사업보고서] — 매출 반등했으나 영업익 추가 감소, 순익 142억으로 급락</p>
+<ul>
+<li>2025 순익 급감 분해: 영업익 465억 → 세전 317억(영업외 -148억) → 법인세 175억(유효세율 55.2%, 이례적 고세율) → 순익 142억 [실측: 2025 사업보고서]</li>
+</ul>
+<p>· 순익 급감의 핵심은 ①영업익 감소 ②비정상적으로 높은 법인세부담(이연법인세·해외법인 영향 추정)</p>
+<ul>
+<li>분기 흐름 (연결 누적, 억원): 매출 / 영업이익</li>
+</ul>
+<p>· 25-1Q 누적: 3,974 / 114.7 [실측: 2025 1분기보고서] · 26-1Q 누적: 4,782 / 216.6 [실측: 2026 1분기보고서] — 매출 <span class="up">+20.3%</span>, 영업익 <span class="up">+88.8%</span> YoY · 26-반기 누적: 9,701 / 434.8 [실측: 2026 반기보고서 biz] · → 26-2Q 단독 영업익 = 434.8 - 216.6 = 218.2억 [추정: 반기누적-1Q누적]</p>
+<ul>
+<li>재무안정성(2025 연말): 자산 12,765억 / 부채 7,138억 / 자본 5,628억 → 부채비율 126.8% [실측: 2025 사업보고서, 7138/5628]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>목표가 컨센 평균 26,000원(최고 29,000/최저 22,000, 6건) · 현재가 대비 <span class="up">+56%</span> [인용: report-hub consensus 2026-10-02]</li>
+<li>투자의견 Buy 6 / NR 2 [인용: consensus]</li>
+<li>연간 컨센(fnguide, 억원/EPS원):</li>
+</ul>
+<p>· FY26E 매출 19,450 / 영업익 750 / 순익 390 / EPS 803 / PER 20.7 [인용: fnguide] · FY27E 매출 20,200 / 영업익 990 / 순익 690 / EPS 1,441 / PER 11.5 [인용: fnguide]</p>
+<ul>
+<li>분기 컨센: 26-3Q 매출 5,260 / 영업익 180 [인용: naver] — 상반기 추세대로면 상회 가능</li>
+<li>★주의: 최근 리포트 흐름은 &#x27;상향 후 하향&#x27;. 5월엔 27,000~29,000원 상향 러시였으나, 9/2 KB증권이 ESL 공급 지연·보드 업황 부진 반영해 27,000→22,000원 하향 [인용: KB 2026-09-02]</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 지표: PER 64.2(후행 EPS 259) / PBR 1.66(BPS 9,997) [실측: KIS]</li>
+</ul>
+<p>· 후행 PER은 2025 순익 급감(법인세 왜곡)으로 과대. Forward 기준이 유의미.</p>
+<ul>
+<li>Forward PER: FY26E 20.7 / FY27E 11.5 [산식: 16,620 ÷ 컨센 EPS]</li>
+<li>자체 목표가 산식:</li>
+</ul>
+<p>· [추정] 적정멀티플 PER 15배(실적 정상화·성장 프리미엄 반영, 보수적) × FY27E EPS 1,441 = 21,615원 ≈ 22,000원 · [추정] 공격 시나리오 PER 18배 × EPS 1,441 = 25,938원 ≈ 26,000원(컨센 평균 수렴) · [추정] 보수 시나리오 PER 13배 × FY26E EPS 803 = 10,439원 — 단기 실적만 보면 현재가 고평가 경고</p>
+<ul>
+<li>결론: 자체 1차 목표 20,000원(=FY27E EPS×13.9배, 52주고 중간), 2차 22,000원(컨센 하단·적정멀티플). 컨센 평균 26,000원은 Bull 시나리오.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (※개별주식선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: 1차 MA5 14,300 / 2차 MA20·MA60 13,200~13,800(갭 지지대) / 강지지 13,000(돌파 시작점)</li>
+<li>저항: 1차 17,200(당일 고가) / 2차 20,000(심리·라운드) / 3차 24,350(52주고)</li>
+<li>현물 전략(단기 과열 반영, 눌림목 대응 권장):</li>
+</ul>
+<p>· 공격 진입: 16,600원 현재가 (추격, 손절 타이트) · 권장 진입: 14,900~15,500원 눌림목(MA5 부근 되돌림 대기) · 손절: 14,900원 이탈(MA5·갭 하단 붕괴 = 추세 훼손) · 1차 익절: 20,000원 / 2차: 22,000원</p>
+<ul>
+<li>손익비(현재가 추격 기준): 진입 16,600 / 손절 14,900(<span class="down">-10.2%</span>) / 1차목표 20,000(<span class="up">+20.5%</span>) → 1:2.0</li>
+<li>손익비(눌림목 15,200 기준): 손절 14,900(<span class="down">-2.0%</span>) / 목표 20,000(<span class="up">+31.6%</span>) → 1:15.8 (눌림목이 압도적 우위)</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델</p>
+<ul>
+<li>ICT(ESL) 사업부: 2025 매출 5,751억(비중 33.8%) → 2026 반기 3,859억(비중 39.8%, 연율화 시 <span class="up">+34%</span> 성장) [실측: 사업보고서·반기보고서]</li>
+</ul>
+<p>· 원재료 EPD(전자종이)가 ICT 매입의 52.5% — E-Ink·DKE 의존, 디스플레이 단가가 ESL 수익성 좌우 [실측: 사업보고서] · 고객: 英 웨이트로즈 200개점 등 유럽·북미 유통 대형 레퍼런스 확보 [인용: 서울경제TV 2026-09-30]</p>
+<ul>
+<li>전자부품(파워모듈·3IN1) 사업부: 2025 매출 11,252억(66.2%) → 반기 5,842억(60.2%) [실측]</li>
+</ul>
+<p>· 데이터센터 BBU용 전력 신사업이 추가 성장축 [인용: 유안타·미래에셋]</p>
+<ul>
+<li>★바텀업 결론문장: 26-반기 영업익 434.8억(반기만에 FY26E 컨센 750억의 58% 달성). 3Q 단독 영업익 ≥ 180억이면 연 800억+ 경로 유지로 추세 유효, &lt; 120억이면 ESL 공급지연(KB 경고)이 현실화된 것으로 투자가설 폐기.</li>
+</ul>
+<p>★촉매 정량분석(§10)</p>
+<ul>
+<li>급등의 핵심 촉매 = ESL 흑자구간 진입 + 북미·유럽 레퍼런스 확산(수주 가시성). 이는 &#x27;일회성&#x27;이 아닌 &#x27;분기 반복 실적&#x27; 성격 → 지속성 있음. 단, 주가 반영 속도(2일 <span class="up">+27%</span>)가 펀더보다 빨라 단기 되돌림 리스크.</li>
+</ul>
+<p>⑦ 촉매캘린더·반증·시나리오·사이징</p>
+<ul>
+<li>촉매캘린더(날짜 확정만):</li>
+</ul>
+<p>· 2026년 11월 중순(추정): 3Q26 분기보고서 — 영업익 180억 상회 여부가 추세 분수령 [추정: 전년 11/14 접수 이력 기준] · 상시: ESL 신규 유통사 수주 공시·북미 업태 확장 보도(현재진행형 모멘텀)</p>
+<ul>
+<li>반증 3개(수치 → 행동):</li>
+</ul>
+<p>(1) 3Q26 단독 영업익 &lt; 120억 → ESL 공급지연 현실화, 투자가설 폐기·전량 청산 (2) 종가 14,900원(MA5·갭하단) 이탈 → 추세 훼손, 손절 집행 (3) EPD(E-Ink) 단가 급등 or 보드 업황 재악화로 2026 영업이익률 4% 하회(상반기 4.5%) → 밸류 디레이팅, 비중 축소</p>
+<ul>
+<li>이벤트 매트릭스:</li>
+</ul>
+<p>· 3Q 어닝서프(영업익≥200억) → 20,000원 돌파 시도, 컨센 재상향 · 3Q 인라인(150~200억) → 16,000~20,000 박스권 등락 · 3Q 쇼크(&lt;120억) → 13,000원 지지 테스트, 추세 종료</p>
+<ul>
+<li>확률가중 시나리오(합 100%):</li>
+</ul>
+<p>· Bull 30%: ESL 수주 가속<span class="up">+3</span>Q 서프 → 22,000~24,350원 (<span class="up">+32</span>~47%) · Base 45%: 실적 인라인·수급 지속 → 18,000~20,000원 (<span class="up">+8</span>~20%) · Bear 25%: 공급지연·단기과열 되돌림 → 13,000~14,900원 (-10~22%) · 기대값 ≈ 0.30×23,000 + 0.45×19,000 + 0.25×14,000 = 18,950원 (<span class="up">+14%</span>)</p>
+<ul>
+<li>수급·유동성: 당일 거래대금 108억(중소형주 치고 양호), 시총 7,947억으로 개별주식선물 미상장 → 현물 스윙만 가능, 레버리지 불가. 유동성은 진입·청산에 충분.</li>
+<li>포지션 사이징(자산 대비 %만): 선물 없어 레버리지 불가·단기 과열 구간이므로 자산의 10~15% 이내 분할 진입 권고. 눌림목 대기분을 절반 이상 남겨 추격 리스크 분산. 집중한도(자산 50%)의 1/3 이내로 억제.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>25-반기/25-3Q 연결 단독분기 영업이익 상세(fnlttSinglAcntAll API가 분기단독·누적 혼재로 반환 → 25년 분기 QoQ 정밀분해 미확인). 26년 수치는 1Q·반기 누적으로 검증됨.</li>
+<li>2025 영업외손실 148억의 세부 내역(환차손·지분법 등) 미확인.</li>
+<li>데이터센터 BBU 신사업의 구체 수주금액·양산 시점 미확인(컨센 반영분 불명확).</li>
+<li>3Q26 정확한 실적 발표일(11월 중순은 전년 이력 기반 추정).</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI 실시간 시세·일봉 (2026-10-02 실측)</li>
+<li>DART: 2023/2024/2025 사업보고서, 2025·2026 1분기·반기보고서 (접수 20260325001187, 20260814000937 등)</li>
+<li>report-hub consensus (stockeasy·naver·fnguide·hankyung, 2026-10-02 수집)</li>
+<li>뉴스: 잡포스트·디지털타임스·서울경제TV·아시아투데이·머니투데이 (2026-09-30~10-01)</li>
+<li>증권사: KB(9/2 22,000 하향), DS(5/28 29,000), iM(5/26 27,000), 미래에셋(5/22 28,000)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총: 16,620 × 47,816,236 = 7,947억 ✓ (KIS hts_avls 일치)</li>
+<li>부채비율: 7,138/5,628 = 126.8% ✓</li>
+<li>26-2Q 단독 영업익: 434.8 - 216.6 = 218.2억 ✓</li>
+<li>Forward PER FY27E: 16,620/1,441 = 11.5 ✓</li>
+<li>2025 유효세율: 175/317 = 55.2% ✓</li>
+<li>손익비 추격: (20,000-16,600)/(16,600-14,900) = 3,400/1,700 = 2.0 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-02 10:16 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 16,620원 (<span class="up">+7.7%</span>) · 시총 7,947억 · 5일 <span class="up">+27.8%</span> / 20일 <span class="up">+27.0%</span> / 60일 <span class="up">+7.4%</span></li>
+<li>MA5 14,310원 / MA20 13,158원 / MA60 13,812원 → MA20 이격 <span class="up">+26.3%</span> · MA60 이격 <span class="up">+20.3%</span></li>
+<li>52주 고 24,350원 / 저 11,520원 → 고점 대비 <span class="down">-31.7%</span> · 20일 고 16,620원 / 저 12,490원</li>
+<li>후행 PER 64.17 / PBR 1.66 (EPS 259원 · BPS 9,997원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 21.9억 (5일 55.9억)</li>
+<li>외국인 순매수 5일 41.9억 / 20일 4.1억 · 기관 5일 -32.5억 / 20일 -14.2억 · 개인 20일 10.2억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 5.00% / 20일 평균 9.25% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 15.92% (09/23) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 20,000원 (<span class="up">+20.3%</span>) ÷ 하방 14,900원 (−10.3%) = <strong>1:1.97</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 10.3% = <strong>자산의 4.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.8%</strong></li>
+<li>유동성 참고: 20일 ADV 21.9억 · 1일 소화 한도는 ADV의 10%(2.19억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 10.3% · ATR14 650원 (손절폭/ATR 2.6배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 10.3% = ATR14 × 2.6배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 15,320원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.60</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-248070"></span>📋 결정카드 — 솔루엠(248070) 판정: 관심 선물: 無 현재가: 16,620원 진입: 14,900~15,500원(눌림목) / 공격시 16,600원 손절: 14,900원 목표: 1차 20,000원 (2차 22,000원) 손익비: 1:2.0 (눌림목 진입 시 1:15.8) 기간: 스윙 4~8주 촉매: 2026년 11월 중순 3Q26 실적발표 반증: 3Q26 단독 영업익 &lt; 120억 → 폐기 / 종가 14,900원 이탈 → 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
