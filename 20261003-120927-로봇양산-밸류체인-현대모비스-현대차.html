@@ -1,0 +1,317 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>현대모비스(012330) · 로봇양산 밸류체인: 현대모비스·현대차 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261003-120927-로봇양산-밸류체인-현대모비스-현대차.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:4.77</div><div class="tp-c"><b>결론 발췌</b> • 현대모비스(012330): 본업 마진개선 + 램프매각으로 로봇·전장 &#x27;선택과 집중&#x27; 촉매가 가장 선명. 밸류 바닥권(PBR 0.70). 손익비 1:2.7, 자체목표 1차 440,000원 → 관심(분할매수 시작 가능). [핵심 Tier1] • 현대차(005380): 본업(자동차) 마진 YoY -26% 악화 + 공매도 27.9% 폭증. 로봇은 &#x27;테스트베드&#x27; 간접수혜라 실적반영 경로 희박. 숏커버 반등 트레이딩 외 관망.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>현대모비스(012330) · 로봇양산 밸류체인: 현대모비스·현대차</h1>
+<div class="meta">📊 benine · 2026-10-03 12:09 · 코드 012330</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-03 12:09)</div><div class="kpi-v">385,500원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">34.6조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">9.71</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.7</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:4.77</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.66</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">440,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 370,000~386,000원 (분할 3회)</span><span class="dc dn">손절 365,000원</span><span class="dc up">목표 440,000원</span><span class="dc">손익비 진입 1:4.77 · 현재가 1:2.66 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.7</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.7로 적었지만 진입·손절·목표로 계산하면 1:4.77다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 전후 3Q26 실적 / 2027-04 램프 물적분할</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 7,800억 or 종가 365,000원 이탈</div></div>
+
+<div class="body"><p>🤖 피지컬AI 테마 딥리서치 — 로봇 양산 밸류체인: 현대모비스(012330)·현대차(005380) ※ 트리거: 비나인 블로그 &quot;[피지컬AI] 보스턴다이내믹스, Atlas 훈련 현장 공개&quot;(chacha36, 2026-10-03). 블로거 의견은 참고용이며 아래는 공시·실측 기반 재검증. ※ 둘 다 개별주식선물 ✅ 상장(현대모비스 근월물 A20610 / 현대차 A16610) → 레버리지 스윙 가능 [실측: KIS 선물마스터 2026-10-03].</p>
+<p>📌 한줄 결론</p>
+<ul>
+<li>현대모비스(012330): 본업 마진개선 + 램프매각으로 로봇·전장 &#x27;선택과 집중&#x27; 촉매가 가장 선명. 밸류 바닥권(PBR 0.70). 손익비 1:2.7, 자체목표 1차 440,000원 → 관심(분할매수 시작 가능). [핵심 Tier1]</li>
+<li>현대차(005380): 본업(자동차) 마진 YoY <span class="down">-26%</span> 악화 + 공매도 27.9% 폭증. 로봇은 &#x27;테스트베드&#x27; 간접수혜라 실적반영 경로 희박. 숏커버 반등 트레이딩 외 관망.</li>
+</ul>
+<p>───────────────────── ■ 테마 구조: 로봇 밸류체인 Tier 분류 (실적베타 × 선물상장) ─────────────────────</p>
+<ul>
+<li>Tier1 (실적수혜 高 + 선물有 = 레버리지 가능): 현대모비스 — 액추에이터·구동·센서 등 로봇 부품 직접 공급 후보, 선물有.</li>
+<li>Tier1-보조: 현대차 — Atlas 수요처(美공장)·보스턴다이내믹스 지배주주. 매출인식 경로는 로봇 자회사(비상장)로, 현대차 &#x27;연결&#x27; 반영은 지분법·간접. 선물有.</li>
+<li>참고: 현대위아(011210, 로봇 액추에이터 병행)·현대오토에버(SW)도 밸류체인이나 본 리포트는 선물有+직접수혜 2종에 집중.</li>
+</ul>
+<p>→ 로봇은 현 시점 &#x27;옵션가치&#x27;다. 현대모비스·현대차 매출 어디에도 로봇 매출은 인식돼 있지 않다 [실측: 사업보고서 제품별 매출에 로봇 항목 無]. 본업 모멘텀과 로봇 옵션은 아래에서 분리 서술.</p>
+<p>───────────────────── ① 사실관계 검증 (기대감 vs 실체) ───────────────────── [실체 — 공시·뉴스 교차확인된 사실]</p>
+<ul>
+<li>현대모비스 램프사업부 매각 본계약 체결: 프랑스 OP모빌리티에 약 6,000억원대, 매출 약 1조원 규모 사업부, 2027년 4월 물적분할·이전 예정 [인용: etnews·뉴데일리·미주중앙 2026-09-30]. → 매각대금을 전장·로봇에 재투자하는 &#x27;체질전환&#x27; 스토리. 증권사 다수 긍정(삼성·KB·한투·대신 2026-10-01 리포트).</li>
+<li>Atlas, HMGMA(현대차 美 조지아 공장) 내 RMAC(로봇 훈련·검증센터)에서 제조작업 학습 — 타이어 운반·너트 조립 등 실전훈련 공개 [인용: 중앙일보·뉴스토마토 2026-10-01~02, 현대차그룹 저널 2026-09-30].</li>
+<li>아틀라스 &#x27;3만대 양산&#x27; 계획 보도 — 현대차 美공장 투입 목표 [인용: OBC·다음 2026-09-05~15]. 보스턴다이내믹스 기업가치 약 45조 거론 vs 적자 약 2조 [인용: IT조선 2026-09-05].</li>
+</ul>
+<p>[기대감·추정 — 블로거/언론 주장, 미확정]</p>
+<ul>
+<li>&quot;2028년까지 美 연 3만대 생산시설 / 2.5만대 배치 / 시제품→첫 생산분 비용 60~80% 절감 / 투자회수 2년&quot; → 블로거·일부 매체 주장 [추정: 비나인 블로그·언론]. 회사 공식 IR 수치로 확정된 바 미확인. 특히 &#x27;60~80% 절감·회수 2년&#x27;은 회사 공시 교차확인 안 됨 → 참고치로만.</li>
+<li>식음료·반도체 제조 확장 → 방향성 언급 수준, 매출 가시성 미확인.</li>
+</ul>
+<p>[실적 반영 경로]</p>
+<ul>
+<li>현대모비스: 로봇 구동·부품 공급 시 &#x27;모듈 및 부품제조&#x27; 매출로 인식 가능하나, 현재 매출 0. 본격 인식은 Atlas 양산궤도(2027~2028 추정) 진입 후. → 지금은 순수 옵션.</li>
+<li>현대차: 로봇은 비상장 자회사(보스턴다이내믹스) 중심 → 현대차 연결 실적 기여는 지분법·간접. &#x27;공장 생산성 개선(비용절감)&#x27;이 더 현실적 수혜 경로이나 정량화 미확인.</li>
+</ul>
+<p>→ 결론: 로봇 테마는 실체 있는 사업전환이나, 양사 &#x27;올해~내년 실적&#x27;을 바꾸는 변수는 아니다. 단기 주가는 본업(자동차 판매·마진·환율·관세)이 지배. 로봇은 멀티플(밸류)에 옵션 프리미엄으로 반영.</p>
+<p>───────────────────── ② 실적 분석 (DART 연결 실측) — 모두 &#x27;연결·3개월&#x27; 기준 ───────────────────── ▶ 현대모비스 (단위 억원, 영업이익률=OPM)</p>
+<ul>
+<li>2023: 매출 592,544 / 영익 22,953 / OPM 3.9%</li>
+<li>2024: 매출 572,370 / 영익 30,735 / OPM 5.4%</li>
+<li>2025: 매출 611,181 / 영익 33,575 / OPM 5.5% / 순익 36,647 [실측: 사업보고서 2025.12, 접수 20260309001878]</li>
+<li>2026 1H: 매출 318,852 / 영익 17,778 / OPM 5.6% / 순익 19,433 (Q1 155,605·8,026 / Q2 163,247·9,752) [실측: 반기보고서 2026.06, 접수 20260814004065]</li>
+<li>YoY 1H: 매출 <span class="up">+3.9%</span>, 영익 <span class="up">+8.0%</span>, OPM <span class="up">+0.2%</span>p → 꾸준한 &#x27;마진 우상향&#x27;. 제품단가 상승(샤시모듈 506만→572만원, FEM 84만→116만원) 반영 [실측: dart_biz].</li>
+<li>사업부문: 모듈·부품제조 78.2% / A/S부품 21.8% (A/S가 고마진·안정 캐시카우) [실측].</li>
+</ul>
+<p>▶ 현대차 (단위 억원)</p>
+<ul>
+<li>2023: 매출 1,626,636 / 영익 151,269 / OPM 9.3%</li>
+<li>2024: 매출 1,752,312 / 영익 142,396 / OPM 8.1%</li>
+<li>2025: 매출 1,862,545 / 영익 114,679 / OPM 6.2% / 순익 103,648 [실측: 사업보고서 2025.12]</li>
+<li>2026 1H: 매출 951,542 / 영익 53,656 / OPM 5.6% / 순익 54,729 (Q1 459,389·25,147 / Q2 492,153·28,509) [실측: 반기보고서 2026.06]</li>
+<li>YoY 1H: 매출 <span class="up">+2.7%</span>, 영익 <span class="down">-25.8%</span>, OPM 7.8%→5.6% (<span class="down">-2.2%</span>p) → 매출 늘어도 &#x27;마진 급락&#x27;. 원화강세·美관세·판매믹스 악화가 원인(증권사 공통 지적) [인용: 삼성증권 2026-09, 유안타 2026-09-10].</li>
+<li>검산: 2025 Q1~Q3 합 1,394,159 + Q4 468,386 = FY 1,862,545 ✓ / 모비스 457,201 + 153,980 = 611,181 ✓</li>
+</ul>
+<p>→ 핵심: 두 종목의 본업 방향이 반대. 모비스=마진 개선(<span class="up">+8%</span> YoY), 현대차=마진 악화(<span class="down">-26%</span> YoY). 로봇 촉매가 같아도 &#x27;실적이 받쳐주는 쪽&#x27;은 모비스다.</p>
+<p>───────────────────── ③ 미래 실적·컨센서스 [인용: 자동수집 2026-10-03, stockeasy·naver·fnguide·hankyung 4소스] ───────────────────── ▶ 현대모비스 (억원)</p>
+<ul>
+<li>FY26E 매출 648,810 / 영익 37,676 / 순익 41,686 / EPS 45,263 (추정기관 25)</li>
+<li>FY27E 매출 692,369 / 영익 42,224 / EPS 51,643</li>
+<li>3Q26E 매출 161,978 / 영익 9,485 / 순익 10,273 [naver]</li>
+<li>목표가 컨센: 평균 ~716,800원(naver·fnguide) / 리포트집계 평균 753,774원(53건) / 투자의견 Buy 54·NR 1</li>
+<li>최근: 삼성 650,000(유지, 10-01 &quot;기술기업 변화&quot;), 한투 700,000(유지), KB(매각 긍정), 대신 580,000(하향), 다올 770,000(하향)</li>
+<li>달성가능성 中~高: 1H26 영익 17,778 실측 → 연율화 ~35,500, 컨센 37,676은 소폭 상회 가정이나 마진 개선추세·A/S 캐시카우로 현실적. 3Q26E 9,485는 3Q25 7,803 대비 <span class="up">+21.6%</span>(기저효과).</li>
+</ul>
+<p>▶ 현대차 (억원)</p>
+<ul>
+<li>FY26E 매출 1,935,859 / 영익 113,600 / 순익 109,997 / EPS 37,583</li>
+<li>FY27E 매출 2,020,378 / 영익 130,366 / EPS 42,670</li>
+<li>3Q26E 매출 486,301 / 영익 30,088 [naver] — vs 3Q25 실측 25,373 → <span class="up">+18.6%</span>(기저효과)</li>
+<li>목표가 컨센: 평균 ~694,000원 / 리포트집계 707,273원(55건) / Buy 54·Hold 1·NR 3</li>
+<li>영익 컨센 추이 &#x27;하향중&#x27;: 현재 113,600 ← 6M전 128,745 (관세·환율로 지속 하향). 달성가능성 中: 1H26 영익 53,656 → 하반기 60,000 필요(3Q 30,088<span class="up">+4</span>Q), 기저효과로 가능하나 환율·관세 변수.</li>
+<li>★주의: 컨센 목표가(69만)와 현재가(34.7만) 괴리 <span class="up">+100%</span>는 &#x27;컨센 하향이 주가 급락을 못 따라간&#x27; 상태 — 목표가를 액면 신뢰 말 것.</li>
+</ul>
+<p>───────────────────── ④ 밸류에이션 → 목표가 (현재가 = 2026-10-02 종가, 10-03 개천절 휴장) ───────────────────── ▶ 현대모비스: 현재가 385,500원 / PER 9.71 / PBR 0.70 / EPS(T) 39,682 / BPS 551,325 [실측: KIS]</p>
+<ul>
+<li>Fwd PER = 385,500 / 45,263(FY26E) = 8.5배. 과거 밴드 대략 6~10배의 중단.</li>
+<li>자체 목표가 [추정: 산식]</li>
+<li>PER 9.0× × FY26E EPS 45,263 = 407,400원 (본업만)</li>
+<li>PER 10.0× × 45,263 = 452,600원 (+로봇옵션 일부)</li>
+<li>PBR 0.8× × BPS 551,325 = 441,060원</li>
+</ul>
+<p>→ 1차 목표 440,000원 / 2차 480,000원 (본업 재평가 + 로봇옵션 소폭)</p>
+<ul>
+<li>증권사 TP 580,000~770,000 병기 — 로봇옵션·주주환원(매각대금) 상당 반영분. 자체값보다 공격적.</li>
+<li>로봇 옵션가치[별도 태그]: 현 PBR 0.7은 로봇 기대 거의 미반영. 양산 가시화 시 밸류 리레이팅 트리거.</li>
+</ul>
+<p>▶ 현대차: 현재가 347,000원 / PER 9.82 / PBR 0.79 / EPS(T) 35,331 / BPS 439,541 [실측: KIS]</p>
+<ul>
+<li>Fwd PER = 347,000 / 37,583 = 9.2배.</li>
+<li>자체 목표가 [추정: 산식]</li>
+<li>PER 10.0× × FY26E EPS 37,583 = 375,830원</li>
+<li>PBR 0.8× × BPS 439,541 = 351,633원</li>
+</ul>
+<p>→ 1차 목표 385,000원 / 2차 420,000원 (PER 역사적 저평가지만 공매도·관세 디스카운트로 리레이팅 제한)</p>
+<ul>
+<li>증권사 TP ~694,000 병기(괴리 과대, 달성 中低).</li>
+</ul>
+<p>───────────────────── ⑤·⑥ 진입전략·손익비 (선물 레버리지 반영) ───────────────────── ▶ 현대모비스 — 기술적 [실측: KIS]</p>
+<ul>
+<li>이평: MA5 374,900 / MA20 393,300 / MA60 453,542 → 역배열(중기 하락), 단 현재가&gt;MA5 = 단기 반등초입</li>
+<li>위치: 52주 822,000~283,000 중 385,500 = 고점比 <span class="down">-53%</span>, 저점比 <span class="up">+36%</span>. ret60 <span class="down">-25.1%</span>.</li>
+<li>20일 박스 367,000~432,000. ATR14 11,714(≈3.0%). 공매도 당일 1.61%·20일평균 5.32% &#x27;감소&#x27;(압력 완화).</li>
+<li>수급 20일: 외인 <span class="up">+989</span>억 / 기관 -2,061억 / 개인 <span class="up">+1,032</span>억. ADV20 1,064억.</li>
+<li>진입/손절/익절 (선물 스윙):</li>
+<li>진입: 370,000~386,000 분할(1차 현재가, 2차 MA5·눌림)</li>
+<li>손절: 365,000 종가 이탈(20일 저점 367,000 직하)</li>
+<li>익절: 1차 440,000 / 2차 480,000</li>
+<li>손익비(진입 385,500 기준): 상방 (440,000-385,500)/385,500 = <span class="up">+14.1%</span> ÷ 하방 (385,500-365,000)/385,500 = <span class="down">-5.3%</span> = 1:2.66. (2차 480,000이면 <span class="up">+24.5%</span>÷5.3% = 1:4.6)</li>
+</ul>
+<p>→ 손익비 1:2.7 양호. 단 역배열이라 추격 금지·분할 접근.</p>
+<p>▶ 현대차 — 기술적 [실측: KIS]</p>
+<ul>
+<li>이평: MA5 349,100 / MA20 367,575 / MA60 396,900 → 역배열.</li>
+<li>위치: 52주 783,000~214,000 중 347,000 = 고점比 <span class="down">-56%</span>, 저점比 <span class="up">+62%</span>. ret60 <span class="down">-30.9%</span>.</li>
+<li>20일 박스 345,000~393,000. ATR14 7,679(≈2.2%). ★공매도 당일 27.9%·20일평균 18.7% &#x27;증가&#x27;(연속 2일) → 강한 공매도 압력.</li>
+<li>수급 20일: 외인 -2,503억 / 기관 -2,500억 / 개인 <span class="up">+5,036</span>억(개인 홀로 매수). ADV20 1,672억.</li>
+<li>진입/손절/익절:</li>
+<li>진입: 숏커버 반등 노림이면 345,000 지지확인 후, 추격금지</li>
+<li>손절: 335,000 종가 이탈</li>
+<li>익절: 1차 385,000(MA60 직하) / 2차 420,000</li>
+<li>손익비(진입 347,000 기준): 상방 (385,000-347,000)/347,000 = <span class="up">+11.0%</span> ÷ 하방 (347,000-335,000)/347,000 = <span class="down">-3.5%</span> = 1:3.14.</li>
+</ul>
+<p>→ 숫자상 손익비는 나오나, 공매도 폭증·본업 마진악화로 &#x27;하방 실현확률&#x27;이 높아 질적 등급은 &#x27;관심(관망 근접)&#x27;. 손절폭(3.5%)이 ATR(2.2%) 대비 타이트해 노이즈 이탈 주의.</p>
+<p>───────────────────── ⑧ 산업·제품 바텀업 모델 (현대모비스 집중, §9 규격) ───────────────────── 9-1 제품분해 [실측: 사업보고서 2025.12, 접수 20260309001878]</p>
+<ul>
+<li>모듈·부품제조 47,800,119백만(78.2%) / A/S부품 13,318,008백만(21.8%). 로봇 부품 항목 無(=옵션).</li>
+</ul>
+<p>9-2 고객구조: 사실상 현대차·기아 전속(JIS 직서열 공급) + 글로벌 완성차 일부. 1사(현대차그룹) 의존도 高 → 현대차 판매·마진이 모비스 본업에 직결(동반 리스크). 9-4 단가이력 [실측]: 샤시모듈 486만(&#x27;23)→527만(&#x27;25)→572만(&#x27;26 1H), FEM 63만→93만→116만 → 단가 우상향(믹스·물가전가). 원재료: 열연 981→816천원/kg(하락), 구리 8,478→9,945 USD/톤(상승) → 혼조. 9-5 CAPA·로봇: 생산거점 29곳. 로봇 구동부품 CAPA·수주 미공시(미확인). 램프매각 6,000억 현금이 로봇·전장 CAPEX 재원. 9-7 바텀업 실적모델 (본업, 억원) [추정: 1H26 실측 연율화·컨센 대조]</p>
+<ul>
+<li>입력: 1H26 영익 17,778 실측 / 3Q25 영익 7,803 / 3Q26E 9,485</li>
+<li>Bear: FY26 영익 34,500 (현대차 판매둔화·환율, OPM 5.3%)</li>
+<li>Base: FY26 영익 37,700 (컨센, OPM 5.8%) — 3Q 9,000·4Q 9,900 배분</li>
+<li>Bull: FY26 영익 40,500 (믹스·A/S 호조 + 로봇 초기수주, OPM 6.2%)</li>
+<li>민감도: 샤시모듈 단가 ±10% → 영익 ±약 4,800억 / 현대차그룹 판매 <span class="down">-5%</span> → 모비스 매출 -약 3%</li>
+<li>결론 문장: &quot;3Q26 연결 영업이익 ≥ 9,000억이면 논지 유지·추가매수 검토, &lt; 7,800억(전년동기 이하)이면 본업 모멘텀 훼손 → 논지 재검토·축소.&quot; (컨센 9,485)</li>
+<li>로봇 옵션[별도]: 바텀업에 미반영. 양산·수주 공시 전까지 매출 0으로 보수적 처리.</li>
+</ul>
+<p>───────────────────── ⑦ 촉매·반증·시나리오 (현대모비스 중심) ───────────────────── ▶ 촉매 캘린더(날짜 확정)</p>
+<ul>
+<li>2026 3분기보고서 법정기한 2026-11-14(전후) — 본업 마진·로봇 언급 확인 [공시 법정기한]</li>
+<li>램프사업 물적분할·이전 2027-04 예정 — 매각대금 유입·주주환원/재투자 구체화 [인용: 2026-09-30 공시]</li>
+<li>RMAC 가동·Atlas 양산 로드맵 업데이트(수시, 날짜 미확정)</li>
+</ul>
+<p>▶ 반증 조건 3개 (수치→행동)</p>
+<ol>
+<li>3Q26 연결 영업이익 &lt; 7,800억 → 본업 모멘텀 훼손, 비중 축소/청산</li>
+<li>종가 365,000원 이탈 → 기술적 손절(전량)</li>
+<li>램프매각 종결 or 로봇 수주 공시가 2026-12월까지 無 + 주가 MA60(45.3만) 미회복 → 촉매 소멸로 관망 전환</li>
+</ol>
+<p>▶ 이벤트 매트릭스 (3Q26 실적 × 당일 주가)</p>
+<ul>
+<li>서프라이즈(영익≥9,500) × 갭상승 → 추격 자제, 눌림 추가 / × 갭하락 → 분할 추가(실적-주가 괴리)</li>
+<li>인라인(7,800~9,500) × 보합 → 보유, 440,000 익절 대기</li>
+<li>쇼크(&lt;7,800) × 갭하락 → 손절 규칙 집행</li>
+</ul>
+<p>▶ 확률가중 시나리오 (현대모비스, 6개월, 합 100%)</p>
+<ul>
+<li>Bull 30%: 로봇 수주 가시화 + 본업 마진유지 → 480,000원 (<span class="up">+24.5%</span>)</li>
+<li>Base 50%: 본업 컨센 달성·밸류 정상화 → 440,000원 (<span class="up">+14.1%</span>)</li>
+<li>Bear 20%: 현대차 판매둔화 전이·환율 → 350,000원 (<span class="down">-9.2%</span>)</li>
+<li>기대수익률 = 0.3×24.5 + 0.5×14.1 + 0.2×(-9.2) = <span class="up">+12.6%</span> [추정]</li>
+</ul>
+<p>▶ 수급·유동성: ADV20 1,064억, 1일 체결상한(ADV 10%) ≈ 106억. 공매도 완화(5.3%→1.6%)는 긍정.</p>
+<p>▶ 포지션 사이징 (자산 대비 %로만)</p>
+<ul>
+<li>손실예산 1% ÷ 손절폭 5.3% = 자산의 18.9% / 집중상한 50% / 이벤트(실적)前 상한 25% → 최소값 18.9% 채택. 분할 3회(각 1/3). 선물 레버리지 시 명목 환산해 동일 18.9% 리스크 한도 내.</li>
+<li>⚠️ 50% 집중 + 선물 레버리지 동시는 실적쇼크 시 손실 증폭. 손절선 아래 물타기 금지.</li>
+</ul>
+<p>───────────────────── ⚠️ 리서치 참고용 — 매수/매도 강요 아님. 블로거·증권사 추정치는 &#x27;추정&#x27;, 실측 못한 값은 &#x27;미확인&#x27;. [미확인 목록] 로봇 양산 3만대/배치 2.5만대/비용절감 60~80%/회수 2년(블로거·언론 주장, 회사공식 미확인) · 로봇 부품 모비스 수주금액·CAPA · 보스턴다이내믹스 지분·연결구조 상세 · 현대차 로봇 실적반영 정량경로 [출처 목록] DART 사업보고서(20260309001878)·반기보고서(20260814004065) · KIS 시세 2026-10-02종가 · 컨센 4소스(2026-10-03) · 뉴스 Google RSS(2026-09~10) · 비나인 블로그(트리거) [검산] 분기합=연간 ✓(현대차·모비스) / 1H=Q1+Q2 ✓ / 손익비 산식 헤더·본문 일치 ✓ / 시나리오 확률합 100% ✓ / 연결·별도 라벨: 전부 &#x27;연결&#x27; 명기 ✓</p>
+<p>&lt;!-- hub:enrich:begin:012330 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-03 12:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 385,500원 (<span class="up">+0.9%</span>) · 시총 34.63조 · 5일 <span class="up">+4.9%</span> / 20일 <span class="down">-7.2%</span> / 60일 <span class="down">-25.1%</span></li>
+<li>MA5 374,900원 / MA20 393,300원 / MA60 453,542원 → MA20 이격 <span class="down">-2.0%</span> · MA60 이격 <span class="down">-15.0%</span></li>
+<li>52주 고 822,000원 / 저 283,000원 → 고점 대비 <span class="down">-53.1%</span> · 20일 고 432,000원 / 저 367,000원</li>
+<li>후행 PER 9.71 / PBR 0.7 (EPS 39,682원 · BPS 551,325원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,064.0억 (5일 1,110.7억)</li>
+<li>외국인 순매수 5일 -376.8억 / 20일 988.9억 · 기관 5일 325.0억 / 20일 -2,061.1억 · 개인 20일 1,032.5억</li>
+<li>개별주식선물: ⚡ 상장 (A20610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 1.61% (공매도 2,625주 · 10.0억) · 5일 평균 4.24% / 20일 평균 5.32% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 14.09% (09/07) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 440,000원 (<span class="up">+14.1%</span>) ÷ 하방 365,000원 (−5.3%) = <strong>1:2.66</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 5.3% = <strong>자산의 9.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 9.4%</strong></li>
+<li>유동성 참고: 20일 ADV 1,064.0억 · 1일 소화 한도는 ADV의 10%(106.40억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 5.3% · ATR14 11,714원 (손절폭/ATR 1.8배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 5.3% = ATR14 × 1.8배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 367,000원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.95</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:012330 --&gt;</p>
+<p><span id="card-012330"></span>📋 결정카드 — 현대모비스(012330) 판정: 관심 선물: 有 현재가: 385,500원 진입: 370,000~386,000원 (분할 3회) 손절: 365,000원 목표: 1차 440,000원 (2차 480,000원) 손익비: 1:2.7 기간: 스윙 6~10주 촉매: 2026-11-14 전후 3Q26 실적 / 2027-04 램프 물적분할 반증: 3Q26 연결 영업이익 &lt; 7,800억 or 종가 365,000원 이탈</p>
+<p>&lt;!-- hub:enrich:begin:005380 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-03 12:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 347,000원 (<span class="down">-0.6%</span>) · 시총 70.60조 · 5일 <span class="down">-1.8%</span> / 20일 <span class="down">-8.2%</span> / 60일 <span class="down">-30.9%</span></li>
+<li>MA5 349,100원 / MA20 367,575원 / MA60 396,900원 → MA20 이격 <span class="down">-5.6%</span> · MA60 이격 <span class="down">-12.6%</span></li>
+<li>52주 고 783,000원 / 저 214,000원 → 고점 대비 <span class="down">-55.7%</span> · 20일 고 393,000원 / 저 345,000원</li>
+<li>후행 PER 9.82 / PBR 0.79 (EPS 35,331원 · BPS 439,541원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,671.9억 (5일 1,569.0억)</li>
+<li>외국인 순매수 5일 -1,369.2억 / 20일 -2,503.2억 · 기관 5일 -400.3억 / 20일 -2,500.3억 · 개인 20일 5,035.9억</li>
+<li>개별주식선물: ⚡ 상장 (A16610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 27.90% (공매도 126,461주 · 436.6억) · 5일 평균 23.40% / 20일 평균 18.69% → 증가 · 20일 평균 상회 연속 2일</li>
+<li>공매도 20일 최대 31.68% (09/28) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 385,000원 (<span class="up">+11.0%</span>) ÷ 하방 335,000원 (−3.5%) = <strong>1:3.17</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 16%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 3.5% = <strong>자산의 14.5%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 14.5%</strong></li>
+<li>유동성 참고: 20일 ADV 1,671.9억 · 1일 소화 한도는 ADV의 10%(167.19억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 3.5% · ATR14 7,679원 (손절폭/ATR 1.6배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 3.5% = ATR14 × 1.6배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 335,482원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:3.30</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:005380 --&gt;</p>
+<p><span id="card-005380"></span>📋 결정카드 — 현대차(005380) 판정: 관심 선물: 有 현재가: 347,000원 진입: 345,000원 지지확인 후 (추격금지) 손절: 335,000원 목표: 1차 385,000원 (2차 420,000원) 손익비: 1:3.1 기간: 스윙 4~8주 촉매: 2026-11-14 전후 3Q26 실적 / 아틀라스 양산 로드맵 반증: 3Q26 연결 영업이익 &lt; 25,000억 or 종가 335,000원 이탈 or 공매도 비중 30% 재돌파</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
