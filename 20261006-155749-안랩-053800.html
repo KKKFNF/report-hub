@@ -1,0 +1,272 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>안랩(053800) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261006-155749-안랩-053800.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:2.6</div><div class="tp-c"><b>결론 발췌</b> 실적 자체는 견조하나(25년 영업이익 333억 YoY+20%) 현 89,000원은 52주 고점 -4.4%·PER 18.3x의 역사적 상단권. 이번 급등(+15.6%)은 금융권 해킹發 사이버보안 테마 수급이 주동력이며 실체 촉매(수주·실적서프라이즈)는 미확인. 신규 추격매수 비권장 — 관망. 손익비 추격 시 1:1 미만. ━━━━━━━━━━━━━━━━━━ ① 포착 신호 (KIS 실측, 2026-10-06)</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>안랩(053800)</h1>
+<div class="meta">📊 trend · 2026-10-06 15:57 · 코드 053800</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-06 15:57)</div><div class="kpi-v">89,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">9,903억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">18.25</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.14</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.6</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.29</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">93,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 눌림목 80,000원 부근(MA5) 지지확인 후 분할 (추격 비권장)</span><span class="dc dn">손절 75,000원</span><span class="dc up">목표 93,000원</span><span class="dc">손익비 진입 1:2.6 · 현재가 1:0.29 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1로 적었지만 진입·손절·목표로 계산하면 1:2.6다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 2~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 26.3Q 실적발표(11월 예상·확정 미확인) / 금융권 해킹 보안투자 뉴스</div><div class="dc-l">🛑 반증: 26.3Q 단독 영업이익 &lt; 50억 발표 시 전량청산 / 종가 MA20(67,615) 이탈 시 손절 / 거래대금 200억 하회 복귀 시 신규보류</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 안랩(053800) ※개별주식선물 無(현물만 가능·레버리지 불가)</p>
+<p>📌 한줄 결론: 실적 자체는 견조하나(25년 영업이익 333억 YoY<span class="up">+20%</span>) 현 89,000원은 52주 고점 <span class="down">-4.4%</span>·PER 18.3x의 역사적 상단권. 이번 급등(<span class="up">+15.6%</span>)은 금융권 해킹發 사이버보안 테마 수급이 주동력이며 실체 촉매(수주·실적서프라이즈)는 미확인. 신규 추격매수 비권장 — 관망. 손익비 추격 시 1:1 미만.</p>
+<hr>
+<p>① 포착 신호 (KIS 실측, 2026-10-06) ━━━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>현재가 89,000원 / 전일대비 <span class="up">+12,000</span>원 (<span class="up">+15.58%</span>) [실측: KIS inquire-price 2026-10-06]</li>
+<li>당일거래대금 576.6억원 / 거래량 652,700주 [실측: KIS acml_tr_pbmn 57,663,098,050]</li>
+<li>회전율 5.87% [실측: 거래량 652,700 ÷ 상장주식 11,126,506]</li>
+<li>20일 평균거래량 113,947주 대비 당일 5.7배 폭증 [실측: KIS 일봉 20일]</li>
+<li>시가총액 9,903억원 [실측: KIS hts_avls / 주가×주식수]</li>
+<li>MA 정배열 확정: MA5 79,180 &gt; MA20 67,615 &gt; MA60 60,063, 주가 89,000 전부 상회 [실측: KIS 일봉]</li>
+<li>52주 고점 93,100 / 저점 50,800 → 현재 52주위치 90%, 고점 대비 <span class="down">-4.4%</span> [실측: KIS w52]</li>
+<li>최근 흐름: 9/18 68,200 → 10/2 77,000 꾸준 상승 후 10/6 단일일 <span class="up">+15.58%</span> 점프 [실측: KIS 일봉]</li>
+</ul>
+<p>→ 전형적 &quot;추세 상단 + 테마 뉴스 수급 급등&quot; 조합. 과열 구간.</p>
+<hr>
+<p>② 사업 · 급등사유 ━━━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>주력사업: 국내 유일 통합보안 SW/HW 기업. V3(안티바이러스), TrusGuard(방화벽), XDR, EPS, 보안관제·컨설팅 [실측: 사업보고서 2025.12 접수 20260320000868]</li>
+<li>매출구조: 제품·서비스(보안솔루션) 94~95% + 외부상품 5~6%. 내수 비중 압도적(25년 내수 2,433억 vs 수출 244억) [실측: 동 보고서 매출실적表]</li>
+<li>전방산업: 공공·금융·기업 정보보안 예산. 연말 예산집행 집중 → 4Q 매출·이익 편중 구조 뚜렷(아래 ③)</li>
+</ul>
+<ul>
+<li>★급등사유 (실체 vs 테마 냉정 구분):</li>
+<li>직접 트리거 = &quot;금융권(은행) 해킹 사고 잇따라 → 사이버보안주 동반 급등&quot; [인용: 조선비즈·한국경제·파이낸셜뉴스 2026-10-06]</li>
+<li>안랩·지니언스·라온시큐어 등 보안株 묶음 테마 상승 [인용: 디지털데일리 2026-10-06]</li>
+<li>판정: 실적·수주 공시發이 아닌 <strong>섹터 테마 수급 급등</strong>. 금융권 해킹 → 보안투자 확대 기대감이라는 &quot;스토리&quot;는 합리적이나, 안랩의 구체적 수주·계약 공시는 미확인. 안랩은 과거에도 안철수 정치테마·보안이슈마다 수급 급등이 잦았던 종목 → 변동성·되돌림 리스크 큼.</li>
+</ul>
+<hr>
+<p>③ 실적 (DART 연결 실측) ━━━━━━━━━━━━━━━━━━ [연간 연결, 백만원] [실측: fnlttSinglAcnt CFS]</p>
+<ul>
+<li>2023: 매출 239,201 / 영업이익 26,423 / OPM 11.0%</li>
+<li>2024: 매출 260,569 / 영업이익 27,682 / OPM 10.6%</li>
+<li>2025: 매출 267,657 / 영업이익 33,277 / OPM 12.4% ← YoY 영업이익 <span class="up">+20.2%</span></li>
+</ul>
+<p>→ 매출 완만 성장, 이익 레버리지 개선 추세. 25년이 역대 최고 영업이익.</p>
+<p>[단독분기 추정, 백만원] [추정: 누적치 차감 산식 / 실측 누적치 기반]</p>
+<ul>
+<li>24.4Q: 매출 82,631 / 영업익 15,561 / OPM 18.8%</li>
+<li>25.1Q: 매출 57,187 / 영업익 1,045 / OPM 1.8%</li>
+<li>25.2Q: 매출 62,289 / 영업익 3,459 / OPM 5.6%</li>
+<li>25.3Q: 매출 64,536 / 영업익 7,881 / OPM 12.2%</li>
+<li>25.4Q: 매출 83,645 / 영업익 20,892 / OPM 25.0% ← 연말 폭발</li>
+<li>26.1Q: 매출 59,062 / 영업익 1,927 / OPM 3.3%</li>
+<li>26.2Q: 매출 71,309 / 영업익 5,382 / OPM 7.5%</li>
+</ul>
+<p>★ 핵심: 안랩은 극심한 4Q 편중. 1~3Q는 영업이익 near-zero~한자릿수, 4Q에 연간 이익의 절반 이상 창출. 따라서 분기 숫자만 보고 판단 금물. ★ 26년 상반기 YoY: 26.2Q 매출 713억(25.2Q 623억 대비 <span class="up">+14.5%</span>), 영업익 54억(25.2Q 35억 대비 <span class="up">+55.6%</span>) → <strong>실적 자체는 오히려 YoY 반등 중</strong>. 급락이 아니라 계절성 바닥.</p>
+<p>[재무건전성 2025연간, 백만원] [실측: fnlttSinglAcntAll CFS]</p>
+<ul>
+<li>자산총계 487,574 / 부채총계 111,306 / 자본총계 376,268 → 부채비율 29.6% (초우량)</li>
+<li>영업활동현금흐름 <span class="up">+64,201</span> (영업이익 대비 1.9배, 질 우수)</li>
+<li>현금성자산 67,126 (무차입 구조, 시총의 6.8%)</li>
+</ul>
+<p>→ 재무는 흠잡을 데 없음. 순현금 풍부한 캐시카우.</p>
+<hr>
+<p>④ 미래실적 · 컨센서스 ━━━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>증권사 컨센서스: 미확인 (4소스 stockeasy·naver·fnguide·hankyung 모두 최근 6개월 목표가 제시 리포트 0건) [실측: consensus.py 2026-10-06 15:55]</li>
+</ul>
+<p>→ 안랩은 애널리스트 커버리지가 사실상 없는 종목. 목표가·추정치 공백 = 외부 가이드 부재, 밸류에이션 전적으로 자체 추정 의존.</p>
+<ul>
+<li>자체 가정: 4Q 편중 구조 유지 시 26연간 영업이익은 25년(333억) 수준 또는 소폭 상회 가능(상반기 YoY+개선 반영). 단 해킹테마發 수주 반영은 빨라야 26.4Q~27년, 현 주가엔 선반영.</li>
+</ul>
+<hr>
+<p>⑤ 밸류에이션 · 목표가 ━━━━━━━━━━━━━━━━━━ [현재 멀티플, KIS 실측]</p>
+<ul>
+<li>PER 18.25x / PBR 2.14x / EPS 4,878 / BPS 41,556</li>
+</ul>
+<p>→ SW·보안 섹터 치곤 과도하진 않으나, 안랩의 저성장(매출 CAGR 한자릿수) 대비 PER 18x는 역사적 상단권. 성장주 멀티플을 테마로 끌어쓴 상태.</p>
+<p>[자체 목표가 산식 — PER×EPS] [추정]</p>
+<ul>
+<li>PER 15x × EPS 4,878 = 73,170원 (보수적·테마거품 제거)</li>
+<li>PER 18x × EPS 4,878 = 87,804원 (현 수준 ≈ 현재가)</li>
+<li>PER 20x × EPS 4,878 = 97,560원 (테마프리미엄 유지)</li>
+<li>PER 22x × EPS 4,878 = 107,316원 (낙관)</li>
+</ul>
+<p>★ 결론: 현재가 89,000원은 이미 PER 18x 정당가치에 도달. 추가 상승은 테마프리미엄(PER 20~22x) 영역이며 펀더멘털 아닌 수급에 의존. 적정 목표가(Base) 88,000~98,000원 — 상단 여력 제한적(<span class="up">+10%</span> 내외), 하방 되돌림 여지 큼.</p>
+<hr>
+<p>⑥ 진입전략 · 손익비 (※선물 無 → 현물만, 레버리지 불가) ━━━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>지지: MA5 79,180 / 심리 80,000 / 2차 MA20 67,615</li>
+<li>저항: 52주·역사적 고점 93,100 / 상한가 100,100 / 심리 100,000</li>
+<li>현재가 89,000은 저항(93,100)에 근접, 지지(79,180)와 괴리 11%</li>
+</ul>
+<p>[시나리오별 라인 — 신규 추격 비권장]</p>
+<ul>
+<li>추격진입(비권장): 89,000 / 손절 79,000(MA5 이탈) / 목표 1차 93,000·2차 98,000</li>
+</ul>
+<p>→ 손익비 = (목표98,000−89,000) : (89,000−79,000) = 9,000:10,000 ≈ 1:0.9 (불리) → 1차 목표(93,000)만 보면 4,000:10,000 = 1:0.4 (매우 불리). <strong>추격 금지 레벨.</strong></p>
+<ul>
+<li>눌림목 대기(선호): 80,000선(MA5 부근) 지지 확인 후 분할, 손절 75,000, 목표 93,000 → 손익비 13,000:5,000 ≈ 2.6:1 (양호). 단 테마 되돌림 시 MA20(67,600)까지 열려 대기 우선.</li>
+</ul>
+<p>⚠️ 고점권 테마급등 추격주의: 당일 <span class="up">+15.58%</span>·회전율 5.9%·거래량 5.7배는 단기 과열 전형. 테마 뉴스 소멸 시 급락 가능. 선물 없어 숏 헤지·레버리지 불가하므로 현물 분할·손절 엄수.</p>
+<hr>
+<p>⑧ 산업 · 제품 바텀업 모델 ━━━━━━━━━━━━━━━━━━ [제품별 매출, 백만원] [실측: 반기보고서 2026.06 접수 20260813000644]</p>
+<ul>
+<li>보안솔루션(SW/HW)+관제+컨설팅: 26상반기 124,199 (95.3%)</li>
+<li>외부상품 등: 6,172 (4.7%)</li>
+<li>원재료 매입 거의 전량 H/W 외주제작(99.8%) → SW 중심 고마진 구조, 원가 변동성 낮음</li>
+</ul>
+<p>[영업이익 시나리오 — 26연간]</p>
+<ul>
+<li>Bear(테마수주 無·경기둔화): 매출 265,000 / OPM 11% → 영업이익 ≈ 290억</li>
+<li>Base(계절성+상반기 YoY개선 유지): 매출 275,000 / OPM 12% → 영업이익 ≈ 330억 (25년 수준)</li>
+<li>Bull(금융권 보안투자 확대 수주 반영): 매출 290,000 / OPM 13.5% → 영업이익 ≈ 390억</li>
+</ul>
+<p>★ 모니터링 임계: 26.3Q(11월 발표 예상) 단독 영업이익 ≥ 80억 유지 시 Base 이상 유효 / &lt; 50억이면 테마거품 폐기 신호(전년 25.3Q 단독 79억이 기준선).</p>
+<hr>
+<p>⑦ 촉매 · 반증 · 시나리오 · 수급 ━━━━━━━━━━━━━━━━━━ [촉매]</p>
+<ul>
+<li>금융권 해킹 이슈 지속·추가 보안투자 발표 (테마 지속성, 날짜 미확정)</li>
+<li>26.3Q 실적 발표 (예상 11월 중, DART 확정 미확인) — 계절성상 4Q전 저점 분기</li>
+</ul>
+<p>[반증 3개 → 행동]</p>
+<ol>
+<li>26.3Q 단독 영업이익 &lt; 50억 발표 시 → 테마프리미엄 정당성 소멸, 전량 청산</li>
+<li>종가가 MA20(67,615) 하향 이탈 시 → 추세 붕괴, 보유분 손절</li>
+<li>해킹 테마 뉴스 소멸 + 거래대금 200억 하회 복귀 시 → 수급 이탈, 신규 진입 전면 보류</li>
+</ol>
+<p>[확률가중 시나리오 — 합 100%]</p>
+<ul>
+<li>Bear(35%): 테마 소멸·되돌림 → 72,000~78,000 (MA5~20 복귀), 고점 추격자 손실</li>
+<li>Base(45%): 고점권 횡보·소폭 조정 후 재료 소화 → 82,000~93,000 박스</li>
+<li>Bull(20%): 추가 해킹이슈·보안투자 모멘텀 → 98,000~100,000(상한가권) 돌파 시도</li>
+</ul>
+<p>→ 기대값상 상방 여력(<span class="up">+10%</span>)보다 하방 여지(<span class="down">-15%</span>)가 커 리스크·리워드 비대칭(불리).</p>
+<p>[수급] 테마주 특성상 변동성 극대. 개인·단기 수급 주도 추정, 기관·외인 지속성 미확인. 커버리지 공백으로 펀더멘털 바이어 부재 → 수급 소멸 시 지지력 약함.</p>
+<p>[포지션 사이징] 테마급등 고점권·선물 無·손익비 불리 → 신규는 자산의 소액(관심 수준)만, 눌림목 확인 전 추격 금지. 진입 시에도 분할·손절 라인 기계적 준수.</p>
+<hr>
+<p>⚠️ 리서치 참고용. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 컨센서스·목표가 (커버리지 0건)</li>
+<li>당기순이익 (fnlttSinglAcnt 미반환 — None)</li>
+<li>26.3Q 실적 발표 확정일</li>
+<li>금융권 해킹 관련 안랩 직접 수주·계약 공시 유무</li>
+<li>당일 기관·외인 수급 주체</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS inquire-price / 일봉 (2026-10-06 실측): 시세·MA·52주·회전율</li>
+<li>DART 사업보고서 2025.12 접수 20260320000868: 사업·제품·매출실적</li>
+<li>DART 반기보고서 2026.06 접수 20260813000644: 26상반기 제품별 매출</li>
+<li>DART fnlttSinglAcnt/All CFS: 3개년 손익·분기 누적·재무·현금흐름</li>
+<li>consensus.py 2026-10-06 15:55: 컨센 4소스(전부 0건)</li>
+<li>조선비즈·한국경제·파이낸셜뉴스·디지털데일리 2026-10-06: 급등사유(금융권 해킹 보안주)</li>
+<li>kis_futures_check.py: 선물 미상장 확인</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총 89,000×11,126,506 = 9,903억 ✓ (KIS hts_avls 9,903 일치)</li>
+<li>회전율 652,700÷11,126,506 = 5.87% ✓</li>
+<li>52주위치 (89,000−50,800)÷(93,100−50,800) = 90% ✓</li>
+<li>26.2Q 단독 = 반기누적130,371−1Q59,062 = 71,309 매출 ✓</li>
+<li>PER검증 EPS4,878×18.25 = 89,024 ≈ 현재가 89,000 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-06 15:57 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 89,000원 (<span class="up">+15.6%</span>) · 시총 9,903억 · 5일 <span class="up">+19.3%</span> / 20일 <span class="up">+56.4%</span> / 60일 <span class="up">+65.1%</span></li>
+<li>MA5 79,180원 / MA20 67,615원 / MA60 60,063원 → MA20 이격 <span class="up">+31.6%</span> · MA60 이격 <span class="up">+48.2%</span></li>
+<li>52주 고 93,100원 / 저 50,800원 → 고점 대비 <span class="down">-4.4%</span> · 20일 고 89,000원 / 저 56,700원</li>
+<li>후행 PER 18.25 / PBR 2.14 (EPS 4,878원 · BPS 41,556원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 84.2억 (5일 161.9억)</li>
+<li>외국인 순매수 5일 -64.7억 / 20일 48.6억 · 기관 5일 27.7억 / 20일 137.4억 · 개인 20일 -194.3억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 3.67% (공매도 23,978주 · 21.0억) · 5일 평균 4.95% / 20일 평균 5.86% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 14.66% (09/09) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 93,000원 (<span class="up">+4.5%</span>) ÷ 하방 75,000원 (−15.7%) = <strong>1:0.29</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 15.7% = <strong>자산의 3.2%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.2%</strong></li>
+<li>유동성 참고: 20일 ADV 84.2억 · 1일 소화 한도는 ADV의 10%(8.42억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 15.7% · ATR14 3,936원 (손절폭/ATR 3.6배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 15.7% = ATR14 × 3.6배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 81,128원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.51</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-053800"></span>📋 결정카드 — 안랩(053800) 판정: 관망 선물: 無 현재가: 89,000원 진입: 눌림목 80,000원 부근(MA5) 지지확인 후 분할 (추격 비권장) 손절: 75,000원 (눌림진입 기준) / 추격진입 시 79,000원 목표: 1차 93,000원 (2차 98,000원) 손익비: 눌림목 2.6:1 / 추격 0.9:1(불리) 기간: 스윙 2~6주 촉매: 26.3Q 실적발표(11월 예상·확정 미확인) / 금융권 해킹 보안투자 뉴스 반증: 26.3Q 단독 영업이익 &lt; 50억 발표 시 전량청산 / 종가 MA20(67,615) 이탈 시 손절 / 거래대금 200억 하회 복귀 시 신규보류</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
