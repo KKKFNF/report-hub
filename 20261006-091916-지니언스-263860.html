@@ -1,0 +1,239 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>지니언스(263860) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261006-091916-지니언스-263860.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 자동판정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 카드 판정 매수였으나 현재가 기준 손익비 1:1.89 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 / 중립→비중확대(눌림 매수) · 손익비 1:11.13</div><div class="tp-c"><b>결론 발췌</b> NAC 1위 설치기반이 EDR·제로트러스트로 확장되며 구조적 실적 레벨업 진행 중인 보안 SW. 당일 +21% 52주 신고가로 단기 과열 — 현재가(24,700원) 추격은 손익비 0.97로 불리, 눌림 재진입 시 손익비 매력 큼. 12개월 목표가 37,000~40,000원(PER 28~30×FY26E EPS). ──────────────── ① 포착 신호 (전부 KIS 실측, 2026-10-06 종가) - 현재가 24,700원 [실측: KIS inquire-price 2026-10-06] / 전일대비 +21.08%(+4,300원) - 당일 고가 26,500원 = 상한가 터치 후 24,700 마감(종가 상한가 대비 -6.8%) - 52주 …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(자동판정): 카드 판정 매수였으나 현재가 기준 손익비 1:1.89 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 · 중립→비중확대(눌림 매수)</span><h1>지니언스(263860)</h1>
+<div class="meta">📊 trend · 2026-10-06 09:19 · 코드 263860</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-06 09:19)</div><div class="kpi-v">24,500원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2,225억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">29.66</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">3.41</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:11.13</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.98</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">37,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 19,000~20,500원 눌림 분할(추격 금지)</span><span class="dc dn">손절 18,200원</span><span class="dc up">목표 37,000원</span><span class="dc">손익비 진입 1:11.13 · 현재가 1:1.98</span><span class="dc">기간 6~12개월 스윙</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 실적(11월 중순 추정)·대형 NAC 수주·제로트러스트 N2SF 확산·양자보안 출시(26말)</div><div class="dc-l">🛑 반증: 3Q26 영익&lt;12억 / MA20 2일 이탈 / 상한가 익일 거래대금&lt;100억+음봉</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 지니언스(263860)  ※개별주식선물 無(현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: NAC 1위 설치기반이 EDR·제로트러스트로 확장되며 구조적 실적 레벨업 진행 중인 보안 SW. 당일 <span class="up">+21%</span> 52주 신고가로 단기 과열 — 현재가(24,700원) 추격은 손익비 0.97로 불리, 눌림 재진입 시 손익비 매력 큼. 12개월 목표가 37,000~40,000원(PER 28~30×FY26E EPS).</p>
+<p>──────────────── ① 포착 신호 (전부 KIS 실측, 2026-10-06 종가)</p>
+<ul>
+<li>현재가 24,700원 [실측: KIS inquire-price 2026-10-06] / 전일대비 <span class="up">+21.08%</span>(<span class="up">+4,300</span>원)</li>
+<li>당일 고가 26,500원 = 상한가 터치 후 24,700 마감(종가 상한가 대비 <span class="down">-6.8%</span>)</li>
+<li>52주 신고가 경신: w52_hgpr 26,500원(날짜 20261006) / 52주 저가 11,000원(20260729) → 저점 대비 <span class="up">+124.5%</span></li>
+<li>당일 거래대금 195.6억원 [실측] vs 최근 20거래일 평균 92.4억원 → 약 2.1배 급증</li>
+<li>회전율(당일 거래대금/시총) 8.72% [실측: 195.6억/2,243억]</li>
+<li>시가총액 2,243억원 [실측] / 상장주식수 9,079,600주 [실측]</li>
+<li>이동평균 정배열 확인: MA5 20,558 &gt; MA20 18,215 &gt; MA60 15,330 [실측 계산] → 완전 정배열, 현재가가 MA5를 20% 상회(단기 이격 과열)</li>
+<li>연속 상승일: 4일 [실측: 10/1~10/6]</li>
+<li>5일 수익률 <span class="up">+27.98%</span> [실측]</li>
+<li>외국인 지분율 26.90% [실측]</li>
+<li>업종: IT 서비스(KRX 분류) / 실질 사이버보안 SW [실측: KIS bstp_kor_isnm·DART]</li>
+<li>시장경고(투자주의/경고/위험): 미확인 (KIS 기본 조회로는 미노출 — 당일 상한가 터치로 익일 지정 가능성 모니터 필요)</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업 [실측: 사업보고서 2025.12 접수 20260316000916]: 네트워크 접근제어(NAC, Genian NAC)·엔드포인트 보안(EDR, Genian Insights E)·GPI 등 보안 SW. 제품 82.55% + 유지관리 용역 17.44%. 2005년 설립, 21년 연속 흑자, 2005~25 매출 CAGR 22.4%(회사 주장). 국내 NAC 점유율 1위.</li>
+<li>매출구조 [실측]: 내수 96.9%(직판 38.4%+간판 58.5%), 수출 3.1%. 간접판매(채널·총판) 비중이 커 대형 수주 레버리지 큼.</li>
+<li>급등사유 [인용: news_search·stockeasy 2026-10-04~10-06]: 뚜렷한 당일 단독 악재/호재 공시보다 ⓐ 2Q26 어닝서프라이즈(영익 <span class="up">+143%</span> YoY) 이후 지속된 실적 리레이팅, ⓑ 제로트러스트(N2SF)·정보보호 공시 의무화·개인정보 과징금 상한 10% 상향 등 보안 규제 수혜 테마, ⓒ 미국 보안주 강세 동조 + &#x27;일자리 으뜸기업·주4.5일제&#x27; 등 긍정 뉴스 플로우가 겹친 수급·테마성 급등으로 판단. [검증: 수주/대형계약 단독공시는 news_search 5~10일 내 미확인 → 모멘텀·수급성]</li>
+<li>규제 촉매 [인용: 신영 2026-09-09]: 정보보호 공시 의무화 + 과징금 상한 확대로 기업 보안예산 전년비 <span class="up">+24%</span> 추정, 공공 N2SF 도입(망분리→제로트러스트 전환)으로 ZTNA 수요 증가.</li>
+</ul>
+<p>③ 실적 (DART 연결 CFS 실측, 단위 억원)</p>
+<ul>
+<li>2023: 매출 428.9 / 영익 64.7 / 순익 62.5 / OPM 15.1% [실측: 접수 20260316]</li>
+<li>2024: 매출 496.1 / 영익 98.4 / 순익 109.1 / OPM 19.8% [실측]</li>
+<li>2025: 매출 483.8 / 영익 70.1 / 순익 75.0 / OPM 14.5% [실측] ← 공공예산 이연으로 역성장</li>
+<li>1Q26: 매출 117.4 / 영익 17.4 / 순익 19.7 (YoY 매출 <span class="up">+25.5%</span>, 영익 <span class="up">+4,677%</span>) [실측: 1Q26 DART + 유안타 원문]</li>
+<li>2Q26: 매출 131.8 / 영익 25.7 / 순익 26.9 (YoY 매출 <span class="up">+15.4%</span>, 영익 <span class="up">+143.1%</span>, OPM 19.5%) [실측: DART 반기 20260814000732 + 유진·유안타·신영 3사 일치]</li>
+<li>상반기 26 누적: 매출 249.2 / 순익 46.6 [실측] → 상반기 EPS 약 513원</li>
+<li>재무건전성 [실측 2026.06 반기]: 자산 841억 / 부채 198억 / 자본 643억 → 부채비율 30.8%(매우 건전). 현금성 풍부, 무차입 구조(단기차입금 0 — 유안타 원문).</li>
+<li>해석: 2025년 공공예산 이연으로 바닥 → 2026년 이연분 정상화 + EDR 크로스셀 + 규제수요로 구조적 턴어라운드. 1Q 영익 YoY 46배는 기저효과(1Q25 영익 0.4억)지만 2Q 절대금액(25.7억)은 사상 최대로 질적 개선 확인.</li>
+</ul>
+<p>④ 미래실적·컨센서스 [인용: consensus.py 2026-10-06, fnguide·naver]</p>
+<ul>
+<li>FY26E: 매출 566 / 영익 115 / 순익 84 / EPS 1,344원 / ROE 18.2%</li>
+<li>FY27E: 매출 610 / 영익 131 / 순익 135 / EPS 1,487원 / ROE 17.5%</li>
+<li>FY28E: 매출 679 / 영익 149 / 순익 155 / EPS 1,696원</li>
+<li>분기 컨센: 3Q26E 매출 117·영익 15·순익 16 / 4Q26E 매출 189·순익 60</li>
+<li>목표가: 최근 6개월 증권사 공식 목표가 제시 0건(전부 Not Rated 6건) → 공식 컨센 목표가 &#x27;미확인&#x27;. 유진 2026-08-05 원문 &quot;FY26 PER 10.9배(당시 주가 14,900원), 동종 평균 50.2배 대비 할인&quot; 언급(목표가 미제시).</li>
+<li>달성가능성: 상반기 순익 46.6억 이미 달성 → FY26 순익 84억(컨센)은 하반기 37억 필요로 보수적, 달성 가능성 높음. 단 fnguide FY26 영익 컨센 115억은 1·2Q 합산 43억 + 하반기 비수기 감안 시 다소 공격적(상단). 영익 컨센은 3M전 109→현재 115로 상향 추세.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 멀티플 [실측 KIS]: PER(ttm) 29.9배 / PBR 3.44배 / EPS(ttm) 826원 / BPS 7,189원</li>
+<li>선행 PER: 현재가 24,700 ÷ FY26E EPS 1,344 = 18.4배 / ÷ FY27E 1,487 = 16.6배</li>
+<li>Peer/밴드: 보안 SW 성장주(안랩·파이오링크·윈스 등)는 이익 턴 시 PER 20~35배 리레이팅 이력. 유진 리포트상 글로벌 동종 평균 50배. 지니언스 자기밴드는 적자 없는 성장구간 PER 15~30배.</li>
+<li>적정 멀티플 산정: 보수적 성장 프리미엄 PER 28~30배 적용(ROE 18%, 영익 성장 YoY, 규제수혜 지속성 반영).</li>
+</ul>
+<p>· Base 목표가 = PER 28 × FY26E EPS 1,344 = 37,632원 → 37,000원 [추정: 산식 노출] · Bull 목표가 = PER 30 × FY27E EPS 1,487 = 44,610원 → 44,000원 [추정] · Bear(멀티플 디레이팅) = PER 20 × FY26E EPS 1,344 = 26,880원 → 27,000원 [추정]</p>
+<ul>
+<li>채택 12M 목표가: 37,000~40,000원 (중심 38,000원, PER 28~30× FY26E EPS)</li>
+</ul>
+<p>⑥ 진입전략·손익비 (개별주식선물 미상장 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지/저항 [실측 일봉]: 1차 지지 MA5 20,558 / 2차 지지 MA20 18,215·직전 박스 18,000~19,500 / 3차 지지 MA60 15,330. 저항: 당일 상한가 26,500(=52주 신고가), 심리 30,000.</li>
+<li>52주: 저가 11,000 / 고가 26,500, 현재가 저점 대비 <span class="up">+124.5%</span>, 고점 대비 <span class="down">-6.8%</span>.</li>
+<li>핵심: 당일 <span class="up">+21%</span> 상한가 터치 후 밀린 마감 → 단기 과열(MA5 이격 <span class="up">+20%</span>). 현재가 추격은 손익비 불리.</li>
+<li>라인(현물 기준):</li>
+</ul>
+<p>· 추격진입(현재가 24,700 / 손절 18,200 / 목표 31,000): 손익비 0.97 → 비권장 · 눌림진입 ①(진입 20,400=직전 종가·MA5 복귀 / 손절 18,200=MA20 하단 / 목표 31,000): 상승여력 <span class="up">+52.0%</span> / 하락리스크 <span class="down">-10.8%</span> → 손익비 4.82 [검산 일치] · 눌림진입 ②(진입 18,500=MA20 지지 / 손절 16,800 / 목표 31,000): 손익비 7.4</p>
+<ul>
+<li>권장: 현재가 추격 금지. 19,000~20,500원대 눌림 또는 거래대금 동반 26,500 돌파 재확인 후 분할 진입.</li>
+<li>집중·레버리지 경고: 의뢰 프로필상 집중 한도 자산 50%·선물 레버리지 주력이나 본 종목은 선물 미상장으로 레버리지 불가(현물 전용). 시총 2,243억 소형주 + 당일 회전율 8.7%의 고변동 → 단일종목 비중 자산의 10% 이내 권고, 상한가 익일 변동성 급확대 유의.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델</p>
+<ul>
+<li>제품 구조 [실측 반기보고서 20260814000732]: 네트워크보안 제품(NAC·EDR·GPI) 82.95% + 유지관리 용역 17.05%. 상반기 매출 249.2억.</li>
+<li>전방·촉매 [인용 stockeasy 신영·유안타]: ⓐ NAC — 공공·대기업 신규수주 + 해외거점 통제수요, ⓑ EDR — 공공·국방·금융권 도입 확대 + 백신 ASP 상향 크로스셀, ⓒ SaaS(클라우드 NAC·MDR) 고객 200곳 돌파, ⓓ 양자보안 게이트웨이 2026말 출시 예정.</li>
+<li>9-7 바텀업 표 (물량×단가 proxy → 영업이익, 억원):</li>
+</ul>
+<p>구분      | 연매출 | OPM  | 연영익 | 3Q배분 | 4Q배분 Bear      |  520  | 13%  |  67.6 |  12   |  18 Base      |  566  | 17%  |  96   |  15   |  28 Bull      |  610  | 20%  |  122  |  18   |  35</p>
+<p>· Bear: 하반기 공공예산 재이연·EDR 침투 둔화. 연 OPM 2025년 수준(14%대) 회귀. · Base: 컨센 매출 566 수렴, OPM 17%(상반기 19%·하반기 비수기 희석). 3Q영익 15·4Q영익 28(4Q 계절성 집중). · Bull: 연매출 610 + OPM 20% 상회(유안타 시나리오). 대형 NAC 수주 + N2SF 레퍼런스 확산.</p>
+<ul>
+<li>결론 문장: 3Q26 연결 영업이익 ≥ 15억이면 Base 정배열·실적 리레이팅 유지. &lt; 12억(Bear)이면 과열 되돌림 폐기 — 공공예산 이연 재현으로 2025년 패턴 반복 신호.</li>
+</ul>
+<p>★ §10 촉매정량분석: 당일 급등은 특정 수주/계약 단독공시가 아닌 2Q 어닝서프라이즈 여진 + 보안 규제테마 + 수급성으로 판단되어(news_search 5~10일 단독 수주공시 미확인), 촉매 정량화(catalyst_analyzer/market_sizer)는 생략. 실적·규제는 ④·⑦ 반증조건으로 관리.</p>
+<p>⑦ 촉매·반증·이벤트</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만): 3Q26 실적발표 예정(11월 중순 추정, 확정일 미확인) / 양자보안 게이트웨이 2026말 출시(구체일 미확인) / 정보보호 공시 의무화 시행 지속.</li>
+<li>반증 3개(수치→행동):</li>
+</ul>
+<p>1) 3Q26 연결 영업이익 &lt; 12억 발표 시(Bear 하단, 단위 억원) → 실적 리레이팅 논리 훼손, 전량 청산/신규 보류. 2) 종가 기준 MA20(18,215원) 하향 이탈 2거래일 연속 → 추세 붕괴, 손절 라인 발동. 3) 당일 상한가 익일 거래대금 100억 미만으로 급감 + 음봉 → 수급 소멸 신호, 신규 진입 전면 보류(추격분 축소).</p>
+<ul>
+<li>이벤트 매트릭스:</li>
+</ul>
+<p>· 대형 공공/대기업 NAC 수주 공시 → 상방 재가속(목표 44,000 상향 트리거) · 3Q 어닝서프라이즈(영익 ≥18억) → Bull 전환 · 3Q 비수기 쇼크(영익 &lt;12억) → Bear, 15,000대 회귀 · 보안테마 전반 조정 → 고베타 특성상 낙폭 확대</p>
+<ul>
+<li>확률가중 시나리오(합 100%):</li>
+</ul>
+<p>· Bear 30%: 과열 되돌림·3Q 비수기 실적 둔화 → 목표 27,000원(현재가 <span class="down">-9%</span>) · Base 50%: 눌림 후 추세 유지, 12M PER 28× → 37,000원(<span class="up">+50%</span>) · Bull 20%: 대형 수주·FY27 리레이팅 → 44,000원(<span class="up">+78%</span>) · 기대값 ≈ 0.3×27,000 + 0.5×37,000 + 0.2×44,000 = 35,400원(현재가 <span class="up">+43%</span>)</p>
+<ul>
+<li>수급·유동성: 외국인 26.9%, 당일 거래대금 195억(평소 2배)로 유동성 충분하나 소형주 변동성. 상한가 익일 차익실현 매물 주의.</li>
+<li>포지션 사이징(자산 대비 %): 단일종목 비중 10% 이내, 현물 전용(선물 레버리지 불가). 추격 금지·눌림 분할(1차 50%·2차 50%) 권고.</li>
+</ul>
+<p>⚠️ 본 자료는 리서치 참고용이며 투자판단·책임은 본인에게 있습니다. 추정치는 &#x27;추정&#x27;, 확인불가 값은 &#x27;미확인&#x27; 표기.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 공식 목표가(전부 Not Rated, 6개월 내 제시 0건)</li>
+<li>3Q26 실적발표 확정일 / 양자보안 게이트웨이 출시 확정일</li>
+<li>당일 급등 단독 수주·계약 공시(news_search 5~10일 미확인 → 수급·테마성 결론)</li>
+<li>당일 상한가 터치 익일 시장경고(투자주의) 지정 여부</li>
+<li>DART 반기 CFS 영업이익 세부(단일분기 분해는 증권사 원문 수치 채택)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI inquire-price·inquire-daily-itemchartprice (2026-10-06 실측: 현재가·거래대금·시총·MA·52주·회전율)</li>
+<li>DART 사업보고서 2025.12 접수 20260316000916 / 반기보고서 2026.06 접수 20260814000732 / 연결 재무 fnlttSinglAcnt(All)</li>
+<li>consensus.py 2026-10-06(fnguide·naver·stockeasy·hankyung) / stockeasy_reports.py(신영·유안타·유진)</li>
+<li>news_search.py 2026-10-06(지디넷·머니투데이·네이버 프리미엄 등)</li>
+<li>kis_futures_check.py(개별주식선물 미상장 확인)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>눌림진입① 손익비: (31,000-20,400)/(20,400-18,200)=10,600/2,200=4.82 ✓</li>
+<li>추격진입 손익비: (31,000-24,700)/(24,700-18,200)=6,300/6,500=0.97 ✓</li>
+<li>선행 PER: 24,700/1,344=18.4 ✓ / Base목표 28×1,344=37,632 ✓</li>
+<li>시나리오 확률합: 30<span class="up">+50</span><span class="up">+20</span>=100% ✓</li>
+<li>회전율: 195.6억/2,243억=8.72% ✓ / 52주저점대비: 24,700/11,000-1=<span class="up">+124.5%</span> ✓</li>
+<li>2026 상반기 순익: 19.7<span class="up">+26.9</span>=46.6억 / 매출 117.4<span class="up">+131.8</span>=249.2억 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-06 09:19 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 24,500원 (<span class="up">+20.1%</span>) · 시총 2,225억 · 5일 <span class="up">+26.9%</span> / 20일 <span class="up">+54.1%</span> / 60일 <span class="up">+97.1%</span></li>
+<li>MA5 20,518원 / MA20 18,205원 / MA60 15,327원 → MA20 이격 <span class="up">+34.6%</span> · MA60 이격 <span class="up">+59.9%</span></li>
+<li>52주 고 26,500원 / 저 11,000원 → 고점 대비 <span class="down">-7.5%</span> · 20일 고 24,500원 / 저 15,260원</li>
+<li>후행 PER 29.66 / PBR 3.41 (EPS 826원 · BPS 7,189원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 93.2억 (5일 69.4억)</li>
+<li>외국인 순매수 5일 8.2억 / 20일 3.7억 · 기관 5일 6.0억 / 20일 6.4억 · 개인 20일 -10.2억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.43% / 20일 평균 1.77% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 4.40% (09/08) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 37,000원 (<span class="up">+51.0%</span>) ÷ 하방 18,200원 (−25.7%) = <strong>1:1.98</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 25.7% = <strong>자산의 1.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.9%</strong></li>
+<li>유동성 참고: 20일 ADV 93.2억 · 1일 소화 한도는 ADV의 10%(9.32억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 25.7% · ATR14 1,644원 (손절폭/ATR 3.8배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 25.7% = ATR14 × 3.8배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 22,033원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:5.07</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 중립→비중확대(눌림 매수) 선물: 無(현물 전용·레버리지 불가) 현재가: 24,700원 진입: 19,000~20,500원 눌림 분할(추격 금지) 손절: 18,200원(MA20 하단, 종가 2일 이탈 시) 목표: 37,000원(1차)·44,000원(2차) 손익비: 4.82(눌림진입① 기준) / 추격 시 0.97 기간: 6~12개월 스윙 촉매: 3Q26 실적(11월 중순 추정)·대형 NAC 수주·제로트러스트 N2SF 확산·양자보안 출시(26말) 반증: 3Q26 영익&lt;12억 / MA20 2일 이탈 / 상한가 익일 거래대금&lt;100억+음봉</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
