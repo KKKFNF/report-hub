@@ -1,0 +1,200 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TIGER 코스닥150(232080) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261006-155612-TIGER-코스닥150-232080.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.11</div><div class="tp-c"><b>결론 발췌</b> 코스닥150 지수가 한 달 +18.6%·당일 +4.1%로 구간 신고가를 돌파하며 ETF도 동반 급등(현재 16,135원 +4.23%[실측]). 추세는 명백히 강세이나 52주 신고가 영역·단기 과열 구간이라 신규 진입은 눌림목 분할이 정석. 개별선물 無 → 지수 레버리지는 지수선물/레버리지ETF로만 가능.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>TIGER 코스닥150(232080)</h1>
+<div class="meta">📊 trend · 2026-10-06 15:56 · 코드 232080</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-06 15:56)</div><div class="kpi-v">16,135원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.6조</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.11</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.41</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">17,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 15300~15600원 (2차 14400~14600원)</span><span class="dc dn">손절 14,050원</span><span class="dc up">목표 17,000원</span><span class="dc">손익비 진입 1:1.11 · 현재가 1:0.41 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.1</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.1로 적었지만 진입·손절·목표로 계산하면 1:1.11다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 2~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 10월중순~말 코스닥 반도체소부장·바이오 3Q 실적시즌, 미 FOMC·국채금리 방향</div><div class="dc-l">🛑 반증: 코스닥150 지수 종가 1432(MA20) 이탈 또는 ETF 종가 14050(MA60) 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — TIGER 코스닥150(232080) ※선물 無(ETF)</p>
+<p>📌 한줄 결론 코스닥150 지수가 한 달 <span class="up">+18.6%</span>·당일 <span class="up">+4.1%</span>로 구간 신고가를 돌파하며 ETF도 동반 급등(현재 16,135원 <span class="up">+4.23%</span>[실측]). 추세는 명백히 강세이나 52주 신고가 영역·단기 과열 구간이라 신규 진입은 눌림목 분할이 정석. 개별선물 無 → 지수 레버리지는 지수선물/레버리지ETF로만 가능.</p>
+<p>① 포착 신호 [실측]</p>
+<ul>
+<li>trendscan 스냅샷(회전율 7.1%·거래대금 1065.5억·시총 15056억·당일 <span class="down">-0.35%</span>)은 포착 시점값으로 현재와 상이 → 실시간 재측정으로 교정.</li>
+<li>당일 실측(10/06 KIS): 종가 16,135원 / 전일비 <span class="up">+655</span>원(<span class="up">+4.23%</span>) / 거래량 1,158만주 / 거래대금 약 1,854억원 / 당일 고가=종가 16,135(고점 마감).</li>
+<li>시총 실측: 상장주식수 9,676만주 × 16,135원 ≈ 1조 5,612억원.</li>
+<li>MA 실측: MA5 15,302 / MA20 14,462 / MA60 14,054 → 완전 정배열(현재가&gt;MA5&gt;MA20&gt;MA60), 이격도 큼(현재가/MA20 <span class="up">+11.6%</span>).</li>
+<li>5일 수익률 실측 <span class="up">+12.1%</span>(14,395→16,135), 지난 7거래일 연속 우상향.</li>
+</ul>
+<p>② ETF 개요·급등 검증 [실측/인용]</p>
+<ul>
+<li>추종지수: 코스닥150(코스닥 대표 150종목 시총가중). 운용: 미래에셋 TIGER. 실물복제형 수익증권.</li>
+<li>총보수: 연 0.19% 수준[인용, 미래에셋 공지 기준·발송일 재확인 필요].</li>
+<li>급등사유(news_search 실측): &quot;코스닥 한 달새 11% 급등, 900선 재진입&quot;(조선 10/06), &quot;코스닥 반도체·바이오 타고 2%대 급등&quot;(디지털데일리 10/06), &quot;코스닥 액티브ETF 한 달 <span class="up">+33%</span>&quot;(아주 10/05). 미 국채금리 급등에 코스피는 눌렸으나 코스닥은 반도체 소부장·바이오 주도로 디커플링 강세.</li>
+<li>즉, 지수 자체의 추세 상승 + 섹터(반도체소부장·바이오) 로테이션 유입이 핵심 동인 [실측 뉴스 근거]. 개별 이벤트가 아닌 시장 레벨 모멘텀.</li>
+</ul>
+<p>③ 지수·시장 흐름 [실측]</p>
+<ul>
+<li>코스닥150 지수(KIS 2203): 현재 1,596.48 / 당일 <span class="up">+4.13%</span>.</li>
+<li>지수 일봉: 1,387.5(9/16)→1,596.5(10/06), 7거래일 중 6일 상승. 지수 MA5 1,514 / MA20 1,432 완전 정배열.</li>
+<li>지수 5일 <span class="up">+11.9%</span> / 1개월 <span class="up">+18.6%</span> [실측]. 구간(약 200일) 저 1,072 → 현재 1,596으로 저점 대비 <span class="up">+48.9%</span>, 현재가 구간 최고치.</li>
+<li>주도섹터[인용]: 반도체 소부장(코스닥 시총 상위), 바이오/제약(알테오젠·HLB 계열 등 코스닥150 고비중), 2차전지 소재. 증권가 &quot;반도체株 위주 담아야&quot;(조선 10/06).</li>
+</ul>
+<p>④ 괴리율·추적오차·보수·유동성</p>
+<ul>
+<li>당일 거래대금 1,854억원[실측] → 코스닥 ETF 중 최상위권 유동성, 스프레드 리스크 낮음.</li>
+<li>괴리율(iNAV 대비): KIS 기본응답에 실시간 iNAV 미제공 → 괴리율 수치 미확인. 다만 실물복제·초대형 유동성 ETF라 통상 ±0.2% 내 수렴(구조적 추정).</li>
+<li>추적오차: 미확인(발송일 운용사 공시 재확인 필요). 실물복제·대형 패시브 특성상 연 0.3~0.5%p 내 통상.</li>
+<li>총보수 연 0.19%[인용] — 스윙(수주)엔 사실상 무시 가능 수준.</li>
+</ul>
+<p>⑤ 지수 밸류에이션·현 위치 [실측/추정]</p>
+<ul>
+<li>ETF 52주: 고 22,130 / 저 10,625[실측]. 현재 16,135 → 52주 저 대비 <span class="up">+51.9%</span>, 52주 고 대비 <span class="down">-27.1%</span>.</li>
+<li>해석: 저점에서 크게 회복했으나 52주 고점까지는 아직 여유(<span class="down">-27%</span>). 즉 &quot;역사적 천장&quot;은 아니지만 &quot;직전 구간(200일) 신고가&quot;라 단기 저항 부재 = 추격 매수 유인 + 눌림 시 되돌림 위험 공존.</li>
+<li>지수 PER/PBR: 코스닥150 지수 밸류는 개별 ETF 응답에 없음 → 미확인(정식 밸류는 거래소 지수팩트시트 필요). 바이오 고PER 비중 탓에 지수 PER은 통상 높게 형성됨(참고).</li>
+</ul>
+<p>⑥ 진입전략·손익비 [실측 라인]</p>
+<ul>
+<li>현재가 16,135원(고점 마감, 단기 과열).</li>
+<li>지지: 1차 MA5 15,300 / 2차 10/02 갭·MA20 14,460 / 3차 MA60 14,050.</li>
+<li>저항: 직전 구간 신고가라 위쪽 매물벽 적음 → 심리 라운드 17,000, 다음 52주 고 22,130(원거리).</li>
+<li>스윙 진입안(추격 지양, 눌림 분할):</li>
+<li>1차 진입 15,300~15,600(MA5 되돌림)</li>
+<li>2차 진입 14,400~14,600(MA20 지지, 추세 유지 확인 시)</li>
+<li>손절: 종가 기준 14,050(MA60) 이탈 → 추세 훼손으로 청산.</li>
+<li>목표: 1차 17,000(심리/라운드), 2차 18,500(과거 대형 상단 구간).</li>
+<li>손익비(15,500 진입·14,050 손절·17,000 1차목표 가정):</li>
+</ul>
+<p>위험 =15,500-14,050=1,450 / 보상=17,000-15,500=1,500 → 손익비 ≈ 1:1.0. 2차 18,500 기준: 보상 3,000 / 위험 1,450 → 1:2.1. [산식 노출]</p>
+<ul>
+<li>결론: 현재가 추격은 손익비 불리(1:1 미만 가능). MA5 눌림(15,300대) 진입 시 1차 1:1·2차 1:2 확보.</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오·수급·사이징 촉매[확정 이벤트만]:</p>
+<ul>
+<li>10월 중순~말 코스닥 반도체소부장·바이오 3Q 실적시즌 본격화(개별 발표일은 종목별 상이).</li>
+<li>미 FOMC·국채금리 방향(성장주·바이오 민감) — 날짜 확정 이벤트 도래 시 변동성 확대.</li>
+</ul>
+<p>반증 3개(수치→행동):</p>
+<ol>
+<li>코스닥150 지수 종가 1,432(MA20) 이탈 → 추세 중립 전환, ETF 비중 축소.</li>
+<li>ETF 종가 MA60(14,050) 이탈 → 스윙 청산(손절 룰).</li>
+<li>미 국채금리 재급등으로 성장주 투매 + 코스닥 거래대금 급감(일 1,000억 ETF 거래대금 반토막) → 모멘텀 소멸 신호, 신규 진입 중단.</li>
+</ol>
+<p>이벤트 매트릭스:</p>
+<ul>
+<li>금리 안정 + 반도체/바이오 실적 서프라이즈 → 지수 1,650~1,750, ETF 17,000+ 돌파 연장.</li>
+<li>금리 변동성 + 실적 혼조 → 1,430~1,550 박스 되돌림(MA20 눌림).</li>
+<li>금리 급등 + 차익실현 → 1,350 이하, ETF MA60 하회 조정.</li>
+</ul>
+<p>확률가중 시나리오(합 100%):</p>
+<ul>
+<li>상승지속(45%): MA5 눌림 후 17,000~18,500 — 추세+유동성+섹터로테이션 우호.</li>
+<li>횡보/되돌림(40%): 14,400~16,100 박스, MA20 지지 테스트 후 재상승 — 단기 과열 해소.</li>
+<li>추세이탈(15%): 금리/실적 쇼크로 MA60 하회 14,050 이탈.</li>
+</ul>
+<p>수급[실측/추정]: 코스닥 레버리지ETF 수익률 상위 싹쓸이(핀포인트 10/05) → 개인·기관 코스닥 자금 유입 지속. ETF 당일 거래대금 1,854억으로 수급 활발[실측].</p>
+<p>포지션 사이징(자산 대비 %):</p>
+<ul>
+<li>ETF(지수분산)라 개별주 대비 변동성 낮음 → 스윙 코어로 총자산 5~10% 범위 적정.</li>
+<li>추격 금지, MA5·MA20 2회 분할. 손절 MA60 이탈 시 기계적 청산.</li>
+<li>레버리지 원할 경우 개별선물 無 → KODEX/TIGER 코스닥150 레버리지ETF 또는 코스닥150 지수선물로 대체(변동성 2배, 사이징 절반 이하로).</li>
+</ul>
+<p>⚠️ 리서치 참고용. [미확인 목록] 실시간 괴리율·iNAV, 추적오차 공시수치, 코스닥150 지수 PER/PBR, 총보수 발송일 재확인, 구성종목 정확 비중(%). [출처 목록] KIS OpenAPI 현재가·일봉·지수(실측 10/06), news_search(조선·디지털데일리·아주·핀포인트·뉴스웍스 10/05~06), 미래에셋 TIGER 보수 공지(인용). [검산] 시총=96,760,000주×16,135=1조5,612억(≈스냅샷 15,056억, 당일 상승분 반영). 5일수익률=16,135/14,395-1=<span class="up">+12.1%</span>. 손익비(2차)=3,000/1,450=2.07.</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-06 15:56 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 16,135원 (<span class="up">+4.2%</span>) · 시총 1.56조 · 5일 <span class="up">+12.1%</span> / 20일 <span class="up">+18.8%</span> / 60일 <span class="up">+9.0%</span></li>
+<li>MA5 15,302원 / MA20 14,462원 / MA60 14,054원 → MA20 이격 <span class="up">+11.6%</span> · MA60 이격 <span class="up">+14.8%</span></li>
+<li>52주 고 22,130원 / 저 10,625원 → 고점 대비 <span class="down">-27.1%</span> · 20일 고 16,135원 / 저 13,855원</li>
+<li>후행 PER 0.0 / PBR 0.0 (EPS 0원 · BPS 0원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,939.5억 (5일 1,837.8억)</li>
+<li>외국인 순매수 5일 -226.6억 / 20일 -42.3억 · 기관 5일 362.3억 / 20일 314.1억 · 개인 20일 -249.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.00% / 20일 평균 0.00% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 0.00% (10/06) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 17,000원 (<span class="up">+5.4%</span>) ÷ 하방 14,050원 (−12.9%) = <strong>1:0.41</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 12.9% = <strong>자산의 3.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.9%</strong></li>
+<li>유동성 참고: 20일 ADV 1,939.5억 · 1일 소화 한도는 ADV의 10%(193.95억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 12.9% · ATR14 412원 (손절폭/ATR 5.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 12.9% = ATR14 × 5.1배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 15,311원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.05</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-232080"></span>📋 결정카드 — TIGER 코스닥150(232080) 판정: 관심 선물: 無 현재가: 16135원 진입: 15300~15600원 (2차 14400~14600원) 손절: 14050원 목표: 1차 17000원 (2차 18500원) 손익비: 1:2.1 (2차목표 기준, 1차목표는 1:1) 기간: 스윙 2~6주 촉매: 10월중순~말 코스닥 반도체소부장·바이오 3Q 실적시즌, 미 FOMC·국채금리 방향 반증: 코스닥150 지수 종가 1432(MA20) 이탈 또는 ETF 종가 14050(MA60) 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
