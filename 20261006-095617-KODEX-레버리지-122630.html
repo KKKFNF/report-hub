@@ -1,0 +1,182 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KODEX 레버리지(122630) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261006-095617-KODEX-레버리지-122630.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.16</div><div class="tp-c"><b>결론 발췌</b> 코스피200 ×2 추종 레버리지 ETF로, 코스피 7000선 회복(반도체 수출·마이크론·美기술주 훈풍)에 힘입어 MA 완전정배열·3일 연속상승·5일 +4.5%를 기록했습니다. 다만 당일은 -0.11%로 숨고르기, 외국인 순매도 전환과 FOMC 의사록(10/8)·추가 모멘텀 부재라는 역풍이 공존합니다. 지수 레버리지 특성상 횡보 시 복리드래그로 가치가 녹으므로 &quot;추세 지속 확인 시에만&quot; 짧게 올라타는 관심 등급으로 봅니다.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>KODEX 레버리지(122630)</h1>
+<div class="meta">📊 trend · 2026-10-06 09:56 · 코드 122630</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-06 09:56)</div><div class="kpi-v">113,940원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">5.9조</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.16</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.6</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">116,900원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 110,500~112,500원 (MA5~MA20 눌림목)</span><span class="dc dn">손절 109,000원</span><span class="dc up">목표 116,900원</span><span class="dc">손익비 진입 1:2.16 · 현재가 1:0.6</span><span class="dc">기간 스윙 1~3주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: FOMC 의사록 10/8 03:00 KST · 반도체 수출/美기술주 모멘텀</div><div class="dc-l">🛑 반증: ①109,000 이탈→손절 ②코스피 7000 종가하회→비중절반 ③외국인 3일 순매도+거래 2000억↓→진입보류</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — KODEX 레버리지(122630) ※선물 無 (레버리지 ETF)</p>
+<p>📌 <strong>한줄 결론</strong> 코스피200 ×2 추종 레버리지 ETF로, 코스피 7000선 회복(반도체 수출·마이크론·美기술주 훈풍)에 힘입어 MA 완전정배열·3일 연속상승·5일 <span class="up">+4.5%</span>를 기록했습니다. 다만 당일은 <span class="down">-0.11%</span>로 숨고르기, 외국인 순매도 전환과 FOMC 의사록(10/8)·추가 모멘텀 부재라는 역풍이 공존합니다. <strong>지수 레버리지 특성상 횡보 시 복리드래그로 가치가 녹으므로 &quot;추세 지속 확인 시에만&quot; 짧게 올라타는 관심 등급</strong>으로 봅니다.</p>
+<hr>
+<p><strong>① 포착 신호 — 현 위치 진단</strong></p>
+<ul>
+<li>회전율 <strong>5.2%</strong> (당일거래대금 3,138.2억 / 시총 59,941억) — ETF로는 매우 높은 유동성(국내 최대 거래 ETF군)</li>
+<li>이동평균 <strong>완전 정배열(실측)</strong>: 현재가 114,265 &gt; MA5 112,340 &gt; MA20 110,172 &gt; MA60 109,359</li>
+<li>연속상승 3일, 5일수익률 <strong><span class="up">+4.5%</span></strong>(실측: 109,370→114,265), 당일 <strong>-0.11%</strong>(전일 114,395 대비 -130원)</li>
+<li>해석: 추세 자체는 살아있으나(정배열), 당일 음봉 숨고르기 + 거래대금 유지 → <strong>추세 초입 눌림목 vs 단기 과열 분기점</strong>. 레버리지는 지수가 하루만 횡보/반락해도 체감 변동이 2배라 &quot;신호는 켜졌지만 확인 필요&quot; 구간.</li>
+</ul>
+<p><strong>② 기초지수·구성 — ETF 구조</strong></p>
+<ul>
+<li>기초지수: <strong>코스피200</strong>, 일간수익률 <strong>×2 배율</strong> 추종(실물복제+장내파생 혼합, 수익증권)</li>
+<li>상위 구성·섹터: 코스피200 대표지수로 <strong>삼성전자·SK하이닉스(반도체 IT 양대장)</strong> 비중이 지수의 상당 부분을 차지, 그 외 현대차·대형 금융·2차전지·바이오 등. 사실상 <strong>반도체·IT 민감도가 압도적</strong>인 지수. (정확한 종목별 비중 수치는 삼성자산운용 상품페이지가 봇차단으로 미수신 → [미확인])</li>
+<li>※ DART 재무제표·사업부문·개별주식선물·바텀업 제품모델은 <strong>ETF라 해당없음</strong>.</li>
+</ul>
+<p><strong>③ 상승동인 — 코스피 매크로·수급 (news_search 실측)</strong></p>
+<ul>
+<li><strong>반도체 수출·마이크론 호조</strong>: 10/1 &quot;마이크론·반도체 수출 훈풍에 코스피 1.95%↑, 코스닥 4.48%↑&quot;(연합뉴스) — 이번 랠리의 핵심 실체</li>
+<li><strong>美 기술주 훈풍</strong>: 나스닥 신고가 경신, 美 기술주 강세 이어받기(10/5 다수 매체)</li>
+<li><strong>코스피 7000선 회복</strong>: &quot;5거래일 만에 7000선&quot;(이데일리 10/2) — 심리적 분기점 돌파</li>
+<li><strong>역풍/경계</strong>: ①외국인 순매도 전환(&quot;외국인 Bye 코스피&quot; 10/2) ②&quot;7000이라고 아무거나 사면 안돼…모멘텀 뚜렷치 않아&quot;(이데일리) ③美 국채금리 급등 부담 ④KOSPI200 360 지지선 경계 리포트(Investing.com)</li>
+<li><strong>실체 vs 기대감 판정</strong>: 반도체 수출은 실체(펀더멘털), 7000 돌파·美훈풍은 기대+수급. <strong>실체 40% / 기대·수급 60%</strong> 혼재 → 순환매·테마성 색채가 강해 변동성 큼.</li>
+</ul>
+<p><strong>④ 레버리지 ETF 고유 리스크 (★핵심)</strong></p>
+<ul>
+<li><strong>일간복리 변동성드래그</strong>: 지수가 <span class="up">+5%</span>→<span class="down">-5%</span> 반복하면 2배 ETF는 원금이 지속 감소. 예) 지수 <span class="up">+10%</span> 후 <span class="down">-9.09%</span>(제자리)여도 레버리지는 (1<span class="up">+0.20</span>)(1-0.1818)=0.982 → <strong>-1.8% 손실</strong>. 횡보장일수록 가치가 녹음(decay).</li>
+<li><strong>×2 증폭</strong>: 지수 <span class="down">-3%</span>면 ETF <span class="down">-6%</span>. 손절폭을 지수 기준이 아닌 ETF 가격 기준으로 좁게 관리해야 함.</li>
+<li><strong>추적오차·괴리율</strong>: 파생 롤오버·운용보수로 장기 보유 시 지수 2배와 괴리 누적. <strong>스윙(수일~수주)용이지 보유 자산 아님</strong>.</li>
+<li><strong>역사적 증거</strong>: 현재가 114,265원인데 52주 고점 <strong>252,500원</strong>(실측). 지수는 그만큼 안 빠졌는데 레버리지는 반토막 이하 — 변동성드래그가 얼마나 가치를 깎는지 보여주는 실측 사례. 액면/NAV 왜곡 가능성 유의.</li>
+</ul>
+<p><strong>⑤ 밸류 대체 — 코스피200 위치·과열도</strong></p>
+<ul>
+<li>레버리지 ETF엔 PER/PBR이 없으므로 <strong>기초지수 위치</strong>로 대체 판단.</li>
+<li>코스피 7000선 = 5거래일 만의 회복, 전고점 재도전 국면이나 <strong>모멘텀 부재·외국인 이탈</strong>로 &quot;돌파 안착 미확정&quot;. 매경 리포트: &quot;7100 안착 시 7700까지, 남은 퍼즐은 유가&quot;.</li>
+<li>과열도: 레버리지 현재가는 MA60 대비 <span class="up">+4.5%</span>로 <strong>단기 상단권이나 극단적 과열은 아님</strong>. RSI 등 정밀 지표는 [미확인]. 7000이 지지로 바뀌면 추세, 깨지면 급반락 구조.</li>
+</ul>
+<p><strong>⑥ 진입전략·손익비 (실측 레벨 기반)</strong></p>
+<ul>
+<li>현재가: <strong>114,265원</strong></li>
+<li>지지: MA5 <strong>112,340</strong> → MA20 <strong>110,172</strong>(1차 지지·손절 기준선) → MA60 <strong>109,359</strong></li>
+<li>저항: 직전 스윙고 <strong>116,975원</strong>(6일 전 종가), 돌파 시 추세 재가속</li>
+<li><strong>진입(관심): 110,500~112,500원</strong>(MA5~MA20 눌림목 매수가 레버리지 손익비 유리). 추격매수(114k 이상)는 ×2 증폭 탓에 불리.</li>
+<li><strong>손절: 109,000원 이탈 시</strong>(MA20·MA60 동시 하회 = 정배열 붕괴, 지수 추세 꺾임 신호). 진입 111,500 기준 손절폭 <strong>-2.2%</strong>(지수로는 약 <span class="down">-1.1%</span>).</li>
+<li><strong>익절: 1차 116,900원(직전고)</strong>, <strong>2차 122,000원</strong>(심리 저항·5일 <span class="up">+7%</span>대). 진입 111,500 기준 1차 <span class="up">+4.8%</span> / 2차 <span class="up">+9.4%</span>.</li>
+<li><strong>손익비 ≈ 1 : 2.2</strong>(손절 <span class="down">-2.2%</span> vs 1차 <span class="up">+4.8%</span>). 레버리지로는 양호.</li>
+</ul>
+<p><strong>⑦ 촉매·반증·시나리오</strong></p>
+<ul>
+<li>날짜확정 이벤트: <strong>FOMC 의사록 10/8 03:00(KST)</strong> — 10월 금리인상론 50%↓(윌리엄스 발언 완화) → 비둘기면 호재, 매파면 금리·환율 부담. / 美 반도체 실적시즌·추가 수출지표 / 국내 금통위·지수 정기리밸런싱(분기) / 美 CPI·고용 발표 주시.</li>
+<li><strong>반증 조건 3개 (가격/지수 수치 → 행동)</strong>:</li>
+</ul>
+<ol>
+<li><strong>109,000원 종가 이탈</strong> → 정배열 붕괴, 즉시 손절·관망 전환</li>
+<li><strong>코스피 7000선 종가 하회</strong> → 기초지수 추세 꺾임, 레버리지 비중 절반 축소</li>
+<li><strong>외국인 순매도 3거래일 지속 + 거래대금 2,000억 미만 위축</strong> → 수급 이탈, 신규진입 보류</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스: [FOMC 비둘기 → 지수 상승 → 레버리지 ×2 수혜] / [FOMC 매파·금리급등 → 지수 조정 → ×2 손실] / [반도체 수출 서프라이즈 지속 → Bull] / [외국인 대량 이탈 → Bear].</li>
+<li><strong>확률가중 시나리오 (합 100%)</strong>:</li>
+<li>🐻 <strong>Bear 35%</strong>: 7000 안착 실패·외국인 이탈 심화·FOMC 매파 → 109,000 이탈, <strong>-5~10%</strong></li>
+<li>⚖️ <strong>Base 45%</strong>: 7000 지지하며 횡보·순환매 → 110~117k 박스, <strong>변동성드래그로 ±2% 내 소폭</strong>(레버리지 횡보가 가장 불리)</li>
+<li>🐂 <strong>Bull 20%</strong>: 반도체 모멘텀 지속·FOMC 비둘기·7100 돌파 → 122k+ 추세, <strong><span class="up">+8</span>~12%</strong></li>
+<li><strong>포지션 사이징 (자산 대비 %)</strong>: 레버리지 ETF는 ×2 변동성이라 개별주보다 보수적으로. 집중한도 50% 중 <strong>이 종목은 자산의 10~15% 이내</strong>, 반증 1개 발생 시 즉시 절반 축소. 횡보 Base 확률(45%)이 가장 높아 &quot;오래 들고 있으면 녹는&quot; 구조임을 전제로 짧게 운용.</li>
+</ul>
+<p>⚠️ <strong>참고용</strong>입니다. 투자 판단과 책임은 본인에게 있습니다. <strong>[미확인 목록]</strong>: 삼성자산운용 상품페이지 상위 종목별 정확한 비중 수치(봇차단 미수신), RSI 등 정밀 과매수 지표, 당일 외국인/기관 순매수 금액(장중 미집계), 괴리율·추적오차 실수치. <strong>[출처 목록]</strong>: KIS OpenAPI 실시간 시세·일봉(현재가·MA5/20/60·52주고저, 실측) / news_search.py 실측(연합뉴스·이데일리·매일경제·YTN·Investing.com·TradingView, 10/1~10/5) / 코스피200 지수 구조(일반 공시지식).</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-06 09:56 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 113,940원 (<span class="down">-0.4%</span>) · 시총 5.95조 · 5일 <span class="up">+4.2%</span> / 20일 <span class="up">+15.0%</span> / 60일 <span class="down">-28.3%</span></li>
+<li>MA5 112,269원 / MA20 110,155원 / MA60 109,353원 → MA20 이격 <span class="up">+3.4%</span> · MA60 이격 <span class="up">+4.2%</span></li>
+<li>52주 고 252,500원 / 저 32,115원 → 고점 대비 <span class="down">-54.9%</span> · 20일 고 116,975원 / 저 99,690원</li>
+<li>후행 PER 0.0 / PBR 0.0 (EPS 0원 · BPS 0원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 15,490.8억 (5일 12,534.2억)</li>
+<li>외국인 순매수 5일 461.8억 / 20일 2,239.9억 · 기관 5일 351.6억 / 20일 771.2억 · 개인 20일 -2,779.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.00% / 20일 평균 0.00% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 0.00% (10/06) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 116,900원 (<span class="up">+2.6%</span>) ÷ 하방 109,000원 (−4.3%) = <strong>1:0.60</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 4.3% = <strong>자산의 11.5%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 11.5%</strong></li>
+<li>유동성 참고: 20일 ADV 15,490.8억 · 1일 소화 한도는 ADV의 10%(1549.08억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 4.3% · ATR14 4,641원 (손절폭/ATR 1.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 4.3% = ATR14 × 1.1배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 104,657원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.32</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 <strong>결정카드 — KODEX 레버리지(122630)</strong> 판정: 관심 선물: 無 현재가: 114,265원 진입: 110,500~112,500원 (MA5~MA20 눌림목) 손절: 109,000원 (정배열 붕괴) 목표: 1차 116,900원 (2차 122,000원) 손익비: 1:2.2 기간: 스윙 1~3주 촉매: FOMC 의사록 10/8 03:00 KST · 반도체 수출/美기술주 모멘텀 반증: ①109,000 이탈→손절 ②코스피 7000 종가하회→비중절반 ③외국인 3일 순매도+거래 2000억↓→진입보류</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
