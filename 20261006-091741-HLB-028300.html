@@ -1,0 +1,272 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HLB(028300) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261006-091741-HLB-028300.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 조건부 트레이딩(눌림목 한정) / 중립 · 손익비 1:15.5</div><div class="tp-c"><b>결론 발췌</b> FDA 첫 승인(리픽투)으로 모멘텀 전환했으나 간암 리보세라닙은 또 CRL(제조보완) — 단기 수급 급등 종목. 손익비 약 2.2:1(Base), 목표가 58,000원(Base)·69,200원(Bull, 52주고). 적자 바이오 + 변동성 극심 → 레버리지는 소액·짧은 스윙만 권고. 매력도 &quot;조건부 트레이딩&quot;. ━━━━━━━━━━━━━━━━ ① 포착 신호 (전부 KIS 실측 2026-10-06 09:15) - 현재가: 48,850원 (전일대비 +8,400원, +20.77%) [실측: KIS inquire-price] - 당일 거래대금: 약 7,855억원 (거래량 166.8만주) [실측: KIS]   ※일중 09:15 기준 누적. 일봉 마…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 조건부 트레이딩(눌림목 한정) / 중립</span><h1>HLB(028300)</h1>
+<div class="meta">📊 trend · 2026-10-06 09:17 · 코드 028300</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-06 09:17)</div><div class="kpi-v">48,250원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">6.4조</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">15.27</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:15.5</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.44</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">58,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 42,000~43,000원(눌림목 분할) 또는 48,000~49,000원(돌파추격·소액)</span><span class="dc dn">손절 41,500원</span><span class="dc up">목표 58,000원</span><span class="dc">손익비 진입 1:15.5 · 현재가 1:1.44</span><span class="dc">기간 단기 스윙(수일~수주, 이벤트 소멸 전)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 리픽투 상업화 매출·리보세라닙 간암 재심사 결과</div><div class="dc-l">🛑 반증: 종가 41,500원 하회 / 3Q 현금 200억 미만 / 리보세라닙 재CRL</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — HLB(028300)  ※개별주식선물 有 (근월물 A2S610)</p>
+<p>📌 한줄 결론: FDA 첫 승인(리픽투)으로 모멘텀 전환했으나 간암 리보세라닙은 또 CRL(제조보완) — 단기 수급 급등 종목. 손익비 약 2.2:1(Base), 목표가 58,000원(Base)·69,200원(Bull, 52주고). 적자 바이오 + 변동성 극심 → 레버리지는 소액·짧은 스윙만 권고. 매력도 &quot;조건부 트레이딩&quot;.</p>
+<hr>
+<p>① 포착 신호 (전부 KIS 실측 2026-10-06 09:15)</p>
+<ul>
+<li>현재가: 48,850원 (전일대비 <span class="up">+8,400</span>원, <span class="up">+20.77%</span>) [실측: KIS inquire-price]</li>
+<li>당일 거래대금: 약 7,855억원 (거래량 166.8만주) [실측: KIS]</li>
+</ul>
+<p>※일중 09:15 기준 누적. 일봉 마감 추정 793억~의 장초반 폭증 구간</p>
+<ul>
+<li>시가총액: 약 6조5,067억원 [실측: KIS hts_avls], 상장주식수 약 1억3,320만주 [실측]</li>
+<li>20일 평균거래대금 388억 → 최근 급등일 2,925억(09-29) 등 폭증, 당일도 수백~수천억대 [실측: KIS 일봉]</li>
+<li>회전율(당일거래대금/시총): 7,855억/6.5조 ≈ 12.1% [추정: 산식 = 거래대금÷시총]</li>
+<li>이동평균: MA5 42,290 / MA20 34,700 / MA60 35,432 [실측: KIS 일봉]</li>
+</ul>
+<p>→ 현재가&gt;MA5&gt;MA20&gt;MA60 일부 성립(현재가·MA5가 MA20/60 위), 완전정배열은 아님(MA5&gt;MA20&gt;MA60은 성립, 현재가 급등으로 이격 큼)</p>
+<ul>
+<li>연속상승일: 직전 기준 1일(급등·조정 반복형, 추세라기보다 이벤트성) [실측]</li>
+<li>5거래일 수익률: <span class="up">+23.17%</span> [실측: KIS]</li>
+<li>52주: 고 69,200 / 저 24,150 [실측] → 현재가는 52주고 대비 <span class="down">-29.4%</span> 위치</li>
+<li>시장경고: 없음(00), 단기과열: N [실측: KIS]</li>
+<li>개별주식선물: ✅ 상장 (근월물 A2S610, std KR4A2S6A0004) [실측: KIS 마스터파일]</li>
+</ul>
+<p>핵심: &quot;상승추세 지속&quot;보다는 <strong>FDA 이벤트 기반 2연속 갭상승(9/28 <span class="up">+29.95%</span>, 10/6 <span class="up">+20.89%</span>)</strong>에 가까움. 이격도 높음.</p>
+<hr>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업: 항암 신약개발 바이오. 핵심 파이프라인 = 리보세라닙(경구 VEGFR2 저해제, 간암 1차 병용), 리라푸그라티닙(FGFR 저해제, 담관암, 브랜드 &#x27;리픽투&#x27;), 캄렐리주맙(항서제약 PD-1) [인용: 뉴스·IR]</li>
+<li>급등사유 (교차검증):</li>
+<li>[인용: 조선일보 2026-09-28] &quot;HLB, 세 번 고배 끝 FDA 신약 확보 — 리라푸그라티닙(담관암) 첫 FDA 승인&quot; → 9/28 <span class="up">+29.95%</span> 갭상승의 1차 촉매</li>
+<li>[인용: 쿠키뉴스 2026-10-01] &quot;HLB, 간암 신약 리보세라닙 또 FDA 문턱 못 넘어 — 제조시설 문제로 보완요구(CRL)&quot; → 간암 3번째 좌절</li>
+<li>[인용: fetv 2026-10-05] &quot;FDA 승인으로 분위기 반전, 리보세라닙 재도전&quot; → 오늘 재급등은 리픽투 상업화 기대 + 리보세라닙 재신청 기대 혼재</li>
+<li>해석: <strong>담관암(리픽투)은 승인 성공 / 간암(리보세라닙)은 제조 이슈로 재지연.</strong> 당일 급등은 승인 자산 상업화 + 재도전 기대 선반영 성격. 펀더멘털 매출 전환은 아직 초기.</li>
+</ul>
+<hr>
+<p>③ 실적 (DART 연결 실측, [실측: HLB 2025 사업보고서/2026 반기보고서 연결 CFS])</p>
+<ul>
+<li>2023: 매출 429억 / 영업이익 미집계 / 자본 5,822억 / 부채 1,695억</li>
+<li>2024: 매출 미집계(세부항목 명칭상이) / 자본 6,521억 / 부채 2,353억</li>
+<li>2025: 매출 842억 / 영업손실 -1,042억 / 순손실 -2,354억 / 자산 9,302억·부채 4,358억·자본 4,944억</li>
+</ul>
+<p>→ 부채비율 약 88.1% [추정: 4,358/4,944]. 영업현금흐름 -926억(순유출) [실측]</p>
+<ul>
+<li>2026 반기(누적): 매출 280억 / 영업손실 -225억 / 반기순손실 -804억 (금융비용 405억 과다 = 전환사채 평가손 등 추정)</li>
+<li>현금성자산: 2024말 930억 → 2025말 410억 → 2026반기말 264억 [실측] → <strong>지속 감소, 현금소진 진행형</strong></li>
+<li>판정: 전형적 적자 바이오. 매출은 기술료·일부 제품이나 영업적자 구조. <strong>현금 264억 대비 반기 영업손 225억 → 증자/CB 조달 리스크 상존.</strong></li>
+</ul>
+<hr>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 공식 컨센서스: <strong>미확인</strong> [실측: consensus.py — stockeasy 0건·naver 추정치없음·fnguide FY- 추정기관 없음·hankyung 0건]</li>
+</ul>
+<p>→ 커버리지 공백. 적자 바이오라 기관 정식 추정 부재. 목표가 제시 리포트 최근 6개월 없음.</p>
+<ul>
+<li>미래 실적 드라이버: 리픽투(담관암) 美 상업화 매출 + 리보세라닙 간암 재승인 시 대형 모멘텀. 그러나 <strong>달성가능성·시점 미확정(CRL 재제출 기간 통상 수개월~)</strong>.</li>
+</ul>
+<hr>
+<p>⑤ 밸류에이션·목표가 (적자 → PER 무의미, 파이프라인/peer 접근)</p>
+<ul>
+<li>PER -29.1배(적자), PBR 15.46배, BPS 3,159원 [실측: KIS] → PBR 기준 극단 고평가(peer 대비)</li>
+<li>피어 비교 [실측: peer_finder.py, 2025 연결]:</li>
+<li>휴젤(145020): 시총 2.3조 / OPM 47% / PBR 2.1</li>
+<li>클래시스(214150): 시총 2.1조 / OPM 51% / PBR 3.7</li>
+<li>에이비엘바이오(298380): 시총 3.0조 / 영업적자 / PBR 18.9</li>
+</ul>
+<p>→ HLB 시총 6.5조·PBR 15.5는 <strong>흑자 미용·피어 대비 수익이 아닌 파이프라인 기대만으로 형성</strong>. 적자 바이오 에이비엘바이오와 성격 유사하나 시총은 2배.</p>
+<ul>
+<li>파이프라인 접근 (단순화): 밸류는 리보세라닙 간암 글로벌 기대 + 리픽투 승인가치의 합. 간암 승인은 미실현(CRL) → 현 시총은 <strong>기대선반영 성격이 큼</strong>.</li>
+<li>목표가(기술적·이벤트 밴드 기준, 펀더멘털 산출 아님 — [추정]):</li>
+<li>Base 58,000원 [추정: 전고 저항·9월 고점대 복귀 + 승인 모멘텀]</li>
+<li>Bull 69,200원 [추정: 52주 고점 리테스트, 리보세라닙 재승인 기대 극대화]</li>
+<li>Bear 34,700원 [추정: MA20 회귀, 이벤트 소멸 시]</li>
+</ul>
+<hr>
+<p>⑥ 진입전략·손익비 (선물 상장 → 3라인)</p>
+<ul>
+<li>현재가 48,850원 기준. 지지: MA5 42,290 / 심리 42,000 / MA20 34,700. 저항: 심리 50,000 / 전고 52,000~53,000 / 52주고 69,200.</li>
+<li>진입: 48,000~49,000원(돌파 추격) 또는 42,000~43,000원 눌림목(MA5 지지 재확인) 분할</li>
+<li>손절: 41,500원 (MA5 하회·당일 급등 되돌림 확정) [기계적]</li>
+<li>목표: 58,000원(1차)·69,200원(2차)</li>
+<li>손익비 (진입 48,850 기준) [추정: 산식]:</li>
+<li>상승여력(Base 58,000): <span class="up">+9,150</span>원 (<span class="up">+18.7%</span>)</li>
+<li>하락리스크(손절 41,500): -7,350원 (<span class="down">-15.0%</span>)</li>
+<li>손익비 ≈ 9,150 ÷ 7,350 = <strong>1.24:1</strong> (추격진입 시)</li>
+<li>눌림목 진입(43,000) 가정: 상승여력 15,000 / 리스크(40,000 손절) 3,000 → <strong>5.0:1</strong> → 눌림목 진입이 압도적 유리</li>
+<li>경고: 바이오 FDA 이벤트 종목 = 갭·VI 빈번, 선물 레버리지 시 야간/장중 급변 치명적. <strong>집중·고배율 금지.</strong></li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 모델 (바이오 → 파이프라인 가치 모델)</p>
+<ul>
+<li>리보세라닙(간암 1차, +캄렐리주맙): 글로벌 간암 1차 시장 대형(수조원 TAM). 임상단계 = FDA 재심사(CRL, 제조보완) → 성공확률 중립~제한적(제조이슈는 효능 아닌 CMC라 해결 가능성은 있으나 시점 불확실). [인용: 뉴스]</li>
+<li>리픽투(리라푸그라티닙, 담관암): <strong>FDA 승인 완료</strong> → 상업화 단계 진입, 매출 가시성 ↑(단 담관암 시장 규모는 간암 대비 작음). [인용: 조선일보 2026-09-28]</li>
+<li>결론문장: <strong>3Q 연결 영업손실이 분기 -200억 내외로 유지되고 현금성자산이 264억(2026반기) 아래로 추가 감소하면 증자/CB 조달이 임박한 신호 → 주가 하방 임계.</strong> 반대로 리픽투 상업화 매출이 분기 매출에 반영되고 리보세라닙 재승인 뉴스가 확정되면 Bull 시나리오 가중치 상향.</li>
+</ul>
+<hr>
+<p>★ §10 촉매 정량분석 (FDA 유형)</p>
+<ul>
+<li>촉매1(발생): 리라푸그라티닙(리픽투) 담관암 FDA 승인 — <strong>확정 호재, 이미 9/28 반영</strong>. 재료 소멸 리스크(sell-the-news) 존재.</li>
+<li>촉매2(미해결): 리보세라닙 간암 CRL(제조시설 보완) — 재제출·재심사 필요. PDUFA 신규 날짜 <strong>미확인</strong>. 해결 시 대형 상방, 재지연 시 하방.</li>
+<li>날짜 확정 촉매: 리보세라닙 재심사 PDUFA 신규일정 <strong>미확인</strong>(공시·IR 확인 필요). 리라푸그라티닙 美 런칭 매출 발생 시점 <strong>미확인</strong>.</li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·이벤트 [촉매 캘린더] — 날짜 확정만</p>
+<ul>
+<li>리보세라닙 간암 FDA 재심사 신규 PDUFA: <strong>미확인</strong> (CRL 후 재제출 대기)</li>
+<li>리픽투 美 상업화 매출 인식: <strong>미확인</strong></li>
+<li>3Q 실적발표(2026): 통상 11월 중순 전후 (잠정 <strong>미확인</strong>, DART 공시 확인 필요)</li>
+</ul>
+<p>[반증 3개 — 수치→행동]</p>
+<ol>
+<li>(재무 정량) 2026 3Q 연결 현금성자산이 200억 미만으로 추가 감소 시 → 대규모 증자/CB 조달 임박 → <strong>비중 축소·신규진입 금지</strong></li>
+<li>(주가 정량) 종가 41,500원(MA5·급등 되돌림선) 하회 마감 시 → 이벤트 모멘텀 소멸 → <strong>전량 손절</strong></li>
+<li>(임상 정량) 리보세라닙 간암 재제출 또다시 CRL/반려 공시 시 → 핵심 파이프라인 신뢰 훼손 → <strong>Bull 시나리오 폐기·보수 전환</strong></li>
+</ol>
+<p>[이벤트 매트릭스]</p>
+<ul>
+<li>리보세라닙 재승인 성공 → 간암 글로벌 → 주가 급등(69,200+ 돌파 시도)</li>
+<li>리픽투 매출 호조 → 완만한 재평가(55,000~60,000)</li>
+<li>재차 CRL/증자 → 급락(MA20 34,700 이하)</li>
+</ul>
+<p>[확률가중 시나리오 (합 100%)]</p>
+<ul>
+<li>Bear(이벤트 소멸·증자/CRL 재발, 34,700원): 40%</li>
+<li>Base(리픽투 상업화 안착·간암 재심사 대기, 58,000원): 40%</li>
+<li>Bull(간암 재승인 기대 확대, 69,200원): 20%</li>
+<li>기대값 ≈ 0.4×34,700 + 0.4×58,000 + 0.2×69,200 = 13,880<span class="up">+23,200</span><span class="up">+13,840</span> = <strong>50,920원</strong> [추정: 확률가중]</li>
+</ul>
+<p>→ 현재가 48,850 대비 <span class="up">+4.2%</span>, <strong>리스크 대비 기대수익 제한적</strong>(변동성만 큼)</p>
+<p>[수급·유동성] 거래대금 수천억대 폭증 → 유동성 풍부, 단 테마·이벤트성 쏠림. VI·갭 빈번.</p>
+<p>[포지션 사이징] 적자 바이오 + FDA 이벤트 변동성 극심 → <strong>자산의 5~10% 이내</strong>, 선물 레버리지 사용 시 더 축소. 집중 한도(50%) 적용 대상 아님(변동성 과다). 눌림목 분할·손절 기계적 준수 필수.</p>
+<hr>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27;, 미확인 값은 &#x27;미확인&#x27; 표기.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 컨센서스·목표가 (커버리지 공백)</li>
+<li>리보세라닙 간암 재심사 신규 PDUFA 일정</li>
+<li>리픽투 美 상업화 매출 인식 시점·규모</li>
+<li>3Q 2026 실적발표 확정일</li>
+<li>2024 매출(DART 항목명 상이로 자동집계 결측)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI: 현재가/시총/거래대금/MA/52주/일봉 (2026-10-06 09:15 실측)</li>
+<li>DART: HLB 2025 사업보고서·2026 반기보고서 연결 CFS (corp_code 00199252)</li>
+<li>조선일보 2026-09-28 (리픽투 FDA 승인), 쿠키뉴스 2026-10-01 (리보세라닙 CRL), fetv 2026-10-05</li>
+<li>consensus.py / peer_finder.py / kis_futures_check.py (2026-10-06)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>회전율: 7,855억 ÷ 65,067억 = 12.07% ✓</li>
+<li>부채비율 2025: 4,358 ÷ 4,944 = 88.1% ✓</li>
+<li>손익비(추격): (58,000-48,850)÷(48,850-41,500)=9,150÷7,350=1.24 ✓</li>
+<li>기대값: 0.4×34,700<span class="up">+0.4</span>×58,000<span class="up">+0.2</span>×69,200=50,920 ✓ (확률합 40<span class="up">+40</span><span class="up">+20</span>=100%) ✓</li>
+<li>현금추이: 930억(24말)→410억(25말)→264억(26반기) 단조감소 ✓</li>
+</ul>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-06 09:17 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 48,250원 (<span class="up">+19.3%</span>) · 시총 6.43조 · 5일 <span class="up">+21.7%</span> / 20일 <span class="up">+47.3%</span> / 60일 <span class="down">-6.6%</span></li>
+<li>MA5 42,170원 / MA20 34,670원 / MA60 35,422원 → MA20 이격 <span class="up">+39.2%</span> · MA60 이격 <span class="up">+36.2%</span></li>
+<li>52주 고 69,200원 / 저 24,150원 → 고점 대비 <span class="down">-30.3%</span> · 20일 고 48,300원 / 저 29,650원</li>
+<li>후행 PER -28.77 / PBR 15.27 (EPS -1,677원 · BPS 3,159원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 420.5억 (5일 1,074.6억)</li>
+<li>외국인 순매수 5일 -915.5억 / 20일 -1,517.2억 · 기관 5일 -131.9억 / 20일 -191.5억 · 개인 20일 1,705.0억</li>
+<li>개별주식선물: ⚡ 상장 (A2S610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 13.51% / 20일 평균 14.02% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 39.65% (09/28) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 58,000원 (<span class="up">+20.2%</span>) ÷ 하방 41,500원 (−14.0%) = <strong>1:1.44</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 14.0% = <strong>자산의 3.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.6%</strong></li>
+<li>유동성 참고: 20일 ADV 420.5억 · 1일 소화 한도는 ADV의 10%(42.05억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 14.0% · ATR14 2,971원 (손절폭/ATR 2.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 14.0% = ATR14 × 2.3배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 43,425원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.02</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 조건부 트레이딩(눌림목 한정) / 중립 선물: 有 (근월물 A2S610) 현재가: 48,850원 진입: 42,000~43,000원(눌림목 분할) 또는 48,000~49,000원(돌파추격·소액) 손절: 41,500원 (종가 MA5 하회) 목표: 58,000원(1차) / 69,200원(2차, 52주고) 손익비: 눌림목 5.0:1 / 추격 1.24:1 기간: 단기 스윙(수일~수주, 이벤트 소멸 전) 촉매: 리픽투 상업화 매출·리보세라닙 간암 재심사 결과 반증: 종가 41,500원 하회 / 3Q 현금 200억 미만 / 리보세라닙 재CRL</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
