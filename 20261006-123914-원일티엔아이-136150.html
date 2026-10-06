@@ -1,0 +1,231 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>원일티엔아이(136150) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261006-123914-원일티엔아이-136150.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.53</div><div class="tp-c"><b>결론 발췌</b> 美 원전 8기 테마에 올라탄 개인 주도 급등으로, 실적이 추세를 전혀 정당화하지 못함(2025 영업적자 전환). 밸류 부담(PBR 2.5배·적자)과 선물 미상장으로 레버리지 스윙 부적합 → 판정 &#x27;관심&#x27;. 단기 모멘텀 트레이딩 한정 손익비 1차 1:1.58 / 2차 1:3.25, 자체 목표가 1차 17,000원. ① 포착 신호 • 현재가 14,370원(+15.51%) [실측: KIS inquire-price 2026-10-06]. 당일 거래대금 약 151억·거래량 109.6만주, 회전율 13.1%(=거래량÷상장주식 8,381,030주) [실측: KIS 일봉·inquire-price]. 전일(10/2) 거래대금 351억으로 자금유입 폭발 …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>원일티엔아이(136150)</h1>
+<div class="meta">📊 trend · 2026-10-06 12:39 · 코드 136150</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-06 12:39)</div><div class="kpi-v">14,460원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,212억</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.53</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.69</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">17,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 13,000~13,500원(눌림 한정, 추격금지)</span><span class="dc dn">손절 10,800원</span><span class="dc up">목표 17,000원</span><span class="dc">손익비 진입 1:1.53 · 현재가 1:0.69</span><span class="dc">기간 스윙 2~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026년 11월 중순 3분기보고서(2026.09) 공시 — 3Q 영업손익·2Q 흑자 지속여부</div><div class="dc-l">🛑 반증: 2026 3Q 별도 영업이익 적자(&lt; 0억) 재전환 시 턴어라운드 논지 폐기 / 종가 MA20(8,728원) 하회 시 모멘텀 논지 폐기</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 원일티엔아이(136150)  ※개별주식선물 無(레버리지 불가·현물만)</p>
+<p>📌 한줄 결론: 美 원전 8기 테마에 올라탄 개인 주도 급등으로, 실적이 추세를 전혀 정당화하지 못함(2025 영업적자 전환). 밸류 부담(PBR 2.5배·적자)과 선물 미상장으로 레버리지 스윙 부적합 → 판정 &#x27;관심&#x27;. 단기 모멘텀 트레이딩 한정 손익비 1차 1:1.58 / 2차 1:3.25, 자체 목표가 1차 17,000원.</p>
+<p>① 포착 신호</p>
+<ul>
+<li>현재가 14,370원(<span class="up">+15.51%</span>) [실측: KIS inquire-price 2026-10-06]. 당일 거래대금 약 151억·거래량 109.6만주, 회전율 13.1%(=거래량÷상장주식 8,381,030주) [실측: KIS 일봉·inquire-price]. 전일(10/2) 거래대금 351억으로 자금유입 폭발 [실측: KIS 일봉].</li>
+<li>시총 1,204억 [실측: KIS hts_avls]. 소형주 — 테마 자금에 민감.</li>
+<li>추세: MA5 10,806 &gt; MA20 8,728 &gt; MA60 7,825 완전 정배열 [실측: KIS 일봉 산출]. 연속상승 4일, 20일 수익률 <span class="up">+96.0%</span>, 10일 <span class="up">+83.5%</span>, 5일 <span class="up">+72.5%</span> [실측: KIS 일봉].</li>
+<li>급등 구조: 9월 내내 8,000원대 박스 → 10/1 갭상승(10,850)+상한가 → 10/2 상한가(12,440) → 10/6 <span class="up">+15.5%</span>. 사실상 3거래일 급등 초입이자 과열 구간 동시 진입. 52주 저점(5,400) 대비 <span class="up">+166%</span>, 고점(29,150) 대비 <span class="down">-51%</span> [실측: KIS].</li>
+<li>⚠️ 수급 질(質) 경고: 급등일(10/2) 외국인 -48,880주 순매도, 기관 순매수 0, 개인 <span class="up">+48,956</span>주 순매수 [실측: KIS inquire-investor FHKST01010900]. 최근 12거래일 외인 누적 -47,134주·기관 0 → 외인·기관 불참, 전형적 개인 테마 급등.</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력 사업(별도): 천연가스사업(고압연소식기화기 SCV·가스히터), 수소사업(수소저장합금·개질기), 용역. 1998년 법인전환, 경기 김포 소재, 친환경 에너지 설비 전문기업 [실측: 사업보고서 2025.12 접수 20260318000428].</li>
+<li>2025년 제품별 매출비중: 가스히터 등 기타제품 36.0%, 수소저장합금 35.0%, 고압연소식기화기(SCV) 24.5%, 용역 4.5% [실측: 사업보고서 2025.12 &#x27;주요 제품 등의 매출 현황&#x27;]. → 매출의 ~95%가 천연가스·수소. &#x27;원자력&#x27;은 회사 소개엔 등장하나 제품별 매출 표에 독립 항목 없음(비중 미미).</li>
+<li>급등 사유: &#x27;한미 美 원전 8기 건설 추진(1,200억 달러 규모)&#x27; 기대감에 원전 섹터 동반 상승, 10/1 상한가 29.94% [인용: 남도일보·뉴스핌·이투데이 2026-10-01 / 와이드경제·금강일보 2026-10-02]. 당일 상한가 단 2종목 중 하나(덕우전자와 동반) [인용: 금강일보 2026-10-01].</li>
+<li>실체 vs 기대감 판단: 美 원전 8기와 연결된 &#x27;원일티엔아이의 구체적 수주·계약·공급&#x27; 공시나 보도는 확인되지 않음 → 섹터 순환매·기대감 성격이 강한 테마 급등으로 판단. 다만 회사가 LNG·수소·원자력 에너지 장비를 영위한다는 사업 정체성이 테마 편입의 빌미를 제공 [실측: 반기보고서 2026.06 사업개요].</li>
+<li>실체 있는 중장기 촉매(별개): 장보고-3 잠수함 Batch-1~4 수소저장합금 시스템 독점공급 중, 2025~2027년 5·6번함 공급 예정, 해외 수출 성공 시 매출 도약 기회 [인용: 한국IR협의회 2025-11-11]. → 이는 원전 테마와 무관한 방산·수소 모멘텀.</li>
+</ul>
+<p>③ 실적 (DART 실측 · 전부 별도기준 OFS, 당사는 연결 미작성)</p>
+<ul>
+<li>매출액: 2023년 418.8억 → 2024년 421.9억(<span class="up">+0.7%</span>) → 2025년 296.2억(YoY <span class="down">-29.8%</span>) [실측: 사업보고서 CIS &#x27;수익(매출액)&#x27;].</li>
+<li>영업이익: 2023년 28.6억(OPM 6.8%) → 2024년 63.8억(OPM 15.1%) → 2025년 -17.5억(영업적자 전환, OPM <span class="down">-5.9%</span>) [실측: 사업보고서 CIS &#x27;영업이익(손실)&#x27;].</li>
+<li>순이익: 2023년 18.1억 → 2024년 78.7억(금융수익 26.3억 일회성 포함) → 2025년 -20.6억 [실측: 사업보고서 CIS].</li>
+<li>EPS: 2023년 246원 → 2024년 1,072원 → 2025년 -261원 [실측: 사업보고서 CIS 기본주당이익].</li>
+<li>분기 추세(별도·누적): 2026 1Q 매출 39.9억·영업손실 -20.1억(전년 1Q <span class="up">+4.0</span>억 대비 급악화) → 2026 반기 매출 139.4억·영업손실 -14.7억(누적) [실측: 분기·반기보고서 2026]. 잔차 분해: 2Q 단독 영업이익 = 반기(-14.7억) - 1Q(-20.1억) = <span class="up">+5.4</span>억 흑자전환 [추정: 누적차 산식]. 2025 3Q누적 영업손실 -27.0억 대비 2026 반기 적자폭 축소 → 바닥 통과 조짐.</li>
+<li>재무건전성: 2026 반기말 자산 736억·부채 257억·자본 479억, 부채비율 53.6%(=257÷479) [실측: 반기보고서 2026 BS / 추정: 비율산식]. 안정적. 영업현금흐름: 2025년 -40.5억(적자로 유출) → 2026 반기 <span class="up">+44.0</span>억(흑자 전환) [실측: CF].</li>
+<li>평가: 3개년 이익 추세는 &#x27;증익(2024) → 적자전환(2025)&#x27;로 상승추세를 정당화하지 않음. 2026년 적자지속이나 2Q 영업흑자·영업현금흐름 플러스로 턴어라운드 초기 신호는 있음.</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 정식 커버리지·목표주가·FY26/27 추정치: 미확인(컨센 미확인, 4소스 stockeasy·naver·fnguide·hankyung 자동 시도 결과 추정치 0건, 최근 6개월 목표가 리포트 없음) [실측: consensus.py 2026-10-06].</li>
+<li>유일 자료: 한국IR협의회(비증권사 기업분석) 2025-11-11 — 2025년 매출 313억(YoY <span class="down">-25.8%</span>)·영업익 2억(YoY <span class="down">-97%</span>) 전망 제시했으나 실제는 더 부진(매출 296억·영업적자 -17.5억) [인용: 한국IR협의회 2025-11-11]. → 전망 하회, 추정치 신뢰도 낮음.</li>
+<li>달성 가능성 판정: &#x27;컨센 부재&#x27;로 공식 추정 대비 판정 불가. 자체 관점 — 2026 2Q 흑자전환·영업현금흐름 플러스로 턴어라운드 가능성은 中, 그러나 원전 테마발 실적 기여는 현재 근거 없음(低).</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 PBR 2.50배(=현재가 14,370 ÷ BPS 5,755원, BPS=2025말 별도자본 482.3억÷8,381,030주) [실측: KIS·DART / 추정: 산식]. KIS API상 PER·PBR·EPS 0 표기(적자로 산정불가) [실측: KIS inquire-price].</li>
+<li>PER: 2025년 적자(EPS -261)로 산정 불가. 참고로 피크였던 2024년 EPS 1,072원 기준 현재가 PER 13.4배 [추정: 14,370÷1,072].</li>
+<li>자체 목표가 산출: 소형 에너지장비주 적정 PBR 밴드 2.0~3.0배 가정. 적정주가 = BPS 5,755 × 3.0배 = 17,265원(낙관), × 2.0배 = 11,510원(보수). 이익 정상화(2024 EPS 1,072 수준 회복 가정) × 적정 PER 15배 = 16,080원 [추정: 멀티플×EPS 산식]. → 자체 1차 목표 17,000원대는 PBR 3배·이익정상화 PER 두 접근이 수렴하는 상단. 단, 현재 실적은 이 EPS 회복을 보장하지 못함 → 목표가는 테마 모멘텀 전제의 기술적 상단이지 펀더멘털 정당화 아님.</li>
+<li>증권사 목표가: 미확인(제시 기관 없음).</li>
+<li>종합 판단: 적자 상태 PBR 2.5배는 자산가치 대비 고평가 영역. 밸류로는 매수 근거 약함, 순수 모멘텀 플레이.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: MA5 10,806 / 10/1 갭 하단·급등 전 박스 상단 8,800 / MA20 8,728. 저항: 당일 고점 15,020 / 심리 17,000 / 연초고점권 21,000 / 52주고 29,150 [실측: KIS 일봉].</li>
+<li>52주 위치: 고점 대비 <span class="down">-51%</span>(추격 과열 위험은 아니나 3일 <span class="up">+96%</span> 단기 과열), 저점 대비 <span class="up">+166%</span>.</li>
+<li>전략(모멘텀 단기, 현물): 눌림 13,200원대 진입 가정, 손절 10,800원(MA5 하회·10/1 갭 메움 경계선), 1차 익절 17,000원, 2차 21,000원.</li>
+<li>손익비: 상승여력(1차) 28.8% ÷ 하락리스크 18.2% = 1:1.58. 2차 목표 기준 상승여력 59.1% ÷ 18.2% = 1:3.25 [추정: (목표/진입-1)÷(1-손절/진입)].</li>
+<li>경고: 손익비 1차 1:1.58은 &#x27;우수&#x27; 기준(1:2) 미달. 개인 주도·외인/기관 불참·펀더 미정당화 테마라 급락 리스크 큼. 선물 미상장으로 레버리지 스윙 불가 — 현물 소액 모멘텀 트레이딩 한정. 손절선 아래 추가매수 금지.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>9-1 제품 매출(별도·사업보고서 2025.12 실측): 수소저장합금 103.5억(35.0%)·SCV 72.5억(24.5%)·가스히터등 106.7억(36.0%)·용역 13.4억(4.5%), 합계 296.2억 [실측: 사업보고서 20260318000428]. 2026 반기: 가스히터등 67.5억(48.5%)·수소저장합금 35.5억(25.5%)·SCV 29.8억(21.4%)·용역 6.5억, 합계 139.4억 [실측: 반기보고서 20260814000662].</li>
+<li>9-2 고객·납품: SCV 주요 고객사 천연가스 인프라 투자 마무리 국면, 수소저장합금은 장보고-3 독점공급(방산) [인용: 한국IR협의회 2025-11-11]. 구체 고객사·납품비중 표 미확인.</li>
+<li>9-3 TAM·점유율: Shell 전망 2040년까지 글로벌 LNG 수요 <span class="up">+60%</span> → 고압연소식기화기·재액화기 장기 수요 [인용: 한국IR협의회 2025-11-11]. 경쟁사 CAPA·점유율 교차출처 미확인.</li>
+<li>9-4 단가: 수소저장합금은 국방·영업기밀로 단가 비공개, SCV·개질기는 수주형 맞춤제작이라 표준단가 없음 [실측: 사업보고서 가격변동추이 본문].</li>
+<li>9-5 CAPA·증설: 미확인(공시 내 증설계획 확인 안 됨).</li>
+<li>9-6 전방 CAPEX: 천연가스 인프라 투자 2025년 마무리로 단기 공백, LNG·수소·방산이 중기 동력. 원전 전방 CAPEX와 당사 매출의 직접 연결고리 미확인.</li>
+<li>9-7 바텀업 모델(별도·2026 연간 추정):</li>
+<li>입력: 2026 반기 매출 139.4억 → 하반기 전방수요·수주 가정.</li>
+<li>Bear: 하반기 반기와 동일 139억 → 연간 278억, 영업적자 지속 -10억 수준(원가율 개선 미흡) → 목표가 11,000원.</li>
+<li>Base: 하반기 SCV·수소 회복으로 매출 170억 → 연간 310억, 영업익 소폭 흑자 <span class="up">+5</span>억 전후(2Q 흑자 추세 연장) → 목표가 14,000~15,000원.</li>
+<li>Bull: 원전·수소 수주 가시화로 하반기 210억 → 연간 350억, 영업익 <span class="up">+20</span>억(OPM 5.7% 회복) → 목표가 20,000원.</li>
+<li>민감도: 영업이익 10억 변화당 목표가 약 ±3,000원.</li>
+<li>컨센 대조: 공식 컨센 부재로 자체추정만.</li>
+<li>결론 문장: 2026 3Q 별도 영업이익이 흑자(≥ <span class="up">+10</span>억)로 확인되면 턴어라운드 논지 유지·관심 상향 검토, 3Q 영업이익이 적자(&lt; 0)로 재악화되면 테마 급등 논지 폐기.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정 이벤트만): 2026년 11월 중순 3분기보고서(2026.09) 공시 예정 — 2Q 흑자전환 지속여부·3Q 영업손익이 핵심 [실측: 정기보고서 패턴, 2025 3Q보고서 2025-11-14 접수]. (원전 8기 관련 구체 일정·당사 수주 날짜는 미확인.)</li>
+<li>반증 조건 3개(하나라도 충족 시 논지 폐기):</li>
+</ul>
+<p>1) 2026 3Q 별도 영업이익이 적자(&lt; 0억)로 재전환 → 턴어라운드 논지 폐기(분기 실적 임계, 단위 억원). 2) 美 원전 8기 관련 당사 실질 수주·공급계약이 연내 공시로 확인되지 않음 → 테마 프리미엄 소멸 근거. 3) 종가가 MA20(8,728원) 하회로 마감 → 급등 추세 붕괴, 모멘텀 논지 폐기.</p>
+<ul>
+<li>이벤트 매트릭스(3Q 실적 × 당일 주가):</li>
+<li>실적 쇼크(적자확대) × 갭하락 → 손절 집행, 신규진입 금지.</li>
+<li>실적 인라인(소폭적자/BEP) × 보합 → 관망, MA20 지지 확인 후 판단.</li>
+<li>실적 서프라이즈(흑자확대) × 갭상승 → 1차 목표 상향, 분할 익절 유지.</li>
+<li>확률가중 시나리오(합=100%):</li>
+<li>Bear 45%: 테마 소멸·실적 미회복, 목표 11,000원 → 수익률 (11,000/14,370-1)= <span class="down">-23.5%</span>.</li>
+<li>Base 40%: 2Q 흑자 추세 유지·테마 소강, 목표 14,500원 → <span class="up">+0.9%</span>.</li>
+<li>Bull 15%: 수주 가시화·테마 재점화, 목표 20,000원 → <span class="up">+39.2%</span>.</li>
+<li>확률가중 기대수익률 = 0.45×(-23.5) + 0.40×(0.9) + 0.15×(39.2) = <span class="down">-4.3%</span> [추정: 가중평균].</li>
+</ul>
+<p>→ 기대값 마이너스. 현재 추격 진입은 비권장, 눌림·반증 미충족 확인 후 소액 접근만.</p>
+<ul>
+<li>수급·유동성: 외국인 20일 순매수 미확인(최근 12일 -47,134주 순매도), 기관 0 [실측: KIS FHKST01010900]. 최근 급등일 거래대금 151~351억 → ADV 10% 체결상한 약 15~35억 상당(소형주, 급등 소멸 시 유동성 급감 주의) [추정: 거래대금×10%].</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭 18.2% = 자산의 약 5.5% 상한. 이벤트(3Q 실적) 전 상한 25%, 집중상한 50% 중 최소값 → 약 5.5%. 테마·적자주 특성상 이보다 보수적으로.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 증권사·기관 추정치는 &#x27;추정/인용&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 정식 목표주가·FY26/27 컨센서스(제시 기관 없음)</li>
+<li>美 원전 8기 관련 당사 구체 수주·계약 실체</li>
+<li>경쟁사 CAPA·시장점유율 교차출처</li>
+<li>제품 단가(국방기밀·수주형으로 비공개)</li>
+<li>증설·CAPA 확장 계획</li>
+<li>2026년 10/6 당일 외인·기관 확정 순매수(장중 미집계)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI: inquire-price(FHKST01010100), inquire-daily-itemchartprice(FHKST03010100), inquire-investor(FHKST01010900) — 2026-10-06 실측</li>
+<li>DART: 사업보고서(2025.12) 20260318000428, 반기보고서(2026.06) 20260814000662, 분기보고서(2026.03) 20260515002543</li>
+<li>뉴스: 남도일보·뉴스핌·이투데이·금강일보(2026-10-01), 와이드경제·v.daum(2026-10-02)</li>
+<li>한국IR협의회 기업분석(2025-11-11)</li>
+<li>consensus.py 4소스 자동수집(2026-10-06)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>2025 제품소계 282.7억 + 용역 13.4억 = 296.2억 = 연간 매출 ✓</li>
+<li>2026 반기 매출 139.4억 ≈ 매출원가 116.8억 + 매출총이익 22.6억 ✓</li>
+<li>2Q 영업익 = 반기누적 -14.7억 - 1Q -20.1억 = <span class="up">+5.4</span>억 ✓</li>
+<li>손익비 산식 헤더(1:1.58)=본문(28.8÷18.2=1.58) 일치 ✓</li>
+<li>시나리오 확률합 45<span class="up">+40</span><span class="up">+15</span>=100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-06 12:39 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 14,460원 (<span class="up">+16.2%</span>) · 시총 1,212억 · 5일 <span class="up">+73.5%</span> / 20일 <span class="up">+97.1%</span> / 60일 <span class="up">+70.8%</span></li>
+<li>MA5 10,822원 / MA20 8,732원 / MA60 7,826원 → MA20 이격 <span class="up">+65.6%</span> · MA60 이격 <span class="up">+84.8%</span></li>
+<li>52주 고 29,150원 / 저 5,400원 → 고점 대비 <span class="down">-50.4%</span> · 20일 고 14,470원 / 저 7,480원</li>
+<li>후행 PER 0.0 / PBR 0.0 (EPS 0원 · BPS 0원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 27.2억 (5일 105.0억)</li>
+<li>외국인 순매수 5일 -6.6억 / 20일 -6.6억 · 기관 5일 0.0억 / 20일 0.0억 · 개인 20일 6.5억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.16% / 20일 평균 4.86% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 10.34% (09/04) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 17,000원 (<span class="up">+17.6%</span>) ÷ 하방 10,800원 (−25.3%) = <strong>1:0.69</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 25.3% = <strong>자산의 2.0%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.0%</strong></li>
+<li>유동성 참고: 20일 ADV 27.2억 · 1일 소화 한도는 ADV의 10%(2.72억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 25.3% · ATR14 939원 (손절폭/ATR 3.9배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 25.3% = ATR14 × 3.9배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 13,014원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.76</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-136150"></span>📋 결정카드 — 원일티엔아이(136150) 판정: 관심 선물: 無 현재가: 14,370원 진입: 13,000~13,500원(눌림 한정, 추격금지) 손절: 10,800원 목표: 1차 17,000원 (2차 21,000원) 손익비: 1:1.58 기간: 스윙 2~6주 촉매: 2026년 11월 중순 3분기보고서(2026.09) 공시 — 3Q 영업손익·2Q 흑자 지속여부 반증: 2026 3Q 별도 영업이익 적자(&lt; 0억) 재전환 시 턴어라운드 논지 폐기 / 종가 MA20(8,728원) 하회 시 모멘텀 논지 폐기</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
