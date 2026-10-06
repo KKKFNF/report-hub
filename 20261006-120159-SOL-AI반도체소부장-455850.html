@@ -1,0 +1,240 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SOL AI반도체소부장(455850) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261006-120159-SOL-AI반도체소부장-455850.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.4</div><div class="tp-c"><b>결론 발췌</b> 반도체 소부장 순환매 테마를 정면으로 올라탄 국내 1위(순자산 기준) 테마 ETF. 추세·수급은 강하나 현재가가 MA선 대비 크게 이격(+32.7% vs MA60)된 과열권 초입이라 신규 추격보다 눌림 분할이 유효. 매력도 &#x27;관심&#x27;, 눌림 진입 기준 손익비 약 1:2.0, 1차 목표 35,185원(52주고 회복). ━━━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 9.1% = 당일거래대금 1,250.8억 ÷ 시총 13,736억 [인용: trendscan 포착데이터]. 당일 실측 거래대금은 1,271.2억 [실측: KIS inquire-daily, 2026-10-06] — ETF로는 매우 높은 자금회전. • 20일 평균 거래대금 69…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>SOL AI반도체소부장(455850)</h1>
+<div class="meta">📊 trend · 2026-10-06 12:01 · 코드 455850</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-06 12:01)</div><div class="kpi-v">32,025원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.4조</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.4</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.55</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">35,185원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 29,500~30,500원 (눌림 분할)</span><span class="dc dn">손절 26,300원</span><span class="dc up">목표 35,185원</span><span class="dc">손익비 진입 1:1.4 · 현재가 1:0.55 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2로 적었지만 진입·손절·목표로 계산하면 1:1.4다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 3~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: SEDEX 2026 HBM 공개(10월 중)·삼성/SK 3Q 실적시즌(10월 하순)</div><div class="dc-l">🛑 반증: ETF 종가 MA20(26,614) 하회 마감→전량청산 / MA60(24,102) 하회→추세종료 신규중단 / 삼성·SK 3Q CAPEX 가이던스 전분기比 하향·HBM 증설지연→비중 절반 축소</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — SOL AI반도체소부장(455850)  ※ETF·선물 無</p>
+<p>📌 한줄 결론: 반도체 소부장 순환매 테마를 정면으로 올라탄 국내 1위(순자산 기준) 테마 ETF. 추세·수급은 강하나 현재가가 MA선 대비 크게 이격(<span class="up">+32.7%</span> vs MA60)된 과열권 초입이라 신규 추격보다 눌림 분할이 유효. 매력도 &#x27;관심&#x27;, 눌림 진입 기준 손익비 약 1:2.0, 1차 목표 35,185원(52주고 회복).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 9.1% = 당일거래대금 1,250.8억 ÷ 시총 13,736억 [인용: trendscan 포착데이터]. 당일 실측 거래대금은 1,271.2억 [실측: KIS inquire-daily, 2026-10-06] — ETF로는 매우 높은 자금회전.</li>
+<li>20일 평균 거래대금 699.5억 → 당일 1,271억은 평균 대비 1.82배 [실측: KIS, 20일 종가/거래대금 집계].</li>
+<li>추세: MA 정배열(MA5 30,153 &gt; MA20 26,614 &gt; MA60 24,102) [실측: KIS 일봉 집계, 10-06]. 연속상승 1일, 5일 수익률 <span class="up">+18.7%</span> [인용: trendscan].</li>
+<li>수익률 사다리: 1개월 <span class="up">+28.34%</span> / 3개월 <span class="up">+11.68%</span> / 6개월 <span class="up">+29.01%</span> / 1년 <span class="up">+99.02%</span> [실측: 네이버금융 integration API, 10-06].</li>
+<li>현 위치 판독: 52주 고가 35,185 대비 <span class="down">-9.1%</span>, 저가 15,240 대비 <span class="up">+110%</span> [실측: KIS]. 바닥권이 아닌 &#x27;상단 재도전&#x27; 국면. 종가가 MA60(24,102) 대비 <span class="up">+32.7%</span> 이격 → 단기 과열 신호.</li>
+</ul>
+<p>② ETF 개요·급등사유</p>
+<ul>
+<li>운용사: 신한자산운용(SOL) [실측: 네이버 integration]. 상장: 2023년 4월 [인용: 연합뉴스 2026-09-09].</li>
+<li>기초지수: FnGuide AI 반도체 소부장 지수(PR, 가격지수) [실측: 네이버 integration]. 추종방식: 실물복제, 최종 20개 종목 선별 [실측: 네이버 etfAnalysis 상품설명].</li>
+<li>총보수(TER): 0.45% [실측: 네이버 integration, fundPay].</li>
+<li>순자산: 1조486억원(2026-09-07 기준, 국내 반도체 소부장 ETF 중 최대) [인용: 연합뉴스/한국거래소 2026-09-09]. 시총 13,736억은 그 이후 추가 유입·주가상승 반영치 [인용: trendscan 10-06].</li>
+<li>NAV 31,971.55 vs 종가 32,000 → 괴리율 <span class="up">+0.09%</span> [추정: (32000-31971.55)/31971.55×100]. 괴리 거의 없음 = LP 유동성 양호.</li>
+<li>Top5 구성종목(2026-09-07 기준) [인용: 연합뉴스/한국거래소 2026-09-09]:</li>
+<li>한미반도체(042700) 17.08% — HBM 본딩·TC본더 장비</li>
+<li>주성엔지니어링(036930) 10.46% — 증착(ALD/CVD) 장비</li>
+<li>이수페타시스(007660) 10.29% — AI 가속기용 고다층 MLB 기판</li>
+<li>원익IPS(240810) 6.35% — 전공정 증착/식각 장비</li>
+<li>대덕전자(353200) 5.81% — 반도체 패키지기판(FC-BGA)</li>
+</ul>
+<p>(상위 5종목 합계 약 49.99% = 집중도 높은 테마형 구조)</p>
+<ul>
+<li>급등사유(검증): &quot;삼성·SK하이닉스 주춤 → 소부장 순환매&quot; 흐름이 복수 매체에서 사실로 확인 [인용: 파이낸셜뉴스 2026-10-05 &quot;지금은 소부장 담을 때&quot;; 아시아투데이 2026-10-05 &quot;반도체 ETF 월 최대 30% 수익, 개미는 AI 소부장 더 담았다&quot;; 머니투데이 2026-10-02]. 순수 테마 기대감이 아니라 실제 설비투자 사이클 확산 내러티브가 자금을 끌어들이는 구조.</li>
+</ul>
+<p>③ 구성종목 테마·실적 모멘텀</p>
+<ul>
+<li>모멘텀 축: HBM·첨단패키징·반도체기판·미세화 공정 소재/장비 전반 [인용: 연합뉴스 2026-09-09 운용사 코멘트]. 전방은 삼성전자·SK하이닉스 HBM 설비투자(SEDEX 2026 차세대 HBM 공개 임박) [인용: 뉴시스/다음 2026-10-05 &quot;삼성·SK, SEDEX서 차세대 HBM 격돌&quot;].</li>
+<li>상위종목 성격: 한미반도체(TC본더)·원익IPS/주성엔지니어링(전공정 장비)은 전방 CAPEX 직결 수주형, 이수페타시스·대덕전자(기판)는 AI 가속기 물량 직결. 즉 ETF 상승은 &quot;메모리 3사 설비발주 → 장비/소재/기판 수주 확대&quot; 라는 실질 수요 기대에 기반.</li>
+<li>순환매 논리(운용사): 슈퍼사이클 초기엔 메모리 대형주 주도 → 설비투자 본격화되면 장비·소재·부품으로 수혜 확산 [인용: 연합뉴스 2026-09-09, 신한 ETF사업그룹장]. 현재 9~10월 가격 흐름이 이 순환매 2단계 진입을 반영.</li>
+</ul>
+<p>④ 미래 모멘텀·컨센서스</p>
+<ul>
+<li>ETF 자체 증권사 컨센서스: 미확인(ETF라 목표가 리포트 없음) [실측: consensus.py 455850, stockeasy·naver·fnguide·hankyung 4소스 0건, 2026-10-06].</li>
+<li>대체 컨센서스는 구성종목 실적 모멘텀으로 접근. 상위 비중 한미반도체·주성엔지니어링·원익IPS 등 장비주의 전방 CAPEX 확대 기대가 핵심 변수 [인용: 상기 뉴스 종합].</li>
+<li>테마 지속성 판단: 中~高. 근거 — ①실제 설비투자 사이클·HBM 수요라는 펀더멘털 백본 존재(단순 테마 아님) ②경쟁 ETF 연이은 출시(한화 &#x27;AI반도체소부장액티브&#x27; 2026-09-15 상장 [인용: dealsite 2026-09-21])로 테마 자금 유입 구조화 ③다만 1개월 <span class="up">+28%</span>·1년 <span class="up">+99%</span>로 가격이 이미 많이 선반영 → 단기 변동성 확대 리스크.</li>
+</ul>
+<p>⑤ 밸류에이션(ETF)</p>
+<ul>
+<li>괴리율 <span class="up">+0.09%</span>로 적정 — 고평가/저평가 괴리 왜곡 없음 [추정: NAV 대비].</li>
+<li>추적오차: 미확인(네이버/와이즈리포트 정량치 미노출).</li>
+<li>가격 밴드 밸류 접근: 종가 32,000이 MA60(24,102) 대비 <span class="up">+32.7%</span>, MA20(26,614) 대비 <span class="up">+20.2%</span> 이격 [실측: KIS]. 통계적으로 MA선 복귀 압력이 큰 과열권. 52주 밴드 내 위치는 상단 84%지점(=(32000-15240)/(35185-15240)) [추정: 밴드 위치 산식]. → 추세는 유효하나 &#x27;싸다&#x27;고 볼 가격대는 아님. 신규는 눌림 대기가 통계적으로 우위.</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>ETF라 개별주식선물 레버리지 불가 → 현물 스윙만. (레버리지 희망 시 별도 2배 반도체 ETF 검토 영역이나 본 종목은 1배 현물 전제)</li>
+<li>지지: 1차 MA20 26,614 / 2차 MA60 24,102 [실측: KIS]. 심리지지 30,000(직전 돌파 라운드피겨) [추정].</li>
+<li>저항: 1차 52주 고 35,185 [실측: KIS] / 2차 심리 저항 미확인(사상 최고 경신 구간).</li>
+<li>3라인 전략(눌림 분할 기준):</li>
+<li>진입: 29,500~30,500원(30,000 라운드 + MA5 부근 눌림 분할) [추정: 지지·MA 기반]</li>
+<li>손절: 26,300원(MA20 하단 이탈 확정) [추정: MA20 26,614 하회]</li>
+<li>익절: 1차 35,185원(52주고), 2차 38,000원 돌파 시 [추정: 52주고 + 신고가 추세연장 약 10%]</li>
+<li>손익비 산식(진입 중앙값 30,000 기준):</li>
+<li>상승여력 A = (35,185-30,000)/30,000 = <span class="up">+17.3%</span></li>
+<li>하락리스크 B = (30,000-26,300)/30,000 = <span class="down">-12.3%</span></li>
+<li>손익비 = 17.3 ÷ 12.3 ≈ 1:1.4 (1차 목표 기준)</li>
+<li>2차 목표 38,000 적용 시: (38,000-30,000)/30,000=<span class="up">+26.7%</span> ÷ 12.3% = 1:2.2</li>
+</ul>
+<p>→ 1차 1:1.4 / 2차 포함 가중 약 1:2.0. 현재가(32,000) 직접 추격 시 손익비는 (35,185-32,000)/(32,000-26,300)=3,185/5,700 = 1:0.56으로 급격히 악화 → 추격 비권장.</p>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(확정/예정):</li>
+<li>SEDEX 2026(반도체대전): 삼성·SK 차세대 HBM 공개 — 10월 중 [인용: 뉴시스/다음 2026-10-05]. 소부장 수주 기대 모멘텀.</li>
+<li>엔비디아 분기 실적: 11월 하순(통상) [추정: 분기 패턴] — AI 가속기 수요 가이던스가 기판/패키징 종목 직결.</li>
+<li>삼성전자·SK하이닉스 3Q 실적 시즌: 10월 하순 [추정: 통상 결산일정] — 설비투자 가이던스가 장비주 수주 기대 좌우.</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>ETF 종가가 MA20(26,614) 하회 마감 → 보유분 전량 청산(추세 1차 훼손) [실측기준: KIS 일봉].</li>
+<li>ETF 종가가 MA60(24,102) 하회 마감 → 추세 종료로 간주, 신규·잔여 전면 중단 [실측기준: KIS].</li>
+<li>기초지수 핵심 전방인 삼성전자·SK하이닉스 3Q 설비투자(CAPEX) 가이던스가 전분기比 하향 또는 HBM 증설 지연 공시 → 소부장 수주 기대 약화, 비중 절반 축소 [실적 임계: 실적시즌 가이던스].</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(HBM/반도체 CAPEX 뉴스플로우 × 당일 ETF 갭):</li>
+<li>[쇼크(CAPEX 하향·HBM 지연)] × 갭하락 → 손절선 무관 즉시 비중 절반↓</li>
+<li>[쇼크] × 보합/갭상승 → 반등 시 분할 축소(허수 반등 경계)</li>
+<li>[인라인] × 갭하락 → MA20 지지 확인까지 관망, 이탈 시 청산</li>
+<li>[인라인] × 보합 → 전략 유지</li>
+<li>[서프라이즈(HBM 증설·대형수주)] × 갭상승 → 추세 추종, 익절선 상향(트레일링)</li>
+<li>[서프] × 갭하락 → 눌림 매수 기회(진입밴드 하단 분할)</li>
+<li>확률가중 시나리오:</li>
+<li>Bear(30%): 과열 되돌림, MA20까지 조정. 전제 = 전방 CAPEX 기대 둔화·차익실현. 목표 26,600원(<span class="down">-16.9%</span> from 32,000).</li>
+<li>Base(50%): 눌림 후 횡보·완만 상승, 52주고 재도전. 목표 35,185원(<span class="up">+9.95%</span>).</li>
+<li>Bull(20%): HBM 순환매 2차 가속, 신고가 추세연장. 목표 38,000원(<span class="up">+18.75%</span>).</li>
+<li>확률가중 기대수익률 = 0.30×(<span class="down">-16.9%</span>) + 0.50×(<span class="up">+9.95%</span>) + 0.20×(<span class="up">+18.75%</span>) = -5.07 <span class="up">+4.98</span> <span class="up">+3.75</span> = <span class="up">+3.66%</span> [추정: 시나리오 가중].</li>
+</ul>
+<p>→ 현재가 추격의 기대값은 낮음. 눌림(30,000) 진입 시 기대값은 <span class="up">+9</span>~10%대로 개선 → &#x27;관심·눌림대기&#x27;가 합리적.</p>
+<ul>
+<li>수급·유동성: 20일 평균 거래대금 699.5억 [실측: KIS] → 1일 체결상한(ADV 10%) 약 70.0억 [추정: 699.5×0.1]. 유동성 충분(현물 스윙 체결 지장 無), LP 괴리 0.09%로 양호.</li>
+<li>포지션 사이징(자산 대비 %):</li>
+<li>리스크예산 방식: 손실예산 1% ÷ 손절폭. 눌림 진입 30,000·손절 26,300 → 손절폭 12.3% → 비중 1%/12.3% = 자산의 약 8.1%.</li>
+<li>집중상한 50% / 이벤트(실적시즌) 전 상한 25% / 리스크예산 8.1% 중 최소값 = 자산의 약 8%를 상한으로 운용. 추격 진입 시 손절폭 확대로 허용 비중은 더 축소.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>Top6~10 구성종목·정확 비중(2026-10-06 최신본) — 네이버/ETFCHECK API 차단으로 Top5(9-07 기준)만 확보</li>
+<li>추적오차 정량치</li>
+<li>엔비디아·삼성·SK 실적 &#x27;확정&#x27; 발표일(통상 일정 기준 추정만)</li>
+<li>ETF 자체 증권사 목표가 컨센서스(ETF 특성상 부재)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI inquire-price/inquire-daily-itemchartprice (2026-10-06): 현재가·거래대금·52주·MA·일봉</li>
+<li>네이버금융 integration/etfAnalysis API (2026-10-06): NAV·TER·기초지수·운용사·수익률·상품설명</li>
+<li>연합뉴스 2026-09-09(AKR20260909041200008): 순자산 1조486억·Top5 비중·상장연도·순환매 코멘트</li>
+<li>파이낸셜뉴스·아시아투데이·머니투데이·뉴시스 2026-10-02~05: 소부장 순환매·SEDEX HBM</li>
+<li>dealsite 2026-09-21: 한화 경쟁 ETF 상장</li>
+<li>consensus.py / news_search.py / kis_futures_check.py 실행결과 (2026-10-06)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>괴리율 (32000-31971.55)/31971.55=<span class="up">+0.089%</span> ✓</li>
+<li>MA이격 (32000-24102)/24102=<span class="up">+32.77%</span> ✓</li>
+<li>52주밴드위치 (32000-15240)/(35185-15240)=16760/19945=84.0% ✓</li>
+<li>손익비 1차 (35185-30000)/(30000-26300)=5185/3700=1.40 ✓</li>
+<li>기대수익률 -5.07<span class="up">+4.98</span><span class="up">+3.75</span>=<span class="up">+3.66%</span> ✓ (확률합 30<span class="up">+50</span><span class="up">+20</span>=100 ✓)</li>
+<li>ADV10% 699.5×0.1=69.95≈70.0억 ✓</li>
+<li>리스크예산 1/12.3=8.13% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-06 12:01 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 32,025원 (<span class="up">+5.0%</span>) · 시총 1.37조 · 5일 <span class="up">+18.6%</span> / 20일 <span class="up">+38.1%</span> / 60일 <span class="up">+33.8%</span></li>
+<li>MA5 30,158원 / MA20 26,615원 / MA60 24,103원 → MA20 이격 <span class="up">+20.3%</span> · MA60 이격 <span class="up">+32.9%</span></li>
+<li>52주 고 35,185원 / 저 15,240원 → 고점 대비 <span class="down">-9.0%</span> · 20일 고 32,025원 / 저 23,955원</li>
+<li>후행 PER 0.0 / PBR 0.0 (EPS 0원 · BPS 0원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 703.7억 (5일 1,448.4억)</li>
+<li>외국인 순매수 5일 -14.8억 / 20일 -33.6억 · 기관 5일 -598.2억 / 20일 -630.9억 · 개인 20일 624.7억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.00% / 20일 평균 0.01% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 0.07% (09/22) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 35,185원 (<span class="up">+9.9%</span>) ÷ 하방 26,300원 (−17.9%) = <strong>1:0.55</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 17.9% = <strong>자산의 2.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.8%</strong></li>
+<li>유동성 참고: 20일 ADV 703.7억 · 1일 소화 한도는 ADV의 10%(70.37억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 17.9% · ATR14 1,105원 (손절폭/ATR 5.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 17.9% = ATR14 × 5.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 29,814원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.43</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-455850"></span>📋 결정카드 — SOL AI반도체소부장(455850) 판정: 관심 선물: 無 현재가: 32,000원 진입: 29,500~30,500원 (눌림 분할) 손절: 26,300원 목표: 1차 35,185원 (2차 38,000원) 손익비: 1:2.0 기간: 스윙 3~8주 촉매: SEDEX 2026 HBM 공개(10월 중)·삼성/SK 3Q 실적시즌(10월 하순) 반증: ETF 종가 MA20(26,614) 하회 마감→전량청산 / MA60(24,102) 하회→추세종료 신규중단 / 삼성·SK 3Q CAPEX 가이던스 전분기比 하향·HBM 증설지연→비중 절반 축소</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
