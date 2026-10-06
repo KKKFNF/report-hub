@@ -1,0 +1,241 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>삼천당제약(000250) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261006-093800-삼천당제약-000250.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.43</div><div class="tp-c"><b>결론 발췌</b> 아일리아(Eylea) 바이오시밀러 SCD411의 美 FDA 결정(10월 예상)·4Q 출시 기대가 급등 트리거. 실적은 연결 영업이익 26억(2024)까지 쪼그라든 저수익 구조라 PER 1,076배·PBR 20배는 &#x27;허가 성공 선반영&#x27;. 52주 저점(120,000)에서 2배 오른 반등 구간이며 MA20 이격 +41%로 과열. 재료는 날짜확정 임박 이벤트라 트레이딩 가치는 있으나 밸류 안전마진은 0 → 레버리지 축소·분할·타이트 손절 전제의 이벤트 베팅.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>삼천당제약(000250)</h1>
+<div class="meta">📊 trend · 2026-10-06 09:38 · 코드 000250</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-06 09:38)</div><div class="kpi-v">234,500원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">5.5조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">1046.88</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">19.76</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.43</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.25</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">269,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 230,000~235,000원 (2차 215,000원 분할)</span><span class="dc dn">손절 207,000원</span><span class="dc up">목표 269,000원</span><span class="dc">손익비 진입 1:1.43 · 현재가 1:1.25</span><span class="dc">기간 스윙 1~4주 (FDA 10월 결정 이벤트 창)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: SCD411 美 FDA 허가 결정(2026년 10월 예상)</div><div class="dc-l">🛑 반증: 3Q25 연결 영업이익 적자(&lt;0억)→비중 절반 축소 / FDA 지연·불발 공시→전량 청산 / 종가 207,000 이탈→전량 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 삼천당제약(000250) ※선물 有(AF4610, 1계약=10주)</p>
+<p>📌 한줄 결론 아일리아(Eylea) 바이오시밀러 SCD411의 美 FDA 결정(10월 예상)·4Q 출시 기대가 급등 트리거. 실적은 연결 영업이익 26억(2024)까지 쪼그라든 저수익 구조라 PER 1,076배·PBR 20배는 &#x27;허가 성공 선반영&#x27;. 52주 저점(120,000)에서 2배 오른 반등 구간이며 MA20 이격 <span class="up">+41%</span>로 과열. 재료는 날짜확정 임박 이벤트라 트레이딩 가치는 있으나 밸류 안전마진은 0 → 레버리지 축소·분할·타이트 손절 전제의 이벤트 베팅.</p>
+<p>① 포착 신호</p>
+<ul>
+<li>현재가 241,000원 (전일比 <span class="up">+34,000</span> / <span class="up">+16.43%</span>) [실측 KIS 09:34]</li>
+<li>시총 56,533억 (상장 23,457,472주) [실측]</li>
+<li>당일거래대금 310억(09:34 누적) · 회전율 0.57%(장초반 누적, 종가기준 급증 예상) [실측]</li>
+<li>추세: MA5 197,260 &gt; MA20 170,460 ≈ MA60 171,437 → 완전정배열, 현재가/MA20 이격 <span class="up">+41.4%</span>·MA60 <span class="up">+40.6%</span> (단기 과열) [실측 산출]</li>
+<li>연속상승 5일(종가기준) [실측] · 52주 고 1,233,000 / 저 120,000 → 현재위치 11% (고점에서 <span class="down">-80%</span> 급락 후 저점대비 <span class="up">+2</span>배 반등 중) [실측]</li>
+<li>PER 1,075.9 · PBR 20.3 · EPS 224 · BPS 11,868 [실측 KIS]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력: 점안제(안과 제네릭·점안액) 국내 1위권 + 바이오시밀러(SCD411=아일리아/aflibercept 황반변성 치료제 바이오시밀러). 점안제가 캐시카우, 바이오시밀러가 성장스토리. [사실]</li>
+<li>급등사유(★실측 news_search 6건 교차):</li>
+<li>SCD411(아일리아 바이오시밀러) 美 FDA 심사 결과 &quot;10월 중 예상&quot;, 美 PBM이 4Q 출시 가능성 제시 [프레스나인 2026-09-29, 사실]</li>
+<li>美 상업화 파트너 Fresenius Kabi와 2024년 20년 공급·유통 계약 체결(삼천당=개발·생산·공급, FK=美 판매). SCD411 국내 &#x27;비젠프리&#x27;로 허가, 캐나다 등 일부국 진출 [조선비즈/히트뉴스, 사실]</li>
+<li>10/1~10/2 바이오시밀러주 동반 강세(알테오젠 등)·VI 발동, <span class="up">+14</span>~16% 급등 [CBC뉴스, 사실]</li>
+<li>CPHI 2026(밀라노) 첫 단독부스, 경구용 인슐린 기술이전 파트너 모색 [약사공론/조선비즈, 부가재료]</li>
+<li>테마성 판단: ★절반 재료·절반 수급. 날짜확정 임박한 FDA 결정이라는 &#x27;실재 촉매&#x27;가 핵심이나, 동시에 바이오시밀러 섹터 순환매·VI 발동 수급이 증폭. 재료 소멸(허가 확정/불발 공시) 시 급변동 리스크 큼. [판단]</li>
+<li>※참고: 과거 불성실공시 이력(공시 전 보도자료 배포 관련, 회사측 &quot;허위공시 아님&quot; 해명) — 정보 비대칭·신뢰도 할인요인 [catchnews 2026-10-02, 사실]</li>
+</ul>
+<p>③ 실적 (DART 연결 CFS, ★연결기준)</p>
+<ul>
+<li>매출: 2022 1,773억 → 2023 1,927억 → 2024 2,109억 (연평균 <span class="up">+9%</span> 완만 성장) [DART 실측]</li>
+<li>영업이익: 2022 122억 → 2023 96억 → 2024 26억 (OPM 6.9%→5.0%→1.3%, ★급격 악화) [DART 실측]</li>
+<li>별도(OFS) 기준은 더 약함: 2024 영업적자 -39억 — 연결 흑자는 종속·관계사·기타수익 기여, 본업 수익성은 적자 전환 [DART 실측]</li>
+<li>분기 연결(단일분기, DART): 2025 1Q 매출 506억/OP <span class="up">+6.9</span>억, 2Q 569억/OP -10.8억, 직전 3Q(2024.09) 524억/OP -8.1억 — ★분기 영업이익이 흑자·적자를 오가는 BEP 근처 저수익 구조 [DART 실측]</li>
+<li>요약: 이익 체력이 바닥. 현 밸류(PER 1,076)는 전적으로 &#x27;SCD411 美 허가·수출 로열티/공급매출&#x27;이라는 미래 현금흐름을 선반영한 것.</li>
+</ul>
+<p>④ 미래실적·컨센 달성가능성</p>
+<ul>
+<li>증권사 컨센서스: 미확인 — 최근 6개월 목표가 리포트·연간/분기 추정치 네이버·FnGuide·스탁이지·한경 4소스 모두 0건 [실측 consensus.py]. → 기관 커버리지 공백 = 숫자 검증 불가, 개인수급·테마 주도 종목.</li>
+<li>핵심 변수: SCD411 美 FDA 허가 성공 시 Fresenius Kabi向 공급매출 + 마일스톤/로열티 발생. 美 아일리아 바이오시밀러 시장은 FDA 승인 6건 중 출시 2건뿐(후발 진입 여지). SCD411은 7번째 승인 후보. [사실]</li>
+<li>달성가능성: 날짜확정 임박(10월)이라 바이너리 이벤트. 허가 성공→실적 레벨업 서사 강화 / 불발·지연→밸류 붕괴. 현재 컨센 없는 상태라 &#x27;어닝 서프라이즈&#x27;가 아니라 &#x27;허가 이벤트&#x27;가 주가 함수.</li>
+</ul>
+<p>⑤ 밸류·목표가 (자체 산출)</p>
+<ul>
+<li>현 PER·PBR은 이익기반 밸류로 설명 불가(PER 1,076). 시나리오 기반 미래이익 역산으로만 접근.</li>
+<li>산식(Base): SCD411 美 허가 성공 가정 시 삼천당 몫 연 공급매출+로열티 기여를 보수적 500~800억, OPM 30%(바이오시밀러 공급+로열티 믹스) → 신규 영업이익 150~240억. 기존 본업 OP ~30억 합산 전사 OP 180~270억. 순이익 약 140~210억, EPS 약 6,000~9,000원. 적정 PER 25배(성장 초기 바이오) 적용 → 적정주가 15만~22.5만원.</li>
+</ul>
+<p>⚠ 단, 이는 &#x27;허가 성공 100% 가정&#x27;의 수치. 허가 확률·램프업 속도·FK 배분율 모두 미공개 → 신뢰구간 매우 넓음 [미확인].</p>
+<ul>
+<li>Bull(조기 대량 출시·추가 적응증): EPS 12,000원·PER 30배 → 36만원</li>
+<li>Bear(허가 지연/불발): 본업 OP 30억·EPS 224원 기준이면 PER 25배로도 5,600원 수준 → 현 24.1만원은 과대. 실질 바닥은 52주 저점 12만원대까지 열림.</li>
+<li>★자체 목표가: 재료 유지 시 1차 27만원(상한가/직전 급등 연장), 2차 30만원. 재료 소멸 시 하방 17만원(MA20 회귀)→14만원(상한가 하단) 순차 지지. [계산식 노출]</li>
+</ul>
+<p>⑥ 진입전략·손익비 (★선물 有 → 레버리지 가능, 단 변동성 극단적이라 레버리지 축소 권고)</p>
+<ul>
+<li>판정: 관심(이벤트 트레이딩). 밸류 매수 아님.</li>
+<li>진입: 눌림 확인형 분할. 1차 230,000~235,000(MA5 상단·직전 돌파봉 지지 확인), 2차 215,000(10/6 시초~저가대). 추격매수(상한가 근접 26만원대)는 손익비 악화로 비권장.</li>
+<li>손절: 207,000원(10/2 종가·돌파 되돌림 임계). 종가 이탈 시 기계적 청산.</li>
+<li>목표: 1차 269,000(상한가), 2차 300,000.</li>
+<li>손익비(235,000 진입 기준): 위험 235,000-207,000=28,000 / 보상 1차 269,000-235,000=34,000 → 1:1.2 (상한가 재료 지속 시만 매력). 2차 300,000 기준 보상 65,000 → 1:2.3.</li>
+<li>기간: 스윙 1~4주 (FDA 10월 결정 이벤트 창).</li>
+</ul>
+<p>⑧ 바텀업 모델 (물량×단가×점유율)</p>
+<ul>
+<li>구조: 전사매출 = 점안제(캐시카우, 연 1,400억대 본업) + SCD411 美 신규기여(이벤트 변수)</li>
+<li>SCD411 美 기여 역산:</li>
+<li>美 아일리아 시장 규모(참고): 글로벌 아일리아 매출 연 90억달러대, 美가 절반 이상 — 바이오시밀러 침투 초기 [미확인, 2차출처 미확보]</li>
+<li>Base: 삼천당 공급매출+로열티 650억, OPM 30% → 신규 OP 195억</li>
+<li>Bear: 허가 지연/소량 출시 → 신규 기여 ~0, 전사 OP 본업 30억</li>
+<li>Bull: 조기 대량·추가국 확대 → 공급매출 1,000억·OP 300억</li>
+<li>3Q/4Q 임계:</li>
+<li>3Q25(곧 발표)는 아직 美 허가 전이라 SCD411 美 매출 미반영 → 본업+국내/기존수출만. 전사 OP 흑자 소폭(0~30억) 예상</li>
+<li>4Q25~2026상반기부터 美 허가 시 공급매출 인식 시작 가능</li>
+<li>★결론문장: &quot;2026년 연결 영업이익 ≥ 180억(SCD411 美 기여 가시화)이면 성장서사 유지, &lt; 50억(허가 지연·본업 수준 정체)이면 현 밸류 폐기.&quot;</li>
+</ul>
+<p>⑦ 촉매·반증·매트릭스·시나리오 [촉매 — 날짜확정 중심]</p>
+<ul>
+<li>★SCD411 美 FDA 허가 결정: 2026년 10월 예상(PBM 전망) — 최대 바이너리 촉매</li>
+<li>4Q 美 출시 가능성(FK 유통망)</li>
+<li>3Q25 실적발표(예상 11월 중순경) — 본업 체력 점검</li>
+<li>CPHI 후속 경구용 인슐린 기술이전 계약 가능성(시점 미정)</li>
+</ul>
+<p>[반증 3개 — 수치→행동] 1) FDA 허가 &#x27;지연(CRL)·불발&#x27; 공시 → 성장서사 핵심 붕괴, 즉시 전량 청산 (밸류 지지선 無) 2) 3Q25 연결 영업이익 적자 전환(&lt;0억) 확인 → 본업 체력 의심, 비중 절반 축소 3) 종가 207,000원(손절선) 이탈 → 기계적 전량 손절, 재진입은 MA20(17만원) 지지 재확인 후</p>
+<p>[이벤트 매트릭스]</p>
+<ul>
+<li>FDA 허가 성공(10월) → 급등 지속, 1차 27만→2차 30만 목표 유지</li>
+<li>FDA 지연/추가자료 요청 → -20~30% 급락, 손절선 즉시 발동</li>
+<li>3Q 실적 서프라이즈 흑자 → 보조 상승동력</li>
+<li>바이오시밀러 섹터 순환매 종료 → 수급 이탈, 눌림</li>
+</ul>
+<p>[확률가중 시나리오 — 합 100%]</p>
+<ul>
+<li>상(35%): 허가 성공/임박 재료 지속 → 27만~30만 (<span class="up">+12</span>~24%)</li>
+<li>중(40%): 재료 소화·횡보·눌림 → 20만~24만 (±0~<span class="down">-17%</span>)</li>
+<li>하(25%): 허가 지연 우려·수급이탈·과열해소 → 17만~14만 (-29~<span class="down">-42%</span>)</li>
+<li>기대값 대략 중립~소폭(+), 꼬리위험(하방) 두꺼움 → 사이징으로 리스크 통제 필수</li>
+</ul>
+<p>[수급·유동성]</p>
+<ul>
+<li>당일거래대금 310억(09:34)·회전율 급증으로 volscan 포착. 시총 5.6조 중형주라 유동성 충분. VI 반복 발동 환경 → 변동성 극단, 슬리피지 유의.</li>
+<li>기관 컨센 공백·개인/테마 주도 → 재료 소멸 시 하방 속도 빠름.</li>
+</ul>
+<p>[포지션 사이징 — 자산대비 %만]</p>
+<ul>
+<li>이벤트·고변동·밸류무근거 종목 → 신규 진입 시 자산대비 5~8% 이내 권고(집중한도 50% 내 소액 베팅).</li>
+<li>선물 레버리지 사용 시 변동성 고려해 명목 노출을 현물 환산 8% 이내로 제한. 분할 2~3회.</li>
+</ul>
+<p>⚠️ 본 자료는 참고용이며 투자판단·책임은 본인에게 있습니다.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 목표가·연간/분기 컨센서스(4소스 0건)</li>
+<li>SCD411 美 허가 확률·마일스톤/로열티 조건·FK 배분율</li>
+<li>글로벌/美 아일리아 바이오시밀러 시장규모 2차출처(1차 뉴스만 확보)</li>
+<li>종가 기준 최종 회전율(장중 09:34 누적치만 실측)</li>
+<li>2025 3Q 확정 실적(미발표)</li>
+</ul>
+<p>[출처]</p>
+<ul>
+<li>KIS OpenAPI 실측(현재가·시총·MA·52주·PER/PBR, 2026-10-06 09:34)</li>
+<li>DART 사업·분기보고서(opendartreader, 2022~2025)</li>
+<li>news_search.py 실측 6건: 프레스나인(FDA 10월·PBM 4Q), 조선비즈·히트뉴스(FK 20년계약·CPHI), CBC뉴스(VI·급등), catchnews(불성실공시 해명)</li>
+<li>consensus.py 4소스(stockeasy/naver/fnguide/hankyung) — 추정치 0건</li>
+<li>kis_futures_check.py: 선물 상장 확인(AF4610)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총 241,000 × 23,457,472 = 56,533억 ✓</li>
+<li>MA20 이격 241,000/170,460-1 = <span class="up">+41.4%</span> ✓</li>
+<li>손익비 1차 (269,000-235,000)/(235,000-207,000)=1.21 ✓ / 2차 (300,000-235,000)/28,000=2.32 ✓</li>
+<li>시나리오 확률 35<span class="up">+40</span><span class="up">+25</span>=100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-06 09:38 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 234,500원 (<span class="up">+13.3%</span>) · 시총 5.50조 · 5일 <span class="up">+44.9%</span> / 20일 <span class="up">+51.5%</span> / 60일 <span class="up">+17.2%</span></li>
+<li>MA5 196,160원 / MA20 170,185원 / MA60 171,345원 → MA20 이격 <span class="up">+37.8%</span> · MA60 이격 <span class="up">+36.9%</span></li>
+<li>52주 고 1,233,000원 / 저 120,000원 → 고점 대비 <span class="down">-81.0%</span> · 20일 고 235,500원 / 저 156,100원</li>
+<li>후행 PER 1046.88 / PBR 19.76 (EPS 224원 · BPS 11,868원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 196.9억 (5일 436.5억)</li>
+<li>외국인 순매수 5일 -208.1억 / 20일 -357.6억 · 기관 5일 120.7억 / 20일 201.5억 · 개인 20일 136.3억</li>
+<li>개별주식선물: ⚡ 상장 (AF4610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 4.69% / 20일 평균 7.94% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 17.12% (09/11) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 269,000원 (<span class="up">+14.7%</span>) ÷ 하방 207,000원 (−11.7%) = <strong>1:1.25</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 11.7% = <strong>자산의 4.3%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.3%</strong></li>
+<li>유동성 참고: 20일 ADV 196.9억 · 1일 소화 한도는 ADV의 10%(19.69억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 11.7% · ATR14 11,414원 (손절폭/ATR 2.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 11.7% = ATR14 × 2.4배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 211,671원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.51</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 有 (AF4610, 1계약=10주) 현재가: 241,000원 진입: 230,000~235,000원 (2차 215,000원 분할) 손절: 207,000원 (종가기준) 목표: 1차 269,000원 (2차 300,000원) 손익비: 1:1.2 (2차목표 1:2.3) 기간: 스윙 1~4주 (FDA 10월 결정 이벤트 창) 촉매: SCD411 美 FDA 허가 결정(2026년 10월 예상) 반증: 3Q25 연결 영업이익 적자(&lt;0억)→비중 절반 축소 / FDA 지연·불발 공시→전량 청산 / 종가 207,000 이탈→전량 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
