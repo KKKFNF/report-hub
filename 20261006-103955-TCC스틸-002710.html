@@ -1,0 +1,253 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TCC스틸(002710) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261006-103955-TCC스틸-002710.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.04</div><div class="tp-c"><b>결론 발췌</b> 테마성 급등(알래스카 LNG·배터리 소재)으로 수급 유입 강했으나, 2025년 연결 영업적자 전환·적자 지속 + 외국인은 급등에 순매도 중 + 밸류 이미 과거밴드 상단(PBR 1.60)이라 추격은 손익비 1:0.34로 부적합. 눌림목(13,500원대) 한정 관심, 1차 목표 16,000원·손익비 1:1.56. 판정 관심. ━━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 6.5% [실측: KIS 당일거래대금 254.8억 ÷ 시총 3,922억, 2026-10-06] • 당일거래대금 254.8억 — 20일 평균 거래대금 78.2억 대비 3.3배 급증 [실측: KIS inquire-daily-itemchartprice 20일, 2026-1…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>TCC스틸(002710)</h1>
+<div class="meta">📊 trend · 2026-10-06 10:39 · 코드 002710</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-06 10:39)</div><div class="kpi-v">14,980원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3,927억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.6</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.04</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.33</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">16,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 13,000~13,500원 (MA5~MA20 눌림목, 추격 금지)</span><span class="dc dn">손절 11,900원</span><span class="dc up">목표 16,000원</span><span class="dc">손익비 진입 1:2.04 · 현재가 1:0.33 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.56</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.56로 적었지만 진입·손절·목표로 계산하면 1:2.04다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026 3분기보고서(11월 중순 전후) 영업흑자 지속 여부</div><div class="dc-l">🛑 반증: 2026 3Q 연결 영업이익 &lt; 0억(적자 재전환)이면 논지 폐기 / 종가 MA20(12,027원) 이탈 시 전량 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — TCC스틸(002710)  ※개별주식선물 無(현물만 가능·레버리지 불가)</p>
+<p>📌 한줄 결론: 테마성 급등(알래스카 LNG·배터리 소재)으로 수급 유입 강했으나, 2025년 연결 영업적자 전환·적자 지속 + 외국인은 급등에 순매도 중 + 밸류 이미 과거밴드 상단(PBR 1.60)이라 추격은 손익비 1:0.34로 부적합. 눌림목(13,500원대) 한정 관심, 1차 목표 16,000원·손익비 1:1.56. 판정 관심.</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 6.5% [실측: KIS 당일거래대금 254.8억 ÷ 시총 3,922억, 2026-10-06]</li>
+<li>당일거래대금 254.8억 — 20일 평균 거래대금 78.2억 대비 3.3배 급증 [실측: KIS inquire-daily-itemchartprice 20일, 2026-10-06]</li>
+<li>등락 <span class="up">+11.14%</span> / 현재가 14,960원 [실측: KIS inquire-price, 2026-10-06]</li>
+<li>추세: MA 정배열 O (MA5 13,526 &gt; MA20 12,027 &gt; MA60 10,469), 현재가가 3개 이평선 상회 [실측: KIS 일봉]</li>
+<li>위치: 52주 고저(22,950 / 6,310) 사이 52% 지점 — 반등 중단이지 신고가 아님 [실측: KIS]</li>
+<li>직전 흐름: 9/30 상한가 → 10/1 <span class="up">+12%</span>대 → 10/6 <span class="up">+11%</span> (단기 3거래일 연속 급등 구간) [인용: 뉴스핌·월요신문 2026-09-30~10-01]</li>
+</ul>
+<hr>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업 구조: 표면처리강판(주석도금강판·전해크롬산처리강판·니켈도금강판·동도금강판) 단일 사업이 매출 99.86% [실측: 2025 사업보고서 접수 20260318000366]. 임대 0.14%. 사실상 단일 제품 기업.</li>
+<li>주석도금강판(틴플레이트): 음료관·식품관·에어졸관용. 국내 주석도금강판 안정적 시장지위.</li>
+<li>니켈도금강판: 1·2차전지(원통형 배터리캔)용 — 구조적 성장 스토리의 핵심.</li>
+<li>급등사유 2갈래 (교차검증):</li>
+</ul>
+<p>1) 알래스카 LNG 투자 발표 기대 → 철강·강관주 테마 동반 급등 [인용: 이투데이·다음 2026-09-30, 에너지인프라 철강수요 기대]. ⚠️ 단, TCC스틸은 LNG 배관·강관을 만들지 않고 &#x27;틴플레이트&#x27;가 주력 → 테마 연결고리가 약함(간접·심리적). 대한제강 등 강관주가 상한가 간 사이 묻어간 성격. 2) 전기차 공급망 재편·원통형 배터리 소재 기대 [인용: 핀포인트뉴스 2026-09-30]. 이쪽이 실체 있는 중장기 스토리(니켈도금강판)이나, 본격 양산은 고객사 미국 신규라인 가동 &#x27;2027년&#x27;으로 순연 [인용: 흥국증권 2026-03-09].</p>
+<ul>
+<li>결론: 당장의 실적 촉매보다 &#x27;철강 테마 순환매 + 배터리 기대 선반영&#x27;이 겹친 수급성 급등. 루머/기대감 성격이 실체보다 큼.</li>
+</ul>
+<hr>
+<p>③ 실적 (DART 연결 실측) 연간(연결·억원) [실측: DART 사업보고서]</p>
+<ul>
+<li>2023: 매출 6,244 / 영업익 112.5 / 순익 -82.9 / OPM 1.8%</li>
+<li>2024: 매출 5,821 / 영업익 122.7 / 순익 202.2 / OPM 2.1%</li>
+<li>2025: 매출 6,115 / 영업익 -109.1 / 순익 -76.0 / OPM <span class="down">-1.8%</span> ← 영업적자 전환</li>
+</ul>
+<p>→ 2025년 매출은 YoY <span class="up">+5.1%</span> 늘었으나 영업이익 적자전환. 중국산 저가 주석도금강판 수입 공세 + 배터리향 니켈도금강판 수요 부진(EV 캐즘)이 원인 [인용: 흥국증권 2026-03-09].</p>
+<p>분기(연결·3개월·억원) [실측: DART 분기·반기보고서]</p>
+<ul>
+<li>25Q1: 1,556.5 / <span class="up">+18.2</span> / -0.7 (OPM <span class="up">+1.2%</span>)</li>
+<li>25Q2: 1,554.2 / -33.7 / <span class="up">+22.9</span> (OPM <span class="down">-2.2%</span>) ← 영업적자 시작</li>
+<li>25Q3: 1,486.1 / -54.5 / -40.6 (OPM <span class="down">-3.7%</span>) ← 적자 최대</li>
+<li>25Q4: 1,518.3 / -39.1 / -57.6 (OPM <span class="down">-2.6%</span>)</li>
+<li>26Q1: 1,746.5 / -39.8 / -15.4 (OPM <span class="down">-2.3%</span>)</li>
+<li>26Q2: 1,826.9 / <span class="up">+11.7</span> / -60.5 (OPM <span class="up">+0.6%</span>) ← 영업흑자 전환(초입), 단 순익은 영업외·법인세로 적자</li>
+</ul>
+<p>→ 영업단은 26Q2 흑자전환으로 바닥 통과 조짐. 그러나 순이익은 26H1 누적 -75.9억 적자(법인세·금융비용 부담).</p>
+<p>재무건전성 [실측: DART 2026 반기보고서]</p>
+<ul>
+<li>자산 5,769 / 부채 3,264 / 자본 2,505 → 부채비율 130.3% (제조업 평균 수준, 과중은 아님)</li>
+<li>영업현금흐름: 2022 -120.4 / 2023 <span class="up">+57.7</span> / 2024 <span class="up">+179.3</span> 억 [실측: DART] — 2024년 개선됐으나 2025 적자 국면 현금창출력 약화 추정.</li>
+<li>이자보상배율: 영업적자(2025) → 1배 미만, 이자비용 자체 충당 불가 구간 [추정: 영업익 음수]</li>
+</ul>
+<hr>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: 최근 6개월 목표가 제시 리포트 &#x27;없음&#x27;, 연간/분기 컨센 미확인 [실측: consensus.py 4소스(stockeasy·naver·fnguide·hankyung) 2026-10-06, 전부 추정치 0건].</li>
+<li>유일 커버리지: 흥국증권 2026-03-09 &#x27;Buy, 목표가 19,000원&#x27; [인용: stockeasy DB]. 근거 = 2027E BPS 12,206원 × Target PBR 1.52배. 즉 &#x27;2027년 배터리 성장 복귀&#x27;를 가정한 2년 선행 밸류로, 당해·내년 실적 반영 목표가 아님.</li>
+<li>달성 가능성 판정: 中低. 흑자 복귀는 26Q2에서 영업단 확인됐으나, 2027년 원통형 배터리 양산 가동이 목표가의 전제라 가시성·시점 리스크 큼(이미 한 차례 순연). EV 수요·중국산 수입압력이 변수.</li>
+</ul>
+<hr>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 지표 [실측: KIS 2026-10-06]: PER 적자(TTM EPS -664원), PBR 1.60배(BPS 9,346원), 시총 3,922억.</li>
+<li>TTM(25Q3~26Q2) 연결 매출 6,578 / 영업익 -121.7 / 순익 -174.1억 → PER 산정 불가(적자).</li>
+<li>PBR 밴드 비교: 과거 적자·업황부진기 저점 PBR 0.6~1.0, 배터리 기대 고조기 1.5~1.7 추정. 현 1.60은 이미 상단권 [추정: 자본·주가 이력]. 흥국 Target PBR 1.52배조차 현재가가 상회.</li>
+<li>목표가 자체 산출(PBR×BPS, 적자라 PER 부적합):</li>
+<li>보수(PBR 1.0): 9,346원</li>
+<li>중립(PBR 1.3, 흑전 반영): 12,150원</li>
+<li>낙관(PBR 1.6, 배터리 프리미엄 유지): 14,954원 ≈ 현재가</li>
+</ul>
+<p>→ 펀더멘털 기준 적정가치는 대략 12,000~15,000원. 현재가 14,960은 이미 낙관 시나리오 반영 수준. 추가 상승은 &#x27;테마 모멘텀·순환매 지속&#x27;에 전적으로 의존(실적 아님).</p>
+<ul>
+<li>트레이딩 관점 저항·목표: 직전 급등 고점대 16,000원(1차), 전고 되돌림 18,500원(2차)은 모멘텀 연장 시 기술적 타깃 [추정: 차트].</li>
+</ul>
+<hr>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: MA5 13,526 / MA20 12,027 / 급등 시발 저점 11,240</li>
+<li>저항: 16,000(직전 급등 고점대) / 18,500 / 52주고 22,950</li>
+<li>손익비 계산 [산식 노출]:</li>
+<li>현재가 14,960 추격 시: 상승여력 (16,000-14,960)/14,960 = <span class="up">+7.0%</span> / 하락리스크 (14,960-11,900)/14,960 = <span class="down">-20.5%</span> → 손익비 1:0.34 → 진입 부적합(추격 금지)</li>
+<li>눌림목 13,500 진입 가정: 상승여력 (16,000-13,500)/13,500 = <span class="up">+18.5%</span> / 하락리스크 (13,500-11,900)/13,500 = <span class="down">-11.9%</span> → 손익비 1:1.56 → 조건부 매력</li>
+<li>권고 진입: 급등 당일 추격 X. MA5~MA20(13,000~13,500원) 눌림목 되돌림 확인 후 분할 진입. 손절 11,900원(MA20 하단·급등 시발 저점 직하).</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 (연결) 9-1 제품: 주석도금강판 등 표면처리강판 단일(매출 99.86%) [실측: 2025 사업보고서 20260318000366] 9-2 고객·용도: 음료·식품관(틴플레이트), 1·2차전지 배터리캔(니켈도금강판), 자동차·가전(동도금강판). 주요종속 TCC America가 미국 무역 담당. 세부 납품비중 미확인. 9-3 TAM·경쟁: 국내 주석도금강판 안정적 시장지위(출처1: 2025 사업보고서). 철강 업황 Neutral, 중국산 저가 수입재 공세·수요 둔화 지속(출처2: 하나증권 철강금속 Weekly 2026-09-21, 신한투자 2026-09-18). 정부 중국산 덤핑방지관세 강화 흐름은 중기 수급 개선 요인. 9-4 단가 이력(천원/톤) [실측: DART dart_biz]: 주석도금강판 2023 1,782 → 2024 1,689 → 2025 1,685 → 26H1 1,662. 단가 지속 하락(판가 압박). 9-5 CAPA·증설: 구체 CAPA·증설계획 미확인. 원통형 배터리향 니켈도금강판 신규라인 본격 가동 &#x27;2027년&#x27; [인용: 흥국증권]. 9-6 전방 CAPEX: 고객 배터리셀사 미국 원통형 전지 라인 양산 2027년 [인용: 흥국증권]. EV 캐즘으로 단기 가시성 저하.</p>
+<p>9-7 바텀업 모델 표 (물량×단가 → 매출 → OPM → 영업이익, 억원) 입력: 26H1 추정 판매량 ≈ 21.5만톤(= 매출 3,573 ÷ 단가 1.662백만/톤) → 연환산 ≈ 43만톤 [추정: 매출÷단가]</p>
+<ul>
+<li>Bear(확률 35%): 매출 6,400 / OPM <span class="down">-1.0%</span> → 영업익 -64억 (적자지속·중국산 압박 심화, 배터리 지연)</li>
+<li>Base(확률 45%): 매출 7,100 / OPM 1.5% → 영업익 <span class="up">+106</span>억 / 순익~80억 / EPS~305원 (26Q2 흑전 유지·점진 회복)</li>
+<li>Bull(확률 20%): 매출 7,600 / OPM 3.0% → 영업익 <span class="up">+228</span>억 / 순익~171억 / EPS~652원 (배터리 수요 조기 회복·판가 반등)</li>
+</ul>
+<p>3Q·4Q 배분: 하반기 매출 Base 기준 3,500억 내외, 영업익 분기당 <span class="up">+25</span>~55억 흑자 가정. 민감도: OPM ±1%p = 영업익 ±70억(연매출 7,000억 기준). 컨센 대조: 증권 컨센 부재 → 자체추정만. 흥국 2027E 중심 목표가와는 시점 상이.</p>
+<p>★ 결론 문장: 2026년 하반기(3Q·4Q 합산) 연결 영업이익이 <span class="up">+50</span>억 이상(흑자 지속·OPM 1%대 회복)이면 턴어라운드 논지 유지·눌림목 분할매수 검토. 반대로 3Q 연결 영업이익이 다시 적자(&lt; 0억)로 돌아가면 26Q2 흑전은 일시적이었던 것 → 논지 폐기.</p>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만): 2026년 3분기보고서 공시(통상 11월 중순, 영업흑자 지속 여부 확인). 그 외 알래스카 LNG 최종투자결정(FID)·배터리 고객사 가동시점은 날짜 미확정.</li>
+<li>반증 조건 3개:</li>
+</ul>
+<p>1) [분기 실적 임계] 2026 3Q 연결 영업이익 &lt; 0억(적자 재전환) → 26Q2 흑전 일시적 판정, 논지 폐기. 2) [수급] 종가가 MA20(12,027원) 종가 기준 이탈 → 테마 급등 되돌림 확정, 전량 손절. 3) [테마] 알래스카 LNG 투자 철회·지연 보도 + 철강 테마 순환매 소멸 → 급등 명분 소멸.</p>
+<ul>
+<li>이벤트 매트릭스(3Q 실적 × 발표 당일):</li>
+<li>영업흑자 서프 × 갭상승 → 16,000 돌파 시 추세 추종, 아니면 분할 익절</li>
+<li>인라인 × 보합 → 눌림목 재매수 구간 유지, 손절선 고수</li>
+<li>적자 쇼크 × 갭하락 → 즉시 청산(반증1 발동)</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 35%: 목표 11,000원 → 현재가 대비 <span class="down">-26.5%</span></li>
+<li>Base 45%: 목표 15,000원 → <span class="up">+0.3%</span></li>
+<li>Bull 20%: 목표 18,500원 → <span class="up">+23.7%</span></li>
+<li>기대수익률 = 0.35×(-26.5) + 0.45×(0.3) + 0.20×(23.7) = <span class="down">-4.3%</span> [산식: 확률×수익률 합]</li>
+</ul>
+<p>→ 현재가 추격의 기대수익률은 음수. 눌림목(13,500) 기준으로 재계산해야 양(+)으로 전환.</p>
+<ul>
+<li>수급·유동성: 외국인 20일 순매도 우위(9/30 -54,884주·10/1 -215,342주, 급등에 순매도), 기관은 9/28~30 순매수(<span class="up">+18,619</span> 등). &#x27;외국인+기관 동시 순매수&#x27; 헤드라인과 실제 외국인 순매도 괴리 주의 [실측: KIS inquire-investor]. 20일 평균 거래대금 78.2억 → 1일 체결상한(ADV 10%) 7.8억.</li>
+<li>포지션 사이징(자산 대비 %): 테마·적자 종목이므로 집중 한도 내에서도 소규모로 제한. 1차 자산의 5% 이내 눌림목 진입, 흑자 지속 확인(3Q) 후에만 추가. 선물 미상장으로 레버리지 불가 → 변동성 대비 물량 과대 금지.</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 컨센서스 연간/분기 추정치(커버리지 사실상 흥국 1곳) · 당해·내년 공식 목표주가 평균</li>
+<li>제품별 세부 판매량·고객사별 납품비중 · CAPA·가동률·증설 투자계획</li>
+<li>26Q2 순이익 적자(-60.5억)의 영업외/일회성 상세 분해</li>
+<li>알래스카 LNG 관련 TCC스틸 실제 수주·납품 연결고리(테마 심리만 확인, 실체 공시 없음)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI(현재가·일봉·투자자별매매) 2026-10-06</li>
+<li>DART 연결재무제표: 2023~2025 사업보고서, 2025·2026 분기·반기보고서(접수 20260318000366, 20260814002946 등)</li>
+<li>news_search.py(Google News RSS 외): 이투데이·뉴스핌·다음·핀포인트뉴스 2026-09-30~10-01</li>
+<li>stockeasy: 흥국증권 2026-03-09 기업리포트 / 하나증권·신한투자 철강금속 Weekly 2026-09</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합=연간: 25Q1~Q4 (1,556.5<span class="up">+1,554.2</span><span class="up">+1,486.1</span><span class="up">+1,518.3</span>)=6,115.1 = 2025 연간 매출 6,115.1 ✓ / 영업익 (18.2-33.7-54.5-39.1)=-109.1 = 연간 -109.1 ✓</li>
+<li>손익비 산식 헤더·본문 일치: 현재가 추격 1:0.34, 눌림목 13,500 기준 1:1.56 (헤더 한줄결론 1:0.34 추격 명시, 본문 ⑥ 동일) ✓</li>
+<li>연결·별도 라벨: 전 수치 연결 기준 명기 ✓</li>
+<li>시나리오 확률합 35<span class="up">+45</span><span class="up">+20</span>=100% ✓</li>
+</ul>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-06 10:39 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 14,980원 (<span class="up">+11.3%</span>) · 시총 3,927억 · 5일 <span class="up">+28.5%</span> / 20일 <span class="up">+28.0%</span> / 60일 <span class="up">+57.9%</span></li>
+<li>MA5 13,530원 / MA20 12,028원 / MA60 10,469원 → MA20 이격 <span class="up">+24.5%</span> · MA60 이격 <span class="up">+43.1%</span></li>
+<li>52주 고 22,950원 / 저 6,310원 → 고점 대비 <span class="down">-34.7%</span> · 20일 고 14,980원 / 저 10,920원</li>
+<li>후행 PER -52.75 / PBR 1.6 (EPS -284원 · BPS 9,346원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 78.3억 (5일 224.0억)</li>
+<li>외국인 순매수 5일 -45.2억 / 20일 -85.1억 · 기관 5일 2.5억 / 20일 -0.1억 · 개인 20일 81.6억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 5.67% / 20일 평균 14.63% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 54.07% (09/17) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 16,000원 (<span class="up">+6.8%</span>) ÷ 하방 11,900원 (−20.6%) = <strong>1:0.33</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 20.6% = <strong>자산의 2.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.4%</strong></li>
+<li>유동성 참고: 20일 ADV 78.3억 · 1일 소화 한도는 ADV의 10%(7.83억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 20.6% · ATR14 793원 (손절폭/ATR 3.9배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 20.6% = ATR14 × 3.9배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 13,482원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.68</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-002710"></span>📋 결정카드 — TCC스틸(002710) 판정: 관심 선물: 無 현재가: 14,960원 진입: 13,000~13,500원 (MA5~MA20 눌림목, 추격 금지) 손절: 11,900원 목표: 1차 16,000원 (2차 18,500원) 손익비: 1:1.56 (눌림목 13,500 기준 / 현재가 추격 시 1:0.34로 부적합) 기간: 스윙 4~8주 촉매: 2026 3분기보고서(11월 중순 전후) 영업흑자 지속 여부 반증: 2026 3Q 연결 영업이익 &lt; 0억(적자 재전환)이면 논지 폐기 / 종가 MA20(12,027원) 이탈 시 전량 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
