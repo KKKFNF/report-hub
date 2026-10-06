@@ -1,0 +1,219 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>제주반도체(080220) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261006-143917-제주반도체-080220.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.09</div><div class="tp-c"><b>결론 발췌</b> 모바일 메모리 슈퍼사이클이 팹리스 영업레버리지로 폭발, 트레일링 PER 81배는 과거 실적 기준 착시 — 연환산 선행 PER 8배로 재평가 여지 큼. 다만 고점권 추격·경기민감 피크이익 리스크로 &#x27;관심&#x27;, 눌림목 분할진입 시 손익비 1:1.8, 1차 목표 110,000원. ① 포착 신호 • 회전율 5.2% [인용: trendscan 자동포착] — 당일거래대금 1,689억 / 시총 32,342억. 20일 평균거래대금 1,085억 [실측: KIS 일봉 FHKST03010100] 대비 당일 1.5배 이상 급증, 자금유입 강도 뚜렷. • 추세: MA 완전 정배열 [실측: KIS, MA5 85,820 &gt; MA20 76,820 &gt; MA60 76,0…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>제주반도체(080220)</h1>
+<div class="meta">📊 trend · 2026-10-06 14:39 · 코드 080220</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-06 14:39)</div><div class="kpi-v">93,300원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3.2조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">81.34</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">13.84</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.09</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.97</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">110,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 86,000~88,000원 (눌림목 분할, 추격금지)</span><span class="dc dn">손절 76,000원</span><span class="dc up">목표 110,000원</span><span class="dc">손익비 진입 1:2.09 · 현재가 1:0.97</span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026 3Q 보고서(~11/14) / 메모리 단가·마이크론發 업황</div><div class="dc-l">🛑 반증: 2026 3Q 연결 영업익 &lt; 600억이면 피크아웃 논지 폐기 / 종가 MA20(76,800) 하향이탈</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 제주반도체(080220)  ※개별주식선물 無(현물만 가능)</p>
+<p>📌 한줄 결론: 모바일 메모리 슈퍼사이클이 팹리스 영업레버리지로 폭발, 트레일링 PER 81배는 과거 실적 기준 착시 — 연환산 선행 PER 8배로 재평가 여지 큼. 다만 고점권 추격·경기민감 피크이익 리스크로 &#x27;관심&#x27;, 눌림목 분할진입 시 손익비 1:1.8, 1차 목표 110,000원.</p>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 5.2% [인용: trendscan 자동포착] — 당일거래대금 1,689억 / 시총 32,342억. 20일 평균거래대금 1,085억 [실측: KIS 일봉 FHKST03010100] 대비 당일 1.5배 이상 급증, 자금유입 강도 뚜렷.</li>
+<li>추세: MA 완전 정배열 [실측: KIS, MA5 85,820 &gt; MA20 76,820 &gt; MA60 76,027 / 현재가 93,400]. 연속상승 5일·5일 <span class="up">+25.9%</span>. 9/18 73,400 → 10/6 93,200, 약 2주 <span class="up">+27%</span>.</li>
+<li>현 위치: 52주 최저 17,480 대비 5.3배, 52주 최고 138,000 대비 67.7% 수준(고점까지 약 47% 공간 남음). 저점 대비로는 고점권이나 직전 피크(138,000) 아래 조정 국면. [실측: KIS inquire-price]</li>
+<li>수급 주체: 최근 약 19거래일 외국인 <span class="up">+38.9</span>만주·기관 <span class="up">+123.1</span>만주 순매수, 개인 -160.9만주 순매도 [실측: KIS FHKST01010900]. 10/1·10/2 외인·기관 동반 집중매수 — 스마트머니 주도 상승.</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업: 팹리스 메모리 반도체 설계사. 모바일용 NAND MCP·DRAM(LPDRAM 포함)·TLC NAND·LPDDR4/5·CRAM 등 설계 후 대만 파워칩·윈본드 등 파운드리 외주생산 [실측: 사업보고서 2025.12 접수 20260323001029]. 2025년 제품별 비중: NAND MCP 39.2%·DRAM 22.8%·TLC NAND 12.1%. 2026 상반기: DRAM 34.5%·NAND MCP 33.8%로 DRAM 비중 상승. 전방은 모바일(피처폰·IoT·웨어러블)·소비자용 메모리.</li>
+<li>급등사유(검증): 반도체 메모리 업황 급반등. 10/1 마이크론 호실적 발표 이후 메모리 업황 기대 재점화, 삼성전기·한미반도체·주성엔지니어링 등 소부장·부품주로 매수 확산되며 제주반도체 동반 급등 [인용: 초이스경제·MSN 2026-10-01~02, news_search.py]. 9월 수출 사상 최초 1,200억달러 돌파(코스닥 10/1 <span class="up">+4.48%</span>)도 지수 레벨 호재.</li>
+<li>판정: 테마성 &#x27;기대감&#x27;이 아니라 실체 동반 급등. ②의 뉴스 모멘텀 + ③의 H1 2026 실적 폭발(아래)이 맞물린 케이스. 다만 상승 속도가 가팔라 단기 과열 구간.</li>
+</ul>
+<p>③ 실적 (DART 실측 · 연결 CFS)</p>
+<ul>
+<li>연간 추세(연결, 단위 억원) [실측: DART finstate 11011]</li>
+<li>2022: 매출 1,750 / 영업익 282 / OPM 16.1%</li>
+<li>2023: 매출 1,459 / 영업익 178 / OPM 12.2% (메모리 다운사이클 직격)</li>
+<li>2024: 매출 1,623 / 영업익 96 / OPM 5.9% (바닥)</li>
+<li>2025: 매출 3,022 / 영업익 359 / OPM 11.9% (업황 회복·매출 <span class="up">+86%</span> YoY)</li>
+<li>분기 추세(연결, 단위 억원) [실측: DART, 누적차감 산출]</li>
+<li>2025 Q1 매출 484/영업 37 → Q2 511/43 → Q3 1,110/139 → Q4 918/139 (하반기 급가속)</li>
+<li>2026 Q2(당분기) 매출 2,899 / 영업익 1,219 / OPM 42.0% [실측: 반기보고서 접수 20260813001713]</li>
+<li>2026 H1(누적) 매출 4,704 / 영업익 1,890 / OPM 40.2% / 순익 1,929 [실측: 동]</li>
+<li>핵심: 2026 H1 매출(4,704억)·영업익(1,890억)이 FY2025 전체(3,022억/359억)를 이미 상회. 팹리스 구조상 메모리 단가 상승이 고정비 레버리지로 증폭 → OPM 6%(2024)→40%(2026H1) 급등. [추정: 영업레버리지 — 매출원가율 2026H1 30.7%(원가 1,445억/매출 4,704억)로 급락]</li>
+<li>재무건전성 [실측: DART]</li>
+<li>부채비율: 2024 22% → 2025 48% → 2026H1 64%(부채 2,841억/자본 4,469억). 이익잉여 급증에도 부채 증가 — 운전자본·차입 확대 추정, 절대 수준은 아직 양호.</li>
+<li>자본총계 2025말 2,271억 → 2026H1 4,469억(<span class="up">+2,198</span>억), H1 순익 1,929억 반영 + α.</li>
+<li>순익 분해: H1 2026 세전 2,575억 중 영업익 1,890억 + 금융수익 514억. 순익 1,929억은 &#x27;영업개선&#x27;이 주동력(일회성 아님), 금융수익은 보조. [실측: CIS 누적]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: 최근 6개월 목표가 제시 리포트 없음, 연간·분기 컨센 미확인 [실측: consensus.py 4소스(stockeasy·naver·fnguide·hankyung) 2026-10-06 전부 0건]. 소형주 커버리지 공백 — 컨센 미확인.</li>
+<li>자체 추정(추정 명시): 2026 H1 런레이트 단순 연환산 시 FY2026 매출 약 9,400억·영업익 약 3,800억·순익 약 3,858억 [추정: H1 실적 ×2]. 보수적으로 Q2 영업익 1,219억 ×4 = 4,876억 [추정: Q2 run-rate].</li>
+<li>달성 가능성: 中. 근거 — (고) 메모리 단가 상승·AI發 수요 구조적 성장은 회사 사업보고서·마이크론 실적이 뒷받침. (저) 메모리는 경기민감 사이클재로 H1 OPM 40%는 사이클 피크 수준, 하반기 단가 조정 시 역레버리지 위험. 2개 반기 연속 피크마진 유지 여부가 변수 → 단순 ×2 연환산은 낙관적일 수 있어 &#x27;中&#x27;.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 멀티플 [실측: KIS inquire-price, 현재가 93,400]</li>
+<li>트레일링 PER 81.4배 / PBR 13.85배 / EPS 1,147 / BPS 6,742 — 단, 이는 저실적 과거(2024~2025 전반) 기준 착시.</li>
+<li>선행 기준: 연환산 EPS 약 11,200원 [추정: H1 순익1,929억×2 / 주식수 3,444만주] → 선행 PER 약 8.3배. 선행 PBR 약 7.2배(H1 BPS 12,975 기준).</li>
+<li>peer/밴드: 메모리 대형주(삼성전자·SK하이닉스) 업사이클 선행 PER 통상 8~15배대 [인용: 일반적 메모리 사이클 밸류]. 팹리스 소형주 프리미엄·피크마진 감안 시 10~15배 적용.</li>
+<li>자체 목표가(계산식 노출, 연환산 EPS 11,200 적용):</li>
+<li>보수 PER 10배 × 11,200 = 112,000원</li>
+<li>기준 PER 12배 × 11,200 = 134,000원</li>
+<li>낙관 PER 15배 × 11,200 = 168,000원</li>
+</ul>
+<p>→ 1차 목표 110,000원(PER 10배·보수), 2차 130,000원(PER 12배·직전 52주고 근접).</p>
+<ul>
+<li>증권사 목표가: 미확인(컨센 없음). 자체값만 사용.</li>
+<li>밸류 판정: 트레일링으론 초고평가지만 선행 PER 8배는 저평가 영역 — &#x27;피크이익이 1~2개 분기 더 간다는 전제&#x27;에서만 성립. 밸류의 축은 멀티플이 아니라 피크마진 지속성.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (개별주식선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>선물 미상장 [실측: kis_futures_check.py 080220 — 개별주식선물 292종목 中 미포함]. 레버리지 스윙 불가, 현물 포지션만 가능.</li>
+<li>지지/저항 [실측: KIS 일봉]: 지지 1차 MA5 85,800 / 2차 돌파 기준선·10/1 양봉 저점 88,200 되눌림 / 3차 MA20 76,800·MA60 76,000(추세 생명선). 저항 1차 심리선 100,000 / 2차 52주고 138,000.</li>
+<li>진입 전략: 추격 자제, 눌림목 분할. 88,000원 부근(돌파 리테스트) 1차 진입, MA20(76,800) 하향이탈 시 추세훼손으로 손절.</li>
+<li>손익비(진입 88,000 기준): 상방 목표 110,000 → 상승여력 25.0% / 하방 손절 76,000 → 하락리스크 13.6% → 손익비 1:1.8.</li>
+<li>(참고) 현재가 93,400 즉시진입 시: 상승 17.8% / 하락 18.6% → 손익비 1:1.0 (추격진입은 부적합, 눌림 대기 권고).</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>제품 믹스(2026 H1, 비중) [실측: dart_biz 반기 접수 20260813001713]: DRAM 34.5%·NAND MCP 33.8%·TLC NAND 16.2%(합산)·NAND Flash 5.0%·LPDDR5 3.7%. 상품(IC 트레이딩) 부문 급증(2026H1 1,208억, 2025 701억, 2024 無) — DRAM/NAND 외 IC 중개매출이 외형 성장 보조.</li>
+<li>9-2 고객·납품: 모바일·IoT·소비자 메모리 세트업체향(피처폰·웨어러블·셋톱 등). 구체 고객비중 미확인(사업보고서 비공개).</li>
+<li>9-3 TAM·경쟁: 2025 글로벌 반도체 약 8,000억달러, AI프로세서 2,000억달러·HBM 300억달러 견인 [인용: SIA·Gartner, 사업보고서 인용]. 제주반도체는 범용 모바일 메모리 설계 니치 플레이어 — HBM 직접 노출은 아니나 메모리 전반 단가 상승의 수혜. 경쟁자 CAPA·점유율 수치 미확인.</li>
+<li>9-4 단가 이력: 매출실적 표상 수출 급증(제품 수출 2025 1,434억→2026H1 3,739억) [실측: dart_biz]. 구체 ASP는 영업정책상 비공개 — 단가 수치 미확인, 외형·원가율로 역산.</li>
+<li>9-5 CAPA/증설: 팹리스(외주 파운드리) 구조로 자체 CAPA 산출 곤란 [실측: 사업보고서 본문]. 파워칩·윈본드 웨이퍼 할당이 공급 제약.</li>
+<li>9-6 전방 CAPEX: AI 인프라 투자發 메모리 수요 확대 [인용: 사업보고서].</li>
+<li>9-7 바텀업 모델(연결, 억원) [실측 입력: 2026H1 매출 4,704·영업익 1,890·OPM 40.2% / 2026Q2 매출 2,899·OPM 42.0%]</li>
+<li>Bear: 하반기 단가 조정·OPM 25%로 정상화 → 3Q 매출 2,400·영업익 600 / 4Q 2,200·500 → FY 영업익 약 2,990억</li>
+<li>Base: 피크마진 소폭 둔화·OPM 35% → 3Q 매출 2,700·영업익 945 / 4Q 2,600·910 → FY 영업익 약 3,745억</li>
+<li>Bull: 단가 추가상승·OPM 42% 유지 → 3Q 매출 2,900·영업익 1,218 / 4Q 2,900·1,218 → FY 영업익 약 4,326억</li>
+<li>민감도: OPM 10%p 변동 시 반기 영업익 약 470억 변동(매출 4,700억 기준). 컨센 대조 불가(컨센 미확인).</li>
+<li>결론 문장: &quot;3Q 2026 연결 영업익 ≥ 900억이면 피크마진 지속·논지 유지·눌림 추가매수 검토, &lt; 600억이면 사이클 피크아웃으로 논지 폐기.&quot;</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정 이벤트만)</li>
+<li>2026 3분기 보고서: 법정기한 2026-11-14 전후 [추정: 분기보고서 법정 45일, 전년 11월 공시 이력]. 피크마진 지속 여부 확인 핵심 분기.</li>
+<li>마이크론·삼성전자·SK하이닉스 메모리 가격/실적 뉴스 — 업황 방향 선행지표(상시).</li>
+<li>반증 조건 3개</li>
+</ul>
+<ol>
+<li>(분기 실적 임계) 2026 3Q 연결 영업익 &lt; 600억이면 피크아웃 확정 → 논지 폐기.</li>
+<li>메모리 현물·고정거래가(DRAM/NAND) 하락 전환 지속 2개월 → 사이클 꺾임, 비중축소.</li>
+<li>종가 MA20(76,800) 하향이탈 후 5일 내 회복 실패 → 추세훼손, 손절.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(3Q 실적 × 당일 주가)</li>
+<li>쇼크(영업익&lt;600억) × 갭하락 → 즉시 청산 / 보합 → 반등 시 비중축소 / 갭상승 → 차익실현</li>
+<li>인라인(600~900억) × 갭하락 → 손절선 준수 / 보합 → 보유 / 갭상승 → 분할익절</li>
+<li>서프(&gt;900억) × 갭하락 → 눌림 매수 / 보합 → 보유 / 갭상승 → 추세추종, 2차목표 상향</li>
+<li>확률가중 시나리오(합 100%)</li>
+<li>Bear 35%: 피크아웃·단가조정, 목표 70,000원(−25%) [산식: PER 8배 × 정상화 EPS 8,750]</li>
+<li>Base 45%: 마진 둔화·추세유지, 목표 110,000원(<span class="up">+18%</span>) [산식: PER 10배 × 연환산 EPS 11,200]</li>
+<li>Bull 20%: 단가 추가상승·52주고 재돌파, 목표 150,000원(<span class="up">+61%</span>) [산식: PER 13배 × EPS 11,200]</li>
+<li>확률가중 기대수익률 = 0.35×(−25%) + 0.45×(<span class="up">+18%</span>) + 0.20×(<span class="up">+61%</span>) = <span class="up">+11.5%</span> [추정]</li>
+<li>수급·유동성 [실측: KIS]: 외인+기관 20일 순매수 우위, 20일 평균거래대금 1,085억. 1일 체결 상한(ADV 10%) 약 108억 상당 → 유동성 충분, 분할 진입 용이.</li>
+<li>포지션 사이징(자산 대비 %): 리스크예산(손실예산 1% ÷ 손절폭 13.6%) = 자산의 약 7.3% / 집중상한 50% / 이벤트(3Q실적) 전 상한 25% → 셋 중 최소값 약 7%로 캡. 경기민감 피크이익 종목·선물 레버리지 불가 감안 보수적 진입.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;. [미확인 목록] 증권사 컨센서스·목표가 / 제품별 ASP 단가 / 주요 고객 납품비중 / 경쟁사 CAPA·점유율 / 자체 CAPA·가동률(팹리스) / 3Q 2026 실적(미발표) / 금융수익 514억의 세부 내역 [출처 목록] DART finstate·finstate_all·dart_biz(사업보고서 접수 20260323001029·반기보고서 접수 20260813001713) / KIS inquire-price·일봉 FHKST03010100·투자자별 FHKST01010900 / kis_futures_check.py / news_search.py(초이스경제·MSN 2026-10-01~02) / consensus.py 4소스 [검산] 2025 분기합 484<span class="up">+511</span><span class="up">+1,110</span><span class="up">+918</span>=3,023 ≈ 연간 3,022(반올림) ✓ / 2026 Q2 2,899 = H1누적 4,704 − 전분기(Q1 1,805) ✓ / 손익비 산식 헤더·본문 일치(진입88,000→목표110,000=<span class="up">+25.0%</span> ÷ 손절76,000=−13.6% = 1:1.8) ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-06 14:39 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 93,300원 (<span class="up">+1.0%</span>) · 시총 3.21조 · 5일 <span class="up">+25.1%</span> / 20일 <span class="up">+35.6%</span> / 60일 <span class="up">+13.4%</span></li>
+<li>MA5 85,840원 / MA20 76,825원 / MA60 76,028원 → MA20 이격 <span class="up">+21.4%</span> · MA60 이격 <span class="up">+22.7%</span></li>
+<li>52주 고 138,000원 / 저 17,480원 → 고점 대비 <span class="down">-32.4%</span> · 20일 고 93,300원 / 저 68,800원</li>
+<li>후행 PER 81.34 / PBR 13.84 (EPS 1,147원 · BPS 6,742원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,085.6억 (5일 2,079.9억)</li>
+<li>외국인 순매수 5일 471.1억 / 20일 316.4억 · 기관 5일 362.5억 / 20일 1,018.3억 · 개인 20일 -1,326.0억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 3.16% / 20일 평균 6.46% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 13.92% (09/11) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 110,000원 (<span class="up">+17.9%</span>) ÷ 하방 76,000원 (−18.5%) = <strong>1:0.97</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 18.5% = <strong>자산의 2.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.7%</strong></li>
+<li>유동성 참고: 20일 ADV 1,085.6억 · 1일 소화 한도는 ADV의 10%(108.56억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 18.5% · ATR14 4,329원 (손절폭/ATR 4.0배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 18.5% = ATR14 × 4.0배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 84,642원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.93</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 無 현재가: 93,400원 진입: 86,000~88,000원 (눌림목 분할, 추격금지) 손절: 76,000원 (MA20 하향이탈) 목표: 1차 110,000원 (2차 130,000원) 손익비: 1:1.8 기간: 스윙 4~10주 촉매: 2026 3Q 보고서(~11/14) / 메모리 단가·마이크론發 업황 반증: 2026 3Q 연결 영업익 &lt; 600억이면 피크아웃 논지 폐기 / 종가 MA20(76,800) 하향이탈</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
