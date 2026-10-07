@@ -1,0 +1,236 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>삼미금속(012210) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261007-111742-삼미금속-012210.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:6.83</div><div class="tp-c"><b>결론 발췌</b> 관심(매수접근은 눌림목 한정). 한화파워 가스터빈 블레이드 신규 공급(실체 확정 공시)이 성장 내러티브를 열었으나, 현 주가는 PER 120배·PBR 3.5배로 성장 선반영 국면. 손익비 1:1.6(진입 12,400원대). 1차 목표 16,500원(2차 18,500원). ━━━━━━━━━━━━━━━</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>삼미금속(012210)</h1>
+<div class="meta">📊 trend · 2026-10-07 11:17 · 코드 012210</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-07 11:17)</div><div class="kpi-v">13,870원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3,197억</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:6.83</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.27</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">16,500원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 12,200~12,600원 (MA5 눌림 분할)</span><span class="dc dn">손절 11,800원</span><span class="dc up">목표 16,500원</span><span class="dc">손익비 진입 1:6.83 · 현재가 1:1.27</span><span class="dc">기간 스윙 3~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11월 중순 26Q3 실적공시 / 한화파워 가스터빈 후속수주 공시</div><div class="dc-l">🛑 반증: 26Q3 영업익 &lt; 12억(별도) → 성장논지 폐기·정리 / MA20 11,900원 종가이탈 → 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 삼미금속(012210)  ※개별주식선물 無(현물만·레버리지 불가) [실측: kis_futures_check 012210, 마스터 292종목 중 미상장]</p>
+<p>📌 <strong>한줄 결론: 관심(매수접근은 눌림목 한정). 한화파워 가스터빈 블레이드 신규 공급(실체 확정 공시)이 성장 내러티브를 열었으나, 현 주가는 PER 120배·PBR 3.5배로 성장 선반영 국면. 손익비 1:1.6(진입 12,400원대). 1차 목표 16,500원(2차 18,500원).</strong></p>
+<hr>
+<p><strong>① 포착 신호</strong></p>
+<ul>
+<li>회전율 42.4% (거래대금 1,368.8억 / 시총 3,225억) — 당일 KIS 실측 거래대금 1,456.9억·거래량 1,078만주로 유동성 폭증 [실측: KIS inquire-price 2026-10-07]</li>
+<li>추세: MA 정배열 O [실측: MA5 12,454 / MA20 11,900 / MA60 8,673, KIS 일봉] · 연속상승 3일 · 5일 <span class="up">+21.9%</span></li>
+<li>현재가 13,890원 (<span class="up">+12.65%</span>), 52주 밴드 4,020~20,850원 — 저점 대비 <span class="up">+245%</span>, 고점 대비 <span class="down">-33%</span> 위치 [실측: KIS]</li>
+</ul>
+<p><strong>② 사업·급등사유</strong></p>
+<ul>
+<li>사업 실체: 1977년 설립, 국내 최대 해머 보유 금속 형단조 전문사. 제품 구성(별도·2026 반기) — 자동차부품 39.6%(프론트액슬·너클, 현대차 상용차 40년 공급), 중장비부품 22.8%, 선박엔진부품 23.0%(커넥팅로드), 방산부품 3.5% [실측: 반기보고서 2026.06 접수 20260813001147]</li>
+<li>급등 사유 = <strong>한화파워 가스터빈 블레이드 공급 개시</strong>(2026-10-07 다수 언론 동시 보도: 뉴시스·이데일리·이투데이 등). &quot;후속 수주(내년 2기분) 협의&quot; 보도 [인용: 뉴시스·이투데이 2026-10-07, Google News]</li>
+<li><strong>실체 검증 완료</strong>: DART 단일판매·공급계약 공시(2026-09-01 기재정정, 접수 20260901900178) — 확정 계약금액 <strong>121.4억원</strong>(당초 108.1억에서 상향), 2024년 매출(764.4억) 대비 <strong>15.89%</strong> 규모 [실측: DART 공급계약 공시]. → 테마성 루머 아닌 <strong>계약 기반 실체 있는 모멘텀</strong>. 다만 계약금액이 연매출의 16%로 전사 실적을 당장 뒤집는 규모는 아님.</li>
+</ul>
+<p><strong>③ 실적 (DART 실측·별도기준)</strong> 연간(별도): [실측: DART finstate 11011]</p>
+<ul>
+<li>FY23: 매출 768.4억 / 영업익 59.6억(OPM 7.8%) / 순익 9.4억</li>
+<li>FY24: 매출 764.4억(<span class="down">-0.5%</span>) / 영업익 44.5억(OPM 5.8%) / 순익 34.6억 ※순익&gt;영익은 영업외·법인세 효과</li>
+<li>FY25: 매출 738.0억(<span class="down">-3.5%</span>) / 영업익 58.1억(OPM 7.9%) / 순익 16.9억 ※법인세차감전 4.8억인데 순익 16.9억 — 이연법인세 등 세금 효과로 순익이 세전익보다 큼(영업 개선 아닌 회계요인) [실측: DART]</li>
+<li>매출 3년 역성장(768→764→738억), 영업익은 레벨 횡보. <strong>외형 성장 스토리는 아직 실적에 안 나타남.</strong></li>
+</ul>
+<p>분기 영업익(별도·단일분기): [실측: DART finstate]</p>
+<ul>
+<li>25Q2 24.4억 → 25Q3 9.3억 → 26Q1 16.0억 → 26Q2 26.1억</li>
+<li>26 상반기 누적 영업익 26.1억(연율화 ~52억), QoQ 회복세. 선박엔진·정밀가공 비중 확대가 반영되기 시작.</li>
+<li>재무구조: FY25 자산 1,887.8억 / 부채 960.7억 / 자본 927.0억 → <strong>부채비율 103.6%</strong>(=960.7/927.0) [실측: DART]. BPS 4,022원 [추정: 자본 927.0억/2,305만주].</li>
+</ul>
+<p><strong>④ 미래실적·컨센서스</strong></p>
+<ul>
+<li>증권사 목표가 제시 리포트 <strong>없음</strong>(최근 6개월 NR 6건). SK·키움·하나·미래에셋·IBK 모두 &quot;Not Rated&quot; — 선박엔진·정밀가공·AI 데이터센터 전력인프라 성장성 코멘트만 [인용: consensus.py, stockeasy+naver 2026-10-07]</li>
+<li>FY26E 컨센(fnguide): 매출 817억 / 영업익 80억 / 순익 26억 / EPS 115원 [인용: fnguide 2026-10-07]</li>
+<li><strong>달성가능성 판정: 中.</strong> 26H1 영업익 26.1억 → 연율 52억으로 컨센 80억 달성하려면 하반기 가속 필요. 가스터빈 납품(121억 계약)이 하반기~내년 실적에 반영되면 가능하나, 상반기 런레이트만으론 미달. <strong>분기 컨센 미확인.</strong></li>
+</ul>
+<p><strong>⑤ 밸류에이션·목표가</strong> 현 지표 [추정: 현재가 13,890원 기준]:</p>
+<ul>
+<li>PER 120.8배 (컨센 EPS 115원) — 이익 대비 극단적 고평가</li>
+<li>PBR 3.45배 (BPS 4,022원) — 형단조 제조업 평균(0.8~1.5배) 크게 상회</li>
+</ul>
+<p>→ <strong>현 주가는 실적 멀티플이 아니라 가스터빈/전력인프라 성장 내러티브 선반영.</strong> 이익 기반 목표가(PER 30배×EPS115=3,450원)는 현 주가를 설명 못 함 → 현 국면은 &quot;모멘텀·수급 주도&quot;로 규정.</p>
+<p>자체 목표가(내러티브 반영·보수적): [추정: 산식 노출]</p>
+<ul>
+<li>방식1(과거 밴드·모멘텀): 52주 고점 20,850원이 상단 저항. 직전 고점권 회복 시 18,000~18,500원이 1차 벽.</li>
+<li>방식2(성장 프리미엄 유지 가정): 가스터빈 후속 수주 가시화로 FY27 영업익 100억·순익 50억(EPS~217원) 전제, PER 75배(성장주 프리미엄 유지) → 목표 16,300원. [추정: EPS 217×75]</li>
+<li><strong>종합 목표가: 1차 16,500원(현재가 <span class="up">+19%</span>), 2차 18,500원(<span class="up">+33%</span>).</strong> 20,850원 재돌파는 후속 대형수주 확인 전제.</li>
+</ul>
+<p><strong>⑥ 진입전략·손익비</strong></p>
+<ul>
+<li>지지: MA20 11,900원 / MA60 8,673원(강지지) / 심리 12,000원</li>
+<li>저항: 13,870원(당일 고가)·14,000원 → 16,500원 → 18,500원 → 20,850원(52주고)</li>
+<li>선물 無 → <strong>현물 매매만, 레버리지 불가.</strong> 급등 당일 추격보다 눌림목 분할이 원칙.</li>
+<li>손익비 산식: 진입 12,400원(MA5 근처 눌림) / 1차 목표 16,500원 / 손절 11,800원(MA20 하향이탈)</li>
+<li>상승여력 = (16,500-12,400)/12,400 = <strong><span class="up">+33.1%</span></strong></li>
+<li>하락리스크 = (12,400-11,800)/12,400 = <strong>-4.8%</strong></li>
+<li><strong>손익비 = 33.1/4.8 ≒ 1:6.9</strong> (눌림 진입 시). 당일 고가 13,890원 추격 시엔 진입 13,890/손절 11,800 → 상방 18.8%·하방 15.0% = <strong>1:1.3</strong>으로 급락 → 추격 비권장.</li>
+<li>⚠️ <strong>50% 집중 경고</strong>: 선물 없는 소형 테마주(시총 3,200억, 당일 회전율 42%)에 자산 50% 집중은 변동성·갭리스크 과다. 현물 분할·비중 통제 필수.</li>
+</ul>
+<hr>
+<p><strong>⑧ 산업·제품 바텀업 실적 모델</strong> (INDUSTRY_MODEL_SPEC §9) 사업부 구조(별도·2025 연간 73,797백만원) [실측: dart_biz 사업보고서 2025.12]:</p>
+<ul>
+<li>자동차부품 329.6억(44.7%) — 프론트액슬 내수 단가 326,529원(2026반기, <span class="up">+13.6%</span> YoY)·현대차 상용차 전방</li>
+<li>중장비부품 166.8억(22.6%) — 글로벌 건설기계 사이클 연동</li>
+<li>선박엔진부품 122.5억(16.6%→26반기 23.0%로 확대) — 커넥팅로드, 크랭크샤프트 수출단가 1,132,471원(26반기, 전년比 <span class="up">+53%</span>) 급등 [실측: dart_biz 가격변동]</li>
+<li>신규: 가스터빈 블레이드(한화파워, 121억 계약) — 발전·전력인프라 신전방</li>
+</ul>
+<p>원재료: 특수강 단일(100%), 2026반기 국내 1,374원/kg(<span class="up">+4.6%</span> YoY)·수입 1,551원/kg(<span class="up">+6.2%</span>) — 원가 상승 압력 [실측: dart_biz]</p>
+<p><strong>9-7 바텀업 모델</strong> (물량×단가 → 분기 영업이익, 억원):</p>
+<div class="tablewrap"><table><thead><tr><th>시나리오</th><th>가정(26H2)</th><th>분기 매출</th><th>OPM</th><th>분기 영업익</th></tr></thead><tbody><tr><td>Bear</td><td>자동차 횡보·선박엔진 둔화, 가스터빈 미반영</td><td>~180</td><td>5%</td><td>~9억</td></tr><tr><td>Base</td><td>선박엔진 단가 유지+가스터빈 초기납품</td><td>~210</td><td>9%</td><td>~19억</td></tr><tr><td>Bull</td><td>선박엔진 호조+가스터빈 가속+후속수주</td><td>~240</td><td>12%</td><td>~29억</td></tr></tbody></table></div>
+<p><strong>결론 문장: 3Q(26Q3) 연결·별도 영업이익 ≥ 20억이면 성장 논지 유지(선박엔진+가스터빈 동반 반영 확인), &lt; 12억이면 논지 폐기(26Q1 16억·26Q2 26.1억 대비 역성장 = 모멘텀 소멸).</strong></p>
+<hr>
+<p><strong>⑦ 촉매·반증·이벤트 대응</strong> 촉매 캘린더(날짜확정):</p>
+<ul>
+<li>2026-11월 중순 — 3분기 보고서(26Q3) 공시 예정(법정기한 11/14경) → 가스터빈+선박엔진 실적 반영 1차 확인점</li>
+<li>상시 — 한화파워 가스터빈 후속 수주(내년 2기분) 계약 공시 여부</li>
+</ul>
+<p>반증 조건 3개(수치→행동):</p>
+<ol>
+<li><strong>26Q3 영업익 &lt; 12억</strong>(26Q2 26.1억 대비 역성장) → 성장논지 폐기, 전량 정리</li>
+<li>주가 <strong>MA20(11,900원) 종가 하향이탈</strong> → 추세훼손, 손절 집행</li>
+<li>가스터빈 후속수주 무산 or 추가 CB 대량발행(150억 4회차 CB 이미 발행 — 전환 희석 진행) → 비중 축소</li>
+</ol>
+<p>이벤트 매트릭스:</p>
+<ul>
+<li>후속 대형수주 공시 → 20,850원 돌파 시도(Bull)</li>
+<li>3Q 실적 서프라이즈(영익≥25억) → 16,500원 안착</li>
+<li>3Q 어닝쇼크(영익&lt;12억) → 11,900원 붕괴·9,000원권 복귀</li>
+</ul>
+<p>확률가중 시나리오(합 100%):</p>
+<ul>
+<li>Bull(후속수주+실적 동반) 25% → 18,500원</li>
+<li>Base(모멘텀 유지·실적 점진) 45% → 15,500원</li>
+<li>Bear(모멘텀 소멸·실적 미달) 30% → 10,500원</li>
+<li>기대값 = 0.25×18,500 + 0.45×15,500 + 0.30×10,500 = <strong>14,750원</strong> [추정: 확률가중]</li>
+</ul>
+<p>수급·유동성: 20일 평균 거래대금 미확인(당일 1,457억은 평시 대비 급증). ADV 10% 이내 분할 권장. 150억 규모 제4회차 CB 발행(2026-06)·전환청구 진행 중 → 오버행 주의 [실측: DART CB 공시 20260601001500]. 포지션 사이징(자산 대비 %): 선물 없는 고변동 소형주 → 공격 시에도 자산의 10% 이내, 2~3회 분할. 50% 집중 금지.</p>
+<hr>
+<p>⚠️ 리서치 참고용·투자판단 본인 책임.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>가스터빈 블레이드 계약의 분기별 매출 인식 스케줄·마진율(기사·공시에 미명시)</li>
+<li>FY26 분기별 컨센서스(fnguide 연간만 제공)</li>
+<li>20일 평균 거래대금(ADV) 정확치</li>
+<li>영업현금흐름(DART CF 섹션 미추출)</li>
+<li>연결 재무제표(동사는 별도만 제공 — CFS 조회 데이터 없음)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI: 현재가·거래대금·MA·52주(2026-10-07 실측)</li>
+<li>DART: 반기보고서 20260813001147, 사업보고서 20260311003680, 공급계약 20260901900178, CB발행 20260601001500</li>
+<li>consensus.py(fnguide·naver·stockeasy, 2026-10-07), news_search.py(Google News RSS, 2026-10-07)</li>
+<li>kis_futures_check 012210</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총: 13,890원×23,051,579주 = 3,201.9억 ✓(포착 3,225억과 근사)</li>
+<li>PBR: 13,890/4,022 = 3.45배, BPS=자본927.0억/2,305만주 ✓</li>
+<li>부채비율: 960.7/927.0 = 103.6% ✓</li>
+<li>손익비(눌림): (16,500-12,400)/(12,400-11,800)=4,100/600=6.8 ✓</li>
+</ul>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-07 11:17 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 13,870원 (<span class="up">+12.5%</span>) · 시총 3,197억 · 5일 <span class="up">+20.6%</span> / 20일 <span class="up">+65.9%</span> / 60일 <span class="up">+121.6%</span></li>
+<li>MA5 12,450원 / MA20 11,899원 / MA60 8,673원 → MA20 이격 <span class="up">+16.6%</span> · MA60 이격 <span class="up">+59.9%</span></li>
+<li>52주 고 20,850원 / 저 4,020원 → 고점 대비 <span class="down">-33.5%</span> · 20일 고 13,850원 / 저 10,030원</li>
+<li>후행 PER 0.0 / PBR 0.0 (EPS 0원 · BPS 0원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 759.3억 (5일 552.3억)</li>
+<li>외국인 순매수 5일 3.0억 / 20일 5.0억 · 기관 5일 -0.0억 / 20일 -208.3억 · 개인 20일 206.0억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.04% / 20일 평균 0.15% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 0.91% (09/23) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 16,500원 (<span class="up">+19.0%</span>) ÷ 하방 11,800원 (−14.9%) = <strong>1:1.27</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 14.9% = <strong>자산의 3.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.4%</strong></li>
+<li>유동성 참고: 20일 ADV 759.3억 · 1일 소화 한도는 ADV의 10%(75.93억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 14.9% · ATR14 1,199원 (손절폭/ATR 1.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 14.9% = ATR14 × 1.7배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 12,072원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.46</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 <strong>결정카드</strong> 판정: 관심 선물: 無 현재가: 13,890원 진입: 12,200~12,600원 (MA5 눌림 분할) 손절: 11,800원 (MA20 종가 이탈) 목표: 1차 16,500원 (2차 18,500원) 손익비: 1:6.8 (눌림진입 기준 / 당일추격 시 1:1.3) 기간: 스윙 3~8주 촉매: 2026-11월 중순 26Q3 실적공시 / 한화파워 가스터빈 후속수주 공시 반증: 26Q3 영업익 &lt; 12억(별도) → 성장논지 폐기·정리 / MA20 11,900원 종가이탈 → 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
