@@ -1,0 +1,211 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>코스맥스비티아이(044820) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261008-081109-코스맥스비티아이-044820.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:4.41</div><div class="tp-c"><b>결론 발췌</b> 코스맥스(192820) 지분가치만 9,534억인데 시총 2,425억 — 지분가치의 25%에 거래되는 극단적 지주 할인(약 72%). 저평가 &#x27;사실&#x27;은 실측으로 확인되나, 할인 해소 촉매가 없으면 영구 저평가 함정이 될 수 있어 &#x27;관심&#x27;(눌림 분할). 손익비 1:3.0(진입 24,500 기준), 1차 목표 32,000원 / 2차 38,000원. 선물 無이므로 레버리지 불가·현물 스윙만. ⚠️ 본 글의 출발점(비나인 블로그, 2026-10-07)은 외부 개인 의견이며 작성자 보유 편향이 명시돼 있다. 아래는 블로거 주장을 DART·KIS로 교차 재검증한 결과다.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>코스맥스비티아이(044820)</h1>
+<div class="meta">📊 benine · 2026-10-08 08:11 · 코드 044820</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-08 08:11)</div><div class="kpi-v">25,250원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2,425억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">8.3</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.88</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:4.41</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.08</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">32,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 23,200~24,500원 (MA20~MA60 눌림, 3회 분할)</span><span class="dc dn">손절 22,000원</span><span class="dc up">목표 32,000원</span><span class="dc">손익비 진입 1:4.41 · 현재가 1:2.08 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:3</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:3로 적었지만 진입·손절·목표로 계산하면 1:4.41다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11월 중순 3Q26 분기보고서(하이드로겔·증설 확인), 코스맥스 3Q 실적</div><div class="dc-l">🛑 반증: 3Q26 연결 영업익 &lt; 90억이면 논지 폐기·전량 청산 / 종가 22,000원 이탈 시 청산 / 코스맥스 종가 250,000원 이탈 시 비중 축소</div></div>
+<div class="charts"><div class="chartcard"><div class="chart-t">연간 실적 추이 (매출·영업익 억원 / OPM %)</div><canvas id="chart0" height="150"></canvas></div></div>
+<div class="body"><p>🏢 지주 SOTP 리서치 — 코스맥스비티아이(044820)  ※개별주식선물 無(현물만), 코스맥스그룹 사업지주</p>
+<p>📌 한줄 결론: 코스맥스(192820) 지분가치만 9,534억인데 시총 2,425억 — 지분가치의 25%에 거래되는 극단적 지주 할인(약 72%). 저평가 &#x27;사실&#x27;은 실측으로 확인되나, 할인 해소 촉매가 없으면 영구 저평가 함정이 될 수 있어 &#x27;관심&#x27;(눌림 분할). 손익비 1:3.0(진입 24,500 기준), 1차 목표 32,000원 / 2차 38,000원. 선물 無이므로 레버리지 불가·현물 스윙만.</p>
+<p>⚠️ 본 글의 출발점(비나인 블로그, 2026-10-07)은 외부 개인 의견이며 작성자 보유 편향이 명시돼 있다. 아래는 블로거 주장을 DART·KIS로 교차 재검증한 결과다.</p>
+<p>─────────────────</p>
+<p>① 사실관계 검증</p>
+<ul>
+<li>회사 실체 [실측: 사업보고서 2025.12, 접수 20260317000869]: 코스맥스비티아이는 2014년 지주 전환한 <strong>코스맥스그룹 사업지주회사</strong>. 2025말 종속회사 13~14개. 연결 주력은 <strong>건강기능식품</strong>(코스맥스엔비티·코스맥스바이오)로 연결 제품매출의 64%가 건기식. 화장품 ODM 대장 <strong>코스맥스(192820)는 연결 자회사가 아니라 지분법 관계기업</strong>(지분 27.23%)으로 묶인다 → 코스맥스비티아이 연결매출(6,452억, 2025)이 코스맥스 단독(2조+)보다 작은 이유.</li>
+</ul>
+<ul>
+<li>지주구조·지분율 [실측: 코스맥스 2025 사업보고서 최대주주현황]: 코스맥스비티아이가 코스맥스(192820) 보통주 <strong>3,090,301주(27.23%)</strong> 보유 = 최대주주. 코스맥스 현재가 308,500원 기준 <strong>지분 시가 9,534억</strong>(= 3,090,301 × 308,500). 블로거 &#x27;9,600억&#x27;은 사실상 정확.</li>
+</ul>
+<ul>
+<li>하이드로겔 테마 실체: 블로거가 든 &#x27;하이드로겔 아이패치 매출 25년1Q 82억→26년2Q 340억(<span class="up">+258%</span>)&#x27;, &#x27;아마존 아이패치 3대장 수주&#x27;, &#x27;3Q 2배 증설&#x27;은 <strong>DART 사업보고서에 제품별로 분해되지 않아 수치 자체는 미확인(블로거 추정)</strong>. 다만 <strong>별도(본사) 매출이 953억(2023)→1,135억(2024)→1,777억(2025)으로 2년새 <span class="up">+86%</span> 급증</strong> [실측: DART 별도]한 점은 지주 수수료만으론 설명 안 되는 신규 제조사업(하이드로겔 등)의 존재를 정황상 뒷받침한다. 뉴스 검색(news_search 7~30일)으로는 하이드로겔 전용 기사·수주공시 원문이 잡히지 않음 → 수주 사실은 <strong>미확인</strong>.</li>
+</ul>
+<p>② 실적 분석 (DART 실측 — 연결 기준, 단위 원)</p>
+<ul>
+<li>연결 연간 추세 [실측: 각 연도 사업보고서 CFS]</li>
+<li>2023: 매출 6,286억 / 영업익 202억 / 순익 24.9억 / OPM 3.2%</li>
+<li>2024: 매출 5,976억 / 영업익 168억 / 순익 80.5억 / OPM 2.8% (매출·영업익 역성장)</li>
+<li>2025: 매출 6,452억 / 영업익 270억 / 순익 187억 / OPM 4.2% (턴어라운드)</li>
+<li>연결 분기 추세 [실측: 분기·반기보고서 CFS, 각 &#x27;당3개월&#x27;]</li>
+<li>2025 1Q 매출 1,543억·영업익 65.4억 / 2Q 1,637억·99.0억 / 3Q 1,535억·31.8억</li>
+<li>2026 1Q 매출 2,052억·영업익 164억 / 2Q 2,390억·영업익 163억</li>
+<li><strong>2026 상반기 연결 영업익 326억(전년 동기 164억 대비 <span class="up">+99%</span>)</strong>, 매출 4,442억(<span class="up">+40%</span> YoY) [실측: 반기보고서 20260814002427] — 하이드로겔·그룹 호조가 수치로 확인되는 실적 모멘텀.</li>
+<li>순익 급증: 2026 반기 연결 순익 466억(2025 연간 187억 상회) [실측] — 영업익(상반기 326억)을 웃도는 순익은 <strong>코스맥스 지분법이익</strong>(2026 코스맥스 주가·실적 급등) 기여로 추정. 영업만의 순수개선이 아님을 구분 필요(5원칙 ④).</li>
+<li>재무건전성 [실측 CFS]: 2025말 부채 7,107억 / 자본 2,957억 → <strong>연결 부채비율 240%</strong>. 2026반기 부채 7,498억 / 자본 3,668억 → 부채비율 204%(자본 증가로 개선). 연결 부채엔 종속회사(엔비티·바이오) 차입 포함. 이자보상배율·영업현금흐름 세부는 <strong>미확인</strong>(본 리서치에서 미추출). 블로거 &#x27;순차입 2,000억&#x27;은 연결/별도 혼재 추정치로 <strong>미확인</strong>.</li>
+</ul>
+<p>③ 미래 실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: <strong>컨센 미확인(4소스 시도 — stockeasy·네이버·FnGuide·한경 전부 추정치/최근 리포트 없음)</strong> [실측: consensus.py 2026-10-08]. 커버 애널리스트가 사실상 없는 소외 지주주라 목표가·추정치 부재.</li>
+<li>자체 추정(런레이트 기반, 추정): 2026 상반기 연결 영업익 326억 → 하반기 계절성·3Q 증설 감안 <strong>연간 연결 영업익 550~650억 추정</strong>(2025 270억의 2~2.4배). 하이드로겔 라인 증설(블로거 주장 3Q 2배)이 사실이면 Bull. 달성가능성 <strong>中~高</strong> — 상반기 실적이 이미 런레이트로 뒷받침하나, 3Q 증설·가동 실데이터 공시 전이라 中.</li>
+</ul>
+<p>④ 밸류에이션 → 목표가 (지주 SOTP 자체 재계산)</p>
+<p>[자체 SOTP 산식 — 전부 실측 입력값, 주식수 960.4만주 = 시총 2,425억÷25,250원] A. 코스맥스 지분 27.23%(309.0만주) × 308,500원 = <strong>9,534억</strong> [실측] B. 비상장 건기식 자회사(엔비티·바이오 등): 보수적 <strong>400억</strong> [블로거 추정 채택 — 연결 저수익이라 보수] C. 별도 하이드로겔+지주 영업가치: 별도 영업익 급성장 반영 보수적 <strong>1,000억</strong> [추정: 별도영업익 연율 PER 8~10배] D. 순차입 차감: <strong>-2,000억</strong> [블로거 추정, 미확인] → NAV(할인 전) = 9,534 + 400 + 1,000 - 2,000 = <strong>8,934억</strong> → 현 시총 2,425억 = NAV의 <strong>27.1%</strong> ⇒ 내재 지주할인 <strong>72.9%</strong>(한국 사업지주 평균 50~60% 대비 과도)</p>
+<p>[목표가 도출 — 할인율 시나리오] · 지주할인 65% 적용: 8,934 × 0.35 = 3,127억 → 주당 <strong>32,600원</strong> · 지주할인 55% 적용: 8,934 × 0.45 = 4,020억 → 주당 <strong>41,900원</strong> · 지주할인 50% 적용: 8,934 × 0.50 = 4,467억 → 주당 <strong>46,500원</strong> → 보수적으로 <strong>1차 목표 32,000원(할인 64%), 2차 38,000원(할인 57%)</strong> 채택. (할인 완전정상화 46,500원은 Bull 상단)</p>
+<p>[배수 병기·실측] · PER 8.3배 / PBR 0.88배 / EPS 3,041 / BPS 28,837 [실측: KIS 2026-10-08]. 현재가가 BPS(28,837) 밑 → PBR 1배만 가도 28,837원(<span class="up">+14%</span>), 그 위에 코스맥스 지분가치는 장부가로만 반영돼 시가 미반영. · 증권사 목표가: 미확인(컨센 부재).</p>
+<p>⑤ 손익비 (진입 24,500원 기준) · 상방: 1차 32,000원 = <span class="up">+30.6%</span> / 2차 38,000원 = <span class="up">+55.1%</span> · 하방: 손절 22,000원 = <span class="down">-10.2%</span> · <strong>손익비 = 30.6 ÷ 10.2 = 1:3.0</strong>(1차), 2차목표 적용 시 1:5.4 → 진입 적합. · (현재가 25,250 즉시 진입 시: 상방 <span class="up">+26.7%</span> / 하방 <span class="down">-12.9%</span> = 1:2.07)</p>
+<p>⑥ 진입 전략 (선물 無 → 현물 스윙 전용, 레버리지 불가) · 위치 [실측 KIS 2026-10-08]: 현재가 25,250 / 52주 고 29,150(−13.4%)·저 11,810 / MA5 24,810·MA20 24,470·MA60 23,168 → <strong>단기 정배열, 고점권 아님</strong>. 60일 <span class="up">+35%</span>로 이미 1차 상승 구간. · 지지: MA20 24,470 → MA60 23,168 → 20일 저점 21,950. 저항: 20일 고 26,150 → 52주 고 29,150. · 3라인 분할(현물): ①24,500(MA20 눌림) ②23,200(MA60) ③22,000(손절 직상 반등). 각 1/3. · 손절: <strong>종가 22,000원 이탈 시 전량 청산</strong>(MA60·20일 저점 하단). · ⚠️ 집중 경고: 지주 할인은 촉매 없이는 수년 지속 가능(저평가≠상승). 소외주라 유동성 얕음(20일 평균 거래대금 7.2억, 1일 체결 상한 ADV10%≈0.72억) → 집중 매수 시 체결·청산 슬리피지 큰 점 유의. 단일 종목 과집중 금지.</p>
+<p>─────────────────</p>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9)</p>
+<p>9-1 제품 분해 [실측: 사업보고서 2025 / 반기 2026] · 연결 매출의 64%가 건강기능식품(2025 제품 4,289억). &#x27;기타(화장품·의약품 등)&#x27; 약 30%. <strong>하이드로겔은 별도 제품행으로 미공시</strong> → 바텀업 단가·물량 정밀모델 불가(미확인). · 간접 신호: 별도 매출 953억(2023)→1,135(2024)→1,777(2025), 2026 2Q 별도매출 771억 [실측 OFS].</p>
+<p>9-3 시장·경쟁: K뷰티 하이드로겔 아이패치 TAM·점유율 수치는 <strong>2출처 교차 불가 → 미확인</strong>. 블로거 주장(아마존 아이패치 3대장 수주)만 존재. 피어 &#x27;제닉(123330)&#x27;은 하이드로겔 마스크팩 원조이나 선물 無·별도 리서치 필요.</p>
+<p>9-7 바텀업 결론 문장(연결 기준, 분기 임계): · Base: 3Q26 연결 영업익 <strong>≥ 150억</strong>(2026 2Q 163억 런레이트 유지)이면 논지 유지·눌림 추가매수 검토. · Bear: 3Q26 연결 영업익 <strong>&lt; 90억</strong>(전년 3Q 31.8억 대비 반등 그치고 모멘텀 소멸)이면 논지 폐기·청산. · (하이드로겔 세부 물량·단가 미공시로 전사 연결 영업익 임계로 대체 — 실적 캘린더 연동)</p>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만)</li>
+<li>2026-11월 중순(법정기한): 3Q26 분기보고서 → 하이드로겔 성장·3Q 증설효과 1차 확인 [실측: 자본시장법 분기보고서 45일 기한]</li>
+<li>코스맥스(192820) 3Q 실적·주가 → 지분가치(현 9,534억) 직결</li>
+<li>상시: 아마존 아이패치 수주/증설 관련 단일판매공급계약 공시 여부(현재 미공시)</li>
+</ul>
+<ul>
+<li>반증 조건 3개(수치→행동)</li>
+</ul>
+<ol>
+<li>3Q26 연결 영업익 &lt; 90억이면 논지 폐기·전량 청산</li>
+<li>코스맥스(192820) 종가 250,000원 이탈 시 NAV 7,700억대로 축소 → 비중 축소</li>
+<li>코스맥스비티아이 종가 22,000원 이탈 시 전량 청산</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스 (3Q 실적 × 당일 주가)</li>
+<li>쇼크(영업익&lt;90억) × 갭하락: 전량 청산 / × 보합: 반등 시 청산</li>
+<li>인라인(90~150억) × 갭하락: 손절선까지 보유 / × 갭상승: 1차 목표까지 보유</li>
+<li>서프라이즈(≥150억) × 갭상승: 2차 목표 38,000 상향 추적 / × 보합: 눌림 추가</li>
+</ul>
+<ul>
+<li>확률가중 시나리오 (합 100%)</li>
+<li>Bull 30%: 하이드로겔 3Q 급증+코스맥스 강세+할인 축소 → 38,000원</li>
+<li>Base 50%: 할인 소폭 축소+실적 유지 → 32,000원</li>
+<li>Bear 20%: 지주할인 지속+코스맥스 조정 → 23,000원</li>
+<li>기대값 = 0.3×38,000 + 0.5×32,000 + 0.2×23,000 = <strong>32,000원</strong>(현재가 대비 <span class="up">+26.7%</span>)</li>
+</ul>
+<ul>
+<li>수급·유동성 [실측 KIS]: 외국인 5일 <span class="up">+8.6</span>억/20일 −5.7억, 기관 5일 <span class="up">+11.2</span>억/20일 <span class="up">+23.6</span>억(기관 순매수 우위), 개인 20일 −22.7억. 20일 평균 거래대금 7.2억 → 1일 체결 상한(ADV10%) 약 0.72억(유동성 얕음).</li>
+</ul>
+<ul>
+<li>포지션 사이징(자산 대비 %만): 고변동 레짐(RV20 29%·VKOSPI 40, risk 0.5%) → 손실예산 0.5% ÷ 손절폭 10.2% = <strong>자산의 4.9%</strong>. 집중상한 50%·이벤트 전 상한 25% 중 <strong>최소값 4.9% 채택</strong>. 3Q 실적 전까지 보수적.</li>
+</ul>
+<p>─────────────────</p>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거·자체 추정치는 &#x27;추정&#x27; 명시, 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록] 하이드로겔 제품별 매출·단가·CAPA·수주(DART 미공시) / 증권사 컨센·목표가(4소스 부재) / 순차입 정확액(블로거 2,000억 추정) / 이자보상배율·영업현금흐름 / 하이드로겔 TAM·점유율 2출처 교차 / 아마존 수주 공시 원문</p>
+<p>[출처 목록] DART 사업보고서 2025.12(20260317000869)·반기 2026.06(20260814002427)·분기보고서 / 코스맥스 2025 최대주주현황 / KIS 시세·수급 2026-10-08 / consensus.py·news_search.py 2026-10-08 / 비나인 블로그(camel3425, 2026-10-07, 외부 개인의견)</p>
+<p>[검산] 2025 분기합 영업익 65.4<span class="up">+99.0</span><span class="up">+31.8</span><span class="up">+73.8</span>(역산)=270.0=연간 270 ✓ / 2026 1Q<span class="up">+2</span>Q 매출 2,052<span class="up">+2,390</span>=4,442=반기보고서 총매출 ✓ / 손익비 헤더·본문 1:3.0 일치(진입24,500·목표32,000·손절22,000) ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-08 08:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 25,250원 (<span class="up">+0.0%</span>) · 시총 2,425억 · 5일 <span class="up">+2.6%</span> / 20일 <span class="up">+7.9%</span> / 60일 <span class="up">+35.2%</span></li>
+<li>MA5 24,810원 / MA20 24,470원 / MA60 23,168원 → MA20 이격 <span class="up">+3.2%</span> · MA60 이격 <span class="up">+9.0%</span></li>
+<li>52주 고 29,150원 / 저 11,810원 → 고점 대비 <span class="down">-13.4%</span> · 20일 고 26,150원 / 저 21,950원</li>
+<li>후행 PER 8.3 / PBR 0.88 (EPS 3,041원 · BPS 28,837원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 7.2억 (5일 9.4억)</li>
+<li>외국인 순매수 5일 8.6억 / 20일 -5.7억 · 기관 5일 11.2억 / 20일 23.6억 · 개인 20일 -22.7억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.80% / 20일 평균 3.44% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 15.22% (09/23) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 32,000원 (<span class="up">+26.7%</span>) ÷ 하방 22,000원 (−12.9%) = <strong>1:2.08</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 12.9% = <strong>자산의 3.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.9%</strong></li>
+<li>유동성 참고: 20일 ADV 7.2억 · 1일 소화 한도는 ADV의 10%(0.72억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 12.9% · ATR14 1,514원 (손절폭/ATR 2.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 12.9% = ATR14 × 2.1배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 22,725원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.67</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-044820"></span>📋 결정카드 — 코스맥스비티아이(044820) 판정: 관심 선물: 無 현재가: 25,250원 진입: 23,200~24,500원 (MA20~MA60 눌림, 3회 분할) 손절: 22,000원 목표: 1차 32,000원 (2차 38,000원) 손익비: 1:3.0 기간: 스윙 6~12주 촉매: 2026-11월 중순 3Q26 분기보고서(하이드로겔·증설 확인), 코스맥스 3Q 실적 반증: 3Q26 연결 영업익 &lt; 90억이면 논지 폐기·전량 청산 / 종가 22,000원 이탈 시 청산 / 코스맥스 종가 250,000원 이탈 시 비중 축소</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script><script>
+new Chart(document.getElementById("chart0"), {
+  data: { labels: ["2023", "2024", "2025"],
+    datasets: [
+      {type:'bar', label:'매출', data:[6286.0, 5976.0, 6452.0], backgroundColor:'rgba(93,176,255,.55)', borderRadius:5, yAxisID:'y', order:2},
+      {type:'bar', label:'영업익', data:[202.0, 168.0, 270.0], backgroundColor:'rgba(126,231,161,.6)', borderRadius:5, yAxisID:'y', order:2},
+      {type:'line', label:'OPM %', data:[3.2, 2.8, 4.2], borderColor:'#ffc16b', backgroundColor:'#ffc16b', borderWidth:2, tension:.3, pointRadius:3, yAxisID:'y1', order:1}
+    ] },
+  options: { responsive:true, maintainAspectRatio:false, interaction:{mode:'index', intersect:false},
+    plugins:{legend:{labels:{color:'#cdd3dc', boxWidth:12, font:{size:12}}}},
+    scales:{ x:{ticks:{color:'#9aa2ad'}, grid:{color:'rgba(255,255,255,.05)'}},
+      y:{position:'left', ticks:{color:'#9aa2ad'}, grid:{color:'rgba(255,255,255,.05)'}, title:{display:true,text:'억원',color:'#7d8590'}},
+      y1:{position:'right', ticks:{color:'#ffc16b'}, grid:{drawOnChartArea:false}, title:{display:true,text:'OPM %',color:'#ffc16b'}} } }
+});</script>
+</body></html>
