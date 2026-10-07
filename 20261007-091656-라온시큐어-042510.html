@@ -1,0 +1,226 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>라온시큐어(042510) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261007-091656-라온시큐어-042510.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 자동판정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 카드 판정 매수였으나 현재가 기준 손익비 1:2.00 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 / 중립 (단기트레이딩, 추격매수 비권장) · 손익비 1:21.33</div><div class="tp-c"><b>결론 발췌</b> 금융권 연쇄해킹發 보안주 테마 급등의 중심주. 펀더멘털(2026 상반기 영업적자 지속)보다 테마·수급이 주도하는 고점권(52주 85.7% 위치, MA20 +38% 이격). 추세 자체는 강하나 추격 손익비 불리(약 1:1.3). 중립~단기트레이딩, 목표가 Base 19,900원 / 손절 13,200원. ━━━━━━━━━━━━━━━━ ① 포착 신호 [실측] • 회전율 8.9% (거래대금 145.7억 / 시총 1645억) — trendscan 포착시점 • 실측 당일(10/07 장중): 현재가 15,435원 (+3.80%), 거래대금 340.6억, 거래량 224.5만주 [실측·KIS] • 추세: MA정배열 O (MA5 12,794 &gt; MA20 …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(자동판정): 카드 판정 매수였으나 현재가 기준 손익비 1:2.00 (&lt;1:2) · 현재가가 카드 진입 구간 상단 위(추격) → 관심으로 조정 · 중립 (단기트레이딩, 추격매수 비권장)</span><h1>라온시큐어(042510)</h1>
+<div class="meta">📊 trend · 2026-10-07 09:16 · 코드 042510</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (리포트시점)</div><div class="kpi-v">15,435원</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:21.33</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">19,900원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 13,500원 눌림 확인 시 (추격 자제)</span><span class="dc dn">손절 13,200원</span><span class="dc up">목표 19,900원</span><span class="dc">손익비 진입 1:21.33 · 현재가 1:2 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2로 적었지만 진입·손절·목표로 계산하면 1:21.33다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 2~4주 스윙 (테마 지속 조건부)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 금융권 해킹 테마·4Q 수주·DID 사업</div><div class="dc-l">🛑 반증: 테마소멸·3Q 적자지속·MA20 +38% 이격 과열</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 라온시큐어(042510) ※개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 금융권 연쇄해킹發 보안주 테마 급등의 중심주. 펀더멘털(2026 상반기 영업적자 지속)보다 테마·수급이 주도하는 고점권(52주 85.7% 위치, MA20 <span class="up">+38%</span> 이격). 추세 자체는 강하나 추격 손익비 불리(약 1:1.3). 중립~단기트레이딩, 목표가 Base 19,900원 / 손절 13,200원.</p>
+<hr>
+<p>① 포착 신호 [실측]</p>
+<ul>
+<li>회전율 8.9% (거래대금 145.7억 / 시총 1645억) — trendscan 포착시점</li>
+<li>실측 당일(10/07 장중): 현재가 15,435원 (<span class="up">+3.80%</span>), 거래대금 340.6억, 거래량 224.5만주 [실측·KIS]</li>
+<li>추세: MA정배열 O (MA5 12,794 &gt; MA20 11,210 &gt; MA60 9,035) [실측·KIS 120일]</li>
+<li>모멘텀: 5일 <span class="up">+39.0%</span> / 20일 <span class="up">+78.8%</span> [실측] — ※포착메타(<span class="down">-1.01%</span>·5일<span class="up">+32.5%</span>)는 전일 기준, 당일 재급등 중</li>
+<li>과열지표: 현재가 MA20 이격 <span class="up">+38.3%</span>, 52주 위치 85.7%(저6,320~고16,960) [실측]</li>
+</ul>
+<p>→ 전형적 테마 급등 과열권. 눌림 없이 수직상승.</p>
+<hr>
+<p>② 사업 · 급등사유 [사업] 2012년 설립 AI 보안·인증 플랫폼 기업 [인용·DART 반기]</p>
+<ul>
+<li>솔루션사업(42.1%): 모바일보안(FIDO 생체인증·TouchEn)·PC보안·통합접근관리(IAM)·PKI</li>
+<li>서비스사업(57.9%): 디지털ID/DID(OmniOne)·이통사·금융사 제휴 공동인증(USIM스마트인증)·화이트햇 모의해킹 컨설팅(Raon CTF)</li>
+<li>핵심 성장축: 양자내성암호(PQC) 상용화, 에이전틱 AI 보안 자동화 플랫폼 [인용·유진투자 리포트]</li>
+</ul>
+<p>[급등사유 — 테마성] [인용·뉴스 10/06]</p>
+<ul>
+<li>금융권 연쇄 해킹 우려 확산 → 보안주 테마 동반 급등</li>
+<li>10/06 라온시큐어 장중 <span class="up">+26</span>~30% 육박 (샌즈랩·아티스트스튜디오 상한가, 안랩 <span class="up">+15%</span>) [인용·매일신문/뉴데일리/뉴스핌]</li>
+<li>순수 테마 수급 급등. 개별 수주·계약 공시는 미확인(최근 30일 catalyst 뉴스 0건) [실측·news_search]</li>
+</ul>
+<p>→ 실적 모멘텀이 아닌 &quot;해킹 사고 → 보안 수요 기대&quot; 심리 테마. 테마 소멸 시 되돌림 리스크 큼.</p>
+<hr>
+<p>③ 실적 (DART 연결 실측) [실측] [연간 연결 CFS·억원]</p>
+<ul>
+<li>2023: 매출 518.4 / 영익 -16.5 / 순익 60.5 (순익은 일회성·금융손익 추정)</li>
+<li>2024: 매출 624.9 / 영익 <span class="up">+19.7</span> / 순익 41.1</li>
+<li>2025: 매출 637.5 / 영익 <span class="up">+27.8</span> / 순익 35.5</li>
+</ul>
+<p>→ 매출 완만 성장(<span class="up">+2.0%</span> YoY), 영업이익 흑자전환 후 증가(<span class="up">+41%</span> YoY) [검산: 27.8/19.7-1=<span class="up">+41%</span>] → 단, 순이익은 영익보다 크다 = 영업외(금융·법인세수익) 비중 높음. 본업 수익성은 영익 4.4% 수준으로 박함.</p>
+<p>[분기·반기 연결 CFS·억원] [실측]</p>
+<ul>
+<li>2025 반기누적: 매출 139.0 / 영익 -8.0 / 순익 <span class="up">+0.1</span></li>
+<li>2025 3Q누적: 매출 159.8 / 영익 <span class="up">+16.0</span></li>
+<li>2026 1Q: 매출 94.2 / 영익 -21.5 / 순익 -21.5</li>
+<li>2026 반기누적: 매출 121.8 / 영익 -6.7 / 순익 <span class="up">+2.1</span> (매출총이익 77.7, 법인세수익 <span class="up">+7.1</span>로 순익 플러스) [실측]</li>
+</ul>
+<p>→ ★핵심 경고: 2026 상반기 여전히 영업적자(-6.7억), 매출도 YoY <span class="down">-12.4%</span> 역성장 [검산: 121.8/139.0-1=<span class="down">-12.4%</span>] → 보안업 특성상 H2(특히 4Q) 매출 집중(2025년 H1은 연간의 22%). 연간 흑자 여부는 4Q 공공·금융 수주에 전적 의존. ※연결-별도 구분: 상기 전부 연결(CFS) 기준. DART 사업보고서 세그먼트표 반기매출(215.96억)은 재무제표(121.8억)와 상이 → 세그먼트표 집계범위 차이로 보이며 재무제표 수치를 [실측] 채택.</p>
+<p>[재무 건전성] [실측]</p>
+<ul>
+<li>2025말 자산 744.9 / 부채 203.9 / 자본 541.0 → 부채비율 37.7% (양호) [검산: 203.9/541.0=37.7%]</li>
+<li>무차입에 가까운 저부채. 재무 리스크는 낮음.</li>
+</ul>
+<hr>
+<p>④ 미래실적 · 컨센서스 [인용·fnguide/naver]</p>
+<ul>
+<li>FY26E: 매출 625 / 영익 32 / 순익 47 / EPS 431 / PER 34.5 / ROE 8.6%</li>
+<li>FY27E: 매출 718 / 영익 68 / 순익 74 / EPS 657 / PER 22.6 / ROE 11.8%</li>
+<li>FY28E: 매출 814 / 영익 90 / 순익 97 / EPS 864 / PER 17.2 / ROE 13.6%</li>
+<li>2026Q3E 매출 157·영익 6 / 2026Q4E 매출 252·순익 59 [인용]</li>
+</ul>
+<p>★경고: FY26E 영익 컨센 하향 추세 — 현재 32 ← 3M전 63 ← 6M전 58 ← 1Y전 102 [인용·fnguide]. 즉 애널리스트들이 올해 실적 전망을 1년새 102→32억으로 대폭 깎았음.</p>
+<ul>
+<li>목표가 제시 증권사 리포트 최근 6개월 0건 (유진·유안타 NR, 한국IR협의회 분석만) [실측·consensus]</li>
+</ul>
+<hr>
+<p>⑤ 밸류에이션 · 목표가 [현 밸류] PER 51.1x(TTM) / PBR 3.10x / EPS 302 / BPS 4,975 [실측·KIS] → TTM PER 51배는 실적 대비 고평가. 컨센 FY27E 기준으로도 PER 23배로 성장주 평균 이상. [목표가 — FY27E EPS 666원 PER밴드, 추정주식수 11.1백만주] [검산]</p>
+<ul>
+<li>보수(PER 20x): 13,300원</li>
+<li>Base(PER 30x): 19,900원</li>
+<li>낙관(PER 40x): 26,700원</li>
+</ul>
+<p>→ Base 19,900원은 현재가(15,435) 대비 <span class="up">+29%</span> 여력이나, FY27E 흑자 가정·테마 프리미엄 지속 전제.</p>
+<hr>
+<p>⑥ 진입전략 · 손익비 (선물 無 → 현물만, 레버리지 불가) [현재가 15,435원 기준·실측 라인]</p>
+<ul>
+<li>1차 진입: MA5(12,800)~13,500 눌림 확인 시 (추격 자제)</li>
+<li>손절: 13,200원 (MA5 하회·테마 꺾임 시그널), 현재가 대비 <span class="down">-14.5%</span></li>
+<li>1차 익절: 16,960원 (52주 신고가), <span class="up">+9.9%</span></li>
+<li>목표(Base): 19,900원, <span class="up">+29.0%</span></li>
+</ul>
+<p>[손익비 — 추격진입(현재가 15,435) 기준]</p>
+<ul>
+<li>상승여력(→19,900): <span class="up">+4,465</span>원 / 하락위험(→13,200): -2,235원 → 손익비 ≈ 1:2.0 (목표기준)</li>
+<li>단, 1차저항 16,960 기준이면 <span class="up">+1,525</span> / -2,235 = 0.68 → ★1차 저항까지는 손익비 불리(1:1.5 역)</li>
+</ul>
+<p>→ 눌림목(13,500) 진입 시: 상승 6,400 / 하락 300 = 손익비 유리하나 테마주 눌림 안 줄 가능성.</p>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9) [제품 Mix·2025말 연간 비중·실측 DART]</p>
+<ul>
+<li>모바일보안(FIDO): 167.2억(26.2%) — 금융·공공 생체인증 전방</li>
+<li>디지털ID/DID(OmniOne): 166.9억(26.2%) — 정부 모바일신분증 사업 핵심</li>
+<li>이통사·금융 제휴인증: 85.6억(13.4%)</li>
+<li>화이트햇 컨설팅: 74.6억(11.7%) — 해킹사고 수요 직접수혜</li>
+<li>PC보안 45.2 / 통합접근관리 65.3 / PKI 8.6 / 기타 29.3</li>
+</ul>
+<p>[바텀업 → 4Q 영업이익 임계치 추정]</p>
+<ul>
+<li>2025 연간 매출 637.5·영익 27.8 (영익률 4.4%)</li>
+<li>2026 반기누적 매출 121.8(YoY <span class="down">-12.4%</span>)·영익 -6.7 → 연간 흑자전환 위해 H2 영익 최소 <span class="up">+7</span>억 필요(연간 BEP)</li>
+<li>★임계: 2026 연간 BEP(영익 0) 달성하려면 H2 매출 약 X=350억 이상(H2 영익률 2%+) 필요 [추정]</li>
+<li>테마수혜로 화이트햇 컨설팅·모바일보안 수주 확대 시 4Q 영익 <span class="up">+40</span>억 가능(컨센 Q4 순익 59 근거) → 본 케이스가 Bull [추정]</li>
+</ul>
+<p>→ 바텀업 결론: 본업은 적자탈출 진행 중이나 아직 불안정. 테마 수혜가 실제 수주로 연결될지(H2 매출 Y=252억 컨센 달성)가 관건.</p>
+<hr>
+<p>⑦ 촉매 · 반증 · 시나리오 [촉매]</p>
+<ul>
+<li>금융권 해킹 이슈 장기화 → 보안·모의해킹 수요 증가</li>
+<li>양자내성암호(PQC) 상용화·정부 모바일신분증(DID) 사업 확대</li>
+<li>4Q 공공·금융 수주 집중 시즌</li>
+</ul>
+<p>[반증 3개 — 수치→행동]</p>
+<ol>
+<li>테마 소멸: 보안주 섹터 거래대금 급감·동반 하락 전환 시 → 즉시 비중축소 (수급테마 특성상 급락 가능)</li>
+<li>실적 미스: 2026 3Q(11월 공시) 영업적자 지속·누적 적자폭 확대 시 → 손절 13,200 엄수</li>
+<li>이격 과열: 현재 MA20 <span class="up">+38.3%</span> 이격, 15% 이상 지속 시 통계적 되돌림 임박 → 신규진입 금지·분할익절</li>
+</ol>
+<p>[이벤트 매트릭스]</p>
+<ul>
+<li>2026.11 3Q 실적공시: 흑자전환 → Bull / 적자지속 → Bear</li>
+<li>금융권 추가 해킹사고: 테마 재점화 ↑</li>
+<li>정부 디지털신분증 입찰: 수주 시 리레이팅</li>
+</ul>
+<p>[확률가중 시나리오 (합=100%)]</p>
+<ul>
+<li>Bear 40%: 테마 소멸·차익실현 → 11,200(MA20)~12,000 되돌림, -22~<span class="down">-28%</span></li>
+<li>Base 45%: 테마 유지·실적 BEP 기대 → 16,960~19,900 등락, <span class="up">+10</span>~<span class="up">+29%</span></li>
+<li>Bull 15%: 추가 해킹이슈+수주공시 → 22,000~26,700, <span class="up">+43</span>~<span class="up">+73%</span></li>
+</ul>
+<p>→ 기대값: 0.4×(<span class="down">-25%</span>)<span class="up">+0.45</span>×(<span class="up">+19%</span>)<span class="up">+0.15</span>×(<span class="up">+58%</span>) = <span class="up">+7.2%</span> (변동성 대비 기대값 낮음·고위험)</p>
+<p>[수급]</p>
+<ul>
+<li>당일 거래대금 340억·회전율 20%+ → 단기 과열 수급. 개인·단타 주도 추정.</li>
+<li>선물 無 → 기관 레버리지 숏 불가, 현물 수급만. 급등락 폭 큼.</li>
+</ul>
+<p>[포지션 사이징 — 자산대비%]</p>
+<ul>
+<li>테마·고점권·적자기업 → 핵심보유 부적합. 트레이딩 한정.</li>
+<li>신규 진입 시 자산 대비 5~8% 이내 소액, 분할. 집중한도(50%) 적용 대상 아님.</li>
+<li>추격진입 비권장. 13,500 눌림 확인 후에만 진입 검토.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 투자판단·책임은 본인. [미확인] 항목: 개별 수주공시·세그먼트표 vs 재무제표 매출 괴리 원인. [출처] DART 연결재무제표·KIS 시세·fnguide 컨센·뉴스(매일신문 등). [검산] 영익률·부채비율·YoY·손익비 전부 산식 명시.</p>
+<hr>
+<p><span id="card-042510"></span>📋 결정카드 — 라온시큐어(042510)</p>
+<ul>
+<li>판정: 중립 (단기트레이딩, 추격매수 비권장)</li>
+<li>선물: 無 (현물만, 레버리지 불가)</li>
+<li>현재가: 15,435원 (<span class="up">+3.80%</span>, 10/07 장중)</li>
+<li>진입: 13,500원 눌림 확인 시 (추격 자제)</li>
+<li>손절: 13,200원 (<span class="down">-14.5%</span>)</li>
+<li>목표: Base 19,900원 (<span class="up">+29%</span>) / 1차 16,960원</li>
+<li>손익비: 1:2.0(목표기준) / 1차저항까진 불리</li>
+<li>기간: 2~4주 스윙 (테마 지속 조건부)</li>
+<li>촉매: 금융권 해킹 테마·4Q 수주·DID 사업</li>
+<li>반증: 테마소멸·3Q 적자지속·MA20 <span class="up">+38%</span> 이격 과열</li>
+</ul></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
