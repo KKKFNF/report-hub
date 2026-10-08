@@ -1,0 +1,188 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KODEX 2차전지산업레버리지(462330) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261008-095620-KODEX-2차전지산업레버리지-462330.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:5.43</div><div class="tp-c"><b>결론 발췌</b> 2차전지 섹터가 전고체 협력·북미 ESS 기대로 실제 반등 모멘텀을 타며 당일 +6.4%(5일 +25%) 급등. 다만 KODEX 2차전지산업레버리지는 기초지수 2배 추종 ETF로 변동성 드래그·복리손실이 상존하고, 이미 5일간 25% 급등한 고점권 추격 구간. 손익비 1:1.3 수준으로 매력은 &#x27;관심&#x27;에 그침. 목표 1차 1,330원·2차 1,450원, 1,120원대(MA5) 이탈 시 즉시 손절 전제의 짧은 스윙만 유효. ① 포착 신호 • 회전율 6.9%(당일거래대금 645.8억 / 시총 9,366억) — 섹터 ETF로는 매우 높은 자금 회전 • KIS 실측: 당일거래대금 734.8억, 20일 평균 764.9억 → 유동성 평시 대비 정상…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>KODEX 2차전지산업레버리지(462330)</h1>
+<div class="meta">📊 trend · 2026-10-08 09:56 · 코드 462330</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-08 09:56)</div><div class="kpi-v">1,229원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">9,343억</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:5.43</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.81</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">1,330원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 1,120~1,160원(MA5 눌림 분할)</span><span class="dc dn">손절 1,105원</span><span class="dc up">목표 1,330원</span><span class="dc">손익비 진입 1:5.43 · 현재가 1:0.81 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.3</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.3로 적었지만 진입·손절·목표로 계산하면 1:5.43다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 2~4주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 10월 하순 2차전지 셀 3사 3Q 실적시즌</div><div class="dc-l">🛑 반증: 종가 MA5 1,132원 이탈→비중축소 / MA20 1,053원 이탈→전량청산 / 셀 대표주 익일 -5%↑ 반락→진입보류</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — KODEX 2차전지산업레버리지(462330)  ※레버리지 ETF·선물 無</p>
+<p>📌 한줄 결론: 2차전지 섹터가 전고체 협력·북미 ESS 기대로 실제 반등 모멘텀을 타며 당일 <span class="up">+6.4%</span>(5일 <span class="up">+25%</span>) 급등. 다만 KODEX 2차전지산업레버리지는 기초지수 2배 추종 ETF로 변동성 드래그·복리손실이 상존하고, 이미 5일간 25% 급등한 고점권 추격 구간. 손익비 1:1.3 수준으로 매력은 &#x27;관심&#x27;에 그침. 목표 1차 1,330원·2차 1,450원, 1,120원대(MA5) 이탈 시 즉시 손절 전제의 짧은 스윙만 유효.</p>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 6.9%(당일거래대금 645.8억 / 시총 9,366억) — 섹터 ETF로는 매우 높은 자금 회전</li>
+<li>KIS 실측: 당일거래대금 734.8억, 20일 평균 764.9억 → 유동성 평시 대비 정상~약간 높은 수준(급증은 아님, 지속 유입)</li>
+<li>MA 완전 정배열 확인(KIS 일봉): 현재가 1,224 &gt; MA5 1,132 &gt; MA20 1,053 &gt; MA60 983</li>
+<li>5일 수익률 <span class="up">+25.3%</span>(2배 레버리지라 기초지수는 약 <span class="up">+12</span>~13% 추정) → 급등 강도 높음, 고점권 진입 여부가 핵심</li>
+</ul>
+<p>② ETF 성격·급등사유</p>
+<ul>
+<li>추종: 2차전지 산업지수(국내 2차전지 밸류체인 핵심주 구성)의 일간 수익률 2배를 추종하는 레버리지 ETF. 실물복제가 아닌 선물·스왑 기반 레버리지 구조로, 일간 리밸런싱 탓에 &#x27;일간 2배&#x27;이지 &#x27;기간 2배&#x27;가 아님(복리효과)</li>
+<li>급등사유(검증사실): ▲삼성SDI·에코프로비엠 2027년 황화물계 전고체 배터리 상용화 협력 발표(10/6) ▲북미 ESS(에너지저장장치) 수요 기대로 셀 업체 중심 강세 ▲당일 LG에너지솔루션 <span class="up">+17%</span>·삼성SDI <span class="up">+9%</span> 급등, 코스닥 <span class="up">+2.98%</span> 동반 상승</li>
+<li>기대감 vs 실적: 전고체는 2027년 목표의 &#x27;협력 발표&#x27; 단계로 실적 반영은 아직 기대감. 북미 ESS는 실제 수요 사이클 초입 — 기대감 비중이 더 큼</li>
+</ul>
+<p>③ 기초지수·섹터 실적 (※ETF라 기업단위 재무·컨센은 해당없음)</p>
+<ul>
+<li>핵심 구성종목 모멘텀: LG에너지솔루션(당일 <span class="up">+17%</span>), 삼성SDI(<span class="up">+9%</span>), 에코프로비엠(전고체 양극재 협력 수혜) 중심으로 셀·소재 전반 동반 상승</li>
+<li>섹터 전반이 &quot;셀 업체로 선별 접근&quot; 권고(한국경제) — 소재주보다 셀 중심 반등</li>
+<li>DART 기업재무·사업부문·consensus·dart_biz·stockeasy: ETF(지수 2배 추종)라 기업단위 재무·컨센 분석 해당없음</li>
+</ul>
+<p>④ 섹터 전망·컨센</p>
+<ul>
+<li>2차전지 업황: 전기차 캐즘(수요 둔화) 이후 ▲ESS 신수요 ▲전고체 차세대 기술 ▲美 IRA/정책 변수가 반등 논리. 2026년 하반기 들어 ESS 기대가 전기차 캐즘을 일부 상쇄하며 바닥 확인 시도</li>
+<li>달성가능성: 中 — 전고체 상용화(2027)·ESS 수요는 중장기 호재이나 단기 급등은 모멘텀·수급성. 전기차 수요 회복은 아직 미검증</li>
+</ul>
+<p>⑤ 밸류에이션</p>
+<ul>
+<li>ETF는 NAV/기초지수 기준 평가. 2차전지 섹터는 캐즘 구간 저점 대비 반등 초입으로, 밸류 부담보다 방향성(지수 추세)이 핵심</li>
+<li>현재가 1,224원 위치: 52주고 3,005원(2026-05-07) 대비 40.7% 수준 / 52주저 608원(2026-07-29) 대비 <span class="up">+101%</span>. 즉 바닥 2배 반등했으나 전고점 대비로는 여전히 중하단 → 추세 초기일 수 있으나 레버리지 특성상 지수 조정 시 손실 가속</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>지수 지지/저항: MA5 1,132(1차 지지)·MA20 1,053(2차 지지)·MA60 983(추세선). 저항은 라운드 1,300원·직전 급등 피크대</li>
+<li>현물만(선물 無) — 2배 레버리지 ETF 자체가 레버리지 수단. 개별주식선물 미상장 확인(KIS 마스터)</li>
+<li>⚠️ 변동성 드래그 경고: 일간 2배 리밸런싱 구조상 지수가 횡보·등락 반복만 해도 ETF는 꾸준히 가치가 깎임(복리손실). 지수 방향성이 명확히 상방일 때만 보유, 횡보장 보유는 불리</li>
+<li>⚠️ 5일 <span class="up">+25%</span> 급등 직후 고점권 추격 주의 — 신규 진입은 눌림(MA5 1,130대 근접) 확인 후 분할이 원칙</li>
+<li>손익비: 현재가 1,224 기준 1차목표 1,330(<span class="up">+8.7%</span>)·손절 1,120(<span class="down">-8.5%</span>) → 상승여력 8.7% ÷ 하락리스크 8.5% ≈ 1:1.0. 2차목표 1,450(<span class="up">+18.5%</span>)까지 보면 1:1.3 수준. 레버리지라 실제 변동은 더 클 수 있음</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만): ▲10월 하순 2차전지 셀 3사 3Q 실적시즌(LG엔솔 등 잠정 → 확정) ▲월별 전기차/배터리 판매 데이터(SNE리서치 등 월초) ※구체 확정일 미공시분은 [미확인]</li>
+<li>반증 3개(수치→행동):</li>
+<li>현재가 MA5 1,132원 종가 이탈 → 단기추세 훼손, 비중축소/손절</li>
+<li>MA20 1,053원 이탈 → 반등 실패 판단, 전량 청산</li>
+<li>LG엔솔·삼성SDI 급등분 되돌림(다음날 <span class="down">-5%</span> 이상 반락) → 섹터 모멘텀 소멸, 진입 보류</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>추세 지속 상방(40%): 전고체·ESS 테마 지속, 1,330~1,450 도달</li>
+<li>눌림 후 재상승(30%): MA5~MA20 조정 후 재반등 — 눌림 분할진입 유효</li>
+<li>급등 되돌림(30%): 고점권 차익실현, MA20 하회 조정</li>
+<li>유동성: 20일 평균거래대금 764.9억 → ADV 10% 룰 적용 시 1회 약 76억 내 체결 무리 없음(개인 규모 전혀 문제없음)</li>
+<li>포지션 사이징: 레버리지 ETF + 5일 25% 급등 직후라 보수적으로. 투자자산 대비 3~5% 이내 소액, 눌림 분할 진입, MA5 이탈 즉시 손절 룰 엄수 권고</li>
+</ul>
+<p>⚠️ 리서치 참고용. [미확인 목록]</p>
+<ul>
+<li>2차전지 셀 3사 3Q 실적 정확한 발표 확정일(잠정→확정 일정 미공시분)</li>
+<li>기초지수 정확한 구성종목 비중(ETF 운용사 PDF 미조회분 — LG엔솔·삼성SDI·에코프로비엠 중심 구성은 섹터 통념)</li>
+<li>당일 거래대금 645.8억(trendscan) vs KIS 실측 734.8억 차이 — 집계시점 차이 추정</li>
+</ul>
+<p>[출처]</p>
+<ul>
+<li>KIS OpenAPI 실측(462330): 현재가 1,224원·등락 <span class="up">+6.43%</span>·52주고 3,005(5/7)·52주저 608(7/29)·MA5 1,132/MA20 1,053/MA60 983·20일평균거래대금 764.9억 (2026-10-08)</li>
+<li>news_search.py: 서울경제·한국경제·조선비즈·뉴스핌·더팩트(10/6) — 삼성SDI·LG엔솔 급등, 전고체 협력, 북미 ESS</li>
+<li>KIS 개별주식선물 마스터: 462330 선물 미상장</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>52주고 대비: 1,224/3,005 = 40.7% ✓</li>
+<li>52주저 대비: 1,224/608 = <span class="up">+101%</span> ✓</li>
+<li>정배열: 1,224&gt;1,132&gt;1,053&gt;983 ✓</li>
+<li>손익비: (1,330-1,224)/(1,224-1,120)=106/104≈1:1.0, 2차 (1,450-1,224)/104≈1:2.2 평균 약 1:1.3 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-08 09:56 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 1,229원 (<span class="up">+6.9%</span>) · 시총 9,343억 · 5일 <span class="up">+25.0%</span> / 20일 <span class="up">+16.3%</span> / 60일 <span class="up">+42.9%</span></li>
+<li>MA5 1,133원 / MA20 1,053원 / MA60 983원 → MA20 이격 <span class="up">+16.7%</span> · MA60 이격 <span class="up">+25.0%</span></li>
+<li>52주 고 3,005원 / 저 608원 → 고점 대비 <span class="down">-59.1%</span> · 20일 고 1,229원 / 저 965원</li>
+<li>후행 PER 0.0 / PBR 0.0 (EPS 0원 · BPS 0원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 765.0억 (5일 950.2억)</li>
+<li>외국인 순매수 5일 1.5억 / 20일 12.2억 · 기관 5일 461.6억 / 20일 -78.5억 · 개인 20일 71.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.00% / 20일 평균 0.00% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 0.00% (10/08) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 1,330원 (<span class="up">+8.2%</span>) ÷ 하방 1,105원 (−10.1%) = <strong>1:0.81</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 10.1% = <strong>자산의 5.0%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 5.0%</strong></li>
+<li>유동성 참고: 20일 ADV 765.0억 · 1일 소화 한도는 ADV의 10%(76.50억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 10.1% · ATR14 60원 (손절폭/ATR 2.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 10.1% = ATR14 × 2.1배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 1,109원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.84</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 無 현재가: 1,224원 진입: 1,120~1,160원(MA5 눌림 분할) 손절: 1,105원(MA5 종가 이탈) 목표: 1차 1,330원 (2차 1,450원) 손익비: 1:1.3 기간: 스윙 2~4주 촉매: 10월 하순 2차전지 셀 3사 3Q 실적시즌 반증: 종가 MA5 1,132원 이탈→비중축소 / MA20 1,053원 이탈→전량청산 / 셀 대표주 익일 <span class="down">-5%</span>↑ 반락→진입보류</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
