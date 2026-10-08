@@ -1,0 +1,240 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>국제약품(002720) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261008-091936-국제약품-002720.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:6.5</div><div class="tp-c"><b>결론 발췌</b> 러시아 &#x27;페스트 유출설&#x27;(실체 미확인)과 오너 3세 승계 증여가 겹친 이틀짜리 감염병 테마 급등. 실적·밸류에이션은 상방을 전혀 정당화하지 못함(현재가 4,300원 &gt; 자체 적정가 3,766원). 손익비 1:1.5로 신규 매수 매력 낮음 → 판정 &#x27;관망&#x27;, 굳이 본다면 눌림 단타 영역. ① 포착 신호 • 회전율 17.6% (거래대금 174.3억 / 시총 993억) — 포착 당시 자금유입 강도. [인용: trendscan 스냅샷] • 현재(2026-10-08) 종가 4,300원, 전일대비 −2.9%. 상한가(10/07) 다음날 조정 진입. [실측: KIS inquire-price 2026-10-08] • 추세 실체 검증: 10/06까지 수…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>국제약품(002720)</h1>
+<div class="meta">📊 trend · 2026-10-08 09:19 · 코드 002720</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-08 09:19)</div><div class="kpi-v">4,375원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">926억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">16.26</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.95</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:6.5</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:-0.27</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">4,100원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 3,400~3,500원 (되돌림 지지 확인 시 소액 단타만)</span><span class="dc dn">손절 3,350원</span><span class="dc up">목표 4,100원</span><span class="dc">손익비 진입 1:6.5 · 현재가 1:-0.27 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.5</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.5로 적었지만 진입·손절·목표로 계산하면 1:6.5다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 2~4주 (테마 수명 단기)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026 3Q 분기보고서(11월 중순 추정) / 러시아 페스트 사태 공식 발표</div><div class="dc-l">🛑 반증: 2026 3Q 연결 영업이익 &lt; 15억이면 본업 논지 폐기·전량 청산 / 종가 3,350원(MA60) 이탈 시 전량 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 국제약품(002720)  ※선물 無</p>
+<p>📌 한줄 결론: 러시아 &#x27;페스트 유출설&#x27;(실체 미확인)과 오너 3세 승계 증여가 겹친 이틀짜리 감염병 테마 급등. 실적·밸류에이션은 상방을 전혀 정당화하지 못함(현재가 4,300원 &gt; 자체 적정가 3,766원). 손익비 1:1.5로 신규 매수 매력 낮음 → 판정 &#x27;관망&#x27;, 굳이 본다면 눌림 단타 영역.</p>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 17.6% (거래대금 174.3억 / 시총 993억) — 포착 당시 자금유입 강도. [인용: trendscan 스냅샷]</li>
+<li>현재(2026-10-08) 종가 4,300원, 전일대비 −2.9%. 상한가(10/07) 다음날 조정 진입. [실측: KIS inquire-price 2026-10-08]</li>
+<li>추세 실체 검증: 10/06까지 수 주간 3,200~3,410원 박스·거래량 1만~4만 주 → 10/07 상한가 4,430원·거래량 611만 주(약 200배 폭증) → 10/08 430만 주. 즉 &#x27;5일 연속상승·<span class="up">+45.5%</span>&#x27;는 이틀짜리 이벤트 스파이크이며 추세 초입이 아니라 테마 1회성 분출. [실측: KIS 일봉 2026-09-15~10-08]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업: 의약품 제조·판매 단일사업부문. 전문·일반의약품(점안제 큐알론·레바아이, 세파계열 항생제 세파제돈·세파클러, 고지혈 에제로바·콜렌시나 등). 경기 성남 본사·안산 제조. [실측: 사업보고서 2025.12, 접수 20260318000669]</li>
+<li>급등사유 2중 촉매 (둘 다 실적 무관):</li>
+</ul>
+<p>(1) 페스트 테마: 러시아 이르쿠츠크 연구소 연구원이 원인불명 폐렴으로 사망 → 감염병 확산 우려로 항생제·진단주 급등, 국제약품 상한가. 단 WHO &quot;위험 낮음&quot;, 러 당국 페스트 감염·병원체 유출 공식 확인 안 됨. 국제약품의 페스트 연결고리는 &#x27;세균감염→항생제 제조사&#x27; 연상일 뿐 페스트 치료제·특수물량 없음. [인용: 뉴스1·아주경제·뉴데일리 2026-10-07] (2) 승계 증여: 남영우 회장이 보유지분 전량을 장남 남태훈 부회장에게 증여, 남태훈 지분 10.7%로 확대. 지배력 강화 기대이나 매출·이익과 무관. [인용: 팜이데일리·데일리메디 2026-10-06~07]</p>
+<ul>
+<li>판단: 실체 있는 수주·증설·신약 모멘텀 전무. 공포+승계 기대가 결합한 수급성 테마 급등으로 분류.</li>
+</ul>
+<p>③ 실적 (DART 실측 · 전부 연결·IFRS)</p>
+<ul>
+<li>연간 매출: 1,266억(2022) → 1,354억(2023) → 1,565억(2024) → 1,755억(2025). 외형은 꾸준히 성장. [실측: DART finstate 11011 연결]</li>
+<li>연간 영업이익: 52.7억(2022) → −19.9억 적자(2023) → 67.0억(2024) → 61.8억(2025). OPM 4.2%→적자→4.3%→3.5%. [실측: 동]</li>
+<li>연간 순이익(연결): 35.4억(2022) → −84.1억(2023) → 52.1억(2024). 2025는 별도 55.7억(연결 순익 수치 미확인). [실측: finstate_all CIS / 사업보고서 개요문]</li>
+<li>2023년 적자 분해: 영업적자 −19.9억 대비 순손실 −84.1억으로 손실 확대 → 영업외(세전 −66.8억) 대규모 일회성 손실 존재. 2024~2025 흑자전환으로 정상화. [실측: 2023 세전 −66.8억 vs 영업 −19.9억]</li>
+<li>최근 분기(연결·3개월): 2025 1Q 415억/영업23.0억 · 2Q 450억/35.1억 · 3Q 456억/19.2억 · 4Q 433억/−15.4억(적자) → 2026 1Q 440억/19.7억 · 2Q 483억/21.3억. [실측: 분기보고서 11013/11012/11014, 4Q는 연간−3Q누계 계산]</li>
+<li>★2026 상반기 모멘텀 둔화: 영업이익 41.0억(2026 1H) vs 58.1억(2025 1H), YoY −29.4%. 매출은 865억→923억 <span class="up">+6.7%</span>. 즉 외형은 늘되 수익성은 꺾임(원가·판관비 부담). [실측: 2026 1Q<span class="up">+2</span>Q 합산 vs 2025 1Q<span class="up">+2</span>Q]</li>
+<li>재무안정성: 2025말 부채비율 86.6%(연결, 부채 846억/자본 977억), 영업현금흐름 <span class="up">+39.4</span>억(2024)·<span class="up">+35.8</span>억(2023)·<span class="up">+65.0</span>억(2022)로 꾸준한 플러스. 재무위험 낮음. [실측: 사업보고서 2025 BS / CF]</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: 미확인 — 최근 6개월 목표가 리포트 0건, 연간·분기 추정치 네이버/FnGuide 모두 없음. 중소형 제약주로 커버리지 공백. [실측: consensus.py 4소스 2026-10-08, 전부 0건]</li>
+<li>자체 추정(추정): 2026E 매출 ≈ 1,850~1,880억(상반기 923억 연율화 ×보수), 영업이익 ≈ 75~90억(상반기 41억 + 하반기 성수기 가정, 단 2025 4Q 적자 반복 리스크). OPM 4~5% 레인지 회귀 가정. [추정: 2026 1H 실측 연율화·계절성]</li>
+<li>달성 가능성: 매출 &#x27;中~高&#x27;(외형 성장 지속), 영업이익 &#x27;中&#x27;(상반기 YoY 역성장이 걸림돌, 4Q 적자 패턴 반복 시 하향). 테마와 무관한 본업 기준.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 멀티플: PER 15.89배, PBR 0.93배, EPS 269원, BPS 4,617원. [실측: KIS 2026-10-08]</li>
+<li>peer(제약·중소형) 참고: 현대약품(004310) OPM 2.2%·유사 규모, 삼천당제약(000250) PER 998배(바이오 프리미엄, 비교 부적합). 국제약품 OPM 3.5%는 중소 제네릭 제약 평균권. [실측: peer_finder.py 2025 연결]</li>
+<li>자체 적정가 산식(계산 노출):</li>
+<li>EPS 269원 × 적정 PER 12배 = 3,228원 (보수)</li>
+<li>EPS 269원 × 적정 PER 14배 = 3,766원 (중립, 중소제약 중앙값)</li>
+<li>EPS 269원 × 적정 PER 16배 = 4,304원 (낙관, 현 멀티플)</li>
+<li>BPS 4,617원 × PBR 0.9배 = 4,155원 (자산가치 기준)</li>
+<li>결론: 중립 적정가 ≈ 3,800원(PER14 기준), 자산가치 ≈ 4,150원. 현재가 4,300원은 중립 적정가를 10%+ 초과 — 이미 테마 프리미엄 반영 상태. 밸류 기준 상승여력 없음. 증권사 목표가 병기: 미확인(컨센 없음).</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>위치: 52주 고 5,470원 / 저 2,810원. 현재 4,300원은 고점 대비 −21%, 저점 대비 <span class="up">+53%</span>. 급등 직전 박스(3,200~3,410) 상단을 30% 이격한 자리. [실측: KIS]</li>
+<li>이평선: MA5 3,738 / MA20 3,389 / MA60 3,350 &lt; 현재가 4,300. 단기 급등으로 이평 대비 과이격(현재가가 MA20을 <span class="up">+27%</span> 상회) → 되돌림 압력 높음. 정배열이나 급조된 배열. [실측: KIS 일봉]</li>
+<li>지지/저항: 1차 지지 3,900원(갭·단기), 2차 지지 3,410원(급등 직전 종가), 핵심 지지 3,350원(MA60). 저항 4,430원(상한가 고점), 5,470원(52주 고).</li>
+<li>손익비(진입 4,300 / 손절 3,900 / 1차목표 4,900):</li>
+<li>상승여력 = (4,900−4,300)/4,300 = <span class="up">+14.0%</span></li>
+<li>하락리스크 = (4,300−3,900)/4,300 = −9.3%</li>
+<li>손익비 = 14.0 ÷ 9.3 = 1:1.50</li>
+<li>판정: 손익비 1:1.5는 테마 급등주 신규 추격 기준으로 매력 부족(통상 1:2 이상 요구). 더구나 목표 4,900원은 밸류·52주고(5,470) 사이의 테마 되돌림 고점 가정으로 근거 약함. 신규 매수는 &#x27;관망&#x27;, 굳이 본다면 MA20(3,390)~직전박스상단(3,410) 되돌림 지지 확인 후 단타만. 추격매수 금지.</li>
+<li>⚠️ 레버리지 경고: 개별주식선물 미상장 → 현물만 가능, 레버리지 불가. 테마주 특성상 변동성 극심(하루 ±30% 가능), 집중한도(자산 50%) 적용 대상 아님 — 테마 단타는 소액·분할로만.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>사업 구조: DART상 &quot;의약품제조·판매 지배적 단일사업부문 → 공시대상 사업부문 미구분&quot;. 제품별 매출 세분 공시 없음 → 바텀업 물량×단가 분해 불가(회사 미공시). [실측: 사업보고서/반기보고서 &#x27;(2)부문별 매출현황&#x27;, 표 없음]</li>
+<li>9-2 고객·납품: 약국·의원·병원·도매상 대상 전국 영업망 직판. 특정 대형 고객 편중 공시 없음(분산). [실측: 사업보고서 개요]</li>
+<li>9-3 TAM·경쟁: 국내 처방·일반약 시장 내 중소 제네릭·점안제·항생제 제조사. 세부 점유율 공시 없음 → 미확인. 세파계열 항생제 원료 다수 국내외 조달(세포테탄·세파제돈·세파클러·록시트로마이신 등). [실측: 원재료 현황표 / 점유율 미확인]</li>
+<li>9-4 단가 이력: 세포테탄 1,900(제66기)→2,150(제67기)→2,148.55원/EA(제68기), 세푸록심악세틸 305→313→318원/EA — 원재료 단가 완만 상승(원가 압박 요인). 제품 판가 이력은 &#x27;환율·구입원가 변동&#x27; 서술만, 수치표 없음. [실측: 원재료 가격변동추이표 / 제품 판가 미확인]</li>
+<li>9-5 CAPA·증설: 안산 자체 제조시설. 증설·신규 CAPA 공시 없음 → 미확인.</li>
+<li>9-6 전방 CAPEX: 제약 수요는 처방·감염병 시즌성. 페스트/항생제 특수 수주 공시 없음 → 테마는 매출 연결고리 無.</li>
+<li>9-7 바텀업 표(회사 미세분으로 Top-down 대체·연결·연율 기준):</li>
+</ul>
+<p>구분 | 2026E 매출 | OPM 가정 | 영업이익 Bear | 1,820억 | 3.0% | 55억  (하반기 둔화 지속·4Q 재적자) Base | 1,860억 | 4.3% | 80억  (상반기 41억+하반기 성수기 39억, 2025 OPM 회귀) Bull | 1,900억 | 5.3% | 100억 (판가·믹스 개선)</p>
+<ul>
+<li>3Q·4Q 배분(Base): 2026 1H 영업 41억 실측 → 3Q 약 20억·4Q 약 19억 가정(4Q 적자 반복 시 Base 미달).</li>
+<li>민감도: OPM ±1%p → 영업이익 ±약 18억.</li>
+<li>컨센 대조: 컨센 미확인이라 대조 불가.</li>
+<li>결론 문장: 2026 3Q 연결 영업이익 ≥ 25억이면 하반기 정상화 논지 유지·본업 재평가 검토, &lt; 15억이면 수익성 악화 확정으로 테마 소멸 후 밸류 디레이팅(3,400원대) 전망 → 논지 폐기.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정 이벤트만):</li>
+<li>2026-11월 중순(추정): 2026 3Q 분기보고서 공시 — 하반기 수익성 정상화 여부 확인(가장 중요). [추정: 법정기한 분기말<span class="up">+45</span>일]</li>
+<li>날짜 미확정: 러시아 페스트 사태 전개(WHO·러 당국 공식 발표) — 테마 지속/소멸 분기점. [인용: 2026-10-07 보도]</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>2026 3Q 연결 영업이익 &lt; 15억이면(상반기 둔화 고착) 본업 논지 폐기·관망 전환, 보유분 전량 청산. [분기 실적 임계]</li>
+<li>종가 3,350원(MA60) 이탈 시 테마 되돌림 완료로 판단, 추격·단타 전량 청산.</li>
+<li>러 당국 &#x27;페스트 아님/유출 없음&#x27; 공식 확정 + 거래량 100만 주 이하로 급감 시 테마 소멸 → 신규 진입 금지.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(3Q 실적 × 당일 주가):</li>
+<li>실적 서프(영업익≥30억) × 갭상승 → 눌림 대기, 추격 금지</li>
+<li>실적 인라인(15~30억) × 보합 → 3,400 지지 확인 후 소액 단타만</li>
+<li>실적 쇼크(&lt;15억) × 갭하락 → 관망·청산, 재진입 금지</li>
+<li>확률가중 시나리오(합=100%):</li>
+<li>Bear 50%: 테마 소멸·수익성 둔화 노출 → 급등 직전 박스(3,350~3,410) 회귀. 목표 3,400원, 현재가 대비 −21%. [전제: 4Q 재적자·테마 1회성]</li>
+<li>Base 35%: 테마 잔열+승계 기대 일부 유지, 4,000~4,300 횡보. 목표 4,100원, −4.7%. [전제: 본업 OPM 4%대 유지]</li>
+<li>Bull 15%: 페스트 사태 확산·추가 감염병 뉴스로 테마 재점화. 목표 5,000원, <span class="up">+16%</span>. [전제: 외부 뉴스 촉매 재발]</li>
+<li>기대수익률 = 0.50×(−21%) + 0.35×(−4.7%) + 0.15×(<span class="up">+16%</span>) = −10.5% −1.6% <span class="up">+2.4%</span> = −9.7% → 기대값 마이너스, 신규 매수 비권고.</li>
+<li>수급·유동성: 급등일(10/07) 외국인 <span class="up">+231,993</span>주·개인 −246,463주, 기관 사실상 부재(<span class="up">+1,407</span>주). 기관 미참여=기관 눈높이 밸류 부재 신호. 20일 외국인 순매수 <span class="up">+18.1</span>만 주(대부분 급등일 집중). 급등 전 평균 거래대금 약 1억 미만(일 2~4만 주×3,300원) → 평시 유동성 극히 얕음, ADV 10% 체결상한도 평시 기준 미미. 테마 소멸 시 유동성 증발 위험. [실측: KIS 투자자별 FHKST01010900·일봉]</li>
+<li>포지션 사이징(자산 대비 %): 리스크예산 = 손실예산 1% ÷ 손절폭 9.3% ≈ 자산의 10.8% / 이벤트 전 상한 25% / 집중상한 50% → 최소값 10.8%. 단 테마 단타는 기대값 마이너스이므로 실제 권고는 그보다 훨씬 축소(소액). 손절선(3,900) 아래 추가매수 금지.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치 &#x27;추정&#x27; 명시. 실측 못한 값 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>2025 연결 당기순이익(별도 55.7억만 확인)</li>
+<li>증권사 컨센서스·목표주가(커버리지 0건)</li>
+<li>제품별 매출 비중·판가 이력(회사 단일부문 미공시)</li>
+<li>국내 항생제/점안제 시장 내 점유율·TAM</li>
+<li>2026 3Q 실적(11월 공시 예정)</li>
+<li>CAPA·증설 계획</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 사업보고서 2025.12 접수 20260318000669 / 반기보고서 2026.06 접수 20260814002862</li>
+<li>DART finstate·finstate_all 11011/11013/11012/11014 (연결)</li>
+<li>KIS inquire-price·일봉 FHKST03010100·투자자별 FHKST01010900 (2026-10-08)</li>
+<li>consensus.py 4소스(stockeasy·naver·fnguide·hankyung) 2026-10-08 전부 0건</li>
+<li>뉴스: 뉴스1·아주경제·뉴데일리·팜이데일리·데일리메디·메트로신문 2026-10-06~07</li>
+<li>kis_futures_check.py 002720(선물 미상장)·peer_finder.py</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합=연간(2025): Q1+Q2+Q3<span class="up">+4</span>Q계산 = 415<span class="up">+450</span><span class="up">+456</span><span class="up">+433</span>=1,754억 ≈ 연간 1,755억 ✓</li>
+<li>영업익 분기합(2025): 23.0<span class="up">+35.1</span><span class="up">+19.2</span>−15.4=61.9억 ≈ 연간 61.8억 ✓</li>
+<li>Q1+Q2=H1(2026): 440<span class="up">+483</span>=923억 = 반기 매출 923억 ✓ / 영업 19.7<span class="up">+21.3</span>=41.0억 ✓</li>
+<li>손익비: 상방14.0%÷하방9.3%=1.50 → 헤더·본문 일치 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-08 09:19 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 4,375원 (<span class="down">-1.2%</span>) · 시총 926억 · 5일 <span class="up">+35.9%</span> / 20일 <span class="up">+28.9%</span> / 60일 <span class="up">+29.8%</span></li>
+<li>MA5 3,753원 / MA20 3,393원 / MA60 3,351원 → MA20 이격 <span class="up">+29.0%</span> · MA60 이격 <span class="up">+30.5%</span></li>
+<li>52주 고 5,470원 / 저 2,810원 → 고점 대비 <span class="down">-20.0%</span> · 20일 고 4,430원 / 저 3,220원</li>
+<li>후행 PER 16.26 / PBR 0.95 (EPS 269원 · BPS 4,617원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 28.2억 (5일 110.4억)</li>
+<li>외국인 순매수 5일 8.9억 / 20일 8.0억 · 기관 5일 0.1억 / 20일 0.1억 · 개인 20일 -8.6억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.14% / 20일 평균 1.41% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 4.65% (09/21) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비</strong></p>
+<ul>
+<li>현재가 4,375원가 손절 3,350~목표 4,100 구간 밖 → 라인 재설정 필요</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 23.4% = <strong>자산의 2.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.1%</strong></li>
+<li>유동성 참고: 20일 ADV 28.2억 · 1일 소화 한도는 ADV의 10%(2.82억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 23.4% · ATR14 166원 (손절폭/ATR 6.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 23.4% = ATR14 × 6.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 4,043원</li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관망 선물: 無 현재가: 4,300원 진입: 3,400~3,500원 (되돌림 지지 확인 시 소액 단타만) 손절: 3,350원 (MA60) 목표: 1차 4,100원 (2차 4,900원) 손익비: 1:1.5 기간: 스윙 2~4주 (테마 수명 단기) 촉매: 2026 3Q 분기보고서(11월 중순 추정) / 러시아 페스트 사태 공식 발표 반증: 2026 3Q 연결 영업이익 &lt; 15억이면 본업 논지 폐기·전량 청산 / 종가 3,350원(MA60) 이탈 시 전량 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
