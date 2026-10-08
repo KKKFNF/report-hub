@@ -1,0 +1,214 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>삼아알미늄(006110) 가동률·영업레버리지 정밀분석 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261009-043231-삼아알미늄-006110-가동률-영업레버리지-정밀분석.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 수동 지정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-c"><b>결론 발췌</b> 【관심】 &quot;적자 원인도 가동률, 흑자전환 열쇠도 가동률.&quot; 전형적 고정비 장치산업(이차전지용 알루미늄박)으로, 압연 가동률이 2022년 93%→2024~25년 50%로 반토막 나며 적자 전락 → 2026 2Q 70%대로 급반등하면서 6개 분기 만에 영업흑자(+61억) 전환이 DART 반기보고서로 확인됨. 턴어라운드 스토리는 데이터로 유효하나, 주가는 이미 FY27E PER 53배·PBR 5.1배로 &quot;사상최대 실적&quot;을 선반영. 선물 미상장 → 현물만 가능(레버리지·숏 불가). ━━━━━━━━━━━━━━━ ① 포착신호 (trendscan, 10/8) - 현재가 76,100원(+15.3%) / 시총 약 1.15조 / 당일 거래대금 185억 -…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정: 수동지정</span><h1>삼아알미늄(006110) 가동률·영업레버리지 정밀분석</h1>
+<div class="meta">📊 research · 2026-10-09 04:32 · 코드 006110</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-09 04:32)</div><div class="kpi-v">75,800원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.1조</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">5.12</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc-src">자동추출</span></div></div>
+
+<div class="body"><p>🏭 정밀 리서치 — 삼아알미늄(006110) ※선물 無</p>
+<p>📌 한줄 결론: 【관심】 &quot;적자 원인도 가동률, 흑자전환 열쇠도 가동률.&quot; 전형적 고정비 장치산업(이차전지용 알루미늄박)으로, 압연 가동률이 2022년 93%→2024~25년 50%로 반토막 나며 적자 전락 → 2026 2Q 70%대로 급반등하면서 6개 분기 만에 영업흑자(<span class="up">+61</span>억) 전환이 DART 반기보고서로 확인됨. 턴어라운드 스토리는 데이터로 유효하나, 주가는 이미 FY27E PER 53배·PBR 5.1배로 &quot;사상최대 실적&quot;을 선반영. 선물 미상장 → 현물만 가능(레버리지·숏 불가).</p>
+<hr>
+<p>① 포착신호 (trendscan, 10/8)</p>
+<ul>
+<li>현재가 76,100원(<span class="up">+15.3%</span>) / 시총 약 1.15조 / 당일 거래대금 185억</li>
+<li>52주 레인지 19,000 ~ 104,600 → 현재 76,100 (저점 대비 <span class="up">+300%</span>, 고점 대비 <span class="down">-27%</span>)</li>
+<li>기관 순매수 시총대비 1위(<span class="up">+14.7%</span>, 10/8 장마감 종합 기준) — 2차전지·ESS 소부장 폭등랠리의 중심</li>
+<li>해석: 美 데이터센터 ESS향 알루미늄박 수주 + 中 ESS 공급망 배제 반사수혜 테마. 턴어라운드 초기 모멘텀에 수급 쏠림.</li>
+</ul>
+<p>② 사업 개요 (DART 2025 사업보고서·2026 반기보고서) 연결 3개 사업부문:</p>
+<ul>
+<li>압연(AL-FOIL) — 매출비중 2025년 55.4% / 2026반기 62.2% ★핵심</li>
+</ul>
+<p>· 용도: LIB 양극집전체용(양극박), 셀 파우치 외장재, ESS·자동차 전지용, 연포장 · 주요고객: LG에너지솔루션(장기계약 2023.01~2030.12), SK온, ACC(2022.05~2030.12), 율촌화학 · 이 부문이 적자·흑자를 좌우하는 영업레버리지의 핵심</p>
+<ul>
+<li>가공(접착박지·인쇄포장재) — 비중 ~22.5%. 연초(KT&amp;G)·식품·제약 포장재. 가동률 80%대 안정, 레버리지 변동 작음</li>
+<li>전자부품판매(샌디스크 USB·SSD 수입판매) — 비중 2025년 22.1%. 마진기여 낮음</li>
+<li>원재료: AL-STRIP(노벨리스코리아), LME 알루미늄 시세 연동. 2026반기 LME 평균 전년비 <span class="up">+28.7%</span> 급등 → 원가압박이자 판가전가 시 매출증대 요인</li>
+</ul>
+<p>③ ★분기별·연도별 가동률 추이 (최우선 분석 1, DART 사업·반기보고서) [압연 부문 가동률 %]</p>
+<ul>
+<li>2022(FY): 93.15% (호황 피크)</li>
+<li>2023(FY): 88.69%</li>
+<li>2024(FY): 51.19% ← EV 캐즘 직격, 급락</li>
+<li>2025(FY): 50.30% ← 바닥</li>
+<li>2026 1Q(누계): 61.90% ← 반등 시작</li>
+<li>2026 반기(누계): 70.2% ← 뚜렷한 회복</li>
+<li>하나증권(2026-08-25): 2025말 50% → 2Q 75% → 하반기 90% 풀캐파 궤도 전망</li>
+</ul>
+<p>[CAPA(생산능력) 이력, MT/년]</p>
+<ul>
+<li>2022: 26,880 / 2023: 26,880 / 2024: 40,320(증설) / 2025: 33,600(조정) / 2026반기: 33,600 유지</li>
+<li>가공(접착박지): 전기간 200,000 km/년 불변(증설 없음)</li>
+<li>[미확인] 2024→2025 CAPA 축소(40,320→33,600) 사유, 신규(6호) 압연기 증설 확정 시점·규모는 공시상 확인 안 됨</li>
+</ul>
+<p>[생산실적, 압연 MT]</p>
+<ul>
+<li>2022: 21,434 / 2023: 18,275 / 2024: 16,482 / 2025: 15,457 → 3년 연속 감소</li>
+<li>2026 반기: 11,534 (연환산 약 23,000 페이스 → 생산량 회복 반전)</li>
+<li>※ 변동의 전부가 압연(전지박)에서 발생. 가공은 내내 80%대 안정</li>
+</ul>
+<p>④ ★영업레버리지 분석 (최우선 분석 2, 고정비 레버리지 정량화) [분기 매출 vs 영업이익률, 연결 standalone — DART fnlttSinglAcnt]</p>
+<ul>
+<li>2022 FY: 매출 3,121억 / OP <span class="up">+225.7</span>억 / OPM <span class="up">+7.2%</span> (가동률 피크)</li>
+<li>2023 FY: 매출 2,680억 / OP <span class="up">+37.7</span>억 / OPM <span class="up">+1.4%</span> (가동률 88%인데 이익 급감 → 스프레드 약화 병행)</li>
+<li>2024 FY: 매출 2,517억 / OP -95.9억 / OPM <span class="down">-3.8%</span> (가동률 51%)</li>
+<li>2025 FY: 매출 2,715억 / OP -176.5억 / OPM <span class="down">-6.5%</span> (가동률 50%, 적자 최악)</li>
+<li>2026 1Q: 매출 674억 / OP -43.9억 / OPM <span class="down">-6.5%</span> (가동률 62%, 적자)</li>
+<li>2026 2Q: 매출 969억 / OP <span class="up">+61.3</span>억 / OPM <span class="up">+6.3%</span> ← 턴어라운드 발생 분기</li>
+</ul>
+<p>(반기 OP 누계 <span class="up">+17.4</span>억 = 1Q -43.9 + 2Q <span class="up">+61.3</span>)</p>
+<p>[레버리지 정량화 — DART 데이터 기반 역산, 추정 명시]</p>
+<ul>
+<li>증분 영업이익률 ≈ 36%: 1Q→2Q 매출 <span class="up">+295</span>억에 OP <span class="up">+105</span>억 → 추가 매출의 1/3이 그대로 영업이익으로 전환. 전형적 고정비 레버리지</li>
+<li>BEP 가동률 ≈ 62~68% 추정: 61.9%(1Q)는 적자, 70%(2Q)는 흑자 → 이 임계점이 턴어라운드 스위치</li>
+<li>민감도(추정): 압연 가동률 <span class="up">+10%</span>p ≈ 영업이익 <span class="up">+85</span>~105억/년. 50%→90% 회복(<span class="up">+40%</span>p)이면 연 영업익 <span class="up">+350</span>~400억 스윙 잠재력 (FY27E 컨센 영업익 316억과 정합)</li>
+<li>왜 극단적인가: 2025 원가율 99.2%(매출총이익 단 0.76%), 판관비 ~197억은 고정성 → 가동률 낮으면 단위당 고정비(감가상각·인건비·에너지)가 원가를 짓누름</li>
+</ul>
+<p>[현재 적자원인 → 흑자전환 트리거]</p>
+<ul>
+<li>적자원인: ①(주) EV 캐즘→전지박 수요 급감→가동률 반토막(고정비 역레버리지) ② LME 알루미늄 <span class="up">+28.7%</span> 원가압박</li>
+<li>흑자 트리거: 압연 가동률 65~70% 돌파 = 이미 2026 2Q 발동 확인. 동인은 북미 데이터센터 ESS향 알루미늄박 수주(포일 수출물량 전년비 <span class="up">+67%</span>). 하반기 90% 풀캐파 시 레버리지 본격화</li>
+</ul>
+<p>⑤ 실적 추이 &amp; 밸류에이션 [연결 실적]</p>
+<ul>
+<li>2024 FY: 매출 2,517억 / 영익 -95.9억 / 순익 -93.6억 (EPS -636)</li>
+<li>2025 FY: 매출 2,715억 / 영익 -176.5억 / 순익 -248.9억 (EPS -1,692, 영업외 추가손실 반영)</li>
+<li>2026 1Q: 매출 674억 / 영익 -43.9억 / 순익 -55.0억</li>
+<li>2026 반기(누계): 매출 969억 / 영익 <span class="up">+17.4</span>억 / 순익 <span class="up">+2.6</span>억 ← 영업 흑자전환 확인</li>
+</ul>
+<p>[컨센서스 — fnguide/naver]</p>
+<ul>
+<li>FY26E: 매출 3,936억 / 영익 44억(흑전) / EPS 31원</li>
+<li>FY27E: 매출 4,782억 / 영익 316억 / EPS 1,428원 (하나증권 &quot;창사 이래 최대&quot;)</li>
+<li>투자의견: 대부분 Not Rated(SK증권 1건 Buy), 목표주가 제시 기관 없음 → 애널 커버리지 &#x27;관찰&#x27; 단계</li>
+</ul>
+<p>[밸류에이션]</p>
+<ul>
+<li>현재 PER: 적자로 무의미. FY27E EPS 1,428원 기준 선행 PER 약 53배</li>
+<li>PBR 5.1배(BPS ≈ 14,900원) — 장치산업·턴어라운드 초기 치고 상당한 프리미엄</li>
+<li>요지: 밸류는 싸지 않음. 숫자(가동률·분기 OP)가 컨센을 따라잡는 속도가 주가를 정당화하느냐의 게임</li>
+</ul>
+<p>⑥ 촉매 · 리스크 [촉매]</p>
+<ul>
+<li>북미 데이터센터 ESS 수주 본격화(2026.4~): 3Q 수주잔고 2Q 대비 약 1.5배, 포일 수출물량 전년비 <span class="up">+67%</span>·전분기비 <span class="up">+97%</span> (하나증권 8/25)</li>
+<li>하반기 압연 가동률 90% 풀캐파 진입 → 레버리지 본격 발현</li>
+<li>캐파 부족(쇼티지) 국면 → 판가 협상력·증설 모멘텀 (SK·신영증권)</li>
+<li>차세대 수요: LFP·ESS·전고체·소듐이온전지(SIB, 알루미늄박 소요량 2배, 키움 9/15)</li>
+</ul>
+<p>[리스크]</p>
+<ul>
+<li>밸류 부담: PBR 5.1·선행 PER 53배. 분기 실적 컨센 하회 시 급조정</li>
+<li>원재료(LME) 변동성: 2026반기 <span class="up">+28.7%</span> 급등. 판가 전가 지연 시 스프레드 훼손</li>
+<li>수요 지속성: ESS 수주가 일회성/프로젝트성이면 가동률 재둔화 위험. EV 캐즘 재심화 리스크</li>
+<li>재무: 2025 순손실 -249억, 운전자본 부담 점검 필요</li>
+</ul>
+<p>⑦ 매매 포인트 (전업투자자용)</p>
+<ul>
+<li>⚠️ 선물 미상장 → 현물만 거래(레버리지·숏 불가). 파생 헤지 불가, 현물 포지션 사이징으로만 리스크 관리. 변동성 극심(52주 19,000→104,600→76,100) → 분할·비중통제 필수</li>
+<li>체크포인트(실적으로 검증하는 매매):</li>
+</ul>
+<ol>
+<li>압연 가동률 — 2026 3Q보고서(11월 중순 예상)에서 75%+ → 하반기 90% 궤도 확인이 1차 관문</li>
+<li>분기 영업이익률 — 2Q OPM(<span class="up">+6%</span>대) 이상으로 증분 OPM 30%대 레버리지 지속 + 원가율 80%대 후반 개선 확인</li>
+<li>수주잔고/ESS 수주 공시 — 북미 데이터센터 물량 지속성, 신규 장기계약</li>
+<li>FY27 컨센(매출 4,782억·영익 316억) 상향/하향, 목표가 제시 기관 등장 여부</li>
+</ol>
+<ul>
+<li>진입 논리: 가동률 70%→90% 레버리지 구간은 EPS가 가파르게 올라와 고PER가 빠르게 희석될 수 있음. 단 선반영 폭이 커 3Q 실적 발표 전후가 분기점. 궤도 확인 시 추세매수, 가동률/OPM 모멘텀 꺾이면 밸류 되돌림 크므로 손절 레벨 명확히</li>
+</ul>
+<hr>
+<p>데이터 신뢰도 고지:</p>
+<ul>
+<li>확인됨: CAPA/생산실적/가동률(DART 사업·반기보고서 본문), 분기 매출·영업익·순익(DART fnlttSinglAcnt), 원가구조·EPS, 컨센(fnguide/naver), ESS 수주·가동률 전망(하나증권 2026-08-25)</li>
+<li>추정(저자계산): BEP 가동률 레인지(62~68%), 민감도(<span class="up">+10%</span>p≈OP <span class="up">+85</span>~105억), 증분 OPM 36% — 공개수치 역산, 분기별 압연 단독 가동률 미공개로 레인지 추정</li>
+<li>확인 안 됨: 2024→2025 압연 CAPA 축소 사유, 신규 증설 확정 시점·규모, FY26 분기 EPS 정밀치</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-09 04:32 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 75,800원 (<span class="up">+14.8%</span>) · 시총 1.15조 · 5일 <span class="up">+24.1%</span> / 20일 <span class="up">+13.3%</span> / 60일 <span class="up">+126.9%</span></li>
+<li>MA5 66,820원 / MA20 61,520원 / MA60 52,172원 → MA20 이격 <span class="up">+23.2%</span> · MA60 이격 <span class="up">+45.3%</span></li>
+<li>52주 고 104,600원 / 저 19,000원 → 고점 대비 <span class="down">-27.5%</span> · 20일 고 75,800원 / 저 53,900원</li>
+<li>후행 PER -44.8 / PBR 5.12 (EPS -1,692원 · BPS 14,814원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 117.2억 (5일 211.3억)</li>
+<li>외국인 순매수 5일 -94.3억 / 20일 -6.7억 · 기관 5일 297.0억 / 20일 205.0억 · 개인 20일 -198.1억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 2.12% (공매도 12,411주 · 9.2억) · 5일 평균 2.39% / 20일 평균 1.65% → 증가 · 20일 평균 상회 연속 2일</li>
+<li>공매도 20일 최대 4.39% (10/01) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
