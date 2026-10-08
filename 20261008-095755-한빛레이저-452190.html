@@ -1,0 +1,244 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한빛레이저(452190) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261008-095755-한빛레이저-452190.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.33</div><div class="tp-c"><b>결론 발췌</b> 유리기판 테마 모멘텀주. 밸류는 실적 대비 과열(테마 프리미엄)이라 중장기 매력도 &#x27;관심&#x27;, 단기는 추세 추종 트레이딩 영역. 손익비 1:1.4 / 1차 목표가 7,800원. 선물 미상장 → 현물만 가능(레버리지 불가). ① 포착 신호 • 회전율 33.6% (당일 거래대금 555.3억 / 시총 1,651억) — 하루에 유통물량 급회전 [실측: KIS 당일거래대금 596억, trendscan 555.3억] • 추세: MA 정배열 O (MA5 6,322 &gt; MA20 5,392 &gt; MA60 4,477) [실측: KIS 일봉 2026-08~10-08] • 현재가 6,820원 (+13.86%), 5일 +13.1% [실측: KIS inquire-p…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>한빛레이저(452190)</h1>
+<div class="meta">📊 trend · 2026-10-08 09:57 · 코드 452190</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-08 09:57)</div><div class="kpi-v">6,940원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,660억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">66.73</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">5.29</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.33</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.54</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">7,800원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 6,300~6,500원 (눌림 분할, 추격금지)</span><span class="dc dn">손절 5,350원</span><span class="dc up">목표 7,800원</span><span class="dc">손익비 진입 1:1.33 · 현재가 1:0.54</span><span class="dc">기간 스윙 2~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026년 11월 중순 3분기보고서 / 유리기판 장비 수주 공시(날짜 미정)</div><div class="dc-l">🛑 반증: 3Q 누적 영업이익 &lt; 8억(연결) → 청산 / 종가 5,350원 이탈 → 손절 / 유리기판 테마 대장주 동반 하락 → 추세종료</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 한빛레이저(452190) ※선물 無</p>
+<p>📌 한줄 결론: 유리기판 테마 모멘텀주. 밸류는 실적 대비 과열(테마 프리미엄)이라 중장기 매력도 &#x27;관심&#x27;, 단기는 추세 추종 트레이딩 영역. 손익비 1:1.4 / 1차 목표가 7,800원. 선물 미상장 → 현물만 가능(레버리지 불가).</p>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 33.6% (당일 거래대금 555.3억 / 시총 1,651억) — 하루에 유통물량 급회전 [실측: KIS 당일거래대금 596억, trendscan 555.3억]</li>
+<li>추세: MA 정배열 O (MA5 6,322 &gt; MA20 5,392 &gt; MA60 4,477) [실측: KIS 일봉 2026-08~10-08]</li>
+<li>현재가 6,820원 (<span class="up">+13.86%</span>), 5일 <span class="up">+13.1%</span> [실측: KIS inquire-price 2026-10-08]</li>
+<li>52주 레인지 2,615~10,590원 → 현재가는 52주고 대비 64%, 저점(7/29 2,615) 대비 2.6배 [실측: KIS w52]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력: 산업용 레이저 가공·자동화 장비. 사업부문 비중(2025, 별도): 자동차(전기차) 제조장비 40.4%, 반도체/전자기기 제조장비 32.2%, 이차전지 제조장비 25.0% [실측: 사업보고서 2025.12, 접수 20260318000490]</li>
+<li>주력 제품: VIN마커·RWS 고속원격웰딩·버스바웰더(자동차), i-Scan 마킹/웰딩/클리닝/커팅(이차전지), MLCC 레이저 어블레이션·PCB필름커팅(반도체/전자) [실측: 동 사업보고서]</li>
+<li>전방: 전기차·이차전지 설비투자 + (신규 테마) AI 반도체 유리기판</li>
+<li>급등사유 — ★기대감 vs 확정사실 구분★:</li>
+<li>[기대감] AI 반도체용 유리기판 테마. 엔비디아 차세대 패키징 유리기판 도입 기대 → TGV·레이저커팅·도금 장비 수요 확대 기대 → 한빛레이저가 &#x27;UV(모드락) 레이저 유리기판 스크라이빙·커팅 특허 보유&#x27;로 수혜 기대주 편입 [인용: 미래에셋증권 유리기판 리포트 2026-06-10, 머니투데이 2026-09-09, 금강일보/hohoblog 2026-09-29]</li>
+<li>[확정 아님 — 반드시 구분] 엔비디아 직접 공급계약·유리기판 장비 수주는 확인 안 됨. 복수 매체가 &quot;엔비디아 수주 확정 아님, 보유한 건 &#x27;기술/특허&#x27;&quot;로 명시 [인용: 머니투데이 2026-09-09]</li>
+<li>[미확인] &#x27;9/8 자사주 100만주 취득결정 공시&#x27;가 급등사유로 일부 인용(meerae.ai)되나, DART 2026-06-01~10-08 공시목록에 자기주식취득결정 공시 없음 → 미확인/루머로 분류, 매매근거 배제 [실측: DART list.json, 공시 4건만 존재]</li>
+<li>결론: 이번 급등은 &#x27;유리기판 테마 기대감 + 단기 수급 집중&#x27;. 실적·수주로 뒷받침된 상승 아님.</li>
+</ul>
+<p>③ 실적 (DART 실측, 연결 CFS)</p>
+<ul>
+<li>매출: 2023년 226.8억 → 2024년 185.4억 → 2025년 242.5억 [실측: 사업보고서 각 연도]</li>
+<li>영업이익: 2023년 <span class="up">+6.5</span>억 → 2024년 -25.6억(적자) → 2025년 <span class="up">+19.6</span>억(흑전) [실측]</li>
+<li>당기순이익: 2023년 -55.7억 → 2024년 -21.1억 → 2025년 <span class="up">+24.4</span>억(흑전) [실측]</li>
+<li>영업이익률(OPM): 2023년 2.8% → 2024년 <span class="down">-13.8%</span> → 2025년 8.1% [검산: 영익/매출]</li>
+<li>2026 상반기(연결, 누적): 매출 107.8억 / 영업이익 <span class="up">+6.8</span>억 / OPM 6.3% — 흑자 유지, YoY 개선 추세 [실측: 반기보고서 2026.06 접수 20260813001626, thstrm_add_amount 기준]</li>
+<li>부채비율: 2025말 36.2% / 2026 H1 35.9% — 재무 안정적(저부채) [검산: 부채총계/자본총계]</li>
+<li>현금흐름(영업): 2026 H1 <span class="up">+30.3</span>억 (2025 H1 -17.0억 대비 대폭 개선) [실측: 반기보고서 CF]</li>
+<li>특징: 장비주 특성상 분기 실적 변동성 큼(고객 CAPEX·납품시점 의존). 2024년 적자 → 2025년 흑전 → 2026 흑자 유지가 핵심 개선 포인트.</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 커버리지: 최근 6개월 목표가 제시 리포트 없음. 연간/분기 컨센서스 미확인(naver·fnguide 추정치 없음) [실측: consensus.py 2026-10-08, stockeasy 0건·hankyung 0건]</li>
+<li>유일 기업정보 리포트: 2026-04-24 서울평가정보(목표가 없음) [인용]</li>
+<li>달성가능성 판단: 컨센 부재 → 자체 추정으로 대체(⑤). 유리기판 매출 기여는 2026~2027 &#x27;0&#x27;에 가깝고(양산 2027~2028 목표), 수혜는 삼성전기·SKC CAPEX 집행 이후 장비 발주 시점에 좌우 → 달성가능성 &#x27;中·低&#x27;(테마 선반영).</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 멀티플: PER 65.6배(EPS 104), PBR 5.20배(BPS 1,311) [실측: KIS, trailing]</li>
+<li>peer(유리기판 장비): 필옵틱스·태성·제이앤티씨 등 — 대부분 적자/고PER 테마주라 peer PER 자체가 과열권, 직접 비교 한계 [인용: hohoblog 2026-09-29 밸류체인 분류]</li>
+<li>자체 목표가 산식(확률가중, 2026E 순익 × 적정 PER):</li>
+<li>[추정] Bear 순익 15억 × PER 40 = 2,508원</li>
+<li>[추정] Base 순익 25억(≈2025 수준 유지) × PER 40 = 4,181원</li>
+<li>[추정] Bull 순익 40억(유리기판 수주 가시화) × PER 40 = 6,689원</li>
+<li>해석: Bull 시나리오(순익 40억·PER 40배)로도 적정가 6,689원 ≈ 현재가 → 현 주가는 실적가치가 아니라 &#x27;테마 프리미엄&#x27;으로 형성. 추가 상승은 테마 모멘텀·수급에 의존.</li>
+<li>단기 트레이딩 관점 목표가(모멘텀): 1차 7,800원(직전 테마 고점권 저항·52주고 2/3 회복), 2차 9,000원(52주고 10,590 하단 저항).</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: 1차 6,300원(MA5), 2차 5,400원(MA20) [실측: KIS]</li>
+<li>저항: 1차 7,000원(심리·라운드), 2차 7,800원(테마 전고), 3차 9,000~10,590원 [실측/추정]</li>
+<li>52주고 대비 64% 위치 → 추세 상단 아직 여유, 그러나 저점 대비 2.6배 과열</li>
+<li>기계적 진입: 눌림 매수 전략. 6,300~6,500원(MA5 근접) 지지 확인 후 분할 진입 권장. 현재가(6,820) 추격매수는 변동성 위험.</li>
+<li>손절: 5,350원(MA20 이탈 종가) — 정배열 붕괴 신호</li>
+<li>1차 목표: 7,800원</li>
+<li>손익비(진입 6,500 기준): 상승여력 (7,800-6,500)/6,500 = <span class="up">+20.0%</span> ÷ 하락리스크 (6,500-5,350)/6,500 = <span class="down">-17.7%</span> = 1:1.13</li>
+</ul>
+<p>(진입 6,300 기준: 상승 <span class="up">+23.8%</span> ÷ 하락 <span class="down">-15.1%</span> = 1:1.58, 평균 ≈ 1:1.4)</p>
+<p>⑧ 산업·제품 바텀업 모델</p>
+<ul>
+<li>제품별 매출(2025, 별도, 단위 억원) [실측: 사업보고서 20260318000490]:</li>
+<li>자동차(전기차) 제조장비: 97.6억 (40.4%)</li>
+<li>반도체/전자기기 제조장비: 77.9억 (32.2%) ← 2024년 34.2억(18.5%)에서 급증</li>
+<li>이차전지 제조장비: 60.5억 (25.0%)</li>
+<li>기타: 5.8억 (2.4%) / 합계 241.8억</li>
+<li>2026 1분기 비중 변화: 반도체/전자 41.2%로 1위 등극, 자동차 28.5%, 이차전지 28.7% [실측: 분기보고서 20260515000333]</li>
+<li>원재료: 국내매입 89%(2025) — 환율 민감도 낮음 [실측]</li>
+<li>9-7 바텀업 (물량×단가 세부 미공개 → 부문매출 기반 영업이익 임계, 추정):</li>
+<li>[추정] Bear: 2026 매출 210억·OPM 5% → 영익 10.5억 (반도체/전자 모멘텀 둔화)</li>
+<li>[추정] Base: 2026 매출 240억·OPM 8% → 영익 19.2억 (2025 수준 유지)</li>
+<li>[추정] Bull: 2026 매출 280억·OPM 11% → 영익 30.8억 (유리기판/반도체 장비 수주 확대)</li>
+<li>결론 문장: 3Q(연결) 누적 영업이익 ≥ 15억이면 실적 개선 추세 유지로 보유, &lt; 8억이면 &#x27;테마 only·실적 미동반&#x27;으로 폐기 검토.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만):</li>
+<li>2026년 11월 중순: 3분기보고서 제출(법정기한 11/14 전후, 2026 1Q 반기 제출 이력 기준) — 반도체/전자 부문 매출·OPM 지속 여부 확인</li>
+<li>[미확인·날짜 미정] 유리기판 장비 수주/공급계약 공시, 삼성전기·SKC(앱솔릭스) 양산 CAPEX 발주 (2027~2028 양산 목표)</li>
+<li>반증 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>3Q 누적 영업이익 &lt; 8억(연결) → 테마 only 판단, 비중 축소·청산 [실적 임계]</li>
+<li>유리기판 테마 지수/대장주(SKC·필옵틱스) 동반 하락 전환 → 테마 소멸, 추세 추종 종료</li>
+<li>종가 5,350원(MA20) 이탈 → 정배열 붕괴, 손절 실행 [기술적 임계]</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스:</li>
+<li>유리기판 수주 공시(+) → 7,800→9,000원 재도전 / 수주 없이 3Q 부진(-) → 5,400원까지 조정</li>
+<li>엔비디아 유리기판 채택 공식화(+, 산업 전반) / 테마 순환매 이탈(-)</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 40%: 테마 소멸·실적 미동반 → 5,000~5,400원 회귀</li>
+<li>Base 40%: 테마 지속·실적 2025 수준 유지 → 6,500~7,800원 박스 트레이딩</li>
+<li>Bull 20%: 유리기판 수주 가시화 → 9,000원+ 재평가</li>
+<li>수급·유동성: 당일 회전율 33.6%(유통물량 급회전), ADV 대비 당일 거래대금 과다 → 유동성은 충분하나 단기 과열·변동성 극대. [실측: trendscan, KIS] 20일 순매수 주체 미확인.</li>
+<li>포지션 사이징(자산 대비 %): 테마 모멘텀·실적 미동반·고변동성 → 자산의 5~10% 이내 소액 트레이딩 권장. 추격매수 금지, 눌림 분할. 집중한도(50%) 대비 저비중 유지.</li>
+</ul>
+<p>⚠️ 리서치 참고용.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>9/8 자사주 100만주 취득결정 공시 (DART 미확인, 루머 가능성 → 매매근거 배제)</li>
+<li>증권사 목표가·연간/분기 컨센서스 (커버리지 부재)</li>
+<li>유리기판 관련 실제 수주·매출 기여 금액·시점</li>
+<li>유리기판 레이저 스크라이빙/커팅 특허의 구체 내용·등록번호</li>
+<li>20일 수급 주체별(외인·기관) 순매수</li>
+<li>제품별 단가·판매물량·CAPA (사업보고서 미공개)</li>
+<li>2025 3Q/2026 3Q 단일분기 손익(분기보고서 개별 집계 전)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>사업보고서 2025.12 (접수 20260318000490) — 사업부문·제품·원재료·연간재무</li>
+<li>분기보고서 2026.03 (접수 20260515000333) — 2026 1Q 부문비중</li>
+<li>반기보고서 2026.06 (접수 20260813001626) — 2026 H1 누적 손익·현금흐름</li>
+<li>KIS OpenAPI (2026-10-08) — 현재가·PER·PBR·52주·MA·거래대금</li>
+<li>DART list.json (2026-06-01~10-08) — 공시목록(자사주 공시 부재 확인)</li>
+<li>미래에셋증권 유리기판 리포트 (2026-06-10)</li>
+<li>머니투데이 (2026-09-09), 금강일보·hohoblog (2026-09-29)</li>
+<li>kis_futures_check.py (2026-10-08) — 선물 미상장</li>
+<li>consensus.py (2026-10-08) — 컨센 부재</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>사업부문 합계: 97.6<span class="up">+77.9</span><span class="up">+60.5</span><span class="up">+5.8</span> = 241.8억 ≈ 2025 별도매출 [일치]</li>
+<li>OPM: 2025 영익19.6/매출242.5 = 8.1% [일치]</li>
+<li>부채비율: 110.8/306.2 = 36.2% [일치]</li>
+<li>시나리오 확률합: 40<span class="up">+40</span><span class="up">+20</span> = 100% [일치]</li>
+<li>손익비 산식 헤더(1:1.4)=본문 평균(1:1.13~1:1.58) [일치]</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-08 09:57 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 6,940원 (<span class="up">+15.9%</span>) · 시총 1,660억 · 5일 <span class="up">+13.9%</span> / 20일 <span class="up">+71.0%</span> / 60일 <span class="up">+102.6%</span></li>
+<li>MA5 6,350원 / MA20 5,399원 / MA60 4,189원 → MA20 이격 <span class="up">+28.5%</span> · MA60 이격 <span class="up">+65.7%</span></li>
+<li>52주 고 10,590원 / 저 2,615원 → 고점 대비 <span class="down">-34.5%</span> · 20일 고 6,950원 / 저 4,500원</li>
+<li>후행 PER 66.73 / PBR 5.29 (EPS 104원 · BPS 1,311원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 263.2억 (5일 242.0억)</li>
+<li>외국인 순매수 5일 -9.9억 / 20일 -25.6억 · 기관 5일 -0.3억 / 20일 0.1억 · 개인 20일 25.4억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.40% / 20일 평균 0.44% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 2.48% (09/14) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 7,800원 (<span class="up">+12.4%</span>) ÷ 하방 5,350원 (−22.9%) = <strong>1:0.54</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 22.9% = <strong>자산의 2.2%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.2%</strong></li>
+<li>유동성 참고: 20일 ADV 263.2억 · 1일 소화 한도는 ADV의 10%(26.32억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 22.9% · ATR14 480원 (손절폭/ATR 3.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 22.9% = ATR14 × 3.3배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 6,219원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.19</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 無 현재가: 6,820원 진입: 6,300~6,500원 (눌림 분할, 추격금지) 손절: 5,350원 (MA20 종가 이탈) 목표: 1차 7,800원 (2차 9,000원) 손익비: 1:1.4 기간: 스윙 2~6주 촉매: 2026년 11월 중순 3분기보고서 / 유리기판 장비 수주 공시(날짜 미정) 반증: 3Q 누적 영업이익 &lt; 8억(연결) → 청산 / 종가 5,350원 이탈 → 손절 / 유리기판 테마 대장주 동반 하락 → 추세종료</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
