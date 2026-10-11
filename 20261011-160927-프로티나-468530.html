@@ -1,0 +1,304 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>프로티나(468530) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261011-160927-프로티나-468530.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.4</div><div class="tp-c"><b>결론 발췌</b> AI 신약 검증 인프라라는 방향성은 실체가 있으나, 반기 매출 5.18억·영업손실 86.68억으로 숫자는 미증명이고 PSR 166배(FY26E)의 극단 선반영 구간. 현재가 추격의 확률가중 기대수익률은 음수 → 판정 &#x27;관심&#x27;(눌림·계약 현금화 확인 대기). 진입 41,000원 가정 손익비 1차 1:1.4 / 2차 1:2.6, 손절 31,900원. 증권사 목표가는 전원 미제시(Not Rated). ──────────────── ① 포착 신호 [실측: KIS enrich 2026-10-11 16:02, 기준일 10/08 종가] • 현재가 44,750원(직전 거래일 종가, +1.7%) · 시총 4,970억 • 추세: MA5 48,570 / M…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>프로티나(468530)</h1>
+<div class="meta">📊 benine · 2026-10-11 16:09 · 코드 468530</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-11 16:09)</div><div class="kpi-v">44,750원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">4,970억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">26.23</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.4</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.7</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">53,700원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 40,000~42,000원 (MA20 눌림 대기)</span><span class="dc dn">손절 31,900원</span><span class="dc up">목표 53,700원</span><span class="dc">손익비 진입 1:1.4 · 현재가 1:0.7</span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11 중순 3Q26 분기보고서(하반기 매출·계약 반영) / 트위스트 본계약 공시</div><div class="dc-l">🛑 반증: 3Q26 9개월 누적 매출 &lt; 12억(FY26 컨센 30억 달성 불가) 또는 종가 31,900원 이탈 시 논지 폐기·청산</div></div>
+
+<div class="body"><p>🧬 정밀 리서치 — 프로티나(468530·코스닥)  ※개별주식선물 無(현물만)</p>
+<p>본 리포트는 비나인 블로그(arsjj, 2026-10-11) 글을 출발점으로, DART·KIS·증권사 자료를 실측·교차검증한 참고용 분석이다. 블로거·증권사 추정치는 &#x27;추정/인용&#x27;으로 구분 표기했다. 매수·매도 강요가 아니며 최종 판단은 투자자 본인 책임이다.</p>
+<p>📌 한줄 결론: AI 신약 검증 인프라라는 방향성은 실체가 있으나, 반기 매출 5.18억·영업손실 86.68억으로 숫자는 미증명이고 PSR 166배(FY26E)의 극단 선반영 구간. 현재가 추격의 확률가중 기대수익률은 음수 → 판정 &#x27;관심&#x27;(눌림·계약 현금화 확인 대기). 진입 41,000원 가정 손익비 1차 1:1.4 / 2차 1:2.6, 손절 31,900원. 증권사 목표가는 전원 미제시(Not Rated).</p>
+<p>──────────────── ① 포착 신호 [실측: KIS enrich 2026-10-11 16:02, 기준일 10/08 종가]</p>
+<ul>
+<li>현재가 44,750원(직전 거래일 종가, <span class="up">+1.7%</span>) · 시총 4,970억</li>
+<li>추세: MA5 48,570 / MA20 39,930 / MA60 31,929 → 현재가가 MA5 아래(단기 눌림), MA20·60 위(중기 상승 유지)</li>
+<li>모멘텀: 5일 <span class="down">-13.8%</span> / 20일 <span class="up">+50.4%</span> / 60일 <span class="up">+91.2%</span> — 60일 리레이팅 후 단기 과열 식히는 중</li>
+<li>52주 120,100 / 15,500 → 고점 대비 <span class="down">-62.7%</span>, 저점 대비 <span class="up">+188.7%</span> (고점권 아님, 바닥권도 아님)</li>
+<li>20일 평균 거래대금 67.8억 · hi20 53,700 / lo20 26,000 · ATR14 4,900 (±11%/일 변동)</li>
+<li>수급 20일: 외국인 -58.5억 / 기관 <span class="up">+158.7</span>억 / 개인 -91.0억 [실측 KIS] → 기관 순매수가 상승 주도</li>
+<li>공매도: 당일 비중 4.44%, 20일 평균 6.73%, 20일 최대 15.95%(09/14) → 공매도 압력 높음 [실측 KIS]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력: 단백질-단백질 상호작용(PPI)을 &#x27;정제 없이&#x27; 단일분자 수준에서 고속 측정하는 SPID 플랫폼(Pi-Chip/Pi-View) 보유 [실측: DART 반기보고서 20260814001510]. 제품 3축 — PPI PathFinder®(임상검체 바이오마커 분석), PPI Landscape®(AI 항체 설계·검증), SPID Platform Systems(장비 판매).</li>
+<li>전방산업: AI 신약개발 &#x27;설계→검증(wet-lab)&#x27; 병목 해소. 2026년 고성능 항체설계 오픈소스 모델 범용화로 &quot;설계는 쉬워지고 검증 수요가 폭증&quot;한다는 논지 [인용: iM증권 2026-10-08 &#x27;단백질의 이야기, 이제는 검증의 시간&#x27;, Not Rated].</li>
+<li>급등사유 = 테마+레퍼런스 계약, 둘 다 &#x27;사실 기반&#x27;이나 매출 미반영 [실측 교차검증]:</li>
+<li>삼성바이오에피스 기술도입/공동개발 옵션계약: 2026-07-09 공식 보도 [인용: 조선비즈·히트뉴스 2026-07-09]. 규모 &#x27;최소 400억·대부분 조건부·옵션 행사여부 2027년말 결정&#x27;은 iM증권/블로거 추정 [추정·인용].</li>
+<li>트위스트 바이오사이언스 MOU: 2026-08-27 체결 [인용: 히트뉴스·팜뉴스·바이오스펙테이터 2026-08-27]. 본계약(현금화) 아님, MOU 단계.</li>
+<li>10월 증권사 리포트 쏟아짐(iM 10/08·부국 10/06·삼성 10/06·IV리서치 10/02·한국IR협의회 09/23) → &#x27;리레이팅&#x27; 내러티브가 수급 자극 [실측 consensus 7건].</li>
+<li>판단: 방향성(검증 인프라 수요 증가)은 실체. 그러나 현 주가는 &#x27;계약의 현금화&#x27;를 선반영한 기대감이 주도 — 실적 전환 속도가 유일한 검증 변수.</li>
+</ul>
+<p>③ 실적 (DART 실측 · 별도 기준, 상장 1년차라 연결 없음) [실측: DART fnlttSinglAcntAll OFS, 반기 20260814001510 / 연간 20260320001240]</p>
+<ul>
+<li>매출: 2024년 23.01억 → 2025년 29.51억(<span class="up">+28%</span> YoY) → 2026 상반기 5.18억(6개월 누적)</li>
+<li>영업손실: 2024 -91.21억 → 2025 -113.68억 → 2026 상반기 -86.68억(누적·전년동기 대비 손실 확대)</li>
+<li>순손실: 2024 -57.34억 → 2025 -90.12억 → 2026 상반기 -63.94억</li>
+<li>OPM: 전 구간 적자(2025 영업이익률 <span class="down">-385%</span>). 판관비 2026 상반기 89.63억 &gt; 매출 5.18억 → 신약개발 전환 비용 급증이 손실 주범</li>
+<li>매출 구성(2025 연간): SPID 장비판매 70.3% / PathFinder 서비스 21.2% / Landscape 8.5% → 장비판매 의존, 서비스 반복매출 아직 소형 [실측 dart_biz]</li>
+<li>2026 상반기 매출 구성 급변: Landscape 2.90억(56%) / PathFinder 1.31억(25%) / 장비 0.97억(19%) — 분기별 변동 극심(계약 단위 lumpy)</li>
+<li>재무건전성(2026.06말): 자산 264.6억 / 부채 37.7억 / 자본 226.9억 → 부채비율 16.6%(낮음) / 누적결손금 -792.7억</li>
+<li>현금흐름: 영업활동현금흐름 2025 -80.74억, 2026 상반기 -42.98억 → 월 번레이트 약 7.2억</li>
+<li>유동성(2026.06말): 현금성자산 20.9억 + 당기손익금융자산 30.3억 + 단기예금 142.6억 = 약 193.7억 [실측 BS] → 블로거 &#x27;194억&#x27; 일치</li>
+<li>자금 소진: 193.7억 ÷ 월 7.2억 ≈ 27개월(약 2.2년). 단 신약개발 비용 증가 가속 시 1.5년으로 단축 가능 → 2027년 중 유상증자/조달 가능성 상존(오버행)</li>
+</ul>
+<p>→ 결론: 실적 모멘텀이 상승추세를 &#x27;정당화&#x27;하지 못함. 매출은 분기 단위 lumpy, 손실 확대 중. 추세는 실적이 아니라 &#x27;미래 계약 현금화 기대&#x27;로 설명됨.</p>
+<p>④ 미래실적·컨센서스 [실측: consensus.py 4소스 2026-10-11]</p>
+<ul>
+<li>투자의견: 최근 6개월 리포트 전원 Not Rated → 목표주가 제시 &#x27;없음&#x27;(컨센 목표가 미확인)</li>
+<li>연간 컨센(FnGuide+Naver, 억원): FY26E 매출 30 / 영업익 -150 / 순익 -100 · FY27E 매출 130 / 영업익 -70 · FY28E 매출 250 / 영업익 <span class="up">+40</span>(첫 흑자)</li>
+<li>분기 컨센: 미확인</li>
+<li>달성가능성 판정: FY26E 매출 30억 — 상반기 5.18억 실적 → 하반기 25억 필요. 삼바·트위스트 현금화 없이는 산술적으로 어려움 → 달성가능성 &#x27;中低&#x27;</li>
+<li>FY28E 흑자전환(영업익 <span class="up">+40</span>억)은 CAPA(월 100만건)·계약 현금화 전제의 3년 뒤 추정 → 가시성 낮음, &#x27;低&#x27;</li>
+<li>증권사 코멘트: iM &quot;검증 수요가 실제 매출로 전환되는 속도가 주가 트리거&quot;(10/08) / IV리서치 &quot;2028년 월 100만건 AI Biofoundry CAPA 목표&quot;(10/02) [인용]</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>적자기업 → PER 무의미(현 EPS -912원). PBR 26.2배(BPS 1,706원, 시총/자본 226.9억으로도 21.9배) — 바이오 성장주 중에도 극단 고평가</li>
+<li>PSR(시총 4,970억 기준): 2025실적 29.5억 → 168배 / FY26E 30억 → 166배 / FY27E 130억 → 38배 / FY28E 250억 → 19.9배</li>
+</ul>
+<p>→ 현 주가는 &#x27;FY28E 매출 250억이 실현되어도 PSR 20배&#x27;를 요구. 즉 3년 뒤 성공 시나리오를 이미 상당 부분 선반영</p>
+<ul>
+<li>글로벌 상대가치: 트위스트 바이오사이언스(TWST, 나스닥) 등 합성생물·검증 플랫폼은 통상 PSR 5~10배대에서 거래 — 프로티나는 &#x27;매출 규모 100배 작은데 PSR 수십 배&#x27;로 프리미엄 과도 [추정: 공개 멀티플 범용값, 개별 실측 미확인]</li>
+<li>자체 목표가: 매출 미증명·컨센 목표가 부재로 정량 목표가 산출 보류. 대신 시나리오 역산(아래 ⑦) — Base 중심 48,000원 수준이 &#x27;현 기대의 유지 가격&#x27;, 그 이상은 계약 현금화 증명 필요</li>
+<li>증권사 목표가: 전원 미제시(Not Rated) → 병기 불가</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물 스윙만, 레버리지 불가)</p>
+<ul>
+<li>지지: MA20 39,930 → MA60 31,929 → lo20 26,000 → 전저점 15,860(블로거). 저항: hi20 53,700 → 전고 회복권 65,000</li>
+<li>52주 고점比 <span class="down">-62.7%</span> 위치 → 추격 고점권은 아니나, 60일 <span class="up">+91%</span> 리레이팅 직후라 단기 과열 해소 국면</li>
+<li>현물 3라인(진입 41,000원 가정, MA20 눌림 대기):</li>
+<li>진입(관심·대기): 40,000~42,000원(MA20 지지 확인 후 분할)</li>
+<li>손절: 종가 31,900원 이탈(MA60 하회) → 추세 훼손</li>
+<li>익절: 1차 53,700원(hi20), 2차 65,000원(전고 회복권)</li>
+<li>손익비(진입 41,000 기준): 상방 1차 <span class="up">+31.0%</span> / 2차 <span class="up">+58.5%</span>, 하방 <span class="down">-22.2%</span> → 1차 1:1.4 / 2차 1:2.6</li>
+</ul>
+<p>(산식: (53,700-41,000)/41,000=<span class="up">+31.0%</span> ÷ (41,000-31,900)/41,000=22.2% = 1.40)</p>
+<ul>
+<li>바이오 하방 뚫림 리스크: 자금조달 공시·MOU 무산 시 지지 무력화 → 전저점 15,860까지 열려 있음. 손절 엄수 전제 아니면 &#x27;진입 부적합&#x27;</li>
+<li>집중투자 적합성: ❌ 부적합. 적자·고변동(RV20 26%, 상위 80%)·자금조달 오버행·선물 無(헤지·레버리지 불가) → 집중 금지</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9) 9-1 제품 분해 [실측 dart_biz, 2025 연간]</p>
+<ul>
+<li>SPID Platform Systems(장비): 20.74억(70.3%) — 계약 단위 lumpy, 반복성 낮음</li>
+<li>PPI PathFinder®(임상검체 분석 서비스): 6.27억(21.2%)</li>
+<li>PPI Landscape®(AI 항체 설계·검증): 2.50억(8.5%)</li>
+<li>2026 상반기엔 Landscape 2.90억으로 역전 — 서비스 믹스 변화 초기</li>
+</ul>
+<p>9-2 고객·납품 구조 [실측 DART 수주현황]</p>
+<ul>
+<li>美A사: Master Service Agreement(2023-10~2026-10 만료 임박), 단가 GLP 샘플당 $5,000 / Non-GLP $3,000. SOW $850K(2025-09~2028-12) 미수령분 존재</li>
+<li>歐S사·亞P사·韓J사·韓L사·韓Q사 등 소형 분석계약 다수. 韓SE사(삼성에피스 추정) MSA 2024-11~2026-11</li>
+<li>고객 집중 리스크: 과거 美A사 단일 70% 비중(2024) → 계약 만료(2026-10-11) 갱신 여부가 변수. 현재 다각화 진행 중이나 건당 금액 $수만~수십만으로 소형</li>
+</ul>
+<p>→ &#x27;상위 고객 집중 + 계약 lumpy&#x27;가 매출 변동성의 구조적 원인</p>
+<p>9-3 시장·경쟁 [TAM 교차검증 실패 → 미확인]</p>
+<ul>
+<li>TAM: market_sizer·consensus 캐시에서 AI 신약검증 시장규모 정량치 추출 실패 → &#x27;미확인&#x27;. IV리서치 &quot;2028년 월 100만건 CAPA&quot; 는 회사 목표치(수요 TAM 아님) [인용]</li>
+<li>경쟁: 글로벌 합성생물·검증(트위스트 바이오사이언스 등) 및 SPR 기반 분석장비(Biacore 등)와 경합. 프로티나 주장 차별점 = &#x27;SPR 대비 항체 소모 100배↓, 정제 불필요, 주당 1만개 측정&#x27; [인용: iM·블로거, 독립 실측 미확인]</li>
+<li>점유율: 산출 근거 없음 → &#x27;미확인&#x27;(회사 주장 외 교차 출처 부재)</li>
+</ul>
+<p>9-4 단가·원가 [실측 dart_biz]</p>
+<ul>
+<li>서비스 단가: 회사가 &#x27;경쟁 요소&#x27;로 공시 생략. 단 美A사 MSA 기준 GLP $5,000/Non-GLP $3,000/샘플 확인</li>
+<li>원재료: Pi-Chip용 Chemical Q 단가 급등(2024 83원/mg → 2026 788,000원/10g 환산 급등 — 소량·고순도 시약 특성) [실측]. 원가율은 매출 대비 미미(매출원가 2026상반기 2.23억), 손실은 판관비(R&amp;D·인건비)가 주범</li>
+</ul>
+<p>9-5 CAPA·가동률 [실측 dart_biz 반기]</p>
+<ul>
+<li>Pi-Chip40: CAPA 반기 18,000개 / 생산 1,248 / 가동률 6.9%(2025 17.3%→급락)</li>
+<li>Pi-Chip384(신규 양산, 2026 1Q개시): CAPA 반기 2,200 / 생산 1,104 / 가동률 50.18%</li>
+<li>Pi-View(장비): CAPA 12대 / 생산 2대 / 가동률 16.7%</li>
+</ul>
+<p>→ 가동률 저조 = 수요(계약) 부족. CAPA는 여유, 병목은 &#x27;수주&#x27;이지 생산능력 아님</p>
+<p>9-6 전방 수요 시나리오</p>
+<ul>
+<li>전방 = 글로벌 제약·바이오텍 AI 항체 파이프라인. 삼바에피스·트위스트가 레퍼런스. 소요량 증가분 산식은 계약 세부 비공개로 정량화 불가 → 침투율 &#x27;미확인&#x27;</li>
+<li>정성 방향: AI 설계 오픈소스화 → 검증 수요 증가는 합리적. 그러나 프로티나 수주로 직결되는 비율(점유율) 근거 없음</li>
+</ul>
+<p>9-7 바텀업 실적 모델 (적자기업 → 매출·계약 기준 임계)</p>
+<p>| 항목 | Bear | Base | Bull | 산식/근거 |</p>
+<p>| FY26 매출(억) | 15 | 28 | 40 | 상반기 5.18 실측 + 하반기 삼바/트위스트 현금화 가정 |</p>
+<p>| FY26 영업손실(억) | -150 | -150 | -120 | 컨센 -150, 비용 선집행 고정 |</p>
+<p>| FY27 매출(억) | 60 | 130 | 200 | 컨센 130(Base), 계약 본계약화 속도 |</p>
+<p>| FY27 영업손실(억) | -90 | -70 | -30 | 컨센 -70(Base) |</p>
+<p>| FY28 매출(억) | 120 | 250 | 350 | 컨센 250(Base) |</p>
+<p>| FY28 영업익(억) | -40 | <span class="up">+40</span> | <span class="up">+120</span> | 흑자전환 가정(Base 컨센) |</p>
+<ul>
+<li>민감도: FY27 매출 ±30%(계약 현금화 ±1분기) → 영업손실 ±25억. 삼바 옵션 미행사 시 FY27 매출 컨센 130→60억대로 반토막</li>
+<li>컨센 대조: Base가 FnGuide 컨센과 정렬. 차이 원인 = 계약 현금화 시점 불확실성</li>
+<li>결론 문장: &quot;FY26 누적(연간) 매출 ≥ 25억(계약 현금화 시작 신호)이면 논지 유지·눌림 분할 검토 / &lt; 15억이면 현금화 지연 확정, 논지 약화·비중 축소. 3Q26(9개월) 누적 매출 &lt; 12억이면 FY26 컨센 30억 달성 불가로 간주&quot;</li>
+</ul>
+<p>──────────────── ⑦ 촉매·반증·이벤트 대응</p>
+<p>촉매 캘린더(날짜 확정만):</p>
+<ul>
+<li>2026-10-11: 美A사 MSA(3년) 만료일 — 갱신 공시 여부 주목 [실측 DART 수주현황]</li>
+<li>2026-11 중순: 3Q26 분기보고서 법정기한(11/14 전후) — 하반기 매출 회복/계약 반영 첫 확인점</li>
+<li>2027말(추정): 삼바에피스 옵션 행사 여부 결정 시점 [추정·인용 iM·블로거]</li>
+<li>상시: 트위스트 &#x27;본계약&#x27; 전환 공시(MOU→계약) — 현금화 핵심 트리거</li>
+</ul>
+<p>반증 조건 3개(수치→행동):</p>
+<ol>
+<li>3Q26(9개월) 누적 매출 &lt; 12억이면 FY26 컨센 30억 달성 불가 → 논지 약화·비중 축소</li>
+<li>종가 31,900원(MA60) 이탈 시 → 전량 청산(추세 훼손)</li>
+<li>유상증자/CB 등 자금조달 공시 또는 트위스트 본계약 2027년 내 미발표 → 오버행 확정, 신규진입 보류</li>
+</ol>
+<p>이벤트 매트릭스(3Q 실적/계약 공시 × 당일 주가):</p>
+<ul>
+<li>서프라이즈(하반기 매출 급증·본계약) × 갭상승 → 전고 재도전, 눌림만 대응(추격 금지)</li>
+<li>인라인(매출 소폭·MOU 유지) × 보합 → 박스 대응, MA20 지지 매수·hi20 익절</li>
+<li>쇼크(매출 정체·계약 무소식) × 갭하락 → MA60 이탈 시 청산, 반등 매도</li>
+</ul>
+<p>확률가중 시나리오(진입 44,750 현재가 기준):</p>
+<ul>
+<li>Bear 40%: 자금조달 공시·트위스트 지연 → MA60/lo20 이탈, 24,000원 테스트(<span class="down">-46.4%</span>)</li>
+<li>Base 40%: 검증수요 실체·점진 현금화, 40,000~55,000 박스 중심 48,000원(<span class="up">+7.3%</span>)</li>
+<li>Bull 20%: 트위스트 본계약+삼바 옵션행사+파이프라인 L/O → 70,000원 리레이팅(<span class="up">+56.4%</span>)</li>
+<li>기대수익률 = 0.4×(<span class="down">-46.4%</span>) + 0.4×(<span class="up">+7.3%</span>) + 0.2×(<span class="up">+56.4%</span>) = <span class="down">-4.4%</span> → 현재가 추격 기대값 음수. 진입을 40,000원 이하 눌림으로 낮춰야 기대값이 양(+)으로 전환</li>
+</ul>
+<p>수급·유동성 [실측 KIS]:</p>
+<ul>
+<li>외국인 20일 -58.5억(매도) / 기관 <span class="up">+158.7</span>억(매수) / 개인 -91.0억</li>
+<li>20일 평균 거래대금 67.8억 → 1일 체결 상한(ADV 10%) 약 6.8억 → 유동성 양호(현물 스윙 가능)</li>
+<li>공매도 20일 평균 6.73%(최대 15.95%) → 숏 압력 상존, 하락 시 변동성 증폭 주의</li>
+</ul>
+<p>포지션 사이징(자산 대비 %로만):</p>
+<ul>
+<li>고변동 레짐(RV20 26%, 상위 80%) → 손실예산 0.5% 적용</li>
+<li>손절폭(진입 41,000→손절 31,900) = 22.2% → 리스크예산 사이징 = 0.5% ÷ 22.2% = 자산의 약 2.3%</li>
+<li>집중상한 50%·이벤트 전 상한 25%·리스크예산 2.3% 중 최소값 = 자산의 2.3%</li>
+<li>분할: 3회 분할, 각 1/3(MA20·MA40·MA60 지지 확인마다). 손절선(31,900) 아래 추가매수 금지</li>
+</ul>
+<p>→ 적자·고변동·선물無·자금조달 오버행 → 집중투자 명백히 부적합, 소액 스윙 한정</p>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거·증권사 추정치는 &#x27;추정/인용&#x27; 명시. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>AI 신약검증 시장 TAM·CAGR(2출처 교차 실패)</li>
+<li>프로티나 글로벌/국내 점유율(회사 주장 외 근거 없음)</li>
+<li>삼바 옵션계약 정확 규모·조건(400억은 추정)·트위스트 본계약 금액</li>
+<li>분기 컨센서스·증권사 목표주가(전원 Not Rated)</li>
+<li>글로벌 peer(트위스트 등) 정확 PSR 실측(범용값으로 대체)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 반기보고서 20260814001510(2026.06), 사업보고서 20260320001240(2025.12) — 재무·사업·수주 실측</li>
+<li>KIS enrich.py 2026-10-11 16:02(기준 10/08) — 시세·수급·공매도</li>
+<li>consensus.py 4소스(stockeasy·naver·fnguide·hankyung) 2026-10-11 — 컨센·리포트 7건</li>
+<li>news_search.py 2026-10-11 — 삼바(07/09)·트위스트(08/27) 계약 뉴스</li>
+<li>iM증권 10/08·부국 10/06·삼성 10/06·IV리서치 10/02·한국IR협의회 09/23(전원 Not Rated)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>매출: 반기 PathFinder 1.31+Landscape 2.90+장비 0.97 = 5.18억 = CIS 수익 5.18억 ✓</li>
+<li>영업손실: 반기 누적 86.68억(thstrm_add) ✓ = 블로거 86.7억</li>
+<li>유동성: 현금 20.9+금융자산 30.3+단기예금 142.6 = 193.8억 ≈ 블로거 194억 ✓</li>
+<li>손익비 헤더(1차 1:1.4)=본문 산식(31.0%÷22.2%=1.40) ✓</li>
+<li>시나리오 확률합 40<span class="up">+40</span><span class="up">+20</span>=100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-11 16:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 44,750원 (<span class="up">+1.7%</span>) · 시총 4,970억 · 5일 <span class="down">-13.8%</span> / 20일 <span class="up">+50.4%</span> / 60일 <span class="up">+91.2%</span></li>
+<li>MA5 48,570원 / MA20 39,930원 / MA60 31,929원 → MA20 이격 <span class="up">+12.1%</span> · MA60 이격 <span class="up">+40.2%</span></li>
+<li>52주 고 120,100원 / 저 15,500원 → 고점 대비 <span class="down">-62.7%</span> · 20일 고 53,700원 / 저 26,000원</li>
+<li>후행 PER -49.07 / PBR 26.23 (EPS -912원 · BPS 1,706원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 67.8억 (5일 83.5억)</li>
+<li>외국인 순매수 5일 -7.9억 / 20일 -58.5억 · 기관 5일 6.5억 / 20일 158.7억 · 개인 20일 -91.0억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 4.44% (공매도 8,223주 · 3.6억) · 5일 평균 6.68% / 20일 평균 6.73% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 15.95% (09/14) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 53,700원 (<span class="up">+20.0%</span>) ÷ 하방 31,900원 (−28.7%) = <strong>1:0.70</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 20%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 28.7% = <strong>자산의 1.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.7%</strong></li>
+<li>유동성 참고: 20일 ADV 67.8억 · 1일 소화 한도는 ADV의 10%(6.78억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 28.7% · ATR14 4,900원 (손절폭/ATR 2.6배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 28.7% = ATR14 × 2.6배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 37,400원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.22</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-468530"></span>📋 결정카드 — 프로티나(468530) 판정: 관심 선물: 무(현물만) 현재가: 44,750원 진입: 40,000~42,000원 (MA20 눌림 대기) 손절: 31,900원 (MA60 종가 이탈) 목표: 1차 53,700원 (2차 65,000원) 손익비: 1:1.4 (2차 1:2.6, 진입 41,000 기준) 기간: 스윙 4~10주 촉매: 2026-11 중순 3Q26 분기보고서(하반기 매출·계약 반영) / 트위스트 본계약 공시 반증: 3Q26 9개월 누적 매출 &lt; 12억(FY26 컨센 30억 달성 불가) 또는 종가 31,900원 이탈 시 논지 폐기·청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
