@@ -1,0 +1,315 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>디어유(376300) · 유사연애·AI캐릭터챗 4사 (디어유·노머스·키다리·엔키AX) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261012-081142-유사연애-AI캐릭터챗-4사-디어유-노머스-키다리-엔키AX.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.55</div><div class="tp-c"><b>결론 발췌</b> • 4사 전부 개별주식선물 미상장 → 전량 현물만 가능·레버리지 불가 [실측: KIS 선물마스터 2026-10-12, 상장 292종목 중 4사 모두 없음]. 개별주식선물 레버리지·스윙 중심 매매법과는 구조적으로 거리가 있는 테마다. • 실체로 줄세우면 디어유(실적 1위·OPM 37%·밸류부담) ≫ 노머스(PER 6~8 저평가·그러나 숫자 신뢰 훼손) &gt; 키다리(흑전 모멘텀·과열) &gt; 탑코미디어(순익 적자 지속·테마 최고변동). • &#x27;AI연애&#x27; 본진은 비상장(네이버 제타). 상장 4사는 모두 주변부 플레이어 — 테마 기대감과 실체의 간극이 큼. • 대표주 손익비(현물 기준): 디어유 1:2.1(눌림 1:3.1), 노머스 1:1.7. 목표가…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>디어유(376300) · 유사연애·AI캐릭터챗 4사 (디어유·노머스·키다리·엔키AX)</h1>
+<div class="meta">📊 benine · 2026-10-12 08:11 · 코드 376300</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-12 08:11)</div><div class="kpi-v">19,590원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">4,650억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">24.96</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.22</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.55</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.14</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">26,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 18,900~19,600원 (MA60 눌림 선호)</span><span class="dc dn">손절 16,600원</span><span class="dc up">목표 26,000원</span><span class="dc">손익비 진입 1:2.55 · 현재가 1:2.14 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.1</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.1로 적었지만 진입·손절·목표로 계산하면 1:2.55다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 실적 2026-11-14 / 해외(QQ뮤직·미국) 구독 / 자사주 신탁</div><div class="dc-l">🛑 반증: 3Q26 연결 영업익 &lt; 80억이면 전량 청산 / 종가 16,600원 이탈 시 청산</div></div>
+
+<div class="body"><p>🧭 테마 리서치 — 유사연애·AI캐릭터챗 상장 4사 (디어유 376300 · 노머스 473980 · 키다리스튜디오 020120 · 탑코미디어=엔키AX 134580)</p>
+<p>⚠️ 블로그(네이버 &#x27;choocobbang&#x27;, 2026-10-11) 글을 출발점으로 한 독립 검증 리포트입니다. 블로거 의견은 &#x27;참고용&#x27;이며 본 분석은 DART·KIS·증권사 컨센·뉴스 실측으로 교차검증했습니다. 매수/매도 권유 아님.</p>
+<p>📌 한줄 결론</p>
+<ul>
+<li>4사 전부 개별주식선물 미상장 → 전량 현물만 가능·레버리지 불가 [실측: KIS 선물마스터 2026-10-12, 상장 292종목 중 4사 모두 없음]. 개별주식선물 레버리지·스윙 중심 매매법과는 구조적으로 거리가 있는 테마다.</li>
+<li>실체로 줄세우면 디어유(실적 1위·OPM 37%·밸류부담) ≫ 노머스(PER 6~8 저평가·그러나 숫자 신뢰 훼손) &gt; 키다리(흑전 모멘텀·과열) &gt; 탑코미디어(순익 적자 지속·테마 최고변동).</li>
+<li>&#x27;AI연애&#x27; 본진은 비상장(네이버 제타). 상장 4사는 모두 주변부 플레이어 — 테마 기대감과 실체의 간극이 큼.</li>
+<li>대표주 손익비(현물 기준): 디어유 1:2.1(눌림 1:3.1), 노머스 1:1.7. 목표가 — 디어유 26,000(1차)/31,600(2차), 노머스 14,000(1차)/16,500(2차).</li>
+</ul>
+<hr>
+<p>① 테마 사실관계 — 기대감 vs 실체 ━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>테마 정의: &#x27;도파민·유사연애&#x27;(AI 캐릭터챗/AI 연인)는 2026년 국내 플랫폼 핫테마. [인용: 조선일보 2026-08-26 &quot;韓 1억시간 붙잡은 &#x27;AI연인&#x27;&quot;] — 국내 선두는 네이버 &#x27;제타&#x27;(비상장), 경쟁 &#x27;크랙&#x27;은 제타와 사용시간 11배 격차 [인용: 2026-08-26]. 네이버 스노우도 AI채팅 진출 검토 [인용: 머니투데이방송 2026-08-27].</li>
+<li>★핵심: 국내 캐릭터챗 1·2위(제타 등)는 전부 비상장. 상장 4사는 각자 본업(팬플랫폼·엔터·웹툰)에 AI연애 요소를 &#x27;붙이는&#x27; 주변부 포지션이다. &quot;유사연애 순수 플레이&quot;로 상장돼 있는 종목은 없다.</li>
+<li>규제 리스크(공통): 청소년 보호·선정성 문제로 2026 국정감사서 &#x27;AI 캐릭터챗 안전공백&#x27; 도마 [인용: 2026-09-22]. &quot;미성년자 야한 대화&quot; 맘카페 논란 [인용: 한국경제 2026-09-13]. 성인/미성년 필터·연령인증 규제가 수익모델(특히 남성향·성인향)에 직접 타격 가능.</li>
+<li>블로거 핵심 주장 2건 검증 결과:</li>
+<li>(노머스) &quot;상장 시 영업이익 300억대 제시 → 실제 100억대&quot; → ✅ 사실 부합. 영업이익 컨센서스가 1년 전 346억 → 현재 193억으로 대폭 하향됐고 [인용: FnGuide 2026-10-12 집계], 실제 2025년 영업이익은 123억 [실측: DART 2025 연결]. 상장 당시 눈높이 대비 반토막 수준.</li>
+<li>(노머스-원헌드레드 회수분쟁) → ✅ 사실. 원헌드레드 레이블 대표 차가원 &#x27;300억대 사기 혐의&#x27;로 2026-08 구속·구속송치 [인용: 연합뉴스 2026-08-03, MBC 2026-08-07]. 노머스-원헌드레드 민·형사 소송전(노머스 1심 승소 2026-04-23, 상호 고소 2026-05) [인용: 스포츠경향 2026-04-23, 매경 2026-05-19]. 숫자 신뢰도에 실질 훼손 요인.</li>
+</ul>
+<hr>
+<p>② 4사 실적 비교 (DART 연결 실측, 억원) ━━━━━━━━━━━━━━━━ [실측: 각사 사업보고서 2025.12 / 반기보고서 2026.06, 연결 CFS]</p>
+<ul>
+<li>디어유(376300) — 매출 757(23)→749(24)→838(25) / 영업익 286→254→314 / 순익 262→244→미확인 / OPM 37.8%→33.9%→37.5%. 부채비율 15.8%(부채331/자본2,099). 최고 수익성·무차입 구조.</li>
+<li>노머스(473980) — 매출 689(24)→757(25) [23년 데이터 없음·2024상장] / 영업익 82→123 / 순익 99→148 / OPM 11.9%→16.3%. 부채비율 11.3%. 이익률 개선 중이나 숫자 신뢰 이슈(①).</li>
+<li>키다리스튜디오(020120) — 매출 1,710→2,052→2,175 / 영업익 -57→22→124 / 순익 -356→-72→65 / OPM 적자→1.1%→5.7%. 2023 대규모 적자 → 2025 흑자전환 완성. 부채비율 68.4%(부채1,392/자본2,035).</li>
+<li>탑코미디어=엔키AX(134580) — 매출 192→233→486 / 영업익 -27→-37→37 / 순익 -119→-47→-23 / OPM 적자→적자→7.6%. 매출 2배 급성장·2025 영업흑전했으나 순이익은 여전히 적자. 부채비율 86.1%(부채279/자본324).</li>
+</ul>
+<p>최근 분기 흐름(실측):</p>
+<ul>
+<li>디어유 2Q26 영업수익 234억(<span class="up">+15.7%</span> YoY)·영업이익 94억(<span class="up">+26.4%</span> YoY) [인용: LS·iM증권 2026-08-05]. 국내 구독 둔화를 해외(中 QQ뮤직 C팝 130명+, 미국 신사업)가 상쇄.</li>
+<li>노머스 2026 상반기 매출 347억(플랫폼 fromm 비중 32.8%로 확대) [실측: 반기보고서].</li>
+</ul>
+<hr>
+<p>③ 사업모델(제품별 매출 비중, 실측) ━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>디어유: DearU bubble 구독이 매출의 98.7% [실측: 2025 사업보고서]. 월 구독료 국내 5,000원·해외 USD4.49로 인상(종전 4,500원/3.99) [실측]. = 사실상 &#x27;버블 단일 구독&#x27; 회사. 유사연애=아티스트 1:1 메시지 구독.</li>
+<li>노머스: 공연 43% / 플랫폼등(fromm 메시지·멤버십) 27% / MD 20% / 상품 10% [실측 2025]. AI연애 요소는 &#x27;fromm 메시지&#x27;(유사연애 채팅)뿐 — 매출의 일부. 본질은 K팝 공연·굿즈 엔터.</li>
+<li>키다리: 웹툰 81.9% / MD 12.2% / 영상 3.5% / 웹소설 2.5% [실측 2025, 레진코믹스·봄툰]. 여성향·BL 강점. AI 캐릭터챗은 신규 옵션(레진 IP 기반).</li>
+<li>탑코(엔키AX): 콘텐츠 플랫폼 69.9% / 유통 26.9% [실측 2025]. 일본 웹툰(남성향) 중심. &#x27;탑툰챗&#x27;(웹툰 캐릭터 AI챗, 이미지 수집형 결제)으로 ARPPU <span class="up">+18%</span> [인용: 한경 2026-10-07].</li>
+</ul>
+<hr>
+<p>④ 미래실적·컨센서스 ━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>디어유 [인용: FnGuide 2026-10-12]: FY26E 매출 953·영업익 381·순익 339·EPS 1,426(PER 13.7) / FY27E 1,026·431·392(PER 11.8). 추정기관 11곳. ★단 영업익 컨센 하향 추세: 1년전 606 → 6M전 483 → 3M전 430 → 현재 381. 목표가 평균 36,143원(최고 48,000/최저 26,000, 7건)·최신 5개사 평균 31,600원. 최근 리포트 NH 26,000(하향, 10/8)·메리츠 35,000(하향, 9/17)·상상인 29,000(신규, 9/14). 달성가능성 中 — 국내 구독 둔화는 확인됐고, 해외(QQ뮤직·미국) 증명이 관건.</li>
+<li>노머스 [인용: FnGuide 2026-10-12]: FY26E 매출 941·영업익 193·순익 197·EPS 1,796(PER 6.4) / FY27E 1,158·245. 추정기관 1곳(커버리지 얇음)·목표가 16,500원 1건. 영업익 컨센 346→193 대폭 하향(①). 달성가능성 中下 — 컨센 자체가 1곳뿐이고 분쟁·신뢰 디스카운트가 상존.</li>
+<li>키다리·탑코: 다수 증권사 커버리지 미확인(&#x27;컨센 미확인&#x27;, 4소스 시도). 자체 추정만 가능.</li>
+</ul>
+<hr>
+<p>⑤ 밸류에이션·목표가 ━━━━━━━━━━━━━━━━ [실측: KIS 2026-10-12 08:05 / 자체산식은 &#x27;추정&#x27;]</p>
+<ul>
+<li>디어유 19,590원 · PER 24.96(trailing)·PBR 2.22 · 시총 4,650억. Forward PER 13.7(FY26E). 자체 목표가[추정]: FY26E EPS 1,426 × 18~20배 = 25,700~28,520원. 보수 1차 26,000(NH·실측 컨센 최저)·2차 31,600(최신 5개사 평균). 밸류 자체는 과거 고점 대비 낮아졌으나(52주고 45,850, 현재 고점 대비 <span class="down">-57%</span>), 성장 둔화로 멀티플 축소 중.</li>
+<li>노머스 11,480원 · PER 8.45·PBR 1.22 · 시총 1,249억. Forward PER 6.4. 자체 목표가[추정]: FY26E EPS 1,796 × 8배(분쟁 디스카운트) = 14,370원·×9배 = 16,160원. 1차 14,000·2차 16,500(컨센). 수치상 최저평가지만 &#x27;싼 데는 이유&#x27;(신뢰·분쟁).</li>
+<li>키다리 6,980원 · PER 38.99·PBR 1.27 · 시총 2,587억. 흑전 초기라 PER 높음, PBR로는 1.3배 미만. 60일 <span class="up">+96%</span> 급등 후.</li>
+<li>탑코 2,295원 · 순익 적자(PER 음수)·PBR 3.47 · 시총 1,131억. 적자라 PSR 기준: 시총1,131/매출486 = PSR 2.3배. 테마 프리미엄.</li>
+</ul>
+<hr>
+<p>⑥ 진입전략·손익비 (전 종목 현물만·레버리지 불가) ━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>디어유: MA5 19,102·MA20 17,986·MA60 18,936, 현재가 19,590으로 모든 이평 상회(정배열 회복 초입)·당일 20일 신고가. 52주 16,680~45,850(저점권). 진입 19,100~19,600(또는 MA60 18,900 눌림), 손절 16,600(52주저 하회). 상방=26,000까지 <span class="up">+32.7%</span> ÷ 하방=16,600까지 <span class="down">-15.3%</span> → 1:2.1. 눌림(18,900) 진입 시 1:3.1.</li>
+<li>노머스: MA5 10,770·MA20 10,636·MA60 10,929, 현재 11,480 상회(단기 돌파)·ret5 <span class="up">+11%</span>. 52주 8,740~31,600. 진입 11,000~11,500, 손절 10,000(20일저 10,090 이탈). 상방=14,000까지 <span class="up">+21.9%</span> ÷ 하방=10,000까지 <span class="down">-12.9%</span> → 1:1.7.</li>
+<li>키다리: ret60 <span class="up">+96%</span>·ret5 <span class="down">-17%</span>(고점 9,450→현 6,980, 고점 대비 <span class="down">-26%</span> 조정 중). MA20(8,110) 하회·MA60(5,654) 지지. 과열 후 조정이라 추격 부적합 → 눌림(6,000~6,500, MA60권) 대기 관심.</li>
+<li>탑코: ret60 <span class="up">+115%</span>·ret20 <span class="down">-25.8%</span>·ret5 <span class="down">-22%</span>(급등 후 급락). 순익 적자+테마 변동성 최고 → 손익비 성립 어려움, 진입부적합·관망.</li>
+<li>유동성(20일 평균 거래대금): 키다리 44.3억 &gt; 탑코 21.0억 &gt; 디어유 12.5억 &gt; 노머스 2.6억. ★노머스는 1일 체결상한(ADV 10%)이 ~0.26억에 불과 — 소형·저유동 리스크 큼.</li>
+</ul>
+<hr>
+<p>⑧ 산업·바텀업 모델 (§9, 대표주 디어유 중심) ━━━━━━━━━━━━━━━━ 9-1 제품분해: 디어유 매출 98.7%가 DearU bubble 구독 단일 [실측]. 사실상 &#x27;구독수 × ARPU&#x27; 함수. 9-3 시장: 글로벌 팬덤 플랫폼 + AI연애 결합. 국내 AI연인 &#x27;1억 사용시간&#x27;급 수요 존재 [인용: 조선 2026-08-26]이나 선두는 비상장 제타 → 디어유의 직접 수혜는 &#x27;아티스트 IP 구독&#x27;에 한정. TAM 정량 교차출처 2개 미확보 → 미확인. 9-7 바텀업(디어유, FY26, 억원) [추정: 산식]:</p>
+<ul>
+<li>구독 기반 매출 = 월구독 건수 × 월 5,000원(해외 USD4.49) × 12.</li>
+<li>2025 매출 838억 → 월평균 유효구독 약 140만건 수준으로 역산[추정: 838억/(5,000×12)=1,397만 구독월 ÷12]. 블로거 &#x27;200만 유저&#x27;는 누적/MAU 개념으로 유효구독과 상이.</li>
+<li>Base(컨센): FY26 매출 953·영업익 381(OPM 40%). Bull: 해외 C팝·미국 램프업으로 매출 1,000+·영업익 420+. Bear: 국내 구독 추가 이탈로 매출 900 미만·영업익 350 미만.</li>
+<li>민감도: 구독건수 ±5% → 영업익 약 ±40억(고정비 레버리지 큼).</li>
+<li>결론 문장: &quot;디어유 3Q26 연결 영업이익 ≥ 91억(컨센)이면 논지 유지·해외성장 확인, &lt; 80억이면 국내 둔화가 해외성장을 압도 → 논지 폐기.&quot; [컨센 2026Q3 영업익 91억, 인용: naver 집계]</li>
+</ul>
+<p>9-8 미확인: 캐릭터챗 TAM 교차출처, 디어유 정확 구독수(회사 비공개), 레진 AI챗 출시일(블로거 10/19 주장·뉴스 직접확인 못함), 키다리·탑코 증권 컨센.</p>
+<hr>
+<p>⑦ 촉매·반증·시나리오 ━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>촉매 캘린더(날짜 확정): 각사 3Q26 분기보고서 법정기한 2026-11-14 [실측: 자본시장법]. 디어유 자사주 150억 신탁 취득(한도 92.5% 진행) [인용: 2026-09-29]. 탑코 탑툰챗 ARPPU 추이(월별). 국정감사 AI캐릭터챗 규제 논의(진행 중).</li>
+<li>반증 3개(대표주 디어유): ①3Q26 연결 영업익 &lt; 80억이면 전량 청산(국내 둔화&gt;해외성장) ②종가 16,600원(52주저) 이탈 시 청산 ③해외(QQ뮤직·미국) 구독 증가 미확인 시 성장스토리 폐기.</li>
+<li>이벤트 매트릭스(디어유 3Q 실적): [쇼크(OP&lt;80억)×갭하락]→청산 / [인라인(80~95억)×보합]→보유 / [서프(&gt;100억)×갭상승]→목표 상향 보유.</li>
+<li>확률가중 시나리오(디어유, 12M): Bear 30%(목표 17,000, 국내 둔화 지속) / Base 50%(26,000, 해외가 둔화 상쇄) / Bull 20%(31,600, 미국 신사업 성공). 기대값 = 0.3×17,000<span class="up">+0.5</span>×26,000<span class="up">+0.2</span>×31,600 = 5,100<span class="up">+13,000</span><span class="up">+6,320</span> = 24,420원(현재가 <span class="up">+24.7%</span>).</li>
+<li>수급(20일): 디어유 외국인 <span class="down">-6.03%</span>·기관 <span class="down">-1.78%</span>·개인 <span class="up">+6.24%</span>(외국인 매도). 키다리 외국인 <span class="up">+31.56%</span>(강한 순매수)·개인 <span class="down">-56.46%</span>. 탑코 외국인 <span class="up">+17.4%</span>·개인 <span class="down">-41.9%</span>.</li>
+<li>포지션 사이징(자산 대비 %로만): 디어유 손실예산 1% ÷ 손절폭 15.3% = 자산의 6.5%. 고변동 레짐(RV20 26%, 80퍼센타일)·이벤트 전 상한 25%·집중상한 50% 중 최소값 = 6.5%. 노머스는 저유동(ADV 2.6억)으로 사이징을 더 낮춰야 함.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거·단일 증권사 추정치는 &#x27;추정/인용&#x27;으로 표기. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록] 캐릭터챗 TAM 교차출처·디어유 정확 구독수·레진 AI챗 출시일(블로거 10/19 주장)·키다리/탑코 증권 컨센·노머스 2023 실적(상장 전)·4사 순이익 일부 분기분해. [출처 목록] DART 사업보고서/반기보고서(디어유 20260316001246·20260814002798, 노머스 20260324001029·20260814002565, 키다리 20260317000560, 탑코 20260319000016) / KIS 시세·선물마스터 2026-10-12 / FnGuide·naver 컨센 2026-10-12 / 뉴스 인용 각 본문. [검산] 디어유 2024 매출 749=분기합 추세 일치 / OPM 산식(영업익/매출) 본문 일치 / 손익비 산식 헤더·본문 일치(디어유 1:2.1, 노머스 1:1.7) / 시나리오 확률합 30<span class="up">+50</span><span class="up">+20</span>=100%.</p>
+<hr>
+<p>&lt;!-- hub:enrich:begin:376300 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-12 08:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 19,590원 (<span class="up">+0.0%</span>) · 시총 4,650억 · 5일 <span class="up">+3.8%</span> / 20일 <span class="up">+6.7%</span> / 60일 <span class="down">-12.9%</span></li>
+<li>MA5 19,102원 / MA20 17,986원 / MA60 18,936원 → MA20 이격 <span class="up">+8.9%</span> · MA60 이격 <span class="up">+3.5%</span></li>
+<li>52주 고 45,850원 / 저 16,680원 → 고점 대비 <span class="down">-57.3%</span> · 20일 고 19,590원 / 저 16,710원</li>
+<li>후행 PER 24.96 / PBR 2.22 (EPS 785원 · BPS 8,842원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 12.5억 (5일 15.4억)</li>
+<li>외국인 순매수 5일 -1.0억 / 20일 -6.0억 · 기관 5일 5.8억 / 20일 -1.8억 · 개인 20일 6.2억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 6.46% / 20일 평균 13.87% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 32.77% (09/09) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 26,000원 (<span class="up">+32.7%</span>) ÷ 하방 16,600원 (−15.3%) = <strong>1:2.14</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 20%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 15.3% = <strong>자산의 3.3%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.3%</strong></li>
+<li>유동성 참고: 20일 ADV 12.5억 · 1일 소화 한도는 ADV의 10%(1.25억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 15.3% · ATR14 694원 (손절폭/ATR 4.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 15.3% = ATR14 × 4.3배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 18,202원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:4.62</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:376300 --&gt;</p>
+<p><span id="card-376300"></span>📋 결정카드 — 디어유(376300) 판정: 관심 선물: 無 (현물만·레버리지 불가) 현재가: 19,590원 진입: 18,900~19,600원 (MA60 눌림 선호) 손절: 16,600원 (52주저 하회) 목표: 1차 26,000원 (2차 31,600원) 손익비: 1:2.1 (눌림 진입 시 1:3.1) 기간: 스윙 6~12주 촉매: 3Q26 실적 2026-11-14 / 해외(QQ뮤직·미국) 구독 / 자사주 신탁 반증: 3Q26 연결 영업익 &lt; 80억이면 전량 청산 / 종가 16,600원 이탈 시 청산</p>
+<p>&lt;!-- hub:enrich:begin:473980 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-12 08:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 11,480원 (<span class="up">+0.0%</span>) · 시총 1,249억 · 5일 <span class="up">+11.0%</span> / 20일 <span class="down">-3.2%</span> / 60일 <span class="down">-1.5%</span></li>
+<li>MA5 10,770원 / MA20 10,636원 / MA60 10,930원 → MA20 이격 <span class="up">+7.9%</span> · MA60 이격 <span class="up">+5.0%</span></li>
+<li>52주 고 31,600원 / 저 8,740원 → 고점 대비 <span class="down">-63.7%</span> · 20일 고 11,600원 / 저 10,090원</li>
+<li>후행 PER 8.45 / PBR 1.22 (EPS 1,359원 · BPS 9,426원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 2.6억 (5일 3.6억)</li>
+<li>외국인 순매수 5일 -0.2억 / 20일 0.6억 · 기관 5일 7.2억 / 20일 4.3억 · 개인 20일 -4.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 5.76% / 20일 평균 10.61% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 26.03% (09/11) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 14,000원 (<span class="up">+22.0%</span>) ÷ 하방 10,000원 (−12.9%) = <strong>1:1.70</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 20%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 12.9% = <strong>자산의 3.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.9%</strong></li>
+<li>유동성 참고: 20일 ADV 2.6억 · 1일 소화 한도는 ADV의 10%(0.26억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 12.9% · ATR14 384원 (손절폭/ATR 3.9배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 12.9% = ATR14 × 3.9배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 10,711원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:3.28</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:473980 --&gt;</p>
+<p><span id="card-473980"></span>📋 결정카드 — 노머스(473980) 판정: 관심 선물: 無 (현물만·레버리지 불가) 현재가: 11,480원 진입: 11,000~11,500원 손절: 10,000원 (20일저 이탈) 목표: 1차 14,000원 (2차 16,500원) 손익비: 1:1.7 기간: 스윙 4~8주 촉매: 3Q26 실적 2026-11-14 / fromm 플랫폼 비중 확대 반증: 3Q26 연결 영업익 &lt; 50억이면 청산(2025 연 123억·반기 35억 기준) / 원헌드레드 분쟁 추가 악재 / 종가 10,000원 이탈 시 청산</p>
+<p>&lt;!-- hub:enrich:begin:020120 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-12 08:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 6,980원 (<span class="up">+0.0%</span>) · 시총 2,587억 · 5일 <span class="down">-17.0%</span> / 20일 <span class="up">+5.8%</span> / 60일 <span class="up">+96.3%</span></li>
+<li>MA5 7,212원 / MA20 8,110원 / MA60 5,654원 → MA20 이격 <span class="down">-13.9%</span> · MA60 이격 <span class="up">+23.5%</span></li>
+<li>52주 고 9,450원 / 저 2,800원 → 고점 대비 <span class="down">-26.1%</span> · 20일 고 9,250원 / 저 6,670원</li>
+<li>후행 PER 38.99 / PBR 1.27 (EPS 179원 · BPS 5,485원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 44.3억 (5일 46.7억)</li>
+<li>외국인 순매수 5일 15.1억 / 20일 31.6억 · 기관 5일 -14.2억 / 20일 22.4억 · 개인 20일 -56.5억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.22% / 20일 평균 1.94% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 7.12% (09/11) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 8,100원 (<span class="up">+16.0%</span>) ÷ 하방 5,650원 (−19.1%) = <strong>1:0.84</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 20%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 19.1% = <strong>자산의 2.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.6%</strong></li>
+<li>유동성 참고: 20일 ADV 44.3억 · 1일 소화 한도는 ADV의 10%(4.43억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 19.1% · ATR14 842원 (손절폭/ATR 1.6배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 19.1% = ATR14 × 1.6배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 5,716원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.89</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:020120 --&gt;</p>
+<p><span id="card-020120"></span>📋 결정카드 — 키다리스튜디오(020120) 판정: 관망 (눌림 시 관심) 선물: 無 (현물만·레버리지 불가) 현재가: 6,980원 진입: 6,000~6,500원 (MA60권 눌림 대기) 손절: 5,650원 (MA60 이탈) 목표: 1차 8,100원 (2차 9,450원·52주고) 손익비: 1:1.9 (눌림 6,200 진입 기준 상방 8,100 <span class="up">+30.6%</span>÷하방 5,650 <span class="down">-8.9%</span>) 기간: 스윙 4~10주 촉매: 레진 AI 캐릭터챗(블로거 10/19 주장·미확인) / 3Q26 실적 2026-11-14 반증: 3Q26 연결 영업익 &lt; 30억이면 흑전 모멘텀 폐기 / 종가 5,650원 이탈 시 청산</p>
+<p>&lt;!-- hub:enrich:begin:134580 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-12 08:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 2,295원 (<span class="up">+0.0%</span>) · 시총 1,131억 · 5일 <span class="down">-22.1%</span> / 20일 <span class="down">-25.8%</span> / 60일 <span class="up">+115.9%</span></li>
+<li>MA5 2,463원 / MA20 3,255원 / MA60 2,398원 → MA20 이격 <span class="down">-29.5%</span> · MA60 이격 <span class="down">-4.3%</span></li>
+<li>52주 고 4,400원 / 저 850원 → 고점 대비 <span class="down">-47.8%</span> · 20일 고 4,140원 / 저 2,295원</li>
+<li>후행 PER -41.73 / PBR 3.47 (EPS -55원 · BPS 661원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 21.0억 (5일 12.3억)</li>
+<li>외국인 순매수 5일 8.8억 / 20일 17.4억 · 기관 5일 -7.6억 / 20일 28.5억 · 개인 20일 -41.9억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.17% / 20일 평균 4.18% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 13.04% (09/17) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 20%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 4.1% = <strong>자산의 12.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 12.1%</strong></li>
+<li>유동성 참고: 20일 ADV 21.0억 · 1일 소화 한도는 ADV의 10%(2.10억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 4.1% · ATR14 336원 (손절폭/ATR 0.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 4.1% = ATR14 × 0.3배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 1,790원</li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:134580 --&gt;</p>
+<p><span id="card-134580"></span>📋 결정카드 — 탑코미디어·엔키AX(134580) 판정: 관망 (진입부적합) 선물: 無 (현물만·레버리지 불가) 현재가: 2,295원 진입: 미권장 (순익 적자·테마 최고변동, 손익비 불성립) 손절: 2,200원 (20일저 2,295 근접·이탈 시) 목표: 미확인 (적자로 자체 목표가 산출 보류) 손익비: 진입부적합 기간: - 촉매: 탑툰챗 ARPPU 추이 / 3Q26 실적 2026-11-14 반증: 3Q26에도 순이익 적자 지속이면 테마성 급등 폐기 / 종가 2,200원 이탈 시 회피 유지</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
