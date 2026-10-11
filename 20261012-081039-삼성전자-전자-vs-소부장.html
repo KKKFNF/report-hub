@@ -1,0 +1,222 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>삼성전자 (전자 vs 소부장) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261012-081039-삼성전자-전자-vs-소부장.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.75</div><div class="tp-c"><b>결론 발췌</b> 포워드 기준 극단적 저평가(FY27E PER 3.9배)는 사실이나, 3Q26 역대급 실적(잠정 OP 107조)이 이미 발표·당일 −4.7%로 &#x27;sell the news&#x27;가 나왔고 외인 20일 −7.4조 매도가 진행 중 → 추격보다 MA60(25.7만) 눌림목 대기. 판정 관심 / 진입 25.4만~26.0만 / 1차목표 29.0만·2차 32.0만 / 손절 24.5만 / 손익비 1:2.7(1차). ※아래는 특정 블로그 글을 검증한 리서치 참고용이며 매수·매도 권유가 아님. ━━━━━━━━━━━━━━━ ① 사실관계 검증 • 사업구조(연결, 2026 반기보고서 [실측: 20260814003699]): DS(DRAM·NAND·모바일AP·파운드리)…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>삼성전자 (전자 vs 소부장)</h1>
+<div class="meta">📊 benine · 2026-10-12 08:10 · 코드 005930</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-12 08:10)</div><div class="kpi-v">262,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,531.7조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">39.91</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">4.09</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.75</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.65</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">290,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 254,000~260,000원 (MA60 지지 확인, 3회 분할)</span><span class="dc dn">손절 245,000원</span><span class="dc up">목표 290,000원</span><span class="dc">손익비 진입 1:2.75 · 현재가 1:1.65</span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026년 10월 말 3Q 확정실적·컨콜·이사회 주주환원 / 2027년 1월 잔여 환원+신규 환원정책</div><div class="dc-l">🛑 반증: 4Q26 연결 영업이익 &lt; 90조(잠정)이면 전량 청산 / 종가 245,000원 이탈 시 전량 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 삼성전자(005930)  ※개별주식선물 有(근월물 A11611)</p>
+<p>📌 한줄 결론: 포워드 기준 극단적 저평가(FY27E PER 3.9배)는 사실이나, 3Q26 역대급 실적(잠정 OP 107조)이 이미 발표·당일 −4.7%로 &#x27;sell the news&#x27;가 나왔고 외인 20일 −7.4조 매도가 진행 중 → 추격보다 MA60(25.7만) 눌림목 대기. 판정 관심 / 진입 25.4만~26.0만 / 1차목표 29.0만·2차 32.0만 / 손절 24.5만 / 손익비 1:2.7(1차). ※아래는 특정 블로그 글을 검증한 리서치 참고용이며 매수·매도 권유가 아님.</p>
+<hr>
+<p>① 사실관계 검증</p>
+<ul>
+<li>사업구조(연결, 2026 반기보고서 [실측: 20260814003699]): DS(DRAM·NAND·모바일AP·파운드리) 68.5%, DX(TV·스마트폰·가전) 33.0%, SDC(OLED) 4.6%, Harman 2.7%, 내부거래 △8.9%. 1년 전만 해도 DX 56.3%/DS 39.0%(2025 사업보고서)였는데 메모리 판가 폭등으로 DS 비중이 39%→68.5%로 역전 — 지금 삼성전자 손익은 사실상 &#x27;메모리 회사&#x27;.</li>
+<li>급등→조정 사유(검증): 3Q26 잠정 영업이익 107조(국내기업 최초 분기 100조·OP 세계 1위, <span class="up">+782%</span> YoY)가 10/7~10/8 발표됨 [인용: YTN·테크M·지디넷 2026-10-08]. 그런데 발표 당일 주가 −4.7% [인용: 세계일보 2026-10-10] — 실적은 이미 주가에 상당 반영, 전형적 재료소멸. 블로거가 지목한 &#x27;전닉(전자) 재검토&#x27;의 핵심은 과거 급등이 아니라 &#x27;앞으로의 FY27 이익 상향&#x27;에 있음.</li>
+<li>블로거 모멘텀 주장 교차검증: ①주주환원 — &#x27;110조 환원 현실화&#x27; 논의 실재 [인용: KB Think 2026-10-07, 인베스트조선 2026-09-29]. 블로거의 &#x27;30조 배당<span class="up">+15</span>조 자사주+내년 60~80조 = ~110조&#x27;와 정합. ②10/29 컨콜 — 3Q 잠정은 매출·OP만 발표됐고 상세 실적·부문별·주주환원정책은 월말 확정 발표/컨콜에서 공개(통상 일정과 일치). 단, &#x27;10/29&#x27; 날짜 자체는 공시 미확인(회사 IR 캘린더 확인 필요).</li>
+<li>변수(사실): 외국인 보유율 46%대로 &#x27;금융위기 수준&#x27; 하락 [인용: 연합뉴스TV·매경 2026-10-11]. enrich 실측 외인 20일 순매도 −7.42조 [실측: KIS 2026-10-12]. 역대급 실적에도 외인이 파는 구조가 최대 리스크.</li>
+</ul>
+<p>② 실적 (DART 연결 실측)</p>
+<ul>
+<li>연간 추세(연결) [실측: 사업보고서 20260310002820]</li>
+<li>2023: 매출 258.9조 / OP 6.57조 / OPM 2.5%</li>
+<li>2024: 매출 300.9조 / OP 32.7조 / 순익 34.5조 / OPM 10.9%</li>
+<li>2025: 매출 333.6조 / OP 43.6조 / 순익 45.2조 / OPM 13.1%</li>
+<li>분기 OP 추세(연결, 조원) [실측: 각 분기·반기보고서]</li>
+<li>2025: Q1 6.69 / Q2 4.68 / Q3 12.17 / Q4 20.07</li>
+<li>2026: Q1 57.23 / Q2 89.49 / Q3 107.4(잠정·인용)</li>
+</ul>
+<p>매출(연결): 2026 Q1 133.9조 / Q2 171.5조 / 반기 누적 305.4조, 반기 OPM 48.0% — 메모리 슈퍼사이클이 손익에 폭발적 반영.</p>
+<ul>
+<li>재무건전성(연결) [실측]: 부채비율(부채÷자본) 2023 25.4% → 2024 27.9% → 2025 29.9%. 자본 436조(2025). 메모리 대형주 중 재무 최상위, 110조 환원 여력의 근거.</li>
+<li>모멘텀 판단: YoY·QoQ 모두 폭증, 상승추세를 실적이 &#x27;과하게&#x27; 정당화. 다만 QoQ 증가율(Q1→Q2 <span class="up">+56%</span>, Q2→Q3(잠정) <span class="up">+20%</span>)은 둔화 시작 — 피크 접근 신호.</li>
+</ul>
+<p>③ 미래 실적치 + 달성 가능성</p>
+<ul>
+<li>컨센서스(연결, 억원·EPS 원) [인용: fnguide 2026-10-12]</li>
+<li>FY26E: 매출 712.7조 / OP 370.4조 / 순익 306.3조 / EPS 45,419 / ROE 53.5%</li>
+<li>FY27E: 매출 952.4조 / OP 555.3조 / 순익 455.8조 / EPS 67,701 / ROE 50.0%</li>
+<li>FY28E: 매출 1,073.0조 / OP 608.2조 / 순익 507.4조 / EPS 75,333 / ROE 38.4%</li>
+<li>★블로거 &#x27;이익 추정 상향&#x27; 논지 검증 — OP 컨센 추이(당해 FY26, fnguide): 1년전 47.4조 → 6개월전 292.9조 → 3개월전 381.2조 → 현재 370.4조. 지난 1년간 폭발적 상향은 사실이나, 최근 3개월은 381→370조로 소폭 하향(−2.8%, 원화강세 영향 [인용: 삼성증권 2026-10-08]). 반면 FY27은 &#x27;2027년 메모리 판가·실적 상향 조정&#x27; 리포트가 10/07 나옴 [인용: 메리츠 2026-10-07]. → 블로거 논지는 &#x27;FY27 상향&#x27;에 한해 최근 현실과 부합, &#x27;FY26&#x27;은 피크 근접으로 상향 정체. 상향 추세의 축이 FY26에서 FY27로 넘어가는 국면.</li>
+<li>달성 가능성: FY26 中~高(이미 9M 누적 OP 약 254조로 연 370조 레인지 안착). FY27 中(판가 추가 상향이 전제 — HBM4 램프·공급제약 지속 여부가 관건). FY28 이후는 메모리 사이클 피크아웃 불확실성으로 低(블로거도 29년 이후 불확실 인정).</li>
+</ul>
+<p>④ 밸류에이션 → 목표가</p>
+<ul>
+<li>현재가 262,000원 기준 [실측: enrich/KIS 2026-10-12]</li>
+<li>Trailing PER 39.9 / PBR 4.09 / BPS 63,997</li>
+<li>Forward PER: FY26E 5.77배 / FY27E 3.87배 / FY28E 3.48배</li>
+<li>★블로거 &#x27;27년 추정대로면 21만원 = PER 약 3배&#x27; 검증: 210,000 ÷ FY27E EPS 67,701 = 3.10배 ✓ 정확. 즉 현재가 262,000은 FY27E PER 3.87배 — 21만원이 &#x27;바닥 밸류(하방)&#x27;라는 주장은 수치상 성립(하방 21만 = −19.8%).</li>
+<li>Peer 비교(연결, 2025 trailing) [실측: peer_finder]</li>
+<li>SK하이닉스(000660): PER 28.5 / PBR 9.79 / OPM 48.6% / ROE 35.6%</li>
+<li>삼성전자: PER 39.9 / PBR 4.09 / OPM 13.1%(DX 희석) / ROE 10.4%</li>
+</ul>
+<p>→ PBR은 삼성이 하이닉스의 절반 이하. &#x27;소부장&#x27; 피어(원익IPS PER 78.1·PBR 6.71, 실리콘투 PER 13.6)는 랠리 후 고평가 — 블로거의 &#x27;소부장 다음 전자&#x27; 상대가치 논리는 포워드·PBR 기준 설득력 있음.</p>
+<ul>
+<li>자체 목표가 산식 [추정]: 메모리는 &#x27;이익 정점에서 PER 최저&#x27;가 정상(블로거 지적 타당). FY27E EPS 67,701에 피크 반영 보수 멀티플 적용 —</li>
+<li>1차 290,000 = EPS 67,701 × 4.3배 (20일 고점 285,500 상단)</li>
+<li>2차 320,000 = EPS 67,701 × 4.7배</li>
+<li>증권사 평균 470,227원(22사) [인용: fnguide] = FY27E 6.9배 → Bull 확장치로만 병기(피크아웃 리스크로 자체값은 보수).</li>
+</ul>
+<p>범위: 하나 480,000(10/12)·DS투자 530,000(10/8)·대신 560,000(10/8)·메리츠 500,000(10/7)·삼성 400,000(10/8). 상승여력 평균 <span class="up">+79.8%</span>.</p>
+<p>⑤ 손익비 (진입가 기준)</p>
+<ul>
+<li>진입 중심 257,000원 가정</li>
+<li>상방: 1차 290,000 = <span class="up">+12.8%</span> / 2차 320,000 = <span class="up">+24.5%</span></li>
+<li>하방: 손절 245,000 = −4.7% (20일 저점 248,500 종가 이탈)</li>
+<li>손익비 = <span class="up">+12.8</span> ÷ 4.7 = 1:2.7 (1차) / <span class="up">+24.5</span> ÷ 4.7 = 1:5.2 (2차)</li>
+<li>판정: 1차 기준 1:2.7로 진입 적합 구간. 단 현재가(262,000)는 MA5·MA20 아래라 &#x27;지금 추격&#x27;이 아니라 눌림 대기가 유리.</li>
+</ul>
+<p>⑥ 진입 전략 (선물 레버리지 반영)</p>
+<ul>
+<li>위치 [실측: enrich 2026-10-12]: 현재 262,000. MA5 268,100 / MA20 266,300 / MA60 257,516 (현재가가 MA5·MA20 하회, MA60 상회 = 대형 상승추세 속 단기 눌림). 20일 고 285,500 / 저 248,500. 52주 고 374,500(−30.0%) / 저 90,200(<span class="up">+190%</span>). ret5 −5.1% / ret20 −2.8% / ret60 −8.1% → 단기 약세. ATR14 8,286.</li>
+<li>선물 有 [실측: kis_futures_check, 근월물 A11611] → 레버리지 스윙 가능. 단 대형주+외인매도<span class="up">+10</span>/29 이벤트로 변동성 고. enrich 변동성 레짐 &#x27;고변동&#x27;(RV20 26.2·VKOSPI 36.8).</li>
+<li>3라인(레버리지 스윙)</li>
+<li>진입: 254,000~260,000 MA60 지지 확인 구간, 3회 분할(각 1/3). 지금(262,000) 추격 자제.</li>
+<li>손절: 245,000 종가 이탈(전량 청산, 예외 없음)</li>
+<li>익절: 1차 290,000(절반)·2차 320,000(잔량). 470,000은 증권사 Bull 확장.</li>
+<li>수급·유동성 [실측]: ADV20 4.21조 → 1일 체결상한(ADV 10%) 약 4,200억, 유동성 제약 無. 외인 20일 −7.42조 매도가 최대 역풍 — 외인 순매수 전환 전까지는 &#x27;관심&#x27; 유지. 공매도 20일평균 4.75% 감소추세(특이 없음).</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 모델 (§9) 9-1 제품·부문 매출(연결, 2026 반기) [실측: 20260814003699]</p>
+<ul>
+<li>DS(메모리·파운드리·LSI) 209.2조(68.5%) / DX 100.7조(33.0%) / SDC 14.2조(4.6%) / Harman 8.4조(2.7%)</li>
+</ul>
+<p>9-3 시장·경쟁: DRAM·NAND는 삼성·SK하이닉스·마이크론 3사 과점. 삼성 DRAM 글로벌 1위(점유 40%대 추정) — 단, 정확 점유율·bit 출하량은 미확인(IR·산업리포트 필요). 9-4 단가·원가 [실측: 반기보고서] : 메모리 평균 판매가격 2026 반기 <span class="up">+220%</span> YoY(2025 <span class="up">+14%</span>). 원재료 모바일용 메모리 매입가 <span class="up">+211%</span> — 전형적 공급제약+AI/HBM 수요 급증 국면. 단가 결정: HBM은 LTA(장기계약) 기반, 범용은 분기 협상. 9-7 바텀업 실적 모델(FY27, 연결) [추정: ASP 시나리오] 구분 | Bear | Base(컨센) | Bull 메모리 판가 가정 | H2&#x27;27 하락 전환 | 고점 유지 | HBM4 추가 상향 영업이익 | ~450조 | 555조 | ~620조 EPS(원) | ~52,000 | 67,701 | ~75,000 적용 4.3배 주가 | 224,000 | 291,000 | 322,000</p>
+<ul>
+<li>민감도: 메모리 판가 ±10% → DS 영업이익 약 ±55조(DS가 전사 OP의 ~90%) [추정]. 전방 AI CAPEX 1분기 지연 → 분기 매출 수십조 변동.</li>
+<li>★결론 문장: 3Q26 연결 영업이익 107.4조(잠정, 이미 달성) → 논지 유효. 4Q26 연결 영업이익 ≥ 110조이면 논지 유지·추가매수 검토, &lt; 90조이면 피크아웃으로 논지 폐기·축소.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더</li>
+<li>2026년 10월 말: 3Q 확정 실적·컨콜(상세 부문·FY27 수급/LTA 가이던스)·이사회 주주환원(배당+자사주) — 블로거 &#x27;10/29&#x27;(날짜 공시 미확인)</li>
+<li>2027년 1월: 잔여 환원(블로거 60~80조)+신규 3개년 주주환원정책 발표 가능성 [인용: 블로거·KB Think &#x27;110조 환원&#x27;]</li>
+<li>2027년 1월 말: FY26 사업보고서(법정기한) — FY27 가이던스</li>
+<li>반증 조건 3개(수치→행동)</li>
+</ul>
+<ol>
+<li>4Q26 연결 영업이익 &lt; 90조(잠정)이면 사이클 피크아웃 → 논지 폐기·전량 청산 / ≥ 110조이면 추가매수 검토</li>
+<li>종가 245,000원 이탈 → 전량 청산</li>
+<li>FY27 OP 컨센(현 555조)이 3개월 연속 하향 전환 → 핵심 논지(FY27 상향) 훼손, 비중 축소</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(10월 말 확정 발표)</li>
+<li>주주환원 서프라이즈(110조+ 명시) × 갭상승 → 추격 자제·눌림 분할</li>
+<li>인라인 × 보합 → 진입구간(25.4만~26.0만) 분할</li>
+<li>환원 기대이하/FY27 가이던스 약함 × 갭하락 → 손절 타이트·관망 전환</li>
+<li>확률가중 시나리오(스윙 4~10주)</li>
+<li>Bear 30%: 피크아웃 선반영+외인매도 지속 → 230,000 (−12.2%)</li>
+<li>Base 50%: FY27 상향·환원 확정 → 290,000 (<span class="up">+10.7%</span>)</li>
+<li>Bull 20%: HBM4 램프+판가 추가상향 → 360,000 (<span class="up">+37.4%</span>)</li>
+<li>기대수익률 = 0.3×(−12.2) + 0.5×(10.7) + 0.2×(37.4) = <span class="up">+9.2%</span></li>
+<li>포지션 사이징(자산 대비 %): 표준 손실예산 1% ÷ 손절폭 4.7% = 자산의 21.3%. 단 현재 &#x27;고변동&#x27; 레짐(risk 0.5%) 적용 시 0.5% ÷ 4.7% = 10.6%. 이벤트(월말 컨콜) 전 상한 25%·집중상한 50% 중 최소값 → 자산의 약 10.6% 권고. 레버리지(선물)는 이 &#x27;기초자산 환산&#x27; 기준을 넘지 않게.</li>
+</ul>
+<p>⚠️ 본 리포트는 특정 블로그 글의 논지를 실측으로 검증한 리서치 참고용이며 매수·매도 권유가 아님. 블로거·증권사 추정치는 &#x27;추정&#x27;. 블로그 본문은 외부 의견으로 간주. [미확인] 메모리 bit 출하량·DRAM/NAND 개별 점유율 정확치 / 2026Q3 확정 매출(잠정 OP만) / HBM 매출비중 / 주주환원 확정 금액·10/29 날짜 / EV/EBITDA [출처] DART 사업보고서 20260310002820·반기보고서 20260814003699 / fnguide 컨센 2026-10-12 / enrich·KIS 2026-10-12 08:04 / peer_finder 2025연간 / Google News RSS 2026-10-07~11 [검산] 2025 분기합 OP 6.69<span class="up">+4.68</span><span class="up">+12.17</span><span class="up">+20.07</span>=43.61≈연 43.60 ✓ / 매출 분기합 333.61=연 333.61 ✓ / 2026 H1 Q1+Q2 OP 146.72≈반기 146.73 ✓ / 손익비 헤더 1:2.7=본문(12.8÷4.7) ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-12 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 262,000원 (<span class="up">+0.0%</span>) · 시총 1,531.72조 · 5일 <span class="down">-5.1%</span> / 20일 <span class="down">-2.8%</span> / 60일 <span class="down">-8.1%</span></li>
+<li>MA5 268,100원 / MA20 266,300원 / MA60 257,517원 → MA20 이격 <span class="down">-1.6%</span> · MA60 이격 <span class="up">+1.7%</span></li>
+<li>52주 고 374,500원 / 저 90,200원 → 고점 대비 <span class="down">-30.0%</span> · 20일 고 285,500원 / 저 248,500원</li>
+<li>후행 PER 39.91 / PBR 4.09 (EPS 6,564원 · BPS 63,997원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 42,055.8억 (5일 33,583.0억)</li>
+<li>외국인 순매수 5일 -10,356.0억 / 20일 -74,210.9억 · 기관 5일 -11,826.5억 / 20일 6,025.1억 · 개인 20일 -18,234.9억</li>
+<li>개별주식선물: ⚡ 상장 (A11610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 4.07% / 20일 평균 4.75% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 11.99% (09/11) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 290,000원 (<span class="up">+10.7%</span>) ÷ 하방 245,000원 (−6.5%) = <strong>1:1.65</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 20%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 6.5% = <strong>자산의 7.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 7.7%</strong></li>
+<li>유동성 참고: 20일 ADV 42,055.8억 · 1일 소화 한도는 ADV의 10%(4205.58억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 6.5% · ATR14 8,286원 (손절폭/ATR 2.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 6.5% = ATR14 × 2.1배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 248,500원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.07</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-005930"></span>📋 결정카드 — 삼성전자(005930) 판정: 관심 선물: 有 현재가: 262,000원 진입: 254,000~260,000원 (MA60 지지 확인, 3회 분할) 손절: 245,000원 목표: 1차 290,000원 (2차 320,000원) 손익비: 1:2.7 기간: 스윙 4~10주 촉매: 2026년 10월 말 3Q 확정실적·컨콜·이사회 주주환원 / 2027년 1월 잔여 환원+신규 환원정책 반증: 4Q26 연결 영업이익 &lt; 90조(잠정)이면 전량 청산 / 종가 245,000원 이탈 시 전량 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
