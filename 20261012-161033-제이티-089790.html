@@ -1,0 +1,252 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>제이티(089790) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261012-161033-제이티-089790.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:4.71</div><div class="tp-c"><b>결론 발췌</b> 2026년 적자→흑자 턴어라운드가 DART 실측으로 확인된 반도체 후공정 검사장비주. 상반기 영업이익 40억(흑전)·삼성전자向 165억 수주 공시로 하반기 가시성 확보. PBR 0.95배로 peer 대비 극저평가지만 당일 -7.4% 급락·증권사 커버리지 전무·실적 변동성이 큼 → 판정 관심(눌림 분할). 눌림 진입 6,200원 기준 손익비 1:3.3, 1차 목표 8,500원·2차 10,000원. (※ 이하 수치 태그: [실측]=DART/KIS 원문, [추정]=자체산식, [인용]=뉴스·블로거. 블로거·주담 발언은 &#x27;참고용 의견&#x27;이며 사실과 구분함.)</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>제이티(089790)</h1>
+<div class="meta">📊 benine · 2026-10-12 16:10 · 코드 089790</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-12 16:10)</div><div class="kpi-v">6,760원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">697억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.97</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:4.71</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.38</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">8,500원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 5,850~6,200원 (눌림 분할, MA20 지지 확인)</span><span class="dc dn">손절 5,500원</span><span class="dc up">목표 8,500원</span><span class="dc">손익비 진입 1:4.71 · 현재가 1:1.38 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:3.3</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:3.3로 적었지만 진입·손절·목표로 계산하면 1:4.71다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 3Q26 분기보고서 / 삼성 165억 하반기 매출인식</div><div class="dc-l">🛑 반증: 3Q26 누적 연결 영업이익 &lt; 42억 or 종가 5,500원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 제이티(089790) ※개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 2026년 적자→흑자 턴어라운드가 DART 실측으로 확인된 반도체 후공정 검사장비주. 상반기 영업이익 40억(흑전)·삼성전자向 165억 수주 공시로 하반기 가시성 확보. PBR 0.95배로 peer 대비 극저평가지만 당일 <span class="down">-7.4%</span> 급락·증권사 커버리지 전무·실적 변동성이 큼 → 판정 관심(눌림 분할). 눌림 진입 6,200원 기준 손익비 1:3.3, 1차 목표 8,500원·2차 10,000원.</p>
+<p>(※ 이하 수치 태그: [실측]=DART/KIS 원문, [추정]=자체산식, [인용]=뉴스·블로거. 블로거·주담 발언은 &#x27;참고용 의견&#x27;이며 사실과 구분함.)</p>
+<hr>
+<p>① 포착 신호 [실측: KIS 2026-10-12 16:02]</p>
+<ul>
+<li>현재가 6,740원 (당일 <span class="down">-7.42%</span>) · 시총 695억 · 코스닥 소형주</li>
+<li>추세: MA5 6,880 / MA20 5,866 / MA60 4,733 → 정배열(단기만 꺾임). 20일 <span class="up">+41.7%</span>·60일 <span class="up">+60.5%</span> 급등 뒤 당일 급락 조정</li>
+<li>52주 2,935~8,040 → 현재는 고점 대비 <span class="down">-16.2%</span>, 저점 대비 <span class="up">+130%</span> (바닥 탈출·고점 미도달 중간권)</li>
+<li>수급: 외국인 20일 순매수비중 <span class="up">+18.5%</span>(5일 <span class="up">+7.3%</span>)·9일 연속 순매수 [인용: 뉴스핌 10/6] / 기관 <span class="down">-1.0%</span> / 개인 <span class="down">-16.8%</span> → 외국인 주도</li>
+<li>공매도 특이 없음(20일 평균 0.43%)</li>
+<li>거래대금 ADV20 9.5억(ADV5 15.9억) → 소형주, 체결 제약 존재</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력: 반도체 후공정(Back-end) 최종검사 장비. 번인소터(Burn-In Sorter)·테스트핸들러·모듈/SSD 테스트핸들러·비전검사. 2025년 반도체검사장비가 매출의 99.5% [실측: 사업보고서 2025.12, 접수 20260319001329]</li>
+<li>전방·고객: 삼성전자·SK하이닉스·Micron·SCK·하나마이크론·Hitech [실측: 사업보고서 &#x27;매출처&#x27;] — 메모리 번인 공정 장비 공급</li>
+<li>급등사유(검증): ⓐ반도체 장비 테마 순환매(10/8 테마 <span class="up">+3.2%</span>, 제이티 <span class="up">+5.6%</span>) [인용: 매경 10/8] ⓑ실적 턴어라운드 실체(③참조) ⓒ삼성전자向 165억 수주 공시(②말미) — 테마+실적+수주가 겹친 급등. 단순 테마성 아님</li>
+<li>블로거(비나인 스크랩·10/9 주담통화)論: 번인소터 니치 1위 &#x27;사실상 독점&#x27;(진입장벽 약하나 대체재 없음), 올해 매출 작년 수준+α, OSAT向 BLU 영업 중, HBM 번인은 미정 → 아래에서 실측 교차검증</li>
+</ul>
+<p>③ 실적 — DART 연결 실측 (턴어라운드 핵심) [연간, 억원] 매출 / 영업이익 / 순이익 / OPM</p>
+<ul>
+<li>2023: 471.6 / 29.6 / 54.9 / 6.3%</li>
+<li>2024: 495.1 / 6.4 / 41.7 / 1.3%</li>
+<li>2025: 383.8 / -22.0 / -3.9 / <span class="down">-5.7%</span> ← 매출 <span class="down">-22%</span> 역성장·영업적자 전환</li>
+</ul>
+<p>[상반기 누적 연결]</p>
+<ul>
+<li>2025 H1: 매출 133.1 / 영익 -22.7 / 순익 -30.6</li>
+<li>2026 H1: 매출 370.7 / 영익 <span class="up">+40.3</span> / 순익 <span class="up">+88.0</span> / OPM 10.9%</li>
+</ul>
+<p>→ YoY 매출 <span class="up">+178%</span>·영업이익 흑자전환. 2026 상반기만으로 2025년 연간 매출(383.8)의 97% 달성 [실측: 반기보고서 2026.06, 접수 20260819000118]</p>
+<ul>
+<li>분기 분해: 1Q 매출232·영익16.9 / 2Q 매출138.7·영익23.4 → 1Q 대형 매출인식 집중, 2Q는 마진 개선</li>
+</ul>
+<p>⚠️ 순익(88억)&gt;영익(40.3억): 상반기 순익에 영업외수익 약 48억 포함(금융·외환·기타 추정) → 이익의 질은 &#x27;영업이익 40억&#x27;을 기준으로 볼 것. 순익 기반 PER는 과대평가 주의</p>
+<ul>
+<li>재무건전성 [실측 2026.6말 연결]: 자본 730.6 / 부채 284.1 → 부채비율 38.9%(2025말 55.5%에서 개선). 자산 1,014.7. 재무 매우 건전</li>
+<li>영업현금흐름: 반기 수치 API 미제공 → 미확인</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: 미확인 — stockeasy·네이버·FnGuide·한경 4소스 전부 0건(목표가·추정치·최근 리포트 없음). 제도권 커버리지 전무 → 아래는 전량 자체추정임</li>
+<li>자체 2026 추정 [추정: 상반기 실측 + 수주잔고·삼성계약 런레이트]</li>
+<li>백로그: 6월말 수주잔고 218.6억(별도) + 7/2 삼성 신규 165억 = 하반기 가시 백로그 ~384억</li>
+<li>하반기 매출: Bear 150 / Base 210 / Bull 260억 (삼성 165억 계약기간 12/31 내 납품분 중심)</li>
+<li>2026E 매출: Bear 521 / Base 581 / Bull 631억</li>
+<li>2026E 영업이익(OPM 8~12% 적용): Bear 52 / Base 61 / Bull 71억</li>
+<li>2026E 순이익(하반기 영업외 0 보수가정): 약 Base 100~108억</li>
+<li>달성가능성 中~高: 상반기 실적 실측+삼성 확정계약(165억·검수조건)으로 Base 매출 가시성 높음. 다만 매출인식 시점(연내 vs 내년 이월)·수주 lumpy가 변수</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 [실측]: PBR 0.95배(BPS 6,972·자본 730.6억) / PER은 적자TTM 기준 왜곡(enrich -269배). 2026E 순익 108억 기준 forward PER 약 6.4배</li>
+<li>Peer(2025년 기준·DART연결) [실측: peer_finder]</li>
+<li>디아이(003160): PBR 6.74 / 엑시콘(092870): PBR 3.74 / 태성(323280): PBR 14.8 / 원익홀딩스(030530): PBR 1.98</li>
+<li>반도체 후공정 검사장비 peer PBR 중앙값 대략 3.7배 → 제이티 0.95배는 극단적 할인</li>
+<li>할인 사유: 커버리지 전무·실적 변동성(수주 lumpy)·영업이익 규모 작음·2025 적자 잔상</li>
+<li>자체 목표가 산식</li>
+<li>PBR법: 턴어라운드 ROE 약 15%(2026E 순익108/자본~780) → 적정 PBR 1.2~1.4배. 2026말 추정 BPS ≈ 7,250원 × 1.3배 = 9,400원</li>
+<li>PER법: 2026E EPS ≈ 1,040원(순익108억/주식수 약1,040만주) × 적정 PER 8~10배 = 8,300~10,400원</li>
+<li>수렴: 1차 목표 8,500원(PBR 1.17·PER 8.2) / 2차 10,000원(PBR 1.38·PER 9.6)</li>
+<li>증권사 목표가: 없음(커버리지 전무)</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물 스윙만, 레버리지 불가)</p>
+<ul>
+<li>지지: MA20 5,866 / MA60 4,733 / 20일 저점 4,765</li>
+<li>저항: 20일 고점 7,280 / 52주 고점 8,040</li>
+<li>라인(현물 3단계)</li>
+<li>진입: 1차 6,200원(5일선 아래 눌림)·2차 5,850~5,900원(MA20 지지) 분할</li>
+<li>손절: 5,500원 종가 이탈(MA20 하단 완전 이탈)</li>
+<li>익절: 1차 8,040(52주고)→8,500 / 2차 10,000</li>
+<li>손익비(진입 6,200 기준): 상승여력 8,500 = <span class="up">+37.1%</span> ÷ 하락리스크 5,500 = <span class="down">-11.3%</span> = 1:3.3</li>
+<li>손익비(현재가 6,740 즉시진입 기준): <span class="up">+26.1%</span> ÷ <span class="down">-13.2%</span>(손절 5,850) = 1:2.0 → 추격보다 눌림이 유리</li>
+</ul>
+<p>⚠️ 당일 <span class="down">-7.4%</span> 급락·소형주 변동성(ATR 444)·커버리지 전무 → 50% 집중은 부적절. 현물·분할 원칙</p>
+<hr>
+<p>⑧ 산업·제품 바텀업 모델</p>
+<p>9-1 제품분해 [실측: 사업보고서 2025.12]</p>
+<ul>
+<li>반도체검사장비 99.53%(383.0억) — 세부 품목별 매출은 미공시(그룹합산만). 그룹구성: Semiconductor군 56.2%(번인소터·S-LSI핸들러·모듈핸들러·비전 등 21,550백만) + LED/DDI/SMD/Laser군 43.4%(16,649백만)</li>
+<li>임대 0.47%</li>
+</ul>
+<p>9-2 고객·납품 [실측: 공급계약 공시 20260702900520]</p>
+<ul>
+<li>삼성전자向 Handler 165.2억(2025년 매출 대비 43.04%!)·충남 아산·계약기간 2026.7.1~12.31·대금 납품후90%+검수후10%</li>
+<li>기타 고객: SK하이닉스·Micron·SCK·하나마이크론(과거 비메모리핸들러 공급, 원글 교차확인 ✓)·Hitech</li>
+<li>★고객 집중 리스크: 삼성 단일계약만으로 작년 매출의 43% → 전방 CAPEX·단일고객 의존도 매우 높음</li>
+</ul>
+<p>9-3 시장·경쟁</p>
+<ul>
+<li>번인소터 세계 TAM·점유율: 미확인 (market_sizer 0건·웹검색 0건·DART 미기재). 원글 &quot;니치 1위 독점&quot;은 블로거/주담 단일출처 주장 → 사실로 미확정. &quot;대체재 없음·스펙업 투자 시 교체&quot;도 진입장벽이 약하다는 양면 리스크</li>
+<li>국내 후공정 검사·핸들러 경쟁권: 디아이·엑시콘·테크윙 등(완전 동일제품 아님)</li>
+</ul>
+<p>9-4 단가·원가: DART 미공시(&#x27;원재료 스펙 다양·산출 불가&#x27; 명시) → 미확인 9-5 CAPA·수주 [실측]: 자체 생산설비 없음(외주생산)·가동률 산정 불가. 수주잔고 2025말 293억→2026.6말 218.6억(별도)<span class="up">+7</span>월 삼성 165억 신규 9-6 전방: 삼성전자 아산 후공정(D램·메모리모듈) 투자. 원글 &quot;삼성向 메모리모듈 검사장비=D램(HBM 아님)&quot; / OSAT向 BLU(Burn-in Loader/Unloader) 영업 진행(공시 전·미확정) / HBM 번인은 미정 → 신규 모멘텀은 &#x27;기대&#x27; 단계</p>
+<p>9-7 바텀업 실적 모델 [추정] (억원)</p>
+<ul>
+<li>2026E 매출: Bear 521 / Base 581 / Bull 631</li>
+</ul>
+<p>(산식: 상반기 실측 370.7 + 하반기 150/210/260)</p>
+<ul>
+<li>OPM: Bear 8% / Base 10.5% / Bull 11%</li>
+<li>2026E 영업이익: Bear 52 / Base 61 / Bull 71</li>
+<li>분기배분: 3Q 매출 ~95·영익 ~10 / 4Q 매출 ~115·영익 ~11 (Base·삼성 165억 하반기 인식 가정)</li>
+<li>민감도: 하반기 OPM ±2%p → 영익 ±4억 / 삼성계약 1분기 이월 시 4Q→1Q27 매출 약 80억 이동</li>
+<li>컨센 대조: 불가(커버리지 전무)</li>
+<li>★결론 문장: &quot;3Q26 누적 연결 영업이익 ≥ 52억(Base)이면 턴어라운드 지속·추가매수 검토, &lt; 42억(상반기 40.3 대비 3Q 단독 거의 0·정체)이면 턴어라운드 지속성 의심·논지 폐기·청산&quot;</li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정)</li>
+<li>2026-11-14(법정기한): 3Q26 분기보고서 — 턴어라운드 지속 여부 판정 (9-7 임계값)</li>
+<li>2026.7~12월: 삼성 Handler 165억 납품·검수 완료(매출인식) — 4Q 실적 확인</li>
+<li>반증 조건 3개(수치→행동)</li>
+</ul>
+<ol>
+<li>3Q26 누적 연결 영업이익 &lt; 42억 → 논지 폐기·전량 청산</li>
+<li>종가 5,500원 이탈 → 손절 전량 청산</li>
+<li>삼성 165억 계약 연내 매출 미인식(4Q 매출 QoQ 급감 &lt;80억) → 지속성 의심·비중 축소</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스 (3Q 실적 × 당일 주가)</li>
+<li>서프라이즈(3Q누적영익≥52억) × 갭상승 → 보유·목표 상향 / × 갭하락 → 눌림 추가매수</li>
+<li>인라인(42~52억) × 보합 → 보유 / × 갭하락 → 손절선까지 관망</li>
+<li>쇼크(&lt;42억) → 갭 무관 반증1 발동·청산</li>
+<li>확률가중 시나리오 (현재가 6,740 기준)</li>
+<li>Bull 30%: 삼성 추가발주+OSAT BLU 수주공시 → 영익 71억·목표 10,000원 (<span class="up">+48%</span>)</li>
+<li>Base 50%: 상반기 모멘텀 유지·삼성 하반기 인식 → 영익 61억·목표 8,500원 (<span class="up">+26%</span>)</li>
+<li>Bear 20%: 수주 내년 이월·1Q 집중매출 반락 → 목표 6,000원 (<span class="down">-11%</span>)</li>
+<li>확률가중 기대수익률 = 0.3×48 + 0.5×26 + 0.2×(-11) = <span class="up">+25.2%</span></li>
+<li>수급·유동성 [실측]: 외국인 20일 <span class="up">+18.5%</span>·9일연속 순매수 / 20일 평균 거래대금 9.5억 → 1일 체결상한(ADV10%) 약 0.95억. 소형주 체결 제약</li>
+<li>포지션 사이징 (자산 대비 %로만): 고변동 레짐(RV20 상위 80%ile)으로 손실예산 0.5% 채택. 0.5% ÷ 손절폭 11.3% = 자산의 4.4% / 집중상한 50% / 이벤트 전 상한 25% 중 최소값 → 4.4%. 분할 3회(각 1/3)</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 증권사 컨센 부재로 미래추정은 전량 &#x27;자체 추정&#x27;. 블로거·주담 발언은 &#x27;참고용 의견&#x27;(사실 아님). 선물 미상장으로 레버리지 불가·현물만 가능.</p>
+<p>[미확인 목록] 번인소터 TAM·점유율 / 제품별 단가·물량 / 영업현금흐름(반기) / OSAT BLU·HBM번인 수주(기대단계) / 증권사 컨센 [출처 목록] DART 사업보고서(20260319001329)·반기보고서(20260819000118)·공급계약(20260702900520) / KIS 시세 2026-10-12 / 매경·뉴스핌 / peer_finder·enrich 실측 / 비나인 스크랩(financial_free) 10/9 주담통화(참고용) [검산] 분기합 1Q232<span class="up">+2</span>Q138.7=상반기370.7 ✓ / 상반기영익 1Q16.9<span class="up">+2</span>Q23.4=40.3 ✓ / 손익비 헤더(눌림1:3.3)=본문 일치 ✓ / 시나리오 확률합 30<span class="up">+50</span><span class="up">+20</span>=100 ✓ / 연결·별도 라벨 표기 ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-12 16:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 6,760원 (<span class="down">-7.1%</span>) · 시총 697억 · 5일 <span class="up">+1.7%</span> / 20일 <span class="up">+42.2%</span> / 60일 <span class="up">+61.0%</span></li>
+<li>MA5 6,884원 / MA20 5,867원 / MA60 4,734원 → MA20 이격 <span class="up">+15.2%</span> · MA60 이격 <span class="up">+42.8%</span></li>
+<li>52주 고 8,040원 / 저 2,935원 → 고점 대비 <span class="down">-15.9%</span> · 20일 고 7,280원 / 저 4,765원</li>
+<li>후행 PER -270.4 / PBR 0.97 (EPS -25원 · BPS 6,972원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 9.5억 (5일 15.9억)</li>
+<li>외국인 순매수 5일 7.2억 / 20일 18.5억 · 기관 5일 0.2억 / 20일 -1.0억 · 개인 20일 -16.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.01% (공매도 15주 · 0.0억) · 5일 평균 0.17% / 20일 평균 0.43% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 5.22% (09/11) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 8,500원 (<span class="up">+25.7%</span>) ÷ 하방 5,500원 (−18.6%) = <strong>1:1.38</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 20%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 18.6% = <strong>자산의 2.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.7%</strong></li>
+<li>유동성 참고: 20일 ADV 9.5억 · 1일 소화 한도는 ADV의 10%(0.95억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 18.6% · ATR14 444원 (손절폭/ATR 2.8배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 18.6% = ATR14 × 2.8배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 6,084원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.57</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-089790"></span>📋 결정카드 — 제이티(089790) 판정: 관심 선물: 無 현재가: 6,740원 진입: 5,850~6,200원 (눌림 분할, MA20 지지 확인) 손절: 5,500원 목표: 1차 8,500원 (2차 10,000원) 손익비: 1:3.3 기간: 스윙 6~12주 촉매: 2026-11-14 3Q26 분기보고서 / 삼성 165억 하반기 매출인식 반증: 3Q26 누적 연결 영업이익 &lt; 42억 or 종가 5,500원 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
