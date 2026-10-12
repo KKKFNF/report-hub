@@ -1,0 +1,193 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RFHIC(218410) GaN 턴어라운드 비주얼 정밀리서치 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261012-142021-RFHIC-218410-GaN-턴어라운드-비주얼-정밀리서치.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 수동 지정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-c"><b>결론 발췌</b> 【관심】 2023년 통신 CAPEX 공백으로 적자(OPM −22%) 바닥을 찍고, 2025년부터 방산·통신 GaN 수요로 OPM 20%대 구조적 턴어라운드가 진행 중. 2026 2Q 영업이익 112억(OPM 21.7%)으로 사상최대 분기를 경신했고, 계약부채(선수금)가 583억 역대최대로 급증해 하반기 매출 재가속을 예고. 다만 개별주식선물이 없어 형 스타일(선물 레버리지 스윙)엔 매매방식 제약(현물만)이고, 주가는 2026 고점 126,900에서 현재 57,800으로 −54% 조정 구간. - 현재가 57,800원 / −1.2% · 시총 1.54조 · PER 53.4 · PBR 4.32 · EPS 1,082 · BPS 13,376 · 5…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정: 수동지정</span><h1>RFHIC(218410) GaN 턴어라운드 비주얼 정밀리서치</h1>
+<div class="meta">📊 DART+KIS+consensus 실측 (춘식이 리서치) · 2026-10-12 14:20 · 코드 218410</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-12 14:20)</div><div class="kpi-v">58,600원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.6조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">54.16</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">4.38</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc-src">자동추출</span></div></div>
+
+<div class="body"><h1>🔬 정밀 리서치 — RFHIC(218410) ※선물 無(현물만·레버리지 불가)</h1>
+<p>📌 <strong>한줄 결론: 【관심】</strong> 2023년 통신 CAPEX 공백으로 적자(OPM −22%) 바닥을 찍고, <strong>2025년부터 방산·통신 GaN 수요로 OPM 20%대 구조적 턴어라운드가 진행 중</strong>. 2026 2Q 영업이익 112억(OPM 21.7%)으로 사상최대 분기를 경신했고, 계약부채(선수금)가 583억 역대최대로 급증해 하반기 매출 재가속을 예고. 다만 <strong>개별주식선물이 없어 형 스타일(선물 레버리지 스윙)엔 매매방식 제약(현물만)</strong>이고, 주가는 2026 고점 126,900에서 현재 57,800으로 −54% 조정 구간.</p>
+<ul>
+<li>현재가 <strong>57,800원 / −1.2%</strong> · 시총 <strong>1.54조</strong> · PER <strong>53.4</strong> · PBR <strong>4.32</strong> · EPS 1,082 · BPS 13,376 · 52주 25,600~126,900 [KIS 실측]</li>
+<li>⚠️ <strong>개별주식선물 미상장 → 현물만 가능, 레버리지 불가</strong> [KIS 마스터 확인]</li>
+<li>컨센서스 목표가 평균 137,000원(최고 하나증권 15만 / 최저 신한 81,000 · Buy 13/NR 2) [consensus 4소스]</li>
+</ul>
+<hr>
+<h2 id="포착신호-투자-스토리">① 포착신호 &amp; 투자 스토리</h2>
+<ul>
+<li><strong>GaN(질화갈륨) 화합물 반도체 전문기업.</strong> 주력 = GaN 트랜지스터 / GaN 전력증폭기(PA) / Microwave Generator. GaN PA는 기존 실리콘 LDMOS 대비 효율 <span class="up">+10%</span>, 크기 최대 1/2 → <strong>5G/6G 기지국·방산 레이더·RF에너지</strong>의 핵심 소자.</li>
+<li><strong>3대 성장 촉매:</strong> ①<strong>방산 수출</strong>(레이더용 GaN PA, 가격·고객 고착성 높음) ②<strong>2027 통신 투자 재개</strong>(5G 커버리지 확장·6G 초기) ③<strong>미국 주파수 경매 이벤트</strong> + <strong>GaN 쇼티지(공급부족)</strong> 가능성.</li>
+<li>하나증권(9/16) &quot;쇼티지 발생 유력, 높은 Multiple 형성될 것&quot; 목표가 15만 유지. 영익 컨센 상향 추세(1년전 341억 → 현재 550억).</li>
+</ul>
+<h2 id="사업개요">② 사업개요</h2>
+<ul>
+<li>무선통신·방위산업·RF에너지용 <strong>GaN 반도체 설계·생산</strong>. 다품종 소량·수주생산 구조.</li>
+<li><strong>원재료:</strong> 웨이퍼·패키지(A사 등), 2026 반기 매입 529억(2024년 255억 대비 급증 = 생산확대 방증).</li>
+<li><strong>제품 가격:</strong> GaN 트랜지스터 ASP 2023 67,350 → 2025 82,172원(<span class="up">+22%</span>). 레이더용 PA는 &quot;양산 전환 어려워 가격 고착&quot;(방산 매출의 질적 강점).</li>
+</ul>
+<h2 id="매출영업이익opm-턴어라운드-핵심-비주얼">③ ★매출·영업이익·OPM 턴어라운드 (핵심 — 비주얼)</h2>
+<p>RFHIC의 핵심 스토리는 <strong>적자 → 흑자전환 → OPM 20%대 안착</strong>입니다. 2023년 2~3분기 통신 CAPEX 공백으로 OPM −22%까지 추락했다가, 2025년부터 방산+통신 GaN 수요로 <strong>매 분기 OPM 11→18→22%</strong> 로 구조적 개선.</p>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/rfhic-218410-rev-op-opm.png" alt="매출·영업이익·OPM 턴어라운드" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<ul>
+<li>적자 바닥: <strong>2023 2Q 영익 −52억(OPM −21.5%), 3Q −44억(−22%)</strong> — 통신 투자 공백기</li>
+<li>흑자 안착: <strong>2025 2Q 영익 83억(OPM 18.6%)부터 분기 80억+ 유지</strong></li>
+<li>사상최대 분기: <strong>2026 2Q 매출 515억 / 영익 112억 / OPM 21.7%</strong> [DART CFS]</li>
+<li>연간: 2024 매출 1,149억 → <strong>2025 1,858억(<span class="up">+62%</span>), 영익 309억 흑자전환</strong> → 2026 반기 이미 945억/189억</li>
+</ul>
+<h2 id="계약부채선수금-매출-선행성-비주얼">④ 계약부채(선수금) → 매출 선행성 (비주얼)</h2>
+<p>RFHIC도 수주산업 특성상 <strong>계약부채(고객 선수금)가 매출을 선행</strong>합니다. 2026 2Q 계약부채가 <strong>583억으로 역대최대</strong> 급증 — 하반기 매출 재가속의 선행 신호입니다.</p>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/rfhic-218410-cl-rev-lead.png" alt="계약부채→매출 선행성" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<ul>
+<li>계약부채 추이: 2023 4Q 276억 → 2024 안정 265~308억 → 2026 1Q 403억 → <strong>2026 2Q 583억 🔺역대최대</strong></li>
+<li>과거 패턴상 계약부채 레벨업은 1~2분기 뒤 매출 증가로 이어짐 → 컨센 3Q 매출 732억·4Q 969억과 정합적.</li>
+</ul>
+<h2 id="주가-추이-멀티플-밴드-비주얼">⑤ 주가 추이 &amp; 멀티플 밴드 (비주얼)</h2>
+<p>2024년 바닥 13,100원 → 2026년 고점 126,900원으로 약 <strong>10배 급등</strong> 후, 현재 57,800원으로 <strong>고점 대비 −54% 조정</strong> 중입니다.</p>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/rfhic-218410-price-multiple.png" alt="주가 추이 &amp; 멀티플" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<p>연말/현재 종가 · 연중고 · 연중저 [KIS 월봉]:</p>
+<ul>
+<li>2022 22,450 / 36,100 / 18,200</li>
+<li>2023 18,050 / 28,200 / 13,740</li>
+<li>2024 13,100 / 19,800 / 10,630(바닥)</li>
+<li>2025 32,650 / 36,900 / 12,100</li>
+<li><strong>현재 57,800 / 2026고 126,900 / 2026저 32,250</strong></li>
+</ul>
+<p><strong>멀티플 해석:</strong> 현재 trailing PER 53.4·PBR 4.32는 절대수치론 부담. 단 <strong>턴어라운드 초기</strong>라 trailing 왜곡이 큼. 컨센 <strong>FY26E PER 29.6(EPS 1,977) · FY27E 22.6(EPS 2,583) · FY28E 21.0</strong> — forward 기준으론 고성장(FY26→27 매출 <span class="up">+34%</span>, 영익 <span class="up">+45%</span>) 감안 시 과도하다고 보기 어려움. 목표가 15만(하나)은 FY27 EPS에 PER 58배 수준 = 쇼티지 프리미엄 가정.</p>
+<h2 id="제품-믹스-변화-비주얼">⑥ 제품 믹스 변화 (비주얼)</h2>
+<p>고부가 <strong>GaN 트랜지스터 비중이 17%(2024) → 35%(2026 반기)</strong> 로 상승. 소자 단품 매출 확대는 믹스 개선·마진 상방 요인.</p>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/rfhic-218410-product-mix.png" alt="제품 믹스 변화" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<ul>
+<li>2023 트랜지스터 324억(29%) / PA 785억(70%)</li>
+<li>2024 199억(17%) / 939억(82%)</li>
+<li>2025 447억(24%) / 1,402억(75%)</li>
+<li><strong>2026 반기 336억(35%) / 606억(64%)</strong> — 트랜지스터 비중 최고</li>
+</ul>
+<h2 id="분기별-원본-데이터-2022-1q2026-2q-연결-cfs-누적차분-보정">⑦ 분기별 원본 데이터 (2022 1Q~2026 2Q, 연결 CFS · 누적차분 보정)</h2>
+<p>단위 억원 · 매출/영익은 분기 단독값 · OPM% · 계약부채는 분기말 잔액. (위 차트 근거)</p>
+<ul>
+<li>2022 1Q 233 / −11 / −4.5% [DART]</li>
+<li>2022 2Q 237 / −4 / −1.6%</li>
+<li>2022 3Q 293 / 9 / 3.1%</li>
+<li>2022 4Q 318 / 13 / 4.2% [검산]</li>
+<li>2023 1Q 308 / 15 / 4.8%</li>
+<li>2023 2Q 243 / −52 / −21.5%(적자바닥)</li>
+<li>2023 3Q 200 / −44 / −22.0%(적자바닥)</li>
+<li>2023 4Q 363 / 85 / 23.4% · 계약부채 276 [검산/DART]</li>
+<li>2024 1Q 256 / 4 / 1.6% · 계약부채 265</li>
+<li>2024 2Q 261 / −2 / −0.8% · 계약부채 308</li>
+<li>2024 3Q 246 / −11 / −4.6% · 계약부채 273</li>
+<li>2024 4Q 387 / 25 / 6.4% · 계약부채 305 [검산]</li>
+<li>2025 1Q 319 / 37 / 11.7% · 계약부채 352</li>
+<li>2025 2Q 446 / 83 / 18.6% · 계약부채 313</li>
+<li>2025 3Q 405 / 74 / 18.2% · 계약부채 297</li>
+<li>2025 4Q 688 / 115 / 16.7% · 계약부채 308 [검산]</li>
+<li>2026 1Q 431 / 77 / 18.0% · 계약부채 403</li>
+<li><strong>2026 2Q 515 / 112 / 21.7% · 계약부채 583(역대최대)</strong> [DART]</li>
+</ul>
+<p>[검산] 4Q단독=연간−3Q누적(사업보고서 thstrm은 연간누적이라 보정). 전부 연결(CFS). 2021년 이전은 사업구조 변화 커 추세분석 2022~ 집중.</p>
+<h2 id="매매포인트-선물-현물만">⑧ 🎯 매매포인트 (★선물 無 — 현물만)</h2>
+<p><strong>⚠️ 형 스타일 핵심 제약:</strong> 개별주식선물 미상장. <strong>레버리지 매매 불가, 현물만 가능.</strong> 형의 선물 레버리지 스윙 관점에선 매매방식이 제한되는 종목임을 전제로 봐야 합니다.</p>
+<p><strong>현물 관점 1차 관문 — 2026 3Q보고서(11월 중순):</strong></p>
+<ol>
+<li><strong>3Q 매출</strong> — 컨센 732억. 2026 2Q 계약부채 583억(역대최대)이 매출로 전환되는지. 700억+ 확인되면 선행지표 적중 = 턴어라운드 지속.</li>
+<li><strong>OPM 20% 유지 여부</strong> — 2026 2Q 21.7%가 방산 믹스 덕인지, 지속가능한지.</li>
+<li><strong>통신 투자 재개 가시성</strong>(2027) — 하나증권 상승논리 핵심. 미국 주파수 경매·5G 재투자 뉴스플로우.</li>
+</ol>
+<p><strong>밸류·리스크:</strong></p>
+<ul>
+<li>trailing PER 53은 부담이나 forward(FY26 29.6/FY27 22.6)로는 성장성 반영 수준. <strong>단 컨센 자체가 고성장 전제 → 실적 하회 시 멀티플·실적 동시 디레이팅 위험.</strong></li>
+<li>2026 고점 대비 −54% 조정 = 변동성 극단. 신한은 목표가 150→81k 하향(밸류 조정)으로 시각차 존재.</li>
+<li>GaN 쇼티지·방산수출·통신재개는 모두 <strong>&quot;기대&quot; 선반영</strong> 단계 → 실적 확인 전까지 뉴스 민감.</li>
+</ul>
+<p><strong>요약:</strong> GaN 턴어라운드 스토리는 실적(OPM 20%대·계약부채 역대최대)으로 뒷받침되는 <strong>질 좋은 성장주</strong>. 다만 <strong>선물이 없어 형 레버리지 전략엔 부적합</strong>하고, 현물로 접근하더라도 trailing 밸류 부담+고점 반토막 변동성 때문에 11월 3Q 실적으로 턴어라운드 지속성 확인 후 분할이 안전. 추격보다 조정 시 분할 관찰 권고.</p>
+<hr>
+<p class="note">DART·KIS·consensus 실측 기반 리서치 자료, 투자권유 아님. 선물 미상장(현물만).</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-12 14:20 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 58,600원 (<span class="up">+0.2%</span>) · 시총 1.56조 · 5일 <span class="down">-2.3%</span> / 20일 <span class="up">+23.6%</span> / 60일 <span class="up">+12.5%</span></li>
+<li>MA5 60,080원 / MA20 56,318원 / MA60 50,237원 → MA20 이격 <span class="up">+4.1%</span> · MA60 이격 <span class="up">+16.6%</span></li>
+<li>52주 고 126,900원 / 저 25,600원 → 고점 대비 <span class="down">-53.8%</span> · 20일 고 62,400원 / 저 48,800원</li>
+<li>후행 PER 54.16 / PBR 4.38 (EPS 1,082원 · BPS 13,376원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 334.6억 (5일 262.4억)</li>
+<li>외국인 순매수 5일 -85.0억 / 20일 -393.1억 · 기관 5일 41.4억 / 20일 -140.5억 · 개인 20일 565.5억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 5.41% / 20일 평균 6.02% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 12.75% (09/11) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
