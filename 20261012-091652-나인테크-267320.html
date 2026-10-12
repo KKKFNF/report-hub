@@ -1,0 +1,239 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>나인테크(267320) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261012-091652-나인테크-267320.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.54</div><div class="tp-c"><b>결론 발췌</b> 2026년 반기 흑자전환(영업익 +10.0억, 연결·누적)으로 실적 바닥 통과 신호는 확인되나, 2025년 174억 대규모 순손실·2Q 재둔화·증권사 컨센 전무로 &#x27;테마 수급 주도 반등&#x27;. 현물만 가능(선물 無). 손익비 1:1.6(진입 3,195 / 1차목표 3,650 / 손절 2,900) — 관심(watch), 정배열 추세 추종 한정 소액. ① 포착 신호 • 회전율 6.8% (당일거래대금 125.7억 / 시총 1,846억) [실측: trendscan 포착, 당일] • 당일 등락 +13.3% [실측: KIS inquire-price, 현재가 3,190원·전일대비 +375원·등락 13.32%, 2026-10-12] • 추세: MA 정배열…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>나인테크(267320)</h1>
+<div class="meta">📊 trend · 2026-10-12 09:16 · 코드 267320</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-12 09:16)</div><div class="kpi-v">3,210원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,843억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.01</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.54</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.42</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">3,650원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 3,195원 (눌림 2,950~3,050 분할)</span><span class="dc dn">손절 2,900원</span><span class="dc up">목표 3,650원</span><span class="dc">손익비 진입 1:1.54 · 현재가 1:1.42</span><span class="dc">기간 스윙 3~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 전후 3분기보고서(흑전 지속·발주 확인)</div><div class="dc-l">🛑 반증: 3Q 단독 영업적자 &amp; 반기 흑전 되돌림 → 전량 청산 / 종가 MA20(2,460) 2일 연속 하회 → 비중축소</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 나인테크(267320)  ※선물 無</p>
+<p>📌 한줄 결론: 2026년 반기 흑자전환(영업익 <span class="up">+10.0</span>억, 연결·누적)으로 실적 바닥 통과 신호는 확인되나, 2025년 174억 대규모 순손실·2Q 재둔화·증권사 컨센 전무로 &#x27;테마 수급 주도 반등&#x27;. 현물만 가능(선물 無). 손익비 1:1.6(진입 3,195 / 1차목표 3,650 / 손절 2,900) — 관심(watch), 정배열 추세 추종 한정 소액.</p>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 6.8% (당일거래대금 125.7억 / 시총 1,846억) [실측: trendscan 포착, 당일]</li>
+<li>당일 등락 <span class="up">+13.3%</span> [실측: KIS inquire-price, 현재가 3,190원·전일대비 <span class="up">+375</span>원·등락 13.32%, 2026-10-12]</li>
+<li>추세: MA 정배열 O (MA5 2,882 &gt; MA20 2,460 &gt; MA60 2,180) / 연속상승 2일 / 5일 <span class="up">+14.0%</span> [실측: KIS 일봉 89거래일]</li>
+<li>52주 레인지 1,274~4,720원, 현재가는 52주 중단(고점比 <span class="down">-32%</span>, 저점比 <span class="up">+150%</span>) [실측: KIS w52_hgpr/lwpr]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업 실체 [실측: 반기보고서 2026.06 접수 20260814001100]:</li>
+<li>이차전지 제조용 장비(Lamination/Stacking 등): 2026 반기매출 비중 49.3% — 주력. Lamination(양극·음극·분리막 투입해 Cell 제조)이 핵심.</li>
+<li>디스플레이 장비(Vac/N2 Logistics 등): 25.0%</li>
+<li>반도체 장비(PLP WET): 8.1%</li>
+<li>리튬이온 이차전지(군용 통신장비 TICN 비상전원): 13.5%</li>
+</ul>
+<p>→ 2차전지 셀 제조 전공정(라미네이션) 장비가 본업. 전방 배터리사 설비투자(CAPEX)에 실적이 직결되는 장비주.</p>
+<ul>
+<li>급등사유 [인용: 매일경제·핀포인트뉴스·잡포스트, 2026-10-08]:</li>
+<li>2차전지(나트륨이온) 테마 강세(테마지수 <span class="up">+3.03%</span>)에 관련주로 부각, 당일 <span class="up">+6.11%</span> [인용: 매일경제 2026-10-08].</li>
+<li>&quot;2차전지 장비 발주 회복 여부 주시&quot; + 신사업(각형·ESS·나트륨이온·AI반도체 첨단패키징·유리기판 장비) 확장 기대 [인용: 잡포스트·컨슈머타임스·한국원자력신문 2026-08~10].</li>
+<li>즉, 개별 수주공시가 아니라 &quot;배터리 장비 발주 사이클 회복 기대 + 나트륨이온 테마 순환매&quot;가 수급을 끌어올린 테마성 급등. 실체(2차전지 장비 본업)는 있으나 당일 상승의 직접 트리거는 테마 모멘텀 [검증: news_search 급등 3건 전부 테마 기사, 개별 계약공시 0건].</li>
+</ul>
+<p>③ 실적 (DART 실측, 연결 CFS)</p>
+<ul>
+<li>3개년 연간(연결) [실측: 사업보고서, 접수 20260723000380 등]:</li>
+<li>2023: 매출 1,230.5억 / 영업 -31.0억 / 순이익 <span class="up">+86.9</span>억(법인세차감전 <span class="up">+132.6</span>억, 일회성 이익 추정) / OPM <span class="down">-2.5%</span></li>
+<li>2024: 매출 1,972.2억 / 영업 <span class="up">+46.3</span>억 / 순손실 -53.6억 / OPM <span class="up">+2.3%</span></li>
+<li>2025: 매출 823.7억(YoY <span class="down">-58.2%</span>) / 영업손실 -89.2억 / 순손실 -174.2억 / OPM <span class="down">-10.8%</span></li>
+<li>2025년 순손실 -174.2억 분해 [실측: 2025 연간]: 영업손실 -89.2억 + 법인세차감전 -222.0억 → 영업외 손실 약 -133억(금융·평가손실 등 비영업 대규모 손실 추정). 즉 영업부진(-89억)에 더해 영업외 손실이 순손실을 2배로 키운 구조.</li>
+<li>분기 추이(연결, 누적→단독 환산) [실측: 분기보고서 thstrm_add/thstrm]:</li>
+<li>2026 1Q: 매출 197.9억 / 영업 <span class="up">+14.7</span>억 / 순익 <span class="up">+8.1</span>억</li>
+<li>2026 2Q(단독): 매출 127.2억 / 영업 -4.7억 / 순익 <span class="up">+5.8</span>억</li>
+<li>2026 반기 누적: 매출 325.1억(YoY <span class="up">+17.1%</span>, 전기동기 277.5억) / 영업 <span class="up">+10.0</span>억(흑전) / 순익 <span class="up">+13.9</span>억(흑전)</li>
+<li>검산: 1Q<span class="up">+2</span>Q 매출 197.9<span class="up">+127.2</span>=325.1 ✓ / 영업 14.7-4.7=10.0 ✓</li>
+<li>해석: 2026 1H 흑자전환은 긍정. 단 2Q 단독 매출이 1Q 대비 <span class="down">-36%</span>, 영업 재적자 → 분기 변동성 큼. 반기 누적 흑전은 1Q에 쏠린 결과.</li>
+<li>재무안정성 [실측: 2025말 BS]: 부채비율 75.8%(부채 769.7억/자본1,015.1억) — 과다하진 않음. 다만 영업현금흐름 2023 -63.4억·2024 -40.4억으로 2년 연속 순유출 → 운전자본 부담 지속.</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센: 미확인 [실측: consensus.py 2026-10-12 — 최근 6개월 목표가 리포트 0건, naver/fnguide 추정치 없음]. 커버리지 없는 소형주.</li>
+<li>자체 추정(참고용) [추정: 2026 1H 325억 단순연율화×계절보정]: 2026 연매출 600~700억대, 영업익 BEP~소폭흑자 수준으로 2025 적자 탈출 가능성. 단 2Q 둔화로 하반기 발주 회복이 전제.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 멀티플 [실측: KIS]: PER -9.76(적자, 무의미) / PBR 1.99 / BPS 1,599 / EPS -327.</li>
+<li>적자·컨센 부재로 PER 밸류 불가 → PBR·추세 기준 접근.</li>
+<li>목표가 산정 [추정: PBR 밴드]: 흑자전환 지속 가정 시 장비 피어 평균 대비 저ROE이므로 PBR 2.2~2.5배 적용 → BPS 1,599 × 2.3 ≈ 3,680원을 1차 목표 근거로. 상단은 직전 급등 고점·52주 고점 흐름상 2차 4,100원.</li>
+<li>주의: PBR 1.99는 이미 흑자전환 기대를 상당 부분 반영. 밸류 매력보다 &#x27;추세·테마 수급&#x27;이 상승 동력.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지/저항 [실측: KIS 일봉·이평]: 지지 MA5 2,882 → MA20 2,460 → 전저점대 2,180(MA60). 저항 당일고가권 3,655(상한가)·심리선 3,500, 그 위 52주 흐름상 4,000.</li>
+<li>진입: 3,195원 (현 수준). 눌림 공략 시 2,950~3,050(MA5 부근)이 유리.</li>
+<li>손절: 2,900원 (MA5 이탈·당일 상승분 되돌림). 하락리스크 <span class="down">-9.2%</span>.</li>
+<li>목표: 1차 3,650원(<span class="up">+14.2%</span>), 2차 4,100원(<span class="up">+28.3%</span>).</li>
+<li>손익비: (3,650-3,195)/(3,195-2,900) = 455/295 = 1:1.54 → 약 1:1.6.</li>
+<li>⚠️ 자산 50% 집중은 부적합. 적자이력·테마성·컨센 부재의 소형주이므로 추세 추종 소액 한정. 손절선(2,900) 아래 추가매수 금지.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC §9)</p>
+<ul>
+<li>9-1 제품축 [실측: 반기보고서 2026.06]: 2차전지 장비(49.3%, Lamination 39.3%+Stacking 3.6%+기타 6.4%) / 디스플레이 장비(25.0%) / 리튬이온전지·군용(13.5%) / 반도체 PLP WET(8.1%) / 수수료(4.1%).</li>
+<li>9-2 고객·전방: 전방은 국내외 2차전지 셀 제조사 CAPEX. 수주 기반 주문생산(가격·CAPA 표 &#x27;산출 부적합&#x27;으로 공시 생략) → 단가·가동률 공시 미확인.</li>
+<li>9-3 TAM/경쟁: 피어 에스티아이·원익IPS·테스 등 장비군. 나인테크는 라미네이션 특화 소형 플레이어.</li>
+<li>9-4~9-6 단가·CAPA·증설 이력: 미확인(주문생산 사유로 가격·생산능력 공시 생략).</li>
+<li>9-7 바텀업 표(연결·영업이익, 억원):</li>
+<li>가정: 2차전지 장비 발주 회복 강도에 연간 실적 좌우.</li>
+<li>Bear(발주 재둔화, 확률 35%): 2026 매출 ~550억 / 영업 -10억 → 적자 재진입.</li>
+<li>Base(완만 회복, 확률 45%): 2026 매출 ~650억 / 영업 <span class="up">+15</span>억 / OPM <span class="up">+2.3%</span>.</li>
+<li>Bull(발주 본격·신사업 기여, 확률 20%): 2026 매출 ~800억 / 영업 <span class="up">+45</span>억 / OPM <span class="up">+5.6%</span>.</li>
+<li>결론 문장: &quot;2026 하반기(3Q<span class="up">+4</span>Q) 연결 영업이익 합계 ≥ <span class="up">+10</span>억이면 흑전 추세 유효로 보유 유지, 3Q 단독 영업적자 재현 &amp; 누적 영업익 &lt; 0억이면 흑전 실패로 폐기.&quot;</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정):</li>
+<li>2026 3분기보고서 법정기한 2026-11-14(전후) — 흑전 지속·3Q 발주 확인 분수령 [실측: 분기보고서 법정 제출기한].</li>
+<li>그 외 수주공시·테마 이벤트는 날짜 미확정.</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>(분기 실적 임계) 3Q 단독 영업적자 &amp; 반기 흑전 되돌림 → 전량 청산. [실측 분기수치 임계]</li>
+<li>종가 MA20(2,460) 하회 2거래일 지속 → 추세 훼손, 비중 축소/청산.</li>
+<li>2차전지 테마지수 꺾임 + 거래대금 50억 미만 축소(유동성 급감) → 수급 소멸, 익절·이탈.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스:</li>
+<li>3Q 흑전 지속 → 3,650 돌파 시도, 2차 4,100 열림.</li>
+<li>3Q 적자 → 2,460~2,180 되돌림, 손절선 사수.</li>
+<li>테마 지속·수주공시 → Bull 급등, 분할 익절.</li>
+<li>확률가중 시나리오(합=100%):</li>
+<li>Bear 35%: 2,180~2,460 하락(<span class="down">-23%</span>~<span class="down">-13%</span>).</li>
+<li>Base 45%: 3,200~3,650 박스 상단 공략(<span class="up">+0%</span>~<span class="up">+14%</span>).</li>
+<li>Bull 20%: 4,000~4,100 재도전(<span class="up">+25%</span>~<span class="up">+28%</span>).</li>
+<li>기대값 ≈ 3,250원대(현재가 대비 <span class="up">+2%</span> 내외) → 비대칭 큰 상방은 Bull·테마 지속 조건부.</li>
+<li>수급·유동성 [실측: KIS]: 20일 평균거래대금 약 102.9억원 → 1일 체결상한(ADV 10%) 약 10.3억원 수준. 외인/기관 20일 순매수는 미확인. 유동성은 소형주치고 양호(테마 유입).</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭 9.2% = 자산의 약 10.8%가 이론 상한. 테마성·적자이력 감안 집중상한 50%는 절대 부적합, 이벤트(11월 3Q) 전 25% 상한. → 세 값 중 최소 ≈ 자산의 10% 내외로 제한. 분할: 1차 50%(현가), 2차 50%(2,950~3,050 눌림). 손절선 아래 추가매수 금지.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 미확인은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 목표가·연간/분기 컨센서스 (리포트 0건)</li>
+<li>제품별 단가·CAPA·가동률 (주문생산 사유 공시 생략)</li>
+<li>수주잔고 금액 (공시 미확인)</li>
+<li>외인/기관 20일 순매수</li>
+<li>2025 영업외손실 -133억 세부내역(평가손/금융손 구분)</li>
+<li>나트륨이온·각형·ESS 신사업의 매출 기여 시점·규모</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART: [기재정정]사업보고서 2025.12 접수 20260723000380 / 반기보고서 2026.06 접수 20260814001100 / 각 분기보고서 (연결 CFS)</li>
+<li>KIS OpenAPI: inquire-price(FHKST01010100)·inquire-daily-itemchartprice(FHKST03010100), 2026-10-12</li>
+<li>뉴스(인용): 매일경제 2026-10-08, 잡포스트 2026-10-08, 핀포인트뉴스 2026-08~10, 컨슈머타임스 2026-08-20, 한국원자력신문 2026-09-01</li>
+<li>consensus.py(2026-10-12), peer_finder.py, kis_futures_check.py</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>1Q<span class="up">+2</span>Q 매출 197.9<span class="up">+127.2</span>=325.1억 = 반기누적 ✓</li>
+<li>1Q<span class="up">+2</span>Q 영업익 14.7-4.7=10.0억 = 반기누적 ✓</li>
+<li>부채비율 769.7/1,015.1=75.8% ✓</li>
+<li>손익비 455/295=1.54 ✓</li>
+<li>목표가 BPS1,599×2.3=3,678≈3,650 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-12 09:16 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 3,210원 (<span class="up">+14.0%</span>) · 시총 1,843억 · 5일 <span class="up">+13.7%</span> / 20일 <span class="up">+49.1%</span> / 60일 <span class="up">+52.6%</span></li>
+<li>MA5 2,885원 / MA20 2,461원 / MA60 2,181원 → MA20 이격 <span class="up">+30.4%</span> · MA60 이격 <span class="up">+47.2%</span></li>
+<li>52주 고 4,720원 / 저 1,274원 → 고점 대비 <span class="down">-32.0%</span> · 20일 고 3,205원 / 저 2,175원</li>
+<li>후행 PER -9.82 / PBR 2.01 (EPS -327원 · BPS 1,599원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 103.8억 (5일 153.7억)</li>
+<li>외국인 순매수 5일 -7.0억 / 20일 -18.7억 · 기관 5일 0.0억 / 20일 0.1억 · 개인 20일 20.7억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.38% / 20일 평균 1.55% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 5.73% (10/02) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 3,650원 (<span class="up">+13.7%</span>) ÷ 하방 2,900원 (−9.7%) = <strong>1:1.42</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 20%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 9.7% = <strong>자산의 5.2%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 5.2%</strong></li>
+<li>유동성 참고: 20일 ADV 103.8억 · 1일 소화 한도는 ADV의 10%(10.38억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 9.7% · ATR14 204원 (손절폭/ATR 1.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 9.7% = ATR14 × 1.5배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 2,889원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.37</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-267320"></span>📋 결정카드 — 나인테크(267320) 판정: 관심 선물: 無 현재가: 3,195원 진입: 3,195원 (눌림 2,950~3,050 분할) 손절: 2,900원 목표: 1차 3,650원 (2차 4,100원) 손익비: 1:1.6 기간: 스윙 3~6주 촉매: 2026-11-14 전후 3분기보고서(흑전 지속·발주 확인) 반증: 3Q 단독 영업적자 &amp; 반기 흑전 되돌림 → 전량 청산 / 종가 MA20(2,460) 2일 연속 하회 → 비중축소</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
