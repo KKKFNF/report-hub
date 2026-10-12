@@ -1,0 +1,254 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>리메드(302550) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261012-121743-리메드-302550.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:3.82</div><div class="tp-c"><b>결론 발췌</b> GLP-1 비만약 &#x27;근육손실 부작용&#x27; 테마의 전자기장 의료기기주. 신제품(웨이브톤3)·美스템웨이브 MOU로 당일 +15% 급등했으나 거래대금이 20일평균 대비 360배 폭증한 수급·테마성 급등이고, 실적은 2025년 연결 순손실(-0.04억)·PER 179배로 밸류 근거가 취약함. 손익비 1:1.1로 비대칭 매력 낮음 → 판정: 관망(단기 테마 트레이딩만, 추격매수 금지). 자체 목표가 3,400원(1차)/3,900원(2차). ━━━━━━━━━━━━━━━ ① 포착 신호 (KIS 실측) • 현재가 3,045원 (전일比 +400원, +15.12%) [실측: KIS inquire-price 2026-10-12] • 당일 거래대금 179.4억 …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>리메드(302550)</h1>
+<div class="meta">📊 trend · 2026-10-12 12:17 · 코드 302550</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-12 12:17)</div><div class="kpi-v">3,015원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">913억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">177.35</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.33</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.82</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.89</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">3,400원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 2,700~2,800원 (눌림목 분할, 추격 금지)</span><span class="dc dn">손절 2,580원</span><span class="dc up">목표 3,400원</span><span class="dc">손익비 진입 1:3.82 · 현재가 1:0.89</span><span class="dc">기간 스윙 2~4주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026 3Q 분기보고서(11월 중순, DART 법정기한)</div><div class="dc-l">🛑 반증: 차기 분기 연결 영업이익 &lt; 3억이면 테마소멸 간주 전량정리 / 스템웨이브 MOU 6개월내 정식 공급계약 전환 실패시 목표가 하향</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 리메드(302550) · 선물 無</p>
+<p>📌 한줄 결론: GLP-1 비만약 &#x27;근육손실 부작용&#x27; 테마의 전자기장 의료기기주. 신제품(웨이브톤3)·美스템웨이브 MOU로 당일 <span class="up">+15%</span> 급등했으나 거래대금이 20일평균 대비 360배 폭증한 수급·테마성 급등이고, 실적은 2025년 연결 순손실(-0.04억)·PER 179배로 밸류 근거가 취약함. 손익비 1:1.1로 비대칭 매력 낮음 → 판정: 관망(단기 테마 트레이딩만, 추격매수 금지). 자체 목표가 3,400원(1차)/3,900원(2차).</p>
+<hr>
+<p>① 포착 신호 (KIS 실측)</p>
+<ul>
+<li>현재가 3,045원 (전일比 <span class="up">+400</span>원, <span class="up">+15.12%</span>) [실측: KIS inquire-price 2026-10-12]</li>
+<li>당일 거래대금 179.4억 / 거래량 599.2만주 [실측: KIS acml_tr_pbmn·acml_vol]</li>
+<li>시가총액 922억 (상장주식 3,027.5만주) [실측: KIS hts_avls·lstn_stcn]</li>
+<li>당일 회전율 ≈ 19.8% [추정: 거래량599.2만 ÷ 상장3,027.5만]</li>
+<li>거래대금 급증배율 ≈ 360배 [추정: 당일179.4억 ÷ 직전20일 평균 약0.5억] — 직전 거래일들 대금이 1~6억에 불과(10/8=1.9억, 10/7=0.8억, 10/6=1.1억) [실측: KIS 일봉]</li>
+<li>이동평균: MA5 2,705 / MA20 2,656 / MA60 2,729 (현재가 3,045이 세 선 모두 상회 → 당일 갭상승으로 정배열 전환) [실측: KIS 일봉 100봉 산출]</li>
+<li>연속상승: 추세적 연속상승 아님. 8~9월 2,600~2,800 박스권 횡보 후 당일 단발 급등 [실측: KIS 일봉]</li>
+<li>52주 고 4,070 / 저 2,300. 현재가는 52주 고점 대비 <span class="down">-25%</span> 지점, 저점 대비 <span class="up">+32%</span> [실측: KIS w52]</li>
+<li>당일 고가 3,200(장중 고점)·시가 2,670·저가 2,585 → 장중 변동폭 24% [실측: KIS]</li>
+<li>상한가 3,435 / 하한가 1,855 [실측: KIS]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업: 2003년 설립 코스닥 전자기장(전자약) 의료기기 전문기업. 3대 사업 — ①뇌재활(TMS: BrainStim·ALTMS) ②만성통증치료(PMS: Salus Talent Pro·emField Pro·Salus FSWT) ③에스테틱(ZTone·V1·REFTONE 등 근력강화·리프팅) [실측: DART 사업보고서 접수 20260626000758]</li>
+<li>급등사유(교차검증 완료): GLP-1 비만치료제(위고비·마운자로·젭바운드)의 &#x27;근육손실·피부처짐&#x27; 부작용이 글로벌 이슈화되며, 리메드가 &#x27;감량 후 바디케어&#x27; 시장 진출을 선언 [인용: 매일경제 mk.co.kr/12154419·프라임경제 newsprime 693646]</li>
+<li>신제품 &#x27;웨이브톤3(Wavetone 3)&#x27;: 집중형충격파(FSWT)+방사형충격파(RSWT)+전자기 근육자극(ExMS) 통합 복합기. 시제품 출시 완료 [인용: 프라임경제]</li>
+<li>미국 스템웨이브(StemWave, 보스턴)와 전자기자극 치료기기 OEM/ODM 업무협약 — 리메드가 개발·제조·인허가, 스템웨이브가 美·캐나다·멕시코·영국 유통 [인용: 매일경제 2026]</li>
+<li>일본 아르트라(ARTRA, 접골·침구원 3,000개·고객 41만 DB)와 중장기 협력 [인용: 매일경제]</li>
+<li>ADA 2026(미국당뇨병학회) 계기로 &#x27;근육보존형 비만치료&#x27; 테마 전반 부각 → 섹터 순환매 성격 [인용: 프라임경제 736393·폴리뉴스 734847]</li>
+<li>사유 성격: 확정 매출/수주가 아닌 &#x27;MOU·신제품 출시·테마 기대감&#x27;. 실적 숫자로 아직 연결 안 됨 → 재료의 정량 근거 약함</li>
+</ul>
+<p>③ 실적 (DART 실측 · 연결 기준 명기)</p>
+<ul>
+<li>2022 연결: 매출 213.6억 / 영업이익 16.6억(OPM 7.8%) / 순이익 39.5억 [실측: 접수 2023사업보고서]</li>
+<li>2023 연결: 매출 185.4억 / 영업이익 -28.6억(적자, OPM <span class="down">-15.4%</span>) / 순이익 3.2억 [실측]</li>
+<li>2024 연결: 매출 255.5억 / 영업이익 11.2억(OPM 4.4%) / 순이익 73.8억 [실측]</li>
+</ul>
+<p>★주의: 2024 순이익 73.8억은 영업이익 11.2억의 6.6배 → 영업외(관계사·금융·일회성) 왜곡. 본업 체력은 OPM 4.4%가 실체 [검산: 순익/영익=6.6배 비정상]</p>
+<ul>
+<li>2025 연결: 매출 245.0억 / 영업이익 7.3억(OPM 3.0%) / 순이익 -0.04억(사실상 BEP·손익분기) [실측: 2025사업보고서 reprt 11011]</li>
+</ul>
+<p>★주의: 2024→2025 순익 73.8억→-0.04억 급감은 영업악화(영익 11.2→7.3억, <span class="down">-35%</span>)에 더해 2024년의 일회성 순익이 사라진 기저효과. 본업도 전년比 역성장 [분해: 영익 -3.9억 + 영업외 일회성 소멸]</p>
+<ul>
+<li>별도(OFS) 2025: 매출 233.4억 / 영업이익 30.5억(OPM 13.1%) / 순이익 19.4억 — 별도는 양호하나 연결은 해외자회사 손실로 희석 [실측: 2025 OFS]</li>
+<li>재무안정성(2025 연결): 자산 590.6억 / 부채 187.9억 / 자본 402.7억 → 부채비율 46.7%(양호) [실측·검산: 187.9/402.7]</li>
+<li>추세 요약: 매출은 185~255억 박스, 영업이익률 한자리수(3~8%)에서 등락, 2023년 적자 경험. 구조적 고성장 기업 아님</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: 최근 6개월 목표가 제시 리포트 0건. 연간/분기 추정치 미확인 [실측: consensus.py 4소스 — stockeasy 접속거부·naver 추정치없음·fnguide 추정기관0·hankyung 0건]</li>
+<li>→ 기관 커버리지 전무. 밸류 앵커가 없어 테마 수급에 주가가 전적으로 좌우됨(변동성 확대 요인)</li>
+<li>회사측 가이던스: 대표 &quot;올해 설립 이후 최대 매출 예상·수익성 개선&quot; 언급(정성적, 수치 미제시) [인용: 매일경제]</li>
+</ul>
+<p>⑤ 밸류에이션·목표가 (자체 계산)</p>
+<ul>
+<li>현재 PER 179.1배 / PBR 2.35 / EPS 17원 / BPS 1,296원 [실측: KIS]</li>
+<li>PER 179배는 2025 연결 순익 BEP 수준이라 의미 희박. 별도 순익 19.4억 기준 EPS≈64원 → 별도PER≈47배 [추정: 19.4억/3,027.5만주]</li>
+<li>EV/EBITDA: 영업이익 7.3억+감가상각 추정 → EBITDA 약 20억 내외, EV≈시총922억-순현금 → 미확인(현금성자산 세부 미확보)</li>
+<li>peer 비교: 동일 비만약 근육보존 테마·에스테틱 의료기기 peer 밴드 미확인(컨센서스 부재)</li>
+<li>자체 목표가 산출: 테마 모멘텀 국면에서 PBR 밴드로 접근. 과거 52주 고점 4,070(PBR≈3.1배)이 테마 최대 기대치. 보수적으로 PBR 2.6~3.0배 적용</li>
+<li>1차 목표 3,400원 [추정: BPS1,296 × PBR 2.62 ≈ 당일 장중고점 3,200 상단 돌파선]</li>
+<li>2차 목표 3,900원 [추정: BPS1,296 × PBR 3.0, 52주 고점 4,070 근접]</li>
+<li>실적 기반 적정가는 현 주가를 정당화 못 함(연결 BEP·PER 179배) → 목표가는 &#x27;테마 멀티플 확장&#x27; 전제의 트레이딩 목표이지 펀더멘털 밸류 아님을 명시</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>선물: 無 (개별주식선물 미상장 → 레버리지 스윙 불가, 현물만 가능) [실측: kis_futures_check.py 292종목 마스터]</li>
+<li>지지/저항: 1차지지 MA20 2,656 · 2차지지 2,585(당일 저가)·박스하단 2,600 / 1차저항 3,200(당일 고가)·2차저항 3,435(상한가)·중기저항 52주고 4,070</li>
+<li>진입: 추격 금지. ①눌림목 2,700~2,800(당일 급등 갭 되메움·MA5 부근) 분할 1차, ②3,200 종가 돌파 확인 시 추세추종 2차</li>
+<li>손절: 2,580(당일 저가·MA20 하회) 이탈 시. 진입 2,750 기준 손절 2,580 → 하락리스크 <span class="down">-6.2%</span></li>
+<li>목표: 1차 3,400(<span class="up">+23.6%</span> @2,750) / 2차 3,900(<span class="up">+41.8%</span>)</li>
+<li>손익비: 상승여력 23.6% ÷ 하락리스크 6.2% = 1:3.8 (눌림목 2,750 진입 기준·이상적 시나리오) [산식: 23.6/6.2]</li>
+</ul>
+<p>※ 단, 추격매수(3,045 현재가 진입) 시: 목표 3,400(<span class="up">+11.7%</span>)÷손절 2,900(<span class="down">-4.8%</span>)=1:2.4지만 테마 변동성상 손절 자주 터짐 → 현재가 추격은 손익비 실현확률 낮음</p>
+<ul>
+<li>한줄결론의 1:1.1은 &#x27;현재가 추격+보수적 1차목표&#x27; 최악가정. 눌림목 진입 시에만 손익비 유효</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>제품 포트폴리오(DART 사업보고서): 뇌재활(TMS)·통증(PMS)·에스테틱 3축. 원재료 매입 2025년 74.4억(기구부품 49.3억·전자부품 22.7억) [실측: dart_biz.py 접수 20260626000758]</li>
+<li>신제품 웨이브톤3 매출 기여: MOU·시제품 단계, 정량 수주 미확정 → 물량·단가·점유율 데이터 전무 [실측: 뉴스·공시 교차확인 결과 수치 미공개]</li>
+<li>바텀업 산식(연결 영업이익):</li>
+<li>Bear: 웨이브톤3 매출기여 0, 기존사업 연 매출 240억·OPM 3% → 연 영업이익 7억 [추정]</li>
+<li>Base: 웨이브톤3 美ODM 초기 매출 <span class="up">+20</span>억, 총 매출 265억·OPM 5% → 연 영업이익 13억 [추정]</li>
+<li>Bull: 미국 유통 본격화 매출 <span class="up">+50</span>억, 총 매출 295억·OPM 8% → 연 영업이익 24억 [추정]</li>
+<li>3Q·4Q 배분: 상반기 연결 영업이익 실측치 기준(2025반기 수준 낮음), 하반기 신제품 초기물량 가정 시 3Q 영업이익 3~5억·4Q 5~8억 추정 [추정]</li>
+<li>결론 문장: &quot;차기 분기(연결) 영업이익이 ≥ 8억이면 신제품 매출화 논지 유지(Base 이상), &lt; 3억이면 테마만 있고 실적 無 → 폐기하고 수급 소멸 시 급락 대비.&quot; [기준: Base 분기영익 하단 3.25억·Bull 상단]</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만): 2026년 3Q 분기보고서 공시(통상 11월 중순, DART 법정기한) — 신제품 실적 반영 여부 첫 확인점. 그 외 스템웨이브·웨이브톤3 수주계약은 날짜 미확정</li>
+<li>반증 3개:</li>
+</ul>
+<ol>
+<li>(실적 임계·수치→행동) 차기 분기 연결 영업이익 &lt; 3억 또는 매출 전년比 역성장 지속 시 → 테마 소멸 간주, 보유분 전량 정리</li>
+<li>스템웨이브 MOU가 6개월 내 정식 &#x27;공급계약(DART 단일판매공급계약)&#x27;으로 전환 실패 시 → MOU=기대감만, 목표가 하향</li>
+<li>비만약 근육보존 테마 전반 조정(한미약품·관련주 동반 하락) 시 → 섹터 순환매 종료 신호, 추세 이탈</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스:</li>
+<li>웨이브톤3 美 공급계약 체결 공시 → 상단 돌파, 2차목표 3,900 유효</li>
+<li>분기 실적 서프라이즈(영익≥8억) → Base 밸류 리레이팅</li>
+<li>분기 실적 쇼크(영익&lt;3억) → 2,580 손절, 2,300(52주저) 재테스트 리스크</li>
+<li>유상증자/CB 등 자금조달 공시 → 희석 우려, 즉시 비중축소</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 40%: 테마 소멸·수급 이탈, 2,580~2,300 회귀 (목표 2,500)</li>
+<li>Base 40%: 박스 재진입 후 완만, 2,700~3,200 등락 (목표 2,950)</li>
+<li>Bull 20%: 美 공급계약 가시화·테마 지속, 3,400~3,900 (목표 3,650)</li>
+<li>기대값 ≈ 2,500×0.4 + 2,950×0.4 + 3,650×0.2 = 2,910원 → 현재가 3,045보다 낮음(기대수익률 <span class="down">-4.4%</span>) [검산]</li>
+<li>수급·유동성:</li>
+<li>외국인/기관 20일 순매수: 미확인 (KIS 투자자별 매매 미조회) [미확인]</li>
+<li>20일 평균 거래대금 약 0.5억(급등 직전) → ADV의 10% = 500만원 수준. 당일만 179억으로 폭증 → 평상시 극저유동성 종목. 체결·청산 슬리피지 위험 큼</li>
+<li>대량보유보고 다발(9/9·9/18·9/23 접수) → 지분 변동·수급 주체 존재 [실측: DART list]</li>
+<li>포지션 사이징(자산 대비 %):</li>
+<li>극저유동성(ADV 10%=500만원 수준) + 선물無 + 테마성 → 이벤트전 상한 25%, 집중상한 50%, 리스크예산 중 최소값 적용</li>
+<li>결론: 자산의 5% 이하 소액 트레이딩만 권고(평상시 유동성이 과소하여 25% 상한도 과대. 급등 유동성 소멸 시 탈출 불가 리스크) [기계적 규칙]</li>
+</ul>
+<p>⚠️ 리서치 참고용. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 컨센서스·목표가(커버리지 0건)</li>
+<li>외국인/기관 20일 순매수 동향</li>
+<li>웨이브톤3·스템웨이브 정식 공급계약 금액·일정</li>
+<li>EV/EBITDA(순현금 세부 미확보)</li>
+<li>peer 멀티플 밴드</li>
+<li>매일경제 &#x27;상반기 매출 145억·영익 16.3억&#x27;과 DART 연결 반기치의 불일치(기사치 검증 불가 → DART 실측 우선 채택)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI 시세(inquire-price·일봉 2026-10-12)</li>
+<li>DART 재무: 2022~2025 사업보고서·2025 reprt 11011·사업보고서 접수 20260626000758·단일판매공급계약 접수 20260929900396</li>
+<li>kis_futures_check.py(선물 미상장)</li>
+<li>consensus.py 4소스(커버리지 0)</li>
+<li>news_search.py + 매일경제(12154419)·프라임경제(693646·736393)·폴리뉴스(734847)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>부채비율 187.9/402.7=46.7% ✓</li>
+<li>2024 순익/영익 73.8/11.2=6.6배(일회성 확인) ✓</li>
+<li>시나리오 확률합 40<span class="up">+40</span><span class="up">+20</span>=100% ✓ / 기대값 2,910원 ✓</li>
+<li>회전율 599.2만/3,027.5만=19.8% ✓</li>
+<li>손익비(눌림목2,750): (3,400-2,750)/2,750=23.6% ÷ (2,750-2,580)/2,750=6.2% = 3.8 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-12 12:17 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 3,015원 (<span class="up">+14.0%</span>) · 시총 913억 · 5일 <span class="up">+15.7%</span> / 20일 <span class="up">+12.9%</span> / 60일 <span class="up">+11.8%</span></li>
+<li>MA5 2,701원 / MA20 2,654원 / MA60 2,729원 → MA20 이격 <span class="up">+13.6%</span> · MA60 이격 <span class="up">+10.5%</span></li>
+<li>52주 고 4,070원 / 저 2,300원 → 고점 대비 <span class="down">-25.9%</span> · 20일 고 3,025원 / 저 2,565원</li>
+<li>후행 PER 177.35 / PBR 2.33 (EPS 17원 · BPS 1,296원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 9.8억 (5일 37.7억)</li>
+<li>외국인 순매수 5일 0.7억 / 20일 -0.3억 · 기관 5일 0.0억 / 20일 -0.2억 · 개인 20일 0.3억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.32% / 20일 평균 1.23% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 7.23% (09/16) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 3,400원 (<span class="up">+12.8%</span>) ÷ 하방 2,580원 (−14.4%) = <strong>1:0.89</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 20%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 14.4% = <strong>자산의 3.5%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.5%</strong></li>
+<li>유동성 참고: 20일 ADV 9.8억 · 1일 소화 한도는 ADV의 10%(0.98억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 14.4% · ATR14 135원 (손절폭/ATR 3.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 14.4% = ATR14 × 3.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 2,744원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.42</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-302550"></span>📋 결정카드 — 리메드(302550) 판정: 관망 선물: 無 현재가: 3,045원 진입: 2,700~2,800원 (눌림목 분할, 추격 금지) 손절: 2,580원 목표: 1차 3,400원 (2차 3,900원) 손익비: 1:3.8 (눌림목 진입 기준 / 현재가 추격 시 1:1.1) 기간: 스윙 2~4주 촉매: 2026 3Q 분기보고서(11월 중순, DART 법정기한) 반증: 차기 분기 연결 영업이익 &lt; 3억이면 테마소멸 간주 전량정리 / 스템웨이브 MOU 6개월내 정식 공급계약 전환 실패시 목표가 하향</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
