@@ -1,0 +1,203 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>피에스케이홀딩스(031980) 계약부채→매출 선행성 비주얼 정밀리서치 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261012-103534-피에스케이홀딩스-031980-계약부채-매출-선행성-비주얼-정밀리서치.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 수동 지정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-c"><b>결론 발췌</b> 【관심】 계약부채(장비 선수금)가 1~2분기 선행해 매출 폭발을 예고하는 패턴이 2023~2025년 내내 교과서적으로 반복 확인됨(계약부채↔다음분기 매출 상관계수 r=0.85). 26 2Q 계약부채 378억(역대 2위)은 26 하반기 매출 재가속을 강하게 시사. 단, 현 PER 47.4·PBR 8.58은 이 회사 역사상 최고 멀티플(과거 밴드 상단의 2.8~4.3배)로 100% forward 베팅 구간 — 레버리지는 11월 중순 3Q보고서 실측 확인이 1차 관문. - 현재가 201,500원 / −3.82% · 시총 4.34조 · PER 47.4 · PBR 8.58 · EPS 4,252 · BPS 23,484 · 52주 40,500~219…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정: 수동지정</span><h1>피에스케이홀딩스(031980) 계약부채→매출 선행성 비주얼 정밀리서치</h1>
+<div class="meta">📊 DART+KIS 실측 (춘식이 리서치) · 2026-10-12 10:35 · 코드 031980</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-12 10:35)</div><div class="kpi-v">195,700원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">4.2조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">46.03</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">8.33</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc-src">자동추출</span></div></div>
+
+<div class="body"><h1>🔬 정밀 리서치 — 피에스케이홀딩스(031980) ※선물 有(레버리지 가능)</h1>
+<p>📌 <strong>한줄 결론: 【관심】</strong> 계약부채(장비 선수금)가 1~2분기 선행해 매출 폭발을 예고하는 패턴이 2023~2025년 내내 교과서적으로 반복 확인됨(계약부채↔다음분기 매출 <strong>상관계수 r=0.85</strong>). 26 2Q 계약부채 378억(역대 2위)은 26 하반기 매출 재가속을 강하게 시사. 단, <strong>현 PER 47.4·PBR 8.58은 이 회사 역사상 최고 멀티플(과거 밴드 상단의 2.8~4.3배)로 100% forward 베팅</strong> 구간 — 레버리지는 11월 중순 3Q보고서 실측 확인이 1차 관문.</p>
+<ul>
+<li>현재가 <strong>201,500원 / −3.82%</strong> · 시총 <strong>4.34조</strong> · PER <strong>47.4</strong> · PBR <strong>8.58</strong> · EPS 4,252 · BPS 23,484 · 52주 40,500~219,000(<strong>1년새 5.4배</strong>) [KIS 실측]</li>
+<li><strong>개별주식선물 상장(근월물 A4B611) → 레버리지 매매 가능</strong> [KIS 마스터 확인]</li>
+</ul>
+<hr>
+<h2 id="포착신호">① 포착신호</h2>
+<ul>
+<li>1년새 저점 40,500 → 219,000, <strong>5.4배 급등</strong>. AI 후공정(어드밴스드 패키징) CoWoS·하이브리드본딩 CAPEX 슈퍼사이클 수혜주로 재평가.</li>
+<li>증권사 목표가 상향 러시: 신한 26만(&quot;내년 매출 <span class="up">+75%</span>&quot;), 한화 BUY 신규 27만(&quot;영업이익 <span class="up">+175%</span>&quot;). 전부 <strong>2027 추정 EPS에 forward PER 적용</strong> — trailing 아님.</li>
+</ul>
+<h2 id="사업개요-왜-급등했나">② 사업개요 — 왜 급등했나</h2>
+<ul>
+<li>반도체 <strong>후공정(어드밴스드 패키징) 장비</strong> 회사. 주력 = <strong>디스컴(Descum, 감광막 잔류물 제거)·드라이스트립·HDH</strong>.</li>
+<li>전방 = 파운드리/OSAT의 <strong>CoWoS·하이브리드 본딩</strong> 등 AI 2.5D/3D 패키징. HBM·AI 가속기 CAPEX 확대 직접 수혜.</li>
+<li>⚠️ <strong>구조적 주의 2가지:</strong></li>
+</ul>
+<ol>
+<li><strong>수주잔고는 전 기간 &quot;미공시&quot;</strong> — 34개 분기보고서 전부 &quot;NDA·영업정책상 기재 생략&quot;으로 숫자 자체가 비공개 [미확인·전기간 확정]. → <strong>계약부채(장비 선수금)가 유일한 정량 수주 선행지표</strong>.</li>
+<li><strong>2018 vs 2019~ 은 다른 회사</strong> — 2018년 중 사업회사 인적분할 → 031980은 지주사 전환. 2018 매출 3,287억→2019 420억 급감은 악화가 아니라 분할 효과. <strong>실질 분석은 2019년 이후.</strong></li>
+</ol>
+<h2 id="계약부채-매출-선행성-재두형-핵심-비주얼">③ ★계약부채 → 매출 선행성 (재두형 핵심 — 비주얼)</h2>
+<p><strong>계약부채(장비 선수금)가 급증한 분기의 1~2분기 후 매출이 폭발</strong>하는 패턴이 반복됩니다. 아래 차트에서 녹색 화살표가 &quot;선수금 급증 → 다음 분기 매출 점프&quot;를 직접 보여줍니다.</p>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/pskh-031980-cl-rev-lead.png" alt="계약부채→매출 1~2분기 선행 패턴" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<ul>
+<li>2023 3Q 계약부채 125.8억(직전 2배) → <strong>2023 4Q 매출 395억</strong>(148→395)</li>
+<li>2024 3Q 282.6억(최대 경신) → <strong>2024 4Q 매출 978억</strong>(역대 최대)</li>
+<li><strong>2025 2Q 562.3억(역대최대) → 2025 3Q 매출 905억</strong>(1분기 선행, 교과서 사례)</li>
+<li><strong>2026 2Q 378.5억(역대 2위) → 2026 3Q~4Q 🎯 아직 미발표(최대 관전 포인트)</strong></li>
+</ul>
+<p><strong>정량 검증:</strong> 계약부채[t분기] vs 매출[t<span class="up">+1</span> 다음분기]의 산점도. <strong>상관계수 r=0.85, 추세선 기울기 1.69</strong> — 선수금이 100억 늘면 다음 분기 매출이 약 169억 늘어나는 우상향 관계. 장비 선수금이 비공개 수주잔고의 대리지표로 작동함을 수치로 확인.</p>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/pskh-031980-cl-rev-scatter.png" alt="계약부채→다음분기 매출 산점도 r=0.85" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<p>→ <strong>계약부채는 1~2분기 선행 매출 예고 지표로 신뢰도 높음.</strong> 절대레벨보다 <strong>직전 대비 급증 여부</strong>가 핵심. 26 2Q 378억 → 26 하반기 매출 재가속 강하게 시사.</p>
+<h2 id="매출영업이익opm-추세-비주얼">④ 매출·영업이익·OPM 추세 (비주얼)</h2>
+<p>대형수주 체결 분기(24.4Q·25.3Q)엔 매출이 900억대로 튀며 <strong>OPM이 44~46%</strong>까지 치솟습니다 — 장비주 특유의 고정비 레버리지. 반면 비수기 분기(25.2Q·26.2Q)는 25~29%로 눌립니다.</p>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/pskh-031980-rev-op-opm.png" alt="매출·영업이익·OPM 추세" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<ul>
+<li>매출 피크: 24.4Q <strong>978억</strong>(역대최대), 25.3Q <strong>905억</strong></li>
+<li>영익 피크: 24.4Q <strong>432억</strong>, 25.3Q <strong>412억</strong></li>
+<li>OPM 밴드: 호황분기 40~46% ↔ 비수기분기 25~33% (변동 큼 → 분기 믹스 중요)</li>
+</ul>
+<h2 id="주가-vs-멀티플-밴드-비주얼">⑤ 주가 vs 멀티플 밴드 (비주얼)</h2>
+<p>현 주가는 과거 PER/PBR 밴드를 <strong>수직으로 돌파</strong>한 전인미답 레벨입니다. trailing 실적으론 설명 불가 — 순수 2027 forward 베팅 구간.</p>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/pskh-031980-price-multiple.png" alt="주가 vs PER/PBR 멀티플 밴드" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<p>연말주가 / EPS / PER / PBR [DART+KIS]:</p>
+<ul>
+<li>2021 17,900 / 2,278 / 7.9 / 1.53</li>
+<li>2022 6,850 / 1,982 / 3.5 / 0.52(바닥)</li>
+<li>2023 26,950 / 2,055 / 13.1 / 1.70</li>
+<li>2024 38,050 / 4,444 / 8.6 / 1.90</li>
+<li>2025 46,300 / 4,252 / 10.9 / 1.97</li>
+<li><strong>현재 201,500 / 4,252 / PER 47.4 / PBR 8.58</strong></li>
+</ul>
+<p><strong>밴드 해석:</strong> 과거 PER <strong>3배(바닥)~17배(천장)</strong>, 중앙 8~10배. PBR <strong>0.5~2.0배</strong>, 중앙 1.5배. → <strong>현 PER 47.4는 역사밴드 상단의 2.8배, PBR 8.58은 4.3배 돌파.</strong></p>
+<p><strong>리레이팅 변곡점:</strong> ①2023.6~7 HBM 테마 최초반영(PER 3→17) ②2024 상반기 OPM 40% 입증으로 실적이 멀티플 추격 ③<strong>2026 현재 — trailing EPS로는 PER 47 전혀 설명 불가, 순수 2027 실적 선반영(forward 베팅).</strong></p>
+<h2 id="분기별-원본-데이터-테이블-2019-1q2026-2q-연결-cfs">⑥ ★분기별 원본 데이터 테이블 (2019 1Q~2026 2Q, 연결 CFS)</h2>
+<p>단위 억원 · 매출/영익은 분기 단독값(누적 차분 [검산]) · 계약부채는 분기말 잔액. (위 차트들의 근거 숫자)</p>
+<ul>
+<li>2019 1Q 매출 29.4 / 영익 −12.6 / 적자 · 계약부채 72.5(분할 과도기) [DART]</li>
+<li>2019 2Q 140.2 / 30.3 / 21.6% [검산]</li>
+<li>2019 3Q 104.4 / −12.2 / 적자 [검산]</li>
+<li>2019 4Q 146.8 / 9.2 / 6.3% · 계약부채 7.1 [검산/DART]</li>
+<li>2020 1Q 59.4 / −17.6 / 적자 [DART]</li>
+<li>2020 2Q 110.3 / −2.5 / 적자 [검산]</li>
+<li>2020 3Q 148.9 / 12.5 / 8.4% [검산]</li>
+<li>2020 4Q 79.1 / −17.1 / 적자 · 계약부채 25.6 [검산/DART]</li>
+<li>2021 1Q 97.9 / −8.8 / 적자 · 계약부채 45.7 [DART]</li>
+<li>2021 2Q 181.4 / 39.3 / 21.6% · 계약부채 63.2 [검산/DART]</li>
+<li>2021 3Q 203.0 / 66.7 / 32.8% · 계약부채 31.5 [검산/DART]</li>
+<li>2021 4Q 333.9 / 129.2 / 38.7% · 계약부채 32.6 [검산/DART]</li>
+<li>2022 1Q 117.0 / 11.1 / 9.5% · 계약부채 48.1 [DART]</li>
+<li>2022 2Q 150.0 / 33.7 / 22.5% · 계약부채 87.2 [검산/DART]</li>
+<li>2022 3Q 147.4 / 26.8 / 18.2% · 계약부채 95.6 [검산/DART]</li>
+<li>2022 4Q 313.5 / 97.4 / 31.1% · 계약부채 64.1 [검산/DART]</li>
+<li>2023 1Q 149.1 / 35.0 / 23.4% · 계약부채 61.3 [DART]</li>
+<li>2023 2Q 254.5 / 85.4 / 33.6% · 계약부채 66.2 [검산/DART]</li>
+<li>2023 3Q 148.6 / 9.3 / 6.3% · <strong>계약부채 125.8(직전 2배↑)</strong> [검산/DART]</li>
+<li>2023 4Q 395.0 / 140.0 / 35.4% · 계약부채 46.6 [검산/DART]</li>
+<li>2024 1Q 380.9 / 154.2 / 40.5% · 계약부채 73.2 [DART]</li>
+<li>2024 2Q 405.2 / 155.7 / 38.4% · 계약부채 163.1 [검산/DART]</li>
+<li>2024 3Q 390.6 / 142.8 / 36.6% · <strong>계약부채 282.6(분기최대 경신)</strong> [검산/DART]</li>
+<li>2024 4Q <strong>978.3 / 432.1 / 44.2%(역대 분기 최대)</strong> · 계약부채 109.4 [검산/DART]</li>
+<li>2025 1Q 311.5 / 95.4 / 30.6% · 계약부채 185.9 [DART]</li>
+<li>2025 2Q 346.6 / 84.5 / 24.4% · <strong>계약부채 562.3 🔺역대최대</strong> [검산/DART]</li>
+<li>2025 3Q <strong>905.5 / 412.4 / 45.5%</strong> · 계약부채 185.5 [검산/DART]</li>
+<li>2025 4Q 514.0 / 141.7 / 27.6% · 계약부채 83.5 [검산/DART]</li>
+<li>2026 1Q 279.8 / 91.7 / 32.8% · 계약부채 159.9 [DART]</li>
+<li>2026 2Q 473.2 / 138.0 / 29.2% · <strong>계약부채 378.5 🔺역대 2위</strong> [검산/DART]</li>
+</ul>
+<p>[검산] 로직: 2Q단독=반기누적−1Q, 3Q=3Q누적−반기, 4Q=연간−3Q누적. 전부 연결(CFS). 수주잔고 = 전 기간 n/a(DART 기재생략) [미확인]. (2018년 데이터는 인적분할 전/과도기라 추세분석에서 제외)</p>
+<h2 id="매매포인트-선물-레버리지-전제">⑦ 🎯 매매포인트 (선물 有 · 레버리지 전제)</h2>
+<p><strong>1차 관문 — 2026 3Q보고서(11월 중순):</strong></p>
+<ol>
+<li><strong>26 3Q 매출</strong> — 26 2Q 계약부채 378억이 매출 전환됐는지. 과거 패턴(25 2Q 562→25 3Q 905)상 <strong>700억+ 로 튀면 선행지표 적중 = 상승논리 유지.</strong> 안 튀면 멀티플 붕괴 1순위 경고.</li>
+<li><strong>26 3Q말 계약부채</strong> — 다시 400억+ 급증이면 26 4Q~27 1Q 재가속 예고. <strong>100억대로 꺾이면 수주 피크아웃 경고 → 선물 레버리지 즉시 축소.</strong></li>
+<li><strong>OPM 40%+ 복귀 여부</strong>(25 2Q·26 2Q는 25~29%로 눌림).</li>
+</ol>
+<p><strong>⚠️ 밸류 부담(솔직히):</strong></p>
+<ul>
+<li>현 PER 47·PBR 8.58 = 회사 역사상 최고, 100% forward 베팅. <strong>실적 소폭 하회만으로도 멀티플 디레이팅(47→30)만으로 −35% 급락 가능 — 밸류 쿠션 없음.</strong></li>
+<li>1년 5.4배 상승 = 변동성 극단. 레버리지는 반드시 분할·기계적 손절.</li>
+<li>장비주는 <strong>계약부채 꺾임(수주 피크아웃)이 주가 고점을 1~2분기 선행</strong>(2022 사례). 계약부채가 조기경보 레이더.</li>
+</ul>
+<p><strong>요약:</strong> 추세·테마는 강력, 밸류는 극단. <strong>26 3Q 매출 + 26 3Q말 계약부채 재급증</strong>이 레버리지 유지/청산 분기점. 확인 전 신규 레버리지는 과열, 보유분은 트레일링 스톱.</p>
+<hr>
+<p class="note">DART·KIS 실측 기반 리서치 자료, 투자권유 아님. 선물 레버리지는 원금초과손실 가능 → 포지션·손절 관리 필수.</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-12 10:35 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 195,700원 (<span class="down">-6.6%</span>) · 시총 4.22조 · 5일 <span class="up">+0.9%</span> / 20일 <span class="up">+33.6%</span> / 60일 <span class="up">+43.7%</span></li>
+<li>MA5 199,960원 / MA20 174,595원 / MA60 136,273원 → MA20 이격 <span class="up">+12.1%</span> · MA60 이격 <span class="up">+43.6%</span></li>
+<li>52주 고 219,000원 / 저 40,500원 → 고점 대비 <span class="down">-10.6%</span> · 20일 고 209,500원 / 저 152,400원</li>
+<li>후행 PER 46.03 / PBR 8.33 (EPS 4,252원 · BPS 23,484원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 313.8억 (5일 381.7억)</li>
+<li>외국인 순매수 5일 32.6억 / 20일 173.0억 · 기관 5일 -10.4억 / 20일 -30.0억 · 개인 20일 -142.4억</li>
+<li>개별주식선물: ⚡ 상장 (A4B610) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 4.13% / 20일 평균 5.13% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 12.12% (09/14) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
