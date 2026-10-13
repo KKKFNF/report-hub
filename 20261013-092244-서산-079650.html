@@ -1,0 +1,260 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>서산(079650) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261013-092244-서산-079650.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:0.75</div><div class="tp-c"><b>결론 발췌</b> 실적 아닌 &#x27;호남 반도체 클러스터&#x27; 테마 급등(2일 연속 상한가). 적자기업+컨센 부재로 밸류 앵커 없음 → 판정 관망. 추격 비권장, 눌림 시에만 소액 단기. 손익비 1:1.0 미만(불리). 1차 목표 10,300원(52주고), 손절 6,760원. ━━━━━━━━━━━━━━━ ① 포착 신호 [실측: KIS 2026-10-13 09시] - 현재가 8,780원(전일대비 +29.88%, 당일 상한가) / 전일 10/12도 +30% 상한가(6,760원) - 2일 연속 상한가. 10/8 종가 5,200원 → 10/13 8,780원, 3거래일 +68.8% [실측: KIS 일봉] - 거래대금 당일 565억(09시 기준, 포착시점 121억에서 급증)…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>서산(079650)</h1>
+<div class="meta">📊 trend · 2026-10-13 09:22 · 코드 079650</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-13 09:22)</div><div class="kpi-v">8,780원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,756억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.51</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.75</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">10,300원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 눌림 시에만 6,500~7,000원(추격 비권장)</span><span class="dc dn">손절 6,760원</span><span class="dc up">목표 10,300원</span><span class="dc">손익비 현재가 1:0.75</span><span class="dc">기간 스윙 아닌 단기 1~2주(테마 소멸 리스크)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026 3Q보고서(~11/14) / 호남 클러스터 후속 정책(날짜 미정)</div><div class="dc-l">🛑 반증: 3Q 영업이익 &lt; 0 이면 순수 테마주 확정→논지 폐기 / 종가 7,500원 하회 시 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 서산(079650)  ※개별주식선물 無(현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: 실적 아닌 &#x27;호남 반도체 클러스터&#x27; 테마 급등(2일 연속 상한가). 적자기업+컨센 부재로 밸류 앵커 없음 → 판정 관망. 추격 비권장, 눌림 시에만 소액 단기. 손익비 1:1.0 미만(불리). 1차 목표 10,300원(52주고), 손절 6,760원.</p>
+<hr>
+<p>① 포착 신호 [실측: KIS 2026-10-13 09시]</p>
+<ul>
+<li>현재가 8,780원(전일대비 <span class="up">+29.88%</span>, 당일 상한가) / 전일 10/12도 <span class="up">+30%</span> 상한가(6,760원)</li>
+<li>2일 연속 상한가. 10/8 종가 5,200원 → 10/13 8,780원, 3거래일 <span class="up">+68.8%</span> [실측: KIS 일봉]</li>
+<li>거래대금 당일 565억(09시 기준, 포착시점 121억에서 급증) / 시총 1,756억 → 회전율 급등</li>
+<li>MA정배열: MA5 6,350 / MA20 6,347 / MA60 5,433, 현재가가 전 이평 상회 [실측: KIS]</li>
+<li>52주: 고 10,300 / 저 952원 [실측: KIS] — 저점 대비 9배, 변동성 극심</li>
+</ul>
+<p>② 사업·급등사유 [사업 — 실측: 사업보고서 2025.12 접수 20260316000539]</p>
+<ul>
+<li>광주 소재 콘크리트제품 제조사. 2개 사업부: ①콘크리트(레미콘·파일·전주·흄관) ②에너지솔루션(EV충전기, 매출 0원 사실상 미가동)</li>
+<li>2025 제품믹스: 레미콘 53.1% / 파일 34.2% / 전주 10.7% / 기타 2% [실측: 동 보고서]</li>
+<li>2026 반기: 파일 48.7%(급증) / 레미콘 40.4% / 전주 8.0% — 파일 비중이 레미콘 추월 [실측: 반기보고서 접수 20260814001244]</li>
+<li>주요 원재료: 시멘트·골재(쌍용씨앤이 외), 매입 88.7% 차지 → 시멘트價 민감 [실측: 동]</li>
+</ul>
+<p>[급등사유 — 인용: 뉴스 2026-10-12]</p>
+<ul>
+<li>핵심 촉매: SK 최태원 회장 &quot;호남 반도체 클러스터 가장 빠른 속도로 짓겠다&quot; 현장점검 발언 → 광주·전남 지역 건설/시멘트/레미콘 수혜 기대 [인용: 투데이신문·뉴스핌 2026-10-12]</li>
+<li>서산은 광주 레미콘·콘크리트 업체로 &#x27;지역 인프라 수혜주&#x27; 테마 편입 [인용: 뉴스1·PPSS 2026-10-12]</li>
+<li>★검증: 테마는 &#x27;기대감&#x27;이지 수주·계약 등 실제 확정 사실 아님. 반도체 클러스터와 서산 간 직접 공급계약·수주공시 미확인. 동반급등주(금호전기 <span class="up">+29%</span>, HC보광산업)도 동일 테마 수급 [인용: 경제투데이 2026-10-12]</li>
+<li>즉 급등 = 실적개선 아닌 지역 테마 수급 쏠림. [추정: 펀더멘털 근거 부재, 테마성 100%]</li>
+</ul>
+<p>③ 실적 [실측: DART 연결(CFS)] 3개년 손익(연결):</p>
+<ul>
+<li>2023: 매출 412.5억 / 영업손실 -15.8억 / 순이익 <span class="up">+15.3</span>억(흑자, 단 영업적자→금융·일회성 기인)</li>
+<li>2024: 매출 356.8억 / 영업손실 -24.9억 / 순손실 -4.8억(지배)</li>
+<li>2025: 매출 451.0억 / 영업손실 -33.3억 / 순손실 -9.9억(지배) [실측: 2025 사업보고서]</li>
+</ul>
+<p>→ 3년 연속 영업적자. 매출은 2025 반등(<span class="up">+26%</span> yoy)했으나 영업손실 확대. OPM 2025 <span class="down">-7.4%</span></p>
+<p>★연결-별도·일회성 분해:</p>
+<ul>
+<li>2023 순이익 흑자(<span class="up">+15.3</span>억)는 영업적자(-15.8억)에도 금융수익·기타이익 등 영업외 요인 [실측: CIS]</li>
+<li>2025 순손실(연결 -28.5억 / 지배 -9.9억): 비지배지분 손실 -18.6억이 큼 → 자회사 적자 영향. 지배주주 실손실은 -9.9억 [실측: 2025 CIS]</li>
+</ul>
+<p>분기 추이(2025~2026):</p>
+<ul>
+<li>2025 1Q 영업 -19.9억 / 반기누적 -6.2억 / 3Q누적 -3.9억</li>
+<li>2026 1Q: 매출 114.9억 / 영업이익 <span class="up">+3.08</span>억(흑자전환!) / 순이익 <span class="up">+1.95</span>억 [실측: 2026 1분기보고서]</li>
+<li>2026 반기누적: 영업손실 -3.26억 → [검산] 2Q 영업이익 ≈ -6.34억(적자 재전환) [추정: 반기-1Q]</li>
+<li>반기매출 244.7억(사업부표) [실측: 반기보고서]</li>
+</ul>
+<p>→ 1Q 반짝 흑자 후 2Q 재적자. 실적 추세 불안정, 흑자 지속성 미확인</p>
+<p>재무건전성 [실측: 2025 연결]:</p>
+<ul>
+<li>자산 1,073.9억 / 부채 55.0억 / 자본 1,018.9억 → 부채비율 5.4%(매우 양호)</li>
+<li>유동자산 802.6억 vs 유동부채 51.3억 → 유동비율 1,565%(현금성 풍부)</li>
+<li>지배주주지분 698.9억 / BPS 3,495원 [실측: KIS]</li>
+<li>영업현금흐름 2025 -20.5억(마이너스) [실측: CF]</li>
+</ul>
+<p>→ 재무는 극히 안전(무차입 수준)하나 영업에서 현금 못 버는 구조</p>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 커버리지 전무: 최근 6개월 목표가 리포트 0건, 연간·분기 컨센 모두 미확인 [실측: consensus.py 4소스 2026-10-13]</li>
+<li>스탁이지 기업/산업 리포트 0건 [실측: stockeasy_reports.py]</li>
+</ul>
+<p>→ 기관 추정치 부재 = 밸류에이션 앵커 없음. 테마 수급에만 의존하는 종목 특성</p>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>PER -177.8배(적자, 무의미) / PBR 2.51배 [실측: KIS]</li>
+<li>PBR 2.51배는 적자·순자산 중심 콘크리트 제조업 기준 고평가 구간. 자본의 대부분이 유동자산(현금·투자자산)이나 영업적자로 ROE 마이너스(<span class="down">-2.7%</span>)</li>
+<li>적정멀티플 산정: EPS 음수로 PER 밸류 불가. 순자산(BPS 3,495) 기준 제조업 평상시 PBR 1.0~1.5배 → 적정가 3,495~5,243원 [추정: BPS×PBR밴드]</li>
+<li>현재가 8,780원은 순자산가치 대비 2.5배, 테마 프리미엄 100%+ 선반영</li>
+<li>자체 목표가: 테마 모멘텀 지속 시 기술적 저항 10,300원(52주고)이 1차 상단. 펀더멘털 목표가는 산정 불가(적자+컨센 부재)</li>
+</ul>
+<p>⑥ 진입전략·손익비 [실측: KIS 기준]</p>
+<ul>
+<li>지지: 전일 상한가 시초 6,760원 / MA5 6,350 / 테마 진입 전 박스 5,200~5,600</li>
+<li>저항: 52주고 10,300원 / 당일 상한가 8,780원(현 레벨)</li>
+<li>현재가 8,780 vs 1차목표 10,300 → 상승여력 <span class="up">+17.3%</span></li>
+<li>손절 6,760(전일 상한가, 테마 1일분 되돌림) → 하락리스크 <span class="down">-23.0%</span></li>
+<li>손익비 = 17.3 ÷ 23.0 = 1:0.75 (1 미만, 불리)</li>
+<li>★2일 연속 상한가 종목 추격매수는 익일 갭·변동성 리스크 극대. 눌림(6,500~7,000) 회귀 시에만 소액 단기 접근이 그나마 손익비 개선</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오·수급·포지션 촉매(확정 이벤트만):</p>
+<ul>
+<li>2026 3분기보고서 공시(법정기한 ~2026-11-14 전후) [추정: 정기공시 기한]</li>
+<li>호남 반도체 클러스터 후속 정책/착공 뉴스(날짜 미정) [인용: 테마 지속성 변수]</li>
+</ul>
+<p>반증 3개(수치→행동):</p>
+<ul>
+<li>① 3Q 영업이익 &lt; 0 (적자 지속): 테마 소멸 시 밸류 지지 無 → 논지 폐기, 전량 정리</li>
+<li>② 익일 상한가 풀리고 종가 7,500원 하회: 테마 수급 이탈 신호 → 손절 실행</li>
+<li>③ 거래대금 100억 미만으로 급감 + 음봉: 쏠림 종료 → 보유분 청산</li>
+</ul>
+<p>이벤트 매트릭스:</p>
+<ul>
+<li>테마 지속+후속뉴스 → 10,300 돌파 시도(단기)</li>
+<li>테마 소멸(차익실현) → 6,000선 되돌림, 고점 추격자 손실</li>
+<li>3Q 흑자 서프라이즈 → 유일한 펀더멘털 재평가 트리거(확률 낮음)</li>
+</ul>
+<p>확률가중 시나리오(합 100%):</p>
+<ul>
+<li>Bear(55%): 테마 2~3일 소멸, 차익매물 → 6,000원 되돌림(<span class="down">-31.7%</span>). 2일 연속 상한가 후 급락 전형</li>
+<li>Base(35%): 고점권 횡보·변동성 축소, 7,500~9,000 박스</li>
+<li>Bull(10%): 후속 정책뉴스로 10,300 돌파 후 추가 테마랠리</li>
+</ul>
+<p>→ 기대값 음(-)에 가까움. 추격 진입 비권장</p>
+<p>수급: 개인 테마 수급 주도 추정(동반주 금호전기·HC보광산업 동일 테마) [추정: 뉴스 정황]. 기관·외인 실측 수급 미확인.</p>
+<p>포지션 사이징(자산 대비 %):</p>
+<ul>
+<li>판정이 관망이므로 신규 진입 비권장</li>
+<li>굳이 참여 시: 테마 단기 트레이딩으로 자산의 3% 이하, 눌림 진입·칼손절 전제. 집중한도(50%)와 무관하게 적자+선물無 종목은 소액 한정</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 [실측: dart_biz.py] 전방산업: 광주·전남 건설/인프라(레미콘·파일·전주). 반도체 클러스터·공공 인프라가 전방 물량 변수 제품별(2026 반기, 콘크리트 소계 244.7억):</p>
+<ul>
+<li>파일 119.1억(48.7%) ← 전년동기 53.8억 대비 <span class="up">+121%</span> 급증(토목·기초공사 수요)</li>
+<li>레미콘 98.8억(40.4%) ← 전년 114.2억 대비 <span class="down">-13%</span></li>
+<li>전주 19.5억(8.0%) / 흄관·상품 7.3억</li>
+</ul>
+<p>원재료: 시멘트·골재 매입 88.7%, 쌍용씨앤이 등 → 시멘트價 상승 시 원가압박</p>
+<p>9-7 바텀업(반기 실측 → 연환산 추정):</p>
+<ul>
+<li>반기 매출 244.7억 × 2 ≈ 연 489억 [추정: 반기×2]</li>
+<li>반기 영업 -3.26억 → 연 영업손실 -6~7억 수준 [추정]</li>
+<li>단, 1Q 흑자(<span class="up">+3.08</span>억)·2Q 적자(-6.34억)로 분기 변동 큼. 파일 수주가 핵심 스윙변수</li>
+</ul>
+<p>★결론(바텀업 임계): 2026 3Q 영업이익 ≥ <span class="up">+5</span>억(파일 수주 지속·흑자 확대)이면 펀더멘털 재평가 유효 → 테마 아닌 실적주 전환 가능. 3Q 영업이익 &lt; 0(적자 재전환)이면 순수 테마주로 논지 폐기, 테마 소멸과 함께 하락.</p>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>호남 반도체 클러스터 ↔ 서산 직접 공급계약·수주 여부(테마 기대만 확인)</li>
+<li>2026 3Q 실적(11월 중순 공시 예정)</li>
+<li>기관·외인 실측 수급(개인 주도 추정)</li>
+<li>2026 2Q 손익표 매출 원값(반기 None, 사업부표로 역산)</li>
+<li>증권사 목표가·컨센서스(커버리지 전무)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS 시세 inquire-price/daily-itemchartprice 2026-10-13 09시</li>
+<li>DART 2025 사업보고서 접수 20260316000539, 2026 반기보고서 20260814001244, 2026 1분기보고서, 2024 사업보고서</li>
+<li>consensus.py(naver·fnguide·stockeasy·hankyung) 2026-10-13</li>
+<li>news_search.py(Google News) 2026-10-12 기사 6건</li>
+<li>kis_futures_check.py 2026-10-13(선물 미상장)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>반기 영업(-3.26억) = 1Q(<span class="up">+3.08</span>억) + 2Q(-6.34억) ✓</li>
+<li>자산 1,073.9억 = 부채 55.0억 + 자본 1,018.9억 ✓</li>
+<li>손익비 1:0.75 = 상승여력 17.3% ÷ 하락리스크 23.0% ✓</li>
+<li>시나리오 확률 55<span class="up">+35</span><span class="up">+10</span> = 100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-13 09:22 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 8,780원 (<span class="up">+29.9%</span>) · 시총 1,756억 · 5일 <span class="up">+56.8%</span> / 20일 <span class="up">+12.1%</span> / 60일 <span class="up">+56.5%</span></li>
+<li>MA5 6,350원 / MA20 6,347원 / MA60 5,433원 → MA20 이격 <span class="up">+38.3%</span> · MA60 이격 <span class="up">+61.6%</span></li>
+<li>52주 고 10,300원 / 저 952원 → 고점 대비 <span class="down">-14.8%</span> · 20일 고 8,780원 / 저 5,200원</li>
+<li>후행 PER -179.18 / PBR 2.51 (EPS -49원 · BPS 3,495원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 138.7억 (5일 226.1억)</li>
+<li>외국인 순매수 5일 16.4억 / 20일 12.3억 · 기관 5일 0.0억 / 20일 -0.1억 · 개인 20일 -15.4억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.29% / 20일 평균 0.27% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 2.35% (09/29) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 10,300원 (<span class="up">+17.3%</span>) ÷ 하방 6,760원 (−23.0%) = <strong>1:0.75</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 18%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 23.0% = <strong>자산의 2.2%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.2%</strong></li>
+<li>유동성 참고: 20일 ADV 138.7억 · 1일 소화 한도는 ADV의 10%(13.87억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 23.0% · ATR14 568원 (손절폭/ATR 3.6배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 23.0% = ATR14 × 3.6배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 7,902원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.73</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-079650"></span>📋 결정카드 — 서산(079650) 판정: 관망 선물: 無 현재가: 8,780원 진입: 눌림 시에만 6,500~7,000원(추격 비권장) 손절: 6,760원 목표: 1차 10,300원 (2차 미설정·펀더멘털 앵커 없음) 손익비: 1:0.75 (현 레벨 추격 기준·불리) 기간: 스윙 아닌 단기 1~2주(테마 소멸 리스크) 촉매: 2026 3Q보고서(~11/14) / 호남 클러스터 후속 정책(날짜 미정) 반증: 3Q 영업이익 &lt; 0 이면 순수 테마주 확정→논지 폐기 / 종가 7,500원 하회 시 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
