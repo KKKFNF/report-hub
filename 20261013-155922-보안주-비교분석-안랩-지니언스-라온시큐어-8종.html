@@ -1,0 +1,204 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>보안주 비교분석 — 안랩·지니언스·라온시큐어 外 8종 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261013-155922-보안주-비교분석-안랩-지니언스-라온시큐어-8종.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 수동 지정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-c"><b>결론 발췌</b> 2026년 10월 금융권 AI 해킹 사태로 사이버보안 섹터 전체가 테마 급등 중. 그러나 &quot;테마+실적+밸류+수급&quot; 4박자를 모두 충족하는 종목은 지니언스(263860) 가 독보적 1위, 차선호는 이글루(067920). 단순 테마 변동성 베팅이라면 샌즈랩·라온시큐어지만 밸류·수익성 리스크가 큼. ⚠️ 보안주 전 종목 개별주식선물 미상장 → 레버리지 불가, 현물만 가능. ---</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정: 수동지정</span><h1>보안주 비교분석 — 안랩·지니언스·라온시큐어 外 8종</h1>
+<div class="meta">📊 trend · 2026-10-13 15:59 · 코드 263860</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-13 15:59)</div><div class="kpi-v">22,850원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2,075억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">27.66</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">3.18</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc-src">자동추출</span></div></div>
+
+<div class="body"><p class="note"><strong>한 줄 결론:</strong> 2026년 10월 금융권 AI 해킹 사태로 사이버보안 섹터 전체가 테마 급등 중. 그러나 &quot;테마+실적+밸류+수급&quot; 4박자를 모두 충족하는 종목은 <strong>지니언스(263860)</strong> 가 독보적 1위, 차선호는 <strong>이글루(067920)</strong>. 단순 테마 변동성 베팅이라면 샌즈랩·라온시큐어지만 밸류·수익성 리스크가 큼. <strong>⚠️ 보안주 전 종목 개별주식선물 미상장 → 레버리지 불가, 현물만 가능.</strong></p>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-13 15:59 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 22,850원 (<span class="up">+2.9%</span>) · 시총 2,075억 · 5일 <span class="up">+12.0%</span> / 20일 <span class="up">+45.4%</span> / 60일 <span class="up">+89.9%</span></li>
+<li>MA5 23,270원 / MA20 19,714원 / MA60 16,047원 → MA20 이격 <span class="up">+15.9%</span> · MA60 이격 <span class="up">+42.4%</span></li>
+<li>52주 고 26,500원 / 저 11,000원 → 고점 대비 <span class="down">-13.8%</span> · 20일 고 24,650원 / 저 15,360원</li>
+<li>후행 PER 27.66 / PBR 3.18 (EPS 826원 · BPS 7,189원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 132.3억 (5일 208.7억)</li>
+<li>외국인 순매수 5일 -30.1억 / 20일 -33.5억 · 기관 5일 -1.5억 / 20일 18.0억 · 개인 20일 18.0억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.79% (공매도 4,822주 · 1.1억) · 5일 평균 1.37% / 20일 평균 1.31% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 2.74% (09/30) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<h2 id="결정카드-보안주-비교분석-종합">📋 결정카드 — 보안주 비교분석 종합</h2>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td><strong>최선호(Top Pick)</strong></td><td><strong>지니언스(263860)</strong> — 종합스코어 8.5/10 (1위)</td></tr><tr><td><strong>차선호</strong></td><td><strong>이글루(067920)</strong> — 7.5 / <strong>안랩(053800)</strong> — 6.8(대장·수급)</td></tr><tr><td><strong>밸류 가치주</strong></td><td><strong>윈스테크넷(136540)</strong> — PER 7.3·PBR 0.64 (극단적 저평가)</td></tr><tr><td><strong>고변동 테마주</strong></td><td>샌즈랩·라온시큐어 (실적·밸류 리스크, 단기 모멘텀만)</td></tr><tr><td><strong>회피</strong></td><td>모니터랩(PER54·외인이탈), SGA솔루션즈(적자전환)</td></tr><tr><td><strong>선물 상장</strong></td><td>❌ <strong>전 종목 미상장</strong> — 레버리지 불가, 현물 매매만</td></tr><tr><td><strong>섹터 판정</strong></td><td>테마 유효하나 급등 과열 구간, <strong>실적주 중심 분할 접근</strong></td></tr></tbody></table></div>
+<hr>
+<h2 id="1-섹터-개요-왜-지금-보안주인가">1. 섹터 개요 — 왜 지금 보안주인가</h2>
+<h3 id="11-직접-촉매-2026년-10월-금융권-ai-해킹-사태">1-1. 직접 촉매: 2026년 10월 금융권 AI 해킹 사태</h3>
+<ul>
+<li><strong>(10/06)</strong> 금융사 <strong>7곳 연쇄 침해 사고</strong> 발생. 공격자가 <strong>AI 도구로 대량·자동화 공격</strong>을 수행한 것으로 전해지며, 정부가 긴급 비상대응체계 발동 + 민간기업 약 2.8만 곳에 보안 강화 권고.</li>
+<li>정부가 <strong>공공기관 사이버보안 평가 대상을 대폭 확대</strong> → 보안 솔루션 수요 기대감 점화.</li>
+<li>결과: 10/06 지니언스·샌즈랩·라온시큐어 상한가권, 10/13 코스닥 약세 속에서도 <strong>안랩 <span class="up">+10.5%</span>, 라온시큐어 <span class="up">+6%</span></strong> 역행 강세.</li>
+</ul>
+<h3 id="12-삼중-결합-구조">1-2. 삼중 결합 구조</h3>
+<p>이번 랠리는 ①실제 침해사고 ②공격수법이 AI(=AI보안 테마 결합) ③정부 정책대응이 동시에 겹친 구조라 단발성 뉴스보다 지속성이 있음. 다만 <strong>&quot;정책 수혜가 실적으로 연결되는 종목&quot;과 &quot;단순 테마 편입주&quot;의 차별화</strong>가 핵심 관전 포인트.</p>
+<h3 id="13-글로벌-동조화">1-3. 글로벌 동조화</h3>
+<p>미국 보안주(팔로알토·포티넷·지스케일러)가 9월부터 선행 상승(오픈AI SEC 무단접근 이슈 등)하며 국내 심리를 자극. 외인 비중 높은 안랩(28%)·지니언스(26%)가 글로벌 센티먼트에 민감.</p>
+<hr>
+<h2 id="2-과거-실적-비교-dart-연결-20212024-실측">2. 과거 실적 비교 (DART 연결, 2021~2024 실측)</h2>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/sec-cyber-revenue.png" alt="매출 추이" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<p><strong>매출 (억원) / 영업이익 (억원):</strong></p>
+<ul>
+<li><strong>안랩</strong>: 2,073→2,606 / 229→277 (OPM 11%대, 대형·안정 성장)</li>
+<li><strong>윈스테크넷</strong>: 964→1,015 / 210→204 (매출 정체, but <strong>OPM 20%+ 꾸준</strong>)</li>
+<li><strong>이글루</strong>: 920→1,112 / 57→61 (2024까지 저OPM 5%대 → <strong>2025 급반전, 하단 참조</strong>)</li>
+<li><strong>지니언스</strong>: 319→496 / 59→98 (<strong>4년 매출 1.55배·영익 1.66배</strong>, OPM 18~20%)</li>
+<li><strong>파수AI</strong>: 422→461 / 42→39 (저성장·안정)</li>
+<li><strong>라온시큐어</strong>: 433→625 / <strong>-10→43→-17→20 (적자·흑자 반복, 불안정)</strong></li>
+<li><strong>샌즈랩</strong>: 93→83 / 21→<strong>-37 (적자전환, 소형)</strong></li>
+<li><strong>모니터랩</strong>: 142→149 / 0→<strong>-6 (적자, 소형)</strong></li>
+</ul>
+<p><strong>핵심 관찰:</strong></p>
+<ol>
+<li><strong>수익성 2강 = 윈스테크넷·지니언스</strong> (OPM 20% 안정권). 안랩은 11%, 나머지는 한 자릿수~적자.</li>
+<li><strong>성장+수익성 겸비 = 지니언스</strong> 유일 (4년 고성장 + OPM 20%).</li>
+<li><strong>2025년 턴어라운드 = 이글루</strong> — 2025 매출 1,433억(<span class="up">+28.8%</span>)·영업이익 160억(<strong><span class="up">+164%</span></strong>, OPM 11.2%). AI 관제 자동화 레버리지 발현. 2024까지의 저수익 이미지가 2025에 완전히 깨짐.</li>
+</ol>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/sec-cyber-growth-margin.png" alt="성장성 vs 수익성" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<p>버블차트(버블=시총): <strong>지니언스는 1사분면(고성장·고수익)에 단독 위치</strong>, 윈스는 저성장이나 최고 수익성, 이글루는 중간, 라온·샌즈·모니터는 수익성 축 하단(적자권).</p>
+<hr>
+<h2 id="3-밸류에이션-비교-20261013-실측">3. 밸류에이션 비교 (2026-10-13 실측)</h2>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/sec-cyber-valuation.png" alt="밸류에이션" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<div class="tablewrap"><table><thead><tr><th>종목</th><th>현재가</th><th>시총</th><th>PER</th><th>PBR</th><th>52주 위치</th><th>밸류 판정</th></tr></thead><tbody><tr><td>안랩</td><td>86,200</td><td>9,591억</td><td>17.7</td><td>2.07</td><td>신고가권(93,100 대비)</td><td>적정</td></tr><tr><td>지니언스</td><td>22,850</td><td>2,075억</td><td>27.7</td><td>3.18</td><td>52주고 26,500 근접</td><td><strong>성장성 대비 합리적</strong>¹</td></tr><tr><td>라온시큐어</td><td>17,340</td><td>1,926억</td><td>57.4</td><td>3.49</td><td>저점 6,320 → 2.7배</td><td><strong>고평가</strong></td></tr><tr><td>윈스테크넷</td><td>11,010</td><td>1,352억</td><td><strong>7.3</strong></td><td><strong>0.64</strong></td><td>중단</td><td><strong>극단적 저평가</strong></td></tr><tr><td>이글루</td><td>6,120</td><td>673억</td><td>n/a</td><td>0.84</td><td>중단</td><td><strong>저평가</strong>²</td></tr><tr><td>파수AI</td><td>4,265</td><td>499억</td><td>18.7</td><td>1.29</td><td>저점 2,725 → 1.6배</td><td>적정</td></tr><tr><td>샌즈랩</td><td>7,360</td><td>1,124억</td><td>적자</td><td>2.08</td><td>저점 2,965 → 2.5배</td><td>평가보류</td></tr><tr><td>모니터랩</td><td>2,810</td><td>346억</td><td>54.0</td><td>0.91</td><td>저점 1,800 → 1.6배</td><td><strong>고평가(이익대비)</strong></td></tr></tbody></table></div>
+<p>¹ 지니언스: 유진투자증권 산정 2026E PER 10.9배(동종 평균 50배 대비 할인), FnGuide FY26E PER 16.5배. 현재 표기 PER 27.7은 과거이익 기준이며 <strong>이익 급증 반영 시 실질 저평가</strong>. ² 이글루: 2025 영업이익 <span class="up">+164%</span> 급증했으나 PBR 0.84 — 턴어라운드 미반영.</p>
+<p><strong>밸류 서열(성장성 대비 매력):</strong> 윈스테크넷·이글루·지니언스 &gt; 안랩·파수AI &gt; 라온시큐어·모니터랩.</p>
+<hr>
+<h2 id="4-올해-수급-외국인기관-1008-kpinfo-집계">4. 올해 수급 (외국인·기관, ~10/08 KPINFO 집계)</h2>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/sec-cyber-flow.png" alt="외국인 수급" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<ul>
+<li><strong>중기(20일) 외인 집중 매집:</strong> 안랩(<span class="up">+14.3</span>만주), 샌즈랩(<span class="up">+11.7</span>만), 지니언스(<span class="up">+11.6</span>만). 대장주·AI순수테마주에 외인 쏠림.</li>
+<li><strong>단기(5일) 외인 반전 매수:</strong> 파수AI(<span class="up">+6.9</span>만), 샌즈랩(<span class="up">+4.9</span>만), 라온시큐어(<span class="up">+2.3</span>만). 사태 직후 테마주로 빠른 로테이션.</li>
+<li><strong>외인·기관 쌍끌이(수급 질 우수):</strong> <strong>안랩</strong>(실적+테마, 외인28%), 샌즈랩(테마).</li>
+<li><strong>주의:</strong> <strong>모니터랩은 외인 20일·5일 모두 순매도</strong>(9월 <span class="up">+29%</span> 급등분 차익 출회). 외인비중 낮은 종목(라온1.1%·샌즈1.3%)은 개인·테마 주도 → 이슈 진정 시 급락 리스크.</li>
+</ul>
+<hr>
+<h2 id="5-규제환경-보안주별-차별적-영향">5. 규제환경 — 보안주별 차별적 영향</h2>
+<div class="tablewrap"><table><thead><tr><th>규제/정책</th><th>최대 수혜</th><th>성격</th></tr></thead><tbody><tr><td><strong>금융권 망분리 완화</strong>(2024 로드맵→2026 이행)</td><td>지니언스·파수AI·모니터랩</td><td>물리분리 해제 = SW보안(제로트러스트·DLP) 수요↑ → <strong>호재</strong></td></tr><tr><td><strong>공공 N2SF(국가망보안체계) 전환</strong></td><td>안랩·SGA·지니언스</td><td>제로트러스트 기반 다층보안 전환, 안랩 한국연구재단 레퍼런스</td></tr><tr><td><strong>AI 기본법</strong>(2026-01-22 시행)</td><td>파수AI·이글루·샌즈랩</td><td>고영향 AI 사업자 사이버보안 의무화</td></tr><tr><td><strong>정보보호공시 의무화 확대</strong>(2027)</td><td>이글루·안랩</td><td>기업 보안지출 상향 평준화</td></tr><tr><td><strong>제로트러스트 전면전환</strong></td><td>지니언스·SGA·모니터랩</td><td>금융권 전면전환 방침 → NAC/ZTNA 수혜</td></tr><tr><td><strong>양자내성암호(PQC)</strong>(2026-11 법 시행)</td><td>라온시큐어·지니언스</td><td>금융·공공 양자보안 상용화</td></tr></tbody></table></div>
+<p><strong>핵심:</strong> 망분리 완화는 역설적으로 &quot;경계 해제 대신 SW보안으로 대체&quot; → 보안 솔루션 수요 <strong>증가</strong>. 전반 호재이나, <strong>제로트러스트·DLP·클라우드 보안 보유 기업(지니언스·파수AI·모니터랩·이글루)에 집중 수혜</strong>.</p>
+<hr>
+<h2 id="6-사업구조경쟁우위-해자">6. 사업구조·경쟁우위 (해자)</h2>
+<ul>
+<li><strong>안랩</strong> — 엔드포인트(V3)+네트워크+관제 <strong>국내 유일 통합보안 풀라인업</strong>. 매출 94%가 솔루션/관제. 전방위 레퍼런스.</li>
+<li><strong>지니언스</strong> — <strong>NAC 국내 1위</strong>, 2005년 이래 <strong>21년 연속 흑자</strong>, 매출 CAGR 22%. EDR·제로트러스트·클라우드NAC·양자게이트웨이 멀티드라이버. 글로벌 고객 200곳 돌파.</li>
+<li><strong>이글루</strong> — <strong>SIEM 국내 70%+ 점유 10년 1위</strong>(관제/SI). 인력관제→AI자율형SOC 전환 = 영업레버리지(인력<span class="up">+2%</span> vs 영익<span class="up">+72%</span>). 파이오링크(HW) 편입.</li>
+<li><strong>윈스테크넷</strong> — <strong>네트워크 IPS 국내 선두</strong>, 일본 통신사 수출. HW일체형+유지관리 안정매출. 캐시카우형.</li>
+<li><strong>파수AI</strong> — <strong>DRM(문서보안) 국내 1위</strong>, 유지관리 계약율 90%+ 리커링. 미국 &#x27;심볼로직&#x27; AI전환 옵션.</li>
+<li><strong>라온시큐어</strong> — <strong>모바일 신분증(DID) 국가사업</strong>·FIDO 생체인증. 단 수익성 낮음, 인비즈넷 매각으로 연결축소.</li>
+<li><strong>샌즈랩</strong> — AI 악성코드분석·CTI 전문, MS 보안코파일럿 협력 추진. <strong>적자·SI의존 높음</strong>.</li>
+<li><strong>모니터랩</strong> — 웹방화벽(WAF)·SASE/SECaaS 구독전환. <strong>적자, 규모 작음</strong>.</li>
+</ul>
+<hr>
+<h2 id="7-애널리스트-컨센서스-섹터-전체-커버리지-공백">7. 애널리스트 컨센서스 — 섹터 전체 &quot;커버리지 공백&quot;</h2>
+<p><strong>중요 구조적 특징:</strong> 8종목 모두 증권사 <strong>정식 목표주가·투자의견이 사실상 0건</strong>(전부 NR). 특히 <strong>안랩·윈스테크넷은 리포트 자체가 0건</strong>. 밸류 리레이팅은 &quot;커버리지 재개 + 실적 증명&quot;에서 발생할 가능성.</p>
+<p><strong>FY 추정 실측(FnGuide):</strong></p>
+<ul>
+<li><strong>지니언스</strong> FY26E 매출 566억·영익 115억(PER 16.5), FY27E 610/131, FY28E 679/149. ROE 17~18%. 2Q26 영익 25.7억(<span class="up">+143%</span> YoY) <strong>어닝서프라이즈</strong>(컨센 18억 상회).</li>
+<li><strong>라온시큐어</strong> FY26E 매출 625억·영익 32억(PER 38). 영익 컨센 1년새 <strong>102억→32억 급락</strong>(인비즈넷 매각·저수익). 2Q26 영업손실 7억.</li>
+<li><strong>이글루</strong>(NR추정) 2026E 매출 1,850억·영익 190억(IV리서치).</li>
+<li><strong>파수AI</strong>(NR추정) 2026E 매출 492억(<span class="up">+5.4%</span>)·영익 31억.</li>
+</ul>
+<hr>
+<h2 id="8-종합-스코어링-최적-종목-선별">8. 종합 스코어링 &amp; 최적 종목 선별</h2>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/sec-cyber-score.png" alt="종합 스코어" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<p><strong>가중치:</strong> 성장성 25% · 수익성 20% · 밸류매력 20% · 수급 15% · 테마수혜 20%</p>
+<div class="tablewrap"><table><thead><tr><th>순위</th><th>종목</th><th>종합스코어</th><th>핵심 근거</th></tr></thead><tbody><tr><td><strong>1</strong></td><td><strong>지니언스</strong></td><td><strong>8.5</strong></td><td>성장9·수익9·밸류8·테마9 — 유일한 전방위 강세. 어닝서프라이즈+제로트러스트 최대수혜</td></tr><tr><td><strong>2</strong></td><td><strong>이글루</strong></td><td><strong>7.5</strong></td><td>2025 영익<span class="up">+164%</span> 턴어라운드, PBR0.84 저평가, AI관제 레버리지</td></tr><tr><td>3</td><td>안랩</td><td>6.8</td><td>대장주·외인쌍끌이·N2SF 레퍼런스, 단 성장모멘텀 보통</td></tr><tr><td>4</td><td>윈스테크넷</td><td>6.1</td><td>PER7.3/PBR0.64 극단적 저평가+OPM20%, 단 저성장·테마민감도 낮음</td></tr><tr><td>5</td><td>파수AI</td><td>5.85</td><td>DLP 리커링 안정, AI데이터보안 어워드, 단 저성장</td></tr><tr><td>6</td><td>라온시큐어</td><td>4.8</td><td>DID·PQC 테마 강하나 PER57·수익성 불안</td></tr><tr><td>7</td><td>샌즈랩</td><td>4.35</td><td>AI순수테마·외인매수, 단 적자·고변동</td></tr><tr><td>8</td><td>모니터랩</td><td>3.7</td><td>SASE 성장스토리, 단 적자·PER54·외인이탈</td></tr></tbody></table></div>
+<h3 id="최적-종목-결론">🏆 최적 종목 결론</h3>
+<p><strong>① 최선호 — 지니언스(263860):</strong> &quot;테마(제로트러스트/N2SF 최대수혜) + 실적(2Q26 영익<span class="up">+143%</span> 서프라이즈, OPM20%) + 밸류(실질 PER 11~16배, 동종 대비 할인) + 수급(외인 중기매집)&quot; 4박자를 모두 갖춘 <strong>유일한 종목</strong>. 규제 수혜(망분리완화·제로트러스트 전면전환·PQC)가 가장 직접적.</p>
+<p><strong>② 차선호 — 이글루(067920):</strong> 2025 영업이익 <span class="up">+164%</span> 턴어라운드가 핵심. SIEM 70% 점유 위에 AI 자율형SOC 레버리지가 붙었는데 PBR 0.84로 저평가. AI기본법·정보보호공시(2027) 수혜. 소형주 변동성이 리스크.</p>
+<p><strong>③ 대장·안정 — 안랩(053800):</strong> 가장 큰 시총(9,591억)·외인쌍끌이·N2SF 선점. 테마 자금의 1순위 피난처이나 성장모멘텀은 보통. 보수적 접근 적합.</p>
+<p><strong>④ 가치주 베팅 — 윈스테크넷(136540):</strong> 섹터 내 압도적 저평가(PER7.3/PBR0.64)에 OPM20% 캐시카우. 테마 소외로 급등은 덜하지만 커버리지 재개·주주환원 시 리레이팅 여지. 안전마진 최고.</p>
+<hr>
+<h2 id="9-리스크-매매전략">9. 리스크 &amp; 매매전략</h2>
+<p><strong>⚠️ 공통 리스크:</strong></p>
+<ol>
+<li><strong>선물 전 종목 미상장</strong> → 레버리지 불가, 현물만. 형 주력(개별주식선물 스윙)과 안 맞음 — 현물 비중으로만 접근.</li>
+<li><strong>테마 과열·되돌림</strong> — 10월 급등이 사고 반사이익 성격. 이슈 진정 시 외인비중 낮은 종목(라온·샌즈·모니터) 급락 위험.</li>
+<li><strong>커버리지 공백</strong> — 목표가 부재로 밸류 앵커 약함. 변동성 큼.</li>
+</ol>
+<p><strong>매매전략(현물 기준):</strong></p>
+<ul>
+<li><strong>핵심 보유:</strong> 지니언스 + 이글루를 코어로. 급등 직후 추격보다 <strong>눌림(테마 되돌림) 분할매수</strong>가 유리.</li>
+<li><strong>안정 비중:</strong> 안랩(대장, 외인수급 믿고 코어).</li>
+<li><strong>밸류 분산:</strong> 윈스테크넷(안전마진, 장기).</li>
+<li><strong>단기 트레이딩만:</strong> 샌즈랩·라온시큐어 (반드시 손절선 엄수, 비중 축소).</li>
+<li><strong>회피:</strong> 모니터랩(외인이탈+고밸류).</li>
+</ul>
+<p><strong>킬 스위치(반증):</strong> ①금융권 해킹 이슈 완전 진정+보안예산 집행 지연 가시화 ②지니언스 3Q 실적 OPM 15% 하회 ③외인 매도 전환 — 하나라도 터지면 테마 베팅 축소.</p>
+<hr>
+<p class="note">본 리포트는 DART 재무 실측 + KIS 시세/수급 실측 + 뉴스·규제 리서치 + 애널리스트 컨센서스 종합 분석이며, 특정 종목 매매를 권유하지 않습니다. 보안주는 전 종목 개별주식선물 미상장으로 레버리지 불가합니다. 투자판단은 본인 책임입니다.</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
