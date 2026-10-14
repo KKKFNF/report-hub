@@ -1,0 +1,176 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>지니언스(263860) 사이버보안 심층 보강판 — 밸류·피어·바텀업 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261014-145653-지니언스-263860-사이버보안-심층-보강판-밸류-피어-바텀업.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 수동 지정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-c"><b>결론 발췌</b> - 원 리포트(2026.5, JD) 재검증 결과: 논지 유효, 그러나 주가가 이미 반영 중. 작성 당시 15,510원 → 현재 23,000원(+48%). 목표주가 30,000원은 여전히 유효하나, 이제 밸류 부담 구간 진입. - 2026 상반기 매출 249억(YoY +118%) 폭증 — 원 리포트의 &quot;미토스 디커플링·해외확장&quot; 논지가 실적으로 입증됨. 해외고객 200곳 돌파. - 현 PER 27.9배는 국내 보안 피어(안랩 18·윈스 7·파이오링크 7.5) 대비 압도적 프리미엄. 성장 프리미엄이 정당화되려면 2026~27 매출 15%+ 성장이 지속돼야 함. - 매매 제약: 개별주식선물 미상장 → 현물만 가능, 레버리지 불가. (형 주력인…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정: 수동지정</span><h1>지니언스(263860) 사이버보안 심층 보강판 — 밸류·피어·바텀업</h1>
+<div class="meta">📊 춘식이 보강판(원 리포트 JD 2026.5 재검증+DART/KIS 실측) · 2026-10-14 14:56 · 코드 263860</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-14 14:56)</div><div class="kpi-v">22,950원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2,084억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">27.78</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">3.19</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">29,300원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc up">목표 29,300원</span><span class="dc-src">수동</span></div></div>
+
+<div class="body"><h2 id="핵심-결론-보강판-20261014">🎯 핵심 결론 (보강판 2026.10.14)</h2>
+<ul>
+<li><strong>원 리포트(2026.5, JD) 재검증 결과: 논지 유효, 그러나 주가가 이미 반영 중.</strong> 작성 당시 15,510원 → 현재 <strong>23,000원(<span class="up">+48%</span>)</strong>. 목표주가 30,000원은 여전히 유효하나, 이제 밸류 부담 구간 진입.</li>
+<li><strong>2026 상반기 매출 249억(YoY <span class="up">+118%</span>) 폭증</strong> — 원 리포트의 &quot;미토스 디커플링·해외확장&quot; 논지가 실적으로 입증됨. 해외고객 200곳 돌파.</li>
+<li><strong>현 PER 27.9배</strong>는 국내 보안 피어(안랩 18·윈스 7·파이오링크 7.5) 대비 압도적 프리미엄. <strong>성장 프리미엄이 정당화되려면 2026~27 매출 15%+ 성장이 지속돼야 함.</strong></li>
+<li><strong>매매 제약: 개별주식선물 미상장 → 현물만 가능, 레버리지 불가.</strong> (형 주력인 선물 전략 적용 불가 종목)</li>
+</ul>
+<hr>
+<h2 id="a-원-리포트-평가-요약-품질-6872100">§A. 원 리포트 평가 요약 (품질 68~72/100)</h2>
+<p>원 리포트(JD, 2026.5.21)의 뼈대:</p>
+<ul>
+<li><strong>미토스 사태</strong>(Anthropic Claude 악용 AI 자동해킹, 26.4.7) → 글로벌 보안 수요 급증 → 한국 보안주 디커플링</li>
+<li>NAC 국내 1위(점유율 71~75%), EDR 7년 연속 1위(46~49%)</li>
+<li>규제 cascade: EDR 의무화 → 공시대상 666→2,400개사 확대</li>
+</ul>
+<p><strong>강점:</strong> 디커플링 논리, 조달청 점유율 데이터, 2025 역성장을 정직하게 명시. <strong>보강 전 약점 3가지 → 본 보강판에서 해소:</strong></p>
+<ol>
+<li>미토스 전제가 검증 불가 내러티브 → <strong>§B에서 base/upside 분리</strong></li>
+<li>목표주가 30,000원의 밸류 산식 부재 → <strong>§D 밸류 모델로 역산</strong></li>
+<li>경쟁사 비교 없음 → <strong>§C 피어 비교표</strong></li>
+</ol>
+<hr>
+<h2 id="b-미토스-전제-분해-base-vs-upside">§B. 미토스 전제 분해 (Base vs Upside)</h2>
+<div class="tablewrap"><table><thead><tr><th>구분</th><th>내용</th><th>검증 상태</th></tr></thead><tbody><tr><td><strong>Base (실적 기반)</strong></td><td>해외 확장 가속 — 2026 상반기 매출 249억(YoY<span class="up">+118%</span>), UAE 두바이 중동 거점, 글로벌 고객 200곳 돌파</td><td>✅ DART 반기보고서·뉴스로 확인</td></tr><tr><td><strong>Base (정책)</strong></td><td>정부 금융권 제로트러스트 전면 전환(26.10 발표), EDR 의무화 확대</td><td>✅ 정책 발표·보안뉴스 확인</td></tr><tr><td><strong>Upside (내러티브)</strong></td><td>AI 자동해킹 시대 → 보안 TAM 구조적 확대, 한국 보안주 리레이팅</td><td>⚠️ 방향은 맞으나 속도·수혜 집중도는 미검증</td></tr><tr><td><strong>Upside (테마)</strong></td><td>앤트로픽 AI해킹 경고(26.10) → 보안주 단기 급등</td><td>⚠️ 테마성, 지속성 불확실</td></tr></tbody></table></div>
+<p><strong>해석:</strong> 원 리포트의 &quot;미토스&quot; 논지는 <strong>내러티브였으나 5개월 뒤 실적(매출 <span class="up">+118%</span>)과 정책(제로트러스트)으로 Base화됨.</strong> 다만 10월 급등의 상당 부분은 테마성(앤트로픽 경고) 오버슈팅이 섞여 있어, 테마 소멸 시 변동성 주의.</p>
+<hr>
+<h2 id="c-국내-보안-피어-비교-2025-확정-실적-기준">§C. 국내 보안 피어 비교 (2025 확정 실적 기준)</h2>
+<div class="tablewrap"><table><thead><tr><th>종목</th><th>시총(억)</th><th>매출25(억)</th><th>OPM</th><th>순익25(억)</th><th>PER</th><th>PBR</th><th>PSR</th></tr></thead><tbody><tr><td><strong>지니언스</strong></td><td>2,088</td><td>484</td><td>14.5%</td><td>75</td><td><strong>27.9</strong></td><td>3.20</td><td>4.32</td></tr><tr><td>안랩</td><td>9,847</td><td>2,677</td><td>12.4%</td><td>515</td><td>18.1</td><td>2.13</td><td>3.68</td></tr><tr><td>윈스테크넷</td><td>1,353</td><td>986</td><td>21.5%</td><td>184</td><td>7.3</td><td>0.64</td><td>1.37</td></tr><tr><td>파이오링크</td><td>532</td><td>656</td><td>8.2%</td><td>75</td><td>7.5</td><td>0.61</td><td>0.81</td></tr><tr><td>이글루</td><td>667</td><td>1,433</td><td>11.2%</td><td>36</td><td>적전</td><td>0.84</td><td>0.47</td></tr></tbody></table></div>
+<p><strong>포인트:</strong></p>
+<ul>
+<li>지니언스는 <strong>피어 중 PER·PSR 모두 최고가</strong> — 명확한 성장 프리미엄.</li>
+<li>OPM(14.5%)은 윈스(21.5%)보다 낮음. 수익성 1등은 윈스.</li>
+<li><strong>프리미엄의 근거는 &quot;성장률&quot;</strong> — 지니언스 2026 상반기 YoY <span class="up">+118%</span> vs 안랩·윈스는 저성장(한 자릿수). 성장이 꺾이면 멀티플 디레이팅 리스크.</li>
+<li><strong>EDR/NAC 포지션:</strong> NAC는 지니언스 압도적 1위, EDR은 안랩과 경합. 윈스는 IPS(침입방지)·DDoS 특화로 세그먼트가 다름(직접 경쟁 적음).</li>
+</ul>
+<hr>
+<h2 id="d-밸류에이션-모델-목표주가-역산">§D. 밸류에이션 모델 (목표주가 역산)</h2>
+<p><strong>2025 확정:</strong> 매출 484억 · OP 70억(OPM 14.5%) · 순익 75억 · <strong>EPS 826원</strong> · 주식수 907.96만주 <strong>2026 상반기 실적:</strong> 매출 249억(YoY <span class="up">+118%</span>) · OPM 회복세</p>
+<h3 id="시나리오-상반기-실적-반영">시나리오 (상반기 실적 반영)</h3>
+<div class="tablewrap"><table><thead><tr><th>시나리오</th><th>26E 매출</th><th>OPM</th><th>26E EPS</th><th>27E EPS</th><th>적정주가(27E×PER27)</th></tr></thead><tbody><tr><td>Bear (성장 둔화)</td><td>520억</td><td>16%</td><td>751</td><td>812</td><td>21,900원 (<span class="down">-5%</span>)</td></tr><tr><td><strong>Base (성장 지속)</strong></td><td><strong>560억</strong></td><td><strong>18%</strong></td><td><strong>944</strong></td><td><strong>1,085</strong></td><td><strong>29,300원 (<span class="up">+27%</span>)</strong></td></tr><tr><td>Bull (해외 가속)</td><td>600억</td><td>20%</td><td>1,163</td><td>1,454</td><td>39,300원 (<span class="up">+71%</span>)</td></tr></tbody></table></div>
+<h3 id="목표주가-검증">목표주가 검증</h3>
+<ul>
+<li>원 리포트 목표 <strong>30,000원 = Base 시나리오 27E EPS 1,085 × PER 27.7배</strong> 로 역산됨. → <strong>성장주 멀티플(PER 27~30)을 2027년까지 유지한다는 가정</strong> 하에 타당.</li>
+<li><strong>단, 현재가 23,000원은 이미 Bear-Base 사이를 선반영.</strong> 추가 상승 여력은 &quot;성장 지속 입증&quot;에 달림.</li>
+</ul>
+<h3 id="감도">감도</h3>
+<ul>
+<li>PER 22배(멀티플 디레이팅) 적용 시 27E 적정가 Base 23,874원 → <strong>현재가와 거의 동일 = 하방 방어선.</strong></li>
+<li>매출 성장이 한 자릿수로 둔화(Bear)하면 PER 프리미엄 소멸 → 7~18배 피어 수준 디레이팅 시 <strong>15,000~18,000원까지 조정 리스크.</strong></li>
+</ul>
+<hr>
+<h2 id="e-바텀업-모델-9-규격">§E. 바텀업 모델 (§9 규격)</h2>
+<h3 id="e1-제품-분해-dart-2025-사업보고서">E-1 제품 분해 (DART 2025 사업보고서)</h3>
+<div class="tablewrap"><table><thead><tr><th>사업부문</th><th>매출(억)</th><th>비중</th></tr></thead><tbody><tr><td>네트워크보안 — 제품(NAC·EDR·GPI)</td><td>399</td><td>82.6%</td></tr><tr><td>네트워크보안 — 용역(유지관리)</td><td>84</td><td>17.4%</td></tr><tr><td>합계</td><td>484</td><td>100%</td></tr></tbody></table></div>
+<ul>
+<li><strong>제품 단일 세그먼트(네트워크보안) 집중.</strong> 단가는 비공개(최종사용자·라이선스 형태별 상이로 미공시).</li>
+<li>원재료 = 서버 하드웨어(2025 매입 26억, A사 77% 집중) — SW 기업이라 원가 레버리지 큼.</li>
+</ul>
+<h3 id="e2-성장-드라이버">E-2 성장 드라이버</h3>
+<ol>
+<li><strong>해외(미국·중동):</strong> 2024.10 UAE 두바이 거점, 글로벌 200곳 돌파 → 2026 상반기 <span class="up">+118%</span>의 핵심.</li>
+<li><strong>EDR 의무화:</strong> 공시대상 666→2,400개사 확대 시 국내 신규 수요.</li>
+<li><strong>제로트러스트 정책:</strong> 금융권 전면 전환 → NAC 수요.</li>
+</ol>
+<h3 id="e3-결정-문장-임계값">E-3 결정 문장 (임계값)</h3>
+<ul>
+<li><strong>3Q~연간 2026 매출 ≥ 560억(Base)이면 논지 유지·보유.</strong></li>
+<li><strong>매출 &lt; 520억 &amp; 성장률 한 자릿수로 꺾이면 PER 프리미엄 폐기 → 디레이팅 리스크, 비중 축소.</strong></li>
+<li>다음 체크포인트: 2026 3분기보고서(11월 중순) 매출·OPM.</li>
+</ul>
+<hr>
+<h2 id="f-리스크-매매-코멘트">§F. 리스크 &amp; 매매 코멘트</h2>
+<ul>
+<li><strong>① 밸류 부담:</strong> PER 27.9배는 이미 성장을 선반영. 추가 상승은 성장 지속 입증 필요.</li>
+<li><strong>② 테마 되돌림:</strong> 10월 급등은 앤트로픽 AI해킹 경고 테마 섞임. 테마 소멸 시 급락 변동성.</li>
+<li><strong>③ AI 양날의 검:</strong> AI가 보안 수요를 늘리지만, 동시에 보안 자동화로 레거시 NAC/EDR 벤더를 위협할 수도. (원 리포트 미반영 약점 → 중장기 모니터링 포인트)</li>
+<li><strong>④ 매매 제약:</strong> 개별주식선물 미상장 → <strong>현물만, 레버리지 불가.</strong> 형 주력인 선물 스윙 전략 적용 불가.</li>
+<li><strong>⑤ 유동성:</strong> 평시 거래량 적으나 10월 테마로 일시 급증(10/6 222만주). 테마 소멸 시 유동성 다시 얇아질 수 있음.</li>
+</ul>
+<p><strong>종합:</strong> 논지는 실적으로 입증됐으나 <strong>현재가는 Base 밸류를 선반영한 구간.</strong> 눌림(20,000원 이하, PER 22배 하방선) 시 분할 접근이 리스크/리워드 유리. 현물 전용이라 형 스타일엔 비중·회전 제약.</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-14 14:56 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 22,950원 (<span class="up">+0.4%</span>) · 시총 2,084억 · 5일 <span class="down">-6.9%</span> / 20일 <span class="up">+49.4%</span> / 60일 <span class="up">+94.5%</span></li>
+<li>MA5 22,930원 / MA20 20,093원 / MA60 16,233원 → MA20 이격 <span class="up">+14.2%</span> · MA60 이격 <span class="up">+41.4%</span></li>
+<li>52주 고 26,500원 / 저 11,000원 → 고점 대비 <span class="down">-13.4%</span> · 20일 고 24,650원 / 저 16,950원</li>
+<li>후행 PER 27.78 / PBR 3.19 (EPS 826원 · BPS 7,189원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 134.8억 (5일 108.2억)</li>
+<li>외국인 순매수 5일 32.2억 / 20일 -32.9억 · 기관 5일 2.5억 / 20일 18.0억 · 개인 20일 16.9억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.31% / 20일 평균 1.18% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 2.74% (09/30) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
