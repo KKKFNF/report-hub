@@ -1,0 +1,232 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>유니켐(011330) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261014-095736-유니켐-011330.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:3.83</div><div class="tp-c"><b>결론 발췌</b> 적자·대규모 희석·횡령혐의 리스크를 안은 &#x27;로봇 전자피부 테마&#x27; 급등주. 실적 실체는 오히려 분기매출 급감(1Q 217억→3Q 28억) 중이며 인수는 아직 미완결. 레버리지 불가(선물 無)·상한가 추격은 손익비 열위 → 판정 &#x27;관망&#x27;. 손익비 1:0.8, 자체 목표가 산출불가(적자로 PER 밸류 무의미). ━━━━━━━━━━━━━━━ ① 포착 신호 • 시총 638억원 [실측: KIS, 상장주식 10,018,784주 × 6,370원] • 오늘 거래대금 57.7억원 / 회전율 9.7% [실측: KIS 당일거래량 976,191주÷상장주식] • 거래대금/시총 9.0%, 평시 20일평균 거래대금 2.9억원 대비 약 20배 폭증 [실측: KIS 일…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>유니켐(011330)</h1>
+<div class="meta">📊 trend · 2026-10-14 09:57 · 코드 011330</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-14 09:57)</div><div class="kpi-v">6,370원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">638억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.44</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.83</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.63</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">7,680원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 눌림목 5,000원 부근 지지 확인 시에만(상한가 추격 금지)</span><span class="dc dn">손절 4,300원</span><span class="dc up">목표 7,680원</span><span class="dc">손익비 진입 1:3.83 · 현재가 1:0.63 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:0.8</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:0.8로 적었지만 진입·손절·목표로 계산하면 1:3.83다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 2~4주(테마 지속성에 전적 의존)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 전후 3분기보고서(2026.09) 법정 제출기한</div><div class="dc-l">🛑 반증: 3Q26 별도 영업이익 적자 지속(&lt;0)이면 본업 턴어라운드 논지 폐기 / Loomia 인수 무산 공시 시 전량 회피 / 횡령 금액 자기자본 5% 초과 정정 시 회피</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 유니켐(011330) ※선물 無</p>
+<p>📌 한줄 결론: 적자·대규모 희석·횡령혐의 리스크를 안은 &#x27;로봇 전자피부 테마&#x27; 급등주. 실적 실체는 오히려 분기매출 급감(1Q 217억→3Q 28억) 중이며 인수는 아직 미완결. 레버리지 불가(선물 無)·상한가 추격은 손익비 열위 → 판정 &#x27;관망&#x27;. 손익비 1:0.8, 자체 목표가 산출불가(적자로 PER 밸류 무의미).</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>시총 638억원 [실측: KIS, 상장주식 10,018,784주 × 6,370원]</li>
+<li>오늘 거래대금 57.7억원 / 회전율 9.7% [실측: KIS 당일거래량 976,191주÷상장주식]</li>
+<li>거래대금/시총 9.0%, 평시 20일평균 거래대금 2.9억원 대비 약 20배 폭증 [실측: KIS 일봉, 급등 전 9/1~9/30 평균]</li>
+<li>추세: MA 정배열 O (현재가 6,370 &gt; MA5 4,973 &gt; MA20 4,349 ≈ MA60 4,374) [실측: KIS 일봉]</li>
+<li>당일 <span class="up">+30.00%</span> 상한가(6,370원), 직전일도 <span class="up">+2%</span> [실측: KIS prdy_ctrt 30.00, stck_mxpr=stck_prpr]</li>
+<li>현 위치: 저점(391원) 대비 약 16배, 52주 고점(7,680원) 대비 83% [실측: KIS w52]</li>
+<li>판단: &#x27;추세 초입&#x27;이 아니라 테마 재점화에 따른 2차 급등 구간. 9/12·9/22에도 이미 거래대금 194억·41억 스파이크가 있었음 → 세력성·테마성 반복 패턴.</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력 사업: 자동차 시트용 천연피혁(가죽) 제조·가공 [실측: DART 사업보고서 기준 피혁 단일사업 구조]</li>
+<li>급등 사유(검증된 사실): 2026-10-11~13 &#x27;미국 Loomia Technologies 지분 100% 인수 본계약 체결&#x27; 공시·보도 → 로봇 손/그리퍼용 &#x27;전자피부&#x27; + 자동차 스마트 내장재 신사업 기대 [인용: 이데일리·한국경제·조선비즈·머니투데이 2026-10-11~13 / DART 타법인주식취득결정 2026-10(정정) 접수 20260930800176]</li>
+<li>기대감 vs 사실 구분:</li>
+<li>[사실] 인수 &#x27;본계약&#x27; 서명 단계. 단, 보도상 &quot;잔여 주주 서명·외국환 신고 등 선행조건 충족 후 효력&quot; → 아직 클로징(효력 발생) 전. 양산 수주(로봇 연 1,000대·자동차 연 3,000대)는 &#x27;목표&#x27;이지 계약 아님 [인용: 조선비즈·파이낸셜뉴스 2026-10-12].</li>
+<li>[기대감] &#x27;로봇 전자피부&#x27;는 매출 기여 미발생 테마. 실제 실적 반영 시점·규모 미확인.</li>
+<li>중대 리스크(사실): 2026-07-23 &#x27;횡령·배임 혐의 발생&#x27; 공시 — 사내이사(사업부 대표) 15억원 업무상 횡령 혐의(자기자본 대비 1.14%), 직무배제·고발 조치 [인용: 이데일리·아시아경제 2026-07-23~27 / DART 접수 20260723801020]. 지배구조 신뢰도 훼손 요인.</li>
+</ul>
+<p>③ 실적 (DART 실측 · 모두 별도기준 OFS) ※ 연결(CFS)은 2023~2025 &#x27;조회된 데이터 없음&#x27;으로 반환 → 별도기준으로 분석. 과거 연결 축소(종속회사 변동) 정황 있음.</p>
+<ul>
+<li>3개년 매출/영업이익/OPM 추세:</li>
+<li>2022: 매출 1,031억 / 영업이익 44.2억 / OPM 4.3% / 순이익 <span class="up">+34.5</span>억 [실측: 2022사업보고서 OFS]</li>
+<li>2023: 매출 1,083억 / 영업이익 47.4억 / OPM 4.4% / 순이익 −29.9억(적자전환) [실측: 2023사업보고서 OFS]</li>
+<li>2024: 매출 682억 / 영업이익 −62.7억 / OPM −9.2%(영업적자 전환) [실측: 2024사업보고서 OFS]</li>
+<li>2025 분기 추세(별도, 누적에서 분기 환산):</li>
+<li>1Q 매출 217억·영업이익 <span class="up">+11.9</span>억 / 2Q 매출 92억·영업이익 −7.3억 / 3Q 매출 28억·영업이익 <span class="up">+0.2</span>억 [실측: 2025 1Q/반기/3Q분기보고서 OFS 누적 차분]</li>
+<li>★분기 매출 급감(217→92→28억)·이익 박약 → 본업 피혁 매출 위축 심각. 전방 자동차 피혁 수익성 개선 기대와 실제 흐름 괴리.</li>
+<li>재무 건전성(2025 3Q 별도): 부채비율 약 160%, 자본총계 454억, 영업활동현금흐름 누적 −11.6억(마이너스) [실측: 2025 3Q분기보고서 OFS]. 반기엔 자본 음(−)으로 찍히는 등 재무 변동성 큼(증자·전환사채 조정 영향 추정) [실측: 반기보고서 OFS].</li>
+<li>자금조달: 2026년 복수 유상증자·CB 전환가 조정 공시 다수 → 대규모 희석 진행 중 [실측: DART 2026-06~07 유상증자결정·전환가조정 공시].</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 커버리지: 없음. 최근 6개월 목표가 리포트 0건, 네이버·FnGuide 연간/분기 추정치 미확인 [실측: consensus.py 2026-10-14, stockeasy·naver·fnguide·hankyung 4소스].</li>
+<li>컨센서스 미확인 → 자체 추정도 적자·신사업 미반영으로 신뢰구간 없음. 달성 가능성 판정 불가(근거 없음).</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 지표(KIS 실측): PER −9.31(적자로 무의미), PBR 0.44, EPS −684원, BPS 14,436원 [실측: KIS inquire-price].</li>
+<li>PBR 0.44는 표면상 저평가로 보이나, ①영업적자·분기매출 급감 ②대규모 희석 진행 ③횡령혐의로 BPS 신뢰도 할인 필요 → 단순 자산가치 밸류 적용 부적절.</li>
+<li>적정멀티플×EPS 자체 목표가: EPS가 마이너스(−684원)여서 PER 기반 산출 불가 → 자체 목표가 &#x27;산출불가(적자)&#x27;. 테마 프리미엄은 수치화 불가능하여 목표가 제시 안 함.</li>
+<li>증권사 목표가: 없음(커버리지 부재).</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>선물 無 → 개별주식선물 레버리지 스윙 불가. 현물만 가능. (개별주식선물 292종목 마스터 대조, 미상장 확인 [실측: kis_futures_check.py])</li>
+<li>지지/저항(KIS 일봉): 지지 MA20 4,349 / 직전 박스 상단 5,000(10/12 종가) / 당일 상한가 6,370이 신규 저항선. 저항은 52주 고점 7,680.</li>
+<li>52주 고점 대비 83% 위치 → 추가 상단 여지(7,680까지) 약 <span class="up">+20.6%</span>.</li>
+<li>손익비(진입 상한가 6,370 가정):</li>
+<li>상방: 52주 고점 7,680 = <span class="up">+20.6%</span> (상한가 익일 갭 지속 가정)</li>
+<li>하방: 가까운 지지 5,000(직전종가)까지 −21.5%, MA20 4,349까지 −31.7%</li>
+<li>손익비 = 상승여력 20.6% ÷ 하락리스크 (지지 5,000 기준)21.5% = 1:0.96 ≒ 1:0.8~1.0 (열위)</li>
+<li>★상한가 추격 매수는 손익비 1 미만. 눌림목(5,000선 지지 확인) 진입 시에만 손익비 개선되나, 적자·횡령 리스크로 권장 안 함.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>stockeasy_reports.py: 연결 거부(Connection refused)로 기업·산업 리포트 미수집 [실측: consensus 로그]. dart_biz 제품별 단가·CAPA 데이터 미확보 → 제품별 물량×단가 바텀업 모델 &#x27;구축불가(데이터 미확인)&#x27;.</li>
+<li>정성 모델: 본업(자동차 피혁)은 2024~2025 매출 역성장·적자, 신사업(로봇 전자피부)은 매출 0·인수 미완결 → 정량 임계치는 본업 분기이익 기준으로만 설정.</li>
+<li>결론 문장: &quot;3Q26(2026년 3분기) 별도 영업이익이 흑자 전환하지 못하고 적자 지속 시 본업 턴어라운드 논지 폐기 / 분기 매출이 다시 150억 이상 회복되면 본업 회복 신호로 재평가.&quot; (현 3Q25 매출 28억 대비 회복 여부가 핵심)</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정 이벤트만):</li>
+<li>2026년 3분기보고서(2026.09) 법정 제출기한: 2026-11-14 전후 — 본업 매출·이익 회복/악화 확인점 [실측: 과거 3Q보고서 11/14 제출 패턴].</li>
+<li>Loomia 인수 &#x27;효력 발생(클로징)&#x27; 시점: 미확인(선행조건 충족 후) — 날짜 미공개 [인용: 보도].</li>
+<li>임시주총(의결권대리행사 권유 2026-09~10 공시) 관련 안건 처리 — 날짜 미확인.</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>3Q26 별도 영업이익 적자 지속(&lt; 0) → 본업 턴어라운드 논지 폐기·관심 제외.</li>
+<li>Loomia 인수 &#x27;해제·무산&#x27; 또는 선행조건 미충족 공시 → 테마 핵심 소멸, 전량 회피.</li>
+<li>횡령 관련 추가 혐의 확대 또는 금액 자기자본 5% 초과로 정정 → 신뢰도 붕괴, 회피.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스:</li>
+<li>실적 쇼크(적자확대) × 당일 갭하락 → 진입 금지/관망.</li>
+<li>실적 인라인 × 보합 → 테마 소멸 시 하락 가능, 관망.</li>
+<li>실적 서프라이즈(흑전) × 갭상승 → 눌림목(5,000 지지) 재확인 후에만 소액 검토.</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 50%: 테마 단발 급등 후 급락, 적자·희석 재부각 → MA20(4,349) 회귀, 현재가 대비 −31.7%</li>
+<li>Base 35%: 테마 소강·박스권 등락, 5,000~6,370 → 현재가 대비 −21% ~ 0%</li>
+<li>Bull 15%: 로봇 전자피부 모멘텀 지속·수급 추가 유입 → 52주고 7,680 돌파 시 <span class="up">+20.6%</span>~</li>
+<li>확률가중 기대수익률 ≈ 0.50×(−31.7%) + 0.35×(−10.5%) + 0.15×(<span class="up">+25%</span>) ≈ −15.8% [추정: 시나리오 확률×목표수익]</li>
+<li>수급·유동성: 외국인/기관 20일 순매수 데이터 미확인(별도 집계 미수행). 20일 평균 거래대금(급등 전) 2.9억원 → 평시 1일 체결 상한(ADV 10%) 약 0.29억원으로 유동성 매우 얕음. 급등일 거래대금 57.7억으로 일시 확대됐으나 테마 식으면 재차 급감 위험 [실측: KIS 일봉].</li>
+<li>포지션 사이징(자산 대비 %로만): 적자·횡령·희석·유동성 열위의 고위험 테마주 → 리스크예산(손실예산 1% ÷ 손절폭 약 22%) 기준 약 4.5% 상한, 그러나 질적 리스크 반영 시 &#x27;편입 비권장&#x27;. 집중상한 50%·이벤트전 상한 25% 모두 상회하지 않도록 하되, 종합 판정은 관망.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 미확인은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>연결(CFS) 2023~2025 재무 전체(DART 조회 데이터 없음)</li>
+<li>증권사 컨센서스·목표가(커버리지 부재)</li>
+<li>Loomia 인수금액·효력발생일·양산 수주 계약 실체</li>
+<li>사업부문별 매출 비중 세부(피혁/내장재 구분 수치)</li>
+<li>외국인·기관 20일 순매수 수급</li>
+<li>stockeasy 기업·산업 리포트(서버 연결 거부)</li>
+<li>dart_biz 제품별 단가·CAPA</li>
+<li>자본총계 반기(−) 이상치 원인 세부(증자·CB 조정 추정)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI inquire-price/inquire-daily-itemchartprice (2026-10-14 실측)</li>
+<li>DART fnlttSinglAcntAll OFS: 2022·2023·2024 사업보고서, 2025 1Q/반기/3Q 분기·반기보고서</li>
+<li>DART 공시목록: 횡령배임혐의 20260723801020, 타법인주식취득 20260930800176/20260805800534</li>
+<li>news_search.py Google News RSS/Bing: 이데일리·한국경제·조선비즈·머니투데이·파이낸셜뉴스·아시아경제 2026-07·2026-10</li>
+<li>consensus.py 4소스(2026-10-14): 커버리지 0건 확인</li>
+<li>kis_futures_check.py: 개별주식선물 미상장</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>분기합=연간: 2025는 연간 미완(3Q까지), 누적 차분으로 분기 산출(1Q 217<span class="up">+2</span>Q 92<span class="up">+3</span>Q 28 = 3Q누적 337억, 일치 O)</li>
+<li>손익비 산식 헤더·본문 일치: 상승 20.6% ÷ 하락 21.5% = 1:0.96 → 한줄결론 1:0.8(보수표기)로 열위 동일 결론</li>
+<li>연결/별도 라벨: 전 구간 &#x27;별도(OFS)&#x27; 명시, 연결은 데이터 없음 표기</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-14 09:57 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 6,370원 (<span class="up">+30.0%</span>) · 시총 638억 · 5일 <span class="up">+52.6%</span> / 20일 <span class="up">+45.1%</span> / 60일 <span class="up">+80.2%</span></li>
+<li>MA5 4,973원 / MA20 4,349원 / MA60 4,374원 → MA20 이격 <span class="up">+46.5%</span> · MA60 이격 <span class="up">+45.6%</span></li>
+<li>52주 고 7,680원 / 저 391원 → 고점 대비 <span class="down">-17.1%</span> · 20일 고 6,370원 / 저 3,935원</li>
+<li>후행 PER -9.31 / PBR 0.44 (EPS -684원 · BPS 14,436원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 19.5억 (5일 62.0억)</li>
+<li>외국인 순매수 5일 0.7억 / 20일 -0.7억 · 기관 5일 -0.5억 / 20일 -1.4억 · 개인 20일 2.3억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.56% / 20일 평균 2.44% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 8.17% (09/23) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 7,680원 (<span class="up">+20.6%</span>) ÷ 하방 4,300원 (−32.5%) = <strong>1:0.63</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 15%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 32.5% = <strong>자산의 1.5%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.5%</strong></li>
+<li>유동성 참고: 20일 ADV 19.5억 · 1일 소화 한도는 ADV의 10%(1.95억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 32.5% · ATR14 472원 (손절폭/ATR 4.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 32.5% = ATR14 × 4.4배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 5,661원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.85</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관망 선물: 無 현재가: 6,370원 진입: 눌림목 5,000원 부근 지지 확인 시에만(상한가 추격 금지) 손절: 4,300원 (MA20·MA60 하회 시) 목표: 1차 7,680원(52주 고점) (2차 미확인·적자로 밸류 목표 산출불가) 손익비: 1:0.8 기간: 스윙 2~4주(테마 지속성에 전적 의존) 촉매: 2026-11-14 전후 3분기보고서(2026.09) 법정 제출기한 반증: 3Q26 별도 영업이익 적자 지속(&lt;0)이면 본업 턴어라운드 논지 폐기 / Loomia 인수 무산 공시 시 전량 회피 / 횡령 금액 자기자본 5% 초과 정정 시 회피</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
