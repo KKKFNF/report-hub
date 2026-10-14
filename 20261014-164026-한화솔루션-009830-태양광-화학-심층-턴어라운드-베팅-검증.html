@@ -1,0 +1,196 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한화솔루션(009830) 태양광·화학 심층 — 턴어라운드 베팅 검증 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261014-164026-한화솔루션-009830-태양광-화학-심층-턴어라운드-베팅-검증.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 수동 지정</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>손익비</b> 1:6.5</div><div class="tp-c"><b>결론 발췌</b> - 한화솔루션(009830)은 &quot;화학 적자 + 태양광 턴어라운드&quot;가 공존하는 전형적 경기민감 리레이팅 베팅. 현재가 33,200원 / 시총 7.47조 / PBR 0.69배(EPS 적자라 PER 무의미). - 투자 포인트 = ①미국 태양광(큐셀) AMPC 세액공제 수혜 ②2026 화학 제품단가 반등(LDPE·PVC) ③2026 상반기 영업흑자 전환(+1,021억). - 리스크 = ①2024·2025 2년 연속 영업적자(-3,000억/-3,648억) ②부채비율 196% 고부담 ③태양광 정책 의존도 ④4,000억 추가 자금수혈(희석/부담). - 스탠스: 트레이딩 BUY(스윙) / 중장기 WATCH. 개별주식선물 상장(ACB611) → 형 레버…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정: 수동지정</span><h1>한화솔루션(009830) 태양광·화학 심층 — 턴어라운드 베팅 검증</h1>
+<div class="meta">📊 춘식이 독립분석(DART 재무·제품단가·KIS 시세/선물 실측) · 2026-10-14 16:40 · 코드 009830</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-14 16:40)</div><div class="kpi-v">33,200원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">7.5조</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.69</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:6.5</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.88</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">43,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 30000</span><span class="dc dn">손절 28,000원</span><span class="dc up">목표 43,000원</span><span class="dc">손익비 진입 1:6.5 · 현재가 1:1.88</span><span class="dc-src">수동</span></div></div>
+
+<div class="body"><h2 id="핵심-결론">🎯 핵심 결론</h2>
+<ul>
+<li><strong>한화솔루션(009830)은 &quot;화학 적자 + 태양광 턴어라운드&quot;가 공존하는 전형적 경기민감 리레이팅 베팅.</strong> 현재가 33,200원 / 시총 7.47조 / <strong>PBR 0.69배</strong>(EPS 적자라 PER 무의미).</li>
+<li><strong>투자 포인트 = ①미국 태양광(큐셀) AMPC 세액공제 수혜 ②2026 화학 제품단가 반등(LDPE·PVC) ③2026 상반기 영업흑자 전환(<span class="up">+1,021</span>억).</strong></li>
+<li><strong>리스크 = ①2024·2025 2년 연속 영업적자(-3,000억/-3,648억) ②부채비율 196% 고부담 ③태양광 정책 의존도 ④4,000억 추가 자금수혈(희석/부담).</strong></li>
+<li><strong>스탠스: 트레이딩 BUY(스윙) / 중장기 WATCH.</strong> 개별주식선물 <strong>상장(ACB611)</strong> → 형 레버리지 전략 적용 가능. 단 변동성 극심(8월 하루 <span class="up">+14%</span>, 2천만주).</li>
+</ul>
+<hr>
+<h2 id="1-사업-구조-dart-2025-사업보고서">§1. 사업 구조 (DART 2025 사업보고서)</h2>
+<div class="tablewrap"><table><thead><tr><th>부문</th><th>2025 매출(억)</th><th>비중</th><th>내용</th></tr></thead><tbody><tr><td><strong>신재생에너지(큐셀)</strong></td><td>82,683</td><td><strong>54.3%</strong></td><td>태양광 셀·모듈, 미국 중심</td></tr><tr><td><strong>기초소재(케미칼)</strong></td><td>48,884</td><td>32.1%</td><td>LDPE·PVC·가성소다·TDI</td></tr><tr><td>가공소재(첨단소재)</td><td>12,834</td><td>8.4%</td><td>자동차부품·태양광소재</td></tr><tr><td>기타(이센셜·도시개발)</td><td>7,747</td><td>5.1%</td><td>FCCL·부동산</td></tr><tr><td>연결조정</td><td>(18,817)</td><td>-</td><td>-</td></tr><tr><td><strong>합계</strong></td><td><strong>133,331</strong></td><td>100%</td><td></td></tr></tbody></table></div>
+<p><strong>핵심:</strong> 매출의 절반 이상이 태양광. 화학은 32%. <strong>즉 한화솔루션은 &quot;화학주&quot;가 아니라 &quot;태양광 50% + 화학 32% 하이브리드&quot;.</strong> 주가 모멘텀의 주된 드라이버는 태양광(미국 AMPC)이고, 화학은 다운사이클 방어/반등 변수.</p>
+<hr>
+<h2 id="2-재무-추이-연결-dart-실측">§2. 재무 추이 (연결, DART 실측)</h2>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>2023</th><th>2024</th><th>2025</th><th>2026 상반기</th></tr></thead><tbody><tr><td>매출(억)</td><td>132,887</td><td>123,940</td><td>133,331</td><td>84,646</td></tr><tr><td>영업이익(억)</td><td>6,045</td><td><strong>-3,002</strong></td><td><strong>-3,648</strong></td><td><strong><span class="up">+1,021</span></strong>(1H)</td></tr><tr><td>OPM</td><td>4.5%</td><td><span class="down">-2.4%</span></td><td><span class="down">-2.7%</span></td><td><span class="up">+3.3%</span>(1H)</td></tr><tr><td>부채비율</td><td>172%</td><td>183%</td><td><strong>196%</strong></td><td>178%</td></tr><tr><td>자본총계(억)</td><td>90,105</td><td>106,069</td><td>111,850</td><td>108,359</td></tr></tbody></table></div>
+<p><strong>해석:</strong></p>
+<ul>
+<li><strong>2024~2025 2년 연속 적자</strong> — 중국발 태양광 모듈 과잉공급(ASP 폭락) + 화학 다운사이클 동시 타격. 모듈 단가 346→273→253원/W로 하락한 게 큐셀 적자의 핵심.</li>
+<li><strong>2026 상반기 흑자전환(<span class="up">+1,021</span>억)</strong> = 턴어라운드 1차 신호. 미국 AMPC(첨단제조 세액공제)가 큐셀 수익성을 떠받침.</li>
+<li><strong>부채비율 196%는 업종 내 高부담</strong> (금호석유화 36%, OCI 66% 대비). 4,000억 추가 수혈은 양날 — 태양광 투자 실탄이자 재무 부담.</li>
+</ul>
+<hr>
+<h2 id="3-제품-단가-추이-턴어라운드-근거-dart-실측">§3. 제품 단가 추이 — 턴어라운드 근거 (DART 실측)</h2>
+<div class="tablewrap"><table><thead><tr><th>품목</th><th>2023</th><th>2024</th><th>2025</th><th>2026 2Q</th><th>방향</th></tr></thead><tbody><tr><td>LDPE(천원/톤)</td><td>1,296</td><td>1,491</td><td>1,479</td><td><strong>2,020</strong></td><td>📈 급반등</td></tr><tr><td>PVC(천원/톤)</td><td>1,059</td><td>1,052</td><td>998</td><td><strong>1,265</strong></td><td>📈 반등</td></tr><tr><td>가성소다(USD/톤)</td><td>397</td><td>403</td><td>415</td><td>378</td><td>📉 약세</td></tr><tr><td>태양광 셀(원/W)</td><td>138</td><td>178</td><td>179</td><td><strong>199</strong></td><td>📈 상승</td></tr><tr><td>태양광 모듈(원/W)</td><td>346</td><td>273</td><td>253</td><td>253</td><td>➡️ 바닥</td></tr></tbody></table></div>
+<p><strong>핵심:</strong> 2026 2분기 <strong>LDPE <span class="up">+37%</span>·PVC <span class="up">+27%</span> 급반등 = 화학 다운사이클 바닥 통과 신호.</strong> 셀 단가도 상승(179→199). 모듈은 253원에서 바닥 다지는 중. <strong>단가 반등이 2026 하반기~2027 실적 턴어라운드의 정량적 근거.</strong></p>
+<hr>
+<h2 id="4-피어-비교-화학태양광-2025-기준">§4. 피어 비교 (화학·태양광, 2025 기준)</h2>
+<div class="tablewrap"><table><thead><tr><th>종목</th><th>현재가</th><th>시총(억)</th><th>2025매출(억)</th><th>2025 OP</th><th>PBR</th><th>PER</th><th>선물</th></tr></thead><tbody><tr><td><strong>한화솔루션</strong></td><td>33,200</td><td>74,664</td><td>133,331</td><td>-3,648</td><td><strong>0.69</strong></td><td>적자</td><td>✅ACB611</td></tr><tr><td>LG화학</td><td>268,500</td><td>189,540</td><td>(배터리포함)</td><td>적자</td><td>0.64</td><td>적자</td><td>✅</td></tr><tr><td>롯데케미칼</td><td>57,500</td><td>24,596</td><td>~200,000</td><td>~BEP</td><td><strong>0.19</strong></td><td>적자</td><td>✅</td></tr><tr><td>금호석유화학</td><td>115,600</td><td>29,082</td><td>69,151</td><td><span class="up">+2,718</span></td><td>0.47</td><td><strong>11.7</strong>(유일흑자)</td><td>✅</td></tr><tr><td>OCI홀딩스</td><td>218,500</td><td>40,794</td><td>33,801</td><td>-576</td><td>1.04</td><td>적자</td><td>✅</td></tr><tr><td>HD현대에너지솔루션</td><td>139,700</td><td>15,646</td><td>4,927</td><td><span class="up">+412</span></td><td>3.75</td><td>37.5</td><td>❌</td></tr></tbody></table></div>
+<p><strong>포인트:</strong></p>
+<ul>
+<li><strong>업종 전반 적자 늪</strong> — 금호석유화만 흑자(PER 11.7). 화학 사이클 바닥 국면임을 방증.</li>
+<li>한화솔루션 PBR 0.69는 중간 — 롯데케미칼(0.19 극저평가)보다 비싸고, 순수 태양광 HD현대에너지솔루션(3.75)보다 싸다. <strong>&quot;화학 자산가치 + 태양광 성장성&quot;의 중간 프리미엄.</strong></li>
+<li><strong>한화솔루션만의 차별점 = 미국 태양광(큐셀) 흑자 사업</strong> — 순수 화학주(롯데·금호)에 없는 성장 옵션. 이게 PBR 프리미엄의 근거.</li>
+</ul>
+<hr>
+<h2 id="5-밸류에이션-pbr-밴드-턴어라운드-eps">§5. 밸류에이션 (PBR 밴드 + 턴어라운드 EPS)</h2>
+<p><strong>적자 국면이라 2트랙 접근:</strong></p>
+<h3 id="51-pbr-밴드-bps-47898원">5-1 PBR 밴드 (BPS 47,898원)</h3>
+<div class="tablewrap"><table><thead><tr><th>PBR</th><th>주가</th><th>현재比</th><th>의미</th></tr></thead><tbody><tr><td>0.5x</td><td>23,900원</td><td><span class="down">-28%</span></td><td>화학 다운사이클 지속·태양광 실망</td></tr><tr><td><strong>0.69x</strong></td><td><strong>33,050원</strong></td><td>0%</td><td>현재가 (사이클 중립)</td></tr><tr><td>0.9x</td><td>43,100원</td><td><span class="up">+30%</span></td><td>태양광 흑자 가시화·화학 반등</td></tr><tr><td>1.1x</td><td>52,700원</td><td><span class="up">+59%</span></td><td>IRA 풀수혜 리레이팅</td></tr></tbody></table></div>
+<h3 id="52-턴어라운드-eps-2026e-영업이익-시나리오">5-2 턴어라운드 EPS (2026E 영업이익 시나리오)</h3>
+<div class="tablewrap"><table><thead><tr><th>시나리오</th><th>26E OP</th><th>지배순익</th><th>26E EPS</th><th>함의 PER</th></tr></thead><tbody><tr><td>Bear(화학부진지속)</td><td>1,500억</td><td>840억</td><td>374원</td><td>88.9x (고평가)</td></tr><tr><td><strong>Base(태양광AMPC+화학반등)</strong></td><td><strong>5,000억</strong></td><td><strong>2,880억</strong></td><td><strong>1,281원</strong></td><td><strong>25.9x</strong></td></tr><tr><td>Bull(IRA 풀수혜)</td><td>9,000억</td><td>5,328억</td><td>2,369원</td><td>14.0x (저평가)</td></tr></tbody></table></div>
+<p><strong>적정주가:</strong></p>
+<ul>
+<li><strong>Base 기준 PBR 0.9x = 43,000원</strong>을 중심 목표로 제시(<span class="up">+30%</span>). 턴어라운드 EPS가 입증되면 PBR 리레이팅.</li>
+<li>하방은 PBR 0.5~0.6x = <strong>24,000~29,000원</strong>(화학 재악화 시).</li>
+</ul>
+<hr>
+<h2 id="6-9-바텀업-모델-태양광-중심">§6. §9 바텀업 모델 (태양광 중심)</h2>
+<h3 id="61-성장-드라이버-정량화">6-1 성장 드라이버 정량화</h3>
+<ol>
+<li><strong>미국 AMPC(첨단제조 세액공제):</strong> 큐셀 미국 공장 모듈 생산량 × W당 세액공제. 큐셀 조지아 공장(연 8.4GW 규모) 가동률 상승 → 세액공제가 영업외가 아닌 영업이익에 반영돼 큐셀 흑자 견인.</li>
+<li><strong>태양광 ASP 바닥 통과:</strong> 모듈 253원/W에서 추가 하락 멈춤. 중국 과잉공급 구조조정 시 반등.</li>
+<li><strong>화학 단가 반등:</strong> LDPE <span class="up">+37%</span>·PVC <span class="up">+27%</span>(2026 2Q) → 기초소재 부문 적자 축소.</li>
+</ol>
+<h3 id="62-결정-문장-임계값">6-2 결정 문장 (임계값)</h3>
+<ul>
+<li><strong>2026 연간 영업이익 ≥ 4,000억(Base) + 큐셀 흑자 지속 → 턴어라운드 확정, 홀딩.</strong></li>
+<li><strong>2026 연간 영업적자 재발 or 모듈 ASP 재하락 → 논지 폐기, PBR 0.5x(24,000원) 디레이팅 리스크.</strong></li>
+<li>다음 체크포인트: <strong>2026 3분기 실적(11월 중순)</strong> — 큐셀 흑자 지속 여부 + 화학 적자 축소폭.</li>
+</ul>
+<h3 id="63-미확인-목록">6-3 미확인 목록</h3>
+<ul>
+<li>큐셀 미국 공장 정확한 AMPC 수취액(IR 비공개) → 다음 사업보고서·IR 확인 필요.</li>
+<li>4,000억 자금수혈 구체적 사용처(증설 vs 운전자금) → 공시 추적.</li>
+</ul>
+<hr>
+<h2 id="7-리스크-매매-코멘트">§7. 리스크 &amp; 매매 코멘트</h2>
+<ul>
+<li><strong>① 2년 연속 적자 + 부채 196%:</strong> 재무 체력 약함. 사이클 회복 지연 시 추가 증자·차입 리스크.</li>
+<li><strong>② 정책 의존도:</strong> 미국 AMPC·IRA가 큐셀 수익의 핵심. 미 정책 변경(트럼프 리스크) 시 직격.</li>
+<li><strong>③ 극심한 변동성:</strong> 8/7 하루 <span class="up">+14%</span>(2천만주), 8월 24,800→38,550(<span class="up">+55%</span>) 후 27,450까지 조정. 테마·수급 쏠림 심함.</li>
+<li><strong>④ &quot;한화트러블&quot; 시각:</strong> 그룹 내 애물단지라는 부정적 평가도 공존. 지배구조 개편(독립이사) 진행 중.</li>
+<li><strong>⑤ 선물 상장(ACB611):</strong> 레버리지 가능하나 변동성 극심 → 타이트한 손절 필수.</li>
+</ul>
+<p><strong>종합 매매 전략:</strong></p>
+<ul>
+<li><strong>스윙 트레이딩 관점 BUY</strong> — 태양광 턴어라운드 + 화학 단가 반등 모멘텀. 선물 레버리지 가능.</li>
+<li><strong>진입:</strong> 눌림 29,000~31,000원(PBR 0.6~0.65x). 현재가 33,200은 반등 중단.</li>
+<li><strong>목표:</strong> 1차 36,000(전고), 2차 43,000(PBR 0.9x Base).</li>
+<li><strong>손절:</strong> 28,000원 이탈 시(PBR 0.58x, 턴어라운드 논지 훼손).</li>
+<li><strong>비중:</strong> 변동성·재무리스크 감안, 형 50% 집중 스타일이라도 <strong>이 종목은 20~30% 상한 권장</strong>(적자·정책의존 리스크).</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-14 16:40 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 33,200원 (<span class="up">+1.4%</span>) · 시총 7.47조 · 5일 <span class="down">-10.3%</span> / 20일 <span class="up">+9.8%</span> / 60일 <span class="up">+11.2%</span></li>
+<li>MA5 34,520원 / MA20 31,815원 / MA60 31,000원 → MA20 이격 <span class="up">+4.4%</span> · MA60 이격 <span class="up">+7.1%</span></li>
+<li>52주 고 59,300원 / 저 22,000원 → 고점 대비 <span class="down">-44.0%</span> · 20일 고 37,000원 / 저 27,450원</li>
+<li>후행 PER -9.83 / PBR 0.69 (EPS -3,377원 · BPS 47,898원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,050.6억 (5일 876.0억)</li>
+<li>외국인 순매수 5일 90.3억 / 20일 245.5억 · 기관 5일 201.5억 / 20일 895.7억 · 개인 20일 -1,187.4억</li>
+<li>개별주식선물: ⚡ 상장 (ACB611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 6.74% (공매도 153,441주 · 51.0억) · 5일 평균 6.86% / 20일 평균 6.57% → 보합 · 20일 평균 상회 연속 2일</li>
+<li>공매도 20일 최대 13.56% (09/21) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 43,000원 (<span class="up">+29.5%</span>) ÷ 하방 28,000원 (−15.7%) = <strong>1:1.88</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 15%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 15.7% = <strong>자산의 3.2%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.2%</strong></li>
+<li>유동성 참고: 20일 ADV 1,050.6억 · 1일 소화 한도는 ADV의 10%(105.06억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 15.7% · ATR14 2,150원 (손절폭/ATR 2.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 15.7% = ATR14 × 2.4배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 29,880원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.95</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
