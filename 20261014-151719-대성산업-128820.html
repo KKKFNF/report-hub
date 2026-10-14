@@ -1,0 +1,233 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>대성산업(128820) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261014-151719-대성산업-128820.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:1.09</div><div class="tp-c"><b>결론 발췌</b> 서울고속버스터미널 인근 부지 재개발 &#x27;기대감&#x27; 테마성 급등. 영업이익은 흑자(108억)지만 금융비용 319억이 다 잡아먹어 2025년 순손실 -618억·PER 적자. 부채비율 169%의 고레버리지 자산주. 실체는 &#x27;자산가치주&#x27;이나 촉매는 미확정 기대감 → 손익비 열위(1:0.8)로 신규 레버리지 스윙 부적합, 관망. [실측: KIS·DART] ━━━━━━━━━━━━━━━━ ① 포착 신호 • 회전율 급증: 당일 거래대금 488억 / 시총 2,248억 → 회전율 약 21.7% [실측: KIS 2026-10-14, 산식 488÷2,248] • 당일 +18.33%(4,970원), 직전 5영업일 거래량 폭증(평소 5~10만주 → 10/7 699만…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>대성산업(128820)</h1>
+<div class="meta">📊 trend · 2026-10-14 15:17 · 코드 128820</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-14 15:17)</div><div class="kpi-v">4,915원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2,223억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.29</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.25</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">5,844원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 신규 진입 비권장 (관심 시 4,200~4,300원 조정 확인 후 소액만)</span><span class="dc dn">손절 4,170원</span><span class="dc up">목표 5,844원</span><span class="dc">손익비 현재가 1:1.25</span><span class="dc">기간 스윙 3~6주 (테마 수명 의존)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 전후 3분기보고서 (재개발 확정일정 없음)</div><div class="dc-l">🛑 반증: 3Q 누적 영업이익 &lt; 60억 또는 순손실 확대 시 논지 폐기 / 종가 MA60(4,170원) 2일 이탈 시 철회</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 대성산업(128820)  ※개별주식선물 無 (현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 서울고속버스터미널 인근 부지 재개발 &#x27;기대감&#x27; 테마성 급등. 영업이익은 흑자(108억)지만 금융비용 319억이 다 잡아먹어 2025년 순손실 -618억·PER 적자. 부채비율 169%의 고레버리지 자산주. 실체는 &#x27;자산가치주&#x27;이나 촉매는 미확정 기대감 → 손익비 열위(1:0.8)로 <strong>신규 레버리지 스윙 부적합, 관망</strong>. [실측: KIS·DART]</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율 급증: 당일 거래대금 488억 / 시총 2,248억 → 회전율 약 21.7% [실측: KIS 2026-10-14, 산식 488÷2,248]</li>
+<li>당일 <span class="up">+18.33%</span>(4,970원), 직전 5영업일 거래량 폭증(평소 5~10만주 → 10/7 699만주, 10/14 1,002만주) [실측: KIS 일봉]</li>
+<li>추세: MA정배열 O (MA5 4,621 &gt; MA20 4,235 &gt; MA60 4,171) / 연속상승 단발(10/13→10/14 급반등, 중간 조정 있었음) / 20일 <span class="up">+16.0%</span> [실측: KIS]</li>
+<li>현 위치: 52주고 13,140 대비 <span class="down">-62%</span>(저점권), 52주저 3,585 대비 <span class="up">+39%</span> → 장기 급락 후 바닥권 반등. &#x27;고점권 과열&#x27;은 아니나 변동성 극심(10/7 <span class="up">+20%</span>→10/13 <span class="down">-3%</span>→10/14 <span class="up">+18%</span>) [실측: KIS]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력 사업(2025 연결, 제16기 사업보고서): 석유가스 50.8%(GS칼텍스 최대 일반대리점·주유소/충전소), 전력발전 28.8%(LNG 집단에너지), 에너지 11.5%, 기계 5.0%, 유통 0.3%, 기타 3.6% [실측: DART 접수 20260319001251]</li>
+</ul>
+<p>→ 업종분류는 &#x27;유통&#x27;이나 실제 본질은 석유가스 유통 + LNG 발전을 가진 에너지·자산 복합기업. 1947년 설립 노포.</p>
+<ul>
+<li>급등사유(검증): <strong>서울고속버스터미널 인근(서초동 일대) 보유부지 가치상승 기대감</strong> = 재개발 테마. 머니투데이 &#x27;급등수사본부&#x27;(2026-10-07)가 명시 [인용: 머니투데이·매경 2026-10-07]. → 실적·실적 가이던스가 아닌 <strong>자산재평가 기대감(미확정)</strong>.</li>
+</ul>
+<p>부수 재료: 자회사 대성쎌틱에너시스 380억 규모 유상증자 참여 결정(2026-10-07 공시) — 계열 자본거래이며 본사 실적 개선과 직접 무관 [인용: 연합뉴스·CBC 2026-10-07].</p>
+<ul>
+<li>판단: <strong>실체 있는 자산(부지)은 존재하나, 재개발은 일정·개발이익 전혀 미확정인 &#x27;기대감&#x27;.</strong> 테마성 급등 성격 강함.</li>
+</ul>
+<p>③ 실적 (DART 연결 실측, 억원)</p>
+<ul>
+<li>매출: 2023 16,080 → 2024 14,767 → 2025 15,659 (정체·박스권) [실측: DART]</li>
+<li>영업이익: 2023 294 → 2024 217 → 2025 108 (OPM 1.8%→1.5%→0.7%, 저마진·우하향) [실측: DART]</li>
+<li>순이익: 2023 -41 → 2024 <span class="up">+84</span> → <strong>2025 -618 (대규모 순손실)</strong> [실측: DART]</li>
+<li>★순손실 분해(핵심): 2025 영업이익 <span class="up">+108</span>억인데 세전이익 -606억 → 괴리 714억의 정체는 <strong>금융비용 319억(이자지급 306억) + 일회성 손실 추정</strong>. 영업활동현금흐름은 <span class="up">+377</span>억으로 정상 [실측: DART 2025 연결 CIS·CF]. → <strong>영업 자체 악화가 아니라 고부채·고금리 이자부담과 비영업 손실이 순익을 파괴하는 구조.</strong></li>
+<li>재무건전성: 자산 17,392 / 부채 10,927 / 자본 6,464 → 부채비율 약 169% [실측: DART 2025, 산식 10,927÷6,464]. 영업이익 108억 &lt; 이자비용 306억 → <strong>이자보상배율 0.35배(1 미만, 영업이익으로 이자도 못 갚음)</strong> [추정: 108÷306].</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: <strong>미확인(커버리지 0건).</strong> stockeasy·naver·fnguide·hankyung 4소스 모두 최근 6~12개월 목표가·추정치 없음 [실측: consensus.py 2026-10-14]. → 기관 애널리스트 미커버 소형주. 미래 EPS 추정 근거 부재.</li>
+<li>달성 가능성 판정: 컨센 자체가 없어 &#x27;추정치 달성&#x27;을 논할 수 없음. 2026 반기(제17기) 매출 7,784억으로 전년 유사 → 외형은 유지되나 이익 모멘텀·턴어라운드 증거 미확인.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 멀티플: PER -3.69(적자, 무의미) / PBR 0.30 / EPS -1,346원 / BPS 16,698원 [실측: KIS 2026-10-14].</li>
+<li>밸류 성격: <strong>순자산 대비 심한 저평가(PBR 0.3)</strong> → 전형적 자산가치주. 다만 순손실·고부채로 PBR 할인은 &#x27;이유 있는 할인&#x27;.</li>
+<li>자체 목표가 산출: 적자라 PER법 불가 → PBR법 적용. BPS 16,698원 [실측].</li>
+<li>보수(현 할인 유지, PBR 0.30): 5,009원 [추정: 16,698×0.30]</li>
+<li>중립(자산주 재평가, PBR 0.35): 5,844원 [추정: 16,698×0.35]</li>
+<li>낙관(재개발 기대 선반영, PBR 0.45): 7,514원 [추정: 16,698×0.45]</li>
+<li>증권사 목표가: 미확인(커버리지 없음).</li>
+<li>해석: 현재가 4,970원은 PBR 0.30 수준으로 &#x27;자산가치 하단&#x27;에 근접. 상방은 재개발 테마의 할인율 축소에 의존 → 펀더멘털이 아닌 &#x27;기대감 멀티플&#x27;이 변수.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (★선물 無 → 현물만, 레버리지 불가)</p>
+<ul>
+<li>지지: 4,200원(10/13 종가·직전 조정저), 그 아래 MA60 4,171 / 강지지 3,585(52주저)</li>
+<li>저항: 5,000원(10/7 고점·심리선), 돌파 시 5,460원(당일 상한가 레벨)</li>
+<li>52주고 13,140 대비 <span class="down">-62%</span> → 위로 공간은 넓으나 급락 추세의 산물이라 &#x27;빈 공간=저항 공백&#x27; 아님.</li>
+<li>가정 진입 4,970원(현재가) 기준 손익비:</li>
+<li>상방(중립 목표 5,844원): 상승여력 <span class="up">+17.6%</span> [산식: 5,844/4,970-1]</li>
+<li>하방(손절 4,170원, MA60 이탈): 하락리스크 <span class="down">-16.1%</span> [산식: 4,170/4,970-1]</li>
+<li><strong>손익비 = 17.6 ÷ 16.1 = 1:1.09</strong> → 1.5:1 미달.</li>
+<li>낙관 목표 7,514원 적용 시 상방 <span class="up">+51%</span> → 손익비 1:3.2이나, 이는 재개발 &#x27;선반영&#x27; 가정(실현확률 낮음).</li>
+<li>변동성 경고: 당일 ±18% 등락, VI 빈발 추정. 현물이라 레버리지는 불가하나 변동성 자체가 큼. 50% 집중은 절대 부적합.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만): 2026 3분기 보고서 법정기한 2026-11-14(전후) — 순손실 지속/금융비용 추이 확인 [실측: 자본시장법 분기보고서 기한]. 재개발 관련 날짜 확정 이벤트 <strong>없음(미확인)</strong>.</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>3Q 누적 영업이익이 전년(24.3Q 누적 64억) 아래로 추가 둔화 또는 금융비용 추세 미개선 → 테마 소멸 시 펀더 지지선 없음, 논지(관망) 유지·반등 실패 시 청산.</li>
+<li>종가가 MA60(4,171원) 하향 이탈 2일 지속 → 추세 붕괴, 신규관심 철회.</li>
+<li>재개발 관련 &#x27;확정 공시(개발계획 인허가·부지 매각계약 등)&#x27; 부재한 채 거래대금이 ADV(최근 평균) 수준으로 급감 → 테마 식음, 재진입 보류.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(실적×갭): 3Q 순손실 축소+재개발 재료 지속 → 상단 돌파 시도 / 순손실 지속+테마 소멸 → 4,200 이탈·3,585 재테스트.</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 45%: 테마 소멸·순손실 지속 → 4,200 이탈, 3,585~3,900 (하락 -16~<span class="down">-28%</span>)</li>
+<li>Base 40%: 자산주 박스·PBR 0.30~0.35 → 4,200~5,800 횡보</li>
+<li>Bull 15%: 재개발 구체화·자산 재평가 → 6,000~7,500 (PBR 0.4~0.45)</li>
+<li>기대수익률 ≈ (0.45×<span class="down">-22%</span>)+(0.40×<span class="up">+5%</span>)+(0.15×<span class="up">+40%</span>) = <span class="down">-1.9%</span> → <strong>음(-)의 기대값</strong>.</li>
+<li>수급/유동성: 외인·기관 20일 동향 미확인. ADV는 테마 전 5~10만주(거래대금 2~6억) → 당일 488억은 평시의 80~100배. 급등은 전적으로 단기 개인·테마 수급 추정.</li>
+<li>포지션 사이징: 신규 진입 비권장. 굳이 소액 관심 시 자산 대비 5% 이내·이벤트(실적발표) 전 축소. 집중상한 50%·레버리지는 절대 적용 금지(선물 無이자 변동성 극심).</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델</p>
+<ul>
+<li>제품 단가·CAPA·원재료·수주 표: 사업보고서에 &#x27;제품 가격변동/원재료/생산능력&#x27; 항목 <strong>미공시(미확인)</strong> [실측: dart_biz.py — 해당 소절 공란]. 석유가스 유통·발전업 특성상 단가는 유가·SMP(계통한계가격) 연동.</li>
+<li>부문별 매출 추이(억, 연결):</li>
+<li>석유가스: 6,691(&#x27;23) → 6,570(&#x27;24) → 7,959(&#x27;25) [실측: DART] — 유가·판매량 연동, 저마진 유통.</li>
+<li>전력발전: 6,203 → 4,961 → 4,508 [실측] — LNG 발전, SMP·가동률 하락으로 2년 연속 감소(실적 드래그 핵심).</li>
+<li>에너지: 1,761 → 1,783 → 1,794 [실측] — 안정적.</li>
+<li>9-7 바텀업(물량×단가 세부는 미공시 → 부문 영업레버리지 기반 추정):</li>
+<li>Bear: 발전부문 추가 둔화+금융비용 지속 → 2026 영업이익 50~80억, 순손실 지속.</li>
+<li>Base: 유가·SMP 안정으로 영업이익 100~130억 유지, 순손익은 금융비용 축소 여부가 관건.</li>
+<li>Bull: 발전 가동률 회복+자산 매각 차익 → 영업이익 150억+, 흑자전환 시도.</li>
+<li>★결론 문장: <strong>2026 3분기(11월) 연결 누적 영업이익 ≥ 100억이면서 금융비용 하향 신호가 나오면 &#x27;자산주 저평가&#x27; 논지 유지·소액 관심 검토, &lt; 60억이거나 순손실 확대면 논지 폐기(테마 소멸 시 펀더 지지 없음).</strong> 정성(자산가치)은 PBR 0.30·BPS 16,698원 숫자로 뒷받침되나, 수익성(이자보상배율 0.35배)이 발목.</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 미확인 값은 &#x27;미확인&#x27; 표기.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>증권사 컨센서스·목표가(커버리지 0건) / 2026~2027 매출·영업이익 추정치</li>
+<li>제품별 단가·원재료 매입액·생산능력(사업보고서 미공시)</li>
+<li>외인·기관 수급 20일 동향</li>
+<li>서울고속버스터미널 재개발 관련 확정 일정·대성산업 보유부지 평가차익 규모</li>
+<li>2025 순손실 中 일회성 손상 vs 경상 금융비용 정밀 분해(금융비용 319억은 실측, 나머지 괴리 일회성 추정)</li>
+<li>개별주식선물 미상장 → 레버리지 매매 수단 자체 없음</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS 시세 2026-10-14(현재가·시총·PER·PBR·52주·일봉MA)</li>
+<li>DART 사업보고서 접수 20260319001251(2025.12), 반기보고서 20260814002153(2026.06), 연결 손익·현금흐름</li>
+<li>consensus.py 2026-10-14(4소스 컨센 0건)</li>
+<li>머니투데이·매일경제·연합뉴스·CBC뉴스 2026-10-07(급등사유·유증 공시)</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>부문 매출 합 = 7,959<span class="up">+4,508</span><span class="up">+1,794</span><span class="up">+783</span><span class="up">+55</span><span class="up">+561</span> = 15,659억 = 연결 매출 ✓</li>
+<li>회전율 488÷2,248 = 21.7% ✓</li>
+<li>이자보상배율 108÷306 = 0.35배 ✓</li>
+<li>손익비 17.6÷16.1 = 1.09 ✓</li>
+<li>시나리오 확률합 45<span class="up">+40</span><span class="up">+15</span> = 100% ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-14 15:17 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 4,915원 (<span class="up">+17.0%</span>) · 시총 2,223억 · 5일 <span class="up">+16.8%</span> / 20일 <span class="up">+13.9%</span> / 60일 <span class="up">+19.8%</span></li>
+<li>MA5 4,614원 / MA20 4,233원 / MA60 4,170원 → MA20 이격 <span class="up">+16.1%</span> · MA60 이격 <span class="up">+17.9%</span></li>
+<li>52주 고 13,140원 / 저 3,585원 → 고점 대비 <span class="down">-62.6%</span> · 20일 고 5,000원 / 저 4,025원</li>
+<li>후행 PER -3.65 / PBR 0.29 (EPS -1,346원 · BPS 16,698원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 65.8억 (5일 250.8억)</li>
+<li>외국인 순매수 5일 -45.7억 / 20일 -44.2억 · 기관 5일 1.0억 / 20일 1.0억 · 개인 20일 42.6억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.16% / 20일 평균 6.76% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 16.03% (09/21) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 5,844원 (<span class="up">+18.9%</span>) ÷ 하방 4,170원 (−15.2%) = <strong>1:1.25</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 15%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 15.2% = <strong>자산의 3.3%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.3%</strong></li>
+<li>유동성 참고: 20일 ADV 65.8억 · 1일 소화 한도는 ADV의 10%(6.58억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 15.2% · ATR14 348원 (손절폭/ATR 2.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 15.2% = ATR14 × 2.1배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 4,393원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.78</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-128820"></span>📋 결정카드 — 대성산업(128820) 판정: 관망 선물: 無 현재가: 4,970원 진입: 신규 진입 비권장 (관심 시 4,200~4,300원 조정 확인 후 소액만) 손절: 4,170원 (MA60 이탈) 목표: 1차 5,844원 (2차 7,514원·재개발 구체화 전제) 손익비: 1:1.09 (1.5:1 미달) 기간: 스윙 3~6주 (테마 수명 의존) 촉매: 2026-11-14 전후 3분기보고서 (재개발 확정일정 없음) 반증: 3Q 누적 영업이익 &lt; 60억 또는 순손실 확대 시 논지 폐기 / 종가 MA60(4,170원) 2일 이탈 시 철회</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
