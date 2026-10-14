@@ -1,0 +1,290 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LS머트리얼즈(417200) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261014-093819-LS머트리얼즈-417200.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.3</div><div class="tp-c"><b>결론 발췌</b> 모멘텀 &#x27;관심&#x27; — 690억 UC 수주는 실체 있는 대형 호재이나 실적 반영은 2027년부터이고 밸류(PBR 6.2배·PER 2840배)는 선반영 과열. 손익비 1:1.1(현 추격매수 기준 열위), 자체목표가 19,000원(모멘텀 밴드 상단). 눌림 재진입 관심 종목. ━━━━━━━━━━━━━━━━ ① 포착 신호 • 현재가 17,040원 (전일 +11.74%, +1,790원) [실측: KIS inquire-price 2026-10-14] • 시가총액 11,528억원 [실측: 17,040원×67,652,659주] • 당일거래대금 3,467억원 / 거래량 210.5만주 [실측: KIS] • 20일 평균거래대금 277억원 → 당일 회전 약 1…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>LS머트리얼즈(417200)</h1>
+<div class="meta">📊 trend · 2026-10-14 09:38 · 코드 417200</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-14 09:38)</div><div class="kpi-v">17,440원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.2조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">2906.67</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">6.37</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.8</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">19,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 15,000~15,960원 (MA5~심리선 눌림 분할, 추격 자제)</span><span class="dc dn">손절 15,500원</span><span class="dc up">목표 19,000원</span><span class="dc">손익비 현재가 1:0.8</span><span class="dc">기간 스윙 3~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11월 중순 3Q 분기보고서(법정기한 11/14)</div><div class="dc-l">🛑 반증: 3Q 분기 영업이익 BEP 미달(적자 지속) → 비중 축소 / MA20 13,970 종가 이탈 → 손절</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — LS머트리얼즈(417200)  ※개별주식선물 無(현물만, 레버리지 불가)</p>
+<p>📌 한줄 결론: 모멘텀 &#x27;관심&#x27; — 690억 UC 수주는 실체 있는 대형 호재이나 실적 반영은 2027년부터이고 밸류(PBR 6.2배·PER 2840배)는 선반영 과열. 손익비 1:1.1(현 추격매수 기준 열위), 자체목표가 19,000원(모멘텀 밴드 상단). 눌림 재진입 관심 종목.</p>
+<hr>
+<p>① 포착 신호</p>
+<ul>
+<li>현재가 17,040원 (전일 <span class="up">+11.74%</span>, <span class="up">+1,790</span>원) [실측: KIS inquire-price 2026-10-14]</li>
+<li>시가총액 11,528억원 [실측: 17,040원×67,652,659주]</li>
+<li>당일거래대금 3,467억원 / 거래량 210.5만주 [실측: KIS]</li>
+<li>20일 평균거래대금 277억원 → 당일 회전 약 12.5배 폭증 [추정: 3,467÷277]</li>
+<li>추세: 완전 정배열 — 현재가 17,120 &gt; MA5 15,958 &gt; MA20 13,966 &gt; MA60 12,232 [실측: KIS 일봉 87일]</li>
+<li>N일 수익률: 5일 <span class="up">+8.5%</span> / 10일 <span class="up">+30.9%</span> / 20일 <span class="up">+48.9%</span> / 60일 <span class="up">+45.2%</span> [실측: KIS]</li>
+<li>52주 고 32,725 / 저 8,700 → 현재는 고점 대비 52.1%, 저점 대비 195.9% 위치 [실측: KIS]</li>
+<li>수급(20일): 외국인 -297만주 순매도, 기관 <span class="up">+213</span>만주 순매수 → 기관 매집·외인 이탈 [실측: KIS inquire-investor]</li>
+</ul>
+<hr>
+<p>② 사업·급등사유</p>
+<ul>
+<li>사업구조(2025 연결매출 1,536억 기준) [실측: DART 사업보고서 접수 20260604000337]</li>
+<li>알루미늄(LS알스코): 1,042억, 비중 67.8% — Profile·Rod·PA코팅·Billet (실질 매출 본체)</li>
+<li>UC(울트라캐패시터): 291억, 비중 19.0% — 중대형 셀·모듈 (성장 테마의 핵심)</li>
+<li>경관재(공사): 213억, 비중 13.9%</li>
+<li>주력 테마 제품 = 중대형 울트라캐패시터(UC): 풍력 피치컨트롤·AGV·트램·스마트그리드·전기차 보조전력. 2021년 LS엠트론 UC사업부 물적분할로 설립.</li>
+<li>급등사유 = 실체 있는 대형 수주(사실 확인) [인용: 파이낸셜뉴스·아시아경제 2026-10-13]</li>
+<li>미국 수소연료전지 기업과 약 5,150만 달러(690억원) 규모 AI 데이터센터(AIDC)용 UC 공급계약 체결</li>
+<li>DART 단일판매·공급계약 공시로 교차확인됨 [실측: DART 접수 20261013900067, 2026-10-13]</li>
+<li>규모 의미: 690억원 = 2025년 UC사업부 연매출(291억)의 2.4배, 연결 전체매출(1,536억)의 45% → 단일계약으로는 업계 역대 최대급</li>
+<li>성격: 루머 아님·실체 있는 수주. 단 &#x27;다년 공급&#x27; 성격으로 일시 인식이 아니라 수년에 걸쳐 분할 매출화 가능성 높음(계약기간 상세 미확인) → 단기 실적 폭발보다 중기 UC 턴어라운드 스토리</li>
+<li>섹터 맥락: AI 데이터센터 전력 인프라(UPS 대체·순간전력 보상) 테마 편입 → 수급 순환매 수혜</li>
+</ul>
+<hr>
+<p>③ 실적 (DART 실측 · 연결 CFS 기준) [출처: DART 사업보고서 접수 20260604000337 / 반기보고서 20260814003148]</p>
+<ul>
+<li>연간 추이 (연결, 억원)</li>
+<li>2023: 매출 1,369 / 영업이익 136 / 순이익 122 / OPM 9.9%</li>
+<li>2024: 매출 1,421 / 영업이익 62 / 순이익 57 / OPM 4.4%</li>
+<li>2025: 매출 1,536 / 영업이익 -1.4(적자전환) / 지배순익 <span class="up">+4.4</span> / 연결순익 -100.7 / OPM <span class="down">-0.1%</span></li>
+<li>2026 반기(연결·누적6M): 매출 943 / 영업손실 -11.5 / OPM <span class="down">-1.2%</span> [실측: 반기보고서]</li>
+<li>2026 1Q(별도 추정 3M): 영업손실 약 -6.1억 → 상반기 내내 적자 지속</li>
+<li>순이익 급감 분해 (2025) [실측: DART 손익계산서]</li>
+<li>법인세차감전이익은 <span class="up">+7.1</span>억으로 소폭 흑자 → 하지만 ①법인세 17.1억 ②비지배지분 손실 -14.4억</li>
+<li>연결순손실 -100.7억은 주로 비지배지분(종속회사) 대규모 손실 때문. 지배주주순익은 <span class="up">+4.4</span>억으로 흑자 유지</li>
+<li>즉 본업(영업)도 2025년 적자전환했으나, 연결 -100.7억은 &#x27;영업악화 + 종속사 손실&#x27;의 복합 → 겉보기보다 과장된 적자</li>
+<li>재무 안정성 (2026 반기) [실측: DART]</li>
+<li>자산 2,801억 / 부채 766억 / 자본 2,035억 → 부채비율 37.7% (양호)</li>
+<li>영업현금흐름: 반기 기준 미확인(상세 주석 미파싱)</li>
+</ul>
+<hr>
+<p>④ 미래실적·컨센서스 [실측: consensus.py — fnguide/naver 2026-10-14 수집]</p>
+<ul>
+<li>FY26E: 매출 1,920억 / 영업이익 12억 / 순이익 -4억 / EPS 22원 → PER 688배</li>
+<li>FY27E: 매출 2,191억 / 영업이익 91억 / 순이익 68억 / EPS 126원 → PER 121배 / ROE 4.5%</li>
+<li>투자의견: 최근 6개월 NR(Not Rated) 2건 — 목표가 제시 리포트 없음(공식 컨센 목표가 미확인)</li>
+<li>최근 리포트</li>
+<li>2026-10-07 키움증권 &#x27;변곡점&#x27; NR: 데이터센터향 UC 수주 기대감 점증</li>
+<li>2026-09-29 한국투자증권 &#x27;좋아질 일만 남았다&#x27; NR</li>
+<li>2026-06-19 키움증권 &#x27;새로운 도약을 준비하다&#x27;</li>
+<li>달성 가능성 평가</li>
+<li>FY26E 매출 1,920억(YoY <span class="up">+25%</span>): 달성 가능성 中 — 반기 943억이면 연 1,886억 런레이트, 하반기 UC 수주 초기분 더하면 근접 가능</li>
+<li>FY26E 영업흑자 전환(12억): 달성 가능성 中下 — 상반기 -11.5억 적자라 하반기 23.5억 흑자 필요, 알루미늄 마진·UC 믹스 개선 전제</li>
+<li>FY27E 영업이익 91억: 달성 가능성 中 — 690억 UC 물량이 2027년부터 본격 매출화되면 상향 여지, 다만 UC 수율·단가가 변수</li>
+</ul>
+<hr>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 밸류 [실측: KIS·peer_finder]</li>
+<li>PER 2,840배 (2025 EPS 6원, 사실상 무의미) / PBR 6.23배 (BPS 2,736원)</li>
+<li>시총 11,528억 vs 2025 연결매출 1,536억 → PSR 7.5배 (고평가 영역)</li>
+<li>Peer 비교 (2025 연결 기준) [실측: peer_finder.py]</li>
+<li>산일전기 PER 44.8·PBR 11.4·OPM 35.6% (고수익 전력기기)</li>
+<li>성호전자 PER 22.4·PBR 8.5 / 세아제강 PER 13.5·PBR 0.36</li>
+<li>→ LS머트리얼즈는 이익체력 대비 PBR·PSR 모두 peer 상단. 성장프리미엄(UC 테마)이 과도 선반영</li>
+<li>자체 목표가 산출 (계산식 노출)</li>
+<li>이익 기반 PER 불가(순익 미미) → PBR·모멘텀 밴드 접근</li>
+<li>[산식 A · PBR] 적정 PBR 7.0배(성장기대 상단) × BPS 2,736원 = 19,152원</li>
+<li>[산식 B · FY27 EPS] FY27E EPS 126원 × 성장주 PER 150배(공격적) = 18,900원</li>
+<li>[산식 C · 52주 모멘텀 밴드] 직전 고점 32,725원의 60% 되돌림 저항 ≈ 19,600원</li>
+<li>3개 산식 수렴 → 자체목표가 ≈ 19,000원 (1차), 추가 모멘텀 시 21,000원(2차)</li>
+<li>증권사 공식 목표가: 미확인(NR만 존재)</li>
+</ul>
+<hr>
+<p>⑥ 진입전략·손익비  ※개별주식선물 無 → 현물만, 레버리지 불가</p>
+<ul>
+<li>기술적 레벨 [실측: KIS 일봉]</li>
+<li>지지: MA5 15,960 / MA20 13,970 / 심리 15,000</li>
+<li>저항: 당일고 17,040(=상한가 미달), 다음 19,000(자체목표 1차), 상한가 19,820</li>
+<li>52주 고 32,725 대비 52% → 윗공간은 있으나 과거 급락 이력(고점→8,700 저점) 변동성 극대</li>
+<li>전략: 추격 자제, 눌림 대응형</li>
+<li>1차 진입 관심: MA5~심리선 15,000~15,960 눌림 확인 시</li>
+<li>2차 진입 관심: MA20 13,970 지지 확인 시(테마 지속 전제)</li>
+<li>손익비 (현재가 17,040 추격매수 가정)</li>
+<li>상승여력: 목표 19,000 → <span class="up">+11.5%</span></li>
+<li>하락리스크: 손절 15,500(MA5 하단·당일 시가) → <span class="down">-9.0%</span></li>
+<li>손익비 = 11.5 ÷ 9.0 = 1:1.3 (추격 시 평이)</li>
+<li>눌림 진입(15,500) 가정 시: 목표 19,000 <span class="up">+22.6%</span> / 손절 13,900 <span class="down">-10.3%</span> → 1:2.2 (양호) → 진입가가 손익비를 좌우</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 [실측: DART dart_biz.py — 사업보고서 접수 20260604000337]</p>
+<ul>
+<li>제품별 매출(2025, 백만원) 및 단가추이</li>
+<li>UC 중형셀 9,862(수출단가 3,901원/EA) / 대형셀 7,716(수출 27,092원) / 중형모듈 2,895 / 대형모듈 7,729(수출 147.5만원/EA, YoY 단가↑)</li>
+<li>알루미늄 Profile 48,001(단가 7,349원/kg, 내수단가 YoY <span class="up">+39%</span>) / Rod 21,453 / PA코팅 25,174</li>
+<li>핵심 관찰: 대형모듈 수출단가 2024 99.5만→2025 147.5만원(<span class="up">+48%</span>), 알루미늄 Profile 내수단가 급등 → 믹스·단가는 개선 방향</li>
+<li>9-7 바텀업 표 (2027E UC 부문 영업이익 임계, 억원)</li>
+<li>Bear: UC매출 350(690억 수주 분할 소액반영) × OPM 3% = 영업이익 10억 / 연결 영업이익 ≈ 50억</li>
+<li>Base: UC매출 500(수주 본격화+기존) × OPM 8% = 40억 / 연결 영업이익 ≈ 95억 (컨센 FY27 91억 근접)</li>
+<li>Bull: UC매출 650(690억 집중반영) × OPM 12% = 78억 / 연결 영업이익 ≈ 140억</li>
+<li>(전제: 알루미늄 부문은 1,100억·OPM 3% 유지, 경관재 BEP)</li>
+<li>결론: &quot;2027 연결 영업이익 ≥ 90억이면 UC 턴어라운드 유효·목표가 상향, &lt; 50억이면 수주 지연·테마 폐기. 2026 하반기 분기 영업흑자 전환(분기 OPM <span class="up">+2%</span> 이상) 여부가 1차 분기점&quot;</li>
+</ul>
+<hr>
+<p>★ 촉매별 정량 분석 (§10)</p>
+<ul>
+<li>촉매 유형: 대형 수주(AIDC용 UC 690억) → 전방수요(AI 데이터센터 전력) 확대형</li>
+<li>peer_finder 결과: 전력기기·커패시터 peer 산재(산일전기·성호전자 등), UC 순수 비교대상 국내 희소 → 희소성 프리미엄 존재</li>
+<li>market_sizer: TAM 캐시 데이터 부재(미확인) → AIDC UC 시장규모 정량화 불가, 추정만 가능</li>
+<li>정량 효과: 690억 / 연 UC매출 291억 = 2.4배 → 다년 분할 시 연 150~230억 추가 → UC부문 매출 2배 가시성. 단 매출화 타임라인(계약기간) 미확인이 최대 변수</li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·이벤트</p>
+<ul>
+<li>촉매 캘린더 (날짜 확정만)</li>
+<li>2026-11월 중순: 3Q 분기보고서(법정기한 11/14) → 하반기 적자 축소·흑전 여부 확인</li>
+<li>(미확정) 690억 수주 공급 개시·추가 AIDC 수주 뉴스</li>
+<li>반증 3개 (수치→행동)</li>
+</ul>
+<ol>
+<li>[분기 임계] 2026 3Q 분기 영업이익이 BEP 미달(적자 지속)이면 → 테마성 과열 판단, 보유 비중 축소</li>
+<li>690억 계약기간이 &#x27;3년 이상 분할&#x27;로 공시 확인되면 → 단기 EPS 기여 미미, 목표가 19,000원 하향 재검토</li>
+<li>주가가 MA20(13,970) 종가 이탈 시 → 추세 훼손, 손절 트리거</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스</li>
+<li>3Q 흑전 + 추가수주: 상한가권 재도전 가능 (Bull)</li>
+<li>3Q 적자 + 수주 분할확인: 15,000선 되돌림 (Bear)</li>
+<li>확률가중 시나리오 (합 100%)</li>
+<li>Bull 25%: 3Q 흑전·추가 AIDC 수주 → 21,000~23,000원 (<span class="up">+23</span>~35%)</li>
+<li>Base 45%: UC 스토리 유지·실적 점진 개선 → 17,000~19,000원 등락 (박스 상단)</li>
+<li>Bear 30%: 실적 모멘텀 공백·차익실현 → 13,000~15,000원 (-12~24%)</li>
+<li>수급·유동성</li>
+<li>20일 외인 -297만주(매도) / 기관 <span class="up">+213</span>만주(매집) → 기관 주도, 외인 리스크</li>
+<li>20일 평균거래대금 277억 → ADV의 10% = 약 28억 (중형주, 유동성 충분)</li>
+<li>포지션 사이징 (자산 대비 %로만)</li>
+<li>선물 無 → 레버리지 불가, 현물 한정</li>
+<li>리스크예산 기준: 이벤트(3Q실적) 전이므로 집중상한 50% 미적용, 이벤트전 상한 25% 중에서도 모멘텀 과열 감안 최소값 적용 권고</li>
+<li>추격매수는 비중 축소, 눌림 분할진입이 리스크 대비 유리</li>
+</ul>
+<p>⚠️ 리서치 참고용. 추정치는 &#x27;추정&#x27; 명시. 투자판단·책임은 본인.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>690억 수주 계약기간(분할 연수)·연도별 매출 인식 스케줄</li>
+<li>증권사 공식 목표가(현재 NR만, 목표가 제시 리포트 없음)</li>
+<li>2026 반기 영업현금흐름(주석 미파싱)</li>
+<li>분기별 세분 컨센서스</li>
+<li>AIDC UC 시장 TAM(market_sizer 캐시 부재)</li>
+<li>stockeasy 기업·산업 리포트(서버 연결거부로 미수집)</li>
+<li>개별 사업부문별 영업이익(DART 부문정보 미파싱, 추정 사용)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS OpenAPI: 현재가·일봉·수급 (2026-10-14 실측)</li>
+<li>DART 사업보고서 접수 20260604000337 / 반기보고서 20260814003148 / 공급계약공시 20261013900067</li>
+<li>consensus.py (fnguide·naver, 2026-10-14)</li>
+<li>news_search.py: 파이낸셜뉴스·아시아경제·더팩트 2026-10-13 (690억 UC 수주)</li>
+<li>peer_finder.py / dart_biz.py</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>시총: 17,040 × 67,652,659 = 11,528억 ✓</li>
+<li>매출비중 합: UC 19.0 + 알루미늄 67.8 + 경관재 13.9 = 100.7%(내부거래제거 -0.7 반영) ✓</li>
+<li>690억/291억 = 2.37배 ≈ 2.4배 ✓</li>
+<li>손익비(추격): (19,000-17,040)/17,040=11.5% ÷ (17,040-15,500)/17,040=9.0% = 1.28 ✓</li>
+<li>확률합: 25<span class="up">+45</span><span class="up">+30</span> = 100% ✓</li>
+<li>자체목표가 산식 A·B·C: 19,152 / 18,900 / 19,600 → 중앙 ≈19,000 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-14 09:38 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 17,440원 (<span class="up">+14.4%</span>) · 시총 1.18조 · 5일 <span class="up">+10.4%</span> / 20일 <span class="up">+51.5%</span> / 60일 <span class="up">+47.8%</span></li>
+<li>MA5 16,018원 / MA20 13,980원 / MA60 12,236원 → MA20 이격 <span class="up">+24.7%</span> · MA60 이격 <span class="up">+42.5%</span></li>
+<li>52주 고 32,725원 / 저 8,700원 → 고점 대비 <span class="down">-46.7%</span> · 20일 고 17,420원 / 저 11,230원</li>
+<li>후행 PER 2906.67 / PBR 6.37 (EPS 6원 · BPS 2,736원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 282.9억 (5일 412.6억)</li>
+<li>외국인 순매수 5일 -152.3억 / 20일 -425.6억 · 기관 5일 172.8억 / 20일 323.5억 · 개인 20일 97.0억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.11% / 20일 평균 3.57% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 14.99% (09/11) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 38영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 19,000원 (<span class="up">+8.9%</span>) ÷ 하방 15,500원 (−11.1%) = <strong>1:0.80</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 15%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 11.1% = <strong>자산의 4.5%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.5%</strong></li>
+<li>유동성 참고: 20일 ADV 282.9억 · 1일 소화 한도는 ADV의 10%(28.29억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 11.1% · ATR14 1,140원 (손절폭/ATR 1.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 11.1% = ATR14 × 1.7배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 15,696원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.89</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-417200"></span>📋 결정카드 — LS머트리얼즈(417200) 판정: 관심 선물: 無 현재가: 17,040원 진입: 15,000~15,960원 (MA5~심리선 눌림 분할, 추격 자제) 손절: 15,500원 (추격 진입 시) / 13,900원 (눌림 진입 시) 목표: 1차 19,000원 (2차 21,000원) 손익비: 1:1.3 (추격) / 1:2.2 (눌림 진입) 기간: 스윙 3~8주 촉매: 2026-11월 중순 3Q 분기보고서(법정기한 11/14) 반증: 3Q 분기 영업이익 BEP 미달(적자 지속) → 비중 축소 / MA20 13,970 종가 이탈 → 손절</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
