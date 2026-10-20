@@ -1,0 +1,295 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>서진시스템(178320) · ESS 2차전지 섹터 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261020-160900-ESS-2차전지-섹터.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:5.13</div><div class="tp-c"><b>결론 발췌</b> 하락장 아웃퍼폼 테마의 실체는 &#x27;美 ESS 시장 탈중국 + 데이터센터 전력난&#x27;. 수혜주를 실적베타×선물상장으로 3Tier 분류. 레버리지 가능한 Tier1은 서진시스템(ESS 외함·영익베타 최고, 손익비 1:4.4)·삼성SDI(셀 흑전, 손익비 1:2.2)·LG에너지솔루션. ※아래 종목·수치는 비나인 블로그(developer_investor, 2026-10-20) 논지 검증 + 실측 데이터 기반 참고용이며, 매수·매도 강요가 아님. ───────────────────── ① 테마 사실관계 — 급등 사유는 실체 있다</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>서진시스템(178320) · ESS 2차전지 섹터</h1>
+<div class="meta">📊 benine · 2026-10-20 16:09 · 코드 178320</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-20 16:09)</div><div class="kpi-v">38,300원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2.4조</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.92</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:5.13</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:4.35</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">57,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 37,000~38,500원</span><span class="dc dn">손절 34,000원</span><span class="dc up">목표 57,000원</span><span class="dc">손익비 진입 1:5.13 · 현재가 1:4.35 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:4.4</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:4.4로 적었지만 진입·손절·목표로 계산하면 1:5.13다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-10말~11초 3Q26 실적발표(ESS 매출·OPM)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 350억이면 논지 폐기·청산 / ≥ 600억이면 추가매수 검토 / 종가 34,000원 이탈 시 전량 청산</div></div>
+
+<div class="body"><p>🔋 산업·테마 리포트 — ESS(에너지저장장치) 2차전지 섹터</p>
+<p>📌 한줄 결론: 하락장 아웃퍼폼 테마의 실체는 &#x27;美 ESS 시장 탈중국 + 데이터센터 전력난&#x27;. 수혜주를 실적베타×선물상장으로 3Tier 분류. 레버리지 가능한 Tier1은 서진시스템(ESS 외함·영익베타 최고, 손익비 1:4.4)·삼성SDI(셀 흑전, 손익비 1:2.2)·LG에너지솔루션. ※아래 종목·수치는 비나인 블로그(developer_investor, 2026-10-20) 논지 검증 + 실측 데이터 기반 참고용이며, 매수·매도 강요가 아님.</p>
+<p>───────────────────── ① 테마 사실관계 — 급등 사유는 실체 있다</p>
+<p>ESS 관련주가 2026-10월 하락장에서 아웃퍼폼. 핵심 촉매 3개 모두 뉴스·시장조사로 교차검증됨(테마성 아님).</p>
+<ul>
+<li>美 ESS 시장서 中 배터리 사실상 퇴출 [인용: 머니투데이·한경·마켓인 2026-10-19] — &quot;중국 ESS 업체 미국 사업 사실상 포기, 철수 검토 → 국내 배터리 셀 3사 즉각 수혜&quot;. Non-PFE(우려외국기업) 규제·관세로 중국산 가격경쟁력 소멸.</li>
+<li>美 ESS TAM 급증 [인용: SNE리서치·BNEF via 연합뉴스 2026-06-21] — 2025년 88GWh → 2030년 485GWh → 2035년 976GWh. 2030년까지 CAGR 약 <span class="up">+41%</span>.</li>
+<li>데이터센터 전력난 → ESS 수요 폭증 [인용: SEIA Q3&#x27;26·한국데이터경제 2026] — 美 BESS 상반기 31GWh 가동(<span class="up">+23%</span> YoY). 펜실베이니아 &#x27;25MW 규제&#x27;·전력비용 행정명령이 북미 ESS 시장 <span class="up">+76%</span> 견인. LG엔솔 ESS 출하량이 EV 추월 전망.</li>
+<li>정책 변수 [블로거 의견] — 미 중간선거 민주당 우세 시 친환경 수혜, 중국 ESS 규제강화 시 국내업체 추가 수혜. (정성 변수, 실측 불가)</li>
+</ul>
+<p>───────────────────── ② ESS 밸류체인 구조 + 영업이익 성장률(블로거 컨센 정리, &#x27;추정&#x27;)</p>
+<p>[셀] 삼성SDI(006400)·LG에너지솔루션(373220) — 각형/파우치 ESS 셀, 북미 현지생산 [소재] 삼아알미늄(006110, 알루미늄박)·신성에스티(416180, 버스바·열관리) [부품/캔] 상신이디피(091580)·신흥에스이씨(243840) — 삼성SDI 납품 각형 캔/부품 [장비/외함/냉각] 서진시스템(178320, ESS 외함·엔클로저)·한중엔시에스(107640, 수냉식 냉각시스템)</p>
+<ul>
+<li>26→27 영업이익 성장률(블로거 컨센 &#x27;추정&#x27;): 삼아알미늄 <span class="up">+414.5%</span>(POR27 31.8) · 서진시스템 <span class="up">+357.3%</span>(POR27 8.9) · LG엔솔 <span class="up">+283.3%</span>(POR27 26.5) · 삼성SDI <span class="up">+221.6%</span>(POR27 31.7) · 신성에스티 <span class="up">+122.2%</span> · 신흥에스이씨 <span class="up">+61.2%</span> · 상신이디피 <span class="up">+27.3%</span> · 한중엔시에스 흑자전환</li>
+<li>27→28 성장률(&#x27;추정&#x27;): 한중엔시에스 <span class="up">+126.5%</span> · 삼아알미늄 <span class="up">+94.9%</span> · 삼성SDI <span class="up">+73.2%</span> · LG엔솔 <span class="up">+58.5%</span> · 상신이디피 <span class="up">+32.9%</span> · 신흥에스이씨 <span class="up">+21.6%</span> · 서진시스템 <span class="up">+20.2%</span></li>
+</ul>
+<p>───────────────────── ③ 수혜주 Tier 분류 (실적베타 × 선물상장 = 레버리지 가능여부) [실측: kis_futures_check 2026-10-20]</p>
+<p>★ Tier1 — 실적수혜 高 + 개별주식선물 상장(레버리지 스윙 가능)</p>
+<ul>
+<li>서진시스템(178320) ✅선물(A3R611) — ESS 외함 순수수혜+데이터센터, 영익 26→27 <span class="up">+357%</span>, 현재가 38,250원, 20일ADV 524억(유동성 최상). 바텀업 6축 심화 대상.</li>
+<li>삼성SDI(006400) ✅선물(A22611) — 셀 흑전, 美 ESS SBB 공급, 영익 <span class="up">+221%</span>, 현재가 559,000원, ADV 2,684억. 바텀업 6축 심화 대상.</li>
+<li>LG에너지솔루션(373220) ✅선물(AF5611) — 셀 대장, 美 ESS 출하 EV 추월, 영익 <span class="up">+283%</span>, 현재가 414,000원, ADV 1,571억. (대형주·밸류 부담, 분할접근)</li>
+</ul>
+<p>★ Tier2 — 수혜 高, 현물만(레버리지 불가·현물 스윙)</p>
+<ul>
+<li>신성에스티(416180) ❌선물 — 버스바·열관리, 영익 <span class="up">+122%</span>, 현재가 28,000원, PBR 2.39, PER 459(실적 초기). ADV 18억(유동성 얇음·주의).</li>
+<li>한중엔시에스(107640) ❌선물 — 수냉식 냉각(데이터센터 ESS 핵심), 흑자전환→<span class="up">+126.5%</span>, 현재가 48,700원, PBR 4.72, ADV 61억.</li>
+<li>신흥에스이씨(243840) ❌선물 — 각형 캔·CID(삼성SDI 납품), 영익 <span class="up">+61%</span>, 현재가 6,520원, PBR 0.83(저평가), ADV 30억.</li>
+<li>상신이디피(091580) ❌선물 — 각형 캔(삼성SDI 납품), 영익 <span class="up">+27%</span>, 현재가 25,400원, PBR 2.11, ADV 97억.</li>
+</ul>
+<p>★ Tier3 — 기대 선반영·리스크 우위(추격주의)</p>
+<ul>
+<li>삼아알미늄(006110) ❌선물 — 알루미늄박, 영익 <span class="up">+414%</span>(최고)지만 PBR 5.62·MA60(56,785)대비 현재가 83,200원 <span class="up">+47%</span>로 상당부분 선반영(블로거도 선반영 평가). ADV 165억.</li>
+<li>더블유씨피(393890) ❌선물 — 분리막, 선물無·현물만.</li>
+</ul>
+<p>───────────────────── ④ ESS 전방수요 바텀업 (TAM → 국내 수혜 산식)</p>
+<ul>
+<li>美 ESS TAM: 88GWh(2025)→485GWh(2030) [인용: SNE·BNEF]. 중국 점유율 소멸분(과거 美 ESS 셀의 70~90% 중국산 추정)이 K-배터리로 이전 시, 2030년 기준 국내 셀 3사 잠재 TAM 수백 GWh.</li>
+<li>셀→외함 연동: ESS 시스템당 외함(엔클로저)·냉각 비중 통상 시스템가의 10~20% [추정]. 서진시스템은 미국 휴스턴 생산거점 보유, 북미 ESS 외함 로컬공급 수혜.</li>
+<li>데이터센터 ESS: AI 전력난으로 BTM(Behind-the-meter) ESS 급증 → 수냉식 냉각(한중엔시에스)·외함(서진) 직접 수혜.</li>
+<li>[미확인] 각 사별 북미 ESS 수주잔고 구체 금액·중국 이탈분의 정확한 K배터리 이전율은 공시 미확인.</li>
+</ul>
+<p>───────────────────── ⑤ Tier1 심화 (1) 서진시스템(178320) ✅선물 ⭐ESS 외함 순수 수혜</p>
+<p>[A. 사실관계] 글로벌 메탈 플랫폼 기업. 베트남 29만평 생산거점+미국 5개 법인. 주력: ESS 장비·반도체 장비·통신·EV배터리 부품. [실측: 사업보고서 2025.12 접수 20260323001543]</p>
+<p>[B. 실적 — 연결 3개년, DART 실측]</p>
+<ul>
+<li>2023: 매출 7,787억 / 영익 490억(OPM 6.3%) / 부채 1조220억·자본 4,981억(부채비율 205%)</li>
+<li>2024: 매출 1조2,138억 / 영익 1,087억(OPM 9.0%) / 부채비율 140%</li>
+<li>2025: 매출 1조663억 / 영익 11.5억(OPM 0.1%) / 부채 1조5,687억·자본 7,378억(부채비율 213%)</li>
+</ul>
+<p>→ 2025 영익 급감 = ESS 매출 6,360억(2024)→3,978억(2025) 역성장 + 고정비·운반/포장비 부담. 2026 턴어라운드 스토리.</p>
+<ul>
+<li>제품비중(2025): ESS 37.3% / 반도체 27.3% / 통신 12.3% / EV배터리 6.7% / 기타 16.4% [실측: 사업보고서]</li>
+<li>2026 반기: 매출 6,904억, ESS 2,067억(29.9%), 반도체 3,086억(44.7%로 역전). ESS 2Q26 1,270억(<span class="up">+61%</span> YoY) [인용: iM증권 2026-08-20]</li>
+</ul>
+<p>[C. 컨센·목표주가] [실측: stockeasy_consensus 2026-10-20, 최근 6M Buy 9건]</p>
+<ul>
+<li>FY26E 매출 1조8,407억·영익 635억 / FY27E 매출 2조4,342억·영익 2,904억(<span class="up">+357%</span>)·EPS 2,872원 / FY28E 영익 3,492억</li>
+<li>컨센 목표가 평균 69,333원(최고 79,000·최저 55,000), 상승여력 <span class="up">+81.3%</span></li>
+<li>최근: SK증권 70,000(2026-09-28, 2027 EPS×30배)·iM 68,000·유진 67,500</li>
+</ul>
+<p>[D. 밸류→자체목표가] FY27E EPS 2,872원 기준.</p>
+<ul>
+<li>보수 PER 20배 → 57,440원 [추정: 2,872×20]</li>
+<li>중립 PER 24배(성장주) → 68,900원 [추정: 2,872×24]</li>
+<li>자체 목표가 1차 57,000원 / 2차 69,000원(컨센 수렴). 현재가 PBR 2.91, PER FY26 적자(흑전 초기).</li>
+</ul>
+<p>[E. 손익비] 진입 38,250원 기준</p>
+<ul>
+<li>상방 1차 57,000원 = <span class="up">+49.0%</span> / 2차 69,000원 = <span class="up">+80.4%</span></li>
+<li>하방 손절 34,000원(MA60 36,858·직전박스 하단 이탈) = <span class="down">-11.1%</span></li>
+<li>손익비 = 49.0 ÷ 11.1 = 1:4.4 (매력적)</li>
+</ul>
+<p>[F. 선물 레버리지 3라인] MA20 37,958·MA60 36,858 정배열, 현재가 MA5(38,870) 소폭 하회(단기 눌림).</p>
+<ul>
+<li>진입: 37,000~38,500원(MA20 지지 확인 분할, 3회 각 1/3)</li>
+<li>손절: 종가 34,000원 이탈 시 전량 청산</li>
+<li>익절: 1차 57,000(절반)·2차 69,000(잔량)</li>
+</ul>
+<p>───────────────────── ⑤ Tier1 심화 (2) 삼성SDI(006400) ✅선물 ⭐셀 흑전+美 ESS</p>
+<p>[A. 사실관계] 각형 2차전지 셀 글로벌 Top. EV+ESS 셀·전자재료. 美 ESS용 SBB(Samsung Battery Box) 현지대응, 시너지셀즈 단독법인 전환으로 북미 ESS 대응력 제고. [인용: 신영증권 2026-10-01]</p>
+<p>[B. 실적 — 연결 3개년, DART 실측]</p>
+<ul>
+<li>2023: 매출 22.7조 / 영익 1조6,334억(OPM 7.2%)</li>
+<li>2024: 매출 16.6조 / 영익 3,633억(OPM 2.2%)</li>
+<li>2025: 매출 13.3조 / 영익 -1조7,224억(적자전환) / 부채 18.69조·자본 23.57조(부채비율 79.3%, 재무 견조)</li>
+</ul>
+<p>→ 2025 적자 = EV 캐즘+ESS 램프업 초기. 2026 흑전 원년.</p>
+<p>[C. 컨센·목표주가] [실측: stockeasy_consensus 2026-10-20, 최근 6M Buy 42·Hold 4]</p>
+<ul>
+<li>FY26E 매출 15.9조·영익 4,676억(흑전) / FY27E 매출 19.8조·영익 1조5,040억(<span class="up">+221%</span>)·EPS 17,463원 / FY28E 영익 2조6,052억(<span class="up">+73%</span>)·EPS 26,958원</li>
+<li>컨센 목표가 평균 736,196원(최고 100만·최저 40.2만), 상승여력 <span class="up">+31.7%</span></li>
+<li>최근: 다올 900,000·DS 940,000·DB 840,000·신영 770,000·신한 740,000(2026-10-14)·삼성 640,000·한투 600,000. 3Q26 영익 컨센 1,913억(일부 보상금 포함)</li>
+</ul>
+<p>[D. 밸류→자체목표가]</p>
+<ul>
+<li>FY27E EPS 17,463×PER 32배 = 559,000원(현재가 수준·FY27 선반영) [추정]</li>
+<li>FY28E EPS 26,958×PER 25배 = 673,950원 [추정] → 자체 1차 680,000원</li>
+<li>2차 740,000원(컨센 평균). 현재 PBR 2.05(BPS 약 272,000원).</li>
+</ul>
+<p>[E. 손익비] 진입 559,000원 기준</p>
+<ul>
+<li>상방 1차 680,000원 = <span class="up">+21.6%</span> / 2차 740,000원 = <span class="up">+32.4%</span></li>
+<li>하방 손절 505,000원(MA60 508,242 이탈) = <span class="down">-9.7%</span></li>
+<li>손익비 = 21.6 ÷ 9.7 = 1:2.2 (1차) / 32.4 ÷ 9.7 = 1:3.3 (2차)</li>
+</ul>
+<p>[F. 선물 레버리지 3라인] MA20 545,350·MA60 508,242 정배열, 현재가 상단.</p>
+<ul>
+<li>진입: 540,000~560,000원(MA20 눌림 분할)</li>
+<li>손절: 종가 505,000원 이탈 시 청산</li>
+<li>익절: 1차 680,000(절반)·2차 740,000(잔량)</li>
+</ul>
+<p>───────────────────── ⑦ 촉매·반증·시나리오</p>
+<p>[촉매 캘린더]</p>
+<ul>
+<li>2026-10월 말~11월 초: 서진·삼성SDI 3Q26 실적발표(법정 분기보고서 11-14 전후) — ESS 매출·OPM 확인 분기점</li>
+<li>2026-11월: 미 중간선거 — 친환경 정책 방향 [정성]</li>
+<li>상시: 중국 ESS 추가 규제·美 BESS 신규 수주 공시</li>
+</ul>
+<p>[이벤트 매트릭스]</p>
+<ul>
+<li>실적 서프라이즈 × 갭상승 → 눌림 대기 후 추격 자제, 분할 유지</li>
+<li>실적 인라인 × 보합 → 손절선 지키며 스윙 유지</li>
+<li>실적 쇼크 × 갭하락 → 반증 발동, 손절 실행</li>
+</ul>
+<p>[확률가중 — 서진시스템]</p>
+<ul>
+<li>Bull 30%: 3Q26 ESS 매출 회복 확인, 목표 69,000원(<span class="up">+80%</span>)</li>
+<li>Base 50%: 턴어라운드 진행, 목표 57,000원(<span class="up">+49%</span>)</li>
+<li>Bear 20%: ESS 수익성 전환 지연, 34,000원(<span class="down">-11%</span>)</li>
+<li>기대수익률 = 0.3×80 + 0.5×49 + 0.2×(-11) = <span class="up">+46.3%</span> [추정]</li>
+</ul>
+<p>[수급·유동성] 서진 20일ADV 524억(1일 체결상한 ADV 10%≈52억) / 삼성SDI 2,684억(상한≈268억). 둘 다 선물 유동성 충분.</p>
+<p>[포지션 사이징 — 자산 대비 %로만]</p>
+<ul>
+<li>서진: 손실예산 1% ÷ 손절폭 11.1% = 자산의 9.0%, 집중상한 50%·이벤트전 상한 25% 중 최소 → 9.0%</li>
+<li>삼성SDI: 손실예산 1% ÷ 손절폭 9.7% = 자산의 10.3% → 10.3%</li>
+<li>레버리지(선물) 시 명목 노출이 위 %를 넘지 않도록 계약 환산. 손절선 아래 추가매수 금지.</li>
+</ul>
+<p>───────────────────── ⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거·증권사 추정치는 &#x27;추정&#x27;, 블로그 논지는 &#x27;블로거 의견&#x27;. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록] 각 사 북미 ESS 수주잔고 금액·중국 이탈분 K배터리 이전율(공시 미확인)·서진 제품별 단가(사업보고서 기재생략)·신성에스티 52주 고저·당기순이익 세부(DART NA) [출처 목록] DART 사업/반기보고서(서진 20260323001543·20260814004243)·stockeasy_consensus 2026-10-20·kis_futures_check 2026-10-20·SNE리서치·BNEF(연합 2026-06-21)·SEIA Q3&#x27;26·머니투데이/한경/마켓인 2026-10-19·비나인 블로그 developer_investor 2026-10-20 [검산] 서진 2025 제품합=총계 1조663억 ✓ / 손익비 산식 헤더·본문 일치 ✓ / 시나리오 확률합 100% ✓ / 연결기준 라벨 명기 ✓</p>
+<p>&lt;!-- hub:enrich:begin:178320 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-20 16:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 38,300원 (<span class="down">-6.0%</span>) · 시총 2.44조 · 5일 <span class="down">-5.9%</span> / 20일 <span class="up">+6.7%</span> / 60일 <span class="up">+5.8%</span></li>
+<li>MA5 38,880원 / MA20 37,960원 / MA60 36,859원 → MA20 이격 <span class="up">+0.9%</span> · MA60 이격 <span class="up">+3.9%</span></li>
+<li>52주 고 83,300원 / 저 21,750원 → 고점 대비 <span class="down">-54.0%</span> · 20일 고 42,950원 / 저 31,500원</li>
+<li>후행 PER -21.28 / PBR 2.92 (EPS -1,800원 · BPS 13,127원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 523.6억 (5일 513.7억)</li>
+<li>외국인 순매수 5일 -278.0억 / 20일 -745.1억 · 기관 5일 176.7억 / 20일 355.0억 · 개인 20일 282.0억</li>
+<li>개별주식선물: ⚡ 상장 (A3R611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 8.86% (공매도 102,331주 · 40.1억) · 5일 평균 7.30% / 20일 평균 5.56% → 증가 · 20일 평균 상회 연속 3일</li>
+<li>공매도 20일 최대 10.62% (10/07) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 57,000원 (<span class="up">+48.8%</span>) ÷ 하방 34,000원 (−11.2%) = <strong>1:4.35</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 10%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 11.2% = <strong>자산의 4.5%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.5%</strong></li>
+<li>유동성 참고: 20일 ADV 523.6억 · 1일 소화 한도는 ADV의 10%(52.36억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 11.2% · ATR14 3,068원 (손절폭/ATR 1.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 11.2% = ATR14 × 1.4배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 33,698원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:4.06</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:178320 --&gt;</p>
+<p><span id="card-178320"></span>📋 결정카드 — 서진시스템(178320) 판정: 관심 선물: 有 현재가: 38,250원 진입: 37,000~38,500원 손절: 34,000원 목표: 1차 57,000원 (2차 69,000원) 손익비: 1:4.4 기간: 스윙 6~12주 촉매: 2026-10말~11초 3Q26 실적발표(ESS 매출·OPM) 반증: 3Q26 연결 영업이익 &lt; 350억이면 논지 폐기·청산 / ≥ 600억이면 추가매수 검토 / 종가 34,000원 이탈 시 전량 청산</p>
+<p>&lt;!-- hub:enrich:begin:006400 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-20 16:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 557,000원 (<span class="down">-5.9%</span>) · 시총 44.89조 · 5일 <span class="down">-0.5%</span> / 20일 <span class="up">+2.4%</span> / 60일 <span class="up">+33.7%</span></li>
+<li>MA5 562,000원 / MA20 545,250원 / MA60 508,208원 → MA20 이격 <span class="up">+2.2%</span> · MA60 이격 <span class="up">+9.6%</span></li>
+<li>52주 고 723,000원 / 저 248,000원 → 고점 대비 <span class="down">-23.0%</span> · 20일 고 592,000원 / 저 511,000원</li>
+<li>후행 PER -66.91 / PBR 2.04 (EPS -8,325원 · BPS 272,485원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 2,684.3억 (5일 4,545.8억)</li>
+<li>외국인 순매수 5일 -1,323.8억 / 20일 -2,300.8억 · 기관 5일 1,634.4억 / 20일 2,648.7억 · 개인 20일 -574.8억</li>
+<li>개별주식선물: ⚡ 상장 (A22611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 7.06% (공매도 47,393주 · 270.9억) · 5일 평균 7.82% / 20일 평균 8.21% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 12.61% (10/15) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 680,000원 (<span class="up">+22.1%</span>) ÷ 하방 505,000원 (−9.3%) = <strong>1:2.37</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 10%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 9.3% = <strong>자산의 5.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 5.4%</strong></li>
+<li>유동성 참고: 20일 ADV 2,684.3억 · 1일 소화 한도는 ADV의 10%(268.43억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 9.3% · ATR14 34,179원 (손절폭/ATR 1.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 9.3% = ATR14 × 1.5배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 505,732원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.40</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:006400 --&gt;</p>
+<p><span id="card-006400"></span>📋 결정카드 — 삼성SDI(006400) 판정: 관심 선물: 有 현재가: 559,000원 진입: 540,000~560,000원 손절: 505,000원 목표: 1차 680,000원 (2차 740,000원) 손익비: 1:2.2 기간: 스윙 8~16주 촉매: 2026-10말~11초 3Q26 실적발표(ESS 흑자폭·일회성 보상금) 반증: 3Q26 연결 영업이익 &lt; 1,000억이면 논지 폐기·청산 / ≥ 2,500억이면 추가매수 검토 / 종가 505,000원 이탈 시 전량 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
