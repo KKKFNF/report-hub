@@ -1,0 +1,333 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SK하이닉스(000660) · 한국 메모리(삼성전자·SK하이닉스) vs CXMT 원가경쟁력 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261020-120950-한국-메모리-삼성전자-SK하이닉스-vs-CXMT-원가경쟁력.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.08</div><div class="tp-c"><b>결론 발췌</b> • CXMT 공포로 삼성·SK하이닉스가 급락했지만, &quot;CXMT가 한국을 원가에서 따라잡았다&quot;는 서사는 블로거·증권사(KB) 교차검증 결과 과장. 기술격차 5~7년·원가 2배 격차는 실체에 가깝고, DRAM 업황(HBM·DDR5·DDR4)은 오히려 사상 최강. → 급락은 &#x27;펀더멘털 훼손&#x27;이 아니라 &#x27;밸류에이션+수급(외국인 매도) 쇼크&#x27;. 눌림목 성격. • SK하이닉스(000660): 손익비 1:4.4, 자체 1차목표 1,640,000원(+32%)·2차 2,100,000원 / 컨센 평균 3,389,000원. 단 전고 대비 -58% 급락 추세 한복판 → 지금은 &#x27;관심&#x27;(반등 확인 후 진입). • 삼성전자(005930): 손익비 1:2.5, 1…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>SK하이닉스(000660) · 한국 메모리(삼성전자·SK하이닉스) vs CXMT 원가경쟁력</h1>
+<div class="meta">📊 benine · 2026-10-20 12:09 · 코드 000660</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-20 12:09)</div><div class="kpi-v">1,238,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">904.3조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">21</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">7.21</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.08</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:4.57</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">1,640,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 1,240,000~1,300,000원 (MA5 회복·1,300,000 지지확인 후 분할)</span><span class="dc dn">손절 1,150,000원</span><span class="dc up">목표 1,640,000원</span><span class="dc">손익비 진입 1:3.08 · 현재가 1:4.57 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:4.4</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:4.4로 적었지만 진입·손절·목표로 계산하면 1:3.08다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: SK하이닉스 3Q26 실적발표(10월 하순)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 65조원이면 논지 폐기·전량청산 / 종가 1,150,000원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 한국 메모리(삼성전자·SK하이닉스) vs 중국 CXMT 원가경쟁력 (선물 둘 다 有)</p>
+<p>원문: 비나인 블로그 &quot;CXMT : 4F², 기술격차, 원가격차&quot; (windalpha, 2026-10-18). 블로그 주장은 전부 &#x27;블로거 추정&#x27;으로 태그하고, 뉴스·공시·증권사 리포트로 교차검증한 것만 &#x27;사실&#x27;로 분리했습니다. 참고용이며 매수/매도 강요가 아닙니다.</p>
+<p>📌 한줄 결론</p>
+<ul>
+<li>CXMT 공포로 삼성·SK하이닉스가 급락했지만, &quot;CXMT가 한국을 원가에서 따라잡았다&quot;는 서사는 블로거·증권사(KB) 교차검증 결과 과장. 기술격차 5~7년·원가 2배 격차는 실체에 가깝고, DRAM 업황(HBM·DDR5·DDR4)은 오히려 사상 최강. → 급락은 &#x27;펀더멘털 훼손&#x27;이 아니라 &#x27;밸류에이션+수급(외국인 매도) 쇼크&#x27;. 눌림목 성격.</li>
+<li>SK하이닉스(000660): 손익비 1:4.4, 자체 1차목표 1,640,000원(<span class="up">+32%</span>)·2차 2,100,000원 / 컨센 평균 3,389,000원. 단 전고 대비 <span class="down">-58%</span> 급락 추세 한복판 → 지금은 &#x27;관심&#x27;(반등 확인 후 진입).</li>
+<li>삼성전자(005930): 손익비 1:2.5, 1차목표 254,000원(<span class="up">+18%</span>)·2차 300,000원 / 컨센 평균 477,000원. 3Q26 잠정 영업이익 107.4조 &#x27;실적으로 증명&#x27; 완료 → &#x27;관심&#x27;(바닥 탄력 상대우위).</li>
+</ul>
+<hr>
+<p>【PART A】 산업·경쟁구조 — CXMT vs 한국 (밸류체인 Tier 분류·사실검증) ━━━━━━━━━━━━━━━━</p>
+<p>■ Tier 분류 (DRAM 원가·기술 경쟁력)</p>
+<ul>
+<li>Tier 1 (선단·고마진): SK하이닉스·삼성전자 — 1b/1c 양산, 1d 로드맵, HBM3E/HBM4 독과점. DRAM OPM 추정 80%대(DRAM only).</li>
+<li>Tier 1.5: 마이크론(미국) — DUV 멀티패터닝 1α 보유, HBM 추격. (본 리포트 범위 외, peer 참고)</li>
+<li>Tier 2 (범용·저마진·추격): CXMT(중국 창신메모리) — 주력 G4노드 = 삼성 1y~1z 중간 [블로거 추정], G5 ≈ 1a 추정. 범용 DDR4/DDR5 가격공세, HBM은 미진입.</li>
+</ul>
+<p>■ 블로거 핵심주장 vs 교차검증 1) 기술격차 5~7년</p>
+<ul>
+<li>[블로거 추정] CXMT G4 다이 66.99mm²·밀도 0.239Gb/mm² = 삼성 1y~1z 중간. 4F²를 &quot;완벽&quot; 성공해도 실제 밀도 <span class="up">+20</span>~30%에 그쳐 한국 1b 수준, 그때 한국은 1d → 약 2세대·세대당 2.5년 = 5~7년.</li>
+<li>[인용: KB증권 2026-10-15 &#x27;삼성전자: CXMT 추격은 착시, 기술 격차는 현실&#x27;, stockeasy] &quot;중국 기술추격 우려는 과도, 5~7년의 기술격차와 탄탄한 진입장벽&quot; → 블로거 추정과 숫자까지 동일. 증권사가 독립적으로 같은 결론.</li>
+<li>판정: 기술격차 5~7년은 &#x27;추정이되 복수 출처가 수렴&#x27; → 신뢰도 中上.</li>
+</ul>
+<p>2) 4F² 구조</p>
+<ul>
+<li>[블로거 추정] 이론상 면적 <span class="down">-33%</span>·생산성 <span class="up">+50%</span>지만 주변회로·캐패시터·셀간섭 여백 때문에 실제 밀도 <span class="up">+20</span>~30%. → &quot;4F² 양산해도 생산성 격차 유지&quot;.</li>
+<li>[인용: 데일리카 2026-10-19] CXMT &quot;D램 생산성 50% 끌어올렸다&quot; 가격공세 예고 — 발표치(이론값)와 블로거의 실현치(<span class="up">+20</span>~30%) 괴리가 쟁점. 실측 분해분석 결과는 아직 미공개(미확인).</li>
+</ul>
+<p>3) 원가 2배·영업이익률 격차</p>
+<ul>
+<li>[블로거 추정] CXMT 상장시 &quot;2Q26 OPM 80%&quot; 주장은 중국 회계(정부보조금·영업외손익을 영업이익에 포함) 착시. 역산하면 OPM(2Q/3Q) 하이닉스 80%/84% vs CXMT 56.7%/49.6%, 순이익률 하이닉스 62.7% vs CXMT 52.7%.</li>
+<li>[인용: 블로거가 인용한 CXMT 3Q 잠정] 지배주주순이익률 53%→46% 하락(감가상각·영업외 변동 가능성).</li>
+<li>판정: 중국 회계기준 차이는 사실(정부보조금 영업이익 산입은 중국 관행). 다만 역산 OPM은 블로거 가정 의존 → &#x27;추정&#x27;. 방향성(한국 &gt; CXMT 큰 격차)은 신뢰, 절대수치는 참고.</li>
+</ul>
+<p>4) &quot;Golden Price&quot; (디램 가격 반토막 시)</p>
+<ul>
+<li>[블로거 추정] 현재 한국 100팔아 80남김(원가20)/중국 100팔아 50남김(원가50). 디램 <span class="down">-50%</span> → 한국 OPM 60%·중국 0%. <span class="down">-60%</span> → 한국 OPM 50%·중국 <span class="down">-25%</span>(적자전환). 결론: &quot;CXMT 원가는 한국의 2배, 가격 반토막나도 한국은 OPM 50%+ 유지&quot;.</li>
+</ul>
+<p>■ 업황 사실관계 (실측·인용 — 블로거 논지의 &#x27;전방&#x27; 체크)</p>
+<ul>
+<li>DRAM/HBM 가격 사상 강세: [인용: CEO스코어데일리 2026-10-19] &quot;범용 D램부터 HBM까지 다 오른다&quot;. [인용: 디지털데일리 2026-10-13] HBM 쏠림에 레거시 DDR4 품귀·DDR5 추월. [인용: 버핏연구소/KB 2026-10-20] 삼성 내년 메모리 80% 장기계약 확보, HBM 가격 최대 <span class="up">+150%</span> 전망.</li>
+<li>SK하이닉스 반기보고서(2026.06) [실측: 반기보고서 접수 20260814003509] &quot;DRAM ASP 일반 DRAM 강세로 30% 중반 상승, NAND ASP 50% 중반 상승&quot;.</li>
+<li>CXMT 증설: [인용: 뉴스핌 2026-10-19] CXMT 7조 투자. [인용: 엠투데이 2026-10-19] 2028년 월 60만장으로 2배 확대, SK하이닉스 턱밑 추격. [인용: 톱스타뉴스 2026-10-18] 삼성·SK 인력 27명 CXMT行.</li>
+<li>해석: CXMT 위협은 &#x27;범용 DDR4/DDR5 물량 공세&#x27;로 2027~2028 현실화 가능성. 그러나 현 사이클 이익원은 HBM·고용량 서버 DRAM(CXMT 미진입). 단기 펀더멘털 훼손 근거는 약함 → 급락은 밸류에이션·수급 주도.</li>
+</ul>
+<p>■ §9 산업 바텀업 — &quot;Golden Price&quot; 원가모델 검증 (블로거 모델 + 자체 민감도) [블로거 추정] 원가 구조(DRAM only, 지수화):</p>
+<ul>
+<li>한국 원가=20, CXMT 원가=50 (CXMT가 한국의 2.5배로 가정; 블로거 결론부는 &quot;2배&quot;로 표기 → 블로거 내부서도 2~2.5배 레인지).</li>
+</ul>
+<p>자체 민감도(디램가격지수 P, 한국원가 20·CXMT원가 50 고정 가정 [추정: 블로거 전제 차용]):</p>
+<ul>
+<li>P=100: 한국 OPM 80% / CXMT OPM 50%</li>
+<li>P=50(<span class="down">-50%</span>): 한국 이익 30, OPM 60% / CXMT 이익 0, OPM 0%</li>
+<li>P=40(<span class="down">-60%</span>): 한국 이익 20, OPM 50% / CXMT 이익 -10, OPM <span class="down">-25%</span>(적자)</li>
+<li>손익분기 가격: 한국 P=20(현재比 <span class="down">-80%</span>)에서 BEP / CXMT P=50(현재比 <span class="down">-50%</span>)에서 BEP.</li>
+</ul>
+<p>결론 문장: &quot;DRAM 현물가격이 현재比 <span class="down">-50%</span>까지 빠져도 한국 Tier1은 흑자(OPM≥50% 추정), CXMT는 BEP~적자. 원가격차(미세화 격차)가 유지되는 한 치킨게임의 승자는 한국.&quot; → 단, 이는 블로거 가정(원가 20 vs 50)에 전적으로 의존하므로 &#x27;블로거 추정&#x27;. 실측 CXMT 원가구조는 미공개(미확인).</p>
+<hr>
+<p>【PART B】 SK하이닉스(000660) — 순수 DRAM·HBM 플레이 (메인) ━━━━━━━━━━━━━━━━</p>
+<p>① 사실관계·급락사유</p>
+<ul>
+<li>사업: DRAM·NAND 메모리 + Foundry. 2025 매출 100% 반도체 부문 [실측: 사업보고서 접수 20260317000635]. HBM 글로벌 1위, 순수 메모리 비중 최고 → DRAM 업황 레버리지 가장 높음.</li>
+<li>급락사유(검증): ①CXMT 쇼크(10월 중순 중국 D램 4F²·증설 뉴스) ②코어위브 신용불안 등 AI 거품론 [인용: 펜앤마이크 2026-10-18 &quot;코어위브 신용불안과 CXMT 태풍, 삼전닉스 주가 좌우할 양대변수&quot;] ③외국인 20일 순매도 -157,068억 [실측: KIS 투자자별]. → 실적 훼손 아닌 &#x27;서사·수급&#x27; 급락. 현재가 1,240,000원은 전고 2,987,000원 대비 <span class="down">-58%</span>, 20일 <span class="down">-29.5%</span>, 60일 <span class="down">-32.5%</span>.</li>
+</ul>
+<p>② 실적 (DART 연결 실측)</p>
+<ul>
+<li>2023: 매출 32.77조 / 영업이익 -7.73조(적자) / 순이익 미확인</li>
+<li>2024: 매출 66.19조 / 영업이익 23.47조(OPM 35.5%) / 순이익 19.80조 [실측]</li>
+<li>2025: 매출 97.15조 / 영업이익 47.21조(OPM 48.6%) / 순이익 42.95조(순이익률 44.2%) [실측: 사업보고서 접수 20260317000635]</li>
+<li>2026 반기: 매출 131.9조 [실측: 반기보고서 접수 20260814003509] — 연간 런레이트 260조+, 적자→흑자→폭증 3년 연속 턴어라운드.</li>
+<li>재무건전성(2025말): 부채총계 55.44조 / 자본총계 120.67조 → 부채비율 45.9% [실측]. 매우 건전. (NAND·Solidigm 포함 연결 OPM 48.6%이나 DRAM only는 블로거 추정 80%대)</li>
+</ul>
+<p>③ 미래실적·컨센서스 (자동수집 4소스, 2026-10-20)</p>
+<ul>
+<li>목표가 평균 3,389,286원(최고 4,300,000/최저 1,500,000·56건) [인용: 리포트 집계]. 현재가 比 <span class="up">+173%</span>.</li>
+<li>FY26E: 매출 341.5조 / 영업이익 262.6조(OPM 76.9%) / 순이익 256.2조 / EPS 353,888 / 컨센PER 3.6 [인용: fnguide 22개사]</li>
+<li>FY27E: 매출 512.4조 / 영업이익 403.6조 / EPS 453,943 / PER 2.8 [인용: fnguide]</li>
+<li>3Q26 영업이익 컨센 약 77조 (naver 76.96조 / 메리츠 80.1조 / SK증권 79조 / 유진 75.7조 / IBK 75.1조·OPM 78.4%) [인용: 각 증권사 2026-10]</li>
+<li>달성가능성 判定: 中上. 근거 — 반기 131.9조 실측 + DRAM/HBM ASP 30%중반↑ 실측 + 내년 80% 장기계약·HBM <span class="up">+150%</span> 인용. 리스크: FY26 매출 341조는 2025(97조)의 3.5배로 ASP 급등 가정 의존 → 가격 꺾이면 하향 탄력 큼.</li>
+</ul>
+<p>④ 밸류에이션·목표가</p>
+<ul>
+<li>현재 [실측]: 트레일링 PER 21.0(EPS 58,955), PBR 7.22(BPS 171,751). → 트레일링 기준 PBR 역사적 고평가(통상 다운사이클 1~2x). 그러나 포워드 기준 PER 3.5x(FY26E)·2.7x(FY27E)로 급격한 이익증가 반영 중 → &#x27;트레일링 비쌈 vs 포워드 쌈&#x27;의 전형적 사이클 피크 구간.</li>
+<li>자체 목표가 [추정: 산식]: 메모리 피크이익엔 보수적 멀티플 적용. 포워드 PER 5~6x × FY26E EPS 353,888 = 1,769,000~2,123,000원. → 2차목표 2,100,000원 채택(<span class="up">+69%</span>).</li>
+<li>1차목표 1,640,000원 = MA20 회복(<span class="up">+32%</span>) [추정: 기술적].</li>
+<li>증권사 목표 평균 3,389,000원은 포워드 PER ≈9.6x로 FY27 성장까지 선반영 → 자체값(보수적)과 병기. 괴리가 큰 만큼 &#x27;컨센은 상단 시나리오&#x27;로 취급.</li>
+</ul>
+<p>⑤ 손익비</p>
+<ul>
+<li>진입 1,240,000원(현재가=20일 저점) 기준. 상방=1차목표 1,640,000원 <span class="up">+32.3%</span> / 하방=손절 1,150,000원 <span class="down">-7.26%</span>. → 손익비 1:4.4. (2차 2,100,000원 적용 시 1:9.4)</li>
+<li>단, 전 이평선 아래 급락추세 = 하방 변동성 큼(ATR14 72,428·고변동 regime rv20 43%·VKOSPI 48.6). 손익비 &#x27;숫자&#x27;는 매력적이나 &#x27;타이밍&#x27;이 관건.</li>
+</ul>
+<p>⑥ 진입전략 (선물 有·레버리지 스윙)</p>
+<ul>
+<li>선물: 상장 有, 근월물 A50611 [실측: KIS 마스터] → 레버리지 가능.</li>
+<li>위치: MA5 1,294,000 / MA20 1,642,500 / MA60 1,649,166 전부 상단, 현재가 <span class="down">-24.5%</span> 이격(MA20比). 52주 범위 하위 31%. 전형적 &#x27;낙하 중 칼날&#x27;.</li>
+<li>전략(관심): 지금 추격진입 금지. (a)일봉 종가가 MA5(1,294,000) 회복 또는 (b)1,300,000원 위 지지확인 후 1차 진입. 3회 분할(각 1/3).</li>
+<li>3라인: 진입 1,240,000~1,300,000(반등확인) / 손절 1,150,000(종가이탈 전량) / 익절 1차 1,640,000·2차 2,100,000.</li>
+<li>수급·유동성: 20일 평균거래대금 54,595억, 1일 체결상한(ADV10%) 5,459억 — 제약 없음. 외국인 20일 -157,068억(매도 지속 = 바닥 미확인 신호).</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 0.5%(고변동 regime) ÷ 손절폭 7.26% = 자산의 6.9%. 집중상한 50%·이벤트(3Q실적 임박) 전 상한 25% 중 최소값 = 6.9%. 50%집중+선물레버리지는 급락추세에서 치명적 → 실적 확인 전 비중 억제.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더: ①SK하이닉스 3Q26 실적발표 임박(10월 하순, 작년 10/24 발표) — 컨센 OP 약 77조 상회/하회가 분수령 ②DRAM 11월 고정거래가 ③CXMT G5 제품 분해분석 결과 공개(시점 미확인).</li>
+<li>반증 3개(수치→행동): ①3Q26 연결 영업이익 &lt; 65조원이면 논지 폐기·전량청산(수요둔화·CXMT침투 현실화) / ≥ 77조(컨센)면 논지유지·추가매수 검토. ②종가 1,150,000원 이탈 시 전량청산. ③DRAM 11월 고정가 전월比 하락 전환 시 비중 축소.</li>
+<li>이벤트 매트릭스(3Q실적×당일): 서프라이즈+갭상승→익일 눌림 분할진입 / 인라인+보합→MA5 회복 대기 / 쇼크+갭하락→진입 보류·손절 고수.</li>
+<li>확률가중 시나리오(합 100%): Bear 30%(업황 꺾임·CXMT 조기침투, 목표 950,000, <span class="down">-23%</span>) / Base 50%(반등·MA20 회복, 1,640,000, <span class="up">+32%</span>) / Bull 20%(컨센 재평가, 2,100,000, <span class="up">+69%</span>). 기대수익률 = 0.3×(<span class="down">-23%</span>)<span class="up">+0.5</span>×(32%)<span class="up">+0.2</span>×(69%) = <span class="up">+22.7%</span>.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 (SK하이닉스 FY26) [실측: 반기보고서] DRAM ASP <span class="up">+30%</span>중반, NAND ASP <span class="up">+50%</span>중반. 가동률 100%. 생산실적(반기) 24.15조. 바텀업(지수모델 [추정]): 물량(bit) 완만↑ × ASP 급등 × HBM믹스↑ → 매출 341조(컨센). 원가율은 선단공정·가동률100%로 하향, OPM 76.9%(컨센). 분기배분: 3Q 98.2조·4Q 110.7조(컨센 wisereport). 민감도: DRAM ASP <span class="down">-10%</span> → 매출 약 -34조·OP 약 -34조(원가고정 가정). 결론 임계: 3Q 영업이익 ≥77조 유지·&lt;65조 폐기.</p>
+<hr>
+<p>【PART C】 삼성전자(005930) — 메모리+파운드리·세트, 3Q 실적증명 완료 ━━━━━━━━━━━━━━━━</p>
+<p>① 사실관계·급락사유</p>
+<ul>
+<li>사업: DS(메모리+시스템LSI+파운드리)+DX(세트)+SDC+Harman. DRAM 순수도는 SK하이닉스보다 낮으나(세트·파운드리 희석) 메모리 세계 1위.</li>
+<li>급락사유: 동일 CXMT 쇼크·AI 거품론. 다만 하락폭은 상대적으로 완만(20일 <span class="down">-15.1%</span>, 60일 <span class="down">-16.9%</span>). 현재가 215,250원, 전고 374,500 比 <span class="down">-43%</span>.</li>
+</ul>
+<p>② 실적 (DART 연결 실측)</p>
+<ul>
+<li>2023: 매출 258.94조 / 영업이익 6.57조(OPM 2.5%)</li>
+<li>2024: 매출 300.87조 / 영업이익 32.73조(OPM 10.9%) / 순이익 34.45조 [실측]</li>
+<li>2025: 매출 333.61조 / 영업이익 43.60조(OPM 13.1%) / 순이익 45.21조 [실측: 사업보고서 접수 20260317000635]</li>
+<li>재무건전성(2025말): 부채총계 130.62조 / 자본총계 436.32조 → 부채비율 29.9% [실측]. 초우량.</li>
+<li>★3Q26 잠정(이미 발표): 전사 매출 195.0조 / 영업이익 107.4조(OPM 55.1%, QoQ <span class="up">+20%</span>, YoY <span class="up">+782.5%</span>) [인용: 유안타·유진 2026-10-12 잠정공시 코멘트]. → &#x27;실적으로 증명&#x27; 완료 = CXMT 공포에도 이익 폭증.</li>
+</ul>
+<p>③ 미래실적·컨센서스</p>
+<ul>
+<li>목표가 평균 477,212원(최고 630,000/최저 70,000·52건) [인용]. 현재가 比 <span class="up">+121.7%</span>.</li>
+<li>FY26E: 매출 711.9조 / 영업이익 371.6조(OPM 52.2%) / 순이익 307.0조 / EPS 45,521 / PER 4.8 [인용: fnguide 22개사]</li>
+<li>FY27E: 매출 957.1조 / 영업이익 560.8조 / EPS 68,241 / PER 3.2 [인용]</li>
+<li>4Q26 영업이익 [인용: 키움 2026-10-12] 116조 전망. KB 목표 600,000(10-12), 유진 STRONG BUY 560,000.</li>
+<li>달성가능성 判定: 高. 3Q 잠정 107.4조 실측 발표로 FY26 371조 경로 가시성 최상. 리스크: 파운드리 적자·세트 둔화가 메모리 이익 일부 상쇄.</li>
+</ul>
+<p>④ 밸류에이션·목표가</p>
+<ul>
+<li>현재 [실측]: 트레일링 PER 32.8(EPS 6,564), PBR 3.36(BPS 63,997). 포워드 PER 4.73x(FY26E)·3.15x(FY27E).</li>
+<li>자체 목표가 [추정: 산식]: 포워드 PER 6~7x × FY26E EPS 45,521 = 273,000~319,000원. 1차목표 254,000원(MA20, <span class="up">+18%</span>), 2차 300,000원(6.6x fwd, <span class="up">+39%</span>).</li>
+<li>증권사 평균 477,000원(포워드 ≈10.5x)은 상단 시나리오.</li>
+</ul>
+<p>⑤ 손익비</p>
+<ul>
+<li>진입 215,250원 기준. 상방=1차 254,000원 <span class="up">+18.0%</span> / 하방=손절 200,000원 <span class="down">-7.08%</span>. → 손익비 1:2.5. (2차 300,000원 적용 시 1:4.9)</li>
+</ul>
+<p>⑥ 진입전략 (선물 有)</p>
+<ul>
+<li>선물: 상장 有, 근월물 A11611 [실측: KIS 마스터].</li>
+<li>위치: MA5 218,150 / MA20 254,412 / MA60 253,454 하단. 현재가 <span class="down">-15.4%</span> 이격(MA20比). 52주 범위 하위 43%. 하이닉스보다 덜 깨짐 + 3Q실적 증명 = 상대적 바닥 신뢰 우위.</li>
+<li>전략(관심): 208,000~215,000 1차 분할, 종가 200,000 이탈 시 청산. 익절 1차 254,000·2차 300,000.</li>
+<li>수급·유동성: 20일 평균거래대금 46,058억, ADV10% 4,606억 — 제약 없음. 외국인 20일 -57,657억(하이닉스보다 매도 완만), 기관 20일 <span class="up">+2,208</span>억(순매수 전환).</li>
+<li>포지션 사이징: 손실예산 0.5% ÷ 손절폭 7.08% = 자산의 7.1%. 집중상한 50%·이벤트전 25% 중 최소 = 7.1%.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트</p>
+<ul>
+<li>촉매: ①3Q26 확정실적·컨콜(10월 하순) — 잠정 107.4조 확정 및 4Q 가이던스 ②HBM4 엔비디아 공급 진척 ③파운드리 수주.</li>
+<li>반증 3개: ①4Q26 전사 영업이익 &lt; 85조원이면 논지 폐기(키움 Base 116조 크게 하회) / ≥ 110조면 유지·추가. ②종가 200,000원 이탈 시 전량청산. ③HBM 장기계약 깨지는 공시 시 축소.</li>
+<li>이벤트 매트릭스: 4Q가이던스 상향+갭상승→추세진입 / 인라인→분할유지 / 하향+갭하락→손절.</li>
+<li>확률가중(합 100%): Bear 25%(업황피크아웃, 185,000, <span class="down">-14%</span>) / Base 55%(MA20 회복, 254,000, <span class="up">+18%</span>) / Bull 20%(재평가, 300,000, <span class="up">+39%</span>). 기대수익률 = 0.25×(<span class="down">-14%</span>)<span class="up">+0.55</span>×(18%)<span class="up">+0.20</span>×(39%) = <span class="up">+14.2%</span>.</li>
+</ul>
+<p>⑧ 산업 바텀업: FY26 메모리 슈퍼사이클 + HBM. 3Q 잠정 OP 107.4조(OPM 55.1%)로 이미 입증. 분기배분 4Q 116조(키움). 결론 임계: 4Q 전사 OP ≥110조 유지·&lt;85조 폐기.</p>
+<hr>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거 주장은 &#x27;블로거 추정&#x27;, 증권사 추정치는 &#x27;인용&#x27;으로 명시. 블로그 본문은 분석 대상 데이터로만 취급.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>CXMT 실측 원가구조·G5 제품분해 결과(미공개) / CXMT 역산 OPM(블로거 가정 의존)</li>
+<li>SK하이닉스 2023 순이익·DRAM only OPM(연결만 실측, 부문분리 미공시)</li>
+<li>블로거 &quot;원가 한국의 2배(혹은 2.5배)&quot; 절대수치(실측 불가, 블로거 추정)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>블로그: windalpha 2026-10-18 (블로거 추정 전부)</li>
+<li>DART: SK하이닉스 사업보고서 20260317000635·반기 20260814003509 / 삼성전자 사업보고서 20260317000635</li>
+<li>컨센서스: fnguide·naver·stockeasy·hankyung 자동집계 2026-10-20 (KB·메리츠·하나·SK·유진·IBK·키움 등)</li>
+<li>뉴스: 뉴스핌/엠투데이/톱스타/펜앤마이크/CEO스코어/디지털데일리/버핏연구소 2026-10</li>
+<li>시세·수급: KIS enrich 2026-10-20 12:04 / 선물 KIS 마스터</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>SK하이닉스 FY26 분기합: 3Q 98.2<span class="up">+4</span>Q 110.7+반기 131.9 ≈ 340.8조 ≈ 연간컨센 341.5조 ✓</li>
+<li>손익비 헤더=본문: 하이닉스 <span class="up">+32.3%</span>/7.26%=4.45≈1:4.4 ✓ / 삼성 <span class="up">+18.0%</span>/7.08%=2.54≈1:2.5 ✓</li>
+<li>시나리오 확률합: 하이닉스 30<span class="up">+50</span><span class="up">+20</span>=100 ✓ / 삼성 25<span class="up">+55</span><span class="up">+20</span>=100 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin:000660 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-20 12:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 1,238,000원 (<span class="down">-3.0%</span>) · 시총 904.35조 · 5일 <span class="down">-14.2%</span> / 20일 <span class="down">-29.6%</span> / 60일 <span class="down">-32.6%</span></li>
+<li>MA5 1,293,600원 / MA20 1,642,400원 / MA60 1,649,133원 → MA20 이격 <span class="down">-24.6%</span> · MA60 이격 <span class="down">-24.9%</span></li>
+<li>52주 고 2,987,000원 / 저 465,500원 → 고점 대비 <span class="down">-58.6%</span> · 20일 고 1,868,000원 / 저 1,238,000원</li>
+<li>후행 PER 21.0 / PBR 7.21 (EPS 58,955원 · BPS 171,751원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 54,610.6억 (5일 51,807.5억)</li>
+<li>외국인 순매수 5일 -21,447.5억 / 20일 -157,068.5억 · 기관 5일 -3,725.4억 / 20일 -2,069.6억 · 개인 20일 -7,930.0억</li>
+<li>개별주식선물: ⚡ 상장 (A50611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.81% / 20일 평균 4.72% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 10.13% (09/17) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 1,640,000원 (<span class="up">+32.5%</span>) ÷ 하방 1,150,000원 (−7.1%) = <strong>1:4.57</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 10%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 7.1% = <strong>자산의 7.0%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 7.0%</strong></li>
+<li>유동성 참고: 20일 ADV 54,610.6억 · 1일 소화 한도는 ADV의 10%(5461.06억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 7.1% · ATR14 72,429원 (손절폭/ATR 1.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 7.1% = ATR14 × 1.2배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 1,114,200원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:3.25</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:000660 --&gt;</p>
+<p><span id="card-000660"></span>📋 결정카드 — SK하이닉스(000660) 판정: 관심 선물: 有 현재가: 1,240,000원 진입: 1,240,000~1,300,000원 (MA5 회복·1,300,000 지지확인 후 분할) 손절: 1,150,000원 (종가이탈 전량) 목표: 1차 1,640,000원 (2차 2,100,000원) 손익비: 1:4.4 기간: 스윙 4~10주 촉매: SK하이닉스 3Q26 실적발표(10월 하순) 반증: 3Q26 연결 영업이익 &lt; 65조원이면 논지 폐기·전량청산 / 종가 1,150,000원 이탈 시 청산</p>
+<p>&lt;!-- hub:enrich:begin:005930 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-20 12:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 215,500원 (<span class="down">-1.1%</span>) · 시총 1,259.87조 · 5일 <span class="down">-7.1%</span> / 20일 <span class="down">-15.0%</span> / 60일 <span class="down">-16.8%</span></li>
+<li>MA5 218,200원 / MA20 254,425원 / MA60 253,458원 → MA20 이격 <span class="down">-15.3%</span> · MA60 이격 <span class="down">-15.0%</span></li>
+<li>52주 고 374,500원 / 저 94,500원 → 고점 대비 <span class="down">-42.5%</span> · 20일 고 285,500원 / 저 210,000원</li>
+<li>후행 PER 32.83 / PBR 3.37 (EPS 6,564원 · BPS 63,997원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 46,068.4억 (5일 42,184.3억)</li>
+<li>외국인 순매수 5일 -12,651.4억 / 20일 -57,657.5억 · 기관 5일 2,542.0억 / 20일 2,208.7억 · 개인 20일 -953.3억</li>
+<li>개별주식선물: ⚡ 상장 (A11611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 1.53% / 20일 평균 3.59% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 6.86% (09/29) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 254,000원 (<span class="up">+17.9%</span>) ÷ 하방 200,000원 (−7.2%) = <strong>1:2.48</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 10%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 7.2% = <strong>자산의 7.0%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 7.0%</strong></li>
+<li>유동성 참고: 20일 ADV 46,068.4억 · 1일 소화 한도는 ADV의 10%(4606.84억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 7.2% · ATR14 11,107원 (손절폭/ATR 1.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 7.2% = ATR14 × 1.4배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 198,839원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.31</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:005930 --&gt;</p>
+<p><span id="card-005930"></span>📋 결정카드 — 삼성전자(005930) 판정: 관심 선물: 有 현재가: 215,250원 진입: 208,000~215,000원 (분할) 손절: 200,000원 (종가이탈 전량) 목표: 1차 254,000원 (2차 300,000원) 손익비: 1:2.5 기간: 스윙 4~10주 촉매: 삼성전자 3Q26 확정실적·4Q 가이던스(10월 하순) 반증: 4Q26 전사 영업이익 &lt; 85조원이면 논지 폐기 / 종가 200,000원 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
