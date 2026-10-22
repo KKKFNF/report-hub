@@ -1,0 +1,273 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>하이브(352820) 엔터 디레이팅 딥리서치 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261023-081335-하이브-352820-엔터-디레이팅-딥리서치.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.29</div><div class="tp-c"><b>결론 발췌</b> 판정 &#x27;관심&#x27;. 실적(흑전)과 멀티플(디레이팅)이 따로 노는 국면 — 2Q26 영업흑전·3Q 투어피크로 바닥권 반등 초입이나, 전 증권사 목표가 &#x27;하향&#x27; 행진·TTM 적자·고변동(VKOSPI 48)이라 추격 금지. 눌림 17.0~17.5만원 분할, 손절 15.5만, 1차 목표 23.0만(자체)·증권사 컨센 29.4만. 손익비 약 1:2.5. 선물 상장이라 레버리지 가능하나 사이징 축소 필수. ━━━━━━━━━━━━━━━ ① 사실관계 검증 — &#x27;엔터 디레이팅&#x27;은 실체다</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>하이브(352820) 엔터 디레이팅 딥리서치</h1>
+<div class="meta">📊 benine · 2026-10-23 08:13 · 코드 352820</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-23 08:13)</div><div class="kpi-v">177,200원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">7.6조</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.31</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.29</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.38</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">230,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 170,000~175,000원 (눌림 3회 분할, 각 1/3)</span><span class="dc dn">손절 155,000원</span><span class="dc up">목표 230,000원</span><span class="dc">손익비 진입 1:3.29 · 현재가 1:2.38 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.5</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.5로 적었지만 진입·손절·목표로 계산하면 1:3.29다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주 (3Q 실적~4Q 투어)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 실적발표(법정기한 2026-11-14) — BTS 투어 첫 온전 반영분기</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 1,200억이면 논지 폐기·전량 청산 / ≥1,647억이면 유지·추가검토 / 종가 155,000원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 딥리서치 — 하이브(352820) ※개별주식선물 有(근월물 AFC611) 〈엔터 섹터 디레이팅 맥락〉</p>
+<p>📌 한줄 결론: 판정 &#x27;관심&#x27;. 실적(흑전)과 멀티플(디레이팅)이 따로 노는 국면 — 2Q26 영업흑전·3Q 투어피크로 바닥권 반등 초입이나, 전 증권사 목표가 &#x27;하향&#x27; 행진·TTM 적자·고변동(VKOSPI 48)이라 추격 금지. 눌림 17.0~17.5만원 분할, 손절 15.5만, 1차 목표 23.0만(자체)·증권사 컨센 29.4만. 손익비 약 1:2.5. 선물 상장이라 레버리지 가능하나 사이징 축소 필수.</p>
+<hr>
+<p>① 사실관계 검증 — &#x27;엔터 디레이팅&#x27;은 실체다 ━━━━━━━━━━━━━━━</p>
+<ul>
+<li>블로거 핵심논지(엔터4사 시총 21조→10.5조, 이익은 느는데 멀티플 깎임)는 실측상 &#x27;실체&#x27;로 확인됨. 단 블로거는 &#x27;추정&#x27;이 섞여 있어 아래처럼 교차검증함.</li>
+<li>4사 합산 시총 [실측: enrich 2026-10-23]: 하이브 76,385억 + SM 19,483억 + JYP 13,538억 + YG 7,747억 = 약 11.7조. 블로거가 쓴 2026-10-12 10.55조 대비 소폭 회복했으나, 2025말 21조 대비 여전히 반토막 수준 → 디레이팅 사실.</li>
+<li>디레이팅의 &#x27;수치 증거&#x27;는 하이브 영업이익 컨센 추이다 [인용: fnguide 2026-10-23]: 당해연도(FY26) 영업이익 컨센이 1년 전 4,660억 → 6개월 전 5,285억 → 현재 2,852억. 즉 6개월 만에 이익추정이 <span class="down">-46%</span> 깎였다. 이게 주가 하락의 1차 원인(E의 하향).</li>
+<li>동시에 멀티플(P/E)도 하향 중 [인용: 증권사 리포트 2026-10]: iM증권 Target P/E 32배로 하향, 유진 &#x27;적용 멀티플 하향으로 목표가 <span class="down">-14.7%</span>&#x27;. 최근 8개 증권사 리포트 중 6곳이 목표가 &#x27;하향&#x27;(한투 270k, LS 260k, 다올 255k, 교보 275k 등). → E도 깎이고 P/E도 깎이는 &#x27;쌍끌이 디레이팅&#x27;.</li>
+<li>기대 vs 실체 구분: &#x27;실체&#x27;는 BTS 완전체 복귀로 2Q26 영업흑전(아래 ③)·3Q 투어 피크. &#x27;기대감 소멸&#x27;은 과거 &#x27;고성장 플랫폼주&#x27; 프리미엄이 &#x27;현금흐름 양호+변동성 큰 성숙 서비스업&#x27;으로 재평가된 것. 블로거 서사(역영업레버리지)는 실측과 부합.</li>
+</ul>
+<hr>
+<p>② 실적 분석 (DART 연결 실측) ━━━━━━━━━━━━━━━ 연간(연결, 단위 억원) [실측: DART 사업보고서 접수 20260320000802]</p>
+<ul>
+<li>FY23: 매출 21,781 / 영업이익 2,956 (OPM 13.6%) / 순이익 <span class="up">+1,834</span> / 영업현금흐름 <span class="up">+3,106</span> / 부채비율 71.9%</li>
+<li>FY24: 매출 22,556 / 영업이익 1,840 (OPM 8.2%) / 순이익 -34 (지배 <span class="up">+94,</span> EPS 225원) / OCF <span class="up">+1,516</span> / 부채비율 55.9%</li>
+<li>FY25: 매출 26,499 / 영업이익 493 (OPM 1.9%) / 순이익 -2,544 (지배 -2,373, EPS -5,690원) / OCF <span class="up">+1,075</span> / 부채비율 54.5%</li>
+</ul>
+<p>★ FY25 순손실 -2,544억의 분해(5원칙: 영업악화 vs 일회성) [실측: DART]</p>
+<ul>
+<li>영업이익은 <span class="up">+493</span>억으로 &#x27;흑자 유지&#x27;. 순손실의 주범은 &#x27;기타비용 2,950억&#x27;(FY24 1,311억→2,950억 급증)이다. 이는 블로거가 지목한 미국법인·이타카 영업권 등 &#x27;무형자산 손상(비현금)&#x27; 성격으로 추정됨(계정명 &#x27;기타비용&#x27;으로 묶여 세부 미공시 → [미확인]). 즉 FY25 적자는 &#x27;영업이 망가진 게 아니라 손상충당&#x27;이 핵심.</li>
+<li>다만 OPM 추세(13.6%→8.2%→1.9%)는 명백한 수익성 악화 — 블로거의 &#x27;역영업레버리지&#x27;(메가IP 투어 돌수록 매출은 크나 회사몫·이익률 하락) 실측 확인. 매출원가율도 H1 기준 상승(2025H1 58.3%→2026H1 64.6% [실측]), 블로거 인용 &#x27;2025 64.6%&#x27;와 일치.</li>
+</ul>
+<p>분기(연결, 억원) [실측: DART 분기·반기보고서]</p>
+<ul>
+<li>1Q25 매출 5,006 / OP <span class="up">+216</span></li>
+<li>2Q25 매출 7,056 / OP <span class="up">+659</span> (H1 25: 매출 12,063 / OP <span class="up">+875,</span> OPM 7.3%)</li>
+<li>1Q26 매출 6,983 / OP -1,966 (OPM <span class="down">-28.2%</span>!) / 지배순손실 -1,585 → 공연비중 12.7% 비수기+고정비로 대규모 영업손실</li>
+<li>2Q26 매출 14,500 / OP <span class="up">+1,709</span> (OPM 11.8%) → BTS 투어 개시로 공연비중 44.7%, 판관비 레버리지로 흑전</li>
+<li>H1 26 합계: 매출 21,483 / OP -256 (영업손실) — 상반기는 여전히 적자</li>
+<li>3Q26E 매출 14,537 / OP 1,647 (OPM 11.3%) [인용: 컨센/네이버] — BTS 투어 첫 온전 반영분기(발표 전)</li>
+</ul>
+<p>→ 해석: 하이브 이익은 분기별 &#x27;투어 유무&#x27;로 -1,966억↔<span class="up">+1,709</span>억을 오가는 극단적 변동 구조. 연간 흑자 여부가 하반기(3Q·4Q) 투어에 전적으로 의존. 이게 멀티플에 디스카운트가 붙는 구조적 이유.</p>
+<p>사업부문 매출비중 (2025 / 2026H1) [실측: DART]</p>
+<ul>
+<li>음반/음원 29.2%→27.9% / 공연 28.8%→34.3%(↑) / MD·라이선싱 21.5%→20.9% / 콘텐츠 9.8%→6.9%(↓) / 광고 5.6%→5.1% / 팬클럽 5.2%→5.1%</li>
+<li>지역(2026H1): 북미 38.6%(↑, 전년 23.9%) / 아시아 27.8% / 국내 25.3% — BTS 북미투어로 북미 비중 급증</li>
+<li>긍정포인트(블로거 인용, 실측 대조 가능): 위버스/MD·라이선싱 성장. 블로거 &#x27;2Q MD·라이선싱 3,106억 YoY<span class="up">+103%</span>&#x27;는 [인용] — DART 반기 MD·라이선싱 H1 4,480억과 방향성 일치.</li>
+<li>재무건전성: 부채비율 FY25 54.5%→2026H1 63.5%(자산 60,887·부채 23,641·자본 37,245억) [실측]. 영업현금흐름은 3년 연속 플러스(<span class="up">+1,075</span>억, FY25) → 현금창출력은 유지, &#x27;성숙 현금흐름주&#x27; 재평가 서사와 부합.</li>
+</ul>
+<hr>
+<p>③ 미래실적·컨센서스 + 달성가능성 ━━━━━━━━━━━━━━━ 증권사 컨센 [인용: fnguide/naver 2026-10-23]</p>
+<ul>
+<li>목표가: 증권사별 최신 평균 294,412원(17개사) / 집계 컨센 318,036원(최고 400k·최저 250k) / 현재가 177,200원 대비 상승여력 <span class="up">+79.5%</span> / 투자의견 Buy 28건, 4.00/5</li>
+<li>FY26E: 매출 48,634 / 영업이익 2,852 / 순이익 1,880 / EPS 4,014 / PER 44.1 / ROE 5.1%</li>
+<li>FY27E: 매출 42,356 / 영업이익 4,793 / 순이익 3,924 / EPS 8,869 / PER 20.0 / ROE 10.5%</li>
+<li>FY28E: 매출 46,055 / 영업이익 5,371 / EPS 10,228 / PER 17.3</li>
+<li>분기 컨센: 3Q26 매출 14,537·OP 1,647·순익 1,282 / 4Q26 매출 12,431·순익 977</li>
+</ul>
+<p>★주목: FY26 매출(48,634)이 FY27(42,356)보다 큰데 영업이익은 FY26(2,852)&lt;FY27(4,793). = &#x27;매출 큰 BTS 투어해 FY26&#x27; vs &#x27;OPM 높은 FY27&#x27; → 블로거의 역레버리지 서사가 컨센에도 박혀있음.</p>
+<p>최근 리포트(전부 &#x27;하향&#x27;) [인용]</p>
+<ul>
+<li>10-21 한국투자 매수 270,000(하향) / 10-20 삼성 280,000 / 10-20 유진 290,000(하향) / 10-19 LS 260,000(하향, 3Q OP 1,642억 OPM 11.2% 예상) / 10-16 iM 290,000(하향, TgtPE 32배) / 10-15 교보 275,000(하향) / 10-13 SK 290,000 / 10-12 다올 255,000(하향, &quot;밸류반영은 2Q27&quot;)</li>
+</ul>
+<p>달성가능성 판정: 中</p>
+<ul>
+<li>3Q26 OP 컨센 1,647억 → 달성가능성 中~高. 근거: 2Q26 투어 흑전(OPM 11.8%) 실측 확인, 북미투어 피크가 3Q 반영. LS·유진·iM 모두 3Q OP 1,642~1,722억으로 수렴 → 신뢰도 있음.</li>
+<li>FY27 OP 4,793억(<span class="up">+68%</span> YoY)은 달성가능성 中. 근거: BTS 투어 효과 지속+신인(저연차) J커브가 전제인데, 다올이 &#x27;저연차 밸류반영 시점 2Q27&#x27;로 늦춰봄. 신인 수익화 속도(T)가 변수.</li>
+<li>리스크: 미국법인(캣츠아이 등) 손실·영업권 추가손상 시 순이익 컨센(FY26 1,880억)은 또 깨질 수 있음 → 컨센 하향 추세(6개월 <span class="down">-46%</span>) 아직 진행형.</li>
+</ul>
+<hr>
+<p>④ 밸류에이션 → 목표가 ━━━━━━━━━━━━━━━ 현재 밸류 [실측 2026-10-23]: 현재가 177,200 / 시총 76,385억 / PBR 2.31 / BPS 76,643 / EPS(TTM) -5,673(적자로 PER 산출불가) / Forward PER 44.1배(FY26E)·20.0배(FY27E)</p>
+<p>Peer 밴드 [실측]</p>
+<ul>
+<li>SM(041510): 85,100원 / PER 5.63 / PBR 1.94 / ret60 <span class="up">+21.9%</span></li>
+<li>JYP(035900): 38,100원 / PER 8.43 / PBR 2.03 / ret60 <span class="down">-15.1%</span></li>
+<li>YG(122870): 41,450원 / PER 21.0 / PBR 1.5 / ret60 <span class="up">+4.1%</span></li>
+<li>하이브: PBR 2.31로 peer 중 최상단. 트레일링 이익이 적자라 PER 비교불가 → 하이브는 &#x27;현 이익&#x27;이 아니라 &#x27;팬덤·플랫폼·BTS 프랜차이즈&#x27;에 프리미엄을 받는 중. 이익이 정상화(FY27)되기 전엔 밸류 정당화가 어려움 = 디레이팅의 본질.</li>
+</ul>
+<p>자체 목표가 산식 [추정]</p>
+<ul>
+<li>방법A(Forward PER): FY27E EPS 8,869 × 디레이팅 반영 26배 = 230,594원</li>
+<li>방법B(iM식): FY27E EPS 8,869 × 32배(iM 적용) = 283,808원</li>
+<li>방법C(PBR): BPS 76,643 × 3.0배(과거밴드 2~5배 중단) = 229,929원</li>
+</ul>
+<p>→ 자체 1차 목표 230,000원(A·C 수렴, 보수적), 2차 280,000원(B, 증권사 컨센 하단). 증권사 컨센 평균 294,412원 병기.</p>
+<ul>
+<li>판단: 현재 PBR 2.31은 과거밴드(2~5배) 하단권 → 추가 하방은 제한적이나, 이익 정상화(FY27)까지 &#x27;멀티플 재확장&#x27;은 3Q·4Q 투어 실적 증명이 선결. 지금은 &#x27;싸다&#x27;보단 &#x27;바닥 다지는 중&#x27;.</li>
+</ul>
+<hr>
+<p>⑤ 진입전략 · 손익비 (선물 레버리지 반영) ━━━━━━━━━━━━━━━ 기술적 위치 [실측]: 현재가 177,200 = MA20(166,285)·MA60(173,230) 위, MA5(182,080) 아래 / 52주 405,500~153,000 중 저점<span class="up">+15.8%</span>·고점-56.3%(고점권 아님, 바닥권 반등 초입) / ret20 <span class="up">+9.0%</span>·ret60 <span class="down">-16.4%</span> / 20일밴드 155,300~188,500 / ATR14 9,421(변동성 큼) 수급 20일 [실측]: 외국인 -228억(매도) / 기관 <span class="up">+1,144</span>억(매집) / 개인 -952억 → 기관이 바닥 받치는 구조(긍정). 공매도 20일평균 18.15% 감소세(10/14 46.55% 최대→축소, 숏커버 여지).</p>
+<p>진입/손절/익절 3라인 (선물有 레버리지 스윙)</p>
+<ul>
+<li>진입: 170,000~175,000 눌림 분할(3회, 각 1/3). 현재가 177,200은 상단권이라 추격 자제, MA60(173,230) 지지 확인하며 매집.</li>
+<li>손절: 155,000 종가 이탈(20일저점 155,300·심리 153,000=52주저점 방어선). 이탈 시 디레이팅 2차 신호.</li>
+<li>익절: 1차 205,000(전고권·심리) / 2차 230,000(자체 목표)</li>
+</ul>
+<p>손익비 [산식]: 진입 175,000 기준 상방 230,000 = <span class="up">+31.4%</span>, 하방 155,000 = <span class="down">-11.4%</span> → 손익비 1:2.75. (현재가 177,200 기준으로는 상방 <span class="up">+29.8%</span>·하방 <span class="down">-12.5%</span> = 1:2.4) → 헤더 &#x27;약 1:2.5&#x27;. → 손익비 양호(≥1:2). 단 &#x27;관심&#x27; 판정 이유: 전 증권사 목표가 하향 진행형+TTM 적자<span class="up">+3</span>Q 실적 미발표 → 눌림 분할로 실적확인과 병행.</p>
+<p>포지션 사이징 (자산 대비 %로만) [산식]</p>
+<ul>
+<li>리스크예산: 손실예산 1% ÷ 손절폭 12.5% = 자산의 8.0%. 단 현재 &#x27;고변동&#x27;(RV20 46%, VKOSPI 48.3, 91%ile)이라 손실예산 0.5% 적용 시 자산의 4.0%.</li>
+<li>집중상한 50% / 이벤트(3Q실적) 전 상한 25% / 리스크예산 4~8% 중 &#x27;최소값&#x27; = 자산의 4~8% 채택.</li>
+<li>선물 레버리지면 명목노출이 증거금의 수배 → 위 %는 &#x27;명목노출&#x27; 기준으로 환산해 더 축소. 고변동+이벤트 임박이므로 풀사이즈 금지.</li>
+<li>유동성: 20일 평균 거래대금 438억, 1일 체결상한(ADV 10%) 약 44억 → 대형주라 유동성 제약 낮음.</li>
+</ul>
+<hr>
+<p>⑥ 엔터 섹터 Tier 분류 (실적베타 × 선물상장) [실측: 선물 kis_futures_check / 시세 enrich] ━━━━━━━━━━━━━━━ 4사 모두 개별주식선물 상장 → 레버리지 가능(종목별 근월물: 하이브 AFC611 / SM AE4611 / JYP AEF611 / YG ACQ611).</p>
+<ul>
+<li>Tier1 (실적수혜高 + 선물有 = 레버리지 스윙 적합):</li>
+<li>하이브(352820): BTS 월드투어 3Q·4Q 피크가 최대 촉매, 2Q 흑전 확인. 단 적자탈출 &#x27;초입&#x27;·디레이팅 진행형이라 변동성 최상. 선물 AFC611.</li>
+<li>YG(122870): 블랙핑크 완전체 컴백·투어 모멘텀(실적베타 高). PER 21로 이익 회복 기대 선반영. 선물 ACQ611.</li>
+<li>Tier2 (선물有 + 안정/저평가, 단일 메가촉매 약함):</li>
+<li>SM(041510): PER 5.63·멀티IP로 수익 견조·저변동. &#x27;디레이팅 국면 방어주&#x27; 성격. ret60 <span class="up">+21.9%</span>로 4사 중 가장 견조. 선물 AE4611.</li>
+<li>JYP(035900): 전통적 고OPM·신인(스키즈·엔믹스) 글로벌 J커브. PER 8.43. ret60 <span class="down">-15.1%</span>로 조정 깊음 → 눌림 관점. 선물 AEF611.</li>
+</ul>
+<p>→ 레버리지 스윙으로 &#x27;실적 촉매 베팅&#x27;은 Tier1(하이브·YG), &#x27;디레이팅 방어·저평가&#x27;는 Tier2(SM·JYP). 하이브는 촉매는 가장 세나 그만큼 양방향 변동 최대.</p>
+<hr>
+<p>⑧ 산업·제품 바텀업 모델 (§9) ━━━━━━━━━━━━━━━ 엔터는 제조 CAPA/단가 모델이 아니라 &#x27;IP × 투어물량 × 플랫폼&#x27; 모델. 물량=공연 회차·관객동원·음반판매량, 단가=공연 티켓·MD ASP. DART상 단가표는 &#x27;산정 유의미하지 않음&#x27;으로 미공시 → 부문매출로 대체. 9-1 제품분해 [실측 2025]: 음반음원 7,730억(29%)·공연 7,639억(29%)·MD라이선싱 5,706억(22%)·콘텐츠 2,588억(10%)·광고 1,472억(6%)·팬클럽 1,364억(5%). 9-2 고객구조: B2C 팬덤 직접판매(위버스 플랫폼) + 음반 유통(YG플러스 등). 특정 1사 집중 리스크 낮음(팬 분산). 위버스 MAU 1,440만(블로거 인용, YoY<span class="up">+350</span>만) [인용]. 9-3 시장·경쟁: 글로벌 K-pop/팬덤 시장 내 하이브가 매출 1위(4사 중 시총 65% 차지). 경쟁사 SM·JYP·YG. 글로벌 TAM 수치는 출처 2개 교차 미확보 → [미확인]. 9-4 단가: DART &#x27;단가 산정 유의미하지 않음&#x27; 명시 → 제품단가 [미공시]. 대신 공연단가(지역·규모별 상이)·MD ASP가 믹스. 북미투어 비중↑가 ASP·마진 믹스 개선 요인. 9-7 바텀업 실적 모델(3Q26 핵심, 억원) [혼합: 실측 런레이트 + 컨센]</p>
+<ul>
+<li>전제: BTS 북미/월드투어 본격 반영분기, 공연비중 상승(2Q 44.7%→3Q 유지~상승)</li>
+<li>Bear: 매출 13,000 / 영업이익 1,200 (OPM 9.2%) — 투어 비용·환율 역풍</li>
+<li>Base: 매출 14,537 / 영업이익 1,647 (OPM 11.3%) [컨센]</li>
+<li>Bull: 매출 15,500 / 영업이익 1,900 (OPM 12.3%) — 투어 마진 서프라이즈</li>
+<li>민감도: 공연 OPM ±2%p → 영업이익 약 ±290억. 투어 1개 도시 지연(매출 인식 4Q 이연) → 3Q 매출 -1,000~1,500억.</li>
+</ul>
+<p>★ 결론 문장: &quot;3Q26 연결 영업이익 ≥ 1,647억(Base)이면 디레이팅 바닥·논지 유지·추가매수 검토, &lt; 1,200억(Bear)이면 논지 폐기·청산.&quot;</p>
+<hr>
+<p>⑦ 촉매 · 반증 · 이벤트 대응 ━━━━━━━━━━━━━━━ 촉매 캘린더(날짜확정)</p>
+<ul>
+<li>3Q26 실적발표: 11월 중순(분기보고서 법정기한 2026-11-14) — BTS 투어 첫 온전 반영분기, 디레이팅 바닥 판별 분수령.</li>
+<li>4Q(피크시즌)·연말 투어/팬이벤트 → 4Q 매출 인식.</li>
+</ul>
+<p>반증 조건 3개(수치→행동)</p>
+<ol>
+<li>3Q26 연결 영업이익 &lt; 1,200억 → 디레이팅 논지(역레버리지) 승리 확정, 전량 청산.</li>
+<li>종가 155,000원 이탈 → 52주저점 방어선 붕괴, 전량 청산(손절선 아래 추가매수 금지).</li>
+<li>미국법인 추가 영업권/무형자산 손상 공시(순이익 재차 적자전환) → 밸류 재평가, 비중 축소.</li>
+</ol>
+<p>이벤트 매트릭스(3Q실적)</p>
+<ul>
+<li>서프(OP≥1,900) × 갭상승 → 추격자제·눌림 분할 / × 갭하락 → 적극 매수</li>
+<li>인라인(OP~1,647) × 보합 → 보유, 230k 홀드 / × 갭하락 → 손절선 점검</li>
+<li>쇼크(OP&lt;1,200) × 갭하락 → 청산, 디레이팅 2차</li>
+</ul>
+<p>확률가중 시나리오 [산식]</p>
+<ul>
+<li>Bull 30%: 3Q OP≥1,900, 투어마진 확인, 멀티플 재확장 → 목표 280,000 (<span class="up">+58%</span>)</li>
+<li>Base 45%: 3Q OP 1,647 컨센부합, 디레이팅 바닥·완만회복 → 230,000 (<span class="up">+30%</span>)</li>
+<li>Bear 25%: 3Q OP&lt;1,200, 추가 멀티플하향·US손실 → 150,000 (<span class="down">-15%</span>)</li>
+<li>확률가중 기대수익 = 0.30×58 + 0.45×30 + 0.25×(-15) = <span class="up">+27.2%</span></li>
+</ul>
+<p>수급·유동성 [실측]: 외국인 20일 -228억·기관 <span class="up">+1,144</span>억·개인 -952억 / ADV20 438억 / 1일 체결상한(ADV10%) ≈ 44억.</p>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 증권사·블로거 추정치는 &#x27;추정/인용&#x27;으로 표기했고, 확인 못한 값은 &#x27;미확인&#x27;입니다. 투자판단과 책임은 본인에게 있습니다.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>FY25 &#x27;기타비용 2,950억&#x27;의 세부(이타카·캣츠아이 손상 금액 분해) — 계정 묶임, 사업보고서 주석 추가확인 필요.</li>
+<li>글로벌 K-pop TAM 2출처 교차치 / 제품 단가표(DART 미공시).</li>
+<li>블로거 인용치(캣츠아이 연손실 3,231억·이타카 영업권 8,234억·위버스 MAU 1,440만)는 원문 재인용으로 &#x27;인용&#x27;, 일부 DART 직접대조 미완.</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 하이브 사업보고서(접수 20260320000802)·반기(20260814004127)·1분기보고서 — 손익·사업부문·재무상태 실측</li>
+<li>enrich/kis(2026-10-23 08:04) — 시세·수급·기술지표·선물</li>
+<li>consensus(fnguide/naver/hankyung, 2026-10-23) — 목표가·FY26~28 컨센·분기컨센·최근리포트</li>
+<li>kis_futures_check — 개별주식선물 상장·근월물</li>
+</ul>
+<p>[검산] H1 25 OP 875 = Q1 216 + Q2 659 ✓ / H1 26 매출 21,483 = Q1 6,983 + Q2 14,500 ✓ / H1 26 OP -256 = Q1 -1,966 + Q2 <span class="up">+1,709</span> ✓ / FY26E OP 2,852 ≈ H1 -256 + 3Q 1,647 + 4Q ~1,461 ✓ / 손익비 헤더(약1:2.5)=본문(진입175k 1:2.75, 현재가 1:2.4) 정합 / 시나리오 확률합 30<span class="up">+45</span><span class="up">+25</span>=100% ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-23 08:13 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 177,200원 (<span class="up">+0.0%</span>) · 시총 7.64조 · 5일 <span class="up">+0.2%</span> / 20일 <span class="up">+9.0%</span> / 60일 <span class="down">-16.4%</span></li>
+<li>MA5 182,080원 / MA20 166,285원 / MA60 173,230원 → MA20 이격 <span class="up">+6.6%</span> · MA60 이격 <span class="up">+2.3%</span></li>
+<li>52주 고 405,500원 / 저 153,000원 → 고점 대비 <span class="down">-56.3%</span> · 20일 고 188,500원 / 저 155,300원</li>
+<li>후행 PER -31.24 / PBR 2.31 (EPS -5,673원 · BPS 76,643원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 437.8억 (5일 437.9억)</li>
+<li>외국인 순매수 5일 -174.0억 / 20일 -228.2억 · 기관 5일 470.4억 / 20일 1,143.6억 · 개인 20일 -951.6억</li>
+<li>개별주식선물: ⚡ 상장 (AFC611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 12.51% / 20일 평균 18.15% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 46.55% (10/14) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 230,000원 (<span class="up">+29.8%</span>) ÷ 하방 155,000원 (−12.5%) = <strong>1:2.38</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 12.5% = <strong>자산의 4.0%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.0%</strong></li>
+<li>유동성 참고: 20일 ADV 437.8억 · 1일 소화 한도는 ADV의 10%(43.78억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 12.5% · ATR14 9,421원 (손절폭/ATR 2.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 12.5% = ATR14 × 2.4배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 159,480원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.98</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-352820"></span>📋 결정카드 — 하이브(352820) 판정: 관심 선물: 有 (근월물 AFC611) 현재가: 177,200원 진입: 170,000~175,000원 (눌림 3회 분할, 각 1/3) 손절: 155,000원 (종가 이탈 시 전량 청산) 목표: 1차 230,000원 (2차 280,000원 / 증권사 컨센 294,412원) 손익비: 1:2.5 (진입 175,000 기준 상방 <span class="up">+31.4%</span> ÷ 하방 <span class="down">-11.4%</span>) 기간: 스윙 4~10주 (3Q 실적~4Q 투어) 촉매: 3Q26 실적발표(법정기한 2026-11-14) — BTS 투어 첫 온전 반영분기 반증: 3Q26 연결 영업이익 &lt; 1,200억이면 논지 폐기·전량 청산 / ≥1,647억이면 유지·추가검토 / 종가 155,000원 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
