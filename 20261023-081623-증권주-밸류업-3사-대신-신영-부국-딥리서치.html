@@ -1,0 +1,346 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>대신증권(003540) · 증권주 밸류업 3사(대신·신영·부국) 딥리서치 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261023-081623-증권주-밸류업-3사-대신-신영-부국-딥리서치.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.49</div><div class="tp-c"><b>결론 발췌</b> • Tier1 대신증권(003540) — 밸류업을 &#x27;말&#x27;이 아니라 &#x27;실행&#x27;한 유일 종목(2026년 자사주 4회·누계 3,326억 소각 실측). PBR 0.42·52주 저점권. 관심(눌림 분할), 손익비 1:2.8, 1차 27,000 / 2차 30,000원. • Tier2 신영증권(001720) — 자사주 비율 53%로 소각 잠재력 압도적이나 2026년 소각 &#x27;실행 0건&#x27;(기대 선행). 외국인 20일 +43.8% 순매수. 관심, 손익비 1:2.1, 1차 139,000 / 2차 152,000원. • Tier3 부국증권(001270) — 재료(자사주 42.7%+대주주 31%)는 가장 강하나 20일 평균 거래대금 1.03억으로 진입·청산이 사실…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>대신증권(003540) · 증권주 밸류업 3사(대신·신영·부국) 딥리서치</h1>
+<div class="meta">📊 benine · 2026-10-23 08:16 · 코드 003540</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-23 08:16)</div><div class="kpi-v">22,950원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.1조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">11.23</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.42</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.49</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.79</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">27,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 22,500~22,950원 (3회 분할, 각 1/3)</span><span class="dc dn">손절 21,500원</span><span class="dc up">목표 27,000원</span><span class="dc">손익비 진입 1:3.49 · 현재가 1:2.79 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.8</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.8로 적었지만 진입·손절·목표로 계산하면 1:3.49다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~16주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11월 3Q 분기보고서 / 12월 4분기 추가 소각결정 여부</div><div class="dc-l">🛑 반증: 3Q26 연결 순이익 &lt; 150억 or 4분기 추가 소각 미발표 or 종가 21,500 이탈 → 비중축소·청산</div></div>
+
+<div class="body"><p>🏦 증권주 밸류업 3사 딥리서치 — 대신·신영·부국 (자사주 소각 + 대주주 장내매수 테마 / 2026-10-23 장전)</p>
+<p>⚠️ 리서치 참고용·개인의견이며 매수/매도 권유가 아닙니다. 수치 출처는 본문 태그로 표기했고, 확인 못 한 값은 &#x27;미확인&#x27;으로 남겼습니다. 블로거·단일 증권사 추정치는 &#x27;추정/인용&#x27;으로 구분했습니다.</p>
+<p>📌 한줄 결론</p>
+<ul>
+<li>Tier1 대신증권(003540) — 밸류업을 &#x27;말&#x27;이 아니라 &#x27;실행&#x27;한 유일 종목(2026년 자사주 4회·누계 3,326억 소각 실측). PBR 0.42·52주 저점권. 관심(눌림 분할), 손익비 1:2.8, 1차 27,000 / 2차 30,000원.</li>
+<li>Tier2 신영증권(001720) — 자사주 비율 53%로 소각 잠재력 압도적이나 2026년 소각 &#x27;실행 0건&#x27;(기대 선행). 외국인 20일 <span class="up">+43.8%</span> 순매수. 관심, 손익비 1:2.1, 1차 139,000 / 2차 152,000원.</li>
+<li>Tier3 부국증권(001270) — 재료(자사주 42.7%+대주주 31%)는 가장 강하나 20일 평균 거래대금 1.03억으로 진입·청산이 사실상 불가. 관망(유동성 부적합).</li>
+<li>★3사 모두 개별주식선물 미상장 = 현물만 가능, 레버리지 불가 [실측: kis_futures_check 2026-10-23]. 양대지수 하락국면이라 증권주 전반 역풍도 전제.</li>
+</ul>
+<hr>
+<p>① 블로거 공통논지 — DART 교차검증 ━━━━━━━━━━━━━━━━ 원문 논지 = ①대주주 지분 낮음 ②자사주 과다 ③소각 임박 ④대주주 장내매수. 실측 결과:</p>
+<ul>
+<li>대주주 지분 [실측: 2025 사업보고서 최대주주현황]</li>
+<li>대신: 양홍석 본인 의결권주 9.48%(특수관계인 합산 블로거 &#x27;17%대&#x27;는 인용). 10/19 소유보고 기준 본인 5,561,226주·발행대비 6.56% [실측: 임원·주요주주 특정증권등 소유상황보고 2026-10-19].</li>
+<li>신영: 원국희(본인) 보통주 10.42%, 일가 합산 &#x27;20%대&#x27;(블로거 인용).</li>
+<li>부국: 김씨 일가 보통주 합산 30.93% [실측·확인], 블로거 &#x27;31%대&#x27; 부합. 김중건 본인 12.22%.</li>
+</ul>
+<ul>
+<li>자사주 비율 [실측: 2025 주식총수현황, 자사주/(자사주+유통)]</li>
+<li>대신: 보통주 자사주 12,321,823주 → 24.3%(2025말), 2026년 소각으로 축소 중. 우선주 자사주 6,030,000주.</li>
+<li>신영: 보통주 자사주 8,729,975주 → 53.1%. 블로거 &#x27;51%&#x27; 부합·확인. (발행보통주 16,440,000 중 유통 7,710,025주뿐)</li>
+<li>부국: 보통주 자사주 4,430,764주 → 42.7%. 블로거 &#x27;다수&#x27; 구체화. 대주주 31%까지 더하면 실유통 약 2.7백만주(=발행의 26%)에 불과.</li>
+</ul>
+<ul>
+<li>자사주 소각 — ★블로거 논지와 가장 크게 갈리는 지점 [실측: 2026 공시목록 전수]</li>
+<li>대신: 2026년 &#x27;주식소각결정&#x27; 4회 실측(3/09 우선주 2,091,253주·1,176억 / 3/24 보통주 1,553,637+우선주 1,005,000·858억 / 6/19 동일·665억 / 9/14 동일·627억, 소각일 9/29). 2026 누계 3,326억, 보통주 4,660,911주 소각 → 발행보통주 50,773,400 → 46,112,489주(<span class="down">-9.2%</span>). &#x27;소각 임박&#x27;이 아니라 &#x27;소각 실행 중&#x27;.</li>
+<li>신영: 2026년 소각결정 공시 0건 [실측]. 자사주 53%는 &#x27;쌓여있을 뿐&#x27; 아직 태우지 않음. 블로거 &#x27;소각 예정&#x27;은 전망이며 미확정(미확인).</li>
+<li>부국: 2026년 소각결정 공시 0건 [실측]. 역시 &#x27;예정/기대&#x27; 단계.</li>
+<li>제도 배경: 2025년 상법·밸류업 기조상 자사주는 소각 또는 사유 소명 압박(블로거 &#x27;2027.9까지&#x27; 주장은 규정 원문 미확인). 방향성은 맞으나, 현재 &#x27;실행&#x27;은 대신만.</li>
+</ul>
+<ul>
+<li>대주주 최근 장내매수 [실측: 임원·주요주주 특정증권등 소유상황보고서]</li>
+<li>대신 양홍석: 10/19 본인 5,561,226주(6.56%)로 증가 보고 — 지속 매수 확인.</li>
+<li>신영: 10/16 보고자 1,384,453주(8.42%)로 증가 — 일가 장내매수 진행.</li>
+<li>부국: 10/16 보고자 1,514,514주(11.33%) — 일가 매수 진행. 9~10월 대량보유·소유보고 공시 20건 이상 빈발.</li>
+</ul>
+<p>→ 세 회사 모두 &#x27;대주주가 지분을 늘리는 중&#x27;이라는 블로거 핵심 관찰은 실측으로 확인됨.</p>
+<hr>
+<p>② 실적 (DART 연결 실측) ━━━━━━━━━━━━━━━━ 증권사라 &#x27;영업수익=매출&#x27; 개념. 지수·거래대금·금리에 민감.</p>
+<ul>
+<li>대신증권 [실측: 2025 사업보고서 연결]</li>
+<li>영업이익 3개년: 1,613억(’23) → 836억(’24) → 3,014억(’25). 2024 부진→2025 급반등(<span class="up">+260%</span> YoY).</li>
+<li>(연결)EPS 2,413원, DPS 보통주 1,200원(3년 연속 유지). 자본총계 4.06조.</li>
+<li>신영증권 [실측: 제71기 연결, 결산월 3월 — stlm 2025-03-31 기준이라 타 2사보다 분기 시차 있음 유의]</li>
+<li>영업이익 3개년: 1,156억 → 1,704억 → 1,361억. 당기순이익 1,044→1,494→1,123억(당기 지배 1,086억).</li>
+<li>DPS 보통주 4,000→4,500→5,000원(증액 추세). 자본총계 1.83조.</li>
+<li>부국증권 [실측: 2025 사업보고서 연결]</li>
+<li>영업이익 3개년: 691억 → 367억 → 568억. 당기순이익 573→310→456억(회복).</li>
+<li>DPS 보통주 1,500→1,500→2,400원(<span class="up">+60%</span> 증액). 자본총계 0.83조.</li>
+</ul>
+<p>→ 2025년 3사 모두 이익 회복 국면. 증권주 특성상 2026년은 양대지수 하락·거래대금 위축이 역풍(아래 ⑦).</p>
+<hr>
+<p>③ 미래 실적·컨센서스 ━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>대신(003540): 컨센 존재 [인용: consensus.py 4소스, 2026-10-23]. 목표가 평균 39,667원(최고 42,000 SK증권·최저 35,000 NH), 투자의견 Buy. FY26E 영업이익 5,667억(fnguide 3사)·ROE 11.2%. 최근: NH투자 09/28 목표 35,000(하향)&#x27;쉬어가는 3분기&#x27;, SK증권 07/28 매수 42,000 &#x27;2Q 서프라이즈&#x27;. 단 FY27E 영업이익은 3,110억으로 둔화 추정 → 2025~26 피크아웃 리스크 병존.</li>
+<li>신영(001720)·부국(001270): 최근 6개월 증권사 목표가·추정치 &#x27;컨센 미확인&#x27; [consensus.py 4소스(stockeasy·naver·fnguide·hankyung) 전수 시도, 0건 — 중소형 증권주라 애널 커버리지 희박. 봇차단 아님]. → 자체 추정은 아래 ④ &#x27;추정&#x27;으로만.</li>
+</ul>
+<hr>
+<p>④ 밸류에이션·자사주 소각 주당가치 산식 ━━━━━━━━━━━━━━━━ 증권주는 PBR이 핵심. [실측: KIS 2026-10-23]</p>
+<ul>
+<li>대신: PBR 0.42·BPS 54,154·PER 11.2·배당수익률 1,200/22,950=5.23%</li>
+<li>신영: PBR 0.48·BPS 253,168·PER 13.4·배당수익률 5,000/121,500=4.12%</li>
+<li>부국: PBR 0.47·BPS 93,587·PER 13.0·배당수익률 2,400/44,450=5.40%</li>
+</ul>
+<p>→ 3사 모두 PBR 0.4~0.5배. 대형 peer(삼성·NH·키움 PBR 0.6~0.9 수준)와 비교해도 할인. 단 &#x27;자사주·낮은 유동성 할인&#x27;이 섞여 있어 저PBR 자체가 기계적 저평가는 아님.</p>
+<p>★자사주 소각 → 주당가치 상승 산식(핵심 로직) 자사주는 배당·의결권이 없는 자본 차감분. 소각하면 ①발행주식총수↓ → 동일 시총이면 주당가격↑(기계적) ②미래 순이익·배당이 더 적은 주식에 집중 → EPS·DPS 레벨업.</p>
+<ul>
+<li>신영(자사주 53%) 전량 소각 가정 [추정: 산식]</li>
+<li>발행 16,440,000주 → 유통 7,710,025주(<span class="down">-53.1%</span>)</li>
+<li>지배순이익 1,086억 ÷ 7,710,025주 = 소각후 EPS 14,086원 (발행주식 기준 EPS 6,606원 대비 <span class="up">+113%</span>)</li>
+<li>현재가 121,500 → 소각후 PER 8.6배. 유통기준 BPS ≈ 236,000원(지배순자산/유통주식) → 현재가는 유통순자산의 0.51배.</li>
+<li>시장이 소각을 &#x27;공식화&#x27;해 발행=유통으로 보면, 보수적 PBR 0.6배만 적용해도 목표 ≈ 0.6×253,168 = 151,900원(<span class="up">+25%</span>). 신영은 소각 시 재평가 폭이 3사 중 최대.</li>
+<li>대신(실측 효과): 2026년 보통주 4,660,911주 소각 완료 = 발행 <span class="down">-9.2%</span>. 동일 시총·순이익이면 주당가치 <span class="up">+9.2%</span>가 이미 주주에게 이전됨. 추가 소각 지속 시 복리로 누적.</li>
+<li>부국(자사주 42.7%): 신영과 동일 논리로 소각 시 발행 <span class="down">-43%</span>·EPS <span class="up">+75%</span> 효과. 단 소각 미실행 + 유동성 극악으로 실현 경로 불투명.</li>
+</ul>
+<p>자체 목표가(PBR 리레이팅, BPS 실측×정상 PBR) [추정]</p>
+<ul>
+<li>대신: 1차 0.50×54,154 ≈ 27,000원(<span class="up">+17.6%</span>) / 2차 0.55×54,154 ≈ 30,000원(<span class="up">+30.7%</span>)</li>
+<li>신영: 1차 0.55×253,168 ≈ 139,000원(<span class="up">+14.4%</span>) / 2차 0.60×253,168 ≈ 152,000원(<span class="up">+25.1%</span>)</li>
+<li>부국: 참고 0.55×93,587 ≈ 51,000원(<span class="up">+14.7%</span>) — 단 유동성으로 진입부적합.</li>
+</ul>
+<hr>
+<p>⑤ 손익비 (진입가=현재가 기준) ━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>대신 22,950: 상방 1차 <span class="up">+17.6%</span>(27,000) ÷ 하방 <span class="down">-6.3%</span>(손절 21,500, 52주저 22,500 하회) = 1:2.8</li>
+<li>신영 121,500: 상방 1차 <span class="up">+14.4%</span>(139,000) ÷ 하방 <span class="down">-7.0%</span>(손절 113,000) = 1:2.1</li>
+<li>부국 44,450: 산식상 1:2.7이나 ADV 1.03억 → 1일 체결상한 약 0.10억(ADV10%). 진입·청산 수일 소요로 &#x27;진입 부적합&#x27;.</li>
+</ul>
+<hr>
+<p>⑥ 진입전략 (현물 스윙/중장기 — ★레버리지 불가) ━━━━━━━━━━━━━━━━</p>
+<ul>
+<li>공통: 3사 모두 선물 미상장 → 현물만. 전 종목 52주 저점권(이격 과대)이나 MA5&lt;MA20&lt;MA60 완전 역배열·지수 하락이라 &#x27;떨어지는 칼&#x27; 구간. 추격 금지, 분할·눌림 대응.</li>
+<li>대신(우선): 10/23 22,950(52주저 22,500 근접). MA20 24,427·MA60 25,715. 20일 <span class="down">-13%</span>. 외국인 20일 <span class="down">-25%</span>·기관 <span class="down">-20%</span> 매도이나 개인 <span class="up">+44%</span>. 소각 모멘텀·컨센 하방경직 감안, 22,500~22,950 분할 1차, 21,500 종가 이탈 시 청산. 반등 1차 27,000·2차 30,000 분할익절.</li>
+<li>신영(차선): 121,500(52주저 119,300 근접). 외국인 20일 <span class="up">+43.8%</span> 순매수가 유일한 긍정 수급 시그널(기관 <span class="down">-51.8%</span>). 소각 &#x27;결정 공시&#x27;가 확인되기 전엔 기대선행. 119,000~121,500 소량 관찰, 113,000 이탈 청산. 소각 공시 뜨면 비중확대.</li>
+<li>부국: 관망. 재료는 최상이나 유동성으로 전업 스윙 부적합.</li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·시나리오·사이징 ━━━━━━━━━━━━━━━━ ▷ 촉매 캘린더(날짜 확정)</p>
+<ul>
+<li>2026-11월 중순: 3사 3분기 분기보고서 법정기한(대신·부국 12월결산 → 11/14 전후). 실적·추가 자사주/소각 공시 주시.</li>
+<li>대신: 2026년 분기마다 소각결정 반복(3·6·9월) → 4분기(12월) 추가 소각결정 발표 여부가 최대 촉매.</li>
+<li>신영·부국: &#x27;첫 소각결정 공시&#x27; 자체가 리레이팅 트리거.</li>
+</ul>
+<p>▷ 반증 조건(수치→행동)</p>
+<ul>
+<li>대신: ①3Q26 연결 순이익 &lt; 150억이면 실적모멘텀 훼손·비중축소(2025 분기평균 대비 급감) ②4분기 추가 소각결정 미발표 시 테마 약화 ③종가 21,500 이탈 → 전량청산.</li>
+<li>신영: ①2026년 내 소각결정 공시 미발표 지속 시 &#x27;기대만&#x27; → 진입 보류 ②종가 113,000 이탈 → 청산 ③외국인 20일 순매수 마이너스 전환 시 유일 수급 근거 소멸.</li>
+<li>부국: 20일 평균 거래대금 3억 미만 지속 시 진입 논의 자체 불가.</li>
+</ul>
+<p>▷ 이벤트 매트릭스(대신 3Q 실적 기준)</p>
+<ul>
+<li>서프라이즈×갭상승: 27,000 돌파 확인 후 추격 자제, 보유분 홀드.</li>
+<li>인라인×보합: 분할 유지, 추가 소각공시 대기.</li>
+<li>쇼크×갭하락: 21,500 이탈이면 전량청산, 지지 시 관망.</li>
+</ul>
+<p>▷ 확률가중 시나리오</p>
+<ul>
+<li>대신: Bull 30%(소각지속+거래대금 회복→PBR0.6, 32,500/<span class="up">+41.6%</span>) / Base 45%(소각유지·지수횡보→PBR0.52, 28,200/<span class="up">+22.9%</span>) / Bear 25%(지수추가하락→PBR0.38, 20,600/<span class="down">-10.2%</span>). 기대수익률 ≈ <span class="up">+20.2%</span>.</li>
+<li>신영: Bull 30%(소각결정 발표→PBR0.68, 172,000/<span class="up">+41.6%</span>) / Base 45%(기대유지·횡보→PBR0.58, 146,800/<span class="up">+20.8%</span>) / Bear 25%(소각지연+지수↓→PBR0.40, 101,300/<span class="down">-16.6%</span>). 기대수익률 ≈ <span class="up">+17.7%</span>.</li>
+</ul>
+<p>▷ 수급·유동성 [실측: KIS 20일]</p>
+<ul>
+<li>대신 ADV20 11.2억(1일 체결상한 ≈1.12억)·외국인 20일 <span class="down">-25%</span>·기관 <span class="down">-20%</span>·개인 <span class="up">+44%</span>.</li>
+<li>신영 ADV20 9.4억(상한 ≈0.94억)·외국인 <span class="up">+43.8%</span>·기관 <span class="down">-51.8%</span>.</li>
+<li>부국 ADV20 1.03억(상한 ≈0.10억) — 극저유동성.</li>
+</ul>
+<p>▷ 포지션 사이징 (자산 대비 %로만)</p>
+<ul>
+<li>대신: 손실예산 1% ÷ 손절폭 6.3% = 자산의 15.8%. 집중상한 50%·이벤트전 상한 25% 중 최소 → 15.8% 상한, 3회 분할(각 1/3).</li>
+<li>신영: 1% ÷ 7.0% = 14.3% 상한, 소각 공시 확인 전엔 절반(약 7%)만 관찰 비중 권고.</li>
+<li>부국: 유동성상한이 사실상 사이징을 지배 → 사실상 진입 불가.</li>
+</ul>
+<hr>
+<p>[미확인 목록]</p>
+<ul>
+<li>블로거 &#x27;대신 자사주 80% 소각 이사회결의&#x27; — 실측 소각은 2026년 4회(누계 보통주 466만주, 전체 자사주의 일부)로, &#x27;80%&#x27; 근거 공시 미확인. &#x27;소각 실행 중&#x27;은 사실이나 80% 규모는 추정.</li>
+<li>블로거 &#x27;2027.9까지 소각/주총승인 의무&#x27; 규정 원문 미확인(방향성만 확인).</li>
+<li>신영·부국 FY26 증권사 컨센 미확인(커버리지 없음).</li>
+<li>신영 결산월 3월로 타 2사와 분기 시차 — 최신 분기(2026년 상반기) 연결 세부 미반영.</li>
+<li>신영/부국 10/16 소유보고 &#x27;보고자&#x27; 성명 개별 특정 미확인(일가 지분 증가 방향만 확인).</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>KIS 시세·수급·PBR/BPS (2026-10-23) / DART 2025 사업보고서·제71기(신영) 연결재무·주식총수·자사주·최대주주·배당 / DART 2026 주식소각결정 4건(대신)·임원주요주주 소유상황보고서(3사) / consensus.py 4소스 / news_search.py.</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>대신 발행보통주: 50,773,400 − 소각 3회×1,553,637(4,660,911) = 46,112,489 ≈ 시총10,583억/22,950=46.1백만 ✓</li>
+<li>신영 자사주율: 8,729,975/(8,729,975<span class="up">+7,710,025</span>)=53.1% ✓ / 부국: 4,430,764/(4,430,764<span class="up">+5,939,122</span>)=42.7% ✓</li>
+<li>손익비 헤더=본문: 대신 17.6/6.3=2.8 ✓ 신영 14.4/7.0=2.1 ✓</li>
+<li>시나리오 확률합: 대신 30<span class="up">+45</span><span class="up">+25</span>=100 ✓ 신영 100 ✓</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin:003540 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-23 08:16 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 22,950원 (<span class="up">+0.0%</span>) · 시총 1.06조 · 5일 <span class="down">-2.3%</span> / 20일 <span class="down">-13.1%</span> / 60일 <span class="down">-10.9%</span></li>
+<li>MA5 23,170원 / MA20 24,428원 / MA60 25,715원 → MA20 이격 <span class="down">-6.0%</span> · MA60 이격 <span class="down">-10.8%</span></li>
+<li>52주 고 51,400원 / 저 22,500원 → 고점 대비 <span class="down">-55.4%</span> · 20일 고 26,500원 / 저 22,600원</li>
+<li>후행 PER 11.23 / PBR 0.42 (EPS 2,044원 · BPS 54,154원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 11.2억 (5일 5.4억)</li>
+<li>외국인 순매수 5일 1.5억 / 20일 -25.0억 · 기관 5일 -3.5억 / 20일 -20.3억 · 개인 20일 43.9억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 9.34% / 20일 평균 13.12% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 22.67% (10/12) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 27,000원 (<span class="up">+17.6%</span>) ÷ 하방 21,500원 (−6.3%) = <strong>1:2.79</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 6.3% = <strong>자산의 7.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 7.9%</strong></li>
+<li>유동성 참고: 20일 ADV 11.2억 · 1일 소화 한도는 ADV의 10%(1.12억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 6.3% · ATR14 657원 (손절폭/ATR 2.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 6.3% = ATR14 × 2.2배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 21,964원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:4.11</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:003540 --&gt;</p>
+<p><span id="card-003540"></span>📋 결정카드 — 대신증권(003540) 판정: 관심 선물: 無 (개별주식선물 미상장·현물만, 레버리지 불가) 현재가: 22,950원 진입: 22,500~22,950원 (3회 분할, 각 1/3) 손절: 21,500원 목표: 1차 27,000원 (2차 30,000원) 손익비: 1:2.8 기간: 스윙 6~16주 촉매: 2026-11월 3Q 분기보고서 / 12월 4분기 추가 소각결정 여부 반증: 3Q26 연결 순이익 &lt; 150억 or 4분기 추가 소각 미발표 or 종가 21,500 이탈 → 비중축소·청산</p>
+<p>&lt;!-- hub:enrich:begin:001720 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-23 08:16 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 121,500원 (<span class="up">+0.0%</span>) · 시총 2.00조 · 5일 <span class="down">-3.6%</span> / 20일 <span class="down">-13.2%</span> / 60일 <span class="down">-14.8%</span></li>
+<li>MA5 124,180원 / MA20 133,070원 / MA60 143,963원 → MA20 이격 <span class="down">-8.7%</span> · MA60 이격 <span class="down">-15.6%</span></li>
+<li>52주 고 272,000원 / 저 119,300원 → 고점 대비 <span class="down">-55.3%</span> · 20일 고 142,500원 / 저 121,500원</li>
+<li>후행 PER 13.39 / PBR 0.48 (EPS 9,073원 · BPS 253,168원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 9.4억 (5일 2.6억)</li>
+<li>외국인 순매수 5일 0.7억 / 20일 43.8억 · 기관 5일 -1.0억 / 20일 -51.8억 · 개인 20일 8.3억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 24.85% / 20일 평균 17.11% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 35.23% (10/21) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 139,000원 (<span class="up">+14.4%</span>) ÷ 하방 113,000원 (−7.0%) = <strong>1:2.06</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 7.0% = <strong>자산의 7.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 7.1%</strong></li>
+<li>유동성 참고: 20일 ADV 9.4억 · 1일 소화 한도는 ADV의 10%(0.94억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 7.0% · ATR14 4,821원 (손절폭/ATR 1.8배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 7.0% = ATR14 × 1.8배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 111,857원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.81</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:001720 --&gt;</p>
+<p><span id="card-001720"></span>📋 결정카드 — 신영증권(001720) 판정: 관심 선물: 無 (개별주식선물 미상장·현물만, 레버리지 불가) 현재가: 121,500원 진입: 119,000~121,500원 (관찰 비중, 소각 공시 확인 시 확대) 손절: 113,000원 목표: 1차 139,000원 (2차 152,000원) 손익비: 1:2.1 기간: 스윙~중장기 8~24주 촉매: 2026년 내 &#x27;첫 자사주 소각결정 공시&#x27; / 외국인 순매수 지속 반증: 2026년 소각결정 공시 미발표 지속 or 종가 113,000 이탈 or 외국인 20일 순매수 마이너스 전환 → 진입보류·청산</p>
+<p>&lt;!-- hub:enrich:begin:001270 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-23 08:16 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 44,450원 (<span class="up">+0.0%</span>) · 시총 4,609억 · 5일 <span class="down">-5.5%</span> / 20일 <span class="down">-13.9%</span> / 60일 <span class="down">-16.4%</span></li>
+<li>MA5 45,280원 / MA20 48,358원 / MA60 51,711원 → MA20 이격 <span class="down">-8.1%</span> · MA60 이격 <span class="down">-14.0%</span></li>
+<li>52주 고 104,600원 / 저 43,950원 → 고점 대비 <span class="down">-57.5%</span> · 20일 고 51,800원 / 저 44,450원</li>
+<li>후행 PER 13.02 / PBR 0.47 (EPS 3,413원 · BPS 93,587원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1.0억 (5일 0.7억)</li>
+<li>외국인 순매수 5일 -0.9억 / 20일 -6.6억 · 기관 5일 0.0억 / 20일 0.2억 · 개인 20일 5.6억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 5.45% / 20일 평균 8.02% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 16.41% (10/07) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 51,000원 (<span class="up">+14.7%</span>) ÷ 하방 42,000원 (−5.5%) = <strong>1:2.67</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 5.5% = <strong>자산의 9.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 9.1%</strong></li>
+<li>유동성 참고: 20일 ADV 1.0억 · 1일 소화 한도는 ADV의 10%(0.10억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 5.5% · ATR14 1,625원 (손절폭/ATR 1.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 5.5% = ATR14 × 1.5배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 41,200원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.02</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:001270 --&gt;</p>
+<p><span id="card-001270"></span>📋 결정카드 — 부국증권(001270) 판정: 관망 선물: 無 (개별주식선물 미상장·현물만, 레버리지 불가) 현재가: 44,450원 진입: 진입 부적합 (20일 평균 거래대금 1.03억·체결상한 0.10억) 손절: (참고) 42,000원 목표: (참고) 51,000원 손익비: (참고) 1:2.7 — 유동성으로 실현 곤란 기간: 미정 촉매: 첫 소각결정 공시 + 20일 평균 거래대금 3억 이상 회복 반증: 20일 평균 거래대금 3억 미만 지속 → 진입 논의 불가</p>
+<p>⚠️ 다시 강조: 참고용·개인의견입니다. 양대지수 하락국면에서 증권주 전반이 역풍을 받는 구간이며, 3사 모두 레버리지(선물) 불가한 현물 종목입니다. 저PBR에는 자사주·저유동성 할인이 섞여 있어 단순 저평가가 아닙니다.</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
