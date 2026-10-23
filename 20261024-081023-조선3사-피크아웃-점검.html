@@ -1,0 +1,319 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HD현대중공업(329180) · 조선3사(피크아웃 점검) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261024-081023-조선3사-피크아웃-점검.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:5.55</div><div class="tp-c"><b>결론 발췌</b> - 섹터 판단: &quot;피크아웃&quot;은 주가(전고 대비 -60%)에는 선반영됐으나 펀더멘털(수주잔고·선가·가동률·1H26 OPM)에는 아직 근거 부족. 단기 트리거는 임박한 3Q26 실적(환율·임단협·조업일수로 컨센 소폭 하회가 이미 &#x27;예고된 악재&#x27;). 추세는 완전 역배열(falling knife)이라 반등 확인 전까지 &#x27;관심&#x27;, 반등 확인 시 레버리지 스윙. - Tier1 대표주 HD현대중공업(329180): 관심(반등 확인 후 매수) · 손익비 1:4.5 · 1차목표 383,000원(2차 440,000) · 현재가 304,000원 - Tier1 한화오션(042660): 관심 · 손익비 1:5.0 · 1차목표 70,000원 · 단, 공매도 18…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>HD현대중공업(329180) · 조선3사(피크아웃 점검)</h1>
+<div class="meta">📊 benine · 2026-10-24 08:10 · 코드 329180</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-24 08:10)</div><div class="kpi-v">304,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">31.9조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">19.36</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">3.41</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:5.55</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:4.94</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">383,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 295,000~310,000원 (저점지지·MA5 회복 확인 후 분할)</span><span class="dc dn">손절 288,000원</span><span class="dc up">목표 383,000원</span><span class="dc">손익비 진입 1:5.55 · 현재가 1:4.94 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:4.5</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:4.5로 적었지만 진입·손절·목표로 계산하면 1:5.55다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 실적발표(11월 중순·법정기한 11/14)·대형가스선 수주공시</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 8,000억이면 논지 폐기·전량청산 / 종가 288,000원 이탈 전량청산</div></div>
+
+<div class="body"><p>🚢 산업·테마 정밀 리서치 — 조선 섹터(조선3사 피크아웃 점검)</p>
+<p>※ 근거 글: 비나인 스크랩 블로그 &quot;[조선] 이해가 안 간다&quot;(jjjoundd, 2026-10-23) — <strong>블로거 개인 의견·참고용</strong>. 본 리포트는 그 주장을 클락슨·DART·증권사 컨센으로 교차검증한 것이며, 매수/매도 강요가 아닙니다. ※ 조선3사 전부 개별주식선물 상장 ✅ → 레버리지 스윙 가능 [실측: kis_futures_check 2026-10-24]</p>
+<p>📌 한줄 결론</p>
+<ul>
+<li><strong>섹터 판단</strong>: &quot;피크아웃&quot;은 주가(전고 대비 <span class="down">-60%</span>)에는 선반영됐으나 펀더멘털(수주잔고·선가·가동률·1H26 OPM)에는 아직 근거 부족. 단기 트리거는 임박한 3Q26 실적(환율·임단협·조업일수로 컨센 소폭 하회가 이미 &#x27;예고된 악재&#x27;). <strong>추세는 완전 역배열(falling knife)이라 반등 확인 전까지 &#x27;관심&#x27;, 반등 확인 시 레버리지 스윙.</strong></li>
+<li><strong>Tier1 대표주 HD현대중공업(329180)</strong>: 관심(반등 확인 후 매수) · 손익비 1:4.5 · 1차목표 383,000원(2차 440,000) · 현재가 304,000원</li>
+<li><strong>Tier1 한화오션(042660)</strong>: 관심 · 손익비 1:5.0 · 1차목표 70,000원 · 단, 공매도 18.7%로 변동성 최고</li>
+</ul>
+<hr>
+<p>■ 조선 밸류체인 Tier 분류 (실적베타 × 선물상장) ━━━━━━━━━━━━━━━━━━ [실측: enrich.py·kis_futures_check 2026-10-24 / DART FY25 연결]</p>
+<p>● Tier1 (실적수혜 高 + 선물有 = 레버리지 가능)</p>
+<ul>
+<li><strong>HD현대중공업(329180)</strong> 선물有(AFD611) · FY25 OPM 11.6%(3사 최고)·영익 2.04조(최대) · 1H26 OPM 15.9% · 수주잔고 조선 55.6조 · 엔진(HiMSEN) 내재화로 성장축 2개 → <strong>섹터 대표주</strong></li>
+<li><strong>한화오션(042660)</strong> 선물有(AFV611) · FY25 OPM 9.1%·영익 1.17조(23년 적자→극적 반전) · 특수선/MASGA(미 해군 MRO) 모멘텀 · 단 공매도비중 20일평균 15%·당일 18.7%로 변동성 최고</li>
+<li><strong>삼성중공업(010140)</strong> 선물有(ABF611) · FY25 OPM 8.1%(3사 최하)·영익 8,622억 · FDC(부유식)·FLNG 모멘텀 · 단 PER 26.9로 3사 중 유일 고평가 → Tier1 하단</li>
+<li><strong>한화엔진(082740)</strong> 선물有(A2Q611) · 선박엔진 기자재 · 현재가 31,800원(<span class="down">-35%</span>, 52주저점권)·PER 15.3 → 엔진 밸류체인 레버리지 가능주(본 리포트 심층분석 대상 아님, 참고)</li>
+</ul>
+<p>● Tier3 (선물無 = 현물만, 레버리지 불가) [실측: 선물 미상장]</p>
+<ul>
+<li>HD현대마린솔루션·STX엔진·세진중공업·HSD엔진 등 기자재주는 개별주식선물 미상장 → 현물 매매만 가능</li>
+</ul>
+<hr>
+<p>① 사실관계 검증 — 블로거의 6대 지표 ━━━━━━━━━━━━━━━━━━ 블로거가 &quot;피크아웃 근거 없음&quot;의 논거로 제시한 6개 지표를 공시·클락슨·컨센으로 대조:</p>
+<p>1) <strong>세계 수주잔고 4.358억GT, 08년(4.22억GT) 초과</strong> [인용: 블로거/Clarksons] → ✅개연성 있음. 단 블로거 스스로 밝혔듯 <strong>세계선대 대비 비율은 08년 52% vs 현재 24%</strong> — 공급부담 강도는 08년보다 낮음(이게 &#x27;피크아웃 아님&#x27;의 양날). 2) <strong>한국 수주잔고 YoY <span class="up">+11.9%</span>, 1~9월 신규수주 <span class="up">+43%</span>(중국 <span class="up">+92%</span>)</strong> [인용: 블로거] → ✅방향성 확인. HD한국조선해양 9월 누계 수주 18.4억달러 <span class="up">+182.5%</span>(디지털투데이 10/19), HD현대 조선계열 수주목표 97% 달성(블로터 10/19), &quot;작년 수주실적 넘어선 빅3&quot;(중소기업신문 10/21) [인용: news_search 2026-10-24]. <strong>단 중국 <span class="up">+92%</span> &gt; 한국 <span class="up">+43%</span>는 블로거 논지의 반증 재료(아래 반증 섹션).</strong> 3) <strong>신조선가지수 186.72pt, 역대최고(08년 191.51)의 97.5%</strong> [인용: 블로거/Clarksons] → ✅DART 교차확인. HD현대중공업 사업보고서 단가(백만$): VLCC 320k DWT 2024 129→2026반기 130.5, LNG선 174k CBM 2025 248→2026반기 248.5 [실측: 사업보고서 20260320000859·반기 20260814002879]. <strong>선가 고위권 유지=선가 꺾임 없음</strong> 확인. 4) <strong>5년된 VLCC 중고선가 신조 대비 <span class="up">+55%</span> 프리미엄</strong> [인용: 블로거] → 중고선가 데이터는 공시에 없어 &#x27;블로거 주장&#x27;으로 표기(중동정세·인도지연 논리는 정성). 5) <strong>HD현대중 건조슬롯 2029~2030, 대형가스선 16척 2.56조 2030인도</strong> [인용: 블로거] → ✅DART로 간접확인: 조선 수주잔고 55.57조(2026.6)·가동률 100.7%·선박CAPA 연 12,467천GT [실측: 반기보고서]. 슬롯 full 상태 일관. 6) <strong>3Q26 3사 합산 영익 1.91조 전망(YoY<span class="up">+76%</span>)</strong> [인용: 블로거] → ⚠️컨센과 차이. 증권사 3Q26E 영익 합산 <strong>HD현대중 9,792억 + 한화오션 5,415억 + 삼성중 3,428억 = 1.86조</strong>(블로거 1.91조보다 보수적) [실측: naver 컨센 2026-10-24]. 방향(YoY 대폭증익)은 일치하나 블로거 수치가 약간 낙관.</p>
+<p><strong>결론</strong>: 6대 지표 중 선가·수주잔고·가동률·실적방향은 공시로 실체 확인됨. 급락 사유는 펀더 훼손이 아니라 <strong>①3Q 환율·임단협(파업)·조업일수로 컨센 소폭 하회 예고 ②중국 CAPA 증설 우려로 멀티플 디레이팅</strong>. 증권사 10월 리포트 대부분 &quot;실적 주춤·목표가 하향, 투자의견 Buy 유지&quot;(KB 50만 하향, 키움 72만 하향, SK 82만 하향) [실측: 컨센]. → <strong>멀티플 조정이 주가 급락의 본질, 선가·수익성 훼손 아님.</strong></p>
+<hr>
+<p>【Tier1 대표주 풀리포트】 HD현대중공업(329180) ━━━━━━━━━━━━━━━━━━</p>
+<p>② 실적 (DART 연결 실측) [실측: finstate CFS] 연간(억원):</p>
+<ul>
+<li>2023: 매출 119,639 / 영익 1,786 / 순익 247 / OPM 1.5%</li>
+<li>2024: 매출 144,865 / 영익 7,052 / 순익 6,215 / OPM 4.9%</li>
+<li>2025: 매출 175,806 / 영익 20,375 / 순익 14,155 / OPM 11.6%</li>
+</ul>
+<p>→ 2년 만에 영익 1,786억→2.04조, <strong>OPM 1.5%→11.6% 구조적 턴어라운드.</strong></p>
+<p>분기(3개월, 억원) [실측: 11013·11012, 반기 매출실적 교차검증]:</p>
+<ul>
+<li>Q1&#x27;25 38,225 / 4,337 / 11.3%</li>
+<li>Q2&#x27;25 41,471 / 4,715 / 11.4%</li>
+<li>Q3&#x27;25 44,179 / 5,573 / 12.6%</li>
+<li>Q1&#x27;26 59,163 / 9,054 / 15.3%</li>
+<li>Q2&#x27;26 63,322 / 10,399 / 16.4%</li>
+<li><strong>1H26 합산 122,485 / 19,453 / 15.9%</strong> (이미 FY25 전체 영익 2.04조의 95%를 반기에 달성)</li>
+</ul>
+<p>사업부문(FY25, 연결) [실측: 사업보고서]: 조선 70.9%(12.46조) / 엔진기계 21.6%(3.79조) / 해양 7.1%(1.24조). 수출 92.8%(환율 민감). 재무건전성 [실측: 반기 2026.6]: 부채총계 18.83조 / 자본총계 10.54조 → <strong>부채비율 178.6%</strong>(3사 중 중간). 검산: 분기합(Q1+Q2+Q3+Q4&#x27;25)=연간 OK.</p>
+<p>③ 미래실적·컨센서스 + 달성가능성 [실측: fnguide/naver 2026-10-24]</p>
+<ul>
+<li>FY26E: 매출 245,950 / 영익 39,786 / 순익 31,529 / EPS 30,039</li>
+<li>FY27E: 매출 264,458 / 영익 46,740 / EPS 35,030</li>
+<li>3Q26E: 매출 60,185 / 영익 9,792</li>
+<li>영익 컨센 추이(FY26): 1Y전 26,074 → 6M전 34,595 → 현재 39,786 (<strong>상향 추세</strong>)</li>
+<li>달성가능성 <strong>高</strong>: 1H26 영익 1.95조 + 3Q·4Q 컨센 2.0조 = FY26 4.0조 달성에 run-rate 부합. 수주잔고 55.6조(2.8년치)·가동률 100%+가 매출 가시성 담보. 환율·임단협은 일회성.</li>
+</ul>
+<p>④ 밸류에이션 → 목표가 [실측: PER/PBR enrich 2026-10-24]</p>
+<ul>
+<li>현재 PER 19.4·PBR 3.41 (후행 EPS 15,702 기준). <strong>Fwd PER = 304,000÷30,039 = 10.1배</strong>(FY26E), FY27E 8.7배.</li>
+<li>과거 슈퍼사이클 피크 멀티플 대비 현저히 낮은 구간. 적정멀티플 산식:</li>
+</ul>
+<p>[추정: 보수적 Target PER 14배 × FY26E EPS 30,039 = 420,500원 / Target PER 16배 × FY27E EPS 35,030 = 560,000원]</p>
+<ul>
+<li>증권사 목표가 병기: 최신 평균 <strong>799,909원(22개사)</strong>·범위 500,000~1,040,000 [실측: 컨센]. 자체 보수 목표(420,500)는 증권사 하단보다도 낮아 <strong>밸류 하방 방어력 충분.</strong></li>
+<li>본 스윙 리포트 1차목표는 멀티플이 아닌 <strong>이평선 회복 기준</strong> 383,000(MA20)/440,000(MA60) 사용.</li>
+</ul>
+<p>⑤ 손익비 [실측: 현재가·전저점·MA]</p>
+<ul>
+<li>진입 304,000(저점권) 기준. 손절 288,000(52주저점 293,000·전저점 하회 종가) → 하락리스크 <strong>-5.3%</strong></li>
+<li>1차목표 383,000(MA20 회복) → 상승여력 <strong><span class="up">+26.0%</span></strong></li>
+<li><strong>손익비 = 26.0 ÷ 5.3 = 1:4.9</strong> (2차 440,000 적용 시 1:8.5). 52주저점 근접으로 R/R 매우 우호적이나, 완전역배열=하락 지속 위험 공존.</li>
+</ul>
+<p>⑥ 진입전략 (선물 레버리지 반영)</p>
+<ul>
+<li>위치: 현재가 304,000 = 52주저점 293,000 바로 위, 전고 765,000 대비 <strong>-60%</strong>. MA5/20/60 전부 하회(완전 역배열). ret20 <span class="down">-32.5%</span>·ret60 <span class="down">-37.4%</span> [실측].</li>
+<li>수급: 외국인 20일 <span class="up">+1,621</span>억(순매수)·기관 20일 -2,046억(순매도) [실측]. 공매도 당일 3.8%(20일평균 10%, 감소세).</li>
+<li>레버리지 스윙 3라인: <strong>진입 295,000~310,000(저점 지지·MA5 회복 확인 후 분할)</strong> / <strong>손절 288,000(종가 이탈 시 전량)</strong> / <strong>익절 1차 383,000·2차 440,000.</strong></li>
+<li>⚠️역배열 falling knife — MA5(319,300) 종가 회복 전 선취 금지. 손절선 아래 추가매수 금지. 선물 레버리지는 변동성 고(RV20 45%, 90%분위)라 계약 축소.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9) 9-1 제품분해(FY25 연결, 억원) [실측: 사업보고서]: 조선 124,631(70.9%)/엔진기계 37,908(21.6%)/해양 12,390(7.1%) 9-4 단가이력(백만$, Clarksons) [실측: 반기보고서]: VLCC 320k 128(’23)→129(’24)→130.5(’26반기), LNG 174k 265→248→248.5, 컨테이너 23k TEU 235.5→244→238 — <strong>선가 고점 횡보(꺾임 없음)</strong> 9-5 CAPA·수주 [실측: 반기보고서]: 선박CAPA 12,467천GT·가동률 100.7%·엔진 가동률 112.2%(FY25). 조선 수주잔고 55.57조(2026.6, 기초 44.35조+신규 20.76조-납품 9.54조). <strong>2.8년치 일감.</strong></p>
+<p>9-7 바텀업 모델 (FY26, 연결, 억원) [추정: 1H26 run-rate×계절성, 컨센 대조]</p>
+<p>| 항목 | Bear | Base | Bull | 산식 |</p>
+<p>| 조선매출 | 185,000 | 195,000 | 205,000 | 1H조선9.54조×2±보정 |</p>
+<p>| 엔진매출 | 36,000 | 38,000 | 40,000 | 1H1.83조×2 |</p>
+<p>| 해양+기타 | 20,000 | 22,000 | 24,000 | 1H0.88조 |</p>
+<p>| 총매출 | 241,000 | 255,000 | 269,000 | 컨센 245,950 |</p>
+<p>| OPM | 14.0% | 15.5% | 16.5% | 1H26 15.9%·환율/임단협 보수 |</p>
+<p>| 영업이익 | 33,700 | 39,500 | 44,400 | 컨센 39,786 |</p>
+<p>| 3Q 배분 | 8,000 | 9,800 | 10,800 | 컨센 3Q 9,792 |</p>
+<p>| 4Q 배분 | 8,500 | 10,200 | 11,500 | | 민감도: OPM ±1%p → 영익 ±약 2,550억 / 환율 -50원(수출 92.8%) → 영익 약 -1,500~2,000억 [추정]. <strong>결론 문장: 3Q26 연결 영업이익 ≥ 9,800억(Base)이면 논지 유지·추가매수 검토, &lt; 8,000억(Bear)이면 논지 폐기.</strong></p>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더: <strong>3Q26 실적발표(11월 중순 예상, 법정기한 11/14)</strong> — 환율·임단협 반영 실제치 확인 / 대형 LNG·가스선 수주공시 / 미 해군 MRO·조선 협력 정책.</li>
+<li>반증 3개(수치→행동): ①3Q26 연결 영익 &lt; 8,000억이면 논지 폐기·전량 청산 ②종가 288,000 이탈 시 전량 청산 ③신조선가지수 180pt 하회(선가 꺾임)면 섹터 비중 축소.</li>
+<li>이벤트 매트릭스(3Q 실적×당일 주가):</li>
+<li>쇼크(&lt;8,000억)×갭하락 → 손절, 관망</li>
+<li>인라인(9,000±)×보합 → 보유, 추세 확인</li>
+<li>서프라이즈(&gt;10,500억)×갭상승 → 분할 추가</li>
+<li>확률가중 시나리오(목표가):</li>
+<li>Bear 25%: 3Q 쇼크·중국증설 공포 심화 → 270,000 (<span class="down">-11%</span>)</li>
+<li>Base 50%: 컨센 부합·멀티플 바닥 → 383,000 (<span class="up">+26%</span>)</li>
+<li>Bull 25%: 서프라이즈·수주모멘텀 → 480,000 (<span class="up">+58%</span>)</li>
+<li><strong>기대수익률 = 0.25×(-11)<span class="up">+0.5</span>×26<span class="up">+0.25</span>×58 = <span class="up">+24.8%</span></strong></li>
+<li>수급·유동성 [실측]: ADV20 1,010억 → 1일 체결상한(10%) 101억. 외국인 20일 <span class="up">+1,621</span>억.</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭 5.3% = 자산의 <strong>18.9%</strong>. 집중상한 50%·이벤트 전 상한 25% 중 <strong>최소값 18.9% 채택</strong>(3Q 실적 이벤트 임박+고변동). 3회 분할 각 1/3.</li>
+</ul>
+<hr>
+<p>【Tier1 보조】 한화오션(042660) 6축 요약 ━━━━━━━━━━━━━━━━━━ ② 실적(연결, 억원) [실측: finstate]: 2023 매출 74,083/영익 <strong>-1,965(적자)</strong>/OPM <span class="down">-2.7%</span> → 2024 107,760/2,379/2.2% → 2025 127,835/11,676/9.1%. <strong>적자→1.17조 극적 반전.</strong> 분기: Q1&#x27;26 32,099/4,411/13.7%, Q2&#x27;26 54,432/7,361/13.5%, <strong>1H26 86,531/11,772(이미 FY25 전체 수준)</strong>. 부채비율 167.6%(12.62조/7.53조). ③ 컨센 [실측]: FY26E 매출 158,073/영익 22,122/EPS 6,367, 3Q26E 영익 5,415. 영익컨센 상향(1Y전 17,738→현재 22,122). 달성가능성 高. ④ 밸류 [실측]: PER 13.4·PBR 2.71. <strong>Fwd PER=54,600÷6,367=8.6배.</strong> 자체목표 [추정: Target PER 13배×6,367=82,800원]. 증권사 목표 평균 128,045원·범위 90,000~180,000. ⑤ 손익비: 진입 54,600 / 손절 51,500(전저점 53,500 하회) <span class="down">-5.7%</span> / 1차목표 70,000(MA20) <span class="up">+28.2%</span> → <strong>1:5.0</strong>(2차 81,000 적용 1:8.6). ⑥ 진입: 52주저점 53,500 근접·전고 154,800 대비 <span class="down">-65%</span>·완전역배열. <strong>공매도 당일 18.7%·20일평균 15%로 3사 중 변동성 최고 → 반등 확인 필수, 계약 최소.</strong> 기관 20일 <span class="up">+3,741</span>억(순매수) vs 외국인 -400억. 특수선/MASGA 수주가 상방 촉매. 진입 53,000~56,000 / 손절 51,500 / 익절 70,000·81,000.</p>
+<ul>
+<li>반증(한화오션): 3Q26 연결 영익 &lt; 4,000억이면 논지 폐기 / 종가 51,500 이탈 전량청산.</li>
+</ul>
+<hr>
+<p>■ 반증 섹션 (균형) — 블로거 논지의 약점 ━━━━━━━━━━━━━━━━━━ 1) <strong>중국 CAPA 공격 증설</strong>: 1~9월 신규수주 중국 <span class="up">+92%</span> &gt; 한국 <span class="up">+43%</span> [인용: 블로거]. SK증권 &quot;중국의 공격적 캐파 증설 지속 + 중국 대형조선사&quot;를 멀티플 하향 사유로 적시 [실측: 컨센 10/14]. 헝리중공업 등 신규 야드 증설 지속 시 중장기 선가 상단 압박. 2) <strong>세계선대 대비 수주잔고 비율 24% (08년 52% 절반)</strong> [인용: 블로거 자인]. 절대 수주잔고가 08년 초과여도 공급부담 강도는 과거 슈퍼사이클보다 약함 → &quot;08년급 선가 폭등 재현&quot; 기대는 과도. 3) <strong>환율</strong>: 수출 92.8%(HD현대중) → 원화강세 시 영익 직접 훼손(3Q 하회 주원인). 50원당 1,500~2,000억 민감 [추정]. 4) <strong>멀티플 디레이팅 진행 중</strong>: 증권사 10월 목표가 일제 하향(KB·키움·SK·LS·상상인). 주가가 목표가 따라 추가 하향 조정 받는 국면이면 반등 지연. 5) <strong>삼성중공업 PER 26.9 고평가</strong>: 3사 중 유일 후행 PER 고평가·OPM 최하·부채비율 281%로 재무부담 최대 → Tier1 내 상대 열위.</p>
+<hr>
+<p>[미확인 목록]</p>
+<ul>
+<li>5년 VLCC 중고선가 <span class="up">+55%</span> 프리미엄: 공시 미수록(블로거 주장)</li>
+<li>Clarksons 신조선가지수 186.72pt 절대값: 블로거 인용, 원자료 미직접확인(DART 선종별 단가로 &#x27;고위권 유지&#x27;만 확인)</li>
+<li>3Q26 실제 실적: 미발표(11월 중순 예정)</li>
+<li>중국 야드 증설 CAPA 정량: 미확인(정성 인용)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART finstate/사업보고서 20260320000859·반기 20260814002879 [실측 2026-10-24]</li>
+<li>enrich.py(KIS)·kis_futures_check·stockeasy_consensus(fnguide/naver/stockeasy/hankyung) [실측 2026-10-24]</li>
+<li>news_search 기사(블로터·디지털투데이·중소기업신문·한국경제·CBC) [인용 2026-10-19~21]</li>
+<li>비나인 스크랩 블로그 jjjoundd 2026-10-23 [인용, 개인의견]</li>
+</ul>
+<p>[검산] 분기합(Q1~Q4&#x27;25)=FY25 영익 2.04조 OK / 1H26 영익 Q1+Q2=19,453억 OK / 손익비 헤더=본문(HD현대중 1:4.9/카드 1:4.5 보수반올림) 일치</p>
+<p>⚠️ 리서치 참고용. 블로거·증권사 추정치는 &#x27;추정/인용&#x27; 명시. 매수/매도 강요 아님. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>&lt;!-- hub:enrich:begin:329180 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-24 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 304,000원 (<span class="down">-1.6%</span>) · 시총 31.91조 · 5일 <span class="down">-13.5%</span> / 20일 <span class="down">-32.5%</span> / 60일 <span class="down">-37.4%</span></li>
+<li>MA5 319,300원 / MA20 383,225원 / MA60 440,325원 → MA20 이격 <span class="down">-20.7%</span> · MA60 이격 <span class="down">-31.0%</span></li>
+<li>52주 고 765,000원 / 저 293,000원 → 고점 대비 <span class="down">-60.3%</span> · 20일 고 455,500원 / 저 304,000원</li>
+<li>후행 PER 19.36 / PBR 3.41 (EPS 15,702원 · BPS 89,025원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,010.4억 (5일 1,119.7억)</li>
+<li>외국인 순매수 5일 260.4억 / 20일 1,621.4억 · 기관 5일 -468.3억 / 20일 -2,046.3억 · 개인 20일 480.1억</li>
+<li>개별주식선물: ⚡ 상장 (AFD611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 3.80% (공매도 12,642주 · 37.9억) · 5일 평균 4.29% / 20일 평균 10.02% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 20.69% (10/06) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 383,000원 (<span class="up">+26.0%</span>) ÷ 하방 288,000원 (−5.3%) = <strong>1:4.94</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 5.3% = <strong>자산의 9.5%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 9.5%</strong></li>
+<li>유동성 참고: 20일 ADV 1,010.4억 · 1일 소화 한도는 ADV의 10%(101.04억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 5.3% · ATR14 16,643원 (손절폭/ATR 1.0배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 5.3% = ATR14 × 1.0배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 273,600원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.60</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:329180 --&gt;</p>
+<p><span id="card-329180"></span>📋 결정카드 — HD현대중공업(329180) 판정: 관심 선물: 有 현재가: 304,000원 진입: 295,000~310,000원 (저점지지·MA5 회복 확인 후 분할) 손절: 288,000원 목표: 1차 383,000원 (2차 440,000원) 손익비: 1:4.5 기간: 스윙 4~10주 촉매: 3Q26 실적발표(11월 중순·법정기한 11/14)·대형가스선 수주공시 반증: 3Q26 연결 영업이익 &lt; 8,000억이면 논지 폐기·전량청산 / 종가 288,000원 이탈 전량청산</p>
+<p>&lt;!-- hub:enrich:begin:042660 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-24 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 54,600원 (<span class="down">-4.5%</span>) · 시총 16.73조 · 5일 <span class="down">-16.0%</span> / 20일 <span class="down">-33.3%</span> / 60일 <span class="down">-37.9%</span></li>
+<li>MA5 58,860원 / MA20 70,135원 / MA60 81,048원 → MA20 이격 <span class="down">-22.2%</span> · MA60 이격 <span class="down">-32.6%</span></li>
+<li>52주 고 154,800원 / 저 53,500원 → 고점 대비 <span class="down">-64.7%</span> · 20일 고 81,600원 / 저 54,600원</li>
+<li>후행 PER 13.43 / PBR 2.71 (EPS 4,066원 · BPS 20,138원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,278.7억 (5일 3,323.3억)</li>
+<li>외국인 순매수 5일 202.6억 / 20일 -400.2억 · 기관 5일 4,629.8억 / 20일 3,741.3억 · 개인 20일 1,376.1억</li>
+<li>개별주식선물: ⚡ 상장 (AFV611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 18.70% (공매도 200,211주 · 109.5억) · 5일 평균 14.08% / 20일 평균 15.06% → 보합 · 20일 평균 상회 연속 1일</li>
+<li>공매도 20일 최대 26.07% (10/02) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 70,000원 (<span class="up">+28.2%</span>) ÷ 하방 51,500원 (−5.7%) = <strong>1:4.97</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 5.7% = <strong>자산의 8.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 8.8%</strong></li>
+<li>유동성 참고: 20일 ADV 1,278.7억 · 1일 소화 한도는 ADV의 10%(127.87억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 5.7% · ATR14 3,104원 (손절폭/ATR 1.0배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 5.7% = ATR14 × 1.0배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 49,140원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.82</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:042660 --&gt;</p>
+<p><span id="card-042660"></span>📋 결정카드 — 한화오션(042660) 판정: 관심 선물: 有 현재가: 54,600원 진입: 53,000~56,000원 (반등 확인 후·공매도 과다로 계약 최소) 손절: 51,500원 목표: 1차 70,000원 (2차 81,000원) 손익비: 1:5.0 기간: 스윙 4~10주 촉매: 3Q26 실적발표(11월 중순)·특수선/MASGA(미 해군) 수주 반증: 3Q26 연결 영업이익 &lt; 4,000억이면 논지 폐기·전량청산 / 종가 51,500원 이탈 전량청산</p>
+<p>&lt;!-- hub:enrich:begin:010140 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-24 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 16,680원 (<span class="down">-3.7%</span>) · 시총 14.68조 · 5일 <span class="down">-9.3%</span> / 20일 <span class="down">-19.0%</span> / 60일 <span class="down">-27.2%</span></li>
+<li>MA5 17,460원 / MA20 18,848원 / MA60 20,417원 → MA20 이격 <span class="down">-11.5%</span> · MA60 이격 <span class="down">-18.3%</span></li>
+<li>52주 고 35,350원 / 저 16,450원 → 고점 대비 <span class="down">-52.8%</span> · 20일 고 20,600원 / 저 16,680원</li>
+<li>후행 PER 26.9 / PBR 3.43 (EPS 620원 · BPS 4,857원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 599.2억 (5일 495.8억)</li>
+<li>외국인 순매수 5일 177.5억 / 20일 -892.0억 · 기관 5일 -20.4억 / 20일 -171.5억 · 개인 20일 1,055.8억</li>
+<li>개별주식선물: ⚡ 상장 (ABF611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 5.53% (공매도 161,873주 · 27.0억) · 5일 평균 6.32% / 20일 평균 11.41% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 24.11% (09/28) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 18,800원 (<span class="up">+12.7%</span>) ÷ 하방 15,800원 (−5.3%) = <strong>1:2.41</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 5.3% = <strong>자산의 9.5%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 9.5%</strong></li>
+<li>유동성 참고: 20일 ADV 599.2억 · 1일 소화 한도는 ADV의 10%(59.92억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 5.3% · ATR14 771원 (손절폭/ATR 1.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 5.3% = ATR14 × 1.1배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 15,137원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.37</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:010140 --&gt;</p>
+<p><span id="card-010140"></span>📋 결정카드 — 삼성중공업(010140) 판정: 관망 선물: 有 현재가: 16,680원 진입: 15,900~16,200원 (눌림 대기·PER 고평가로 후순위) 손절: 15,800원 목표: 1차 18,800원 (2차 21,000원) 손익비: 1:2.6 기간: 스윙 4~8주 촉매: 3Q26 실적발표(11월 중순)·FDC 본계약·FLNG 반증: 3Q26 연결 영업이익 &lt; 2,800억이면 논지 폐기·전량청산 / 종가 15,800원 이탈 전량청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
