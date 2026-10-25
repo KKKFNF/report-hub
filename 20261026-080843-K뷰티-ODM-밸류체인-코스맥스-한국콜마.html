@@ -1,0 +1,297 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>코스맥스(192820) · K뷰티 ODM 밸류체인(코스맥스·한국콜마) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261026-080843-K뷰티-ODM-밸류체인-코스맥스-한국콜마.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-buy">🟢 매수 추천 ⓘ</span><span class="tip"><div class="tp-h">🟢 매수 추천 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 명시적 매수 문구(매수추천·비중확대·진입 유효·최선호 등)가 있거나, 결론의 손익비가 1:2 이상이면서 &#x27;추격 금지/자제/부적합·눌림 대기·조건부&#x27; 같은 유보 문구가 전혀 없을 때. = 현재가 부근에서 지금 진입 가능.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 매수 · 손익비 1:6.17</div><div class="tp-c"><b>결론 발췌</b> - 코스맥스(192820): 글로벌 ODM 1위·로레알 MOU 실체·3Q 사상최대 모멘텀. 손익비 1:2.6, 1차 목표 310,000 / 2차 350,000. 판정 매수(현재가권 분할). 선물 有. - 한국콜마(161890): 펀더멘털 강(제약 HK이노엔 포함 다각화)·재무 최우량이나 주가 역배열·20일 최저 눌림. 손익비 1:3.0, 1차 150,000 / 2차 178,000. 판정 관심(반등 확인 대기). 선물 有. - 밸류체인 결론: 선물 레버리지 가능 K뷰티 종목은 코스맥스·한국콜마·에이피알(브랜드) 3개뿐. 용기/부자재(삼화·펌텍·연우계열)·여타 ODM(코스메카·씨앤씨·잉글우드랩)은 선물 미상장 → 현물만, 레버리지 불가.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 매수</span><h1>코스맥스(192820) · K뷰티 ODM 밸류체인(코스맥스·한국콜마)</h1>
+<div class="meta">📊 benine · 2026-10-26 08:08 · 코드 192820</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-26 08:08)</div><div class="kpi-v">272,500원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3.1조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">25.13</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">5.54</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:6.17</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.59</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">310,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 258,000~272,500원 (3회 분할)</span><span class="dc dn">손절 258,000원</span><span class="dc up">목표 310,000원</span><span class="dc">손익비 진입 1:6.17 · 현재가 1:2.59 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.6</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.6로 적었지만 진입·손절·목표로 계산하면 1:6.17다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 실적발표(11월 초~중순, 법정기한 11/14)·로레알 공동개발</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 650억이면 논지 폐기·전량 청산 / ≥ 800억이면 추가매수</div></div>
+
+<div class="body"><h1>K뷰티 ODM 밸류체인 딥리서치 — 코스맥스(192820)·한국콜마(161890)</h1>
+<p>_출발점: 비나인(yak_bro) 블로그 &quot;K뷰티 ODM, &#x27;made in KOREA&#x27;가 마케팅 포인트가 되는 시대&quot;(2026-10-25). 블로그는 개인의견·참고용이며, 아래는 뉴스·공시·DART·KIS 실측으로 교차검증한 리서치입니다. 매수/매도 강요 아님._</p>
+<hr>
+<h2 id="0-테마-한줄-결론">0. 테마 한줄 결론</h2>
+<ul>
+<li><strong>코스맥스(192820)</strong>: 글로벌 ODM 1위·로레알 MOU 실체·3Q 사상최대 모멘텀. 손익비 1:2.6, 1차 목표 310,000 / 2차 350,000. <strong>판정 매수(현재가권 분할)</strong>. 선물 有.</li>
+<li><strong>한국콜마(161890)</strong>: 펀더멘털 강(제약 HK이노엔 포함 다각화)·재무 최우량이나 주가 역배열·20일 최저 눌림. 손익비 1:3.0, 1차 150,000 / 2차 178,000. <strong>판정 관심(반등 확인 대기)</strong>. 선물 有.</li>
+<li>밸류체인 결론: <strong>선물 레버리지 가능 K뷰티 종목은 코스맥스·한국콜마·에이피알(브랜드) 3개뿐.</strong> 용기/부자재(삼화·펌텍·연우계열)·여타 ODM(코스메카·씨앤씨·잉글우드랩)은 <strong>선물 미상장 → 현물만, 레버리지 불가</strong>.</li>
+</ul>
+<hr>
+<h2 id="사실관계-검증-기대감-vs-실체">① 사실관계 검증 — 기대감 vs 실체</h2>
+<p>블로그 4대 논거를 1차 출처로 교차검증:</p>
+<ul>
+<li><strong>로레알-코스맥스 MOU = 실체 확인(★).</strong> [인용: 로레알 그룹 공식 보도자료 2026-09-09 loreal.com/ko-kr, 매경 12156262, 뉴데일리] &quot;세계 1위 뷰티기업 로레알과 ODM 1위 코스맥스가 차세대 뷰티 혁신 MOU 체결. 20년 넘는 공급관계를 <strong>원료·제형 공동 R&amp;D로 확장</strong>, 로레알의 소비자 데이터 + 코스맥스 개발역량 결합.&quot; → &#x27;납품사&#x27;에서 &#x27;공동개발 파트너&#x27;로 격상. <strong>단, 블로그가 말한 &quot;10/23 3Q 컨콜에서 코스맥스 공식 직접 언급&quot;은 로레알 IR 원문을 직접 확인하지 못함 → [미확인]. MOU 자체는 공식 사실.</strong> 서구권 쿠션 히트가 코스맥스 제조라는 부분도 블로거 &#x27;추정&#x27;.</li>
+<li><strong>세포라×올리브영 K뷰티 론칭 = 실체 확인.</strong> [인용: 조선비즈 2026-10-12, 비즈워치, 뉴데일리] 미국 500+ 매장 선 론칭에 이어 <strong>동남아 세포라 48곳에 &#x27;K뷰티에딧&#x27; 매대 확대</strong>. &quot;스킨케어는 K뷰티가 주도&quot; 내러티브는 유통 현장에서 진행 중. ODM 입장에서 전방 판로 확대 = 수주 저변 확대.</li>
+<li><strong>K뷰티 M&amp;A 사상 최대 = 실체 확인.</strong> [인용: 동아 비즈 2025-11-25] &quot;2025년 국내 화장품 M&amp;A <strong>3조원 돌파, 8년래 최대</strong>.&quot; KKR이 화장품 용기(펌프) 선두 <strong>삼화를 약 7,330억~8,000억에 인수</strong>(thebell·매경·뉴데일리 2025-09). → 글로벌 PEF가 <strong>브랜드가 아니라 밸류체인 후방(용기·ODM)에 베팅</strong>. 블로그의 &quot;3.6조·맥쿼리 화성코스메틱/나우코스&quot; 세부 수치는 블로거 집계 → &#x27;추정&#x27;(총액 3조+는 사실).</li>
+<li><strong>종합</strong>: 네 논거 모두 &#x27;실체 있는 산업 호황&#x27;. 다만 <strong>산업 호황 ≠ 주가 상승</strong>이라는 블로거 신중론은 타당 — 이미 밸류(멀티플)에 상당 부분 선반영. 아래 ④⑤에서 멀티플 위치로 검증.</li>
+</ul>
+<hr>
+<h2 id="실적-분석-dart-연결-실측">② 실적 분석 (DART 연결 실측)</h2>
+<h3 id="코스맥스192820-연결-억원-실측-dart-사업보고서-202603180">코스맥스(192820) — 연결, 억원 [실측: DART 사업보고서 20260318000694 / 반기 20260813001436]</h3>
+<ul>
+<li>2023A: 매출 17,775 / 영익 1,157 / 순익 378 / <strong>OPM 6.5%</strong> / 부채비율 334%</li>
+<li>2024A: 매출 21,661 / 영익 1,754 / 순익 884 / <strong>OPM 8.1%</strong> / 부채비율 280%</li>
+<li>2025A: 매출 23,988 / 영익 1,958 / 순익 1,311 / <strong>OPM 8.2%</strong> / 부채비율 247%</li>
+<li>분기(연결·3개월): 25Q1 5,886/513 → 25Q2 6,236/608 → 25Q3 5,856/427 → <strong>26Q1 6,820/530 → 26Q2 7,949/737(OPM 9.3%)</strong></li>
+<li>해석: 매출 2년 CAGR <span class="up">+16%</span>, 영익 70%→ 순익 3.5배(378→1,311). <strong>26Q2 OPM 9.3%로 분기 신고점</strong>. 미국법인 첫 흑자(FETV 인용)·중국 회복. 부채비율 여전히 높으나(247%) 3년 연속 개선. [검산: 25Q1~Q3 합 17,978 + Q4 추정 6,010 = 25A 23,988 ✓]</li>
+</ul>
+<h3 id="한국콜마161890-연결-억원-실측-dart-사업보고서-202603180">한국콜마(161890) — 연결, 억원 [실측: DART 사업보고서 20260318001196 / 반기 20260814002721]</h3>
+<ul>
+<li>2023A: 매출 21,557 / 영익 1,361 / 순익 251 / <strong>OPM 6.3%</strong> / 부채비율 112%</li>
+<li>2024A: 매출 24,521 / 영익 1,939 / 순익 1,253 / <strong>OPM 7.9%</strong> / 부채비율 108%</li>
+<li>2025A: 매출 27,224 / 영익 2,396 / 순익 1,682 / <strong>OPM 8.8%</strong> / 부채비율 107%</li>
+<li>분기(연결·3개월): 25Q1 6,531/599 → 25Q2 7,308/735 → 25Q3 6,830/583 → <strong>26Q1 7,280/789 → 26Q2 영익 1,103(사상최대)</strong></li>
+<li>사업부문(2025): <strong>화장품 54%(기초40.6+색조13.5), 전문의약품(HK이노엔) 36.2%, 패키징(연우) 9.2%, H&amp;B 2.7%.</strong> → 순수 ODM 아니라 제약(케이캡 등)·용기 수직계열화된 복합체. <strong>재무건전성 최우량(부채비율 107%, 코스맥스의 절반 이하).</strong> 분기 순익은 지배/비지배 분리로 DART 매칭 실패 → 분기 순익 [미확인](연간은 확인).</li>
+</ul>
+<hr>
+<h2 id="미래-실적-컨센서스-자동-수집">③ 미래 실적 + 컨센서스 (자동 수집)</h2>
+<h3 id="코스맥스-인용-fnguidenaverstockeasyhankyung-수집">코스맥스 — [인용: fnguide/naver/stockeasy/hankyung, 수집 2026-10-26]</h3>
+<ul>
+<li>연간(억원): FY26E 매출 30,673 / 영익 2,698 / 순익 1,843 / EPS 15,638 (20개사) · FY27E 매출 36,261 / 영익 3,368 / EPS 19,598</li>
+<li>3Q26E: 매출 8,136 / 영익 769 (naver) · DB증권 8,261/796(<span class="up">+86%</span>YoY, OPM 9.6%) · 하나 790(<span class="up">+85%</span>YoY)</li>
+<li>영익 컨센 상향 추세: 현재 2,698 ← 3M전 2,332 ← 6M전 2,312 (가파른 상향)</li>
+<li>최근 리포트: 한화 370,000(상향,10/21)·하나 380,000·DB 370,000·상상인 400,000·키움 390,000·LS 400,000·다올 350,000 → 대부분 10월 일제 상향</li>
+<li><strong>달성 가능성 高</strong>: 26Q2 OPM 9.3% 런레이트 + 미국흑전·중국회복 + 수주 저변확대. 3Q 계절 성수기.</li>
+</ul>
+<h3 id="한국콜마-인용-동일-소스">한국콜마 — [인용: 동일 소스]</h3>
+<ul>
+<li>연간(억원): FY26E 매출 32,199 / 영익 3,510 / 순익 2,515 / EPS 8,365 (21개사) · FY27E 매출 36,468 / 영익 4,192 / EPS 10,239</li>
+<li>3Q26E: 매출 8,360 / 영익 919 (naver) · 상상인 8,272/873 · DB 8,311/881(OPM 10.6%) · SK 8,374</li>
+<li>영익 컨센 상향: 현재 3,510 ← 3M전 3,153 ← 6M전 2,816</li>
+<li>최근 리포트: LS 200,000·현대차 185,000(상향)·신영 180,000(상향)·SK 180,000·하나 180,000·DB 180,000·신한 153,000</li>
+<li><strong>달성 가능성 中~高</strong>: 한국법인 수출 견조·4Q 이연물량. 단 <strong>신한(10/20) &quot;해외법인 회복이 주가 관건&quot;</strong> — 중국/북미 법인 회복 속도가 변수. 용기(연우) 적자 이슈 상존.</li>
+</ul>
+<hr>
+<h2 id="밸류에이션-목표가">④ 밸류에이션 → 목표가</h2>
+<h3 id="코스맥스-현재가-272500-실측-kis-enrich-20261026">코스맥스 (현재가 272,500) [실측: KIS enrich 2026-10-26]</h3>
+<ul>
+<li>현 PER 25.1x(trailing EPS 10,843)·PBR 5.54x·ROE 28% / <strong>Forward PER: FY26E 17.4x, FY27E 13.9x</strong></li>
+<li>peer 대비: 글로벌 ODM 1위 프리미엄. 과거 자기밴드 15~22x(성장기) 기준 현 17x는 중간.</li>
+<li><strong>자체 목표가 [추정: 산식]</strong>: FY26E EPS 15,638 × 적정 PER 20x(1위·<span class="up">+70%</span> 영익성장 반영, 자기밴드 상단) = <strong>312,760원</strong>. FY27E EPS 19,598 × 18x = <strong>352,764원</strong>.</li>
+<li>→ <strong>1차 목표 310,000(<span class="up">+13.8%</span>) / 2차 350,000(<span class="up">+28.4%</span>).</strong> 증권사 최신평균 363,316원(19개사)·리포트집계 304,596원 병기.</li>
+</ul>
+<h3 id="한국콜마-현재가-122500">한국콜마 (현재가 122,500)</h3>
+<ul>
+<li>현 PER 23.1x·PBR 3.18x·ROE 20% / <strong>Forward PER: FY26E 14.6x, FY27E 12.0x</strong> (코스맥스보다 저평가)</li>
+<li><strong>자체 목표가 [추정: 산식]</strong>: FY26E EPS 8,365 × 16x = <strong>133,840원</strong>, FY27E EPS 10,239 × 15x(제약·용기 혼합 디스카운트) = <strong>153,585원</strong>.</li>
+<li>→ <strong>1차 목표 150,000(<span class="up">+22.4%</span>) / 2차 178,000(<span class="up">+45%</span>).</strong> 증권사 최신평균 178,238원(21개사)·리포트집계 155,246원 병기.</li>
+<li>밸류만 보면 한국콜마가 더 쌈(Fwd 14.6x vs 17.4x). 그러나 ⑥에서 보듯 주가 &#x27;위치&#x27;가 열위.</li>
+</ul>
+<hr>
+<h2 id="손익비-진입가-기준">⑤ 손익비 (진입가 기준)</h2>
+<h3 id="코스맥스">코스맥스</h3>
+<ul>
+<li>위치: 현재 272,500, 52주고 320,000 대비 <strong>-14.8%</strong>, MA5 272,000 / MA20 281,800 / MA60 261,243. ret60 <strong><span class="up">+41.5%</span></strong>(큰 상승 후 조정), ret20 <span class="up">+0.9%</span>, ret5 <span class="down">-4.2%</span>. MA60이 지지.</li>
+<li>진입 272,500(현재가권)~265,000(MA60 눌림) / 손절 258,000(MA60 하단, <span class="down">-5.3%</span>) / 1차 310,000(<span class="up">+13.8%</span>)</li>
+<li><strong>손익비 = 13.8% ÷ 5.3% = 1:2.6</strong> (2차 350,000 기준 1:5.4)</li>
+</ul>
+<h3 id="한국콜마">한국콜마</h3>
+<ul>
+<li>위치: 현재 122,500 = <strong>20일 최저(lo20)</strong>, 52주고 165,900 대비 <strong>-26.2%</strong>, MA20 134,030·MA60 132,945 <strong>모두 상회(현재가가 이평선 아래=역배열 초입)</strong>. ret20 <strong>-16.2%</strong>(조정 깊음).</li>
+<li>진입 122,000~124,000(반등 확인시) / 손절 115,000(<span class="down">-6.1%</span>) / 1차 150,000(<span class="up">+22.4%</span>)</li>
+<li><strong>손익비 = 22.4% ÷ 6.1% = 1:3.7</strong>(산식상 우수) — 단 <strong>추세가 하락이라 지금 진입은 &#x27;떨어지는 칼&#x27;. 반등·거래량 확인 전까지 관심.</strong></li>
+</ul>
+<hr>
+<h2 id="진입전략-선물-레버리지-반영">⑥ 진입전략 (선물 레버리지 반영)</h2>
+<ul>
+<li><strong>코스맥스 — 매수(현재가권 분할).</strong> 선물 ADK611. 강세 유지+실적 모멘텀. 3회 분할 각 1/3(272,500 / 265,000 / 258,000 반등). 손절 258,000 종가 이탈시 전량. 익절 310,000 1차 절반·350,000 2차.</li>
+<li><strong>한국콜마 — 관심(눌림 반등 대기).</strong> 선물 ADE611. 밸류·재무 우수하나 역배열. <strong>122,000 지지 확인 + 양봉/거래량 반등 후</strong> 진입. 미확인 돌파 추격 금지. 손절 115,000.</li>
+<li>공매도: 코스맥스 20일평균 7.9%·한국콜마 11.2% → 숏 부담이나 실적 서프라이즈시 숏커버 탄력 가능.</li>
+<li><strong>⚠️ 레버리지 경고</strong>: 둘 다 고변동 국면(RV20 45%, 90.8 percentile). 선물 50% 집중은 3Q 실적 전후 갭 리스크 큼. 이벤트 전 상한 25% 권고.</li>
+</ul>
+<hr>
+<h2 id="산업제품-바텀업-모델-코스맥스-중심-9-규격">⑧ 산업·제품 바텀업 모델 (코스맥스 중심, §9 규격)</h2>
+<h3 id="91-제품-분해-코스맥스-반기-기준-실측-반기보고서-20260813001">9-1 제품 분해 (코스맥스, 반기 기준) [실측: 반기보고서 20260813001436]</h3>
+<ul>
+<li>기초제품류 61.0%(5,745억) / 색조 32.5%(3,064억) / 시공 2.2% / 기타 4.3%. 전형적 기초 중심 ODM.</li>
+</ul>
+<h3 id="92-고객capa-구조">9-2 고객·CAPA 구조</h3>
+<ul>
+<li>CAPA(2026 반기 연환산, 천개): 한국 코스맥스(주) 1,020,508 / 중국(상해+광저우) 998,000 / 미국 121,465 / 인니 210,000 / 야천(광저우) 342,833. <strong>미국 CAPA 98,800→121,465로 <span class="up">+23%</span> 증설</strong>(서구권 수요 대응). 한국 CAPA도 2024 780,000→2025 1,020,508로 <span class="up">+31%</span> 확대.</li>
+<li>생산실적 가동률: 한국 기초 2025년 372,015천개(2024 284,601 대비 <span class="up">+31%</span>) — 한국법인 풀가동 근접.</li>
+</ul>
+<h3 id="93-시장경쟁">9-3 시장·경쟁</h3>
+<ul>
+<li>글로벌 화장품 ODM 1위 코스맥스, 2위 한국콜마(순수ODM 기준). 중국 로컬 ODM과 경쟁하나 한국 2사가 프리미엄·R&amp;D 우위. 구체 점유율 수치 [미확인](회사 &#x27;글로벌 1위&#x27; 주장 근거).</li>
+</ul>
+<h3 id="94-단가원가">9-4 단가·원가</h3>
+<ul>
+<li>제품단가(원): 기초 2024 2,191→2025 2,163→26반기 2,117(소폭↓), 색조 2,718→2,822→2,846(↑). 원재료 ETHANOL 1,700→26반기 2,040(<span class="up">+20%</span>), GLYCERINE 1,230→2,200(<span class="up">+79%</span>) <strong>원가 상승 압력</strong>. ODM은 연동·전가 구조라 마진 방어 중(OPM 상승이 증거).</li>
+</ul>
+<h3 id="97-바텀업-영업이익-모델-코스맥스-fy26-연결-억원-추정-산식">9-7 바텀업 영업이익 모델 (코스맥스 FY26, 연결 억원) [추정: 산식]</h3>
+<ul>
+<li>Bear: 매출 29,500 × OPM 8.3% = 영익 <strong>2,450</strong> (3Q 둔화·중국 부진)</li>
+<li>Base: 매출 30,673 × OPM 8.8% = 영익 <strong>2,700</strong> (컨센 일치: H1실측 1,267 + 3Q 780 + 4Q 650)</li>
+<li>Bull: 매출 31,500 × OPM 9.2% = 영익 <strong>2,900</strong> (3Q 서프라이즈·미국흑자 확대)</li>
+<li>민감도: OPM ±0.5%p → 영익 ±150억. 3Q 분기 비중 ~29%.</li>
+<li><strong>결론 문장: 코스맥스 3Q26 연결 영업이익 ≥ 760억(Base)이면 논지 유지·추가매수 검토, &lt; 650억(Bear)이면 논지 폐기.</strong></li>
+<li>한국콜마 동일 기준: <strong>3Q26 연결 영업이익 ≥ 870억이면 유지, &lt; 760억이면 폐기.</strong></li>
+</ul>
+<hr>
+<h2 id="invalidation">⑦ 촉매·반증·시나리오</h2>
+<ul>
+<li><strong>촉매 캘린더</strong>: ①코스맥스·한국콜마 <strong>3Q26 실적발표(11월 초~중순 예상, 법정기한 11/14)</strong> — 최대 분기 서프라이즈 기대 ②로레알 공동개발 제품 출시 뉴스플로우 ③세포라 2027 글로벌 확장 ④연말 북미/중국 수주 공시.</li>
+<li><strong>반증 3개(수치→행동)</strong>:</li>
+</ul>
+<ol>
+<li>코스맥스 3Q26 연결 영익 &lt; 650억 → 논지 폐기·전량 청산 / ≥ 800억 → 추가매수</li>
+<li>한국콜마 3Q26 연결 영익 &lt; 760억 → 논지 폐기 / ≥ 920억 → 추가매수</li>
+<li>코스맥스 종가 258,000 이탈 or 한국콜마 종가 115,000 이탈 → 해당 종목 전량 청산</li>
+</ol>
+<ul>
+<li><strong>이벤트 매트릭스(3Q 발표)</strong>: 서프라이즈×갭상승→추세추종 보유 / 인라인×보합→목표까지 홀드 / 쇼크×갭하락→손절선 기계 청산.</li>
+<li><strong>확률가중 시나리오(코스맥스, 12개월)</strong>: Bear 25%(목표 230,000, <span class="down">-16%</span>) · Base 50%(목표 310,000, <span class="up">+14%</span>) · Bull 25%(목표 360,000, <span class="up">+32%</span>) → 기대수익률 <strong><span class="up">+11%</span></strong>. (한국콜마: Bear 30% 105,000 / Base 45% 150,000 / Bull 25% 178,000 → 기대 <span class="up">+11%</span>)</li>
+<li><strong>수급·유동성</strong>: 코스맥스 20일 평균거래대금 278억(외국인 20일 -434억, 기관 <span class="up">+617</span>억), 한국콜마 337억(외국인 <span class="up">+342</span>억, 기관 -326억). 1일 체결상한 ADV 10% = 코스맥스 ~28억·한국콜마 ~34억.</li>
+<li><strong>포지션 사이징(자산 대비 %)</strong>: 손실예산 1% ÷ 손절폭(코스맥스 5.3%) = 자산의 18.9%; 집중상한 50%·이벤트(3Q실적)전 상한 25% 중 <strong>최소값 18.9% 채택</strong>. 한국콜마 1%÷6.1%=16.4%, 이벤트전 상한 적용시 16.4%.</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로그·단일 증권사 의견은 &#x27;추정&#x27;. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p><strong>[미확인 목록]</strong> 로레알 10/23 컨콜 코스맥스 직접언급 원문 / 서구권 쿠션 코스맥스 제조 확증 / 코스맥스 글로벌 ODM 점유율 수치 / 한국콜마 분기 순익(지배지분) / 영업현금흐름·이자보상배율 상세 / 블로그 M&amp;A 세부 집계(맥쿼리 화성코스메틱·나우코스 3,000억).</p>
+<p><strong>[출처]</strong> DART 사업/반기보고서(접수 20260318000694·20260813001436·20260318001196·20260814002721) / KIS enrich 2026-10-26 / fnguide·naver·stockeasy·hankyung 컨센(2026-10-26) / 로레알 공식 보도자료 2026-09-09 / 조선비즈·동아비즈·thebell·매경 M&amp;A 기사 / 비나인 블로그(참고).</p>
+<p><strong>[검산]</strong> 코스맥스 25Q1~Q3 합 17,978 + Q4 6,010 = 25A 23,988 ✓ / 손익비 헤더=본문 일치(코스맥스 1:2.6, 한국콜마 1:3.7) / 시나리오 확률합 100% ✓.</p>
+<hr>
+<p>&lt;!-- hub:enrich:begin:192820 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-26 08:08 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 272,500원 (<span class="up">+0.0%</span>) · 시총 3.09조 · 5일 <span class="down">-4.2%</span> / 20일 <span class="up">+0.9%</span> / 60일 <span class="up">+41.6%</span></li>
+<li>MA5 272,000원 / MA20 281,800원 / MA60 261,243원 → MA20 이격 <span class="down">-3.3%</span> · MA60 이격 <span class="up">+4.3%</span></li>
+<li>52주 고 320,000원 / 저 141,000원 → 고점 대비 <span class="down">-14.8%</span> · 20일 고 308,500원 / 저 267,000원</li>
+<li>후행 PER 25.13 / PBR 5.54 (EPS 10,843원 · BPS 49,196원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 278.2억 (5일 181.9억)</li>
+<li>외국인 순매수 5일 24.0억 / 20일 -434.2억 · 기관 5일 31.0억 / 20일 617.1억 · 개인 20일 -169.6억</li>
+<li>개별주식선물: ⚡ 상장 (ADK611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 3.05% / 20일 평균 7.89% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 20.60% (09/28) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 310,000원 (<span class="up">+13.8%</span>) ÷ 하방 258,000원 (−5.3%) = <strong>1:2.59</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 5.3% = <strong>자산의 9.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 9.4%</strong></li>
+<li>유동성 참고: 20일 ADV 278.2억 · 1일 소화 한도는 ADV의 10%(27.82억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 5.3% · ATR14 16,929원 (손절폭/ATR 0.9배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 5.3% = ATR14 × 0.9배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 247,107원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.48</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:192820 --&gt;</p>
+<p><span id="card-192820"></span>📋 결정카드 — 코스맥스(192820) 판정: 매수 선물: 有 현재가: 272,500원 진입: 258,000~272,500원 (3회 분할) 손절: 258,000원 목표: 1차 310,000원 (2차 350,000원) 손익비: 1:2.6 기간: 스윙 6~12주 촉매: 3Q26 실적발표(11월 초~중순, 법정기한 11/14)·로레알 공동개발 반증: 3Q26 연결 영업이익 &lt; 650억이면 논지 폐기·전량 청산 / ≥ 800억이면 추가매수</p>
+<p>&lt;!-- hub:enrich:begin:161890 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-26 08:08 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 122,500원 (<span class="up">+0.0%</span>) · 시총 2.89조 · 5일 <span class="down">-4.5%</span> / 20일 <span class="down">-16.2%</span> / 60일 <span class="up">+19.5%</span></li>
+<li>MA5 124,800원 / MA20 134,030원 / MA60 132,945원 → MA20 이격 <span class="down">-8.6%</span> · MA60 이격 <span class="down">-7.9%</span></li>
+<li>52주 고 165,900원 / 저 60,600원 → 고점 대비 <span class="down">-26.2%</span> · 20일 고 150,000원 / 저 122,500원</li>
+<li>후행 PER 23.12 / PBR 3.18 (EPS 5,299원 · BPS 38,566원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 337.0억 (5일 126.4억)</li>
+<li>외국인 순매수 5일 67.8억 / 20일 341.5억 · 기관 5일 8.5억 / 20일 -326.3억 · 개인 20일 -25.4억</li>
+<li>개별주식선물: ⚡ 상장 (ADE611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 9.53% / 20일 평균 11.19% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 19.49% (10/13) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 150,000원 (<span class="up">+22.4%</span>) ÷ 하방 115,000원 (−6.1%) = <strong>1:3.67</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 6.1% = <strong>자산의 8.2%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 8.2%</strong></li>
+<li>유동성 참고: 20일 ADV 337.0억 · 1일 소화 한도는 ADV의 10%(33.70억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 6.1% · ATR14 6,743원 (손절폭/ATR 1.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 6.1% = ATR14 × 1.1배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 110,250원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.24</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:161890 --&gt;</p>
+<p><span id="card-161890"></span>📋 결정카드 — 한국콜마(161890) 판정: 관심 선물: 有 현재가: 122,500원 진입: 122,000~124,000원 (122,000 지지·반등 확인 후) 손절: 115,000원 목표: 1차 150,000원 (2차 178,000원) 손익비: 1:3.7 기간: 스윙 8~14주 촉매: 3Q26 실적발표(11월 초~중순)·해외법인 회복 여부 반증: 3Q26 연결 영업이익 &lt; 760억이면 논지 폐기 / 종가 115,000 이탈시 전량 청산 / ≥ 920억이면 추가매수</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
