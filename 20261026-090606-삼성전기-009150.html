@@ -1,0 +1,125 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>삼성전기(009150) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261026-090606-삼성전기-009150.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 자동판정(한줄 결론 기준)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 확인 후</div><div class="tp-c"><b>결론 발췌</b> 메르 글은 삼성전기를 AI 기판 공급부족의 핵심 신규 공급처로 지목(테슬라·엔비디아 3.7조 선급금)하지만, 주가는 현재 1,100,000원으로 형의 1차손절(1,100,000)을 터치 중 — 서사는 호재, 차트는 손절권. 근거 - 로이터(10/22): 테슬라·엔비디아가 삼성전기 FC-BGA 증설에 3.7조원 투자. 테슬라 1.1조(세종 전용라인, 2029~2033 공급), 엔비디아 2.6조. - 엔비디아는 기판을 일본 이비덴 80%+ 의존 → 삼성전기를 신규 복수공급처로 편입(대안 희소). - 소재 독점(T-글라스 닛토보90%·ABF 아지노모토95%·극박동박 미쓰이99%)으로 2028년까지 공급부족 심화 전망(골드만: ABF 27년 -…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(자동판정): 확인 후</span><h1>삼성전기(009150)</h1>
+<div class="meta">📊 mer · 2026-10-26 09:06 · 코드 009150</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-26 09:06)</div><div class="kpi-v">1,101,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">82.2조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">121</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">8.72</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc-src">자동추출</span></div></div>
+
+<div class="body"><h1>삼성전기(009150) — FC-BGA 선급금 수혜 vs 손절라인 터치</h1>
+<p><strong>한줄 결론:</strong> 메르 글은 삼성전기를 AI 기판 공급부족의 핵심 신규 공급처로 지목(테슬라·엔비디아 3.7조 선급금)하지만, 주가는 현재 1,100,000원으로 형의 1차손절(1,100,000)을 터치 중 — 서사는 호재, 차트는 손절권.</p>
+<p><strong>근거</strong></p>
+<ul>
+<li>로이터(10/22): 테슬라·엔비디아가 삼성전기 FC-BGA 증설에 3.7조원 투자. 테슬라 1.1조(세종 전용라인, 2029~2033 공급), 엔비디아 2.6조.</li>
+<li>엔비디아는 기판을 일본 이비덴 80%+ 의존 → 삼성전기를 신규 복수공급처로 편입(대안 희소).</li>
+<li>소재 독점(T-글라스 닛토보90%·ABF 아지노모토95%·극박동박 미쓰이99%)으로 2028년까지 공급부족 심화 전망(골드만: ABF 27년 <span class="down">-21%</span>→28년 <span class="down">-42%</span>).</li>
+<li>2029년 물량 가시성 확보로 중기 실적 레버리지 명확.</li>
+</ul>
+<p><strong>반증 / 리스크</strong></p>
+<ul>
+<li>주가 ret20 <span class="down">-26%</span>, ret5 <span class="down">-6%</span>, 외인 20일 -8,398억 순매도. MA20(1,372k)·MA60(1,348k) 모두 하회, 하락추세.</li>
+<li>PER 120·PBR 8.7 고평가 + VKOSPI 52(고변동 90%분위). 선급금 효과는 2029년 매출, 현재 밸류 정당화엔 시차.</li>
+<li>메르도 &quot;선급금 경쟁은 사이클 후반부 신호&quot;라는 시각 병기(추정).</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-26 09:06 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 1,101,000원 (<span class="down">-1.9%</span>) · 시총 82.24조 · 5일 <span class="down">-5.9%</span> / 20일 <span class="down">-25.9%</span> / 60일 <span class="down">-16.9%</span></li>
+<li>MA5 1,138,200원 / MA20 1,372,500원 / MA60 1,347,717원 → MA20 이격 <span class="down">-19.8%</span> · MA60 이격 <span class="down">-18.3%</span></li>
+<li>52주 고 2,417,000원 / 저 201,000원 → 고점 대비 <span class="down">-54.4%</span> · 20일 고 1,675,000원 / 저 1,101,000원</li>
+<li>후행 PER 121.0 / PBR 8.72 (EPS 9,099원 · BPS 126,302원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 9,039.2억 (5일 6,809.4억)</li>
+<li>외국인 순매수 5일 -2,868.9억 / 20일 -8,397.6억 · 기관 5일 -135.6억 / 20일 -1,091.6억 · 개인 20일 9,259.8억</li>
+<li>개별주식선물: ⚡ 상장 (A23611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.81% / 20일 평균 2.79% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 6.84% (10/08) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 <strong>결정카드</strong></p>
+<ol>
+<li>현재가: 1,100,000원 (<span class="down">-1.96%</span>, 10/26)</li>
+<li>평단: 1,819,000 → 평가손 약 <span class="down">-39.5%</span></li>
+<li>1차손절: 1,100,000 → <strong>현재 터치</strong></li>
+<li>1차익절: 1,672,140 (현재가 대비 <span class="up">+52%</span> 필요)</li>
+<li>20일 저점: 1,100,000 (당일이 20일 최저)</li>
+<li>추세: MA5/20/60 전부 하회, 하락추세 지속</li>
+<li>수급: 외인 20일 -8,398억, 기관 -1,092억, 개인 <span class="up">+9,260</span>억</li>
+<li>변동성: ATR14 80,928 / VKOSPI 52 고변동 → 리스크예산 0.5%</li>
+<li>공매도: 당일 0%, 20일평균 2.79% 특이없음</li>
+<li>선물: 가능(A23611) — 레버리지 축소 기조 유지 권고</li>
+</ol>
+<p><strong>액션 요지:</strong> 손절라인 정확히 터치. 메르 서사(2029 물량)는 중장기 재료이나 당장 하락추세·외인이탈·고변동 국면이라 규칙상 손절 트리거 점검 구간. 서사로 손절 미루지 말 것 — 반등은 MA5(1,138k) 회복 확인 후 재평가.</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
