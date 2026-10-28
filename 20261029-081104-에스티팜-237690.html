@@ -1,0 +1,245 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>에스티팜 237690 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261029-081104-에스티팜-237690.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:4.71</div><div class="tp-c"><b>결론 발췌</b> 3Q 실적 자체는 선방(매출 +19%·OPM 16%)이나 ①펠라카르센 임상 3상 실패(9/4)로 올리고 차세대 성장축 1개 소멸 + ②52주 저점·역배열 급락 중인 &#x27;떨어지는 칼&#x27;. 지금은 매수가 아니라 관심(저점권 바닥확인 후 반등 스윙). 저점 지지(73k) 확인 시 진입 기준 손익비 1:4.0, 1차 목표 92,000원(증권사 컨센 목표 평균 15.7만원은 과도·추정치 하향 지속). 블로거 개인의견·참고용. ━━━━━━━━━━━━━━━━ ① 포착 신호 (실측: KIS/enrich 2026-10-29 08:05) • 현재가 77,200원 — 52주 저점 76,200원 바로 위(고점 172,100원 대비 -55%) • 추세: 완전 역배…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>에스티팜 237690</h1>
+<div class="meta">📊 benine · 2026-10-29 08:11 · 코드 237690</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-29 08:11)</div><div class="kpi-v">77,200원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.6조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">28.53</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.69</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:4.71</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.85</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">92,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 74,000~77,000원 (73,000 저점지지 확인 후 분할)</span><span class="dc dn">손절 72,000원</span><span class="dc up">목표 92,000원</span><span class="dc">손익비 진입 1:4.71 · 현재가 1:2.85 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:4</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:4로 적었지만 진입·손절·목표로 계산하면 1:4.71다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2027.2월 4Q26 실적발표 · AOC 신규수주 공시</div><div class="dc-l">🛑 반증: 4Q2026 연결 영업이익 &lt; 150억 or 종가 72,000원 이탈 시 전량 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 에스티팜(237690) ※개별주식선물 有(근월물 AGA611)</p>
+<p>📌 한줄 결론: 3Q 실적 자체는 선방(매출 <span class="up">+19%</span>·OPM 16%)이나 ①펠라카르센 임상 3상 실패(9/4)로 올리고 차세대 성장축 1개 소멸 + ②52주 저점·역배열 급락 중인 &#x27;떨어지는 칼&#x27;. 지금은 매수가 아니라 <strong>관심</strong>(저점권 바닥확인 후 반등 스윙). 저점 지지(73k) 확인 시 진입 기준 손익비 1:4.0, 1차 목표 92,000원(증권사 컨센 목표 평균 15.7만원은 과도·추정치 하향 지속). 블로거 개인의견·참고용.</p>
+<hr>
+<p>① 포착 신호 (실측: KIS/enrich 2026-10-29 08:05)</p>
+<ul>
+<li>현재가 77,200원 — 52주 저점 76,200원 바로 위(고점 172,100원 대비 <span class="down">-55%</span>)</li>
+<li>추세: 완전 역배열 — MA5 82,640 / MA20 89,265 / MA60 95,748 모두 현재가 위. ret5 <span class="down">-14.0%</span> · ret20 <span class="down">-17.3%</span> · ret60 <span class="down">-8.9%</span></li>
+<li>거래대금 급증: 5일평균 120.6억 / 20일평균 90.5억 (급락 투매성 거래)</li>
+<li>변동성 고변동(RV20 46.3%, 상위 91%ile) → 리스크예산 0.5% 권고</li>
+<li>공매도 20일평균 6.36%(최대 18.75% 10/21) — &#x27;공매도 압력 높음&#x27; 판정</li>
+<li>수급: 외국인 20일 <span class="up">+85.6</span>억(5일 -8.2억 전환) / 기관 20일 -147.7억(지속 매도) / 개인 20일 <span class="up">+49.4</span>억</li>
+</ul>
+<p>※ 자금유입이 아니라 급락 과정의 투매·저점 거래. &#x27;초입&#x27;이 아니라 &#x27;급락 바닥권&#x27;</p>
+<hr>
+<p>② 사업·급락 사유</p>
+<ul>
+<li>사업: 동아쏘시오그룹 CDMO 자회사. ①올리고핵산치료제 원료(CDMO, 글로벌 3위권 CAPA — 회사주장[인용:DART사업보고서]) ②저분자 신약API(길리어드 HIV 빅타비 원료 등) ③제네릭API ④CRO/CDMO 용역.</li>
+<li>블로그 급등논지(어닝콜 후기)는 &#x27;3Q 올리고 690억·상업화 70%·수주잔고 반등&#x27;이나, <strong>실제 주가는 급락 중</strong>. 급락 핵심 사유 2가지:</li>
+<li>[인용:뉴스핌 2026-09-08·뉴스퀘스트 10-28] 노바티스 <strong>펠라카르센(Lp(a) 치료 ASO) 글로벌 임상 3상(9/4 현지) 1차 지표 실패</strong> — 심혈관사건 위험감소 입증 못함. 에스티팜이 임상·상업화용 RNA 원료를 공급해온 품목 → 내년 상업화 물량확대 전략 차질. RNA 신약업계 투자심리 급랭.</li>
+<li>[인용:키움 10-28] &quot;RNA 치료제 업계 심리 약화&quot;로 발표 직후 주가 <span class="down">-9%</span>대 급락. [인용:KB證] &quot;펠라카르센 임상 3상 실패 반영&quot; 목표가 하향.</li>
+<li>즉, 블로그는 어닝콜의 긍정 포인트(수주잔고 3.3억달러 반등·AOC 신규수주·빅타비 성장)를 요약했으나, 시장을 지배하는 변수는 <strong>펠라카르센 실패라는 반증 재료</strong>다. 블로그 논지(실체)와 주가(반증)의 괴리가 핵심.</li>
+<li>[인용:히트뉴스 10-26] 3Q 매출 <span class="up">+19%</span> 성장은 &quot;올리고 정체, 저분자(빅타비 등)가 견인&quot; — 블로그의 올리고 상업화 견인 서술과 결이 다름(올리고는 외형 크나 YoY 정체).</li>
+</ul>
+<hr>
+<p>③ 실적 (DART 실측 · 연결 CFS) [실측:사업보고서·반기보고서] 연간 매출/영업이익/OPM</p>
+<ul>
+<li>FY2023: 2,850억 / 335억 / 11.8%</li>
+<li>FY2024: 2,738억 / 277억 / 10.1% (역성장)</li>
+<li>FY2025: 3,317억 / 549억 / 16.6% (강한 턴어라운드)</li>
+</ul>
+<p>[실측:DART 분기보고서 연결·3개월] 분기 매출/영업이익/OPM</p>
+<ul>
+<li>1Q25 524억/10억/2.0% · 2Q25 683억/129억/18.9% · 3Q25 819억/147억/18.0%</li>
+<li>1Q26 670억/115억/17.2% · 2Q26 1,085억/183억/16.9% · <strong>3Q26 976억/157억/16.1%</strong></li>
+<li>3Q YoY: 매출 819→976(<span class="up">+19.1%</span>), 영익 147→157(<span class="up">+6.7%</span>), OPM 18.0%→16.1%(<span class="down">-1.9%</span>p)</li>
+<li>[인용:증권사 3Q26 Re] 영업이익 157억은 컨센(176억) <strong>-10.8% 하회</strong></li>
+</ul>
+<ul>
+<li>순이익 급감 분해(5원칙 ③·⑤): 3Q 순익 약 9억(<span class="down">-95%</span> YoY)은 <strong>영업악화가 아니라 영업외 환율 손실</strong>. [인용:블로그 어닝콜] 외환차손 약 90억(실현·현금) + 외화환산손실 약 50억(미실현·비현금) ≈ 140억 영향. 영업이익 157억은 정상. → 일회성 성격이나, 매출 대부분 수출(FY25 수출 3,105억/93.6%)이라 <strong>원/달러 급락 국면에선 반복 가능한 구조적 환노출</strong>. &#x27;순수 일회성&#x27; 아님.</li>
+<li>재무건전성 [실측:반기보고서 2026.6]: 자산 8,480억·부채 2,190억·자본 6,291억 → <strong>부채비율 34.8%</strong>(매우 건전). 영업활동현금흐름 H1 <strong><span class="up">+1,045</span>억</strong>(순익 상회, 현금창출력 견조). 이자보상배율 미산출(재무비용 세부 미확인)이나 저부채로 리스크 낮음.</li>
+<li>결론: 영업 펀더멘털·재무는 양호. 상처는 영업외(환율)와 밸류(펠라카르센 기대 소멸)에서 발생.</li>
+</ul>
+<hr>
+<p>④ 미래실적·컨센서스 (실측:consensus.py 4소스, 2026-10-29)</p>
+<ul>
+<li>연간 컨센(억원·EPS원): FY26E 매출 4,154 / 영익 710 / 순익 539 / EPS 2,592 (PER 29.8)</li>
+</ul>
+<p>FY27E 매출 5,030 / 영익 945 / EPS 3,742 (PER 20.6) · FY28E 6,057 / 1,233 / EPS 4,900 (PER 15.8)</p>
+<ul>
+<li>영익 컨센 추이(FY26): 현재 710 ← 3M전 782 ← 1Y전 640 — <strong>3Q 쇼크로 하향 전환</strong></li>
+<li>분기 컨센: 4Q26 매출 1,417·순익 215(연중 최대 분기) / 1Q27 매출 959</li>
+<li>목표주가(최근 집계, 전부 <strong>하향</strong>): 유안타 180,000(↓20만)·하나 160,000(↓19만)·다올 160,000·신한 150,000·대신 150,000·상상인 140,000·신영 140,000·키움 130,000(↓). 최신 15개사 평균 157,333원. 투자의견 Buy 37/NR 1.</li>
+<li>달성가능성 판정: <strong>中~低</strong></li>
+<li>근거(긍정): 수주잔고 3Q말 3.3억달러(2Q 2.7→반등, [인용:한국증권신문 10-28])·제1올리고동 풀캐파(가동률 80%)·빅타비 내년 <span class="up">+30%</span>(650억, [인용:블로그, 추정])·4Q 계절성 최대</li>
+<li>근거(부정): 펠라카르센 상업화 물량(내년 기대분)증발로 FY27 올리고 성장 전제 약화 → [인용:상상인] EPS 추정 <span class="down">-41.4%</span>/<span class="down">-20%</span> 하향. 환율 하락 수익성 압박 지속. 컨센 FY27 영익 945억은 펠라카르센 공백 미반영분 잔존 가능 → <strong>추가 하향 리스크</strong>.</li>
+</ul>
+<hr>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 [실측:enrich] PER 28.5(TTM EPS 2,706)·PBR 2.69(BPS 28,666)·시총 16,117억</li>
+<li>자기밴드: 성장기 올리고 CDMO로 PER 30~40배에서 거래되던 종목. 현재 FY27E PER 20.6배 — 외형상 &#x27;밴드 하단&#x27;이나, 펠라카르센發 성장률 하향으로 <strong>정당 멀티플 자체가 리레이팅(하향) 중</strong>이라 단순 저PER=저평가 아님.</li>
+<li>자체 목표가(산식 노출):</li>
+<li>Bear: FY26E EPS 2,592 × 18배(성장훼손·RNA 디레이팅) = <strong>46,700원</strong></li>
+<li>Base: FY27E EPS 3,742 × 25배(성장 재개·보수적) = <strong>93,600원</strong></li>
+<li>Bull: FY27E EPS 3,742 × 33배(심리회복·AOC 수주 가시화) = <strong>123,500원</strong></li>
+<li>증권사 목표 평균 157,333원은 FY27~28 고성장 유지 전제 — 펠라카르센 공백을 아직 덜 반영한 추정이라 자체 Base(93,600)보다 공격적. <strong>자체값 채택</strong>.</li>
+</ul>
+<hr>
+<p>⑥ 진입전략·손익비 (선물 有 — 레버리지 스윙)</p>
+<ul>
+<li>위치: 52주 저점(76,200) 바로 위·완전 역배열 → 추세추종 매수 금지 구간. <strong>저점 바닥확인형 반등 스윙만</strong> 유효.</li>
+<li>지지: 76,200(52주低)·73,000(라운드) / 저항: MA20 89,265·MA5 82,640·심리 90,000·100,000</li>
+<li>선물 3라인(저점 지지 확인 후):</li>
+<li>진입: 74,000~77,000 분할(3회, 각 1/3). 73,000 종가 지지 확인 우선.</li>
+<li>손절: 72,000 종가 이탈 시 전량 청산(52주低·라운드 동시 붕괴)</li>
+<li>익절: 1차 92,000(MA20) → 2차 110,000</li>
+<li>손익비(진입 76,000 기준): 상승여력 (92,000-76,000)/76,000 = <span class="up">+21.1%</span> ÷ 하락리스크 (76,000-72,000)/76,000 = <span class="down">-5.3%</span> = <strong>1:4.0</strong></li>
+</ul>
+<p>※ 산식상 손익비는 매력적이나 역배열·투매·펠라카르센 오버행으로 <strong>1차 도달확률 자체가 낮음</strong>(반등 실패 시 추가 하락). 레버리지 진입은 바닥 다지기(횡보 3일+MA5 회복) 확인 후로 제한.</p>
+<ul>
+<li>⚠️ 선물 레버리지·집중 경고: 고변동(RV20 46%)·공매도 압력 높음 구간. 50% 집중·고배율은 환율 재급락/추가 임상악재 시 반대매매 위험. 손절 아래 추가매수 금지.</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 모델 9-1 제품분해 [실측:DART사업보고서 FY2025, 억원] — DART는 &#x27;신약API/제네릭API/용역&#x27;으로 공시(IR의 올리고/저분자 구분과 상이)</p>
+<ul>
+<li>신약API 2,197(66.3%) / 제네릭API 483(14.6%) / 용역 620(18.7%, 2024 253→2025 620 급증) / 상품·기타·임대 17</li>
+<li>IR기준 올리고 3Q 690억·상업화 70% [인용:블로그 어닝콜, 제품표엔 미분리]</li>
+</ul>
+<p>9-2 고객·납품: 수출 비중 93.6%(FY25). 상위 고객 노바티스(펠라카르센—실패)·길리어드(빅타비) 추정. 구체 고객별 비중 미공시 → 고객집중 리스크 &#x27;미확인(비공개)&#x27; 9-3 시장·경쟁: 글로벌 올리고 CDMO 3위권(회사주장, 단일출처). 경쟁 Agilent·Nitto Avecia 등. TAM·점유율 정량 <strong>미확인</strong>(출처 2개 교차 실패) 9-4 단가 [실측:반기2026] 신약API 25.1백만원/kg(FY25 34.0 대비↓, &quot;저가원료 출하&quot;), 제네릭 4.1(FY25 5.1↓) — 환율·믹스 영향 9-5 CAPA·수주 [실측]: 올리고동 가동률 75.4%(반기)~80%(블로그). 제2올리고동 2025 증설(반월 기계장치 605→1,169억 급증[실측]), 연말 60%·2차증설 연내결정(블로그). 수주잔고 3.3억달러(≈4,700억 @1,420원) 9-6 전방: Lp(a) 시장은 펠라카르센 실패로 불확실. 빅타비(HIV) 전방 견조. AOC(항체-올리고 접합체) 신규수주 하반기 확보(블로그) — 차세대 성장 후보</p>
+<p>9-7 바텀업 실적모델 (FY27 연결, 억원)</p>
+<ul>
+<li>Bear: 매출 4,300 / 영익 620 / OPM 14.4% (펠라카르센 공백 확산·RNA수주 지연·환율 지속) — 산식: 올리고 정체+저분자만 성장, 영익 컨센 <span class="down">-34%</span></li>
+<li>Base: 매출 4,900 / 영익 880 / OPM 18.0% (저분자 성장+올리고 완만, AOC 일부 기여) — 컨센(945) 소폭 하회</li>
+<li>Bull: 매출 5,300 / 영익 1,000 / OPM 18.9% (AOC 대형수주+심리회복)</li>
+<li>민감도: OPM ±2%p → 영익 약 ±100억. 환율 <span class="down">-5%</span> 추가하락 시 분기 영업외 -70~100억 재발 가능.</li>
+<li><strong>결론 문장: 4Q2026 연결 영업이익 ≥ 240억이면 성장논지 유지·추가매수 검토 / &lt; 150억이면 논지 폐기·청산</strong> (4Q 컨센 영익 ≈260억 기준)</li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·시나리오</p>
+<ul>
+<li>촉매 캘린더(날짜확정):</li>
+<li>2027년 2월(잠정) 4Q26·FY26 실적발표 — 4Q 영익·수주잔고·펠라카르센 공백 가이던스</li>
+<li>AOC 신규수주 공시(단일판매공급계약) — 시점 미확정, 체결 시 리레이팅 트리거</li>
+<li>환율(원/달러) 월말 동향 — 영업외 손익 직결</li>
+<li>반증 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>4Q2026 연결 영업이익 &lt; 150억 → 논지 폐기·전량 청산</li>
+<li>종가 72,000원 이탈 → 전량 청산(기술적)</li>
+<li>신규 올리고/AOC 수주공시 2027.1Q까지 無 + 수주잔고 2.7억달러 이하 재감소 → 성장논지 폐기</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(4Q실적):</li>
+<li>서프라이즈(영익≥260)×갭상승 → 추세전환 초입, 분할매수 가속</li>
+<li>인라인(180~260)×보합 → 기존 포지션 유지, 돌파 대기</li>
+<li>쇼크(&lt;150)×갭하락 → 손절 집행, 관망 전환</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 40% · 목표 46,700 (현 대비 <span class="down">-39%</span>)</li>
+<li>Base 45% · 목표 93,600 (<span class="up">+21%</span>)</li>
+<li>Bull 15% · 목표 123,500 (<span class="up">+60%</span>)</li>
+<li>기대값 = 0.40×46,700 + 0.45×93,600 + 0.15×123,500 = <strong>79,350원</strong> (현재가 77,200 대비 <span class="up">+2.8%</span>)</li>
+</ul>
+<p>→ 확률가중 기대수익 미미. &#x27;지금 매수&#x27;는 비효율, 바닥확인 후 진입 시 R/R 개선</p>
+<ul>
+<li>수급·유동성 [실측:KIS]: 20일 평균거래대금 90.5억 → 1일 체결상한(ADV 10%) 약 9.0억. 외국인 5일 매도전환·기관 지속매도 = 수급 부담</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 0.5%(고변동) ÷ 손절폭 5.3% = <strong>자산의 9.4%</strong>. 집중상한 50%·이벤트(2월 실적) 전 상한 25% 중 <strong>최소값 9.4% 채택</strong>. 레버리지 시 변동성 고려 추가 축소.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거·증권사 추정치는 &#x27;추정&#x27;. 실측 못한 값은 &#x27;미확인&#x27;. 블로그 본문은 참고자료일 뿐 사실 근거 아님.</p>
+<p>[미확인 목록] 올리고 CDMO TAM·점유율 정량(출처2개 교차 실패)·고객별 매출비중(비공개)·이자보상배율 세부·FY 순이익 연간 추이·AOC 수주 규모 [출처 목록] DART 사업보고서(20260602000343)·반기보고서(20260814003399)·consensus.py 4소스(stockeasy/naver/fnguide/hankyung 2026-10-29)·KIS enrich(10-29)·뉴스핌/뉴스퀘스트/키움/KB證/히트뉴스/한국증권신문·블로그 어닝콜후기 [검산] 분기합: 1Q24~실측 연결 3개월 / 3Q YoY 819→976 = <span class="up">+19.1%</span> ✓ / 손익비 21.1÷5.3=4.0 헤더·본문 일치 ✓ / 시나리오 확률합 40<span class="up">+45</span><span class="up">+15</span>=100 ✓ / 반증 4Q영익 150·240억 = 바텀업 결론문장 일치 ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-29 08:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 77,200원 (<span class="up">+0.0%</span>) · 시총 1.61조 · 5일 <span class="down">-14.0%</span> / 20일 <span class="down">-17.3%</span> / 60일 <span class="down">-8.9%</span></li>
+<li>MA5 82,640원 / MA20 89,265원 / MA60 95,748원 → MA20 이격 <span class="down">-13.5%</span> · MA60 이격 <span class="down">-19.4%</span></li>
+<li>52주 고 172,100원 / 저 76,200원 → 고점 대비 <span class="down">-55.1%</span> · 20일 고 96,900원 / 저 77,200원</li>
+<li>후행 PER 28.53 / PBR 2.69 (EPS 2,706원 · BPS 28,666원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 90.5억 (5일 120.6억)</li>
+<li>외국인 순매수 5일 -8.2억 / 20일 85.6억 · 기관 5일 -125.4억 / 20일 -147.7억 · 개인 20일 49.4억</li>
+<li>개별주식선물: ⚡ 상장 (AGA611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 3.58% / 20일 평균 6.36% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 18.75% (10/21) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 92,000원 (<span class="up">+19.2%</span>) ÷ 하방 72,000원 (−6.7%) = <strong>1:2.85</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 6.7% = <strong>자산의 7.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 7.4%</strong></li>
+<li>유동성 참고: 20일 ADV 90.5억 · 1일 소화 한도는 ADV의 10%(9.05억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 6.7% · ATR14 5,236원 (손절폭/ATR 1.0배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 6.7% = ATR14 × 1.0배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 69,346원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.88</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-237690"></span>📋 결정카드 — 에스티팜(237690) 판정: 관심 선물: 有 현재가: 77,200원 진입: 74,000~77,000원 (73,000 저점지지 확인 후 분할) 손절: 72,000원 (종가) 목표: 1차 92,000원 (2차 110,000원) 손익비: 1:4.0 기간: 스윙 4~8주 촉매: 2027.2월 4Q26 실적발표 · AOC 신규수주 공시 반증: 4Q2026 연결 영업이익 &lt; 150억 or 종가 72,000원 이탈 시 전량 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
