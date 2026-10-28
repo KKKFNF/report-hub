@@ -1,0 +1,196 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>엘티씨(170920) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261028-120914-엘티씨-170920.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.94</div><div class="tp-c"><b>결론 발췌</b> SK하이닉스 낸드 고단화(321단)·증설 수혜가 실적으로 이미 증명 중(2026 상반기 영업익 413억, 작년 연간 296억 초과). 다만 ①오늘 +15% 급등 추격 부담, ②이익의 과반이 소수주주로 새는 지분 구조가 핵심 리스크. 판정 관심(눌림 분할) · 1차 목표 46,000원 · 손익비 1:3.5(진입 37,000 기준) · 현물만. ━━━━━━━━━━━━━━━━ ① 포착 신호·급등사유 • 현재가 38,700원(10/28 종가, +15.18%) [실측: KIS enrich 2026-10-28]. 20일 평균 거래대금 78.9억·당일 거래 급증. • 급등 트리거: 오늘(10/28) SK하이닉스 3Q26 컨콜 — 분기 매출 첫 100…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>엘티씨(170920)</h1>
+<div class="meta">📊 benine · 2026-10-28 12:09 · 코드 170920</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-28 12:09)</div><div class="kpi-v">38,900원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">4,109억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">81.04</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">3.11</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.94</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.58</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">46,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 36,000~37,500원 (눌림 3회 분할)</span><span class="dc dn">손절 34,400원</span><span class="dc up">목표 46,000원</span><span class="dc">손익비 진입 1:3.94 · 현재가 1:1.58 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:3.5</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:3.5로 적었지만 진입·손절·목표로 계산하면 1:3.94다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 전후 3Q26 분기보고서·하이닉스 321단 50% 확대 진행률</div><div class="dc-l">🛑 반증: 3Q26 연결 영업익 &lt; 130억 또는 종가 34,400 이탈 시 논지 폐기·청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 엘티씨(170920)  ※코스닥 · 개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: SK하이닉스 낸드 고단화(321단)·증설 수혜가 실적으로 이미 증명 중(2026 상반기 영업익 413억, 작년 연간 296억 초과). 다만 ①오늘 <span class="up">+15%</span> 급등 추격 부담, ②이익의 과반이 소수주주로 새는 지분 구조가 핵심 리스크. <strong>판정 관심(눌림 분할)</strong> · 1차 목표 46,000원 · 손익비 1:3.5(진입 37,000 기준) · 현물만.</p>
+<hr>
+<p>① 포착 신호·급등사유</p>
+<ul>
+<li>현재가 38,700원(10/28 종가, <span class="up">+15.18%</span>) [실측: KIS enrich 2026-10-28]. 20일 평균 거래대금 78.9억·당일 거래 급증.</li>
+<li>급등 트리거: 오늘(10/28) SK하이닉스 3Q26 컨콜 — 분기 매출 첫 100조 돌파, &quot;2027~2028년 생산능력 50% 이상 LTA(장기공급계약) 확보&quot;, 321단 낸드 연말 국내 생산능력 50%로 확대. 낸드 고단화 = 엘티씨 소재·장비 수혜 기대 [인용: 조선비즈 2026-10-28·2026-07-29].</li>
+<li>위치: 52주 고점 60,700 / 저점 15,300 대비 현재 64% 지점(고점권 아님, 눌림 후 반등). MA5 34,720·MA20 38,177·MA60 36,540 밀집 상단. ret60 <span class="up">+30.7%</span>, ret20 <span class="down">-3.0%</span>(조정 후 오늘 급반등).</li>
+</ul>
+<p>② 사업·팩트체크 (기대감 vs 실체)</p>
+<ul>
+<li>주력: PR 박리액(Stripper)·세정액(디스플레이/반도체 공정 케미칼) + 반도체 웨이퍼 세정장비(STW)·C.C.S.S 장비. 2025 매출 3,104억 [실측: DART 사업보고서 2025.12, 접수 20260813001338].</li>
+<li>제품 믹스(2025 연간): 장비(세정 STW) 1,267억(40.8%) · C.C.S.S 444억(14.3%) · 케미칼 반도체용(낸드 식각) 585억(18.8%) · FPD용 253억(8.2%) · 제품외 507억(16.4%).</li>
+<li>★팩트체크 1 — 블로거의 &#x27;HSN&#x27;은 정확히는 <strong>HSP(고선택비 인산계 식각액)</strong>. 자회사 <strong>엘티씨에이엠(LTCAM)</strong>이 SK하이닉스 300단대 낸드 공정에 HSP를 공급 [인용: 뉴스핌/블로그 2026]. 300단↑ 낸드는 식각 깊이가 깊어 고선택비 소재 수요가 구조적으로 증가하는 모델은 사실로 확인.</li>
+<li>★팩트체크 2 — &quot;독점&quot;은 과장. 증권·블로그는 &#x27;점유율 과반 이상&#x27;으로 서술(독점 아님), 경쟁사 이엔에프테크(102710) 등 존재. &quot;이엔에프 300단 HSP 퀄 2027 하반기 지연&quot;은 <strong>블로거 추정·미확인</strong>(1차 출처 없음).</li>
+<li>★팩트체크 3 — 지금 실적 급증의 주력은 소재(HSP)가 아니라 <strong>세정장비(자회사 엘에스이)</strong>. 2026 반기 매출 2,397억 중 세정장비 58.8%(1,411억), 반도체 케미칼(HSP포함)은 16%(383억)에 불과 [실측: DART 반기보고서 2026.06]. 즉 HSP는 고마진·성장초기 &#x27;옵션&#x27;, 현 실적은 하이닉스 증설 capex(장비)가 견인. 블로거 프레임과 실제 매출 구조에 차이 있음.</li>
+</ul>
+<p>③ 실적 (DART 연결 실측)</p>
+<ul>
+<li>연간 매출: 2023 1,134억 → 2024 2,770억(<span class="up">+144%</span>) → 2025 3,104억(<span class="up">+12.1%</span>).</li>
+<li>연간 영업익: 2023 -161억(적자) → 2024 242억(흑전) → 2025 296억(<span class="up">+22.5%</span>), OPM 8.7%→9.5% [실측: DART].</li>
+<li>분기(연결·3개월) 매출/영업익/OPM:</li>
+<li>2025 Q1 759억 / 94억 / 12.4%</li>
+<li>2025 Q2 613억 / 49억 / 8.0%</li>
+<li>2025 Q3 679억 / 82억 / 12.1%</li>
+<li>2025 Q4 1,052억 / 71억 / 6.7% [분기합=연간 검산 OK]</li>
+<li>2026 Q1 988억 / 181억 / 18.3%</li>
+<li>2026 Q2 1,409억 / 232억 / 16.5%</li>
+<li><strong>2026 상반기 영업익 413억 — 이미 2025 연간(296억) 초과.</strong> 매출 YoY <span class="up">+74.7%</span>, 영업익 YoY <span class="up">+188%</span>, OPM 17.2%로 레벨업. 실적 모멘텀이 주가 상승을 정당화하는 국면.</li>
+<li>재무건전성: 자산 3,834억·부채 1,596억·자본 2,237억 → 부채비율 71.3%(양호) [실측: DART 2025].</li>
+<li>★핵심 리스크 — 지분 구조 희석: 2025 연결순익 182억인데 <strong>지배주주순익은 51억(지배율 28%)</strong>. 2026 상반기도 연결순익 387억 중 지배 183억(지배율 47%). 수익 급증 자회사(엘에스이·엘티씨에이엠)를 엘티씨가 전부 소유하지 않아 <strong>이익의 과반이 소수주주로 유출</strong>. 주당가치(EPS)엔 절반만 귀속 → 밸류 해석 시 반드시 반영.</li>
+</ul>
+<p>④ 미래실적·컨센서스 [실측: consensus.py 4소스, 2026-10-28]</p>
+<ul>
+<li>목표가 컨센 71,500원(fnguide 2건) · 현재가 대비 <span class="up">+84.8%</span> · 투자의견 4.0/5.</li>
+<li>FY26E: 매출 4,586억 · 영업익 734억 · 순익 624억(연결) · EPS 2,774원 · ROE 20.6%.</li>
+<li>FY27E: 매출 6,688억 · 영업익 1,174억 · EPS 4,397원.</li>
+<li>분기 컨센: 2026Q3 매출 1,237억 · 영업익 204억(naver) / Q4 매출 952억.</li>
+<li>최근 리포트: 신한투자 2026-08-14 &quot;2분기 연속 최대 실적 경신&quot;, 신한 2026-06-02 &quot;소부장 모범생&quot;, 유안타 2026-03-26 Not Rated(탐방), 그로쓰리서치 2026-07-09 &quot;올해 영업익 650억·내년 매출 6천억&quot;(뉴스핌), 연세대 투자학회 YIG 목표 71,222원(추정·비증권사).</li>
+<li><strong>달성가능성 高</strong>: FY26E 영업익 734억 중 상반기 413억 이미 달성 → 하반기 321억만 내면 됨(상반기 run-rate 하회로 보수적). 하이닉스 연말 321단 50% 확대·용인/M15X 증설이 하반기 뒷받침. [단, FY26E 매출 4,586억은 상반기 2,397억 run-rate로 보면 보수적이라 상향 여지]</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 PER: trailing(2025 지배EPS 483원) 80.6배(지배익 함몰로 왜곡) / <strong>fwd FY26E PER 14.0배·FY27E 8.8배</strong> [실측: enrich·fnguide]. PBR 3.09(BPS 12,514).</li>
+<li>코스닥 반도체 소부장 성장주 밴드 통상 PER 15~20배.</li>
+<li>자체 목표가 산식: FY26E 지배EPS 2,774원 × 적정 16.6배 = <strong>46,000원(1차)</strong> / FY27E EPS 4,397원 × 보수 13배 = 57,000원(2차). 증권 컨센 71,500(PER 26배, 공격적)·YIG 71,222 병기 — 컨센은 FY27 고성장+소재 믹스 프리미엄 반영이나 지분 희석 감안 시 나의 46,000~57,000이 현실적.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (현물만 — 선물 無, 레버리지 불가)</p>
+<ul>
+<li>지지: MA20 38,177 / MA60 36,540 / MA5 34,720(밀집), 하방 20일 저점 31,150.</li>
+<li>저항: 20일 고점 44,250 → 52주 고점 60,700.</li>
+<li>오늘 <span class="up">+15%</span> 급등으로 <strong>현재가 추격 부담</strong> → 눌림목 분할이 유리.</li>
+<li>진입: 36,000~37,500(MA20/60 눌림 3회 분할, 각 1/3)</li>
+<li>손절: 34,400 종가 이탈(MA60·MA5 하단, <span class="down">-7.0%</span> @진입 37,000)</li>
+<li>목표: 1차 46,000(<span class="up">+24.3%</span>) / 2차 55,000</li>
+<li><strong>손익비 = 상승여력 24.3% ÷ 하락리스크 7.0% = 1:3.5</strong> (진입 37,000 기준). 현재가 38,700 추격 시 1차까지 1:1.7로 열위 → 추격 비권장.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (§9) 【9-1 제품 분해(2026 반기, 연결)】 세정장비 1,411억(58.8%) · 반도체 케미칼(HSP 등 낸드식각) 383억(16.0%) · FPD 케미칼 126억(5.3%) · C.C.S.S 214억(8.9%) · 제품외 240억(10.0%) [실측: DART 반기 2026.06]. 【9-2 고객】 디스플레이 케미칼 = 삼성디스플레이·중국 패널사; 반도체 세정장비·HSP = SK하이닉스 [인용: DART 본문·증권 리포트]. 고객 집중(하이닉스) = 성장 레버리지인 동시에 단일 고객 리스크. 【9-3 시장·경쟁】 300단↑ 낸드 고선택비 식각소재 — 엘티씨에이엠 &#x27;점유율 과반&#x27;(증권/블로그 추정, 1차 출처 미확인), 경쟁 이엔에프테크(102710). TAM 금액 <strong>미확인</strong>. 【9-4 단가】 DART는 장비 주문제작 특성상 단가추이 기재 생략. HSP 단가 <strong>미확인</strong>. 【9-5 CAPA·수주】 케미칼 가동률 2025 21.5%→2026 반기 10.2%(증설 여력 큼). 수주잔고(건설형 장비) 2025말 191억 [실측: DART]. 2026 반기말 수주잔고 표 잘림 <strong>미확인</strong>. 【9-7 바텀업 실적(연결)】</p>
+<ul>
+<li>Base FY26E: 매출 4,586억·영업익 734억(OPM 16%). 근거: 상반기 413억+하반기 321억, 하이닉스 증설·321단 50% 뒷받침 → 달성가능성 高.</li>
+<li>Bull FY27E: 매출 6,688억·영업익 1,174억(소재 믹스 상승+장비 수주 지속).</li>
+<li>Bear: 장비 수주 인식 지연·테마 냉각 → FY26 영업익 550억대.</li>
+<li>분기 3Q26 컨센: 매출 1,237억·영업익 204억.</li>
+<li>민감도: HSP 믹스 ±는 이익 레버리지 크나 비중 16%라 전사 영향 제한적; 장비 수주 인식 1분기 지연 시 분기 매출 300억+ 변동.</li>
+<li><strong>결론 문장: 3Q26 연결 영업익 ≥ 200억이면 논지 유지·추가매수 검토, &lt; 130억이면 논지 폐기.</strong></li>
+</ul>
+<p>⑦ 촉매·반증·시나리오</p>
+<ul>
+<li>촉매(날짜 확정): 2026-11-14 전후 3Q26 분기보고서(법정기한) — 소재·장비 동반성장 확인 분기점. 하이닉스 연말 321단 50% 확대 진행률.</li>
+<li>반증 3개: ①3Q26 연결 영업익 &lt; 130억 → 전량 청산 ②종가 34,400 이탈 → 청산 ③지배주주순익 비중 추가 하락(3Q 지배율 &lt; 40%)으로 EPS 희석 심화 확인 시 비중 축소.</li>
+<li>이벤트 매트릭스(3Q 실적×당일):</li>
+<li>서프라이즈×갭상승 → 눌림 대기, 추격 금지</li>
+<li>인라인×보합 → 36,000~37,500 분할</li>
+<li>쇼크(&lt;130억)×갭하락 → 반증 발동, 청산</li>
+<li>확률가중 시나리오: Bull 30%(60,000) · Base 50%(48,000) · Bear 20%(31,000) → 기대값 ≈ 48,200원(현재가 대비 <span class="up">+24.5%</span>, 진입 37,000 기준 <span class="up">+30%</span>).</li>
+<li>수급: 외국인 20일 <span class="up">+17.6%</span>(순매수)·5일 <span class="down">-2.3%</span> / 기관 20일 <span class="down">-29.9%</span>(순매도) [실측: KIS]. 공매도 특이 없음(20일 평균 2.3%). 20일 평균 거래대금 78.9억 → 1일 체결 상한(ADV 10%) 약 7.9억.</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭 7.0% = 자산의 14.3%; 고변동 국면·이벤트(11/14 실적) 전 상한 25%·집중상한 50% 중 <strong>최소값 14.3% 채택</strong>. 50% 집중은 단일 고객(하이닉스)·지분 희석 리스크 감안 시 과도.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매매 강요 아님. 증권사/블로거/학회 추정치는 &#x27;추정&#x27;, 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록] 엘티씨에이엠·엘에스이에 대한 엘티씨 지분율 정확치(지배율 역산 시 핵심 수익 자회사 지분 50%대 추정) / HSP 점유율 정확 수치(과반은 추정) / 이엔에프 300단 퀄 2027H2 지연(블로거 추정) / HSP·세정장비 TAM·단가 / 2026 반기말 수주잔고 / 2026 Q3 실제 실적(11/14 전망). [출처] DART [기재정정]사업보고서 2025.12(접수 20260813001338)·반기보고서 2026.06(접수 20260813001364) / consensus.py fnguide·naver·hankyung 2026-10-28 / 신한·유안타·그로쓰리서치·YIG 리포트 / 조선비즈 2026-10-28·2026-07-29 하이닉스 컨콜 / dailyinvest·ebn·alphasquare·뉴스핌. [검산] 2025 분기합 매출 759<span class="up">+613</span><span class="up">+679</span><span class="up">+1,052</span>=3,104=연간 ✓ · 영업익 94<span class="up">+49</span><span class="up">+82</span><span class="up">+71</span>=296=연간 ✓ / 2026 H1 988<span class="up">+1,409</span>=2,397 ✓ / 손익비 헤더=본문 1:3.5 ✓ / 시나리오 확률합 100% ✓ / 연결·별도 라벨 전수 &#x27;연결&#x27; 확인.</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-28 12:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 38,900원 (<span class="up">+15.8%</span>) · 시총 4,109억 · 5일 <span class="up">+7.5%</span> / 20일 <span class="down">-2.5%</span> / 60일 <span class="up">+31.4%</span></li>
+<li>MA5 34,760원 / MA20 38,188원 / MA60 36,543원 → MA20 이격 <span class="up">+1.9%</span> · MA60 이격 <span class="up">+6.4%</span></li>
+<li>52주 고 60,700원 / 저 15,300원 → 고점 대비 <span class="down">-35.9%</span> · 20일 고 44,250원 / 저 31,150원</li>
+<li>후행 PER 81.04 / PBR 3.11 (EPS 480원 · BPS 12,514원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 79.1억 (5일 50.1억)</li>
+<li>외국인 순매수 5일 -2.3억 / 20일 17.6억 · 기관 5일 -1.1억 / 20일 -29.9억 · 개인 20일 11.3억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.42% / 20일 평균 2.29% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 7.11% (10/27) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 46,000원 (<span class="up">+18.3%</span>) ÷ 하방 34,400원 (−11.6%) = <strong>1:1.58</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 11.6% = <strong>자산의 4.3%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.3%</strong></li>
+<li>유동성 참고: 20일 ADV 79.1억 · 1일 소화 한도는 ADV의 10%(7.91억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 11.6% · ATR14 3,150원 (손절폭/ATR 1.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 11.6% = ATR14 × 1.4배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 34,175원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.50</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-170920"></span>📋 결정카드 — 엘티씨(170920) 판정: 관심 선물: 無 현재가: 38,700원 진입: 36,000~37,500원 (눌림 3회 분할) 손절: 34,400원 (종가 이탈) 목표: 1차 46,000원 (2차 55,000원) 손익비: 1:3.5 기간: 스윙 4~10주 촉매: 2026-11-14 전후 3Q26 분기보고서·하이닉스 321단 50% 확대 진행률 반증: 3Q26 연결 영업익 &lt; 130억 또는 종가 34,400 이탈 시 논지 폐기·청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
