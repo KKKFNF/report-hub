@@ -1,0 +1,215 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>오킨스전자 080580 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261029-081148-오킨스전자-080580.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.64</div><div class="tp-c"><b>결론 발췌</b> CLT·번인소켓 고성장 실체는 컨센으로 확인되나 현재가는 52주 신고가권·FY26E PER 22배로 선반영. 추격 아닌 눌림 대기 &#x27;관심&#x27;. 눌림 진입(26,000~27,500) 기준 손익비 1:2.3, 목표가 1차 34,000·2차 38,000원(현대차 36,000 병기). ※블로거 IR 요약 기반 글의 검증 리포트이며 참고용, 매수·매도 강요 아님. ──────── ① 포착 신호·급등사유 • 현재가 29,700원(10/28 종가·10/29 장전) — 52주 신고가 31,500원(10/28) 바로 아래, 52주 저가 7,530원(25/11) 대비 +294%. 명백한 고점권. • MA정배열 O: MA5 26,880 / MA20 27,04…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>오킨스전자 080580</h1>
+<div class="meta">📊 benine · 2026-10-29 08:11 · 코드 080580</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-29 08:11)</div><div class="kpi-v">29,700원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">6,264억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">71.91</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">11.85</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.64</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.75</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">34,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 26,000~27,500원 (눌림 대기, 3회 분할)</span><span class="dc dn">손절 24,000원</span><span class="dc up">목표 34,000원</span><span class="dc">손익비 진입 1:2.64 · 현재가 1:0.75 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.3</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.3로 적었지만 진입·손절·목표로 계산하면 1:2.64다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 분기보고서 2026-11-14 전후 / 11월 CXMT 수주공시 여부</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 70억이면 논지 폐기·청산 / 종가 24,000원 이탈 시 전량 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 오킨스전자(080580) ※개별주식선물 無(현물만 가능·레버리지 불가)</p>
+<p>📌 한줄 결론: CLT·번인소켓 고성장 실체는 컨센으로 확인되나 현재가는 52주 신고가권·FY26E PER 22배로 선반영. 추격 아닌 눌림 대기 &#x27;관심&#x27;. 눌림 진입(26,000~27,500) 기준 손익비 1:2.3, 목표가 1차 34,000·2차 38,000원(현대차 36,000 병기). ※블로거 IR 요약 기반 글의 검증 리포트이며 참고용, 매수·매도 강요 아님.</p>
+<p>──────── ① 포착 신호·급등사유</p>
+<ul>
+<li>현재가 29,700원(10/28 종가·10/29 장전) — 52주 신고가 31,500원(10/28) 바로 아래, 52주 저가 7,530원(25/11) 대비 <span class="up">+294%</span>. 명백한 고점권.</li>
+<li>MA정배열 O: MA5 26,880 / MA20 27,045 / MA60 21,434 전부 현재가 하회 → 단기 가파른 각도.</li>
+<li>20일 평균 거래대금 164억(10/27 507억 폭증) — 자금유입 강함 [실측: KIS 일봉].</li>
+<li>급등사유(검증): 10/19 신한투자증권·10/02 현대차증권(목표가 28,000→36,000 상향) 리포트 발표로 &#x27;CLT 도입 가속·3Q 실적&#x27; 모멘텀, 외국인·기관 동시 순매수 [인용: 뉴스핌·MK 2026-10-02·10-27]. 테마가 아니라 실적 리포트 + 수급이 끌어올린 급등(실체 有).</li>
+</ul>
+<p>──────── ② 사업·사실관계 검증</p>
+<ul>
+<li>주력: 반도체 검사용 소켓(BiTS사업부, 번인소켓·테스트소켓·스프링핀/포고핀) + 반도체 테스트 용역. [실측: 2025 사업보고서] 제품매출 비중 88.8%(소켓 외), 테스트 7.5%, 기타 3.7%. 반기(26.6) 소켓비중 91.9%로 상승.</li>
+<li>전방: 삼성·하이닉스·마이크론·CXMT 등 메모리/후공정. 번인소켓은 소모성 부품(교체주기 존재) → 캐파·가동 늘면 반복매출.</li>
+<li>블로거 IR 핵심주장 vs 실체 구분:</li>
+<li>[검증됨] CLT 도입 가속·단기 실적 증명 → 현대차 10/02 리포트 제목·목표가 상향으로 확인. 신한 3Q26 매출 375억(<span class="up">+61%</span>)·영익 89억(<span class="up">+140.5%</span>, OPM 23.6%) 전망 [인용: fnguide·신한 2026-10-19].</li>
+<li>[미확인·블로거 주장] &quot;CXMT 소캠 메인디바이스 어드반테스트·유니테스트 동시 단독승인&quot;, &quot;11월 1차 출하 대량수주&quot;, &quot;CLT 매출점유 25년8%→26상반기16%&quot;, &quot;CLT장비 25년10대→26년23대→27년 배 이상&quot;. → 공개 공시·뉴스로 교차확인 불가. CXMT향 번인소켓 성장 &#x27;방향&#x27;은 복수 증권사가 지지하나 위 구체 수치·단독승인은 회사 IR 구두설명 영역으로 공식 미확인. 수주 실체는 11월 단일판매공급계약 공시로만 확정 가능.</li>
+</ul>
+<p>──────── ③ 실적 (DART 연결 실측, 억원)</p>
+<ul>
+<li>연간 추세: 매출 569(23)→667(24)→944(25, <span class="up">+41.5%</span>). 영업이익 4(23)→19(24)→111(25), OPM 0.7%→2.8%→11.8%. 턴어라운드 가파름 [실측: 각 사업보고서 연결].</li>
+<li>순이익 변동 분해(★원칙5): 2024 순익 -54억(적자)인데 영업이익은 <span class="up">+19</span>억 흑자 → 적자는 영업악화 아니라 영업외(CB 등 금융손익·평가손실)·법인세 10억 탓으로 추정. 2025 순익 78억으로 정상화.</li>
+<li>분기 매출 재구성(연결, 억원 [실측: DART 분기 3개월값]):</li>
+</ul>
+<p>2025 Q1 189 / Q2 271 / Q3 233 / Q4 251(합 944 검산 ✓) 2026 Q1 256 / Q2 351 → H1 607(<span class="up">+32%</span> YoY vs H1&#x27;25 460) [실측: 반기보고서 매출실적표 60,696백만]</p>
+<ul>
+<li>H1 2026 영업이익 약 120억 추정(1Q 36 + 2Q 84 합산), OPM 약 19.8% — 2025 연간 영익 111억을 반기만에 초과. 순익 H1 약 126억 추정.</li>
+<li>재무건전성: 부채비율 154%(23)→216%(24)→88.8%(25)→79.5%(26.6)로 개선 [실측]. 자본 276억(24)→507억(25)→724억(26.6) 급증 = 유상증자·CB 전환 등 자본확충(희석 수반) [실측: 자본총계]. 영업현금흐름 <span class="up">+72</span>(23)→<span class="up">+106</span>(24)→<span class="up">+169</span>(25)억 흑자 지속 → 이익의 질 양호.</li>
+<li>생산능력 급증: 번인소켓 캐파 28,875천개(23)→47,755(24)→92,235(25) [실측]. 증설이 매출 성장을 뒷받침. 가동률은 사업보고서 미표기(생산실적/캐파 = 25년 59%).</li>
+<li>[미확인] 이자보상배율(이자비용 미추출), 사업부문별 영업이익(공시 미제공).</li>
+</ul>
+<p>──────── ④ 미래실적·컨센서스 (자동수집 4소스)</p>
+<ul>
+<li>목표가 컨센 평균 32,000원(최고 36,000 현대차 10/02·최저 28,000) — 현재가 대비 <span class="up">+7.7%</span>. 투자의견 Buy 2/NR 1.</li>
+<li>연간 컨센(fnguide, 억원·EPS원): FY26E 매출 1,430·영익 320·순익 248·EPS 1,327(PER 22.4·ROE 42.8%) / FY27E 매출 2,397·영익 588·EPS 2,269(PER 13.1) / FY28E 매출 3,735·영익 872·EPS 3,250(PER 9.1).</li>
+<li>분기 컨센: 3Q26 매출 374·영익 89(신한, OPM 23.6%) / 4Q26 매출 450.</li>
+<li>영익 컨센 상향 추세(FY26): 현재 320 ← 3M전 277 ← 6M전 274 (계속 상향).</li>
+<li>이전 추정 비교: 한국IR협의회(2/19) FY26 매출 1,405·영익 207 → 현재 컨센 영익 320으로 <span class="up">+55%</span> 상향. 상향 속도 빠름.</li>
+<li>블로거 &#x27;내부목표 FY26 매출 1,400억·FY27 <span class="up">+50%</span>(2,100억+)&#x27; → 컨센 FY27 2,397억이 내부목표(2,100억)보다 높음. 즉 시장은 가이던스보다 공격적.</li>
+<li>달성 가능성 판정: FY26 매출 1,430 = 中~高. 근거 — H1 607 + 3Q컨센 375 + 4Q컨센 450 = 1,432로 산술 부합, 캐파(92,235천개)도 충분. 단 4Q 450억(QoQ <span class="up">+20%</span>)은 CXMT 출하·CLT 장비 인식 시점에 민감(高난도). FY27 2,397(<span class="up">+68%</span>)은 中 — CXMT 램프업·CLT 장비 23→40대+ 가정 필요, 미확인 수주에 의존.</li>
+</ul>
+<p>──────── ⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 멀티플(TTM): PER 71.9배·PBR 11.85배(EPS 413·BPS 2,506) [실측: KIS]. TTM 기준은 고평가.</li>
+<li>Forward: FY26E PER 22.4배 / FY27E PER 13.1배. 고성장(FY26 영익 <span class="up">+190%</span>, FY27 <span class="up">+84%</span>) 감안 시 forward로는 테스트소켓 고성장주 밴드(15~20배) 내.</li>
+<li>Peer 참고(2025 연간 [실측: peer_finder]): 두산테스나 OPM <span class="down">-0.3%</span>, 에이팩트 OPM 4.8%, 타이거일렉 8.9% — 오킨스 OPM 11.8%는 상위. 단 순수 소켓peer(리노공업·ISC·티에스이·마이크로컨택솔·엑시콘·네오셈)와의 직접 PER밴드는 자동수집 미확보(미확인).</li>
+<li>자체 목표가 산식: 적정 PER 16배 × FY27E EPS 2,269 = 36,300원. 보수 14배=31,800 / 공격 18배=40,800.</li>
+</ul>
+<p>→ 1차 목표 34,000(≈15배 FY27), 2차 38,000(≈16.7배). 현대차 목표 36,000(10/02) 병기 — 자체값과 수렴.</p>
+<ul>
+<li>해석: TTM은 비싸나 forward 성장으로 정당화 가능한 구간. 단 FY27 EPS가 CXMT·CLT 수주 실현 전제라 하방 변동성 큼.</li>
+</ul>
+<p>──────── ⑥ 진입전략·손익비 (★개별주식선물 無 → 현물 스윙만, 레버리지 불가)</p>
+<ul>
+<li>위치: 52주 신고가 31,500 바로 아래 고점권 → 현재가 추격 비권장.</li>
+<li>저항: 31,500(52주고)·심리 30,000 / 지지: 27,000(MA5·20)·25,000·MA60 21,400.</li>
+<li>진입(관심·눌림대기): 26,000~27,500(MA5/20 지지 확인 시 3회 분할, 각 1/3). 공격형은 31,500 종가 돌파 시 돌파매수.</li>
+<li>손절: 24,000 종가 이탈(MA20 하회 + 급등 시작점 붕괴).</li>
+<li>목표: 1차 34,000 / 2차 38,000.</li>
+<li>손익비(진입 27,000 기준): 상방 34,000 = <span class="up">+25.9%</span> ÷ 하방 24,000 = <span class="down">-11.1%</span> = 1:2.3.</li>
+</ul>
+<p>(※현재가 29,700 추격 시: <span class="up">+14.5%</span> ÷ <span class="down">-19.2%</span> = 1:0.75 → 부적합. 그래서 &#x27;관심&#x27;.)</p>
+<p>──────── ⑧ 산업·제품 바텀업 모델 (§9)</p>
+<ul>
+<li>9-1 제품분해 [실측: 2025 사업보고서]: 소켓외 838억(88.8%)·테스트용역 71억(7.5%)·기타 35억. 반기(26.6) 소켓 558억(91.9%).</li>
+<li>9-2 고객: 삼성·하이닉스·마이크론·CXMT(블로거·IR). DART 주요매출처 비공개(미확인). 수출 비중 FY25 30%(283억/944). 고객집중도 수치 미공시.</li>
+<li>9-3 시장·경쟁: 번인/테스트소켓은 미·일 선도(국산화 진입). 글로벌 TAM·점유율 교차출처 2개 미확보 → 미확인. &quot;단독승인·국내 유일&quot;류 주장은 점유율 숫자 미뒷받침 → 미확인.</li>
+<li>9-4 단가: 다품종 소량생산으로 &#x27;일정 기준 비교 곤란&#x27;을 회사가 명시 [실측] → 단가지수 미공시. 원재료(플라스틱·BeCu) 수익성 영향 &#x27;중요 변동 없음&#x27; 명시.</li>
+<li>9-5 캐파: 번인소켓 캐파 25년 92,235천개(24년比 <span class="up">+93%</span>), 생산실적 54,764천개(가동률 59%) [실측]. 베트남 투자(블로거) 미확인.</li>
+<li>9-7 바텀업(컨센·실측 기반, 억원):</li>
+<li>FY26E: 매출 1,430 / 영익 320(OPM 22.4%) — H1실측 607·영익120 + 3Q컨 375·89 + 4Q컨 450·111.</li>
+<li>FY27E: 매출 2,397 / 영익 588(OPM 24.5%) [컨센]. CXMT 번인소켓 100억(25)→200(26E)→400(27E, 블로거추정)·CLT 장비 인식 확대 전제.</li>
+<li>민감도: 4Q26 CLT 장비 인식 1분기 지연 시 FY26 매출 약 -80~120억·영익 -20~30억. 단가 ±10%×점유율 ±5%p → 영익 ±15% 내외(추정).</li>
+<li>9-7 결론 문장(★반증 연동): 3Q26 연결 영업이익 ≥ 89억(컨센 인라인)이면 논지 유지·눌림 추가매수 검토, &lt; 70억이면 논지 폐기·청산.</li>
+</ul>
+<p>──────── ⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더:</li>
+<li>3Q26 분기보고서: 법정기한 2026-11-14(전후). 블로거는 11/16 언급 — 발표일 전후 변동성 집중. 왜 중요: 신한 3Q 영익 89억(<span class="up">+140.5%</span>) 검증.</li>
+<li>11월: CXMT향 &#x27;1차 출하&#x27; 단일판매공급계약 공시 여부 — 수주 실체 확정 트리거(미공시 시 기대 선반영 리스크).</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<p>1) 3Q26 연결 영업이익 &lt; 70억 → 논지 폐기·전량 청산 (컨센 89 대비 <span class="down">-21%</span> 이상 쇼크). 2) 종가 24,000원 이탈 → 기계적 전량 청산(손절선 아래 추가매수 금지). 3) 11월 CXMT 수주 공시 부재 + 3Q 매출 &lt; 340억 → 기대 과열로 판단, 비중 절반 축소.</p>
+<ul>
+<li>이벤트 매트릭스(3Q 실적 × 당일):</li>
+<li>서프라이즈(영익≥95) × 갭상승 → 보유·돌파 1차목표 34,000 추적 / 갭하락 → 눌림 분할매수.</li>
+<li>인라인(80~95) × 보합 → 홀드, 24,000 손절 유지.</li>
+<li>쇼크(&lt;70) × 갭하락 → 반증1 발동, 청산.</li>
+<li>확률가중 시나리오(현재가 29,700 기준):</li>
+<li>Bull 30%: CXMT 수주 현실화<span class="up">+3</span>Q 영익≥95 → 40,000(<span class="up">+34.7%</span>).</li>
+<li>Base 50%: 3Q 89 인라인·FY26 영익 320 → 36,000(<span class="up">+21.2%</span>).</li>
+<li>Bear 20%: 3Q&lt;70 or CXMT 지연·디레이팅 → 22,000(<span class="down">-25.9%</span>).</li>
+<li>확률가중 기대수익 = 0.3×34.7 + 0.5×21.2 + 0.2×(-25.9) = <span class="up">+15.8%</span>.</li>
+<li>수급·유동성: 20일 평균 거래대금 164억 → 1일 체결상한(ADV 10%) 약 16억 [실측: KIS 일봉]. 외국인·기관 20일 순매수 세부수치 미확인(10/27 동시 순매수 기사 확인).</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭 11.1%(27,000→24,000) = 자산의 9.0%. 집중상한 50%·실적이벤트 전 상한 25% 중 최소값 → 9.0% 채택. 분할 3회 각 1/3.</li>
+</ul>
+<p>──────── ⚠️ 본 리포트는 블로거(네이버 zalsaja) IR 요약글의 사실검증 리서치이며 참고용. 블로거·단일 증권사 추정치는 &#x27;추정&#x27;, 실측 못한 값은 &#x27;미확인&#x27; 표기. 매수·매도 강요 아님, 투자판단·책임은 본인.</p>
+<p>[미확인 목록] CXMT 단독승인·11월 수주 수치·CLT 점유율(8%→16%)·CLT장비 대수·베트남투자 / 사업부문별 영업이익 / 이자보상배율 / 글로벌 TAM·점유율·순수소켓peer PER밴드 / 외국인·기관 20일 순매수 수치 / 고객집중도.</p>
+<p>[출처 목록] DART 2025 사업보고서(20260319000615)·2026 반기보고서(20260814001460) 연결 / KIS 시세·일봉(2026-10-29) / consensus·stockeasy_consensus(fnguide·naver·stockeasy·hankyung, 2026-10-29) / 신한투자증권 2026-10-19·현대차증권 2026-10-02(36,000)·한국IR협의회 2026-02-19 / peer_finder / news_search(뉴스핌·MK·서울경제) / kis_futures_check(선물 미상장).</p>
+<p>[검산] 2025 분기합 189<span class="up">+271</span><span class="up">+233</span><span class="up">+251</span>=944=연간 ✓ / H1&#x27;26 256<span class="up">+351</span>=607 ✓ / 손익비 상방25.9%÷하방11.1%=2.33≈1:2.3 헤더·본문 일치 ✓ / 시나리오 확률합 30<span class="up">+50</span><span class="up">+20</span>=100% ✓ / 연결기준 전수표기 ✓.</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-29 08:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 29,700원 (<span class="up">+0.0%</span>) · 시총 6,264억 · 5일 <span class="up">+23.8%</span> / 20일 <span class="up">+18.1%</span> / 60일 <span class="up">+244.9%</span></li>
+<li>MA5 26,880원 / MA20 27,045원 / MA60 21,434원 → MA20 이격 <span class="up">+9.8%</span> · MA60 이격 <span class="up">+38.6%</span></li>
+<li>52주 고 31,500원 / 저 7,530원 → 고점 대비 <span class="down">-5.7%</span> · 20일 고 29,700원 / 저 23,100원</li>
+<li>후행 PER 71.91 / PBR 11.85 (EPS 413원 · BPS 2,506원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 164.4억 (5일 175.0억)</li>
+<li>외국인 순매수 5일 -17.8억 / 20일 56.8억 · 기관 5일 87.0억 / 20일 133.8억 · 개인 20일 -170.7억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 3.33% / 20일 평균 3.75% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 6.93% (10/26) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 34,000원 (<span class="up">+14.5%</span>) ÷ 하방 24,000원 (−19.2%) = <strong>1:0.75</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 19.2% = <strong>자산의 2.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.6%</strong></li>
+<li>유동성 참고: 20일 ADV 164.4억 · 1일 소화 한도는 ADV의 10%(16.44억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 19.2% · ATR14 2,757원 (손절폭/ATR 2.1배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 19.2% = ATR14 × 2.1배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 25,564원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.04</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-080580"></span>📋 결정카드 — 오킨스전자(080580) 판정: 관심 선물: 無 현재가: 29,700원 진입: 26,000~27,500원 (눌림 대기, 3회 분할) 손절: 24,000원 (종가) 목표: 1차 34,000원 (2차 38,000원) 손익비: 1:2.3 (진입 27,000 기준) 기간: 스윙 4~10주 촉매: 3Q26 분기보고서 2026-11-14 전후 / 11월 CXMT 수주공시 여부 반증: 3Q26 연결 영업이익 &lt; 70억이면 논지 폐기·청산 / 종가 24,000원 이탈 시 전량 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
