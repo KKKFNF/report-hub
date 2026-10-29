@@ -1,0 +1,140 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SK하이닉스(000660) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261029-090620-SK하이닉스-000660.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 자동판정(한줄 결론 기준)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 추격매수 금지</div><div class="tp-c"><b>결론 발췌</b> 3Q 영업익률 80%·순현금 98.7조로 펀더멘털은 견조하나, 현재가 153.1만은 평단(204.9만) 대비 -25%로 손절(133.4만)과 전고 사이 — 솔리다임 딜레마 변수 상존해 포지션 관리가 우선인 구간.  근거 (메르 글 + 실측) - 실적 팩트: 3Q 매출 104.6조·영업익 83조(OPM 80%), 컨센(매출98.5조·영업익77.2조) 초과. 순현금 98.7조. 3Q 자사주 20조 매입(10조 소각·10조 보상). 솔리다임 pre-IPO·IPO 검토 모두 중단 발표. - 수요 구조: D램 비트출하 +10%(QoQ), 실적은 물량보다 &#x27;비싸게 판&#x27; 효과. HBM 비중↑ → 비트성장 둔화 구조. 4Q M15X 램프업으로 비트성장…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(자동판정): 추격매수 금지</span><h1>SK하이닉스(000660)</h1>
+<div class="meta">📊 mer · 2026-10-29 09:06 · 코드 000660</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-29 09:06)</div><div class="kpi-v">1,540,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,125.0조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">26.12</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">8.97</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc dn">손절 1,333,800원</span><span class="dc-src">자동추출</span></div></div>
+
+<div class="body"><h1>SK하이닉스(000660) — 3Q 실적 서프라이즈 + 솔리다임 연계협상</h1>
+<p><strong>한줄 결론:</strong> 3Q 영업익률 80%·순현금 98.7조로 펀더멘털은 견조하나, 현재가 153.1만은 평단(204.9만) 대비 <span class="down">-25%</span>로 손절(133.4만)과 전고 사이 — 솔리다임 딜레마 변수 상존해 포지션 관리가 우선인 구간.</p>
+<h2 id="근거-메르-글-실측">근거 (메르 글 + 실측)</h2>
+<ul>
+<li><strong>실적 팩트</strong>: 3Q 매출 104.6조·영업익 83조(OPM 80%), 컨센(매출98.5조·영업익77.2조) 초과. 순현금 98.7조. 3Q 자사주 20조 매입(10조 소각·10조 보상). 솔리다임 pre-IPO·IPO 검토 모두 중단 발표.</li>
+<li><strong>수요 구조</strong>: D램 비트출하 <span class="up">+10%</span>(QoQ), 실적은 물량보다 &#x27;비싸게 판&#x27; 효과. HBM 비중↑ → 비트성장 둔화 구조. 4Q M15X 램프업으로 비트성장 20%대 전망.</li>
+<li><strong>공급부족 장기화 전망</strong>: 신규 팹 리드타임으로 D램·낸드 공급부족 2030년까지. 2027~28년 물량 50%가 14개 고객사 장기계약(취소방지 보증금 포함).</li>
+<li><strong>실측(10/29 09:05)</strong>: 현재가 1,531,000(<span class="up">+2.96%</span>), 5일 <span class="up">+25.2%</span> 반등 / 20일 <span class="down">-13.3%</span>. MA20 147.8만·MA60 161.3만 하회. ATR14 8.16만. 외인 20일 -11.0만 순매도, 기관 20일 <span class="up">+0.73</span>만. 공매도 특이없음(20일평균 3.96%, 감소). 선물 상장(A50611). VKOSPI 51.85 고변동(rv20 53, 92.5%ile).</li>
+</ul>
+<h2 id="invalidation">반증 / 리스크</h2>
+<ul>
+<li><strong>솔리다임 딜레마(추정)</strong>: 다롄 모드B 설비반입 시 美 48D 세액공제·인디애나 보조금(4.58억달러) 환수 위험. 상무부 2027년분 수출허가 미승인. 美신규공장 450억달러(최대 1,000억) 협상 보도(블룸버그 10/27)는 미확정 — 연계협상 성패가 변수.</li>
+<li><strong>AI capex 둔화 신호</strong>: MS·구글 CAPEX 예상 하회가 추세화되면 HBM 수요전망에 역풍.</li>
+<li><strong>밸류에이션</strong>: PER 26·PBR 8.9 역사적 고평가. 고변동장(VKOSPI 51)에서 변동성 극심 — 5일 반등도 기술적일 수 있음.</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-29 09:06 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 1,540,000원 (<span class="up">+3.6%</span>) · 시총 1,124.96조 · 5일 <span class="up">+26.0%</span> / 20일 <span class="down">-12.7%</span> / 60일 <span class="up">+16.6%</span></li>
+<li>MA5 1,384,200원 / MA20 1,478,300원 / MA60 1,612,900원 → MA20 이격 <span class="up">+4.2%</span> · MA60 이격 <span class="down">-4.5%</span></li>
+<li>52주 고 2,987,000원 / 저 501,000원 → 고점 대비 <span class="down">-48.4%</span> · 20일 고 1,841,000원 / 저 1,223,000원</li>
+<li>후행 PER 26.12 / PBR 8.97 (EPS 58,955원 · BPS 171,751원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 48,805.0억 (5일 38,435.4억)</li>
+<li>외국인 순매수 5일 -6,668.8억 / 20일 -110,174.4억 · 기관 5일 12,810.9억 / 20일 7,335.1억 · 개인 20일 1,707.2억</li>
+<li>개별주식선물: ⚡ 상장 (A50611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.51% / 20일 평균 3.96% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 8.81% (10/06) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 13.4% = <strong>자산의 3.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.7%</strong></li>
+<li>유동성 참고: 20일 ADV 48,805.0억 · 1일 소화 한도는 ADV의 10%(4880.50억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 13.4% · ATR14 82,000원 (손절폭/ATR 2.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 13.4% = ATR14 × 2.5배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 1,386,000원</li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<h2 id="결정카드">📋 결정카드</h2>
+<ol>
+<li>종목: SK하이닉스(000660), 선물 보유 qty=60</li>
+<li>현재가: 1,531,000 (<span class="up">+2.96%</span>, 10/29)</li>
+<li>평단: 2,049,000 → 평가 약 <span class="down">-25.3%</span></li>
+<li>1차손절: 1,333,800 (현재가 대비 <span class="down">-12.9%</span> 여유)</li>
+<li>1차익절: 1,792,080 (현재가 대비 <span class="up">+17.1%</span>)</li>
+<li>추세: 5일 <span class="up">+25%</span>(단기반등) / 20일 <span class="down">-13%</span> / MA60 하회</li>
+<li>수급: 외인 20일 순매도(-11만), 기관 순매수(<span class="up">+0.7</span>만)</li>
+<li>변동성: ATR 8.16만, VKOSPI 51.85 고변동</li>
+<li>핵심변수: 솔리다임 연계협상(다롄 모드B·48D)·AI capex 추세</li>
+<li>액션: 손절라인 133.4만 사수, 익절 179.2만 반등 시 레버리지 축소 지속. 추격매수 금지.</li>
+</ol>
+<p>⚠️ 메르 글은 인사이트 참고용. 솔리다임 협상·CAPEX 전망은 추정성이므로 확정호재로 받지 말 것.</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
