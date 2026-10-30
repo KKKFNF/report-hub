@@ -1,0 +1,251 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>풍산(103140) · 한국 구리 밸류체인(풍산·LS) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261031-081121-한국-구리-밸류체인-풍산-LS.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:7</div><div class="tp-c"><b>결론 발췌</b> 구리값은 사상 최고권($14,484/톤, LME 10/29)인데 정작 밸류체인 대표주 풍산·LS 주가는 역배열로 폭락 중 — &quot;공급쇼크 강세 ≠ 주가 즉시 수혜&quot;의 괴리가 핵심. 풍산(103140, 선물有)이 밸류 바닥(PBR 0.68·52주저점 부근)+손익비 1:5.2로 Tier1 최선호, LS(006260, 선물有)는 실적은 좋으나 디레이팅·낙폭과대 반등용 Tier2. 단, 구리 역사적 고점에서 선물 레버리지 집중은 &#x27;관세 급락&#x27; 리스크 때문에 특히 위험 — 사이징 축소 필수. ⚠️ 리서치 참고용·개인의견. 매수/매도 강요 아님. 출발점 블로그는 외부 콘텐츠로 사실검증 대상일 뿐 투자근거 아님.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>풍산(103140) · 한국 구리 밸류체인(풍산·LS)</h1>
+<div class="meta">📊 benine · 2026-10-31 08:11 · 코드 103140</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 10-31 08:11)</div><div class="kpi-v">57,200원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.6조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">10.89</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.68</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:7</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:5.25</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">74,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 55,500~57,500원 (3회 분할, 각 1/3)</span><span class="dc dn">손절 54,000원</span><span class="dc up">목표 74,000원</span><span class="dc">손익비 진입 1:7 · 현재가 1:5.25 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:5.2</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:5.2로 적었지만 진입·손절·목표로 계산하면 1:7다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 실적발표(11월 중순·법정기한 11/14), 미국 구리관세 최종결정</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 700억이면 전량 청산 / 종가 54,000원 이탈 시 청산 / LME 구리 $12,000 하회 시 비중축소</div></div>
+
+<div class="body"><p>🏭 산업 딥리서치 — 한국 구리 밸류체인 수혜주 (풍산·LS 정밀분석)</p>
+<p>📌 한줄 결론 구리값은 사상 최고권($14,484/톤, LME 10/29)인데 정작 밸류체인 대표주 풍산·LS 주가는 역배열로 폭락 중 — &quot;공급쇼크 강세 ≠ 주가 즉시 수혜&quot;의 괴리가 핵심. 풍산(103140, 선물有)이 밸류 바닥(PBR 0.68·52주저점 부근)+손익비 1:5.2로 Tier1 최선호, LS(006260, 선물有)는 실적은 좋으나 디레이팅·낙폭과대 반등용 Tier2. 단, 구리 역사적 고점에서 선물 레버리지 집중은 &#x27;관세 급락&#x27; 리스크 때문에 특히 위험 — 사이징 축소 필수. ⚠️ 리서치 참고용·개인의견. 매수/매도 강요 아님. 출발점 블로그는 외부 콘텐츠로 사실검증 대상일 뿐 투자근거 아님.</p>
+<hr>
+<p>Ⅰ. 산업 구조 — 구리 밸류체인 Tier 분류</p>
+<p>구리 강세의 본질(공급쇼크 가설)은 블로그 주장이며, 실측으로 교차검증한 결과:</p>
+<ul>
+<li>LME 구리 현물 톤당 $14,484 (2026-10-29) / COMEX $6.54/lb, kg당 약 19,228~19,355원 [인용: copper.stockinvesting.kr·zipnews.kr, 10/29~30, 참고치]. 이는 2024년 직전 고점(~$11,000/톤) 대비 <span class="up">+30%</span> 이상 높은 사상 최고 영역 [추정: 역대 LME 고점 비교].</li>
+<li>즉 &quot;구리가 역사적 고점&quot;이라는 하방리스크는 사실. 미국 관세 결정(블로그: 전기동 2027 15%·2028 30% 권고, 미결정)에 따라 미국 비축분 방출 시 급락 가능 — 이게 밸류체인 전체 최대 변수. [인용: 출발점 블로그, 외부·미검증 — 관세 수치는 2차확인 필요]</li>
+</ul>
+<p>Tier 분류 (실적베타 × 선물상장 = 레버리지 가능성):</p>
+<ul>
+<li>Tier1 (구리값 직접연동+선물有=레버리지 핵심): 풍산(103140)✅선물 — 신동부문이 구리/동합금 소재, 메탈게인 직결</li>
+<li>Tier1.5 (제련, 복합금속+선물有): 고려아연(010130)✅선물 — 아연·금 비중 커 구리 순수도 낮음</li>
+<li>Tier2 (전선·제련, 전방드라이버 혼재+선물有): LS(006260)✅선물 — LSMnM(제련)+LS전선, 단 전력인프라가 더 큰 동력 / 대한전선(001440)✅선물 — 전선, 구리는 투입재(원가변수)</li>
+<li>Tier3 (현물만·레버리지 불가): 이구산업(025820)❌ / 대창(012800)❌ / 서원(021050)❌ — 황동·신동 가공, 선물 미상장</li>
+</ul>
+<p>[실측: python3 kis_futures_check.py, KIS 개별주식선물 마스터 2026-10-31]</p>
+<p>핵심 통찰: &#x27;구리 투입재 기업(전선)&#x27;은 구리 상승이 원가부담(마진 압박)이고, &#x27;구리 소재 기업(신동)&#x27;은 구리 상승이 메탈게인(이익 레버리지)이다. 레버리지 베팅이면 후자(풍산)가 정석.</p>
+<hr>
+<p>Ⅱ. 풍산(103140) 풀리포트 ★Tier1 최선호 · 선물 有(근월물 A0X611)</p>
+<p>① 사실관계 검증</p>
+<ul>
+<li>사업: 신동부문(동·동합금 소재 — 판·대, 리드프레임, 봉·선, 소전) + 방산부문(군용탄·스포츠탄·추진화약). 2025 별도 기준 신동 약 69%·방산 30.8% [실측: 사업보고서 2025.12, 접수 20260312001327].</li>
+<li>종속: PMX(미국 압연)·Siam Poongsan(태국)·풍산FNS(신관·방산부품)·PMC(미국 탄약).</li>
+<li>급등 아님 — 급락 중. 뉴스검증(news_search 10/24~27): &quot;구리 가격 상승에도 3분기 감익, 방산 수출 이연과 2027년 회복 조건&quot;, &quot;전쟁도 AI도 호재라더니 목표가 20% 깎인 방산주&quot; [인용: 네이버프리미엄·한경TV, 2026-10-24~27]. 즉 구리 강세에도 ①메탈게인 축소 ②방산 수출 이연 두 악재로 주가 하락.</li>
+<li>주가 위치: 현재가 57,200원, 52주고 159,200 / 52주저 55,200 → 저점 바로 위(<span class="up">+3.6%</span>). MA5 58,080·MA20 64,030·MA60 74,455 완전 역배열. 20일 <span class="down">-26.3%</span>·60일 <span class="down">-19.7%</span> [실측: KIS enrich 2026-10-31]. 전형적 &#x27;떨어지는 칼&#x27;이나 밸류는 바닥.</li>
+</ul>
+<p>② 실적 분석 (DART 연결 실측)</p>
+<ul>
+<li>연간(연결): 2023 매출 41,253억·영익 2,286억(OPM 5.5%) → 2024 45,544억·3,238억(7.1%) → 2025 50,486억·2,974억(5.9%) [실측: 사업보고서, 11011·CFS].</li>
+<li>분기(연결·3개월): 25.1Q 697억 → 25.2Q 936억 → 25.3Q 426억(OPM 3.6%, 저점) → 26.1Q 902억 → 26.2Q 1,252억(OPM 8.5%) [실측: 분기·반기보고서 CFS]. H1&#x27;26 영익 2,154억 vs H1&#x27;25 1,633억, YoY <span class="up">+32%</span> — 구리 강세 메탈게인 효과 확인.</li>
+<li>재무건전성: 부채총계 25,606억 / 자본총계 24,446억 → 부채비율 104.8% [실측: 반기보고서 2026.06, 접수 20260814004203]. 반기순이익(지배 추정) 824.8억. 소재·방산 복합기업 치고 양호.</li>
+<li>사업부문 추세: 반기 방산매출 3,453억(별도, 비중 16.5%)으로 2025 연간 비중 30.8% 대비 급감 — 방산 수출 이연이 숫자로 확인. 신동 판·대 비중은 반기 65.6%로 확대(구리가 상승에 따른 매출단가 상승).</li>
+</ul>
+<p>③ 미래실적·컨센서스 (자동수집 2026-10-31)</p>
+<ul>
+<li>목표가 평균 113,964원(최고 160,000/최저 85,000·28건) / 최신 12개사 평균 105,500원 / 현재가 대비 <span class="up">+99%</span> [인용: stockeasy·naver·fnguide 집계].</li>
+<li>투자의견: Buy 27 / Hold 1 / NR 2 (의견평균 4.00/5).</li>
+<li>연간컨센(fnguide): FY26E 매출 61,438억·영익 4,245억·EPS 10,558(PER 5.5) / FY27E 매출 65,317억·영익 3,902억·EPS 9,340 / FY28E 영익 4,394억.</li>
+<li>분기컨센: 3Q26 매출 16,030억·영익 1,035억·순익 700억 (naver).</li>
+<li>최근 리포트(전부 &#x27;하향&#x27;): 한화 10/19 98,000(↓) &quot;메탈은 줄고 방산은 이연된 3분기&quot; / 신한 10/16 130,000→110,000 / KB 10/7 112,000(↓) &quot;구리 상승에도 단기 실적 부진&quot; / 하나 10/12 110,000 &quot;여전한 저평가, 연간 영업익 사상 최고 전망&quot; / 한투 10/12 112,000 &quot;동 가격 상승의 국가대표 수혜주&quot;.</li>
+<li>달성가능성: 中. FY26E 영익 4,245억은 H1 2,154억 런레이트 감안 가능하나(하반기 2,091억 필요, 3Q컨센 1,035<span class="up">+4</span>Q 1,000대), 방산 수출 인식시점·구리가 유지가 전제. 2027 추정은 줄하향 중이라 下.</li>
+</ul>
+<p>④ 밸류에이션 → 목표가 (실측+자체산출)</p>
+<ul>
+<li>현재: PER 10.89(trailing)·PBR 0.68·EPS 5,251·BPS 84,137 [실측: KIS enrich]. Forward PER 5.4x(FY26E EPS 10,558 기준).</li>
+<li>과거 자기밴드: 소재·방산 복합으로 PBR 대략 0.5~1.2x 사이 거래. 현 0.68x는 하단권(방산 피크 프리미엄 소멸 반영).</li>
+<li>자체 목표가 산출:</li>
+<li>방법A(PBR): 중립 0.9x × BPS 84,137 = 75,700원</li>
+<li>방법B(PER): FY26E EPS 10,558 × 중립 7x = 73,900원</li>
+<li>교차 수렴 → 1차 목표 74,000원 (<span class="up">+29.4%</span>)</li>
+<li>2차 목표 90,000원 (PBR 1.07x·증권사 목표 하단 85k 근처, 방산 정상화 가정)</li>
+<li>증권사 목표(평균 113,964)는 구리 레버리지+방산 피크 복원 가정이 과도하다고 판단 → 자체값은 보수적으로 74,000/90,000 채택.</li>
+</ul>
+<p>⑤ 손익비 (진입 57,200원 기준)</p>
+<ul>
+<li>상방: 1차 74,000 = <span class="up">+29.4%</span></li>
+<li>하방: 손절 54,000(52주저 55,200 이탈) = <span class="down">-5.6%</span></li>
+<li>손익비 = 29.4 ÷ 5.6 = 1:5.2 (1차 목표 기준) → 양호. 밸류 바닥+지지 근접으로 하방이 제한적인 구간.</li>
+</ul>
+<p>⑥ 진입전략 (선물 레버리지 반영)</p>
+<ul>
+<li>지지: 55,200(52주저·전저점) / 저항: 64,000(MA20)→74,000(MA60권).</li>
+<li>52주고 대비 <span class="down">-64%</span> 위치 — 과매도. 단 역배열이라 추세반전 미확인.</li>
+<li>레버리지 스윙 3라인: 진입 55,500~57,500(현 구간 분할, 3회·각 1/3) / 손절 54,000(종가 이탈 시 전량) / 익절 1차 74,000·2차 90,000.</li>
+<li>★경고: 구리 사상 최고권 + 미국 관세 미결정. 관세 미부과 결정 시 미국 비축분 방출→구리 급락→신동 메탈게인 역전(메탈로스) 가능. 고점에서 50% 집중+선물 레버리지는 변동성(VKOSPI 51, 고변동 국면)상 특히 위험. 사이징 반드시 축소.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (§9) 9-1 제품분해(별도 2025, 백만원) [실측: 사업보고서]: 판·대(반도체소재포함) 2,098,208(54.5%)·봉선 219,565(5.7%)·소전 168,601(4.4%)·기타 175,885·방산(군용탄/스포츠탄) 1,186,848(30.8%). 합계 3,849,107. 9-4 단가이력(원/kg, 별도) [실측]: 판·대 수출 12,901(23)→13,942(24)→15,516(25) 지속 상승 = 구리가 상승 전가. 소전 내수 19,583→20,906→26,667. 단가결정구조: 구리 LME가 + 롤마진(가공비), 원재료 연동·전가력 높음(스프레드 판매). 9-5 CAPA/수주: 신동 가동률·증설 수치 DART 본문 &#x27;미확인&#x27;(정형추출 실패) → IR 문의 필요. 방산은 수주잔고 기반이나 구체 금액 &#x27;미확인&#x27;. 9-7 바텀업 FY26 영업이익 시나리오 (연결, 억원):</p>
+<ul>
+<li>Bear: 신동 2,200 + 방산 800 = 전사 3,000 (구리 급락 메탈로스+방산 추가이연)</li>
+<li>Base: 신동 3,000 + 방산 1,245 = 전사 4,245 (=컨센, 구리 고위 유지+방산 하반기 점진회복)</li>
+<li>Bull: 신동 3,600 + 방산 1,400 = 전사 5,000 (구리 강세지속+방산 수출재개)</li>
+</ul>
+<p>분기배분: 3Q26 Base OP 1,035억(컨센)·4Q 1,000억+. 민감도: 구리 ±10% → 신동 메탈게인 ±약 400~500억 [추정: 재고회전·판·대 단가탄력]; 방산 수출인식 1분기 지연 → 분기매출 -약 2,000억·OP -약 300억 [추정]. 결론문장: &quot;3Q26 연결 영업이익 ≥ 1,035억(Base)이면 논지 유지·추가매수 검토, &lt; 700억(Bear)이면 메탈게인 소멸+방산부진 확인 → 논지 폐기.&quot;</p>
+<p>⑦ 촉매·반증·시나리오</p>
+<ul>
+<li>촉매: 3Q26 실적발표(11월 중순 예정, 정확일 미확인·법정기한 11/14) — 메탈게인 축소폭·방산 인식 확인 / 미국 구리 관세 최종결정(시점 미확인) — 밸류체인 최대 스윙.</li>
+<li>반증 3개: ①3Q26 연결 영업익 &lt;700억이면 전량 청산 ②종가 54,000원 이탈 시 전량 청산 ③LME 구리 $12,000/톤 하회 시 비중 축소(신동 레버리지 역전).</li>
+<li>이벤트 매트릭스(3Q 실적×당일): 쇼크(&lt;700억)×갭하락→손절·관망전환 / 인라인(~1,035억)×보합→홀드, 55k 지지확인 유지 / 서프(&gt;1,200억)×갭상승→분할 추가(구리peak 감안 소량).</li>
+<li>확률가중 시나리오: Bear 30%(목표 48,000)·Base 50%(74,000)·Bull 20%(95,000) → 기대값 70,400원(<span class="up">+23.1%</span>). 확률합 100%.</li>
+<li>수급·유동성: 외국인 20일 <span class="up">+18.4</span>억·기관 -293.7억·개인 <span class="up">+251.2</span>억, 공매도 20일평균 11.75%(증가·압력 높음) [실측: KIS]. ADV20 77.8억 → 1일 체결상한(ADV 10%) 약 7.8억.</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 0.5%(고변동 국면) ÷ 손절폭 5.6% = 자산의 8.9%, 집중상한 50%·이벤트전 상한 25% 중 최소값 → 8.9% 상한. 구리 고점·3Q실적 임박 감안 이벤트전 추가 축소 권고.</li>
+</ul>
+<hr>
+<p>Ⅲ. LS(006260) 요약리포트 ★Tier2 · 선물 有(근월물 AFS611)</p>
+<p>① 사실·주가: 지주사(LS전선·LSMnM 제련·LS일렉트릭·LS엠트론 등). 구리 밸류체인 노출은 LSMnM(동제련)·LS전선(전선)이나, 실제 주가동력은 전력인프라·AI데이터센터. 현재가 198,900원(당일 <span class="down">-6.4%</span> 급락), 52주고 604,000 / 저 172,100 → 고점 대비 <span class="down">-67%</span>, 저점 근접. MA5 211,780·MA20 241,270·MA60 289,232 역배열, 20일 <span class="down">-35.5%</span> [실측: KIS 2026-10-31]. news: &quot;AI 투심 회복 속 전력기기주 장중 급등&quot;(10/27) 등 테마 변동성 큼.</p>
+<p>② 실적(연결 실측): 2023 매출 244,807억·영익 8,997억 → 2024 275,447억·10,729억 → 2025 318,700억·10,526억. 분기(3개월): 25.3Q 2,571억 → 26.1Q 4,761억 → 26.2Q 5,956억(QoQ 급증) [실측: CFS]. H1&#x27;26 영익 10,717억으로 전력인프라 호조 뚜렷. 부채비율 269.7%(부채 217,867억/자본 80,778억, 지주·제조 특성상 높음) [실측: 반기 2026.06].</p>
+<p>③ 컨센: 목표가 평균 548,857원(최신 12개사 509,500)·현재 대비 <span class="up">+176%</span>, Buy 28/NR 1. FY26E 매출 415,276억·영익 20,471억·EPS 20,910(PER 9.7) / FY27E 영익 22,808억. 영익컨센 1년새 13,161→20,471억 상향. 단 목표가는 줄하향(NH 600→500k &quot;자회사가치 하락&quot;, 메리츠 390k &quot;재평가의 조건&quot;, SK 540k↓). 3Q26 컨센 영익 4,904억(메리츠 4,830억, QoQ <span class="down">-18.9%</span>). 달성가능성 中(실적 자체는 양호, 밸류 디레이팅이 주가 발목).</p>
+<p>④ 밸류: PER 23.5(trailing)·PBR 1.09·BPS 182,946 [실측]. Forward PER 9.5x(FY26E). 지주 할인 반영 자체 목표가: FY26E EPS 20,910 × PER 12x = 250,900원 → 1차 250,000 / 2차 300,000(PER 14x). 증권사 549k는 자회사(LS일렉트릭 등) 가치 복원 가정 과도하다고 판단.</p>
+<p>⑤ 손익비(진입 198,900): 상방 1차 250,000 = <span class="up">+25.7%</span> / 하방 손절 170,000(52주저 172,100 이탈) = <span class="down">-14.6%</span> → 1:1.8. 풍산 대비 하방 큼(변동성·당일 <span class="down">-6.4%</span>).</p>
+<p>⑥ 진입전략: 지지 172,100(52주저)·저항 241,000(MA20). 당일 급락 중이라 떨어지는 칼 — 반등·지지확인 후 진입 권고(관심). 레버리지는 변동성(ATR 13,243) 과대로 비권장. 사이징: 손실예산 0.5% ÷ 손절폭 14.6% = 자산의 3.4% 상한.</p>
+<ul>
+<li>반증: 3Q26 연결 영업익 &lt; 4,000억이면 전력성장 둔화 확인·논지 약화 / 종가 170,000원 이탈 시 청산.</li>
+<li>확률가중: Bear 35%(165,000)·Base 45%(250,000)·Bull 20%(320,000) → 기대값 234,250원(<span class="up">+17.8%</span>).</li>
+</ul>
+<hr>
+<p>[검산] 풍산 분기합 25.1Q~3Q 영익 697<span class="up">+936</span><span class="up">+426</span>=2,059억, 연간 2,974억 → Q4 915억(역산 일치) / H1&#x27;26 902<span class="up">+1,252</span>=2,154억 / 손익비 헤더 1:5.2 = 본문 29.4÷5.6 일치. [미확인 목록] 풍산 신동 CAPA·가동률·수주잔고 금액(IR 문의), 연결 사업부문 세분 OP(별도만 공시), 미국 관세 최종수치·시점, 3Q26 실적발표 정확일, 구리 역대고점 정밀비교. [출처] DART 사업/반기/분기보고서(접수 20260312001327·20260814004203), KIS enrich/futures 2026-10-31, stockeasy·fnguide·naver 컨센 2026-10-31, news_search(네이버프리미엄·한경TV 10/24~27), LME 구리 copper.stockinvesting.kr·zipnews 10/29~30(참고치).</p>
+<p>&lt;!-- hub:enrich:begin:103140 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-31 08:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 57,200원 (<span class="down">-2.0%</span>) · 시총 1.60조 · 5일 <span class="down">-3.9%</span> / 20일 <span class="down">-26.3%</span> / 60일 <span class="down">-19.7%</span></li>
+<li>MA5 58,080원 / MA20 64,030원 / MA60 74,455원 → MA20 이격 <span class="down">-10.7%</span> · MA60 이격 <span class="down">-23.2%</span></li>
+<li>52주 고 159,200원 / 저 55,200원 → 고점 대비 <span class="down">-64.1%</span> · 20일 고 79,800원 / 저 57,200원</li>
+<li>후행 PER 10.89 / PBR 0.68 (EPS 5,251원 · BPS 84,137원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 77.8억 (5일 40.5억)</li>
+<li>외국인 순매수 5일 32.6억 / 20일 18.4억 · 기관 5일 -11.3억 / 20일 -293.7억 · 개인 20일 251.2억</li>
+<li>개별주식선물: ⚡ 상장 (A0X611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 14.00% (공매도 9,088주 · 5.2억) · 5일 평균 15.41% / 20일 평균 11.75% → 증가 · 20일 평균 상회 연속 4일</li>
+<li>공매도 20일 최대 29.85% (10/29) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 74,000원 (<span class="up">+29.4%</span>) ÷ 하방 54,000원 (−5.6%) = <strong>1:5.25</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 5.6% = <strong>자산의 8.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 8.9%</strong></li>
+<li>유동성 참고: 20일 ADV 77.8억 · 1일 소화 한도는 ADV의 10%(7.78억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 5.6% · ATR14 2,296원 (손절폭/ATR 1.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 5.6% = ATR14 × 1.4배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 52,607원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:3.66</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:103140 --&gt;</p>
+<p><span id="card-103140"></span>📋 결정카드 — 풍산(103140) 판정: 관심 선물: 有 현재가: 57,200원 진입: 55,500~57,500원 (3회 분할, 각 1/3) 손절: 54,000원 목표: 1차 74,000원 (2차 90,000원) 손익비: 1:5.2 기간: 스윙 6~12주 촉매: 3Q26 실적발표(11월 중순·법정기한 11/14), 미국 구리관세 최종결정 반증: 3Q26 연결 영업이익 &lt; 700억이면 전량 청산 / 종가 54,000원 이탈 시 청산 / LME 구리 $12,000 하회 시 비중축소</p>
+<p>&lt;!-- hub:enrich:begin:006260 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-10-31 08:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 198,900원 (<span class="down">-6.4%</span>) · 시총 6.21조 · 5일 <span class="down">-8.1%</span> / 20일 <span class="down">-35.5%</span> / 60일 <span class="down">-25.5%</span></li>
+<li>MA5 211,780원 / MA20 241,270원 / MA60 289,232원 → MA20 이격 <span class="down">-17.6%</span> · MA60 이격 <span class="down">-31.2%</span></li>
+<li>52주 고 604,000원 / 저 172,100원 → 고점 대비 <span class="down">-67.1%</span> · 20일 고 299,500원 / 저 198,900원</li>
+<li>후행 PER 23.52 / PBR 1.09 (EPS 8,458원 · BPS 182,946원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 391.0억 (5일 233.1억)</li>
+<li>외국인 순매수 5일 114.7억 / 20일 249.9억 · 기관 5일 -77.4억 / 20일 -868.3억 · 개인 20일 625.8억</li>
+<li>개별주식선물: ⚡ 상장 (AFS611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 13.02% (공매도 16,891주 · 34.0억) · 5일 평균 8.99% / 20일 평균 6.77% → 증가 · 20일 평균 상회 연속 2일</li>
+<li>공매도 20일 최대 15.16% (10/29) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 250,000원 (<span class="up">+25.7%</span>) ÷ 하방 170,000원 (−14.5%) = <strong>1:1.77</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 14.5% = <strong>자산의 3.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.4%</strong></li>
+<li>유동성 참고: 20일 ADV 391.0억 · 1일 소화 한도는 ADV의 10%(39.10억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 14.5% · ATR14 13,243원 (손절폭/ATR 2.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 14.5% = ATR14 × 2.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 179,010원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.57</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:006260 --&gt;</p>
+<p><span id="card-006260"></span>📋 결정카드 — LS(006260) 판정: 관망 선물: 有 현재가: 198,900원 진입: 172,000~178,000원 (지지·반등 확인 후 대기) 손절: 170,000원 목표: 1차 250,000원 (2차 300,000원) 손익비: 1:1.8 기간: 스윙 8~12주 촉매: 3Q26 실적발표(11월 중순), AI데이터센터 수주공시 반증: 3Q26 연결 영업이익 &lt; 4,000억이면 논지 약화 / 종가 170,000원 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
