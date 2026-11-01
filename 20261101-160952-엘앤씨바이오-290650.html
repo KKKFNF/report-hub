@@ -1,0 +1,229 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>엘앤씨바이오(290650) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261101-160952-엘앤씨바이오-290650.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:6.2</div><div class="tp-c"><b>결론 발췌</b> 관심(진입 부적합·대기) — 호재(해외허가·미국계약·유증완판)에도 주가는 호재당일 급등→익일 되돌림 반복. 성장동력이 아니라 성장 &#x27;가시성&#x27;(규제·3Q 하회·11월 신주물량·외인순매도)이 발목. -81% 폭락으로 52주 신저가(23,400) 테스트 중. 11월 이벤트 3개(유증상장 11/4·무상상장 11/12·3Q실적 중순) 밀집으로 지금 진입은 부적합. 23,400 지지확인+무상락 후 안정화 시에만 반등스윙 관심. 목표 1차 26,500 / 2차 28,500, 손익비 진입 23,700 기준 1:3.5. 선물 미상장이라 레버리지 불가·현물만. ───────────────── ① 사실관계 검증 (기대감 vs 실체) ─────────────…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>엘앤씨바이오(290650)</h1>
+<div class="meta">📊 benine · 2026-11-01 16:09 · 코드 290650</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-01 16:09)</div><div class="kpi-v">23,550원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">6,351억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">6</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:6.2</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:4.54</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">26,500원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 대기 — 23,400 지지확인 반등 또는 무상락(11/12) 후 안정화 시 23,500~24,000 (2회 </span><span class="dc dn">손절 22,900원</span><span class="dc up">목표 26,500원</span><span class="dc">손익비 진입 1:6.2 · 현재가 1:4.54 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:3.5</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:3.5로 적었지만 진입·손절·목표로 계산하면 1:6.2다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 3~6주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 11/4 유증상장 · 11/12 무상상장 · 11월중순 3Q실적 · 연말 식약처 정책연구</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 70억이면 폐기·청산 / 종가 22,900 이탈 청산 / 식약처 품목허가 전환+판매제한</div></div>
+
+<div class="body"><p>🧬 정밀 리서치 — 엘앤씨바이오(290650) ※개별주식선물 <strong>無</strong>(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: <strong>관심(진입 부적합·대기)</strong> — 호재(해외허가·미국계약·유증완판)에도 주가는 호재당일 급등→익일 되돌림 반복. 성장동력이 아니라 성장 &#x27;가시성&#x27;(규제·3Q 하회·11월 신주물량·외인순매도)이 발목. <span class="down">-81%</span> 폭락으로 52주 신저가(23,400) 테스트 중. 11월 이벤트 3개(유증상장 11/4·무상상장 11/12·3Q실적 중순) 밀집으로 지금 진입은 부적합. 23,400 지지확인+무상락 후 안정화 시에만 반등스윙 관심. <strong>목표 1차 26,500 / 2차 28,500, 손익비 진입 23,700 기준 1:3.5. 선물 미상장이라 레버리지 불가·현물만.</strong></p>
+<p>───────────────── ① 사실관계 검증 (기대감 vs 실체) ─────────────────</p>
+<ul>
+<li>사업 실체: 인체조직이식재·인체조직기반 의료기기·코스메슈티컬 제조판매 바이오. 주력은 피부이식재 &#x27;MegaDerm&#x27;과 ECM 스킨부스터 &#x27;Re2O(리투오)&#x27;. 국내 인체조직이식재 M/S 50%+ 주장 [블로거·IR 추정, 경쟁자 점유율표 미확보→9-3 미확인].</li>
+<li>급등사유 실체(검증): 2026-10-13 국회 복지위 국정감사에서 ECM 스킨부스터 &#x27;리투오&#x27;가 <strong>&quot;인체조직이냐 의료기기냐&quot; 분류 논쟁 + 허위·과장광고 규제 사각지대</strong>로 공개 지적됨 [인용: 핀포인트뉴스·헬스경향·히트뉴스 2026-10-13]. 식약처 &quot;인체조직 유래 미용제품 관리체계 개편 검토&quot; 발언 [인용: 머니투데이 2026-10-13]. → 호재가 아니라 <strong>규제 리스크 현실화</strong>가 10월 폭락의 핵심 트리거. 블로거 지적(IR의 &#x27;FDA승인/AATB인증/MFDS허가&#x27; 문구가 조직은행 등록을 제품허가처럼 표기한 과장)과 방향 일치.</li>
+<li>10/28 회사측 반박: &quot;미국 진출·원료 수급 이상 무, 왜곡보도 엄중대응&quot; [인용: 의학신문 2026-10-28].</li>
+<li>10/30 태국 리투오 론칭 본격화 [인용: 이데일리·뉴스1·팜이데일리 2026-10-30] — 해외확장은 진행 중(실체 있음), 단 매출기여 시점 미확인.</li>
+<li>11/1 유상증자 신주 370만주 11/4 상장 [인용: 비건뉴스 2026-11-01] — 확정.</li>
+</ul>
+<p>→ 판정: <strong>성장스토리(리투오·해외)는 실체 있음. 그러나 ①규제 불확실 ②11월 대규모 신주 상장물량 ③3Q 리투오 기대치 하회 가능성이 겹쳐 주가를 누름.</strong> 테마성 거품이 아니라 &#x27;가시성 디스카운트&#x27;.</p>
+<p>───────────────── ② 실적 분석 (DART 실측 · 연결/별도 구분) ───────────────── [실측: 각 사업보고서·반기보고서, 단위 억원, 연결=CFS]</p>
+<ul>
+<li>연결 매출: 2023 688.7 → 2024 720.9 → 2025 854.8 (3년 CAGR <span class="up">+11.4%</span>)</li>
+<li>연결 영업이익: 2023 77.5(OPM 11.3%) → 2024 25.4(3.5%) → 2025 44.2(5.2%)</li>
+<li>연결 순이익: 2023 <span class="up">+485.3</span> → 2024 <span class="up">+1,409.7</span> → 2025 <strong>-1,382.5</strong> ← 비경상 급변동</li>
+<li>2024 <span class="up">+1,410</span>억·2025 -1,382억은 <strong>중국 JV 단계취득 재측정이익(2024)→중국 영업권 손상·CB 파생손실(2025)</strong>로 추정되는 비현금 항목 [블로거: 중국 영업권 1,239억]. 영업이익과 무관.</li>
+<li><strong>검증</strong>: 2025 연결 영업활동현금흐름 <strong><span class="up">+125.6</span>억</strong> [실측: 2025 사업보고서 CF] — 순손실 -1,382억이 전부 비현금임을 입증(현금은 오히려 유입).</li>
+<li>별도(OFS) 마진전환 — 블로거 핵심논지 실측검증:</li>
+<li>별도 OPM: 2024 3.3%(OP 18.4억) → 2025 12.2%(OP 84.6억) → <strong>1H26 28.0%(OP 88.5억)</strong>. 1H26 반기 별도 영업익(88.5억)이 이미 FY25 연간 별도 영업익(84.6억) 초과 → <strong>마진 레버리지 실측 확인</strong>. 블로거의 &#x27;GPM 53→61%·판관비율 47→39%·리투오 직판비중 5→40%&#x27; 주장과 방향 일치(세부 GPM 수치는 미확인).</li>
+<li>1H26 연결: 매출 387.9 / 영업익 85.8(OPM 22.1%) / 순익 -281.2 [실측 반기보고서]. 순손실은 CB 파생·중국 관련 비현금.</li>
+<li>재무건전성(연결 부채비율): 2023 67% → 2024 61% → 2025 <strong>119%</strong> (부채 2,481 / 자본 2,085). 중국 연결·CB로 부채 증가. 유증 납입(11월)으로 개선 예정.</li>
+<li>사업부문 비중(별도, 2025): 인체조직이식재 80.0% / 의료기기 14.6% / 제약 4.5% / 기능성화장품 1.0% [실측 사업보고서].</li>
+</ul>
+<p>※ 분기 standalone(연결 Q2 등)은 중국 JV 연결범위 변동으로 finstate 분기산출이 불안정 → 미확인 처리, 애널리스트 분기치로 대체(④).</p>
+<p>───────────────── ③ 미래 실적·컨센서스 (달성가능성) ───────────────── [실측: stockeasy·fnguide·naver 집계 2026-11-01]</p>
+<ul>
+<li>연간 컨센(연결, 억원): FY26E 매출 1,643 / 영업익 373 / 순익 36 / EPS -24 (CB손실로 순익 왜곡) · FY27E 매출 2,202 / 영업익 574 / EPS 811 (PER 29.5x) · FY28E 매출 2,529 / 영업익 735 / EPS 1,219 (PER 19.6x)</li>
+<li>영업익 컨센 상향추세: 1Y전 125 → 6M전 247 → 3M전 367 → 현재 373억 (지속 상향)</li>
+<li>분기 컨센: 3Q26 매출 419·영업익 102(naver) / 4Q26 매출 491(wisereport)</li>
+<li>최근 리포트:</li>
+<li>2026-10-19 신한 &quot;3Q 리투오 기대치 하회 vs 미국계약&quot; — 3Q26 매출 418억(<span class="up">+85%</span>YoY)·영업익 99억(<span class="up">+242%</span>YoY)·OPM 23.7% 전망, 단 <strong>리투오 기대 하회</strong> 경고 [Not Rated]</li>
+<li>2026-10-19 한투 &quot;3Q 컨센 부합, 저 이제 미국 갑니다&quot; [NR]</li>
+<li>2026-10-13 신한 &quot;미국 공급계약 체결完 — 단기실적보다 미국 확장성이 핵심&quot; [NR]</li>
+<li>2026-08-21 Small Insight &quot;Strong Buy, 목표가 117,900원 유지&quot; [★유일 목표가, 폭락 前 기준 → 스테일]</li>
+<li>달성가능성 판정: <strong>中(하단 리스크)</strong>. 근거 — FY26E 영업익 373억 중 1H26 실적(연결 85.8억)은 23%뿐 → <strong>77%가 하반기 집중(back-loaded)</strong>. 3Q 102<span class="up">+4</span>Q 185 가정 필요. Re2O 라인 가동률 <strong>91.9%(1H26)</strong>로 이미 풀가동 근접 → 증설 없이는 물량 상한. 신한이 &#x27;3Q 리투오 기대치 하회&#x27; 명시 → 3Q 쇼크 시 FY 컨센 하향 연쇄 위험.</li>
+</ul>
+<p>───────────────── ④ 밸류에이션 → 목표가 ───────────────── [실측 KIS 2026-10-30 종가 23,550]</p>
+<ul>
+<li>현재 지표: PER -8.4(적자·무의미) / PBR 6.0 / BPS 3,925 / EPS -2,805 / 시총 6,351억 / 상장주식수 2,697만주</li>
+<li>Forward: FY27E EPS 811 → PER 29.5x · FY28E EPS 1,219 → 19.6x (연결 EPS는 CB 파생손실이 27년까지 왜곡)</li>
+<li>Peer(뷰티·에스테틱 바이오): 파마리서치·휴젤·클래시스 통상 Fwd PER 15~25x권 [일반론, 당일 실측밴드 미확보→참고]</li>
+<li>자체 목표가 산식(정상화 기준):</li>
+<li>별도 영업익 run-rate: 1H26 88.5억 ×2 = <strong>FY26 별도 OP ~177억</strong> [추정: 반기×2, 하반기 가정]</li>
+<li>FY27 컨센 EPS 811 적용, 적정 멀티플 25x(peer 중간) → 적정주가 <strong>20,275원</strong> / 30x → 24,330원</li>
+</ul>
+<p>→ 현재 23,550원은 FY27 컨센 기준 <strong>29x로 이미 적정~약간 고평가</strong>. <span class="down">-81%</span> 폭락에도 &#x27;싼 주식&#x27; 아님(E가 CB·중국으로 훼손 + 규제·희석 리스크가 멀티플 눌림).</p>
+<ul>
+<li>증권사 목표가 117,900원은 폭락 전(8월, 당시 주가 11만대) 수치 → <strong>현 시점 유효하지 않음. 폭락 후 목표가 재산정 리포트 미확인</strong>.</li>
+</ul>
+<p>※ 11/12 무상증자(기존주식수 동규모, 3,044만주)로 주식수 ~2배 → 권리락 후 주가·EPS 동시 반감, PER는 불변. 위 PER 지표는 무상 전후 동일.</p>
+<p>───────────────── ⑤ 손익비 계산 ───────────────── [실측 KIS: 현재가 23,550 / MA5 24,460 / MA20 28,561 / MA60 26,547 / 52주고 125,000 / 52주저 23,400]</p>
+<ul>
+<li>현 위치: <strong>역배열</strong>(현가&lt;MA5&lt;MA60&lt;MA20), 52주 신저가(23,400) 바로 위 <span class="up">+0.6%</span>, 고점 대비 <span class="down">-81%</span>. 전형적 falling knife.</li>
+<li>진입 23,700 가정(23,400 지지확인 반등):</li>
+<li>상방: 1차 26,500(MA60) = <strong><span class="up">+11.8%</span></strong> / 2차 28,500(MA20) = <span class="up">+20.3%</span></li>
+<li>하방: 손절 22,900(52주저 <span class="down">-2%</span> 종가) = <strong>-3.4%</strong></li>
+<li><strong>손익비 = 11.8 ÷ 3.4 = 1:3.5</strong> (2차 목표 기준 1:6.0)</li>
+<li>기계적으로는 매력적(1:3.5↑)이나 <strong>신뢰도 낮음</strong>: ①52주저 이탈 시 하단지지 공백(미확인) ②11월 이벤트 3개로 갭 변동성 ③규제 바이너리. → 손익비 숫자만 믿고 진입 금지.</li>
+</ul>
+<p>───────────────── ⑥ 진입전략 (선물 미상장 → 현물 스윙 전용) ─────────────────</p>
+<ul>
+<li><strong>선물 미상장 확인(KIS 마스터)</strong> → 레버리지 불가, 현물만. 하락 추세 종목에 현물 물타기 금지.</li>
+<li>지지: 23,400(52주저·1차)→이탈시 공백(미확인). 저항: 26,500(MA60)→28,500(MA20)→30,000(심리).</li>
+<li>3라인(대기·조건부):</li>
+<li>진입: <strong>지금 아님.</strong> ①종가 23,400 지지확인 후 반등 or ②무상락(11/12) 후 2~3일 안정화 확인 시 23,500~24,000 분할(2회, 각 1/2) 1차.</li>
+<li>손절: 종가 22,900 이탈 전량 청산(예외 없음, 손절선 아래 추가매수 금지).</li>
+<li>익절: 1차 26,500서 1/2, 2차 28,500서 잔량. MA20(28,561) 상단 돌파 실패 시 전량.</li>
+<li>수급·유동성: 20일 평균 거래대금 <strong>239.5억</strong> [실측 KIS] → 1일 체결상한(ADV 10%) 약 24억, 유동성 충분. 외국인 20일 순매수 데이터 미확인(블로거: 외국인 순매도 지속).</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭 3.4% = <strong>자산의 29%</strong>, 이벤트 전 상한 25%, 집중상한 50% 중 <strong>최소값 25%</strong>. 단 falling knife<span class="up">+11</span>월 이벤트 밀집 고려 <strong>실제 10~15% 권고, 50% 집중 절대 금지</strong>.</li>
+</ul>
+<p>───────────────── ⑧ 산업·제품 바텀업 모델 ───────────────── 9-1 제품분해(별도 2025, 억원) [실측 사업보고서]: 인체조직이식재(MegaDerm·Re2O) 555.7(80%) / 의료기기 101.3(14.6%) / 제약 31.2 / 화장품 6.7. 리투오(Re2O)는 인체조직이식재 내 고성장 세그먼트. 9-3 시장·경쟁: 국내 인체조직이식재 M/S 50%+ [블로거·IR 주장, 경쟁자별 CAPA·점유율표 미확보→<strong>미확인</strong>]. ECM 스킨부스터 TAM·침투율 미확인. &quot;국내 유일/독점&quot;은 수치 뒷받침 못해 미확인. 9-4 단가: 제품단가 이력 DART 미공시(수량·가동률만 공시)→<strong>단가 미확인</strong>. 9-5 CAPA·가동률 [실측 반기보고서]: Re2O/MegaFill 파우더라인 CAPA 124,800(2024)→249,600(2025)→<strong>408,000(1H26)로 증설</strong>, 가동률 59.7%→87.2%→<strong>91.9%(1H26) 풀가동 근접</strong>. MegaDerm Plus(의료기기) 가동률 33.6%→66.8%→... → <strong>Re2O가 성장 병목이자 증설 핵심</strong>. 추가 증설 없으면 물량 상한. 9-7 바텀업 실적모델 (연결 3Q26 영업익, 단위 억) [추정: 컨센·신한 전망 기반]:</p>
+<ul>
+<li>Bear: 3Q OP &lt; 70 (리투오 QoQ 정체·규제 노이즈로 처방 위축) → FY26 컨센 373 하향 연쇄</li>
+<li>Base: 3Q OP 95~102 (신한 99·컨센 102 부합), OPM 23%대</li>
+<li>Bull: 3Q OP &gt; 115 (리투오 재가속+미국 초기물량) → FY 컨센 상향</li>
+<li>민감도: 리투오 ASP ±10% × 점유율 ±5%p 영향은 단가 미공시로 정량화 불가(미확인).</li>
+<li><strong>결론 문장: 3Q26 연결 영업이익 ≥ 115억이면 리투오 재가속 확인·논지 유지·추가검토 / &lt; 70억이면 성장 가시성 훼손·논지 폐기·청산.</strong> (실적발표 11월 중순)</li>
+</ul>
+<p>★ 촉매별 정량 (§10): 10/13 국감 &#x27;규제&#x27; 촉매 →</p>
+<ul>
+<li>정책내용: ECM 스킨부스터 인체조직/의료기기 분류·허위광고 규제, 식약처 관리체계 개편 검토. 시행시점 <strong>연말 식약처 정책연구 결과</strong>.</li>
+<li>수혜/피해 경로: 규제 강화 시 리투오 판매제한·품목허가 전환 리스크. 금액영향 미확인(규제안 미확정).</li>
+<li>동일 리스크 기업: 휴메딕스·휴온스 계열(리투오 유통 관련 거론) [인용: 데일리메디·뉴스맥 2026-10-13].</li>
+<li>시나리오: 식약처가 ①현행 유지=중립 ②가이드라인+판매지속=완화 ③품목허가 대상 전환+유예없음=논지붕괴. 확률 미확인(정책연구 결과 대기).</li>
+</ul>
+<p>───────────────── ⑦ 촉매·반증·시나리오 ─────────────────</p>
+<ul>
+<li>촉매 캘린더(날짜 확정):</li>
+<li>11/4 유상증자 신주 370만주 상장 [비건뉴스] — 물량 출회</li>
+<li>11/12 무상증자 신주 ~3,044만주 상장(기존주식수 동규모) [블로거] — 권리락·대규모 오버행, 단기 변동성 최대</li>
+<li>11월 중순 3Q26 실적발표 — 리투오 QoQ·OPM 확인(신한 &#x27;기대 하회&#x27; 경고)</li>
+<li>연말 식약처 ECM 스킨부스터 정책연구 결과 — 규제 방향 분수령</li>
+<li>1H27 미국 첫 출하·파트너 공개 / 27.3 4Q 중국 영업권 손상테스트</li>
+<li>반증 3개(수치→행동):</li>
+</ul>
+<ol>
+<li><strong>3Q26 연결 영업이익 &lt; 70억 → 논지 폐기·전량 청산</strong> / ≥ 115억 → 추가검토</li>
+<li><strong>종가 22,900원(52주저 <span class="down">-2%</span>) 이탈 → 전량 청산</strong></li>
+<li><strong>식약처 정책연구서 ECM 스킨부스터 품목허가 대상 전환+판매제한(유예 없음) → 폐기</strong></li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(3Q 실적 × 당일):</li>
+<li>쇼크(OP&lt;70)×갭하락 → 관망 유지, 진입 보류</li>
+<li>인라인(95~102)×보합 → 23,400 지지 재확인 후 소량 관심</li>
+<li>서프(&gt;115)×갭상승 → MA20(28,561) 회복 확인 시 추격 아닌 눌림 대기</li>
+<li>확률가중 시나리오(6~12개월, 현재가 23,550 기준):</li>
+<li>Bear 40%: 3Q 하회+규제 악화+무상 오버행 → 20,000 (<span class="down">-15%</span>)</li>
+<li>Base 40%: 3Q 인라인+규제 중립+미국 기대 유지 → 27,000 (<span class="up">+15%</span>)</li>
+<li>Bull 20%: 리투오 재가속+미국 조기가시화 → 33,000 (<span class="up">+40%</span>)</li>
+<li><strong>확률가중 기대수익률 = 0.4×(<span class="down">-15%</span>)<span class="up">+0.4</span>×(<span class="up">+15%</span>)<span class="up">+0.2</span>×(<span class="up">+40%</span>) = <span class="up">+8.0%</span></strong> → 기대값 양(+)이나 규제·실적 바이너리로 분산 큼 → 이벤트 통과 후 진입이 합리적.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거(비나인)·증권사 추정치는 모두 &#x27;추정/의견&#x27;이며 사실로 단정 금지. 실측 못한 값은 &#x27;미확인&#x27;. [미확인 목록] 경쟁자별 CAPA·점유율(9-3)·리투오 단가 이력(9-4)·1H26 별도 제품표(553.9억)와 별도 재무제표 매출(315.8억) 불일치·외국인 20일 순매수·폭락후 증권사 목표가·중국 영업권 잔액 정확치·규제안 확정내용 [출처] DART 사업보고서(20260324000006)·반기보고서(20260814004115)·KIS 시세(2026-10-30)·stockeasy/fnguide/naver 컨센(11-01)·국감뉴스(10-13)·유증상장(11-01) [검산] 별도 1H26 OP 88.5 &gt; FY25 84.6 ✓ / 연결 CFO <span class="up">+125.6</span> vs 순익 -1,382(비현금 확인) ✓ / 손익비 11.8÷3.4=3.5 헤더일치 ✓ / 시나리오 확률합 100% ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-01 16:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 23,550원 (<span class="down">-6.2%</span>) · 시총 6,351억 · 5일 <span class="down">-21.9%</span> / 20일 <span class="down">-9.5%</span> / 60일 <span class="down">-6.8%</span></li>
+<li>MA5 24,460원 / MA20 28,561원 / MA60 26,547원 → MA20 이격 <span class="down">-17.5%</span> · MA60 이격 <span class="down">-11.3%</span></li>
+<li>52주 고 125,000원 / 저 23,400원 → 고점 대비 <span class="down">-81.2%</span> · 20일 고 35,225원 / 저 23,550원</li>
+<li>후행 PER -8.4 / PBR 6.0 (EPS -2,805원 · BPS 3,925원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 239.5억 (5일 87.5억)</li>
+<li>외국인 순매수 5일 -31.2억 / 20일 -659.4억 · 기관 5일 -52.7억 / 20일 -45.7억 · 개인 20일 683.6억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 13.87% (공매도 31,883주 · 7.6억) · 5일 평균 13.22% / 20일 평균 7.37% → 증가 · 20일 평균 상회 연속 6일</li>
+<li>공매도 20일 최대 15.07% (10/08) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 26,500원 (<span class="up">+12.5%</span>) ÷ 하방 22,900원 (−2.8%) = <strong>1:4.54</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 2.8% = <strong>자산의 18.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 18.1%</strong></li>
+<li>유동성 참고: 20일 ADV 239.5억 · 1일 소화 한도는 ADV의 10%(23.95억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 2.8% · ATR14 3,373원 (손절폭/ATR 0.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 2.8% = ATR14 × 0.2배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 18,490원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.58</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-290650"></span>📋 결정카드 — 엘앤씨바이오(290650) 판정: 관심 선물: 無 현재가: 23,550원 진입: 대기 — 23,400 지지확인 반등 또는 무상락(11/12) 후 안정화 시 23,500~24,000 (2회 분할) 손절: 22,900원 (종가 이탈 시 전량) 목표: 1차 26,500원 (2차 28,500원) 손익비: 1:3.5 (진입 23,700 기준) 기간: 스윙 3~6주 촉매: 11/4 유증상장 · 11/12 무상상장 · 11월중순 3Q실적 · 연말 식약처 정책연구 반증: 3Q26 연결 영업이익 &lt; 70억이면 폐기·청산 / 종가 22,900 이탈 청산 / 식약처 품목허가 전환+판매제한</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
