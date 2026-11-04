@@ -1,0 +1,436 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>솔브레인(357780) · 반도체 소재 밸류체인 (High-k·HSN·몰리브덴 국산화) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261105-081244-반도체-소재-밸류체인-High-k-HSN-몰리브덴-국산화.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:4.36</div><div class="tp-c"><b>결론 발췌</b> 블로거 논지(소재 저평가 + P·Q·LTA 3박자)는 실측 교차검증 결과 상당 부분 사실로 확인됨. 레버리지(선물) 가능한 핵심 수혜주는 솔브레인(357780)·한솔케미칼(014680)·동진쎄미켐(005290) 3종. 세 종목 모두 최근 20거래일 −22~29% 조정으로 추격이 아닌 &#x27;눌림목&#x27; 구간. 솔브레인 손익비 1:3.2(목표 350,000), 한솔 1:3.1(목표 250,000). 단, 3Q26 실적발표(법정기한 11/14) 직전이라 이벤트 리스크 확인 후 분할진입 권고. ※ 블로거·증권사 수치는 모두 &#x27;참고·추정&#x27;이며 매수 강요 아님. ━━━━━━━━━━━━━━━━ Ⓐ 산업 구조·사이클 뷰 — 블로거 3대 논지 검증</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>솔브레인(357780) · 반도체 소재 밸류체인 (High-k·HSN·몰리브덴 국산화)</h1>
+<div class="meta">📊 benine · 2026-11-05 08:12 · 코드 357780</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-05 08:12)</div><div class="kpi-v">293,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2.3조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">28.83</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.13</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:4.36</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:3.17</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">350,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 285,000~293,000원 (눌림목 분할, 3Q실적 전 1차만)</span><span class="dc dn">손절 275,000원</span><span class="dc up">목표 350,000원</span><span class="dc">손익비 진입 1:4.36 · 현재가 1:3.17 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:3.2</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:3.2로 적었지만 진입·손절·목표로 계산하면 1:4.36다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 전후 3Q26 실적 / 연말 삼성 P5 공급사 선정</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 400억이면 논지 폐기·청산 / 종가 275,000 이탈 시 전량</div></div>
+
+<div class="body"><p>🚀 산업·테마 정밀리서치 — 반도체 소재 밸류체인 (High-k·HSN·몰리브덴 국산화)</p>
+<p>📌 한줄 결론: 블로거 논지(소재 저평가 + P·Q·LTA 3박자)는 실측 교차검증 결과 상당 부분 사실로 확인됨. 레버리지(선물) 가능한 핵심 수혜주는 솔브레인(357780)·한솔케미칼(014680)·동진쎄미켐(005290) 3종. 세 종목 모두 최근 20거래일 −22~29% 조정으로 추격이 아닌 &#x27;눌림목&#x27; 구간. 솔브레인 손익비 1:3.2(목표 350,000), 한솔 1:3.1(목표 250,000). 단, 3Q26 실적발표(법정기한 11/14) 직전이라 이벤트 리스크 확인 후 분할진입 권고. ※ 블로거·증권사 수치는 모두 &#x27;참고·추정&#x27;이며 매수 강요 아님.</p>
+<hr>
+<p>Ⓐ 산업 구조·사이클 뷰 — 블로거 3대 논지 검증 ━━━━━━━━━━━━━━━━</p>
+<p>【논지1】 &quot;소재주는 장비·부품(선행PER 18배) 대비 저평가(9배)&quot;</p>
+<ul>
+<li>솔브레인 선행PER [실측: FnGuide 컨센·2026-11-05] FY26E 13.6배 → FY27E 10.6배 → FY28E 8.3배</li>
+<li>한솔케미칼 선행PER [실측: FnGuide] FY26E 13.8배 → FY27E 11.2배 → FY28E 9.0배</li>
+</ul>
+<p>→ &quot;선행 9배&quot;는 FY28 기준으로 대체로 부합. 다만 당해(FY26)는 13~14배로 블로거 숫자(9배)보다 높음. 장비·부품 18배 주장은 본 리포트에서 직접 실측하지 못함 [미확인 — 블로거 인용]. 결론: 소재가 FY27~28 이익성장 기준 10배 내외로 멀티플 매력은 사실, &quot;9배 지금&quot;은 과장.</p>
+<p>【논지2】 &quot;이번 사이클은 CR(단가인하) 대신 연중 판가인상(P) + 웨이퍼 투입(Q) + LTA 3박자&quot;</p>
+<ul>
+<li>P(판가) 실측: 솔브레인 사업보고서 [실측: 사업보고서 2025.12·접수 20260316001567] &quot;반도체 소재 판매가격 전년 대비 약 6% 상승, 전전년 대비 약 8% 상승&quot;. 반기보고서 [실측: 20260814003813] &quot;전년 대비 약 5%·전전년 대비 약 12% 상승&quot; → 소재 판가가 하락이 아니라 2년 연속 인상 중임이 공시로 확인됨. 블로거 P논지의 가장 강력한 실측 근거.</li>
+<li>Q(물량) 실측: 솔브레인 반도체 HF CAPA [실측: 사업보고서] 제5기 133,248톤 → 제6기 146,232톤(<span class="up">+9.7%</span>). 가동률 확대와 함께 Q 증가 확인.</li>
+<li>LTA 실측: [인용: 연합뉴스 2026-07-31] &quot;삼성·SK, 빅테크와 잇따라 LTA… 소부장까지 뉴노멀&quot;. [인용: 조선일보 2026-08-09] &quot;생산 절반 이상을 LTA로 전환&quot;. [인용: 트렌드포스·글로벌이코노믹 2026-09-27] &quot;2027년 12인치 웨이퍼 LTA 단가 최대 <span class="up">+40%</span>&quot;. → P+Q+LTA 3박자 모두 교차검증됨(2개 이상 독립 출처).</li>
+</ul>
+<p>【논지3】 &quot;이익고점 28년 이후 연장, 과거 패턴상 27년 주가고점&quot;</p>
+<ul>
+<li>컨센 이익추세 [실측: FnGuide] 솔브레인 영업이익 FY26E 1,989 → FY27E 2,699 → FY28E 3,529억(우상향). 한솔 FY26E 1,778 → FY27E 2,240 → FY28E 2,834억(우상향). → 적어도 FY28까지 이익 증가 컨센은 사실. &#x27;주가고점 27년&#x27;은 블로거의 패턴론일 뿐 [미확인 — 검증 불가, 참고].</li>
+<li>메모리 Capex 타임라인: [인용: 네이버프리미엄 pokara 2026-10-14] &quot;연말 삼성 P5·SK 용인 Y1 과산화수소 공급사 선정 임박&quot;. P4·M15X·P5·Y1 세부 가동 타임라인은 본 리포트에서 전량 확정 교차확인 불가 [미확인 — 일부만 확인].</li>
+</ul>
+<p>🔎 사이클 종합판정: 블로거 핵심 논지(소재 판가인상·물량·LTA·이익 우상향)는 공시·복수언론으로 사실 확인. 다만 &#x27;선행PER 9배(지금)&#x27;·&#x27;주가고점 27년&#x27; 같은 단정치는 과장/패턴론. 소재 섹터는 사이클 중후반 리레이팅 &#x27;초입&#x27;이라는 방향성은 타당.</p>
+<hr>
+<p>Ⓑ 밸류체인 수혜주 Tier 분류 (실적 베타 × 선물 상장여부) ━━━━━━━━━━━━━━━━ [실측: KIS 개별주식선물 마스터파일 2026-11-05 · python kis_futures_check.py]</p>
+<p>■ Tier1 (실적수혜 高 + 선물 有 = 레버리지 스윙 가능)</p>
+<ul>
+<li>솔브레인(357780) — 선물✅(A2D611). HSN 삼성 독점·2nm GAA 초산계 식각액 독점. 반도체 소재 비중 85%.</li>
+<li>한솔케미칼(014680) — 선물✅(AG4611). High-k 신규진입(삼성향 격상)·과산화수소 국내 1위·QD/이차전지.</li>
+<li>동진쎄미켐(005290) — 선물✅(AEN611). PR(포토레지스트)·HBM 노광 수혜. (컨센 미확인 — 커버리지 공백)</li>
+</ul>
+<p>■ Tier2 (실적수혜 直 but 선물 無 = 현물만, 레버리지 불가)</p>
+<ul>
+<li>이엔에프테크놀로지(102710) — 선물❌. HSN 양사 퀄 진행(27년 가시화)·High-k(유피케미칼 관계).</li>
+<li>엘티씨(170920) — 선물❌. 300단↑ HSN 독점 주장. SK향 HSN 2nd 소스.</li>
+<li>에스앤에스텍(101490) — 선물❌. 블랭크마스크·펠리클.</li>
+</ul>
+<p>■ Tier3 (간접·범용, 선물 無 또는 수혜 간접)</p>
+<ul>
+<li>원익머트리얼즈(104830) 선물❌ / 에프에스티(036810) 선물❌ 펠리클 / 삼양엔씨켐(482630) 선물❌ / 켐트로스(220260) 선물❌ / 미원상사(002840) 선물✅이나 수혜 간접(계면활성제·삼양엔씨켐 모회사).</li>
+</ul>
+<p>👉 재두형 레버리지 스윙 관점에서 실질 후보는 Tier1 3종(솔브레인·한솔·동진)뿐. 이엔에프·엘티씨·에스앤에스텍은 테마 핵심이나 선물 미상장으로 현물만 가능 → 레버리지 전략 제외.</p>
+<hr>
+<p>Ⓒ Tier1 대표주 풀파기 ①②③④⑤⑥ ━━━━━━━━━━━━━━━━</p>
+<p>█████ 1. 솔브레인 (357780) — 선물 有 █████</p>
+<p>① 사실관계</p>
+<ul>
+<li>주력: 반도체 공정용 화학소재(비중 83%, H1 2026 85%), 디스플레이(5~7%), 2차전지(6~7%) [실측: dart_biz 사업보고서 2025.12·반기 2026.06]. 품목 HF·BOE·CMP슬러리·Precursor·식각액. 전방=삼성·SK하이닉스 메모리.</li>
+<li>테마 실체: HSN(고선택비 인산계 식각액) 삼성향 독점 + 2nm GAA 초산계 식각액 독점 주장. [인용: lilys.ai·KIPOST] 솔브레인 DNF/CMDL 인수로 High-k 전구체 수직계열화 추진 → 테마 실체 있음(단순 기대감 아님).</li>
+<li>최근 뉴스 [실측: news_search 2026-11-05]: 120억 자사주 신탁 4만683주 취득(11/4), 홀딩스-네트워크 소규모합병(11/2). 최대주주 지분 15.5% 담보(골프장 지주사 차입) — 지배구조 리스크 참고.</li>
+</ul>
+<p>② 실적 분석 [실측: DART 연결(CFS) fnlttSinglAcnt]</p>
+<ul>
+<li>연간(연결, 억원): 매출 2023 8,440 → 2024 8,634 → 2025 9,234 / 영업이익 1,335 → 1,679 → 1,336 / OPM 15.8% → 19.5% → 14.5%</li>
+</ul>
+<p>(2025 OP 역성장은 디스플레이·2차전지 약세 + 2Q 일시 부진 영향)</p>
+<ul>
+<li>분기(연결 standalone, 억원):</li>
+</ul>
+<p>2025 Q1 매출2,095·OP360(17.2%) / Q2 2,288·OP202(8.8%↓일시) / Q3 2,411·OP344(14.3%) / Q4 2,440·OP430(17.6%) 2026 Q1 매출2,638·OP447(16.9%) / Q2 3,120·OP460(14.7%) → H1 매출5,758·OP907(15.7%)</p>
+<ul>
+<li>YoY: H1 2026 OP 907억 vs H1 2025 562억 = <span class="up">+61%</span> → 블로거 &#x27;P·Q 동반상승&#x27; 실적으로 확인.</li>
+<li>재무건전성 [실측: 연결]: 2025 부채비율 30.2%(부채3,352/자본11,116), 영업CF <span class="up">+1,469</span>억. 2026반기 부채비율 22.0%(부채2,884/자본13,116). → 매우 건전.</li>
+<li>주의: 2025 순이익 840억(OP 1,336 대비 전환율 63%), 2026반기 순익 568억(OP907 대비 63%). 영업외/환율·금융손익으로 순익 전환율 낮음 [확정 사유 미확인] → 밸류는 영업이익 기준 평가 권고.</li>
+<li>검산: 분기합 Q1+Q2+Q3+Q4(2025)=9,234=연간 ✓ / H1 2026 2,638<span class="up">+3,120</span>=5,758=반기보고서 매출 575,776백만 ✓</li>
+</ul>
+<p>③ 미래실적·컨센 [실측: 컨센서스 자동수집 2026-11-05]</p>
+<ul>
+<li>FY26E 매출12,266·OP1,989·순익1,748·EPS21,609 / FY27E 15,064·2,699·2,238·27,720 / FY28E 17,994·3,529·2,862·35,469 (fnguide, 추정기관 8)</li>
+<li>분기 컨센: 2026Q3 매출3,237·OP513·순익407 (naver) / Q4 매출3,362·순익410</li>
+<li>최근 목표가: 삼성 580,000(10/12)·BNK 580,000(10/14)·상상인 540,000(10/13)·메리츠 500,000(10/12)·신한 420,000(하향 10/26). 평균 529,143원(14건, Buy14/NR1)</li>
+<li>달성가능성 판정: 中~高. H1 OP 907억 run-rate로 FY26 OP 1,989억은 하반기 가속(2H OP 1,082억) 필요. 3Q 컨센 513억이 분수령. 환율(원화강세)이 하향 변수 — 메리츠·삼성 모두 &quot;환율 역풍에도 물량증가 효과&quot; 언급. 3Q OP ≥ 500억이면 FY26 컨센 달성 가시.</li>
+</ul>
+<p>④ 밸류에이션·목표가 [실측: KIS 2026-11-05 현재가 293,000]</p>
+<ul>
+<li>현 trailing PER 28.8배(EPS10,164·순익부진 왜곡)·PBR 2.13배(BPS137,853). Forward PER FY26E 13.6 / FY27E 10.6 / FY28E 8.3배.</li>
+<li>자체 목표가 산식 [추정]: FY27E EPS 27,720 × 적정PER 12.6배 = 349,272 ≈ 350,000원(1차). × 15배(소재 리레이팅 반영) = 415,800 ≈ 420,000원(2차).</li>
+<li>증권사 평균 529,000원 병기 — 자체값보다 공격적(FY27~28 EPS에 high-teens PER 적용). 본 리포트는 보수적 350,000(1차)/420,000(2차) 채택.</li>
+</ul>
+<p>⑤ 손익비 [진입가 293,000 기준]</p>
+<ul>
+<li>상방 1차 350,000 = <span class="up">+19.5%</span> / 2차 420,000 = <span class="up">+43.3%</span></li>
+<li>하방 손절 275,000(20일 저점 285,000 하단 버퍼) = −6.1%</li>
+<li>손익비 = 19.5 ÷ 6.1 = 1:3.2 (1차) / 43.3 ÷ 6.1 = 1:7.1 (2차)</li>
+</ul>
+<p>⑥ 진입전략 (선물 레버리지)</p>
+<ul>
+<li>위치 [실측: KIS]: 현재가 293,000, MA20 326,925·MA60 338,542 &#x27;아래&#x27;(단기 하락추세), 20일 저점 285,000 근접, 52주 고점 530,000 대비 55% 수준(고점권 아님·조정 구간).</li>
+<li>수급: 외국인 20일 순매수 <span class="up">+140</span>억, 기관 −146억 [실측]. 공매도 비중 20일평균 8.7% — 다소 높음(숏커버 가능성).</li>
+<li>3라인(선물 스윙): 진입 285,000~293,000 눌림 분할(3회, 각 1/3) / 손절 275,000 종가이탈 전량청산 / 익절 1차 350,000(절반)·2차 420,000.</li>
+<li>⚠️ 3Q 실적(11/14 전후) 직전 → 1차 진입만 선취, 실적 확인 후 증액 권고. 집중상한·레버리지 경고(아래 사이징).</li>
+</ul>
+<p>█████ 2. 한솔케미칼 (014680) — 선물 有 █████</p>
+<p>① 사실관계</p>
+<ul>
+<li>주력 [실측: dart_biz 2025.12·반기 2026.06, 별도]: 전자·이차전지소재(QD QR-1000·바인더) 47.5%, 정밀화학(과산화수소 Superox) 31.9%, 제지/환경 16.1%. 자회사 테이팩스(이차전지 TAPEX·식품랩 유니랩) 별도.</li>
+<li>테마 실체: 반도체용 초고순도 과산화수소 국내 1위(점유 약 50% [인용: 블로거·IBK, 추정]). High-k 전구체 삼성향 신규 공급사로 격상 [인용: lilys.ai 2026]. [인용: pokara 2026-10-14] &quot;과산화수소 Full Capa, 2027·2028 각 연 1.7만톤(약 25%) 증설, 증설분 2H27부터 매출. 연말 삼성 P5·SK Y1 과수 공급사 선정 임박&quot; → 실체 있는 성장 모멘텀.</li>
+<li>최근 뉴스 [실측: news_search]: 신한 10/26 목표 300,000 신규 BUY(&quot;과산화수소 점유율 확대·실적 하방 견조&quot;). 뉴스퀘스트 10/26 &quot;상반기 원가·재고에 수익성 눌림(매출원가율 69.6%→70.6%)&quot; — 아래 실적과 일치.</li>
+</ul>
+<p>② 실적 분석 [실측: DART 연결(CFS)]</p>
+<ul>
+<li>연간(연결, 억원): 매출 2023 7,717 → 2024 7,764 → 2025 8,840 / 영업이익 1,241 → 1,288 → 1,562 / OPM 16.1% → 16.6% → 17.7%</li>
+<li>분기(연결 standalone, 억원):</li>
+</ul>
+<p>2025 Q1 2,096·OP417(19.9%) / Q2 2,219·OP489(22.0%) / Q3 2,300·OP488(21.2%) / Q4 2,224·OP169(7.6%↓일시) 2026 Q1 2,319·OP444(19.2%) / Q2 2,475·OP498(20.1%) → H1 매출4,794·OP942(19.7%)</p>
+<ul>
+<li>YoY: H1 2026 매출 <span class="up">+11.1%</span>(4,315→4,794), OP <span class="up">+4.0%</span>(906→942) → 매출 증가율 &gt; OP 증가율(원가·재고 부담, 뉴스와 일치). OPM은 여전히 20% 내외로 솔브레인보다 높음.</li>
+<li>재무건전성 [실측: 연결]: 2025 부채비율 35.9%(부채4,231/자본11,773), 순익 1,481억(전환율 OP대비 95% — 솔브레인보다 양호), 영업CF <span class="up">+2,003</span>억. → 건전·현금창출 우수.</li>
+<li>검산: 2025 분기합 2,096<span class="up">+2,219</span><span class="up">+2,300</span><span class="up">+2,224</span>=8,840=연간 ✓</li>
+</ul>
+<p>③ 미래실적·컨센 [실측: 컨센서스 2026-11-05]</p>
+<ul>
+<li>FY26E 매출9,839·OP1,778·순익1,724·EPS15,159 / FY27E 11,357·2,240·2,074·18,639 / FY28E 13,380·2,834·2,581·23,220 (fnguide, 추정기관 7)</li>
+<li>분기 컨센: 2026Q3 매출2,503·OP506·순익482 (naver) / Q4 매출2,554·순익324</li>
+<li>최근 목표가: 삼성 420,000(5/19)·현대차 325,000(9/18 하향)·상상인 380,000(10/13)·BNK 330,000(10/22)·신한 300,000(10/26 신규). 평균 366,111원(9건, Buy9)</li>
+<li>달성가능성 판정: 中~高. H1 OP 942억 → FY26 OP 1,778억은 2H OP 836억 필요(분기 약 418억, 3Q 컨센 506억보다 보수적). 과수 Full capa·QD 안정성으로 하방 견조. High-k·P5 공급사 선정은 FY26엔 미반영(FY27~28 업사이드). 컨센 영업이익 하향 추세(1Y전 2,032→현재 1,778)는 경계 요인.</li>
+</ul>
+<p>④ 밸류에이션·목표가 [실측: KIS 현재가 208,500]</p>
+<ul>
+<li>현 trailing PER 16.1배(EPS12,993)·PBR 2.10배(BPS99,420). Forward PER FY26E 13.8 / FY27E 11.2 / FY28E 9.0배.</li>
+<li>자체 목표가 산식 [추정]: FY27E EPS 18,639 × 적정PER 13.4배 = 249,763 ≈ 250,000원(1차). × 16배 = 298,224 ≈ 300,000원(2차, 신한 신규목표와 일치).</li>
+<li>증권사 평균 366,000원 병기(DS는 FY27 EPS×PER 20.5배로 400,000 — 공격적). 본 리포트 보수 250,000(1차)/300,000(2차).</li>
+</ul>
+<p>⑤ 손익비 [진입가 208,500 기준]</p>
+<ul>
+<li>상방 1차 250,000 = <span class="up">+19.9%</span> / 2차 300,000 = <span class="up">+43.9%</span></li>
+<li>하방 손절 195,000(20일 저점 203,000 하단) = −6.5%</li>
+<li>손익비 = 19.9 ÷ 6.5 = 1:3.1 (1차) / 43.9 ÷ 6.5 = 1:6.8 (2차)</li>
+</ul>
+<p>⑥ 진입전략 (선물 레버리지)</p>
+<ul>
+<li>위치 [실측]: 현재가 208,500, MA20 225,825·MA60 221,482 &#x27;아래&#x27;, 20일 저점 203,000 근접, 52주 고점 346,500 대비 60%(조정 구간).</li>
+<li>수급: 외국인 20일 −44억, 기관 <span class="up">+104</span>억, 개인 −56억 [실측]. 공매도 20일평균 19.2% — 높음(숏 부담·커버 여지 양면).</li>
+<li>3라인(선물 스윙): 진입 203,000~209,000 분할(3회 각 1/3) / 손절 195,000 종가이탈 전량 / 익절 1차 250,000(절반)·2차 300,000.</li>
+<li>⚠️ 3Q 실적(11/14 전후) 임박 → 1차 진입 후 실적 확인 증액.</li>
+</ul>
+<p>█████ 3. 동진쎄미켐 (005290) — 선물 有 (보조 Tier1) █████</p>
+<ul>
+<li>주력: PR(포토레지스트)·반도체 공정소재. HBM/선단노광 수혜. 선물✅(AEN611).</li>
+<li>밸류 [실측: KIS]: 현재가 39,500, PER 20.5·PBR 1.87(EPS1,927·BPS미표기), 52주 72,200/31,500(55% 수준), MA20 41,763·MA60 42,786 아래, 20일 −22.5% 조정. ADV20 139억.</li>
+<li>컨센 [실측: 4소스]: 최근 6개월 증권사 목표가·추정치 &#x27;미확인&#x27;(커버리지 공백) → 밸류 앵커 부재가 약점. 테마추종·수급매매 성격.</li>
+<li>판정: 관심(컨센 공백·실적 가시성 낮아 Tier1 중 후순위). 레버리지는 솔브레인·한솔 우선.</li>
+</ul>
+<hr>
+<p>Ⓓ 테마별 수혜·타임라인·반증 + 바텀업 모델 (§9) ━━━━━━━━━━━━━━━━</p>
+<p>【테마1】 High-k 전구체 국산화 (하프늄·지르코늄계)</p>
+<ul>
+<li>실체 [인용: KIPOST 2026, kipost.net/326922]: 대표 High-k 전구체 Cp-하프늄 특허 2026년 11월 만료 → 신규 공급사 유입 대기. 삼성향 일본 아데카 50%+ 과점, SK향 SK트리켐(SK머티리얼즈+日 트리케미칼)·유피케미칼. 특허만료로 국내 진입 문 열림.</li>
+<li>수혜주: 한솔케미칼(삼성향 신규 격상, 초기 점유 15% 추정 [인용: 블로거]), SK향은 SK트리켐·유피케미칼(이엔에프 관계·비상장/선물無).</li>
+<li>시장규모 [인용: 블로거, 단일출처·추정]: SK하이닉스향 하프늄계 ~1,500억(지르코늄계의 2배+). 글로벌 TAM·경쟁사 CAPA·점유율 2출처 교차는 확보 실패 [미확인].</li>
+<li>타임라인: 특허만료 2026.11 → 국내사 퀄·진입 2027~. 연말 삼성 P5 공급사 선정이 1차 분수령.</li>
+<li>반증: 한솔 High-k 매출 기여는 FY26 거의 0, FY27부터. &quot;High-k로 지금 사는&quot; 것은 시기상조 — 과수 본업이 받쳐줘야 함.</li>
+</ul>
+<p>【테마2】 NAND HSN (고선택비 인산계 식각액) — 고단화 수혜</p>
+<ul>
+<li>실체 [인용: 블로거]: 삼성향 솔브레인 독점, SK하이닉스향 솔브레인8:엘티씨2, 300단↑는 엘티씨 독점 주장, 이엔에프 양사 퀄 진행(27년 가시화).</li>
+<li>수혜주: 솔브레인(선물✅·삼성 독점), 엘티씨(선물❌), 이엔에프(선물❌).</li>
+<li>실측 근거: 솔브레인 반도체 소재 83~85% + 인산계 원재료 H3PO4 매입비중 76% [실측: dart_biz] → HSN 사업 실체 공시로 뒷받침. 단, &#x27;HSN 독점&#x27;의 점유율 숫자·경쟁사 CAPA 표는 2출처 교차 미확보 [미확인].</li>
+<li>타임라인: 메모리 고단화(V10 400단급) 진행 중 즉시 수혜. 27년 이엔에프 진입 시 솔브레인 점유 일부 잠식 가능(반증).</li>
+</ul>
+<p>【테마3】 몰리브덴 (텅스텐 대체) — 선물 수혜주 없음</p>
+<ul>
+<li>실체 [인용: 블로거]: 삼성 V10(400단)·SK V10(375단↑) 몰리브덴 확대, 국내 공급사 부재, SK스페셜티(비상장) 후보. 삼성 사용량 25년 4톤→30년 80톤 전망(추정).</li>
+<li>수혜 상장·선물주 없음 → 재두형 레버리지 관점 &#x27;매매 불가 테마&#x27;. 참고만.</li>
+</ul>
+<p>─────────────── §9 바텀업 실적 모델 — 솔브레인(연결, 억원) [추정: 산식 노출] ───────────────</p>
+<ul>
+<li>전방 Q: 삼성·SK 웨이퍼 투입 증가 + 고단화. 반도체 CAPA <span class="up">+9.7%</span>/yr [실측].</li>
+<li>P: 반도체 소재 판가 <span class="up">+5</span>~6%/yr [실측: 사업보고서].</li>
+<li>점유율: HSN 삼성 독점 유지 가정.</li>
+<li>모델(FY26 영업이익):</li>
+<li>Bear(25%): 2H OP 900억 → FY26 OP 1,807억 (환율역풍·디스플레이 부진·3Q OP 400억대). 산식: H1 907 + 3Q 400 + 4Q 500.</li>
+<li>Base(50%): 2H OP 1,082억 → FY26 OP 1,989억(컨센). 3Q OP 513·4Q 569. 산식: 컨센 분기배분.</li>
+<li>Bull(25%): 2H OP 1,250억 → FY26 OP 2,157억. 3Q OP 560+·4Q 690(2nm/HSN 가속).</li>
+<li>민감도: 판가 ±10% → OP 약 ±600억(매출 9천억·원가율70% 가정). 점유율 ±5%p(HSN) → OP ±150억 추정.</li>
+<li>🔑 결론문장: &quot;3Q26 연결 영업이익 ≥ 513억(Base)이면 논지 유지·추가매수 검토, &lt; 400억(Bear)이면 논지 폐기·청산.&quot;</li>
+</ul>
+<p>§9 바텀업 실적 모델 — 한솔케미칼(연결, 억원) [추정]</p>
+<ul>
+<li>과수 Full capa(증설 2H27부터) → FY26 Q는 믹스·가동률로, FY27 CAPA <span class="up">+25%</span>가 성장 레버.</li>
+<li>모델(FY26 영업이익):</li>
+<li>Bear(25%): 2H OP 760억 → FY26 OP 1,702억(원가율 상승 지속·3Q OP 400억대).</li>
+<li>Base(50%): 2H OP 836억 → FY26 OP 1,778억(컨센). 3Q OP 506·4Q 330.</li>
+<li>Bull(25%): 2H OP 920억 → FY26 OP 1,862억(과수 판가·QD 회복).</li>
+<li>민감도: 과수 판가 ±10% → OP ±200억 추정. High-k는 FY26 미반영(FY27 업사이드 +α).</li>
+<li>🔑 결론문장: &quot;3Q26 연결 영업이익 ≥ 506억(Base)이면 논지 유지·추가매수, &lt; 400억(Bear)이면 폐기.&quot;</li>
+</ul>
+<hr>
+<p>Ⓔ 촉매·반증·이벤트·시나리오·사이징 ━━━━━━━━━━━━━━━━</p>
+<p>⑦-1 촉매 캘린더(날짜 확정)</p>
+<ul>
+<li>2026-11-14 전후: 3Q26 분기보고서 법정기한 — 솔브레인·한솔 공통 최대 분수령.</li>
+<li>연말(2026 4Q): 삼성 P5·SK 용인 Y1 과산화수소/소재 공급사 선정 [인용: pokara] — 한솔 과수·솔브레인 소재 점유 결정.</li>
+<li>2026-11: Cp-하프늄 특허 만료 [인용: KIPOST] — High-k 국산화 진입 트리거.</li>
+<li>2027: 한솔 과수 증설분 2H27 매출 인식 개시 / 이엔에프 HSN 퀄 가시화(솔브레인 점유 잠식 반증 체크).</li>
+</ul>
+<p>⑦-2 반증 조건 3개 (수치→행동) 공통: ① 3Q26 연결 영업이익 — 솔브레인 &lt;400억 / 한솔 &lt;400억이면 논지 폐기·전량 청산. ② 손절선 종가 이탈(솔 275,000 / 한솔 195,000) 시 전량. ③ 연말 삼성 P5 공급사 선정에서 한솔 과수 탈락·솔브레인 소재 점유 축소 공시 시 비중 축소.</p>
+<p>⑦-3 이벤트 매트릭스 (3Q 실적 × 당일 주가)</p>
+<ul>
+<li>서프라이즈(OP&gt;컨센<span class="up">+10%</span>) × 갭상승 → 추격보단 눌림 대기 후 익절라인 상향.</li>
+<li>인라인 × 보합 → 분할 유지, 2차 진입.</li>
+<li>쇼크(OP&lt;컨센−15%) × 갭하락 → 손절선 점검, 이탈 시 청산.</li>
+</ul>
+<p>⑦-4 확률가중 시나리오 (목표가·기대수익률) ■ 솔브레인(현재 293,000):</p>
+<ul>
+<li>Bear 25% → 260,000(−11%) / Base 50% → 350,000(<span class="up">+19.5%</span>) / Bull 25% → 450,000(<span class="up">+54%</span>)</li>
+<li>기대수익률 = 0.25×(−11) + 0.5×(19.5) + 0.25×(54) = <span class="up">+20.5%</span></li>
+</ul>
+<p>■ 한솔케미칼(현재 208,500):</p>
+<ul>
+<li>Bear 25% → 190,000(−9%) / Base 50% → 250,000(<span class="up">+19.9%</span>) / Bull 25% → 320,000(<span class="up">+53%</span>)</li>
+<li>기대수익률 = 0.25×(−9) + 0.5×(19.9) + 0.25×(53) = <span class="up">+21.0%</span></li>
+</ul>
+<p>(확률합 각 100%)</p>
+<p>⑦-5 수급·유동성 [실측: KIS 2026-11-05]</p>
+<ul>
+<li>솔브레인 ADV20 103억 → 1일 체결상한(ADV10%) 약 10.3억. 한솔 ADV20 89억 → 약 8.9억. 동진 ADV20 139억 → 약 14억. 모두 스윙 유동성 충분.</li>
+</ul>
+<p>⑦-6 포지션 사이징 (자산 대비 %로만)</p>
+<ul>
+<li>솔브레인: 손실예산 1% ÷ 손절폭 6.1% = 자산의 16.4%. 집중상한 50%·이벤트전 상한 25% 중 최소 → 16.4% 상한. 단 3Q 실적 D-9이라 1차는 그 절반(약 8%)만 선취 권고.</li>
+<li>한솔: 손실예산 1% ÷ 손절폭 6.5% = 자산의 15.4%. min(15.4, 50, 25) → 15.4% 상한, 1차 절반 선취.</li>
+<li>⚠️ 선물 레버리지는 손절폭 기준 명목노출이 위 %를 넘지 않도록 역산. 50% 집중·손절선 아래 추가매수 금지.</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용 — 매수/매도 강요 아님. 블로거·증권사 추정치는 모두 &#x27;추정/참고&#x27;. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>장비·부품 선행PER 18배(블로거 인용, 직접 실측X)</li>
+<li>메모리 Capex 세부 타임라인(P4 Phase3·M15X·P5·Y1 가동일정 일부만 확인)</li>
+<li>High-k 글로벌 TAM·경쟁사 CAPA·점유율 2출처 교차(SK향 1,500억은 블로거 단일출처)</li>
+<li>HSN 솔브레인/엘티씨 점유율 숫자·경쟁사 CAPA 표</li>
+<li>몰리브덴 삼성 사용량 25년4톤→30년80톤(블로거 추정)</li>
+<li>솔브레인 순이익 전환율 저하(63%)의 확정 사유(환율·금융손익 추정)</li>
+<li>동진쎄미켐 증권사 컨센·목표가(커버리지 공백)</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART 연결재무: 솔브레인 사업보고서 20260316001567·반기 20260814003813 / 한솔 20260318001424·20260813001414</li>
+<li>KIS 시세 2026-11-05 / 컨센서스 자동수집(stockeasy·naver·fnguide·hankyung) 2026-11-05</li>
+<li>선물: KIS 개별주식선물 마스터 2026-11-05</li>
+<li>뉴스/산업: 연합뉴스 2026-07-31, 조선일보 2026-08-09, 트렌드포스/글로벌이코노믹 2026-09-27, KIPOST 326922, 네이버프리미엄 pokara 2026-10-14, 신한투자증권 2026-10-26</li>
+</ul>
+<p>[검산] 솔브레인 분기합(2025)=9,234=연간 ✓ · H1 2026 5,758=반기보고서 ✓ / 한솔 분기합(2025)=8,840=연간 ✓ / 손익비 산식 헤더·본문 일치 ✓ / 시나리오 확률합 100% ✓</p>
+<p>&lt;!-- hub:enrich:begin:357780 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-05 08:12 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 293,000원 (<span class="up">+0.0%</span>) · 시총 2.28조 · 5일 <span class="down">-6.5%</span> / 20일 <span class="down">-29.1%</span> / 60일 <span class="down">-1.5%</span></li>
+<li>MA5 294,600원 / MA20 326,925원 / MA60 338,542원 → MA20 이격 <span class="down">-10.4%</span> · MA60 이격 <span class="down">-13.5%</span></li>
+<li>52주 고 530,000원 / 저 215,500원 → 고점 대비 <span class="down">-44.7%</span> · 20일 고 411,500원 / 저 285,000원</li>
+<li>후행 PER 28.83 / PBR 2.13 (EPS 10,164원 · BPS 137,853원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 103.1억 (5일 51.7억)</li>
+<li>외국인 순매수 5일 -27.4억 / 20일 140.5억 · 기관 5일 22.3억 / 20일 -145.8억 · 개인 20일 7.0억</li>
+<li>개별주식선물: ⚡ 상장 (A2D611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 8.09% / 20일 평균 8.70% → 보합 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 21.16% (10/26) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 350,000원 (<span class="up">+19.5%</span>) ÷ 하방 275,000원 (−6.1%) = <strong>1:3.17</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 7%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 6.1% = <strong>자산의 8.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 8.1%</strong></li>
+<li>유동성 참고: 20일 ADV 103.1억 · 1일 소화 한도는 ADV의 10%(10.31억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 6.1% · ATR14 17,607원 (손절폭/ATR 1.0배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 6.1% = ATR14 × 1.0배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 266,589원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.16</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:357780 --&gt;</p>
+<p><span id="card-357780"></span>📋 결정카드 — 솔브레인(357780) 판정: 관심 선물: 有 현재가: 293,000원 진입: 285,000~293,000원 (눌림목 분할, 3Q실적 전 1차만) 손절: 275,000원 (종가 이탈 시 전량) 목표: 1차 350,000원 (2차 420,000원) 손익비: 1:3.2 기간: 스윙 6~12주 촉매: 2026-11-14 전후 3Q26 실적 / 연말 삼성 P5 공급사 선정 반증: 3Q26 연결 영업이익 &lt; 400억이면 논지 폐기·청산 / 종가 275,000 이탈 시 전량</p>
+<p>&lt;!-- hub:enrich:begin:014680 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-05 08:12 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 208,500원 (<span class="up">+0.0%</span>) · 시총 2.25조 · 5일 <span class="down">-4.1%</span> / 20일 <span class="down">-22.5%</span> / 60일 <span class="down">-6.7%</span></li>
+<li>MA5 208,800원 / MA20 225,825원 / MA60 221,482원 → MA20 이격 <span class="down">-7.7%</span> · MA60 이격 <span class="down">-5.9%</span></li>
+<li>52주 고 346,500원 / 저 175,000원 → 고점 대비 <span class="down">-39.8%</span> · 20일 고 271,000원 / 저 203,000원</li>
+<li>후행 PER 16.05 / PBR 2.1 (EPS 12,993원 · BPS 99,420원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 89.2억 (5일 45.6억)</li>
+<li>외국인 순매수 5일 10.2억 / 20일 -44.4억 · 기관 5일 -3.6억 / 20일 103.8억 · 개인 20일 -55.9억</li>
+<li>개별주식선물: ⚡ 상장 (AG4611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 10.94% / 20일 평균 19.16% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 37.19% (10/26) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 250,000원 (<span class="up">+19.9%</span>) ÷ 하방 195,000원 (−6.5%) = <strong>1:3.07</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 7%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 6.5% = <strong>자산의 7.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 7.7%</strong></li>
+<li>유동성 참고: 20일 ADV 89.2억 · 1일 소화 한도는 ADV의 10%(8.92억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 6.5% · ATR14 9,886원 (손절폭/ATR 1.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 6.5% = ATR14 × 1.4배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 193,671원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.80</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:014680 --&gt;</p>
+<p><span id="card-014680"></span>📋 결정카드 — 한솔케미칼(014680) 판정: 관심 선물: 有 현재가: 208,500원 진입: 203,000~209,000원 (눌림목 분할, 3Q실적 전 1차만) 손절: 195,000원 (종가 이탈 시 전량) 목표: 1차 250,000원 (2차 300,000원) 손익비: 1:3.1 기간: 스윙 6~12주 촉매: 2026-11-14 전후 3Q26 실적 / 연말 삼성 P5·SK Y1 과수 공급사 선정 / 2026-11 하프늄 특허만료 반증: 3Q26 연결 영업이익 &lt; 400억이면 논지 폐기·청산 / 종가 195,000 이탈 시 전량</p>
+<p>&lt;!-- hub:enrich:begin:005290 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-05 08:12 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 39,500원 (<span class="up">+0.0%</span>) · 시총 2.01조 · 5일 <span class="down">-4.4%</span> / 20일 <span class="down">-22.5%</span> / 60일 <span class="down">-0.4%</span></li>
+<li>MA5 39,060원 / MA20 41,762원 / MA60 42,786원 → MA20 이격 <span class="down">-5.4%</span> · MA60 이격 <span class="down">-7.7%</span></li>
+<li>52주 고 72,200원 / 저 31,500원 → 고점 대비 <span class="down">-45.3%</span> · 20일 고 51,200원 / 저 37,250원</li>
+<li>후행 PER 20.5 / PBR 1.87 (EPS 1,927원 · BPS 21,091원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 139.5억 (5일 102.3억)</li>
+<li>외국인 순매수 5일 -89.0억 / 20일 19.0억 · 기관 5일 26.2억 / 20일 26.6억 · 개인 20일 -43.2억</li>
+<li>개별주식선물: ⚡ 상장 (AEN611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 11.20% / 20일 평균 8.27% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 18.72% (11/04) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 47,000원 (<span class="up">+19.0%</span>) ÷ 하방 37,000원 (−6.3%) = <strong>1:3.00</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 7%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 6.3% = <strong>자산의 7.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 7.9%</strong></li>
+<li>유동성 참고: 20일 ADV 139.5억 · 1일 소화 한도는 ADV의 10%(13.95억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 6.3% · ATR14 2,025원 (손절폭/ATR 1.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 6.3% = ATR14 × 1.2배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 36,462원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.47</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:005290 --&gt;</p>
+<p><span id="card-005290"></span>📋 결정카드 — 동진쎄미켐(005290) 판정: 관망 선물: 有 현재가: 39,500원 진입: 컨센 공백·실적 가시성 낮아 레버리지 후순위 (37,250 이하 눌림 관찰) 손절: 37,000원 (종가 이탈 시) 목표: 1차 47,000원 (2차 51,000원) 손익비: 1:2.5 (추정·컨센 부재로 신뢰도 낮음) 기간: 스윙 4~8주 촉매: 3Q26 실적 / HBM 노광 수요 반증: 증권사 커버리지 재개 전까지 테마수급 소멸(종가 37,000 이탈) 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
