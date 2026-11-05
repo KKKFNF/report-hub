@@ -1,0 +1,126 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SK하이닉스(000660) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261105-090912-SK하이닉스-000660.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 자동판정(한줄 결론 기준)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-c"><b>결론 발췌</b> 솔리다임 다롄 모드B 설비반입이 미 상무부 승인보류로 막히면서 뉴욕 낸드팹 연계협상이 꼬였지만, 유지보수용 승인까지 막으면 D램·낸드 공급부족이 심화돼 가격폭등으로 이어질 수 있어 결국 기존설비 유지 승인은 날 것이라는 게 메르의 시각.  근거 - 메르(ranto28) 글 &quot;미국정부의 SK하이닉스 증설허가 상황 및 삼성전자 영향은?&quot; (2026-11-05) - 로이터: 미 상무부 BIS 수장 제프리 케슬러가 다롄 공장 업그레이드·증설용 미국산 장비 불허 입장 고수. 단, 공식 거부는 아직 없음 → &quot;승인 보류&quot;. - SK하이닉스 입장문: &quot;No capacity expansion is being sought for the Dalian Mo…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정: 자동판정</span><h1>SK하이닉스(000660)</h1>
+<div class="meta">📊 mer · 2026-11-05 09:09 · 코드 000660</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-05 09:09)</div><div class="kpi-v">1,314,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">959.9조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">22.29</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">7.65</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc-src">자동추출</span></div></div>
+
+<div class="body"><h1>SK하이닉스(000660) — 메르 글 기반 미니리포트</h1>
+<p><strong>한줄 결론</strong>: 솔리다임 다롄 모드B 설비반입이 미 상무부 승인보류로 막히면서 뉴욕 낸드팹 연계협상이 꼬였지만, 유지보수용 승인까지 막으면 D램·낸드 공급부족이 심화돼 가격폭등으로 이어질 수 있어 결국 기존설비 유지 승인은 날 것이라는 게 메르의 시각.</p>
+<h2 id="근거">근거</h2>
+<ul>
+<li>메르(ranto28) 글 &quot;미국정부의 SK하이닉스 증설허가 상황 및 삼성전자 영향은?&quot; (2026-11-05)</li>
+<li>로이터: 미 상무부 BIS 수장 제프리 케슬러가 다롄 공장 업그레이드·증설용 미국산 장비 불허 입장 고수. 단, 공식 거부는 아직 없음 → &quot;승인 보류&quot;.</li>
+<li>SK하이닉스 입장문: &quot;No capacity expansion is being sought for the Dalian Mod B&quot; (기존 시설 유지, 증설 아님 논리).</li>
+<li>48D 세액공제(설비 35%), 착공 시한 2026.12.31. 솔리다임 450억달러(→최대 1,000억달러) 미 신규공장 협상 보도(블룸버그 10/27).</li>
+<li>인디애나 HBM 칩스법 보조금 4.58억달러(2024.12 확정)가 다롄 증설시 &#x27;중국 환수규정&#x27;에 걸릴 위험.</li>
+<li>실측(2026-11-05 09:05): 현재가 1,308,000원 당일 <span class="down">-6.3%</span>. 5일 <span class="down">-14.3%</span> / 20일 <span class="down">-24.1%</span> 급락. MA5 139.8만·MA20 138.0만·MA60 159.5만 모두 하회(정배열 붕괴). 외인 20일 -9.16만주 순매도. 선물 상장종목. VKOSPI 56(고변동).</li>
+</ul>
+<h2 id="invalidation">반증·리스크</h2>
+<ul>
+<li>&#x27;유지보수 승인은 날 것&#x27;은 메르 추정이지 확정 아님. 케슬러가 유지보수용까지 좁게 보면 수율 하락·라인 정지 리스크(연 1,000건 개별허가).</li>
+<li>삼성 시안(200→286단 업그레이드)도 동일 구조라 섹터 전반 리스크. 분리대응(유지=승인, 업그레이드·증설=불허) 시나리오 유효.</li>
+<li>현 주가는 평단(204.9만) 대비 <span class="down">-36%</span> 깊은 손실 구간, 추세 전부 하락. 공급부족 스토리와 주가 괴리 중.</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-05 09:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 1,314,000원 (<span class="down">-5.9%</span>) · 시총 959.87조 · 5일 <span class="down">-14.0%</span> / 20일 <span class="down">-23.9%</span> / 60일 <span class="down">-12.2%</span></li>
+<li>MA5 1,399,200원 / MA20 1,380,050원 / MA60 1,595,500원 → MA20 이격 <span class="down">-4.8%</span> · MA60 이격 <span class="down">-17.6%</span></li>
+<li>52주 고 2,987,000원 / 저 501,000원 → 고점 대비 <span class="down">-56.0%</span> · 20일 고 1,681,000원 / 저 1,223,000원</li>
+<li>후행 PER 22.29 / PBR 7.65 (EPS 58,955원 · BPS 171,751원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 49,944.3억 (5일 38,143.6억)</li>
+<li>외국인 순매수 5일 -24,216.2억 / 20일 -91,624.2억 · 기관 5일 693.7억 / 20일 10,479.1억 · 개인 20일 6,424.2억</li>
+<li>개별주식선물: ⚡ 상장 (A50611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 4.71% / 20일 평균 3.68% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 7.61% (10/12) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<h2 id="결정카드">결정카드</h2>
+<ol>
+<li>결론: 보유(손절라인 엄수) — 메르 글은 매매신호 아닌 인사이트 참고</li>
+<li>포지션: 선물 60계약 평단 204.9만 (현 130.8만, <span class="down">-36%</span>)</li>
+<li>1차 손절: 117.1만 (현재가 위 아직 미도달)</li>
+<li>1차 익절: 168.4만</li>
+<li>트리거(상방): 2027년 유지보수 연간허가 정상 발급 / 다롄 모드B 예외승인 / 뉴욕팹 백악관 발표</li>
+<li>트리거(하방): 유지보수용 장비까지 불허 / 인디애나 보조금 환수 현실화 / 외인 순매도 지속</li>
+<li>변동성: RV20 55%(고변동 92.7%), ATR14 8.5만 — 리스크 0.5% 축소운용</li>
+<li>수급: 외인 20일 -9.16만주, 기관 <span class="up">+1.05</span>만주. 공매도 특이 없음(5일 4.71%)</li>
+<li>매크로: D램·낸드 공급부족 + 메모리 슈퍼사이클 vs 미중 수출통제 꼬리위험</li>
+<li>다음 체크: 2027년분 BIS 연간허가 발급 여부 / 솔리다임 미 신규팹 착공(5% 선지출) 시한(12/31)</li>
+</ol></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
