@@ -1,0 +1,247 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>삼양식품 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261108-080920-삼양식품.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.47</div><div class="tp-c"><b>결론 발췌</b> 펀더멘털(7분기 연속 OPM 20%+·3Q 영업이익 사상최대)은 견고하나 주가는 환율·선적지연 우려로 MA60 아래 하락추세 구간. 지금은 눌림 확인 후 분할접근 &#x27;관심&#x27;. 손익비 1:3.4(1차) / 자체 목표가 1,600,000원(18×FY27E EPS), 증권사 평균 1,863,478원. (⚠️ 아래는 비나인 블로그 글을 출발점으로 한 리서치 참고용이며, 블로거 논지는 &#x27;개인의견&#x27;입니다. 매수·매도 강요가 아닙니다.)</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>삼양식품</h1>
+<div class="meta">📊 benine · 2026-11-08 08:09 · 코드 003230</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-08 08:09)</div><div class="kpi-v">1,180,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">8.9조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">22.83</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">7.08</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.47</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.16</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">1,400,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 1,120,000~1,180,000원 (분할 3회·눌림 확인)</span><span class="dc dn">손절 1,078,000원</span><span class="dc up">목표 1,400,000원</span><span class="dc">손익비 진입 1:3.47 · 현재가 1:2.16</span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026말 중국 자싱공장 가동 / 2027-02월 4Q26 실적발표</div><div class="dc-l">🛑 반증: 4Q26 연결 영업이익 &lt; 1,500억이면 논지 폐기·청산 / 종가 1,078,000원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 삼양식품(003230)  ※개별주식선물 有(근월물 A0K611)</p>
+<p>📌 한줄 결론: 펀더멘털(7분기 연속 OPM 20%+·3Q 영업이익 사상최대)은 견고하나 주가는 환율·선적지연 우려로 MA60 아래 하락추세 구간. 지금은 눌림 확인 후 분할접근 &#x27;관심&#x27;. 손익비 1:3.4(1차) / 자체 목표가 1,600,000원(18×FY27E EPS), 증권사 평균 1,863,478원. (⚠️ 아래는 비나인 블로그 글을 출발점으로 한 리서치 참고용이며, 블로거 논지는 &#x27;개인의견&#x27;입니다. 매수·매도 강요가 아닙니다.)</p>
+<hr>
+<p>① 포착 신호·현재 위치</p>
+<ul>
+<li>현재가 1,180,000원 (2026-11-06 종가, 당일 <span class="down">-3.83%</span>) · 시총 8.89조 · 발행주식 7,533,015주 [실측: enrich 2026-11-08 / KIS]</li>
+<li>이평: MA5 1,189,200 / MA20 1,186,750 / MA60 1,272,867 → 가격이 MA60 아래(정배열 X), 60일 <span class="down">-9.6%</span> 하락추세. MA5·20은 현재가 부근 수렴 [실측: enrich]</li>
+<li>52주 1,557,000~981,000 → 고점 대비 <span class="down">-24.2%</span>, 저점 대비 <span class="up">+20.3%</span> (중단~하단). 20일 박스 1,116,000~1,254,000 [실측]</li>
+<li>수급 20일: 외국인 -677억(순매도) / 기관 <span class="up">+1,616</span>억(순매수) / 개인 -919억 [실측: KIS 투자자별]</li>
+<li>공매도: 당일 14.31% · 20일평균 16.32%(최대 30.25% 10/22) · 추세 감소 → &quot;공매도 압력 높음&quot; [실측: enrich short]</li>
+<li>변동성: 고변동 국면(RV20 57.2%, 상위 92.8%ile, VKOSPI 58.2) → 리스크예산 0.5% 적용 [실측: vol_regime]</li>
+<li>ADV20 504억 / ADV5 555억 (1일 체결상한 ADV10% = 약 50억) [실측]</li>
+</ul>
+<p>② 사업·급등(실적)사유 — 실체 검증</p>
+<ul>
+<li>사업구조: 글로벌 라면 제조사. 연결매출 중 면스낵 91.7%(불닭 핵심), 소스조미 3.0%, 냉동 2.6% [실측: 사업보고서 2025.12, 접수 20260318001082]. 3Q26 수출비중 83.5%(해외 6,608억 / 전체 7,918억) [인용: 삼양IR·이슈앤비즈 11/6]</li>
+<li>급등사유 = 테마가 아니라 실적. 2026-11-06 3Q26 실적공시로 &#x27;분기 사상최대 영업이익&#x27; 확인 [실측: DART 공시·연합/SBS/이슈앤비즈 11/6 교차]:</li>
+<li>매출 7,918억 (YoY <span class="up">+25.3%</span>), 영업이익 1,962억 (YoY <span class="up">+49.9%</span>), OPM 24.8% (7분기 연속 20%+)</li>
+<li>지역별: 미국 2,125억(<span class="up">+36.6%</span>)·중국 2,089억(<span class="up">+13.2%</span>)·유럽 869억(<span class="up">+7.8%</span>)·국내 1,311억(<span class="up">+7.9%</span>)</li>
+<li>단, &#x27;실체 vs 기대&#x27; 냉정 구분 2가지:</li>
+</ul>
+<p>1) 순이익은 역주행 — 3Q26 순이익 892억으로 전년동기 1,100억 대비 <span class="down">-18.9%</span> [실측: StockHub 집계·&#x27;자본시장뉴스 11/7&#x27;]. 영업이익 사상최대인데 순이익 감소 = 환율(외화환산손실 등 영업외) 타격. 영업 체력 ↔ 환 노출의 괴리. 2) 일회성 포함 — 블로거는 &quot;영국법인 거래조건 변경 200억 매출이연 + 관세환급금 일회성 인식&quot;을 언급[추정·블로거 개인의견]. 언론도 &quot;관세환급 빼면 마진 횡보&quot;(메디컬투데이 엄브렐라 11/7) 지적 → OPM 24.8% 중 일부는 일회성 기여. 구조적 마진은 22~23%대로 보는 게 안전.</p>
+<ul>
+<li>결론: 수출 성장은 실체(미·중·유럽 전방위). 다만 &#x27;환율 역풍 + 선적지연(컨센 매출 8,128억 대비 <span class="down">-2.6%</span> 미달)&#x27;이 공존 → 주가 디레이팅의 근거도 실재.</li>
+</ul>
+<p>③ 실적 (DART 연결 실측)</p>
+<ul>
+<li>연간 추세 [실측: DART 연결 사업보고서]:</li>
+<li>FY23 매출 11,929억 / 영업이익 1,475억(OPM 12.4%) / 순이익 1,266억</li>
+<li>FY24 매출 17,280억 / 영업이익 3,446억(OPM 19.9%) / 순이익 2,713억</li>
+<li>FY25 매출 23,518억 / 영업이익 5,242억(OPM 22.3%) / 순이익 3,887억</li>
+</ul>
+<p>→ 2년 매출 <span class="up">+97%</span>, 영업이익 <span class="up">+255%</span>. 폭발적 성장 + 마진 레벨업(12%→22%)</p>
+<ul>
+<li>분기 추세(연결·단일분기) [실측: DART finstate / 3Q26은 공시·언론]:</li>
+<li>3Q25 매출 6,320 / OP 1,309(20.7%) / NI 1,100</li>
+<li>4Q25 매출 6,377 / OP 1,392(21.8%) / NI 956</li>
+<li>1Q26 매출 7,144 / OP 1,771(24.8%) / NI 1,445</li>
+<li>2Q26 매출 7,703 / OP 1,762(22.9%) / NI 1,375</li>
+<li>3Q26 매출 7,918 / OP 1,962(24.8%) / NI 892 ← OP 사상최대, NI는 환율로 뒷걸음</li>
+<li>3Q26 누적: 매출 22,766(<span class="up">+32.8%</span>) / OP 5,495(<span class="up">+42.7%</span>) [실측: 삼양IR 표]</li>
+</ul>
+<p>(검산: 1Q<span class="up">+2</span>Q<span class="up">+3</span>Q 매출 22,765≈누적 22,766 ✓ / OP 5,495 ✓)</p>
+<ul>
+<li>재무건전성: 부채비율 FY23 102.9%→FY24 92.6%→FY25 72.7% 개선 / 영업현금흐름 FY25 3,093억 / 이자지급 121억 → 이자보상배율 약 43배(영업이익÷이자) [실측: DART]. 재무 매우 양호.</li>
+<li>모멘텀이 추세를 정당화하는가: 영업이익 레벨은 정당화. 다만 주가는 오히려 하락 → &#x27;펀더멘털-주가 괴리&#x27;가 투자포인트이자 리스크(환율이 괴리의 원인).</li>
+</ul>
+<p>④ 미래 실적·컨센서스 [실측: 4소스 자동집계, 수집 2026-11-08]</p>
+<ul>
+<li>투자의견: Buy 46 / NR 1 (의견평균 4.00/5) · 목표가 평균 1,863,478원(최고 2,000,000 유안타 / 최저 1,750,000) → 현재가 대비 <span class="up">+57.9%</span></li>
+<li>연간 컨센(억원, EPS원):</li>
+<li>FY26E 매출 31,251 / 영업이익 7,267 / 순이익 5,581 / EPS 74,232 / PER 15.9 / ROE 37.0%</li>
+<li>FY27E 매출 38,025 / 영업이익 8,941 / 순이익 6,762 / EPS 89,317 / PER 13.2 / ROE 32.3%</li>
+<li>FY28E 매출 43,840 / 영업이익 10,614 / EPS 106,527 / PER 11.1</li>
+<li>최근 리포트(증권사·날짜·목표가):</li>
+<li>하나 11/5 Buy 1,800,000(중국 자싱공장 완공·유럽 침투)</li>
+<li>LS 11/4 Buy 1,800,000(환율우려 상쇄 견조성장)</li>
+<li>한국투자 10/28 매수 1,850,000</li>
+<li>한화 10/27 Buy 1,800,000(&quot;급락은 과도, 펀더멘털 견조&quot;)</li>
+<li>DS 10/23 Buy 1,900,000 / 유안타 10/21 Buy 2,000,000</li>
+<li>달성 가능성 판정:</li>
+<li>영업이익 컨센 FY26 7,267억 → 9M 실적 5,495억 + 4Q 약 1,772억이면 달성. 3Q 런레이트(1,962억) 감안 달성가능성 &#x27;高&#x27;</li>
+<li>순이익 컨센 FY26 5,581억 → 9M 실적 3,712억(1,445<span class="up">+1,375</span><span class="up">+892</span>) + 4Q 약 1,869억 필요. 환율 안정 전제 → 달성가능성 &#x27;中&#x27;(환율 변수)</li>
+<li>FY27 매출 38,025억(<span class="up">+21%</span>)은 중국 자싱공장·유럽 침투 전제 → 공장 가동 지연 시 하회. 달성가능성 &#x27;中&#x27;</li>
+</ul>
+<p>⑤ 밸류에이션 → 목표가</p>
+<ul>
+<li>현재 멀티플: PER(TTM) 22.8배 · PBR 7.08배(BPS 166,650) · Forward PER FY26E 15.9배 / FY27E 13.2배 [실측: enrich·컨센]</li>
+<li>EV/EBITDA: 순현금 미확정으로 정밀치 미확인</li>
+<li>Peer 비교(2025 연결) [실측: peer_finder]:</li>
+<li>삼양 OPM 22.3% / ROE 30.6% / PER 22.8 / PBR 7.08</li>
+<li>농심 OPM 5.2% / PER 14.5, 오리온·롯데웰푸드·CJ제일제당 등 대부분 OPM 4~6%·PER 14~23</li>
+<li>→ 삼양은 성장률·마진·ROE 모두 업종 최상위라 프리미엄 멀티플 정당. 단 PBR 7배는 밴드 상단</li>
+<li>자체 목표가 산식:</li>
+<li>Base: 적정 PER 18배 × FY27E EPS 89,317 = 1,607,706원 → 1,600,000원(증권사 평균보다 보수적)</li>
+<li>1차 목표 1,400,000원(≈15.7×FY27E, MA60·전고 회복 구간)</li>
+<li>Bull: 21배 × FY27E = 1,875,657원 ≈ 증권사 평균 1,863,478원</li>
+<li>Bear: 13배 × FY27E = 1,161,000원(현재가 부근) / 추가 악화 시 52주저 981,000원</li>
+<li>증권사 목표가 1,863,478원 병기 → 자체 Base 1,600,000원은 그보다 14% 낮음(환율·일회성 할인 반영).</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 레버리지 반영)</p>
+<ul>
+<li>지지: 1,186,000(MA20)→1,116,000(20일저)→981,000(52주저)</li>
+<li>저항: 1,254,000(20일고)→1,272,867(MA60)→1,557,000(52주고)</li>
+<li>현 위치: MA60 아래 하락추세 + 공매도 16%대 + 외국인 순매도 → 추격매수 금물, 눌림·회복확인 후 분할</li>
+<li>레버리지 스윙 3라인(진입가 1,150,000 기준):</li>
+<li>진입: 1,120,000~1,180,000 분할(3회·각 1/3), 지지 이탈 시 중단</li>
+<li>손절: 1,078,000(20일저 1,116,000 하회·종가 기준)</li>
+<li>익절: 1차 1,400,000 / 2차 1,600,000</li>
+<li>손익비(진입 1,150,000 기준):</li>
+<li>상방 1차 (1,400,000-1,150,000)/1,150,000 = <span class="up">+21.7%</span></li>
+<li>하방 (1,150,000-1,078,000)/1,150,000 = <span class="down">-6.3%</span></li>
+<li>손익비 = 21.7 ÷ 6.3 = 1:3.4 (2차 1,600,000 기준 <span class="up">+39.1%</span> → 1:6.2)</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (§9)</p>
+<ul>
+<li>9-1 제품분해 [실측: 사업보고서 2025.12]: 면스낵 21,555억(91.7%)·소스조미 706억(3.0%)·냉동 613억(2.6%)·용역 948억(4.0%). 불닭 단일 브랜드가 수출을 견인(2Q26 누적판매 100억개 돌파).</li>
+<li>9-2 고객·납품 [실측: 삼양IR 3Q26]: 미국 2,125억(Walmart 등 메인스트림+멕시코)·중국 2,089억(간식채널)·유럽 869억. 지역 3극 분산 → 단일고객 집중리스크 낮음. 국내 1,311억(16.5%).</li>
+<li>9-3 시장·점유 [일부 미확인]: 글로벌 즉석면 시장 연 1,200억개+ 소비(WINA 통상 인용)[추정·단일성격]. 삼양 글로벌 물량점유는 소수나 &#x27;프리미엄 매운맛&#x27; 세그먼트 급성장. TAM 정밀 금액·점유율은 2출처 교차 미확보 → 미확인.</li>
+<li>9-4 단가·원가 [실측: DART 반기 2026.06]: 국내 불닭 출고가 36,080원 동결·삼양라면 26,400→22,000 인하(내수 소폭). 해외는 가격인상(일본 <span class="up">+13%</span>, 뉴스퀘스트 11/5)으로 환율 방어. 원재료 팜유 1,776→1,845원/kg(상승·원가압박), 맥분 742→680원/kg(하락).</li>
+<li>9-5 CAPA·증설 [실측: 사업보고서]: 밀양2공장 65기 하반기 가동 → 면류 생산능력 밀양 291,675→605,866백만(2배+), 전사 가동률 60.5%(증설 여력 보유). 중국 자싱공장 2026말 완공 예정 → FY27 수출 CAPA 확대 [인용: 하나 11/5·유안타 10/21].</li>
+<li>9-7 바텀업 요약(억원):</li>
+<li>FY26 Base: 매출 31,000(9M 22,766<span class="up">+4</span>Q~8,200) / OP 7,300(9M 5,495<span class="up">+4</span>Q~1,800) / OPM 23.5% · 컨센 OP 7,267과 유사</li>
+<li>FY27 Base: 매출 38,000 / OP 8,900(컨센 8,941) · 중국공장·유럽 침투 전제</li>
+<li>민감도: 환율 ±5% → OP ±4~5%p 수준(수출 83.5% 노출) / 중국공장 1분기 지연 → FY27 매출 약 -1,500억</li>
+<li>결론문장: &quot;4Q26 연결 영업이익 ≥ 1,800억(Base)이면 논지 유지·추가매수 검토, &lt; 1,500억(Bear)이면 논지 폐기.&quot;</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오</p>
+<ul>
+<li>촉매 캘린더(날짜 확정만):</li>
+<li>2026년 말: 중국 자싱 신공장 완공·가동 → FY27 CAPA·물량 [인용: 하나 11/5]</li>
+<li>2027-02월 중순(추정): 4Q26 잠정실적 발표(법정기한 사업보고서 2027-03-31) → OP 임계 판정</li>
+<li>4Q26~1Q27: 글로벌 가격인상(일본 <span class="up">+13%</span>) 환율방어 효과 반영 [인용: 11/5]</li>
+<li>반증 3개(수치→행동):</li>
+</ul>
+<p>1) 4Q26 연결 영업이익 &lt; 1,500억이면 논지 폐기·전량 청산 / ≥ 1,900억이면 추가매수 2) 종가 1,078,000원 이탈 시 전량 청산 3) FY26 연결 영업이익 &lt; 7,000억(컨센 7,267 하회) 확정 시 성장둔화로 재평가</p>
+<ul>
+<li>이벤트 매트릭스(4Q26 실적):</li>
+<li>쇼크(OP&lt;1,500) × 갭하락 → 손절·청산</li>
+<li>인라인(1,500~1,900) × 보합 → 보유</li>
+<li>서프(OP&gt;1,900) × 갭상승 → 분할 추가(피라미딩)</li>
+<li>확률가중 시나리오(진입 1,150,000 기준):</li>
+<li>Bull 30%: 중국공장+유럽+환율안정 → 1,860,000 (<span class="up">+61.7%</span>)</li>
+<li>Base 45%: 견조한 수출성장, 환율 드래그 지속하나 OP 유지 → 1,500,000 (<span class="up">+30.4%</span>)</li>
+<li>Bear 25%: 환율 추가악화+선적지연+공매도 → 981,000 (<span class="down">-14.7%</span>)</li>
+<li>기대수익 = 0.30×61.7 + 0.45×30.4 + 0.25×(-14.7) = <span class="up">+28.5%</span></li>
+<li>수급·유동성: 외국인 20일 -677억(이탈)·기관 <span class="up">+1,616</span>억(지지). ADV20 504억 → 1일 체결상한(ADV10%) 약 50억.</li>
+<li>포지션 사이징(자산 대비 %): 리스크예산 0.5%(고변동) ÷ 손절폭 6.3% = 자산의 7.9%. 집중상한 50%·이벤트전 상한 25% 중 최소값 → 7.9% 채택. 선물 레버리지 사용 시 명목이 아닌 &#x27;위험금액 기준&#x27;으로 7.9% 유지(레버리지로 실효 노출 50%까지 올리면 손절 1회로 손실예산 수배 초과 — 금지).</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거 논지는 개인의견, 증권사 추정치는 &#x27;추정&#x27;. 환율·일회성 할인은 보수적으로 반영.</p>
+<p>[미확인 목록] 글로벌 즉석면 TAM 정밀 금액·삼양 점유율(2출처 교차 미확보) / EV/EBITDA(순현금 미확정) / 3Q26 순이익 892억은 언론·집계치(DART 분기보고서 정식공시 전) / 영국법인 매출이연·관세환급 금액(블로거 추정) [출처 목록] DART 연결 사업보고서(20260318001082)·반기보고서(20260814003053)·finstate / 삼양IR 3Q26·이슈앤비즈 11/6 / StockHub·자본시장뉴스 11/7 / 메디컬투데이 엄브렐라 11/7 / 뉴스퀘스트 11/5 / 증권사 컨센 4소스(stockeasy·naver·fnguide·hankyung) 2026-11-08 / KIS 시세·수급 [검산] 1Q<span class="up">+2</span>Q<span class="up">+3</span>Q26 매출 22,765≈누적 22,766 ✓ / OP 5,495 ✓ / 손익비 헤더·본문 1:3.4 일치 ✓ / 시나리오 확률합 100% ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-08 08:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 1,180,000원 (<span class="down">-3.8%</span>) · 시총 8.89조 · 5일 <span class="up">+3.7%</span> / 20일 <span class="up">+0.7%</span> / 60일 <span class="down">-9.6%</span></li>
+<li>MA5 1,189,200원 / MA20 1,186,750원 / MA60 1,272,867원 → MA20 이격 <span class="down">-0.6%</span> · MA60 이격 <span class="down">-7.3%</span></li>
+<li>52주 고 1,557,000원 / 저 981,000원 → 고점 대비 <span class="down">-24.2%</span> · 20일 고 1,254,000원 / 저 1,116,000원</li>
+<li>후행 PER 22.83 / PBR 7.08 (EPS 51,697원 · BPS 166,650원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 504.5억 (5일 555.2억)</li>
+<li>외국인 순매수 5일 -342.0억 / 20일 -677.3억 · 기관 5일 582.6억 / 20일 1,616.4억 · 개인 20일 -919.0억</li>
+<li>개별주식선물: ⚡ 상장 (A0K611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 14.31% (공매도 8,433주 · 101.9억) · 5일 평균 12.32% / 20일 평균 16.32% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 30.25% (10/22) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 1,400,000원 (<span class="up">+18.6%</span>) ÷ 하방 1,078,000원 (−8.6%) = <strong>1:2.16</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 7%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 8.6% = <strong>자산의 5.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 5.8%</strong></li>
+<li>유동성 참고: 20일 ADV 504.5억 · 1일 소화 한도는 ADV의 10%(50.45억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 8.6% · ATR14 63,429원 (손절폭/ATR 1.6배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 8.6% = ATR14 × 1.6배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 1,084,857원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.31</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-003230"></span>📋 결정카드 — 삼양식품(003230) 판정: 관심 선물: 有 현재가: 1,180,000원 진입: 1,120,000~1,180,000원 (분할 3회·눌림 확인) 손절: 1,078,000원 목표: 1차 1,400,000원 (2차 1,600,000원) 손익비: 1:3.4 기간: 스윙 6~12주 촉매: 2026말 중국 자싱공장 가동 / 2027-02월 4Q26 실적발표 반증: 4Q26 연결 영업이익 &lt; 1,500억이면 논지 폐기·청산 / 종가 1,078,000원 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
