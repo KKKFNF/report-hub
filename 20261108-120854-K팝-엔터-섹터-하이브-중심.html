@@ -1,0 +1,390 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>하이브(352820) · K팝 엔터 섹터(하이브 중심) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261108-120854-K팝-엔터-섹터-하이브-중심.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:13.86</div><div class="tp-c"><b>결론 발췌</b> 하이브(352820)는 밸류 바닥권·사상 최대 분기이익이 공존하나 &#x27;추세는 명백한 하락&#x27;. 지금 추격 아닌 136,500원 지지 확인 후 분할 관점. 진입 145,900원 기준 1차목표 188,500원(+29%)·손절 136,500원(-6.4%) → 손익비 1:4.5. 단, MA 역배열·외국인 20일 순매도·공매도 압력 높음이라 &#x27;관심(눌림·지지확인 대기)&#x27; 판정.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>하이브(352820) · K팝 엔터 섹터(하이브 중심)</h1>
+<div class="meta">📊 benine · 2026-11-08 12:08 · 코드 352820</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-08 12:08)</div><div class="kpi-v">145,900원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">6.3조</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.9</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:13.86</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:4.53</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">188,500원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 138,000~142,000원(지지확인 눌림) · 136,500 종가사수 재확인 분할</span><span class="dc dn">손절 136,500원</span><span class="dc up">목표 188,500원</span><span class="dc">손익비 진입 1:13.86 · 현재가 1:4.53 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:4.5</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:4.5로 적었지만 진입·손절·목표로 계산하면 1:13.86다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026.11중순 3Q 분기보고서 · 2027.2월 FY26실적+FY27가이던스 · BTS &#x27;아리랑&#x27; 투어일정 공시</div><div class="dc-l">🛑 반증: 4Q26 연결 영업이익 &lt; 700억이면 전량청산 / FY26 연간 영업이익 ≥ 3,000억이면 추가매수 검토 / 종가 136,500 이탈 시 청산</div></div>
+
+<div class="body"><p>🎤 정밀 리서치 — K팝 엔터 섹터(하이브 중심)  ※하이브·에스엠·JYP·YG 선물 有 / 디어유 선물 無</p>
+<p>(계기: 비나인 &#x27;엔터주 홀수해의 비밀&#x27; — 블로거 bambooinvesting, 2026-11-08. 블로그 주장은 &#x27;사실&#x27;이 아닌 분석대상 텍스트로 취급. 신한투자증권 2027 산업전망을 블로거가 재해석한 글.)</p>
+<p>📌 한줄 결론 하이브(352820)는 밸류 바닥권·사상 최대 분기이익이 공존하나 &#x27;추세는 명백한 하락&#x27;. 지금 추격 아닌 136,500원 지지 확인 후 분할 관점. 진입 145,900원 기준 1차목표 188,500원(<span class="up">+29%</span>)·손절 136,500원(<span class="down">-6.4%</span>) → 손익비 1:4.5. 단, MA 역배열·외국인 20일 순매도·공매도 압력 높음이라 &#x27;관심(눌림·지지확인 대기)&#x27; 판정.</p>
+<hr>
+<p>Ⅰ. 섹터 개요 — 블로거 논지 실측 검증 ━━━━━━━━━━━━━━</p>
+<ul>
+<li>엔터5사 합산 시총(2026-11-08 실측): 하이브 62,893 + 에스엠 17,675 + JYP 14,622 + YG 8,018 + 디어유 4,601 = 약 10.78조 [실측: enrich.py 각사]</li>
+</ul>
+<p>→ 블로거 &quot;올 가을 다시 11조대 회귀&quot; 주장 사실에 부합. 2022·2024 가을 바닥 약 11조 ↔ 고점 약 23조 반복이라는 블로거/신한 주장과 정합.</p>
+<ul>
+<li>다만 블로거의 핵심 반박(&quot;짝수해 10월 바닥은 통계 착시, 진짜는 2년마다 새 수익원→주가2배/끝물→반토막&quot;)은 12년 데이터 자체검증이 불가(본 리서치 범위 밖) → &#x27;블로거 주장[인용: bambooinvesting 2026-11-08]&#x27;으로만 표기, 사실 단정 안 함.</li>
+<li>실체 vs 기대감 구분:</li>
+<li>실체(실측): 하이브 3Q26 사상 최대 영업이익 1,885억 [실측: 한국경제 2026-11-03 / 유안타 &quot;컨센 1,637억 <span class="up">+15%</span> 상회&quot;]. BTS 완전체 복귀 후 첫 온기 분기. 북미 BTS MD 200만개 판매 [인용: MTN 2026-11-05].</li>
+<li>기대감(미확정): 신한 &#x27;2028 BIG CYCLE&#x27;(BTS+세븐틴+신인 동시가동) 주장은 컨센에 FY28E로 반영돼 있으나(아래 ③), 내년(FY27) 매출 <span class="down">-13%</span> 역성장 컨센이 &#x27;과도기&#x27; 증명 → 2028까지 기대감 선반영 단계.</li>
+</ul>
+<ul>
+<li>Tier 분류 (실적베타 × 선물상장):</li>
+<li>Tier1 (실적수혜高 + 선물有 = 레버리지 가능): 하이브(352820) — BTS 직결, 대장주. ★대표주.</li>
+<li>Tier2 (수혜中 + 선물有): 에스엠(041510, 저연차IP·2027 빅사이클)·JYP(035900, 신인 과도기)</li>
+<li>Tier2 (수혜中 + 선물有): YG(122870, 블랙핑크 의존·PER21 고평가)</li>
+<li>Tier3 (선물無 = 현물만, 레버리지 불가): 디어유(376300, 위버스/버블 팬플랫폼 베타)</li>
+</ul>
+<hr>
+<p>Ⅱ. Tier1 대표주 — 하이브(352820) 6축 풀리포트 ━━━━━━━━━━━━━━</p>
+<p>① 사실관계 검증</p>
+<ul>
+<li>사업구조(연결, 2025 사업보고서 제품별): 음반/음원 29.2% · 공연 28.8% · MD·라이선싱 21.5% · 콘텐츠 9.8% · 광고·출연료 5.6% · 팬클럽 5.2% [실측: DART 사업보고서 2025.12, 접수 20260320000802]</li>
+<li>2026 상반기 구조 변화: 공연 34.3%(1위로)·음반 27.9%·MD 20.9% [실측: 반기보고서 2026.06, 접수 20260814004127] → 앨범 중심에서 &#x27;공연·MD(투어 연계)&#x27; 중심으로 수익원 이동 = 블로거가 말한 &#x27;스타디움·굿즈&#x27; 사이클과 정합.</li>
+<li>BTS 팩트: 멤버 군복무 완료→2026년 완전체 복귀, 3Q26이 복귀 후 첫 온기 실적 분기 → 사상 최대 이익의 실체. 다만 시장은 &#x27;아리랑(차기 단체앨범) 이후 단체·솔로 활동&#x27;의 가시성을 묻는 중 [인용: 연합뉴스 2026-11-03].</li>
+<li>신인 라인업(실체): 캣츠아이(글로벌 걸그룹) 성과 가시화, 코르티스(신인 보이그룹) 급성장 → &quot;BTS 성과에 신인 급성장이 가려졌다&quot;가 증권가 공통 평 [인용: 한국경제·아시아타임즈 2026-11-04].</li>
+<li>핵심 괴리: 3Q 사상 최대 실적에도 발표 다음날 급락 → &quot;BTS 투어 이후(FY27)&quot;에 대한 시장 의구심. 공모가(135,000원)에 근접한 저평가라는 평가 [인용: 파이낸셜뉴스·하나증권 2026-11-04].</li>
+</ul>
+<p>② 실적 분석 (DART 연결 실측)</p>
+<ul>
+<li>연간 추세 (연결, 억원) [실측: DART fnlttSinglAcntAll CFS]</li>
+<li>FY23: 매출 21,781 / 영업이익 2,956 / 순이익 1,834 / OPM 13.6%</li>
+<li>FY24: 매출 22,556 / 영업이익 1,840 / OPM 8.2% (YoY 매출 <span class="up">+3.6%</span>, OP <span class="down">-37.8%</span>)</li>
+<li>FY25: 매출 26,499 / 영업이익 493 / OPM 1.9% (YoY 매출 <span class="up">+17.5%</span>, OP <span class="down">-73.2%</span>)</li>
+</ul>
+<p>→ FY25 OP 급감 원인(분해): BTS 군복무 공백기 + 신인 데뷔·플랫폼 선투자 비용 집행. 매출은 늘었으나 고마진 BTS 공연·음반 공백으로 믹스 악화. (일회성 아닌 &#x27;아티스트 사이클&#x27; 공백 → 영업 성격)</p>
+<ul>
+<li>분기 흐름 [실측: DART + 실적발표]</li>
+<li>1Q25 OP 216억 / 1H25 OP 659억 → 2H25 OP 약 -166억(적자) : BTS 공백 저점</li>
+<li>1H26 매출 약 21,483억(2.15조) [실측: 반기보고서 제품별 합계] — OP 표준계정 미매칭 &#x27;미확인&#x27;</li>
+<li>3Q26(단독): 매출 약 1.46조 추정(컨센 14,579억 부합~상회) / 영업이익 1,885억 = 역대 최대 [실측: 한경 2026-11-03, 유안타 컨센<span class="up">+15%</span>]</li>
+<li>재무건전성 [실측: 사업보고서 2025.12]: 차입금 7,396억 + 전환사채 1,913억 + 리스부채 2,565억. PBR 1.9배, BPS 76,643원. (이자보상배율·영업현금흐름 세부는 &#x27;미확인&#x27; — 분기보고서 CF 표 미파싱)</li>
+<li>소결: FY25 바닥 → FY26 BTS 복귀로 &#x27;V자&#x27; 이익 회복이 숫자로 확인됨. 실적 모멘텀은 상방. 단 주가는 역행(아래 ⑥).</li>
+</ul>
+<p>③ 미래 실적치 + 달성 가능성 [인용: fnguide/naver 컨센, 수집 2026-11-08]</p>
+<ul>
+<li>연간 컨센(억원, 추정기관 19개사):</li>
+<li>FY26E: 매출 49,404 / 영업이익 3,050 / 순이익 725 / EPS 1,182 / PER 124배</li>
+<li>FY27E: 매출 42,897(YoY <span class="down">-13.2%</span>) / 영업이익 4,939 / 순이익 3,838 / EPS 8,758 / PER 16.8배</li>
+<li>FY28E: 매출 47,572(YoY <span class="up">+10.9%</span>) / 영업이익 5,692 / 순이익 4,541 / EPS 10,339 / PER 14.2배</li>
+<li>블로거 &quot;내년 매출 <span class="down">-13%</span>&quot; 주장 → 컨센(42,897 vs 49,404 = <span class="down">-13.2%</span>)과 정확히 일치. 사실 확인.</li>
+</ul>
+<p>근거: FY26은 BTS 월드투어 매출 피크 → FY27은 투어 공백·단체앨범 간격으로 외형 역성장. 단 OP는 FY27 <span class="up">+62%</span>(3,050→4,939)로 증가 = 저마진 투어 비중↓·고마진 음원/MD·신인 레버리지.</p>
+<ul>
+<li>영업이익 컨센 추이(FY26E): 현재 3,050 ← 3M전 2,850 ← 1Y전 4,785 → 1년새 대폭 하향됐다가 최근 3개월 소폭 상향. 디레이팅 국면.</li>
+<li>달성 가능성 판정:</li>
+<li>FY26 영업이익 3,050억: 達 가능성 &#x27;高&#x27;. 3Q26 단독 1,885억 이미 확보, 4Q26 컨센 매출 12,530억 → 잔여 목표 현실적.</li>
+<li>FY27 영업이익 4,939억: 達 가능성 &#x27;中&#x27;. BTS 활동 공백기 저연차IP(세븐틴·투바투·캣츠아이·코르티스) 수익화 속도가 변수. 매출 역성장 중 OP <span class="up">+62%</span> = 믹스개선 가정에 의존 → 신인 히트율이 관건.</li>
+<li>FY28 &#x27;빅사이클&#x27;: 達 가능성 &#x27;低~中(기대감 단계)&#x27;. BTS 완전체+세븐틴+신인 동시가동 전제, 아직 일정 미확정.</li>
+</ul>
+<p>④ 밸류에이션 → 목표가</p>
+<ul>
+<li>현재가 145,900원 [실측 2026-11-08]. PER TTM 적자(-25.7, EPS -5,673) → TTM은 FY25 부진+상반기 반영으로 무의미. Forward 기준이 유효:</li>
+<li>FY27E PER 16.8배 / FY28E PER 14.2배 / PBR 1.9배</li>
+<li>Peer 밴드(FY27E PER): 하이브 16.8 vs 에스엠 12.4 vs JYP 12.6 → 하이브는 BTS 프리미엄 <span class="up">+35%</span>.</li>
+<li>증권사 목표가(최근, 모두 Buy):</li>
+<li>신영 300,000 / 유진 290,000 / SK 290,000 / 키움 280,000(↓) / 하나 270,000(↓) / 유안타 265,000 / 흥국 260,000 / 한화 250,000(↓) / NH 250,000 / KB 280,000</li>
+<li>평균 약 273,333원(21개사) [인용: fnguide/naver 집계] → 현재가 대비 <span class="up">+87%</span>. 단 최근 일제히 &#x27;하향&#x27; = 디레이팅 반영 중.</li>
+<li>자체 목표가 산식 [추정]:</li>
+<li>보수(Base): FY27E EPS 8,758 × 적정 PER 22배(엔터 평균~프리미엄) = 192,676원 ≈ 193,000원</li>
+<li>낙관(Bull): FY28E EPS 10,339 × PER 25배 = 258,475원 ≈ 258,000원</li>
+<li>즉 자체 Base 목표 약 193,000원(<span class="up">+32%</span>), Bull 258,000원(<span class="up">+77%</span>). 증권사 평균 273,333원은 FY28 빅사이클 선반영한 낙관치로 해석.</li>
+</ul>
+<p>⑤ 손익비 계산 (진입 145,900원 기준)</p>
+<ul>
+<li>상방: 1차 188,500원(20일 고가·직전 반등고, <span class="up">+29.2%</span>) / 2차 250,000원(컨센 최저가군, <span class="up">+71.3%</span>)</li>
+<li>하방: 손절 136,500원(52주 저점·전저점, <span class="down">-6.4%</span>)</li>
+<li>손익비 = 상승여력 29.2% ÷ 하락리스크 6.4% = 1:4.5 (1차 목표 기준)</li>
+<li>2차 목표 기준 1:11.1 — 지지선이 바로 아래라 손익비는 매력적. 단 &#x27;하락추세 역행 진입&#x27;의 함정 주의.</li>
+</ul>
+<p>⑥ 진입 전략 (선물 레버리지 반영)</p>
+<ul>
+<li>선물: 有 — 근월물 AFC611(202611), 표준코드 KR4AFC6B0000 [실측: kis_futures_check]</li>
+<li>추세 실측: MA5 148,820 / MA20 165,295 / MA60 169,097 → 완전 역배열(현재가 &lt; 모든 MA). 5일 <span class="down">-7.1%</span>, 20일 <span class="down">-11.0%</span>, 60일 <span class="down">-21.1%</span>. 52주 고점 405,500 대비 <span class="down">-64%</span>, 저점 136,500 대비 <span class="up">+6.9%</span> = 바닥권.</li>
+<li>수급: 외국인 20일 -67.7억·5일 -19.9억 순매도. 공매도 당일 16.6%·20일평균 15.5%(압력 높음, 최대 46.6% 10/14). 기관은 20일 <span class="up">+1,245</span>억 순매수(저가 매집 신호).</li>
+<li>ATR14 9,700원 → 변동성 큼(고변동 regime, RV20 57% 92분위).</li>
+<li>전략: &#x27;추격 금지 / 지지확인 분할&#x27;. 136,500 지지 사수 여부가 1차 분기점.</li>
+<li>1라인(관심진입): 138,000~142,000 눌림 + 반등확인(종가 MA5 회복) 시 1/3</li>
+<li>2라인: 136,500 종가 사수 재확인 후 1/3</li>
+<li>3라인: MA20(165,295) 회복·외국인 순매수 전환 확인 시 1/3(추세전환 추종)</li>
+<li>손절: 136,500 종가 이탈 전량 청산(선물 레버리지는 변동성 큰 구간이라 손절 엄격)</li>
+<li>익절: 1차 188,500 절반 / 2차 230,000~250,000 잔량</li>
+<li>⚠️ 50% 집중·레버리지 경고: 역배열+공매도 압력 구간의 레버리지 신규진입은 &#x27;지지확인 전&#x27; 금물. 손절폭 6.4%로 타이트하나 ATR 대비 1배 미만이라 노이즈 손절 위험 — 선물은 비중 축소 또는 종가베이스 손절 권장.</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9) ━━━━━━━━━━━━━━ 9-1 제품·서비스 분해 (연결, 억원) [실측: DART]</p>
+<ul>
+<li>FY25: 음반/음원 7,730(29.2%) · 공연 7,639(28.8%) · MD·라이선싱 5,706(21.5%) · 콘텐츠 2,588(9.8%) · 광고 1,472(5.6%) · 팬클럽 1,364(5.2%) / 합계 26,499</li>
+<li>1H26: 공연 7,364(34.3%) · 음반 5,983(27.9%) · MD 4,480(20.9%) · 콘텐츠 1,476 · 광고 1,088 · 팬클럽 1,092 / 합계 21,483</li>
+</ul>
+<p>→ 수익원 축이 &#x27;앨범→공연·MD&#x27;로 이동. BTS 투어 온기가 공연·MD를 끌어올림.</p>
+<p>9-2 고객·납품 구조</p>
+<ul>
+<li>B2C(팬) 직접 매출 구조 — 특정 전방 고객 집중 없음. &#x27;아티스트 IP&#x27;가 사실상 생산설비. 핵심 IP 집중 리스크: BTS 단일 의존도 高(3Q26 실적의 대부분). → 1 IP ≥30% 상당으로 추정(정확 비중 미공시, &#x27;미확인&#x27;).</li>
+</ul>
+<p>9-3 시장 규모·경쟁</p>
+<ul>
+<li>글로벌 K팝/팬덤 시장 TAM·CAGR: 증권사 산업리포트 수치 &#x27;미확인&#x27;(본 리서치 내 2출처 교차 불가).</li>
+<li>경쟁(국내): 에스엠·JYP·YG. FY27E OP 하이브 4,939 &gt; 에스엠 2,099 &gt; JYP 1,498 — 하이브가 섹터 이익의 과반. 하이브 섹터 내 이익점유율 약 54%[추정: 4사 OP합 대비].</li>
+</ul>
+<p>9-4 단가·원가</p>
+<ul>
+<li>회사 명시: 음반은 볼륨(정규/미니/싱글)별, 공연은 지역·규모별 단가 상이 → &quot;유의미한 평균단가 산정 불가&quot; [실측: 사업보고서]. &#x27;공시대상기간 중 중대한 판가 변동 없음&#x27; 명기.</li>
+<li>원가 구조: 매입채무 561억·차입금 7,396억·전환사채 1,913억 등 금융부채 1.68조 [실측]. 아티스트 정산·공연 제작비가 변동비 핵심.</li>
+</ul>
+<p>9-5 CAPA·수주: 엔터는 설비 CAPA 개념 비적용. &#x27;수주잔고&#x27;=투어 스케줄·앨범 발매 캘린더. BTS &#x27;아리랑&#x27; 이후 단체·솔로 일정 미확정 = FY27 가시성 부족의 근원.</p>
+<p>9-7 바텀업 모델 (연간, 억원)</p>
+<p>| 항목 | Bear | Base | Bull | 산식/근거 |</p>
+<p>| FY26 매출 | 46,000 | 49,404 | 52,000 | 컨센 49,404 중심, 4Q 투어강도 ± |</p>
+<p>| FY26 영업이익 | 2,600 | 3,050 | 3,500 | 3Q 1,885 확보 + 4Q |</p>
+<p>| FY27 매출 | 39,000 | 42,897 | 47,000 | BTS 공백 <span class="down">-13%</span>~보합 |</p>
+<p>| FY27 영업이익 | 3,800 | 4,939 | 5,800 | 믹스개선·신인 레버리지 가정 |</p>
+<p>| FY27 OPM | 9.7% | 11.5% | 12.3% | 고마진 음원/MD 비중↑ |</p>
+<ul>
+<li>민감도: 신인(캣츠아이·코르티스) 음반·투어가 컨센 상회 시 FY27 OP <span class="up">+15%</span>, 미달 시 <span class="down">-20%</span>. BTS &#x27;아리랑&#x27; 발매·투어 1분기 지연 시 FY27 매출 <span class="down">-5%</span>p.</li>
+<li>컨센 대조: Base가 컨센과 일치. Bull은 FY28 빅사이클 조기 반영.</li>
+<li>★결론 문장: FY26 연간 영업이익 ≥ 3,000억이면 &#x27;V자 회복&#x27; 논지 유지·추가매수 검토 / 4Q26(2027.2 발표) 단독 영업이익 &lt; 700억이면 &#x27;BTS 투어 이후 공백&#x27; 현실화로 논지 폐기.</li>
+</ul>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응 ━━━━━━━━━━━━━━</p>
+<ul>
+<li>촉매 캘린더(날짜 확정):</li>
+<li>2026.11 중순: 3Q26 분기보고서 DART 공시(세부 사업부문·CF 확인)</li>
+<li>2027.2월경: 4Q26 및 FY26 연간 실적발표 → FY26 OP 3,050억 달성 확인 + FY27 가이던스(최대 분기점)</li>
+<li>상시: BTS &#x27;아리랑&#x27; 단체앨범·월드투어 일정 공시(미확정, 발표 시 급변동)</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<p>1) 4Q26 연결 영업이익 &lt; 700억 → BTS 모멘텀 소진, 전량 청산 2) FY26 연간 영업이익 ≥ 3,000억 → 논지 유지·추가매수 검토(긍정 반증) 3) 종가 136,500원 이탈 → 전저점 붕괴, 전량 청산</p>
+<ul>
+<li>이벤트 매트릭스(FY26 연간실적):</li>
+<li>서프라이즈 × 갭상승 → 추세전환 추종, 2라인 추가</li>
+<li>인라인 × 보합 → 홀드, 가이던스 확인 후 판단</li>
+<li>쇼크(FY27 가이던스 급감) × 갭하락 → 손절, 재진입 보류</li>
+<li>확률가중 시나리오:</li>
+<li>Bear 35%: FY27 공백 부각·디레이팅 지속, 목표 130,000원(<span class="down">-11%</span>)</li>
+<li>Base 45%: FY26 피크확인·FY27 신인수익화 안착, 목표 193,000원(<span class="up">+32%</span>)</li>
+<li>Bull 20%: 2028 빅사이클 선반영·외인 복귀, 목표 258,000원(<span class="up">+77%</span>)</li>
+<li>확률가중 기대수익률 = 0.35×(<span class="down">-11%</span>)<span class="up">+0.45</span>×32%<span class="up">+0.20</span>×77% ≈ <span class="up">+25.9%</span></li>
+<li>수급·유동성 [실측]: 외국인 20일 -67.7억, 기관 <span class="up">+1,245</span>억. 20일 평균 거래대금 535억 → 1일 체결 상한(ADV 10%) 약 53억.</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭 6.4% = 자산의 15.6%. 집중상한 50%·이벤트전 상한 25% 중 최소값 = 15.6%. 분할 3회(각 1/3). 레버리지 시 역배열·공매도 구간 감안 비중 추가 축소 권장.</li>
+</ul>
+<hr>
+<p>Ⅲ. Tier2 약식 — 에스엠(041510)·JYP(035900) ━━━━━━━━━━━━━━ 【에스엠(041510)】 선물 有(AE4611) · 현재가 77,200원</p>
+<ul>
+<li>실적: 3Q26 매출 2,911억(<span class="down">-9.5%</span> YoY)·영업이익 355억(<span class="down">-26.4%</span> YoY, OPM 12.2%)·컨센 369억 부합 [인용: 상상인 2026-11-05]. &#x27;예상대로 쉬어간 분기&#x27;.</li>
+<li>컨센: FY26E 매출12,361/OP1,760/EPS4,259(PER18.3) → FY27E 13,641/2,099/6,264(PER12.4) → FY28E 14,600/2,354. FY27 성장 재개.</li>
+<li>밸류: PER TTM 5.1배(저평가)·PBR1.76. 목표 평균 112,842원(19개사)·현재가 대비 <span class="up">+46%</span>. 키움 130,000·2027 빅사이클론.</li>
+<li>추세: MA20 80,020·MA60 78,865, 현재가 77,200 소폭 하회. 52주 140,400/63,900 → 바닥권. 외국인 20일 -188억 순매도.</li>
+<li>판정: 관심. FY27 빅사이클 + 저PER가 하이브보다 밸류 매력. 저연차IP(SMTR25 데뷔) 가시화가 촉매. 하이브 대비 BTS 리스크 없는 분산 대안.</li>
+</ul>
+<p>【JYP(035900)】 선물 有(AEF611) · 현재가 41,150원</p>
+<ul>
+<li>컨센: FY26E 매출7,863/OP1,400/EPS3,069(PER13.5) → FY27E 8,242/1,498 → FY28E 8,494/1,552. 완만 성장(빅사이클 색채 약함).</li>
+<li>밸류: PER TTM 9.1배·PBR2.2. 목표 평균 57,471원(17개사)·현재가 대비 <span class="up">+40%</span>. 단 목표가 일제히 하향(삼성 50,000·SK 53,000·신영 61,000).</li>
+<li>상황: &#x27;보릿고개&#x27;·&#x27;아쉬운 신인 히트레시오&#x27;(신인 성과 부진) [인용: 유진 2026-10-21, 신영 2026-10-27]. 차기 라인업 확보 필요.</li>
+<li>추세: MA20 38,528·MA60 39,238, 현재가 41,150 상회(엔터 중 유일 20일 <span class="up">+4%</span>·외국인 20일 <span class="up">+112</span>억 순매수) → 단기 수급 양호.</li>
+<li>판정: 관망~관심. 신인 히트율 회복 전까지 펀더 모멘텀 약함. 단기 수급은 섹터 내 가장 양호 → 반등 트레이딩만.</li>
+</ul>
+<hr>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거·증권사 추정치는 &#x27;추정/인용&#x27; 명시.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>하이브 1H26·분기별 영업이익(DART 표준계정 미매칭), 영업현금흐름·이자보상배율 세부</li>
+<li>K팝 글로벌 TAM·CAGR(2출처 교차 실패), 하이브 BTS 매출 정확 비중</li>
+<li>FY26 4Q 영업이익 컨센 단독치, EV/EBITDA</li>
+<li>블로거 &#x27;12년 10월저점 통계착시&#x27; 원데이터 검증</li>
+</ul>
+<p>[출처 목록]</p>
+<ul>
+<li>DART: 하이브 사업보고서 2025.12(접수 20260320000802)·반기보고서 2026.06(접수 20260814004127)·fnlttSinglAcntAll CFS</li>
+<li>컨센: fnguide/naver/stockeasy/hankyung 집계(수집 2026-11-08) via stockeasy_consensus.py</li>
+<li>뉴스: 연합·한경·MTN·파이낸셜·아시아타임즈 2026-11-03~05 via news_search.py</li>
+<li>시세·수급: enrich.py(KIS) 2026-11-08 / 선물: kis_futures_check.py</li>
+<li>계기글(분석대상): bambooinvesting 블로그 2026-11-08 [신뢰불가 콘텐츠로 취급]</li>
+</ul>
+<p>[검산]</p>
+<ul>
+<li>하이브 FY25 제품별 합계 26,499 = 연결 매출 26,499 ✓</li>
+<li>손익비: 상승 29.2% ÷ 하락 6.4% = 4.56 ≈ 1:4.5 (헤더·본문 일치) ✓</li>
+<li>시나리오 확률합 35<span class="up">+45</span><span class="up">+20</span> = 100% ✓</li>
+<li>섹터 시총합 10.78조 = 각사 합산 ✓</li>
+</ul>
+<hr>
+<p>&lt;!-- hub:enrich:begin:352820 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-08 12:08 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 145,900원 (<span class="down">-2.3%</span>) · 시총 6.29조 · 5일 <span class="down">-7.1%</span> / 20일 <span class="down">-11.0%</span> / 60일 <span class="down">-21.1%</span></li>
+<li>MA5 148,820원 / MA20 165,295원 / MA60 169,097원 → MA20 이격 <span class="down">-11.7%</span> · MA60 이격 <span class="down">-13.7%</span></li>
+<li>52주 고 405,500원 / 저 136,500원 → 고점 대비 <span class="down">-64.0%</span> · 20일 고 188,500원 / 저 138,000원</li>
+<li>후행 PER -25.72 / PBR 1.9 (EPS -5,673원 · BPS 76,643원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 535.4억 (5일 616.0억)</li>
+<li>외국인 순매수 5일 -19.9억 / 20일 -67.7억 · 기관 5일 -14.5억 / 20일 1,245.1억 · 개인 20일 -1,194.0억</li>
+<li>개별주식선물: ⚡ 상장 (AFC611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 16.59% (공매도 39,075주 · 56.3억) · 5일 평균 13.04% / 20일 평균 15.49% → 감소 · 20일 평균 상회 연속 1일</li>
+<li>공매도 20일 최대 46.55% (10/14) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 188,500원 (<span class="up">+29.2%</span>) ÷ 하방 136,500원 (−6.4%) = <strong>1:4.53</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 7%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 6.4% = <strong>자산의 7.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 7.8%</strong></li>
+<li>유동성 참고: 20일 ADV 535.4억 · 1일 소화 한도는 ADV의 10%(53.54억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 6.4% · ATR14 9,700원 (손절폭/ATR 1.0배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 6.4% = ATR14 × 1.0배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 131,350원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.93</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:352820 --&gt;</p>
+<p><span id="card-352820"></span>📋 결정카드 — 하이브(352820) 판정: 관심 선물: 有 현재가: 145,900원 진입: 138,000~142,000원(지지확인 눌림) · 136,500 종가사수 재확인 분할 손절: 136,500원(종가 이탈 전량청산) 목표: 1차 188,500원 (2차 250,000원) 손익비: 1:4.5 기간: 스윙 6~12주 촉매: 2026.11중순 3Q 분기보고서 · 2027.2월 FY26실적+FY27가이던스 · BTS &#x27;아리랑&#x27; 투어일정 공시 반증: 4Q26 연결 영업이익 &lt; 700억이면 전량청산 / FY26 연간 영업이익 ≥ 3,000억이면 추가매수 검토 / 종가 136,500 이탈 시 청산</p>
+<p>&lt;!-- hub:enrich:begin:041510 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-08 12:08 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 77,200원 (<span class="down">-2.4%</span>) · 시총 1.77조 · 5일 <span class="up">+1.0%</span> / 20일 <span class="down">-0.4%</span> / 60일 <span class="up">+2.1%</span></li>
+<li>MA5 76,200원 / MA20 80,020원 / MA60 78,865원 → MA20 이격 <span class="down">-3.5%</span> · MA60 이격 <span class="down">-2.1%</span></li>
+<li>52주 고 140,400원 / 저 63,900원 → 고점 대비 <span class="down">-45.0%</span> · 20일 고 87,000원 / 저 70,800원</li>
+<li>후행 PER 5.1 / PBR 1.76 (EPS 15,126원 · BPS 43,793원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 87.3억 (5일 81.5억)</li>
+<li>외국인 순매수 5일 -40.9억 / 20일 -188.4억 · 기관 5일 79.2억 / 20일 47.6억 · 개인 20일 -134.6억</li>
+<li>개별주식선물: ⚡ 상장 (AE4611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 23.36% (공매도 24,018주 · 18.5억) · 5일 평균 17.08% / 20일 평균 18.94% → 보합 · 20일 평균 상회 연속 1일</li>
+<li>공매도 20일 최대 33.75% (10/28) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 95,000원 (<span class="up">+23.1%</span>) ÷ 하방 69,000원 (−10.6%) = <strong>1:2.17</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 7%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 10.6% = <strong>자산의 4.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.7%</strong></li>
+<li>유동성 참고: 20일 ADV 87.3억 · 1일 소화 한도는 ADV의 10%(8.73억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 10.6% · ATR14 4,764원 (손절폭/ATR 1.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 10.6% = ATR14 × 1.7배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 70,053원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.49</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:041510 --&gt;</p>
+<p><span id="card-041510"></span>📋 결정카드 — 에스엠(041510) 판정: 관심 선물: 有 현재가: 77,200원 진입: 73,000~77,000원(MA60 부근 분할) 손절: 69,000원 목표: 1차 95,000원 (2차 112,000원) 손익비: 1:2.9 기간: 스윙 8~16주 촉매: SMTR25 신인 데뷔 · 2027 빅사이클 진입 가시화 · 4Q26 실적 반증: 4Q26 연결 영업이익 &lt; 300억이면 청산 / FY26 연간 영업이익 ≥ 1,700억이면 유지 / 종가 69,000 이탈 시 청산</p>
+<p>&lt;!-- hub:enrich:begin:035900 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-08 12:08 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 41,150원 (<span class="up">+4.2%</span>) · 시총 1.46조 · 5일 <span class="up">+4.4%</span> / 20일 <span class="up">+4.0%</span> / 60일 <span class="down">-12.1%</span></li>
+<li>MA5 38,760원 / MA20 38,528원 / MA60 39,238원 → MA20 이격 <span class="up">+6.8%</span> · MA60 이격 <span class="up">+4.9%</span></li>
+<li>52주 고 79,800원 / 저 35,850원 → 고점 대비 <span class="down">-48.4%</span> · 20일 고 41,150원 / 저 36,000원</li>
+<li>후행 PER 9.11 / PBR 2.2 (EPS 4,519원 · BPS 18,730원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 181.0억 (5일 162.2억)</li>
+<li>외국인 순매수 5일 99.0억 / 20일 112.5억 · 기관 5일 45.2억 / 20일 89.4억 · 개인 20일 -194.4억</li>
+<li>개별주식선물: ⚡ 상장 (AEF611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 10.68% (공매도 53,236주 · 21.6억) · 5일 평균 19.34% / 20일 평균 14.75% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 38.19% (11/02) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 47,000원 (<span class="up">+14.2%</span>) ÷ 하방 35,850원 (−12.9%) = <strong>1:1.10</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 7%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 12.9% = <strong>자산의 3.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.9%</strong></li>
+<li>유동성 참고: 20일 ADV 181.0억 · 1일 소화 한도는 ADV의 10%(18.10억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 12.9% · ATR14 2,448원 (손절폭/ATR 2.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 12.9% = ATR14 × 2.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 37,035원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.42</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:035900 --&gt;</p>
+<p><span id="card-035900"></span>📋 결정카드 — JYP(035900) 판정: 관망 선물: 有 현재가: 41,150원 진입: 38,500~39,500원(MA20·MA60 눌림, 반등 트레이딩만) 손절: 35,850원 목표: 1차 47,000원 (2차 53,000원) 손익비: 1:2.1 기간: 스윙 4~8주(단기) 촉매: 신인 히트레시오 회복·차기 라인업 공시 · 4Q26 실적 반증: 4Q26 연결 영업이익 &lt; 250억이면 청산 / FY26 연간 영업이익 ≥ 1,400억이면 관심전환 / 종가 35,850 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
