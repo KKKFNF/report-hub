@@ -1,0 +1,249 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>라이콤(388790) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261109-120957-라이콤-388790.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:3.64</div><div class="tp-c"><b>결론 발췌</b> DCI(데이터센터 간 연결)用 광증폭기 턴어라운드 스토리는 &quot;실체 있는 기대감&quot;입니다. 다만 주가는 52주 고점 대비 -63% 역배열 하락 끝단이고, 11/14 전후 3Q 분기보고서가 바이너리 분기점입니다. 현 3,435원 기준 1차 목표 4,450원(+29.5%)·손절 3,080원(-10.3%)으로 손익비 약 1:2.9, 2차 5,500원. 판정은 관심(실적 확인 전 소량 분할, 추격 금지) — 레버리지 불가·CB 오버행·고객 1사 의존 때문에 풀베팅 대상은 아닙니다. ※ 소스가 된 비나인(네이버 블로그 acejji81) 글은 &quot;Fact+글쓴이 Fiction 혼재·개인의견·매매추천 아님&quot;을 본인이 명시했습니다. 본 리포트는 그 논지를 …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>라이콤(388790)</h1>
+<div class="meta">📊 benine · 2026-11-09 12:09 · 코드 388790</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-09 12:09)</div><div class="kpi-v">3,440원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,053억</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.64</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.81</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">4,450원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 3,300~3,450원 분할 (또는 3Q 확인 후 4,130 종가회복 시 추격)</span><span class="dc dn">손절 3,080원</span><span class="dc up">목표 4,450원</span><span class="dc">손익비 진입 1:3.64 · 현재가 1:2.81 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.9</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.9로 적었지만 진입·손절·목표로 계산하면 1:3.64다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 3~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 전후 3Q 분기보고서 / 1Finity C+L 신제품 연내 출시 / 추가 수주 공시</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 5억이면 비중축소·&lt;0억이면 전량청산·논지폐기 / 종가 3,080원 이탈 시 전량청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 라이콤(388790) · 코스닥  ※개별주식선물 無(레버리지 불가, 현물 스윙만)</p>
+<p>📌 한줄 결론: DCI(데이터센터 간 연결)用 광증폭기 턴어라운드 스토리는 &quot;실체 있는 기대감&quot;입니다. 다만 주가는 52주 고점 대비 <span class="down">-63%</span> 역배열 하락 끝단이고, 11/14 전후 3Q 분기보고서가 바이너리 분기점입니다. 현 3,435원 기준 1차 목표 4,450원(<span class="up">+29.5%</span>)·손절 3,080원(<span class="down">-10.3%</span>)으로 <strong>손익비 약 1:2.9</strong>, 2차 5,500원. 판정은 <strong>관심(실적 확인 전 소량 분할, 추격 금지)</strong> — 레버리지 불가·CB 오버행·고객 1사 의존 때문에 풀베팅 대상은 아닙니다. ※ 소스가 된 비나인(네이버 블로그 acejji81) 글은 &quot;Fact+글쓴이 Fiction 혼재·개인의견·매매추천 아님&quot;을 본인이 명시했습니다. 본 리포트는 그 논지를 공시·DART·증권사 리포트로 교차검증한 참고용 자료입니다.</p>
+<hr>
+<p>① 포착 신호 (시세 실측 · KIS/enrich 2026-11-09 12:02)</p>
+<ul>
+<li>현재가 3,435원 (당일 <span class="up">+5.21%</span>) · 시총 1,052억 · 상장주식 약 3,063만주</li>
+<li>52주 고 9,330 / 저 2,290 → <strong>고점 대비 <span class="down">-63.2%</span>, 저점 대비 <span class="up">+50%</span></strong> (바닥권 반등 초입)</li>
+<li>이평: MA5 3,580 &lt; MA20 4,130 &lt; MA60 4,446 → <strong>역배열(하락추세)</strong>, 현재가가 3개 이평선 모두 아래</li>
+<li>수익률: 5일 <span class="down">-15.3%</span> / 20일 <span class="down">-28.4%</span> / 60일 <span class="down">-21.8%</span> (급락 후 첫 반등일)</li>
+<li>20일 레인지 고 4,635 / 저 3,265 → 현재가 3,435는 20일 저점 바로 위</li>
+<li>ATR14 276원(≈8%) — 고변동(20일 실현변동성 59.8%, 상위 93%ile)</li>
+<li>수급 20일: 외국인 <span class="up">+3.86%</span>(순매수) / 기관 <span class="down">-2.48%</span> / 개인 <span class="down">-1.45%</span></li>
+<li>공매도 20일 평균 6.0%(최대 20.2% 11/05) — <strong>공매도 압력 높음</strong></li>
+<li>20일 평균 거래대금 9.8억 → 1일 체결상한(ADV10%) 약 0.98억 [실측: KIS 일봉]</li>
+</ul>
+<p>〔해석〕 &quot;정배열 돌파&quot;가 아니라 <strong>역배열 하락추세에서 실적 모멘텀을 보고 바닥을 잡는 falling-knife 성격</strong>. 추세추종 매수 아님.</p>
+<hr>
+<p>② 사업·테마 검증 (사실 vs 기대 구분)</p>
+<ul>
+<li>주력: 광증폭기(EDFA, 펌프레이저 탑재 광신호 증폭 모듈) — 중장거리 광통신·DCI에서 약해진 광신호를 광-전-광 변환 없이 직접 증폭. [실측: DART 사업보고서 2025.12]</li>
+<li>제품군: ①광증폭기 ②광송수신기 ③광중계기 ④광섬유레이저(방산 포함) ⑤신규응용</li>
+<li><strong>1FINITY 계약은 실체 확인됨</strong> [실측·인용: 공시/뉴스 2026-06]:</li>
+<li>2026-06-04 1Finity(=후지쯔 산하 광전송장비사)와 <strong>38.69억</strong> 광증폭기 공급계약 → 당일 상한가</li>
+<li>2026-06-09 2차 <strong>20.71억</strong> 추가계약 → 합계 약 60억, &quot;美 AI 데이터센터向&quot;으로 보도</li>
+<li><strong>DCI 해석은 증권사도 동일</strong> [인용: 한국투자증권 김정찬 2026-10-26]: &quot;라이콤이 DCI 시장의 광신호 증폭 수요 확대로 본격 성장 진입. 1Finity가 C+L밴드·멀티레일 광라인시스템을 DCI/하이퍼스케일러用으로 연내 출시 예정. 라이콤은 국내 유일 광증폭기 양산 공급 실적 보유, 비중국 업체 중 대량양산 경쟁력.&quot;</li>
+<li><strong>블로거의 &#x27;엔비디아 노후 전화국→AIDC 전환→분산형 소형DC→DCI 급증&#x27; 논지</strong>는 비나인 본인이 &quot;Fiction 혼재&quot;라 밝힌 매크로 가설입니다. 엔비디아의 전화국 전환은 외신 기사 기반 큰 그림일 뿐, 라이콤 수주와 직접 인과가 공시로 확인된 바는 없습니다 → <strong>[테마 내러티브, 실적직결 미확인]</strong>.</li>
+</ul>
+<p>〔판정〕 <strong>실체 있는 부분</strong>(1Finity 60억 수주·3Q 매출인식·DCI 수요) + <strong>기대감 부분</strong>(엔비디아 전화국 매크로, 분산형DC 규모)이 섞임. 핵심은 &quot;수주가 실제 분기 실적으로 찍히는가&quot;이며, 그 1차 증명이 바로 11/14 3Q 보고서.</p>
+<hr>
+<p>③ 실적 분석 (DART 연결 실측 · 단위 억원)</p>
+<ul>
+<li>연도별 매출/영업이익/순이익 [실측: DART 연결, 접수 20260323000697 등]</li>
+<li>2022: 매출 343.3 / 영업익 <span class="up">+39.6</span> / — (호황 피크)</li>
+<li>2023: 매출 194.6 / 영업익 <strong>-21.2</strong> / 순익 적자 (적자전환)</li>
+<li>2024: 매출 131.4 / 영업익 <strong>-53.4</strong> / 적자확대 (광통신 다운사이클 저점)</li>
+<li>2025: 매출 176.9 / 영업익 <strong><span class="up">+5.8</span></strong> / 순익 <span class="up">+2.6</span> (<strong>흑자전환</strong>, OPM 3.3%)</li>
+<li>분기 추이(3개월, 연결) [실측: 반기·분기보고서]</li>
+<li>2025 Q1 37.0 / Q2 25.4 / Q3 32.6 / Q4 <strong>81.9</strong> (영업익 Q4 <span class="up">+24.0</span> 추정, 방산 광섬유레이저 42.7억 일회성 집중)</li>
+<li>2026 Q1 매출 27.0·영업익 <strong>-8.8</strong> / Q2 매출 45.3(<span class="up">+78%</span> YoY)·영업익 <strong><span class="up">+1.3</span></strong>(흑전)</li>
+<li><strong>2026 상반기 누적: 매출 72.3(<span class="up">+14.6%</span> YoY)·영업익 -7.5(적자, 전년 -15.3에서 축소)·순익 -6.0</strong> [실측: 반기보고서 20260814001795]</li>
+<li>제품별(2025 연간, 억원): 광증폭기 99.1(56%) · 광섬유레이저 42.7(24%, 방산 일회성) · 광중계기 27.4 · 광송수신기 7.5</li>
+<li>1H26 광증폭기 48.0(견조, 연율 ~96억) / 광섬유레이저 1.0(급감, 2025 방산물량 소진)</li>
+<li>가동률 광증폭기 1H26 <strong>51.1%</strong> (2025 53.8%) — 증설 없이도 물량 2배 소화 여력 [실측]</li>
+<li>재무건전성: 부채비율 <strong>32.5%</strong>(부채 70.4/자본 216.4, 2025) — 양호 / 자산 286.8억</li>
+<li>영업현금흐름·이자보상배율: DART API 미반환 → <strong>미확인</strong></li>
+</ul>
+<p>〔해석〕 2023~24 적자의 바닥을 2025 Q4 방산 일회성으로 흑전했고, 2026은 <strong>Q1 적자→Q2 흑전</strong>으로 광증폭기 수주가 실적에 묻기 시작. 상반기 누적은 아직 적자(-7.5억)라 <strong>&quot;실적 모멘텀 확인 대기&quot; 단계</strong>. 현 주가를 trailing 실적으로는 전혀 정당화 못 함(아래 ④⑤).</p>
+<hr>
+<p>④ 미래실적·컨센서스 (★한국투자증권 단일 추정, Not Rated)</p>
+<ul>
+<li>공식 컨센서스: 네이버·FnGuide·한경·스탁이지 4소스 <strong>수치 컨센 없음</strong>(최근 6개월 목표가 제시 리포트 0건, NR 2건) → <strong>컨센 미확인</strong></li>
+<li>유일 정량 추정 [인용: 한국투자증권 김정찬, 2026-10-26, 목표가 미제시]</li>
+<li><strong>3Q26: 매출 87억(<span class="up">+167%</span> YoY)·영업익 13억(흑전)·OPM 15.4%</strong> ← 광증폭기 신규수주+광섬유레이저 잔여물량 인식</li>
+<li><strong>FY26: 매출 227억(<span class="up">+28.5%</span>)·영업익 18억(<span class="up">+205%</span>)·OPM 7.8%</strong></li>
+<li><strong>FY27: 매출 361억(<span class="up">+58.7%</span>)·영업익 73억(<span class="up">+311%</span>)·OPM 20.2%</strong>, 이 중 광증폭기 293억(<span class="up">+92%</span>)</li>
+<li>200억 자금조달 완료 → DCI 전용 설비 증설 재원</li>
+<li>달성 가능성 판정: <strong>중(中)</strong></li>
+<li>(+) 1Finity 60억 수주 실재·추가 수주 확대 보도·가동률 51%로 증설 없이 물량 소화 여력·흑전 추세</li>
+<li>(−) FY26 18억·FY27 73억 영업익은 <strong>단일 고객(1Finity) 수주의 매출인식 타이밍에 전적 의존</strong>, 단일 증권사 추정, 분기 변동성 극심(2025 Q1~Q3 적자·Q4 폭증형)</li>
+<li>1차 검증대: <strong>11/14 전후 3Q 보고서</strong>. 한투 3Q 매출 87·영업익 13 근처면 신뢰도 급상승, 크게 미달이면 전체 추정 하향.</li>
+</ul>
+<hr>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 밸류 [실측/추정]</li>
+<li>PBR <strong>4.86x</strong> (자본 216.4억/2025, 시총 1,052억, BPS 약 707원) — 소형주·누적적자로 자본 얇아 비쌈</li>
+<li>PER: trailing(2025 순익 2.6억) <strong>약 405x</strong> / FY26E(순익 ~14억 추정) <strong>약 75x</strong> / <strong>FY27E 18x</strong> [인용: 한투]</li>
+<li>EV/EBITDA: 미확인(현금성자산 미확보)</li>
+<li>Peer 밴드 [인용: 한투 2026-10-26]: 글로벌 광부품 평균 PER <strong>45x</strong>, 스케일어크로스 관련 RF머트리얼즈 <strong>32x</strong> → 한투는 &quot;FY27 18x는 피어 대비 저평가&quot; 논리</li>
+<li>자체 목표가 산출 [추정]</li>
+<li>FY27E 순익 ≈ 영업익 73억 ×(1-세율 20%) = <strong>58억</strong> → EPS ≈ 58억/3,063만주 = <strong>1,895원</strong> [추정]</li>
+<li>적정 PER 25x(피어 45x 대비 실행리스크·소형주·고객집중 할인) × 1,895 = <strong>4,740원</strong></li>
+<li>PER 30x 적용 → 5,685원 / PER 18x(현 수준) → 3,410원(현재가 수준)</li>
+<li><strong>1차 목표 4,450원</strong>(MA60·FY27 약 23x) / <strong>2차 5,500원</strong>(FY27 약 29x, 피어 근접)</li>
+<li>증권사 목표가: <strong>없음(NR)</strong> → 자체값만 사용</li>
+</ul>
+<p>〔해석〕 trailing·FY26 기준 명백히 고평가, <strong>오직 FY27 이익 급증(73억)을 2년 당겨 반영해야만 &quot;싸다&quot;</strong>는 구조. 즉 밸류에이션 자체가 &quot;실적 달성 베팅&quot;입니다.</p>
+<hr>
+<p>⑥ 진입전략·손익비 (현물 스윙 — 선물 미상장 재확인됨)</p>
+<ul>
+<li>선물: <strong>개별주식선물 미상장</strong>(기초자산 292종목에 없음) [실측: KIS 마스터 2026-11-09] → <strong>레버리지 불가, 현물만</strong></li>
+<li>지지: 20일 저 3,265 / 심리 3,000 / 52주 저 2,290</li>
+<li>저항: MA20 4,130 / MA60 4,446 / 갭·매물대 5,000~5,500 / 52주 고 9,330</li>
+<li>3라인 (진입 3,435 기준)</li>
+<li>진입: <strong>3,300~3,450 분할</strong>(관심 구간). 또는 3Q 확인 후 <strong>MA20 4,130 종가 회복 시 추격 전환</strong></li>
+<li>손절: <strong>종가 3,080 이탈</strong>(20일 저 3,265 하회 확정) → <span class="down">-10.3%</span></li>
+<li>익절: 1차 4,450(<span class="up">+29.5%</span>) 절반 / 2차 5,500(<span class="up">+60%</span>)</li>
+<li><strong>손익비 = 상승여력 29.5% ÷ 하락리스크 10.3% = 1:2.9</strong> (2차까지 1:5.8)</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭 10.3% = <strong>자산의 9.7%</strong> / 집중상한 50% / <strong>3Q 실적 D-5 이벤트 전 상한 25%</strong> 중 <strong>최소값 9.7% 채택</strong>. 바이너리 실적 앞 <strong>소량 스타터 권고</strong>. 유동성 ADV 9.8억이라 대량 진입은 2~3일 분할 필요.</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 모델 (DCI·광증폭기 밸류체인) 9-1 제품분해(2025, 억원): 광증폭기 99.1(56%)·광섬유레이저 42.7(24%,방산 일회성)·광중계기 27.4·광송수신기 7.5 [실측: dart_biz] 9-2 고객구조: 핵심 고객 <strong>1Finity(후지쯔 산하)</strong> 단일 의존 — 2026 광증폭기 성장 대부분이 이 1사 수주. <strong>고객집중 리스크 1사≥30% 추정(정확비중 미공개)</strong> [인용: 한투] 9-3 시장(TAM): DCI向 EDFA 시장 규모·CAGR <strong>2출처 교차 미확보 → 미확인</strong>. 질적으로 &quot;C+L밴드·멀티레일·스케일어크로스 확산으로 증폭기 소요 증가&quot;(한투)·&quot;비중국 대량양산 경쟁자 희소&quot;만 확인. 경쟁자 CAPA·점유율 숫자 <strong>미확인</strong>(&quot;국내 유일 양산&quot;은 한투 주장, 글로벌 점유율 미확인) 9-4 단가·가동률: 광증폭기 가동률 51%(여력 큼), 원재료는 환율·수급 결정(광학/전기부품), 증설 CAPEX는 200억 CB로 조달 [실측] 9-5 수주·증설: 1Finity 60억(6월)+추가 확대 보도 / 200억 CB(무이자·리픽싱無, AI DC·방산 설비 전액 투입) 2026-07-08 [실측: 공시] 9-7 바텀업 실적(억원, 연결)</p>
+<p>| 항목 | Bear | Base(한투) | Bull | 근거 |</p>
+<p>| 3Q26 매출 | 55 | 87 | 100 | 수주 매출인식 속도 |</p>
+<p>| 3Q26 영업익 | 3 | 13 | 18 | OPM 6~18% |</p>
+<p>| FY26 영업익 | 8 | 18 | 24 | 4Q 인식 지속 |</p>
+<p>| FY27 영업익 | 40 | 73 | 90 | 광증폭기 293억 가정 |</p>
+<p>| FY27 순익 | 32 | 58 | 72 | 세율 20% | ※ 민감도: 광증폭기 단가·물량 ±10%, 점유율/수주 ±5%p → FY27 영업익 ±15억 내외. 전방 DCI CAPEX 1분기 지연 시 분기매출 -20~30억. <strong>결론 문장: 3Q26 연결 영업이익 ≥ 13억(Base)이면 논지 유지·추가매수 검토, &lt; 5억이면 비중축소, &lt; 0억(적자 지속)이면 논지 폐기.</strong></p>
+<p>★ 촉매 정량(§10, order_win형): 1Finity 수주 60억은 2026 매출(한투 227억)의 약 26%에 해당. 추가 수주·신제품(1Finity C+L 라인) 출시가 FY27 293억 광증폭기 가정의 전제. 이 수주잔고·추가계약 공시가 반증/확증의 핵심 트리거.</p>
+<hr>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정)</li>
+<li><strong>2026-11-14(전후): 3Q 분기보고서 법정기한</strong> ← 최대 바이너리. 한투 매출 87·영업익 13 대조</li>
+<li>연내: 1Finity C+L밴드·멀티레일 광라인시스템 출시(DCI/하이퍼스케일러) [인용: 한투] — 날짜 미확정</li>
+<li>추가 수주 공시(단일판매공급계약) 발생 시 수시</li>
+<li>반증 3개(수치→행동)</li>
+</ul>
+<ol>
+<li><strong>3Q26 연결 영업익 &lt; 5억 → 비중 절반 축소 / &lt; 0억(적자) → 전량 청산·논지 폐기</strong></li>
+<li><strong>종가 3,080원 이탈 → 전량 청산</strong>(20일 저점 붕괴)</li>
+<li>1Finity 추가수주·신제품 출시가 2026년 내 무소식 + 4Q 가이던스 하향 → 논지 폐기</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(11/14 실적 × 당일 주가)</li>
+<li>서프라이즈(영업익≥18억) × 갭상승 → 보유·4,130 돌파 시 추가 / 갭하락(선반영) → 눌림 분할</li>
+<li>인라인(~13억) × 보합 → 보유·MA20 회복 확인 후 비중확대</li>
+<li>쇼크(&lt;5억) × 갭하락 → <strong>손절룰대로 청산</strong>, 추격 금지</li>
+<li>확률가중 시나리오</li>
+<li>Bear 35%: 3Q 미달·역배열 지속 → 2,800원 (−18%)</li>
+<li>Base 45%: 3Q 인라인·완만 회복 → 4,450원 (<span class="up">+30%</span>)</li>
+<li>Bull 20%: 3Q 서프·수주확대 → 5,500원 (<span class="up">+60%</span>)</li>
+<li>기대수익 = .35×(−18)+.45×(30)+.20×(60) = <strong><span class="up">+19.3%</span></strong> [추정]</li>
+<li>수급·유동성: 외국인 20일 순매수 우위이나 공매도 20일 평균 6%(최대 20%)로 상단 저항. ADV 9.8억·체결상한 0.98억/일 → 분할 필수.</li>
+</ul>
+<hr>
+<p>🔗 DCI·광증폭기 밸류체인 Tier (참고 — 메인은 라이콤 심층)</p>
+<ul>
+<li>Tier1(순수 수혜·실적베타 高): <strong>라이콤(388790)</strong> — 광증폭기 EDFA 순수주, 적자→흑전 레버리지, <strong>선물 無</strong></li>
+<li>Tier2(연관): RF머트리얼즈(스케일어크로스 관련, 한투 피어 언급)·오이솔루션·라이트론(광트랜시버) 등 — 코드/실적 개별검증 필요, <strong>확인분 모두 선물 미상장</strong>(오이솔루션·라이트론·이오테크닉스 미상장) → 밸류체인 전반 레버리지 불가·현물 스윙 영역</li>
+</ul>
+<p>※ Tier2 종목별 재무·수주는 본 리포트 범위 밖(미검증) → 투자 전 개별 실측 필요.</p>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 비나인(블로거)·한국투자증권 추정치는 &#x27;추정/인용&#x27;이며 실측 못한 값은 &#x27;미확인&#x27;입니다. [미확인 목록] 영업현금흐름·이자보상배율 / DCI·EDFA TAM·CAGR(2출처) / 글로벌 점유율·경쟁사 CAPA / CB 전환가·전환가능주식수(희석률) / 1Finity 매출비중 정확치 / 공식 컨센서스(4소스 수치 0건) [출처] DART 사업보고서 20260323000697·반기보고서 20260814001795 / 한국투자증권 김정찬 2026-10-26(뉴스핌) / 공시·뉴스 2026-06(1Finity), 2026-07(200억 CB) / KIS·enrich 시세 2026-11-09 / 비나인 블로그 acejji81 2026-11-09(참고) [검산] 2025 분기합 37.0<span class="up">+25.4</span><span class="up">+32.6</span><span class="up">+81.9</span>=176.9=연간✓ / 1H26 27.0<span class="up">+45.3</span>=72.3=반기누적✓ / 손익비 29.5÷10.3=2.86≈1:2.9(헤더·본문 일치)✓ / 시나리오 확률 35<span class="up">+45</span><span class="up">+20</span>=100%✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-09 12:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 3,440원 (<span class="up">+5.4%</span>) · 시총 1,053억 · 5일 <span class="down">-15.2%</span> / 20일 <span class="down">-28.3%</span> / 60일 <span class="down">-21.7%</span></li>
+<li>MA5 3,581원 / MA20 4,130원 / MA60 4,446원 → MA20 이격 <span class="down">-16.7%</span> · MA60 이격 <span class="down">-22.6%</span></li>
+<li>52주 고 9,330원 / 저 2,290원 → 고점 대비 <span class="down">-63.1%</span> · 20일 고 4,635원 / 저 3,265원</li>
+<li>후행 PER 0.0 / PBR 0.0 (EPS 0원 · BPS 0원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 9.8억 (5일 7.9억)</li>
+<li>외국인 순매수 5일 3.6억 / 20일 3.9억 · 기관 5일 0.1억 / 20일 -2.5억 · 개인 20일 -1.4억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 8.41% / 20일 평균 6.04% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 20.19% (11/05) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 4,450원 (<span class="up">+29.4%</span>) ÷ 하방 3,080원 (−10.5%) = <strong>1:2.81</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 7%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 10.5% = <strong>자산의 4.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.8%</strong></li>
+<li>유동성 참고: 20일 ADV 9.8억 · 1일 소화 한도는 ADV의 10%(0.98억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 10.5% · ATR14 277원 (손절폭/ATR 1.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 10.5% = ATR14 × 1.3배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 3,024원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.43</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-388790"></span>📋 결정카드 — 라이콤(388790) 판정: 관심 선물: 無 현재가: 3,435원 진입: 3,300~3,450원 분할 (또는 3Q 확인 후 4,130 종가회복 시 추격) 손절: 종가 3,080원 목표: 1차 4,450원 (2차 5,500원) 손익비: 1:2.9 기간: 스윙 3~8주 촉매: 2026-11-14 전후 3Q 분기보고서 / 1Finity C+L 신제품 연내 출시 / 추가 수주 공시 반증: 3Q26 연결 영업이익 &lt; 5억이면 비중축소·&lt;0억이면 전량청산·논지폐기 / 종가 3,080원 이탈 시 전량청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
