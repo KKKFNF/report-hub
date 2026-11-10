@@ -1,0 +1,133 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한화오션(042660) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261110-090808-한화오션-042660.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 자동판정(한줄 결론 기준)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-c"><b>결론 발췌</b> 우크라이나 종전·러시아 제재 완화 시 거제 계류중인 쇄빙LNG선 6척이 &#x27;돈먹는 하마→돈버는 하마&#x27;로 전환될 수 있는 이벤트 베팅. 다만 현 주가는 전고점 대비 -69% 추세붕괴 구간이라 선반영/실망 양면 리스크 공존. 근거 (메르 본문): - 한화오션(전신 대우조선해양)이 2020년 북극LNG-2용으로 수주한 쇄빙LNG선 6척이 거제조선소에 계류 중, 유지비는 한화오션 부담. 최소 15.6억달러 규모 &#x27;포장도 안 뜯은&#x27; 자산이 놀고 있음. - 6척 중 3척은 러시아 중도금 미납으로 2022년 계약해지, 3척은 제재로 인도 불가. - 11/18~19 중국 APEC에서 트럼프-시진핑-푸틴 3자회담설, 우크라이나 종전 논의 가능성 거론. -…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정: 자동판정</span><h1>한화오션(042660)</h1>
+<div class="meta">📊 mer · 2026-11-10 09:08 · 코드 042660</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-10 09:08)</div><div class="kpi-v">47,500원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">14.6조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">11.68</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">2.36</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc-src">자동추출</span></div></div>
+
+<div class="body"><h1>한화오션(042660) — 메르 &quot;난방비 폭탄&quot; 글 연계 미니리포트</h1>
+<p><strong>한줄 결론:</strong> 우크라이나 종전·러시아 제재 완화 시 거제 계류중인 쇄빙LNG선 6척이 &#x27;돈먹는 하마→돈버는 하마&#x27;로 전환될 수 있는 이벤트 베팅. 다만 현 주가는 전고점 대비 <span class="down">-69%</span> 추세붕괴 구간이라 선반영/실망 양면 리스크 공존.</p>
+<p><strong>근거 (메르 본문):</strong></p>
+<ul>
+<li>한화오션(전신 대우조선해양)이 2020년 북극LNG-2용으로 수주한 쇄빙LNG선 6척이 거제조선소에 계류 중, 유지비는 한화오션 부담. 최소 15.6억달러 규모 &#x27;포장도 안 뜯은&#x27; 자산이 놀고 있음.</li>
+<li>6척 중 3척은 러시아 중도금 미납으로 2022년 계약해지, 3척은 제재로 인도 불가.</li>
+<li>11/18~19 중국 APEC에서 트럼프-시진핑-푸틴 3자회담설, 우크라이나 종전 논의 가능성 거론.</li>
+<li>종전→제재 해제 시 러시아 노바텍이 쇄빙선 인수 추진(보도) → 계류선 인도/매각 길 열림.</li>
+</ul>
+<p><strong>실측 (asof 2026-11-10 09:05):</strong></p>
+<ul>
+<li>현재가 47,650원(<span class="up">+4.61%</span>), 시총 14.6조, PER 11.7 / PBR 2.37</li>
+<li>52주 45,200~154,800 → <strong>전고 대비 <span class="down">-69%</span></strong>, 60일 <span class="down">-46%</span>, 20일 <span class="down">-29%</span> (추세붕괴)</li>
+<li>MA5 48,520 / MA20 55,005 / MA60 73,985 — 정배열 붕괴, 역배열</li>
+<li>공매도 20일 평균 15.8%(최대 35.2% 10/28) → 압력 높음, 다만 당일 0%·추세 감소</li>
+<li>선물 상장종목(AFV611), 고변동(RV20 59%, 상위 7%ile)</li>
+</ul>
+<p><strong>반증/리스크:</strong></p>
+<ul>
+<li>조선 대형주 급락은 가스 이벤트와 무관한 섹터 전반 조정(수주 피크아웃·밸류 되돌림) 영향이 큼. 쇄빙선 6척은 전체 밸류에서 소수.</li>
+<li>종전/제재해제는 메르도 &#x27;지켜볼 가치&#x27;라 적은 추정 이벤트. APEC 회담 자체가 불발·공회전 가능.</li>
+<li>공매도 압력 높고 역배열 — 이벤트 없으면 하방 추세 지속 가능.</li>
+<li>러시아·선주 측 배상 청구(10억달러<span class="up">+8.62</span>억달러) 법적 분쟁 미해결.</li>
+</ul>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-10 09:08 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 47,500원 (<span class="up">+4.3%</span>) · 시총 14.55조 · 5일 <span class="down">-11.7%</span> / 20일 <span class="down">-29.2%</span> / 60일 <span class="down">-46.6%</span></li>
+<li>MA5 48,490원 / MA20 54,998원 / MA60 73,982원 → MA20 이격 <span class="down">-13.6%</span> · MA60 이격 <span class="down">-35.8%</span></li>
+<li>52주 고 154,800원 / 저 45,200원 → 고점 대비 <span class="down">-69.3%</span> · 20일 고 67,400원 / 저 45,550원</li>
+<li>후행 PER 11.68 / PBR 2.36 (EPS 4,066원 · BPS 20,138원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,303.6억 (5일 453.7억)</li>
+<li>외국인 순매수 5일 -59.0억 / 20일 260.0억 · 기관 5일 -19.0억 / 20일 4,646.2억 · 개인 20일 93.7억</li>
+<li>개별주식선물: ⚡ 상장 (AFV611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 11.69% / 20일 평균 15.76% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 35.21% (10/28) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><strong>📋 결정카드</strong></p>
+<ol>
+<li>티커: 한화오션 042660 (선물 AFV611 존재)</li>
+<li>방향: 이벤트성 롱 관심(종전 모멘텀) / 추세상 중립~약세</li>
+<li>트리거: 11/18~19 APEC 3자회담 결과, 러시아 제재완화 뉴스, 노바텍 쇄빙선 인수 진전</li>
+<li>진입근거: 계류 쇄빙선 6척 인도/매각 현실화 시 일회성 이익+리스크 해소</li>
+<li>현재가/밸류: 47,650원, PER 11.7 / PBR 2.37 (전고 <span class="down">-69%</span>)</li>
+<li>추세: 역배열(MA5&lt;MA20&lt;MA60), 60일 <span class="down">-46%</span> — 하락추세</li>
+<li>수급: 공매도 20일 15.8%(압력 높음), 외인5일 순매도</li>
+<li>변동성: 고변동 RV20 59%(상위 7%), ATR 3,046 — 손절폭 넓게</li>
+<li>반증: 조선섹터 전반 조정이 주된 하락요인, 쇄빙선은 밸류 소수</li>
+<li>메모: 메르 글은 참고용. 종전은 추정 이벤트 — 확정호재로 받지 말 것. 형 보유(삼성전자/삼성전기/SK하이닉스)와 직접 무관, 신규 발굴용 워치.</li>
+</ol></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
