@@ -31,11 +31,19 @@ th{color:var(--mut);font-weight:600}
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
 .chip{background:var(--card2);border:1px solid var(--bd);color:#cdd3dc;padding:4px 11px;border-radius:16px;font-size:12px;font-weight:600;cursor:pointer}
 .chip.on{border-color:var(--acc);color:#fff;background:rgba(93,176,255,.14)}
+.insight{background:linear-gradient(160deg,#1b2433,#191c22);border:1px solid #2f3a4d}
+.insight h2{display:flex;align-items:center;gap:8px}
+.ihead{font-size:17px;font-weight:700;color:#fff;margin:2px 0 12px;letter-spacing:-.3px}
+.ibul{list-style:none;padding:0;margin:0}
+.ibul li{padding:9px 0;border-top:1px solid var(--bd);font-size:14px;line-height:1.65;color:#dfe4ea}
+.ibul li:first-child{border-top:none}
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:7px;margin-left:6px}
+#stockinput{min-width:230px}
 </style></head><body>
 <div class="head">
   <h1>📊 거래원(증권사 창구) 추적</h1>
-  <div class="sub">종목 선택 → 차트 위에 거래원 순매수 오버레이 · 창구별 누적 매집 추적 · "순매수 전환 후 추세" 백테스트<br>
-  데이터: 한국투자증권 OpenAPI (회원사 종목매매동향, 최근 1년) · 매일 장마감 갱신</div>
+  <div class="sub">종목 검색 → 차트 위에 거래원 순매수 오버레이 · 창구별 누적 매집 추적 · 수급 자동해석 · "순매수 전환 후 추세" 백테스트<br>
+  데이터: 한국투자증권 OpenAPI (회원사 종목매매동향, 최근 1년) · 시총 상위 200종목 · 매일 장마감 갱신</div>
 </div>
 <div class="nav">
   <a href="./index.html">🏠 허브</a>
@@ -44,13 +52,21 @@ th{color:var(--mut);font-weight:600}
 </div>
 
 <div class="bar">
-  <select id="stock"></select>
+  <input id="stockinput" list="stocklist" placeholder="종목명·코드 검색 (예: 삼성전자)" autocomplete="off">
+  <datalist id="stocklist"></datalist>
   <select id="range">
     <option value="60">최근 3개월</option>
     <option value="120" selected>최근 6개월</option>
     <option value="260">전체(1년)</option>
   </select>
   <span class="muted" id="meta"></span>
+</div>
+
+<div class="card insight" id="insightcard" style="display:none">
+  <h2>🧭 수급 인사이트 <span class="muted" style="font-weight:400">· 자동 해석</span></h2>
+  <div class="ihead" id="ihead"></div>
+  <ul class="ibul" id="ibul"></ul>
+  <div class="muted" style="margin-top:10px">※ 거래원 순매수 패턴 기반 알고리즘 해석 — 투자판단 보조용. 외국계=골드만·모간·메릴린치·JP모간·UBS·씨티 등 창구 합산.</div>
 </div>
 
 <div class="card">
@@ -74,20 +90,37 @@ th{color:var(--mut);font-weight:600}
 
 <script>
 const PALETTE=['#5db0ff','#7ee7a1','#ff7b7b','#ffd166','#c792ea','#ff9f68','#4dd0e1','#f48fb1'];
-let DATA=null, active={};
+let DATA=null, active={}, STOCKS=[], NAME2CODE={};
 
 async function loadIndex(){
   const idx=await (await fetch('./broker-data/index.json?v='+Date.now())).json();
-  const sel=document.getElementById('stock');
-  sel.innerHTML=idx.stocks.map(s=>`<option value="${s.code}">${s.name} (${s.code})</option>`).join('');
-  sel.onchange=()=>loadStock(sel.value);
-  if(idx.stocks.length) loadStock(idx.stocks[0].code);
+  STOCKS=idx.stocks;
+  const dl=document.getElementById('stocklist');
+  dl.innerHTML=STOCKS.map(s=>`<option value="${s.name} (${s.code})">`).join('');
+  STOCKS.forEach(s=>{NAME2CODE[s.name]=s.code; NAME2CODE[s.code]=s.code; NAME2CODE[`${s.name} (${s.code})`]=s.code;});
+  const inp=document.getElementById('stockinput');
+  inp.oninput=()=>{
+    const v=inp.value.trim();
+    // 코드 6자리 패턴 또는 정확 매칭 시 로드
+    const m=v.match(/\((\d{6})\)/);
+    const code=m?m[1]:(NAME2CODE[v]|| (/^\d{6}$/.test(v)?v:null));
+    if(code && STOCKS.some(s=>s.code===code)) loadStock(code);
+  };
+  if(STOCKS.length){ const s0=STOCKS[0]; document.getElementById('stockinput').value=`${s0.name} (${s0.code})`; loadStock(s0.code);}
 }
 async function loadStock(code){
   DATA=await (await fetch(`./broker-data/${code}.json?v=`+Date.now())).json();
-  document.getElementById('meta').textContent=`${DATA.range[0]}~${DATA.range[1]} · ${DATA.n_days}일 · 갱신 ${DATA.updated}`;
+  document.getElementById('meta').textContent=`${DATA.name} · ${DATA.range[0]}~${DATA.range[1]} · ${DATA.n_days}일 · 갱신 ${DATA.updated}`;
   active={}; DATA.brokers.forEach((b,i)=>active[b.mbcr]= i<2); // 기본 상위2개 ON
-  renderChips(); render();
+  renderInsight(); renderChips(); render();
+}
+function renderInsight(){
+  const card=document.getElementById('insightcard');
+  const ins=DATA.insight;
+  if(!ins || !ins.headline){card.style.display='none';return;}
+  card.style.display='';
+  document.getElementById('ihead').textContent=ins.headline;
+  document.getElementById('ibul').innerHTML=(ins.bullets||[]).map(b=>`<li>${b}</li>`).join('')||'<li class="muted">해석 가능한 뚜렷한 패턴 없음</li>';
 }
 function renderChips(){
   const box=document.getElementById('brokerchips');
