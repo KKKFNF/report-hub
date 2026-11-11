@@ -1,0 +1,312 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>삼성전기(009150) · 커패시터·MLCC·슈퍼캡 AI수혜 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261112-081057-커패시터-MLCC-슈퍼캡-AI수혜.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:4.2</div><div class="tp-c"><b>결론 발췌</b> AI 전력밀도 폭증(칩 400W→3,600W, 랙 40kW→1MW+, 800VDC 전환)으로 커패시터 수량(Q)·단가(P) 동반 상승 사이클. 밸류체인 중 &quot;실적 수혜 + 개별주식선물 상장&quot;을 동시 충족해 레버리지 스윙이 가능한 종목은 삼성전기(009150) 1곳뿐. 나머지(비나텍·LS머트리얼즈·삼화콘덴서·비츠로셀)는 모두 선물 미상장 → 현물만, 레버리지 불가. 삼성전기는 펀더멘털은 최강이나 주가가 52주고 2,417,000원→923,000원(-62%) 역배열 급락 중이라 추격 금지·바닥 확인 구간. 슈퍼캡 대표 비나텍은 블룸에너지 테마로 정배열 회복했으나 적자+선물無.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>삼성전기(009150) · 커패시터·MLCC·슈퍼캡 AI수혜</h1>
+<div class="meta">📊 benine · 2026-11-12 08:10 · 코드 009150</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-12 08:10)</div><div class="kpi-v">923,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">68.9조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">101.44</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">7.31</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:4.2</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.95</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">1,050,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 820,000~860,000원 (52주저 796,000 지지 바닥 확인 후 분할)</span><span class="dc dn">손절 790,000원</span><span class="dc up">목표 1,050,000원</span><span class="dc">손익비 진입 1:4.2 · 현재가 1:0.95 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:3.3</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:3.3로 적었지만 진입·손절·목표로 계산하면 1:4.2다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 실적발표(11월 하순 잠정)·무라타/이비덴 분기실적·美 데이터센터 투자정책</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 4,500억이면 전량 청산 / 종가 790,000 이탈 시 청산</div></div>
+
+<div class="body"><p>🔋 산업·테마 리서치 — 커패시터(MLCC·슈퍼커패시터) AI 수혜</p>
+<p>📌 한줄 결론 AI 전력밀도 폭증(칩 400W→3,600W, 랙 40kW→1MW+, 800VDC 전환)으로 커패시터 수량(Q)·단가(P) 동반 상승 사이클. 밸류체인 중 &quot;실적 수혜 + 개별주식선물 상장&quot;을 동시 충족해 레버리지 스윙이 가능한 종목은 삼성전기(009150) 1곳뿐. 나머지(비나텍·LS머트리얼즈·삼화콘덴서·비츠로셀)는 모두 선물 미상장 → 현물만, 레버리지 불가. 삼성전기는 펀더멘털은 최강이나 주가가 52주고 2,417,000원→923,000원(<span class="down">-62%</span>) 역배열 급락 중이라 추격 금지·바닥 확인 구간. 슈퍼캡 대표 비나텍은 블룸에너지 테마로 정배열 회복했으나 적자+선물無.</p>
+<p>──────────────── 🗂 밸류체인 Tier 분류 (실적베타 × 선물상장여부) [실측: python3 kis_futures_check.py 009150 126340 417200 082920 001820 — 2026-11-12 실행]</p>
+<ul>
+<li>Tier1 (실적수혜 高 + 선물 有 = 레버리지 가능)</li>
+<li>삼성전기(009150) ✅선물有(근월물 A23611) — AI서버용 고용량·고전압 MLCC 직접 수혜. 무라타와 함께 AI서버 MLCC 양산+고객승인 2강. ★본 리포트 풀분석 대상</li>
+</ul>
+<ul>
+<li>Tier2 (실적수혜 高~中 + 선물 無 = 현물만)</li>
+<li>비나텍(126340) ❌선물無 — 슈퍼캡+수소연료전지 MEA, 블룸에너지 밸류체인 대장주. ★본 리포트 풀분석 대상(슈퍼캡 대표)</li>
+<li>LS머트리얼즈(417200) ❌선물無 — 울트라커패시터(LIC) 모듈, 블로그상 688억 수주 언급[인용: 비나인 블로그, 미검증]</li>
+</ul>
+<ul>
+<li>Tier3 (실적수혜 中·테마연관 + 선물 無)</li>
+<li>삼화콘덴서(001820) ❌선물無 — MLCC·DCLC(전장) 국내 생산, AI·전장 간접 수혜</li>
+<li>비츠로셀(082920) ❌선물無 — 리튬일차전지 주력, 슈퍼캡·에너지저장 테마 연관(직접 MLCC/슈퍼캡 비중 낮음)</li>
+</ul>
+<p>※ Tier2·3는 선물이 없어 재두형의 개별주식선물 레버리지 전략에 직접 부합하지 않음(현물 스윙만 가능). 아래 풀분석은 삼성전기(레버리지 가능 유일주)와 비나텍(슈퍼캡 테마 대표)에 집중.</p>
+<hr>
+<p>【Ⅰ】삼성전기(009150) — ⭐Tier1·선물有 ════════════════════════════</p>
+<p>① 사실관계 검증</p>
+<ul>
+<li>3개 사업부: 컴포넌트(MLCC·인덕터·칩저항) 45.95%, 패키지솔루션(반도체기판·FCBGA) 20.34%, 광학솔루션(카메라모듈) 33.71% [실측: 사업보고서 2025.12, 접수 20260310003071]</li>
+<li>급등→급락 사유: 2026년 상반기 &#x27;AI MLCC 빅사이클&#x27; 기대로 2,417,000원까지 급등 후, 최근 밸류에이션 과열 해소 + 美 &#x27;블루웨이브&#x27;발 AI 데이터센터 투자 제동 우려로 923,000원까지 급락 [인용: 뷰어스 2026-11-05 &quot;美 블루웨이브에 AI 데이터센터 제동&quot;; 뉴스1 2026-11-10 &quot;MLCC 반도체 닮아가네&quot;]</li>
+<li>테마 실체 = 강함(루머 아님): &quot;삼성전기 MLCC 품귀, 가격 올려도 장기계약 몰린다&quot; [인용: 파이낸셜뉴스 2026-11-08]. 반기보고서 MLCC 평균판매가 전년比 <span class="up">+13.9%</span> [실측: 반기보고서 2026.06, 접수 20260814003805]. FC BGA+MLCC 동시공급 유일 업체 [인용: 대신증권 2026-11-12]</li>
+<li>결론: 실적 모멘텀은 실체. 다만 주가는 기대 과열 되돌림 중 → 펀더멘털 좋아도 수급·밸류 되돌림이 우선</li>
+</ul>
+<p>② 실적 분석 (DART 연결 실측) [실측: fnlttSinglAcntAll CFS, 접수 20260310003071 / 20260814003805]</p>
+<ul>
+<li>연간 매출: 2023 8.89조 → 2024 10.29조 → 2025 11.31조 (3년 연속 증가, 25년 YoY <span class="up">+9.9%</span>)</li>
+<li>연간 영업이익: 2023 6,605억 → 2024 7,350억 → 2025 9,133억 (OPM 7.4→7.1→8.1%)</li>
+<li>연간 순이익: 2023 4,505억 → 2024 7,032억 → 2025 7,310억</li>
+<li>분기(연결·3개월): 1Q26 매출 3.21조·영익 2,806억(OPM 8.7%)·순익 2,527억 / 2Q26 매출 3.46조·영익 4,404억(OPM 12.7%) → H1 매출 6.67조(<span class="up">+20.7%</span> YoY)·영익 7,210억</li>
+</ul>
+<p>[검산: 1Q<span class="up">+2</span>Q 매출 3.21<span class="up">+3.46</span>=6.67조 = 반기보고서 H1 6조6,663억 ✓]</p>
+<ul>
+<li>★QoQ 영익 2,806억→4,404억(<span class="up">+57%</span>) 급가속 = AI MLCC·FCBGA 믹스 개선. 실적은 상승추세를 정당화</li>
+<li>재무건전성: 부채총계 4.31조/자본 6.98조 → 부채비율 61.8%[실측: 반기 CFS BS, 20260814003805]. 매우 건전</li>
+</ul>
+<p>③ 미래실적·컨센서스 [인용: stockeasy_consensus 2026-11-12 집계, fnguide 추정기관 18]</p>
+<ul>
+<li>FY26E 매출 144,138억·영익 22,523억·EPS 22,250 / FY27E 매출 192,314억·영익 46,696억·EPS 46,426 / FY28E 영익 70,803억·EPS 70,080</li>
+<li>영익 컨센 상향 추세: 1Y전 11,434억 → 6M전 15,629 → 3M전 19,264 → 현재 22,523억 (지속 상향)</li>
+<li>3Q26 컨센: 매출 38,264억·영익 6,453억·순익 5,269억 [naver]</li>
+<li>증권사 목표가(최근): 대신 2,800,000(11-12) / 신한 2,200,000(11-11,하향) / 메리츠 2,300,000(11-10,신규) / KB 3,000,000(11-02) / 하나 2,000,000(10-29,하향) / 키움 2,800,000(10-29) — 평균 2,381,633원</li>
+<li>달성 가능성 판정: 中~高. 근거(高): H1 영익 7,210억 런레이트·MLCC ASP <span class="up">+13.9%</span>·품귀 장기계약. 근거(中 하향요인): 블루웨이브 AI capex 제동 우려로 신한·하나 목표 하향, 멀티플 디레이팅 진행 중</li>
+</ul>
+<p>④ 밸류에이션·목표가</p>
+<ul>
+<li>현재 PER(TTM) 101.4배·PBR 7.31배 [실측: KIS inquire-price 2026-11-12, EPS 9,099·BPS 126,302]</li>
+<li>Forward: FY26E PER 41.5배 / FY27E PER 19.9배 / FY28E PER 13.2배 (923,000원 기준)</li>
+<li>자체 목표가 산식: 사이클 성장주·디레이팅 환경 반영 적정멀티플 22배 × FY27E EPS 46,426 = 1,021,000원 → 1차 목표 1,050,000원(≈22.6배), 2차 1,250,000원(27배, FY27)</li>
+</ul>
+<p>[추정: 적정PER 22~27배는 과거 삼성전기 PER밴드 10~20배 + AI성장프리미엄 반영. 증권사 2.0~3.0M은 FY28 EPS에 30배+ 적용한 값으로 디레이팅기엔 공격적]</p>
+<ul>
+<li>증권사 목표가 2,381,633원 병기 — 자체값(1.05~1.25M)과 괴리 큼. 괴리 원인 = 적용 EPS연도(FY27 vs FY28)와 멀티플 가정 차이. 보수적으로 접근</li>
+</ul>
+<p>⑤ 손익비 (레버리지 스윙 기준)</p>
+<ul>
+<li>진입 820,000~860,000원(현 923,000 눌림/52주저 796,000 지지 부근 분할)</li>
+<li>손절 790,000원(52주저·최근저 796,000 종가이탈)</li>
+<li>1차목표 1,050,000 / 2차목표 1,250,000</li>
+<li>진입 850,000 기준: 상방 <span class="up">+23.5%</span>(1차)·<span class="up">+47.1%</span>(2차) ÷ 하방 <span class="down">-7.1%</span> = 손익비 1:3.3(1차)·1:6.6(2차)</li>
+</ul>
+<p>[검산: (1,050,000-850,000)/850,000=<span class="up">+23.5%</span> / (850,000-790,000)/850,000=<span class="down">-7.1%</span> / 23.5/7.1=3.3 ✓]</p>
+<p>⑥ 진입전략 (선물 레버리지 반영)</p>
+<ul>
+<li>위치: MA5 892,400·MA20 1,105,000·MA60 1,324,783 전부 하회 = 완전 역배열. 52주고 대비 <span class="down">-62%</span>, 52주저(796,000) <span class="up">+15.9%</span> [실측: KIS 일봉 2026-11-12]</li>
+<li>⚠️ 역배열 + 52주저 근접 = 전형적 &#x27;떨어지는 칼&#x27;. MA20(1,105,000) 회복 전까지 추세는 하락. 추격매수 금지</li>
+<li>레버리지 스윙 3라인: ①진입 820,000~860,000 분할(바닥 확인) ②손절 790,000 종가이탈 즉시 ③익절 1,050,000(1차 절반)·1,250,000(2차)</li>
+<li>선물有(A23611)이나 역배열·정책 오버행 구간 레버리지는 고위험. 손실예산 1% ÷ 손절폭 7.1% = 자산의 14.1%, 집중상한 50%·이벤트前 상한 25% 중 최소값(14.1%) 채택. 50% 집중+레버리지 동시 적용 시 3Q 실적(X·Y일) 전 포지션 축소 권고</li>
+<li>20일 평균거래대금 약 9,464억 [실측: KIS 일봉] → 유동성 충분(1일 체결상한 ADV 10%=약 946억)</li>
+</ul>
+<p>⑧ 산업·바텀업 모델 (요약)</p>
+<ul>
+<li>9-1 제품: 컴포넌트(MLCC중심) 2025 5.20조(45.95%) [실측: 사업보고서]. AI서버용 고용량·고전압 MLCC는 범용 대비 30~40배 단가[인용: 비나인 블로그·대신증권]</li>
+<li>9-3 경쟁: AI서버 MLCC 양산+고객승인 = 무라타·삼성전기 2강, 타이요유덴 추격 [인용: 비나인 블로그; 메리츠 2026-11-02 &quot;무라타 데이터센터 매출 가이던스 3,250→3,706→4,250억엔 상향&quot;]. 삼성전기 2027 AI MLCC 매출 3.2조 반영[인용: 메리츠 2026-11-02]</li>
+<li>9-4 단가: MLCC ASP YoY 25년 <span class="up">+0.9%</span> → 26H1 <span class="up">+13.9%</span> (AI믹스로 단가 레벨업)[실측: 반기보고서]</li>
+<li>9-7 바텀업 결론: 3Q26 연결 영업이익 ≥ 6,500억(컨센 6,453억 상회)이면 논지 유지·추가매수 검토 / &lt; 4,500억이면 AI수요 둔화 신호로 논지 폐기</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오</p>
+<ul>
+<li>촉매 캘린더: 3Q26 실적발표(통상 11월 하순 잠정, 미확정)·무라타/이비덴 분기실적(전방 시그널)·美 데이터센터 투자정책 뉴스</li>
+<li>반증 3개: ①3Q26 연결 영익 &lt; 4,500억이면 전량 청산 ②종가 790,000 이탈 시 전량 청산 ③MLCC ASP 다음분기 하락 전환 시 레버리지 해제</li>
+<li>이벤트 매트릭스: [실적 서프라이즈×갭상승]→추세전환 확인 후 진입 / [인라인×보합]→820k 지지 분할 / [쇼크×갭하락]→진입 보류, 손절 준수</li>
+<li>확률가중 시나리오: Bear(35%, AI capex 제동·영익 둔화, 목표 750,000) / Base(45%, 바닥 다지고 반등, 목표 1,050,000) / Bull(20%, AI 재가속, 목표 1,250,000) → 기대값 ≈ 0.35×750k<span class="up">+0.45</span>×1,050k<span class="up">+0.20</span>×1,250k = 985,000원(현재가 <span class="up">+6.7%</span>)</li>
+<li>판정 근거: 기대값이 현재가 대비 <span class="up">+6.7%</span>에 불과(역배열·정책 리스크 반영). 지금 추격보다 790k~860k 바닥 확인 후 진입이 유리 → 판정 &#x27;관심&#x27;</li>
+</ul>
+<hr>
+<p>【Ⅱ】비나텍(126340) — Tier2·선물無(현물만) ════════════════════════════</p>
+<p>① 사실관계 검증</p>
+<ul>
+<li>사업: 슈퍼커패시터(Lead/Snap-in) + 수소연료전지 핵심소재(MEA·지지체·촉매) [실측: 사업보고서 2025.12, 접수 20260702000424]. 수출비중 93.47%(달러 매출)</li>
+<li>급등 사유: 블룸에너지(SOFC 연료전지) 밸류체인 대장주로 부각. 美 블루웨이브로 AI 데이터센터 전력난→온사이트 연료전지 발전 수혜 테마 [인용: 금융소비자뉴스 2026-11-06 &quot;블룸에너지 수혜 최선호주 비나텍&quot;; 네이버 2026-11-09 &quot;블룸 밸류체인의 심장&quot;; 한투證 2026-11-05]</li>
+<li>수주: 하나증권 &quot;흥옌 신공장 가동 개시, 3,485억원 수주가 매출로 전환&quot; [인용: 하나증권 2026-11-09, Not Rated]</li>
+<li>테마 실체 = 중간. 블룸향 연료전지 소재 성장은 실체이나, CBU(슈퍼캡 백업유닛)·시스템 수주는 2027년 본격화 기대감 선반영 구간</li>
+</ul>
+<p>② 실적 분석 (DART 연결 실측) [실측: fnlttSinglAcnt CFS, 접수 20260702000424 / 20260814004230]</p>
+<ul>
+<li>연간 매출: 2023 549.6억 → 2024 595.9억 → 2025 822.3억 (25년 YoY <span class="up">+38%</span>)</li>
+<li>연간 영익: 2023 30.4억 → 2024 -80.7억(적자) → 2025 17.7억(흑자전환)</li>
+<li>1Q26 영업적자 약 -15억(가동률 저조)[인용: 메리츠 2026-07-01 &quot;1Q26 영업적자 -15억 OPM <span class="down">-5.9%</span>&quot;]</li>
+<li>재무: 부채총계 1,313억/자본 1,012억 → 부채비율 129.8%[실측: 반기 CFS BS, 20260814004230]. 증설·수주 대응 차입으로 삼성전기 대비 높음</li>
+<li>★분기 세부 매출분해는 DART 표 단위 혼재로 일부 미확인(→미확인 목록)</li>
+</ul>
+<p>③ 미래실적·컨센서스 [인용: stockeasy_consensus 2026-11-12, fnguide 추정기관 2 — 커버리지 얇음]</p>
+<ul>
+<li>FY26E 매출 1,447억·영익 35억·순익 -195억(적자) / FY27E 매출 2,780억·영익 362억·EPS 3,621 / FY28E 매출 4,550억·영익 640억·EPS 6,267</li>
+<li>영익 컨센 하향 추세: 1Y전 152억 → 6M전 188 → 3M전 62 → 현재 35억 (26년 기대 축소, 27년으로 이연)</li>
+<li>목표가: 한투 112,000(10-20,상향) / DS 150,000(09-29,하향) / 집계평균 154,000원</li>
+<li>달성 가능성: 中. 26년은 적자·실적 공백, 27년 흑전 가속은 흥옌 가동·CBU 상용화 성공 여부에 의존(가시성 낮음). 커버리지 2개사로 컨센 신뢰도 제한</li>
+</ul>
+<p>④ 밸류에이션·목표가</p>
+<ul>
+<li>현재 PER 적자(TTM EPS -888)·PBR 8.17배 [실측: KIS 2026-11-12, BPS 11,841]</li>
+<li>Forward: FY27E PER 26.7배 / FY28E PER 15.4배 (96,700원 기준)</li>
+<li>자체 목표가: 적자라 PER 무의미 → FY27E EPS 3,621 × 고성장흑전 멀티플 30배 = 108,630원, FY28E EPS 6,267 × 20배 = 125,340원 → 1차 110,000·2차 150,000원</li>
+</ul>
+<p>[추정: 흑전 초기 고성장주 30배·20배는 임의 가정. 실적 미확정으로 밴드 넓음]</p>
+<ul>
+<li>증권사 112,000~177,000(평균 154,000) 병기 — 자체값과 유사 레인지</li>
+</ul>
+<p>⑤ 손익비 (현물 스윙 기준·선물無)</p>
+<ul>
+<li>진입 90,000~93,000원(MA20 93,315 눌림 분할)</li>
+<li>손절 80,000원(MA60 80,247 이탈)</li>
+<li>1차 110,000 / 2차 150,000</li>
+<li>진입 91,500 기준: 상방 <span class="up">+20.2%</span>(1차)·<span class="up">+63.9%</span>(2차) ÷ 하방 <span class="down">-12.6%</span> = 손익비 1:1.6(1차)·1:5.1(2차)</li>
+</ul>
+<p>[검산: (110,000-91,500)/91,500=<span class="up">+20.2%</span> / (91,500-80,000)/91,500=<span class="down">-12.6%</span> / 20.2/12.6=1.6 ✓]</p>
+<p>⑥ 진입전략 (선물無=현물만, 레버리지 불가)</p>
+<ul>
+<li>위치: 현재 96,700, MA5 84,540·MA20 93,315·MA60 80,247 전부 상회 = 정배열 회복. 52주고 145,000 대비 <span class="down">-33%</span>, 52주저 43,200 대비 <span class="up">+124%</span>(저점서 2배 이상 반등)[실측: KIS 일봉]</li>
+<li>⚠️ 선물 미상장 → 레버리지 불가, 현물 스윙만. 테마주 변동성 크고(일중 ±10%대) 적자 상태라 비중·손절 엄격</li>
+<li>3라인: ①진입 90,000~93,000 분할 ②손절 80,000(MA60) ③익절 110,000(1차)·150,000(2차)</li>
+<li>20일 평균거래대금 약 255억 [실측] → 중소형, 1일 체결상한 ADV 10%=약 25.5억(대량매매 시 슬리피지 주의)</li>
+</ul>
+<p>⑧ 바텀업 모델 (요약)</p>
+<ul>
+<li>9-1 제품: 슈퍼캡(Lead·Snap-in)이 주력, 연료전지 MEA가 성장축. 블룸 SOFC 스택향 MEA·CBU 백업유닛</li>
+<li>9-7 결론: 4Q26 연결 영업이익 흑자전환(≥ 0) + 흥옌 가동 매출 인식이면 논지 유지·27년 성장 베팅 / 4Q26 적자 지속(&lt; 0)·흥옌 매출 이연이면 논지 폐기 [메리츠: 4Q26 실적 정상화 기대]</li>
+</ul>
+<p>⑦ 촉매·반증·시나리오</p>
+<ul>
+<li>촉매: 4Q26 실적(흥옌 가동 매출 첫 반영)·블룸에너지 설치량 가이던스·CBU 2027 상용화</li>
+<li>반증 3개: ①4Q26 연결 영업이익 &lt; 0(적자 지속)이면 논지 폐기 ②종가 80,000 이탈 시 청산 ③흥옌 3,485억 수주 매출인식 지연 공시</li>
+<li>확률가중: Bear(35%, 27년 흑전 지연, 목표 75,000) / Base(45%, 블룸 테마 유지·27년 흑전, 목표 110,000) / Bull(20%, CBU 조기 상용화, 목표 150,000) → 기대값 ≈ 0.35×75k<span class="up">+0.45</span>×110k<span class="up">+0.20</span>×150k = 105,750원(현재가 <span class="up">+9.4%</span>)</li>
+<li>판정: &#x27;관심&#x27; — 정배열 회복은 긍정이나 적자+선물無+테마 선반영. 93k(MA20) 눌림 분할, 추격 자제</li>
+</ul>
+<p>──────────────── ⚠️ 본 리포트는 비나인 블로그(개인 투자자 의견·참고용)의 산업 아이디어를 실측 데이터로 검증·보강한 것으로, 매수·매도 강요가 아님. 증권사·블로거 추정치는 &#x27;추정/인용&#x27; 표기. 투자판단과 책임은 본인에게 있음.</p>
+<p>[미확인 목록]</p>
+<ul>
+<li>비나텍 분기별 매출 세부분해(DART 제품표 단위 혼재) · 흥옌 신공장 CAPA·가동률 정량치 · LS머트리얼즈 688억 수주 공시 원문(블로그 인용, 미검증)</li>
+<li>삼성전기 3Q26 확정 실적발표일(잠정)</li>
+<li>52주 고저 일부 KIS inquire-price 필드와 일봉 산출값 불일치 → 일봉 산출값 채택(삼성전기 52L 796,000 / 비나텍 52L 43,200)</li>
+</ul>
+<p>[출처 목록] DART 사업보고서·반기보고서(삼성전기 20260310003071·20260814003805, 비나텍 20260702000424·20260814004230) / KIS OpenAPI 일봉·현재가(2026-11-12) / stockeasy_consensus·fnguide·naver(2026-11-12) / 뉴스: 파이낸셜뉴스11-08·뉴스1 11-10·뷰어스11-05·금융소비자뉴스11-06·하나증권11-09·메리츠11-02/07-01</p>
+<p>[검산] 삼성전기 1Q<span class="up">+2</span>Q 매출=6.67조=H1보고서 ✓ / 손익비 산식 헤더·본문 일치 ✓ / 시나리오 확률합 100% ✓</p>
+<p>&lt;!-- hub:enrich:begin:009150 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-12 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 923,000원 (<span class="up">+0.0%</span>) · 시총 68.94조 · 5일 <span class="down">-2.2%</span> / 20일 <span class="down">-20.6%</span> / 60일 <span class="down">-38.6%</span></li>
+<li>MA5 888,200원 / MA20 1,093,000원 / MA60 1,315,117원 → MA20 이격 <span class="down">-15.6%</span> · MA60 이격 <span class="down">-29.8%</span></li>
+<li>52주 고 2,417,000원 / 저 201,000원 → 고점 대비 <span class="down">-61.8%</span> · 20일 고 1,306,000원 / 저 843,000원</li>
+<li>후행 PER 101.44 / PBR 7.31 (EPS 9,099원 · BPS 126,302원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 8,723.4억 (5일 6,647.3억)</li>
+<li>외국인 순매수 5일 181.8억 / 20일 -11,919.4억 · 기관 5일 -100.6억 / 20일 -1,394.5억 · 개인 20일 13,004.0억</li>
+<li>개별주식선물: ⚡ 상장 (A23611) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 5.52% / 20일 평균 4.33% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 17.47% (11/06) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 1,050,000원 (<span class="up">+13.8%</span>) ÷ 하방 790,000원 (−14.4%) = <strong>1:0.95</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 7%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 14.4% = <strong>자산의 3.5%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.5%</strong></li>
+<li>유동성 참고: 20일 ADV 8,723.4억 · 1일 소화 한도는 ADV의 10%(872.34억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 14.4% · ATR14 76,714원 (손절폭/ATR 1.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 14.4% = ATR14 × 1.7배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 807,928원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.10</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:009150 --&gt;</p>
+<p><span id="card-009150"></span>📋 결정카드 — 삼성전기(009150) 판정: 관심 선물: 有 현재가: 923,000원 진입: 820,000~860,000원 (52주저 796,000 지지 바닥 확인 후 분할) 손절: 790,000원 (종가이탈) 목표: 1차 1,050,000원 (2차 1,250,000원) 손익비: 1:3.3 (진입 850,000 기준, 1차) 기간: 스윙 4~10주 촉매: 3Q26 실적발표(11월 하순 잠정)·무라타/이비덴 분기실적·美 데이터센터 투자정책 반증: 3Q26 연결 영업이익 &lt; 4,500억이면 전량 청산 / 종가 790,000 이탈 시 청산</p>
+<p>&lt;!-- hub:enrich:begin:126340 --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-12 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 96,700원 (<span class="up">+0.0%</span>) · 시총 6,943억 · 5일 <span class="up">+24.1%</span> / 20일 <span class="up">+28.2%</span> / 60일 <span class="up">+26.1%</span></li>
+<li>MA5 88,300원 / MA20 94,380원 / MA60 80,580원 → MA20 이격 <span class="up">+2.5%</span> · MA60 이격 <span class="up">+20.0%</span></li>
+<li>52주 고 204,500원 / 저 43,200원 → 고점 대비 <span class="down">-52.7%</span> · 20일 고 119,500원 / 저 76,600원</li>
+<li>후행 PER -108.9 / PBR 8.17 (EPS -888원 · BPS 11,841원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 251.1억 (5일 166.5억)</li>
+<li>외국인 순매수 5일 -46.1억 / 20일 -228.3억 · 기관 5일 85.3억 / 20일 194.2억 · 개인 20일 31.2억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 5.76% / 20일 평균 5.03% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 9.09% (11/10) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 110,000원 (<span class="up">+13.8%</span>) ÷ 하방 80,000원 (−17.3%) = <strong>1:0.80</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 7%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 17.3% = <strong>자산의 2.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.9%</strong></li>
+<li>유동성 참고: 20일 ADV 251.1억 · 1일 소화 한도는 ADV의 10%(25.11억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 17.3% · ATR14 9,175원 (손절폭/ATR 1.8배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 17.3% = ATR14 × 1.8배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 82,937원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.97</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p><em>출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</em> &lt;!-- hub:enrich:end:126340 --&gt;</p>
+<p><span id="card-126340"></span>📋 결정카드 — 비나텍(126340) 판정: 관심 선물: 無 현재가: 96,700원 진입: 90,000~93,000원 (MA20 눌림 분할) 손절: 80,000원 (MA60 이탈) 목표: 1차 110,000원 (2차 150,000원) 손익비: 1:1.6 (진입 91,500 기준, 1차) 기간: 스윙 4~8주 촉매: 4Q26 실적(흥옌 가동 매출 첫 반영)·블룸에너지 설치 가이던스·CBU 2027 상용화 반증: 4Q26 연결 영업이익 &lt; 0(적자 지속)이면 논지 폐기 / 종가 80,000 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
