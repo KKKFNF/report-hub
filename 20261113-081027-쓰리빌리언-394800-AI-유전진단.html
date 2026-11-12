@@ -1,0 +1,221 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>쓰리빌리언(394800) AI 유전진단 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261113-081027-쓰리빌리언-394800-AI-유전진단.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.29</div><div class="tp-c"><b>결론 발췌</b> AI 희귀질환 유전진단 실체주, FY22~25 매출 CAGR +142% 실측 확인. 다만 &#x27;아직 적자&#x27;기업으로 순이익 흑자는 영업이 아닌 비현금 금융수익 착시. 6,640원은 11/10 딥라이프 뉴스로 +32% 급등 직후 단기 고점권 → 추격 R/R 0.9로 부적합. 판정 관심(눌림 5,700~6,000 대기). 진입 5,850 가정 시 손익비 1:2.3 (목표 1차 7,800 / 손절 5,000). ★내일(11/14) 3Q26 분기보고서 법정기한 = 실적 확인 전 비중 최소화. ━━━━━━━━━━━━━━━ ① 포착 신호 [실측: KIS 2026-11-13 장전] • 현재가 6,640원(전일종가) · 52주 4,020~20,100 → 고…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>쓰리빌리언(394800) AI 유전진단</h1>
+<div class="meta">📊 benine · 2026-11-13 08:10 · 코드 394800</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-13 08:10)</div><div class="kpi-v">6,640원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">2,113억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">8.94</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.29</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.71</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">7,800원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 5,700~6,000원 (눌림 대기)</span><span class="dc dn">손절 5,000원</span><span class="dc up">목표 7,800원</span><span class="dc">손익비 진입 1:2.29 · 현재가 1:0.71</span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-14 3Q26 분기보고서 법정기한 / 2027상반기 美 CLIA 인증</div><div class="dc-l">🛑 반증: 3Q26 연결 매출 &lt; 38억 또는 영업손실 &gt; -20억이면 논지 폐기·청산 / 종가 5,000원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 쓰리빌리언(394800) ※개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: AI 희귀질환 유전진단 실체주, FY22~25 매출 CAGR <span class="up">+142%</span> 실측 확인. 다만 &#x27;아직 적자&#x27;기업으로 순이익 흑자는 영업이 아닌 비현금 금융수익 착시. 6,640원은 11/10 딥라이프 뉴스로 <span class="up">+32%</span> 급등 직후 단기 고점권 → 추격 R/R 0.9로 부적합. 판정 <strong>관심</strong>(눌림 5,700~6,000 대기). 진입 5,850 가정 시 손익비 <strong>1:2.3</strong> (목표 1차 7,800 / 손절 5,000). ★내일(11/14) 3Q26 분기보고서 법정기한 = 실적 확인 전 비중 최소화.</p>
+<hr>
+<p>① 포착 신호 [실측: KIS 2026-11-13 장전]</p>
+<ul>
+<li>현재가 6,640원(전일종가) · 52주 4,020~20,100 → 고점 대비 33%, 저점 대비 <span class="up">+65%</span> (바닥권 반등국면, 고점권 아님)</li>
+<li>추세: MA5 6,412 &gt; MA20 5,676 &gt; MA60 5,425 → 단기 정배열. 최근 5,030→6,640 약 <span class="up">+32%</span>(6거래일) 급등 — 촉매는 11/10 &#x27;프랑스 딥라이프 AI신약 공동연구&#x27; 뉴스</li>
+<li>시총 2,113억 · 상장주식 31,822,553주 · PBR 8.94(BPS 743) · 20일 평균 거래대금 35.2억</li>
+<li>단기 급등 직후라 &#x27;추세 초입&#x27;이 아니라 &#x27;1차 분출 후&#x27; 구간 — 추격 부담 구간</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력: AI 기반 희귀질환 유전자진단 서비스(2016년 설립). 500만 유전변이를 5분내 해석하는 AI엔진으로 엑솜/홀지놈 검사 상용화. 전방=희귀질환 유전진단 시장, 고객=의료기관·의료진</li>
+<li>제품 매출비중 [실측: DART 사업보고서 2025.12, 접수 20260323000161]:</li>
+<li>Full Service(엑솜·홀지놈) 102.1억(87.2%) ← 블로그의 &#x27;풀서비스 57%&#x27;와 불일치. DART 분류 기준 실제는 풀서비스 압도적</li>
+<li>SW구독(SaaS·제브라) 7.3억(6.2%) / 특정질환 진단 6.2억(5.3%) / 데이터기반 1.5억(1.3%)</li>
+<li>급등사유 [인용: 전자신문·약업신문 등 2026-11-10]: 프랑스 AI신약사 &#x27;딥라이프&#x27;와 AI 신약개발 공동연구 계약, 글로벌 기술이전 추진. 11만건 유전체데이터 기반 신약개발 확장 스토리의 가시화 신호로 해석돼 수급 유입</li>
+<li>실체 vs 기대: 매출 고성장·해외비중·AI엔진은 실체(공시로 확인). 단 신약개발·美 보험매출(27하반기)·BEP(27년)는 아직 &#x27;기대감&#x27; 영역 — 적자·BEP 미도달 상태</li>
+</ul>
+<p>③ 실적 (DART 실측 · 연결/별도 라벨 명기)</p>
+<ul>
+<li>연간 매출→영업손익→순손익 (억원):</li>
+<li>FY22 [별도]: 8.3 / -82.2 / -31.4</li>
+<li>FY23 [별도]: 27.3 / -83.5 / -50.9</li>
+<li>FY24 [별도]: 57.7 / -74.2 / -65.7</li>
+<li>FY25 [연결]: 117.1 / -58.9 / -54.1 (OPM <span class="down">-50.3%</span>)</li>
+</ul>
+<p>→ 매출 CAGR(FY22~25) <span class="up">+142%</span> 실측 확인 (8.3→117.1, 3년). 영업손실은 FY24 -74억→FY25 -59억 축소 中</p>
+<ul>
+<li>분기 2026 [연결]:</li>
+<li>1Q26: 매출 33.6 / 영업 -16.6 / 순 -14.7</li>
+<li>2Q26: 매출 37.9(QoQ<span class="up">+13%</span>) / 영업 -16.7 / 순 <strong><span class="up">+67.2</span></strong></li>
+<li>H1&#x27;26 누적: 매출 71.6(YoY <span class="up">+176%</span>, 단 FY25 반기는 별도기준이라 연결확장 효과 포함) / 영업 -33.3 / 순 <span class="up">+52.5</span></li>
+<li>★순이익 흑자 착시 경고 [실측: fnlttSinglAcntAll H1&#x27;26]: H1 순이익 <span class="up">+52.5</span>억은 전액 <strong>금융수익 107억</strong>(비현금 파생상품평가익, 전환사채 관련 추정)에서 나옴. 영업은 -33.3억 적자 지속. &quot;흑자전환&quot;으로 오해 금지</li>
+<li>재무건전성 [실측]:</li>
+<li>부채비율: FY25말 25.7%(자본 236억/부채 61억) → H1&#x27;26말 <strong>98.1%</strong>(자본 296억/부채 291억) 급등. 2Q26 전환사채 125억 조달 영향. 자본잠식 아님</li>
+<li>현금 90.9억(H1&#x27;26말) + 유동파생자산 11.9억. 영업현금흐름(CFO) H1&#x27;26 <strong>-37.5억</strong>(연율 ~-75억, US랩 투자로 소진 가속)</li>
+<li>런웨이 ≈ 현금 91억 ÷ 연 75억 소진 ≈ <strong>1.2년</strong>(영업기준). 유동성전환사채 50.6억·파생부채 60.2억 부담. FY27 BEP 도달 전 추가 자금조달(희석) 가능성 → 핵심 리스크</li>
+</ul>
+<p>④ 미래실적·컨센서스 [실측: consensus.py 4소스, 2026-11-13]</p>
+<ul>
+<li>목표가 제시 리포트 <strong>없음</strong>(소형주, 최근 6개월 NR 1건). 목표주가 컨센 <strong>미확인</strong></li>
+<li>연간 컨센(fnguide): FY26E 매출 156 / 영업 -64 / 순 <span class="up">+23</span>(금융수익 반영) · FY27E 매출 249 / 영업 <strong><span class="up">+4</span></strong>(BEP) / 순 -</li>
+<li>최근 리포트: DS투자증권 2026-11-09 &#x27;희귀질환 분야의 TempusAI&#x27;(Not Rated) / iM증권 2026-10-08 / 한국IR협의회 2026-05-29 — 전부 목표가 미제시(NR·기업분석형)</li>
+<li>달성가능성 판정:</li>
+<li>FY26 매출 150~156억 → <strong>中~高</strong>. H1 실측 71.6억 + 2Q 37.9억×2 run-rate → 연 ~147~152억. 컨센 156억은 약간 공격적이나 근접</li>
+<li>FY27 매출 249억 &amp; BEP → <strong>中</strong>. 매출을 H1&#x27;26 run-rate(연 143억)에서 249억으로 <span class="up">+74%</span> 더 키우고 영업적자 -64억→±0 전환해야 함. 美 CLIA 보험매출(27하반기, 단가 3배) 성패가 결정변수 → 일정 지연 시 BEP 1년 이상 밀릴 위험</li>
+</ul>
+<p>⑤ 밸류에이션·목표가 (적자 → PER 부적용, PSR 기준) [실측·추정]</p>
+<ul>
+<li>현 PSR: trailing(FY25 117억) 18.1x / forward FY26E(156억) 13.5x / FY27E(249억) 8.5x · PBR 8.94x</li>
+<li>peer(블로그 인용, 미검증): 나테라 46B·가던트 20B·템퍼스AI 14B·진디엑스 1.6B($) vs 쓰리빌리언 ~$150M → 글로벌 상장 분자진단 대비 체급 1/10 이하 소형. &#x27;이그잭트사이언스 26.3월 애보트 210억달러 인수→리레이팅&#x27; 논지는 [인용: 블로그]로 섹터 센티먼트 재료일 뿐 쓰리빌리언 실적과 직접 연결 아님</li>
+<li>자체 목표가 [추정: FY27E 매출 249억 × PSR밴드 ÷ 31.82M주]:</li>
+<li>Bear PSR 7x = 1,743억 → <strong>5,500원</strong></li>
+<li>Base PSR 10x = 2,490억 → <strong>7,800원</strong></li>
+<li>Bull PSR 14x(US보험매출 가시화·리레이팅) = 3,486억 → <strong>11,000원</strong></li>
+<li>증권사 목표가 미확인 → 자체 PSR밴드값만 사용(모두 &#x27;추정&#x27;)</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 無 → 현물 스윙만, 레버리지 불가)</p>
+<ul>
+<li>지지: MA20 5,676 / MA60 5,425 / 돌파기준 5,000~5,200 · 저항: 7,000 심리선 → 7,800(PSR Base) → 9,500</li>
+<li>위치: 52주고 20,100 대비 33%(추격부담 낮음) but 단기 <span class="up">+32%</span> 급등 직후(단기 과열)</li>
+<li>현물 스윙 3라인(판정 관심 = 눌림 대기):</li>
+<li>진입: 5,700~6,000 눌림(MA20 부근 지지확인 후)</li>
+<li>손절: 종가 5,000 이탈(돌파저점 하회)</li>
+<li>목표: 1차 7,800 / 2차 9,500~11,000</li>
+<li>손익비 [산식: 진입 5,850 기준] 상방(목표1차 7,800) <span class="up">+33.3%</span> ÷ 하방(손절 5,000) <span class="down">-14.5%</span> = <strong>1:2.3</strong></li>
+</ul>
+<p>※현재가 6,640 추격 시: 상방 <span class="up">+17.5%</span> ÷ 하방 <span class="down">-24.7%</span> = 1:0.7 → <strong>추격 부적합</strong>. 반드시 눌림 대기</p>
+<hr>
+<p>⑧ 산업·제품 바텀업 모델 (§9) [9-1 제품분해] 실측 위 ②. 서비스업(검사·SW)이라 &#x27;물량=검사건수 × 단가 × 점유율&#x27; 구조 [9-2 고객·납품] 고객=글로벌 75개국·800기관·의료진 2,000명+ [인용: IR/블로그, DART 미공시]. 해외비중 ~70%·재구매율 80% [인용: IR/블로그, 독립검증 미확인]. DART는 주요 매출처·고객명 비공개 [9-3 시장·경쟁] 희귀질환 유전진단 TAM·글로벌 점유율 [미확인]. 경쟁=나테라·가던트·템퍼스AI·진디엑스 등 글로벌 분자진단사(블로그 인용, CAPA·점유율 교차출처 미확보) [9-4 단가] DART 가격추이 &#x27;기재생략&#x27;(영업비밀). 블로그 인용: 엑솜 ~100만원·홀지놈 ~250만원·美 단가 국내 3배 [미검증] [9-5 CAPA] 제조설비 없음(SW·검사 서비스). 美 텍사스 오스틴 CLIA랩 구축中, 27상반기 인증·27하반기 보험매출 목표 [인용: IR/블로그] [9-7 바텀업 요약·추정]:</p>
+<ul>
+<li>FY26E: 매출 150~156억(H1 71.6 실측 + H2 run-rate), 영업손실 -60~-64억(US랩 투자로 손실 FY25 대비 확대)</li>
+<li>FY27E: 매출 230~249억, 영업 BEP(±0~<span class="up">+4</span>억) — 美 보험매출(단가 3배) 반영 전제. 미반영 시 -30~-40억 적자 지속 추정</li>
+<li>민감도: US CLIA 인증 1~2분기 지연 → FY27 BEP 무산·매출 -30~50억</li>
+<li>★결론 문장(반증 임계): &quot;3Q26 연결 매출 ≥ 45억(QoQ<span class="up">+20%</span>, 연 180억 run-rate) &amp; 영업손실 ≤ -12억이면 BEP경로 유효·논지 유지. 3Q26 매출 &lt; 38억(QoQ 역성장) 또는 영업손실 &gt; -20억(확대)이면 US투자 대비 매출 미반응 → 논지 폐기·청산&quot;</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정):</li>
+<li>★2026-11-14(내일): 3Q26 분기보고서 법정기한 — 매출 run-rate·영업손실·현금소진 확인 (최우선 이벤트)</li>
+<li>2027 상반기: 美 오스틴 CLIA 인증 목표 [인용: IR]</li>
+<li>2027 하반기: 美 보험매출 본격화 목표 [인용: IR]</li>
+<li>프랑스 딥라이프 공동연구 후속 기술이전 진척 [인용: 뉴스 11/10]</li>
+<li>반증 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>3Q26 연결 매출 &lt; 38억(QoQ 역성장) → 성장스토리 훼손, 전량 청산</li>
+<li>3Q26 연결 영업손실 &gt; -20억(확대 지속) → US투자 대비 매출 미반응, 폐기</li>
+<li>종가 5,000원 이탈 → 기술적 손절, 전량 청산</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(내일 3Q 실적):</li>
+<li>매출서프(≥48억)×갭상승 → 목표 상향 추종, 분할 유지</li>
+<li>인라인(40~45억)×보합 → 눌림 분할 진입 유지</li>
+<li>쇼크(&lt;38억)×갭하락 → 반증1 발동, 청산</li>
+<li>확률가중 시나리오(합 100%): Bear 35%(5,500) + Base 45%(7,800) + Bull 20%(11,000) = 기대값 <strong>7,635원</strong>(현재가 <span class="up">+15%</span>). 현재가 추격이 아니라 눌림진입 시 기대수익 개선</li>
+<li>수급·유동성 [실측: KIS]: 20일 평균 거래대금 35.2억 → 1일 체결상한(ADV 10%) 3.5억. 외국인·기관 20일 순매수 미확인</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭 14.5% = 자산의 <strong>6.9%</strong>. 집중상한 50%·이벤트전 상한 25% 중 최소값 채택 → <strong>6.9% 상한</strong>. 소형 적자바이오·내일 실적이벤트 → 실적 확인 전 절반 이하(≤3%)로 더 축소 권고. <strong>50% 집중은 절대 금지급 리스크</strong></li>
+<li>분할: 3회 분할, 각 1/3 (실적 확인 후 증액)</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수강요 아님. 적자 소형바이오 = 고변동(일 ±10~20% 빈번)·전환사채 희석·자금조달 리스크 상존. 증권사 목표가 없음(자체 PSR추정만). 개별주식선물 미상장으로 레버리지 불가·현물만.</p>
+<p>[미확인 목록] · 증권사 목표가/투자의견 컨센(4소스 시도, NR만) · 해외매출 70%·재구매율 80%·75개국 800기관(IR/블로그, 독립검증 불가) · TAM·글로벌 점유율·경쟁사 CAPA 교차출처 · 제품 단가(DART 영업비밀로 기재생략) · 외국인/기관 20일 순매수 · 금융수익 107억 세부내역(파생평가익 추정, 주석 미정밀확인)</p>
+<p>[출처 목록] · DART 사업보고서(2025.12, 접수 20260323000161)·반기보고서(2026.06, 접수 20260813000733)·fnlttSinglAcntAll · KIS 시세(2026-11-13 장전) · consensus.py 4소스(fnguide/naver/hankyung) · news_search.py(전자신문 등 11/10) · kis_futures_check(선물 미상장)</p>
+<p>[검산] · 분기합: 1Q26 33.6 + 2Q26 37.9 = 71.6 = H1&#x27;26 ✓ · 영업손실: 1Q -16.6 + 2Q -16.7 = -33.3 = H1 ✓ · 손익비: 헤더·본문·결정카드 모두 진입5,850 기준 1:2.3 일치 ✓ · 시나리오 확률합: 35<span class="up">+45</span><span class="up">+20</span> = 100% ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-13 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 6,640원 (<span class="up">+0.0%</span>) · 시총 2,113억 · 5일 <span class="up">+32.0%</span> / 20일 <span class="up">+26.0%</span> / 60일 <span class="up">+6.6%</span></li>
+<li>MA5 6,412원 / MA20 5,676원 / MA60 5,425원 → MA20 이격 <span class="up">+17.0%</span> · MA60 이격 <span class="up">+22.4%</span></li>
+<li>52주 고 20,100원 / 저 4,020원 → 고점 대비 <span class="down">-67.0%</span> · 20일 고 6,640원 / 저 5,000원</li>
+<li>후행 PER -38.83 / PBR 8.94 (EPS -171원 · BPS 743원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 35.0억 (5일 60.9억)</li>
+<li>외국인 순매수 5일 29.2억 / 20일 -9.5억 · 기관 5일 14.6억 / 20일 82.1억 · 개인 20일 -74.2억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 3.27% / 20일 평균 8.51% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 16.53% (10/30) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 7,800원 (<span class="up">+17.5%</span>) ÷ 하방 5,000원 (−24.7%) = <strong>1:0.71</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 6%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 24.7% = <strong>자산의 2.0%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.0%</strong></li>
+<li>유동성 참고: 20일 ADV 35.0억 · 1일 소화 한도는 ADV의 10%(3.50억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 24.7% · ATR14 576원 (손절폭/ATR 2.8배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 24.7% = ATR14 × 2.8배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 5,776원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.34</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-394800"></span>📋 결정카드 — 쓰리빌리언(394800) 판정: 관심 선물: 無 현재가: 6,640원 진입: 5,700~6,000원 (눌림 대기) 손절: 5,000원 (종가 이탈) 목표: 1차 7,800원 (2차 9,500~11,000원) 손익비: 1:2.3 기간: 스윙 4~10주 촉매: 2026-11-14 3Q26 분기보고서 법정기한 / 2027상반기 美 CLIA 인증 반증: 3Q26 연결 매출 &lt; 38억 또는 영업손실 &gt; -20억이면 논지 폐기·청산 / 종가 5,000원 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
