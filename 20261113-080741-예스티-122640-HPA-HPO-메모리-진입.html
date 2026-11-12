@@ -1,0 +1,155 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>예스티(122640) HPA/HPO 메모리 진입 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261113-080741-예스티-122640-HPA-HPO-메모리-진입.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:4.75</div><div class="tp-c"><b>결론 발췌</b> HPA(고압수소어닐링) 메모리 진입으로 3Q26 OPM 25% 서프라이즈 — 실적·내러티브 모두 실체 확인. 다만 주가가 MA20·MA60 아래에서 5일 +34% 급반등한 자리라 추격보다 &#x27;관심&#x27;. 눌림(21,000~23,000) 진입 시 1차목표 41,000원 기준 손익비 1:4.7(현재가 추격 시 1:2.4). 선물 미상장이라 레버리지 불가·현물 스윙만. ━━━━━━━━━━━━━━━━ ① 포착 신호 (실측) • 현재가 24,700원 [실측: KIS 11/13] · 시총 5,348억 · 52주 15,200~44,000 (고점 대비 -44%, 저점 대비 +62% 위치) • 추세: MA5 22,766 / MA20 25,036 / MA60 …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>예스티(122640) HPA/HPO 메모리 진입</h1>
+<div class="meta">📊 benine · 2026-11-13 08:07 · 코드 122640</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (리포트시점)</div><div class="kpi-v">24,700원</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:4.75</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.43</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">41,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 21,000~23,000원 (눌림 분할 3회)</span><span class="dc dn">손절 18,000원</span><span class="dc up">목표 41,000원</span><span class="dc">손익비 진입 1:4.75 · 현재가 1:2.43</span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2027-03-31 FY26 사업보고서(4Q 확정) · HPA 수주공시 · HPSP 특허소송 결과</div><div class="dc-l">🛑 반증: 4Q26 연결 영업이익 &lt; 40억(OPM&lt;10%)이면 전량 청산 / 종가 18,000원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 예스티(122640) ※개별주식선물 無(현물만)</p>
+<p>📌 한줄 결론: HPA(고압수소어닐링) 메모리 진입으로 3Q26 OPM 25% 서프라이즈 — 실적·내러티브 모두 실체 확인. 다만 주가가 MA20·MA60 아래에서 5일 <span class="up">+34%</span> 급반등한 자리라 추격보다 &#x27;관심&#x27;. 눌림(21,000~23,000) 진입 시 1차목표 41,000원 기준 손익비 1:4.7(현재가 추격 시 1:2.4). 선물 미상장이라 레버리지 불가·현물 스윙만.</p>
+<hr>
+<p>① 포착 신호 (실측)</p>
+<ul>
+<li>현재가 24,700원 [실측: KIS 11/13] · 시총 5,348억 · 52주 15,200~44,000 (고점 대비 <span class="down">-44%</span>, 저점 대비 <span class="up">+62%</span> 위치)</li>
+<li>추세: MA5 22,766 / MA20 25,036 / MA60 28,232 → 주가가 MA20·MA60 아래(단기 하락추세 속 반등) [실측: enrich]</li>
+<li>모멘텀: 5일 <span class="up">+34.2%</span> / 20일 <span class="down">-7.0%</span> / 60일 <span class="down">-13.9%</span> — 3Q 실적발표(11/11) 급등으로 단기 수직반등, 중기추세는 아직 회복 전</li>
+<li>거래대금 20일 평균 91.8억 (ADV 10% = 1일 체결상한 9.2억)</li>
+<li>수급 경고: 외국인 20일 순매도(-9.4) · 기관 20일 순매도(-76.1) · 개인 순매수(<span class="up">+61.4</span>) · 공매도 20일평균 5.86%(압력 높음, 10/22 최대 11.7%) [실측: KIS 투자자별·공매도]</li>
+</ul>
+<p>→ 실적은 좋으나 기관·외국인 매도 + 공매도 압력이 상존하는 &#x27;개인 주도 반등&#x27;. 변동성 고변동 국면(RV20 60.9, 상위 6.4%).</p>
+<p>② 사업·급등사유 (사실관계 검증)</p>
+<ul>
+<li>주력: 반도체·디스플레이용 열·가압 공정장비 전문(2000년 설립). 제품믹스 — 반도체장비 69%(9M26) / 디스플레이장비 31% [실측: 분기보고서 20261111000039]. 전방=메모리(NAND 고단화·1d DRAM), 디스플레이.</li>
+<li>급등사유(검증됨·사실): 3Q26 연결 매출 438억·영업이익 110억, 분기 사상 최대. HPA(고압수소어닐링) 장비 매출 첫 반영이 고마진으로 OPM을 끌어올림 [실측: 분기보고서, 복수 언론 11/11]. YoY 매출 <span class="up">+134%</span>·OP <span class="up">+887%</span>, QoQ OP <span class="up">+141%</span>.</li>
+<li>HPA 내러티브: 경쟁사 HPSP(403870, 선물 상장)가 로직/파운드리 HPA 사실상 독점해온 시장에, 예스티가 메모리향으로 진입. 125매 대용량 배치(HPSP 75매 단일 대비)로 메모리 양산 유리하다는 주장 [인용: 언론·블로거, 기술우위는 회사·애널 주장으로 &#x27;추정&#x27; 영역]. 키옥시아 납품·HPO(고압산화, GAA 산화막) 개발은 회사 IR/언론 인용 — 계약공시로는 미확인.</li>
+<li>HPSP 특허분쟁: 양사 소송 진행중. &quot;연내 불확실성 해소 기대&quot;(머니투데이 10/15, 금융소비자뉴스 9/2). 블로거가 말한 &#x27;예스티 2심 승소&#x27;는 공식확인 불가 → [미확인]. 8/13 HPSP가 삼성납품 장비영상 추가제출 요구 등 공방 지속 → 완전 종결 아님.</li>
+</ul>
+<p>③ 실적 (DART 실측·연결)</p>
+<ul>
+<li>연간추세: 2023 매출 798.1·OP -4.1 / 2024 1,001.0·OP 112.6(흑전, OPM 11.3%) / 2025 870.6·OP 37.9(역성장, OPM 4.4%) [실측: 사업보고서]</li>
+<li>분기추세(3개월): 25Q3 187.1·OP 11.1(OPM 5.9%) → 25Q4 195.0·OP -23.9(적자) → 26Q1 275.0·OP 30.6(11.1%) → 26Q2 419.5·OP 45.7(10.9%) → 26Q3 438.0·OP 110.0(OPM 25.1%) [실측: 각 분기보고서]</li>
+<li>9M26 누적: 매출 1,132.5 · OP 186.3 · 순익 82.8 (검산: 275.0<span class="up">+419.5</span><span class="up">+438.0</span>=1,132.5 ✓ / OP 30.6<span class="up">+45.7</span><span class="up">+110.0</span>=186.3 ✓)</li>
+<li>사업부문(9M26): 반도체장비 650.0억(69%) / 디스플레이 286.6억(31%) [실측]</li>
+<li>재무건전성: 부채비율 63.3%(부채 995.0/자본 1,571.2, 26Q3) · 영업현금흐름 9M26 <span class="up">+132.3</span>억(흑자, 이익의 질 양호) [실측] · 이자보상배율 [미확인]</li>
+</ul>
+<p>→ 2025년 바닥(OPM 4.4%, Q4 적자) 찍고 2026년 HPA로 이익 레벨업 중. 3Q OPM 25%가 지속되는지가 핵심.</p>
+<p>④ 미래실적·컨센서스 (stockeasy_consensus 실측 인용)</p>
+<ul>
+<li>목표가 컨센 평균 47,000원 (최고 57,000 / 최저 40,000 · 4건) → 현재가 대비 <span class="up">+90.3%</span></li>
+<li>투자의견: Buy 4 / NR 3 (의견평균 4.00/5)</li>
+<li>연간 컨센(억원·fnguide): FY26E 매출 1,520·OP 262·순익 213·EPS 949(PER 26.0) / FY27E 매출 2,509·OP 677·순익 568·EPS 2,545(PER 9.7) / FY28E 매출 3,351·OP 1,114·EPS 4,344(PER 5.7)</li>
+<li>분기 컨센: 26Q4 매출 391(wisereport) — 3Q OP 110 서프라이즈로 FY26 상향 여지</li>
+<li>최근 리포트: 신한 41,000(11/12,상향) / 유진 57,000(10/21,상향) / 리딩 50,000(10/20) / 유안타 NR(3Q26 매출 439·OP 110 리뷰, YoY <span class="up">+134%</span>·<span class="up">+887%</span>)</li>
+<li>달성가능성: 【中~高】 — FY26 OP 262는 9M 실측 186.3 + 4Q 76 필요(런레이트상 무난, 달성 高). FY27 OP 677(<span class="up">+158%</span> YoY)은 HPA 납품대수 확대 전제라 수주공시·가동률 확인 필요(달성 中). 블로거 26년 매출 1,500 &#x27;추정&#x27;은 컨센 1,520과 부합.</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재: 선행 PER FY26 26.0x / FY27 9.7x [인용: fnguide] · PBR 3.87x(BPS 6,379) [실측] · 트레일링 PER은 적자로 무의미(EPS -27) · EV/EBITDA [미확인]</li>
+<li>Peer(HPSP 403870): FY26 PER 27.8x / FY27 18.9x, OPM ~56%, 시총 33,290억 [인용: fnguide]. 예스티 FY27 9.7x는 HPSP의 약 절반 — HPA 트랙레코드가 짧아 디스카운트.</li>
+<li>자체 목표가: FY27E EPS 2,545 × 적정 16x(HPSP 18.9x에 신생 디스카운트) = 40,720원 [추정]. 밴드 15x=38,180 / 17x=43,270.</li>
+<li>결론 목표가: 1차 41,000원(자체 Base·신한 목표와 일치) / 2차 47,000원(컨센 평균). HPA 지속 입증 시 HPSP 멀티플 수렴으로 상단 50,000+ 여지.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (현물만 — 선물 미상장)</p>
+<ul>
+<li>위치: 52주 고점 44,000 대비 <span class="down">-44%</span>, 저점 15,200 대비 <span class="up">+62%</span>. MA20·MA60 아래 → 중기추세 미회복, 추격 주의.</li>
+<li>지지: 1차 22,000(MA5·갭 하단권) / 2차 20일저 18,400 / 3차 15,200(52주저)</li>
+<li>저항: MA20 25,000 / MA60 28,200 / 전고 30,600</li>
+<li>라인(현물 스윙): 진입 21,000~23,000 눌림 분할 3회(각 1/3) · 손절 종가 18,000(20일저 이탈) · 1차익절 35,000 · 2차 41,000</li>
+<li>손익비(진입 중앙 22,000 기준): 상방 41,000 = <span class="up">+86.4%</span> ÷ 하방 18,000 = <span class="down">-18.2%</span> = 1:4.7</li>
+</ul>
+<p>(현재가 24,700 추격 시: <span class="up">+66.0%</span> ÷ <span class="down">-27.1%</span> = 1:2.4 — 급등직후라 열위)</p>
+<ul>
+<li>50% 집중·고변동 경고: 공매도·기관매도 상존 + 일변동성 ATR 1,929(약 8%/일). 집중 과도 금지.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (§9) [9-1 제품] 반도체장비 650.0억(69%)·디스플레이 286.6억(31%)·기타(9M26) [실측 20261111000039]. HPA는 반도체장비 내 신규 고마진 품목. [9-2 고객·납품] 메모리 고객(키옥시아 납품·삼성 공정 언급은 언론·회사 인용, 비중 미공개) → [미확인/추정]. 고객집중도 수치 미공개. [9-3 시장규모·경쟁] HPA 시장은 HPSP가 로직 중심 사실상 독점. 예스티=메모리향 신규진입(듀얼벤더화). 글로벌 HPA TAM 절대금액 [미확인](market_sizer 0건). 경쟁구도: HPSP(75매 단일) vs 예스티(125매 배치)로 메모리 양산성 차별화 주장[추정]. [9-4 단가] 주문제작형 장비로 표준단가 미공시(DART 본문 &quot;가격변동 예측 곤란&quot;) → 대당 단가는 블로거 추정 HPA 1대≈50억 [추정, 미검증]. [9-5 CAPA·수주] 생산능력·수주잔고 표 DART 미공시 → [미확인]. HPA 납품대수: 블로거 추정 27년 10대·28년 20대 [추정]. [9-7 바텀업 — FY27 영업이익 시나리오]</p>
+<ul>
+<li>Bear: 매출 1,900·OPM 18% → OP 342억 (HPA 수주 지연·마진 정상화)</li>
+<li>Base: 매출 2,509·OPM 27% → OP 677억 (컨센 일치)</li>
+<li>Bull: 매출 2,900·OPM 30% → OP 870억 (HPA 20대+ 가속)</li>
+<li>분기배분: 3Q26 OP 110 실측, 4Q26 OP 76(컨센 역산, OPM 19.5%)</li>
+<li>민감도: HPA 단가 ±10%·점유율 ±5%p 시 FY27 OP ±90~130억 [추정]</li>
+<li>【결론 문장】 4Q26 연결 영업이익 ≥ 90억이면 3Q HPA 마진 지속 확인·추가매수 검토 / &lt; 40억(OPM&lt;10%)이면 3Q 마진 일회성 의심·논지 약화.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더: 2027-03-31 FY26 사업보고서 법정기한(4Q·연간 확정) / HPA 추가 수주 단일판매공급계약 공시(날짜 미정) / HPSP 특허소송 결과(연내 해소 기대, 날짜 미정)</li>
+<li>반증 3개: ①4Q26 연결 영업이익 &lt; 40억(OPM&lt;10%) → HPA 마진 일회성, 논지 폐기·전량 청산 ②종가 18,000원 이탈 → 기술적 손절 전량 청산 ③HPSP 특허소송 패소·판매금지 가처분 인용 → 논지 폐기</li>
+<li>이벤트 매트릭스(차기 4Q/수주): 서프라이즈×갭상승→분할 익절·추세추종 / 인라인×보합→보유 / 쇼크×갭하락→18,000 이탈 시 청산</li>
+<li>확률가중 시나리오(12개월):</li>
+<li>Bear 30%: HPA 지연·마진 정상화, 목표 20,000 (<span class="down">-19%</span> from 24,700)</li>
+<li>Base 50%: 컨센 달성, 목표 41,000 (<span class="up">+66%</span>)</li>
+<li>Bull 20%: HPA 가속+특허 종결, 목표 50,000 (<span class="up">+102%</span>)</li>
+<li>기대수익률 = 0.3×(<span class="down">-19%</span>)<span class="up">+0.5</span>×(<span class="up">+66%</span>)<span class="up">+0.2</span>×(<span class="up">+102%</span>) = <span class="up">+47.7%</span> [추정]</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 0.5%(고변동) ÷ 손절폭 18.2% = 자산의 2.7%. 집중상한 50%·이벤트전 상한 25% 중 최소값 = 2.7% 채택(고변동·공매도압력 반영 보수적).</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수강요 아님. 블로거·증권사 추정치는 &#x27;추정&#x27;, 소송·납품 비중은 &#x27;미확인&#x27; 표기. [미확인 목록] HPA TAM 절대금액·대당 단가·납품대수(블로거 추정만)·고객별 비중·수주잔고·CAPA·이자보상배율·HPSP 2심 결과 [출처] DART 사업보고서 20260317000873·분기보고서 20261111000039 / KIS 시세·수급 11/13 / fnguide·naver 컨센 11/13 / 언론 11/11~12 [검산] 9M26 분기합 1,132.5=누적 ✓ / 25 9M675.6+Q4 195.0=870.6 ✓ / 손익비 1:4.7 헤더·본문 일치 ✓</p>
+<p>📋 결정카드 판정: 관심 선물: 無 현재가: 24,700원 진입: 21,000~23,000원 (눌림 분할 3회) 손절: 18,000원 목표: 1차 41,000원 (2차 47,000원) 손익비: 1:4.7 기간: 스윙 6~12주 촉매: 2027-03-31 FY26 사업보고서(4Q 확정) · HPA 수주공시 · HPSP 특허소송 결과 반증: 4Q26 연결 영업이익 &lt; 40억(OPM&lt;10%)이면 전량 청산 / 종가 18,000원 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
