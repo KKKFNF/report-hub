@@ -84,7 +84,7 @@ th{color:var(--mut);font-weight:600}
 
 <div class="card">
   <h2>🎯 "순매수 전환 → 이후 추세" 백테스트</h2>
-  <div class="muted" style="margin-bottom:8px">각 창구가 순매도→순매수로 전환(직전3일 순매도 &amp; 당일+이후2일 순매수)한 날 이후 5/10/20일 종가 수익률 평균</div>
+  <div class="muted" style="margin-bottom:8px">각 창구가 순매도→순매수로 전환(직전3일 순매도 &amp; 당일+이후2일 순매수)한 것이 <b>확정된 날(D+2) 종가</b>부터 5/10/20일 수익률 평균. 괄호는 이 종목을 아무 날이나 샀을 때 평균(기저율)과의 차이(%p) — 0 근처면 신호에 우위가 없다는 뜻. <span id="sigbase"></span></div>
   <table id="sigtable"><thead><tr><th>창구</th><th>전환횟수</th><th>5일</th><th>10일</th><th>20일</th><th>누적순매수</th></tr></thead><tbody></tbody></table>
 </div>
 
@@ -147,9 +147,15 @@ function render(){
   // 시그널 테이블
   const tb=document.querySelector('#sigtable tbody');
   const bmap={}; DATA.brokers.forEach(b=>bmap[b.mbcr]=b.cum_ntby);
-  tb.innerHTML=DATA.signals.sort((a,b)=>(b.avg_r20||-99)-(a.avg_r20||-99)).map(sig=>{
-    const c=v=>v==null?'-':`<span class="${v>=0?'up':'dn'}">${v>=0?'+':''}${v}%</span>`;
-    return `<tr class="sigrow"><td>${sig.name}</td><td>${sig.n}</td><td>${c(sig.avg_r5)}</td><td>${c(sig.avg_r10)}</td><td>${c(sig.avg_r20)}</td><td>${(bmap[sig.mbcr]/1e6).toFixed(1)}M</td></tr>`;
+  // [claude-fix 2026-11-12] 기저율(base_r*) 대비 차이를 함께 표시하고 그 차이 순으로 정렬. 예전 데이터(기저율 없음)는 평균만 표시.
+  const c=v=>v==null?'-':`<span class="${v>=0?'up':'dn'}">${v>=0?'+':''}${v}%</span>`;
+  const e=(v,b)=>(v==null||b==null)?'':` <span class="muted">(${(v-b)>=0?'+':''}${(v-b).toFixed(2)}p)</span>`;
+  const edge=g=>g.avg_r20==null?-99:(g.base_r20==null?g.avg_r20:g.avg_r20-g.base_r20);
+  const s0=DATA.signals[0]||{};
+  const sb=document.getElementById('sigbase');
+  if(sb) sb.textContent=(s0.base_r20!=null)?`기저율: 5일 ${s0.base_r5}% · 10일 ${s0.base_r10}% · 20일 ${s0.base_r20}%`:'';
+  tb.innerHTML=DATA.signals.slice().sort((a,b)=>edge(b)-edge(a)).map(sig=>{
+    return `<tr class="sigrow"><td>${sig.name}</td><td>${sig.n}</td><td>${c(sig.avg_r5)}${e(sig.avg_r5,sig.base_r5)}</td><td>${c(sig.avg_r10)}${e(sig.avg_r10,sig.base_r10)}</td><td>${c(sig.avg_r20)}${e(sig.avg_r20,sig.base_r20)}</td><td>${(bmap[sig.mbcr]/1e6).toFixed(1)}M</td></tr>`;
   }).join('');
 }
 function layout(y1,y2,single){
