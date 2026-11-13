@@ -1,0 +1,213 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>루닛(328130) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261114-081041-루닛-328130.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.3</div><div class="tp-c"><b>결론 발췌</b> 3Q26 적자 반감·체질개선은 실체(영업손실 YoY-50%, EBITDA 14분기 최저)이나 성장률 둔화(단독매출 YoY+13%)·CB 희석·고변동(ATR 12%) + 현재가가 자체 Base목표 15,800원에 근접 → 추격 비효율. 판정 &#x27;관심&#x27;, 손익비 1:1.3(1차)~1:2.2(2차), 자체목표 16,840/18,000원(증권사 목표가는 컨센 미확인). 의료AI는 의뢰 프로필 관심섹터 밖임을 전제. ────────────────── ① 사실관계 검증 • 실제 사업[실측: 2026 분기보고서 20261112000294]: 딥러닝 의료AI 기업(2013 설립). 2개 축 — (1)암검진 Lunit INSIGHT(흉부 CXR·유방촬영 …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>루닛(328130)</h1>
+<div class="meta">📊 benine · 2026-11-14 08:10 · 코드 328130</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-14 08:10)</div><div class="kpi-v">15,250원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.1조</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">6.94</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.27</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">16,840원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 14,300~11,300원 (눌림 3회 분할)</span><span class="dc dn">손절 14,000원</span><span class="dc up">목표 16,840원</span><span class="dc">손익비 현재가 1:1.27</span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 4Q26 실적발표(2027.2, EBITDA 흑전 분수령)·477억 CB 후속공시</div><div class="dc-l">🛑 반증: 4Q26 연결 영업손실 &gt; 130억 → 논지 폐기·청산 / 종가 14,000원 이탈 → 청산</div></div>
+
+<div class="body"><p>🩺 개별종목 풀리서치 — 루닛(328130)  ※개별주식선물 無(미상장)·현물만·레버리지 불가</p>
+<p>📌 한줄 결론: 3Q26 적자 반감·체질개선은 실체(영업손실 YoY-50%, EBITDA 14분기 최저)이나 성장률 둔화(단독매출 YoY<span class="up">+13%</span>)·CB 희석·고변동(ATR 12%) + 현재가가 자체 Base목표 15,800원에 근접 → 추격 비효율. 판정 &#x27;관심&#x27;, 손익비 1:1.3(1차)~1:2.2(2차), 자체목표 16,840/18,000원(증권사 목표가는 컨센 미확인). 의료AI는 의뢰 프로필 관심섹터 밖임을 전제.</p>
+<p>────────────────── ① 사실관계 검증</p>
+<ul>
+<li>실제 사업[실측: 2026 분기보고서 20261112000294]: 딥러닝 의료AI 기업(2013 설립). 2개 축 — (1)암검진 Lunit INSIGHT(흉부 CXR·유방촬영 MMG/DBT/Risk) + 2024.5 인수한 Lunit International(구 Volpara, 뉴질랜드, 유방암검진 전주기 SW Analytics/PatientHub/Scorecard 등), (2)암치료 Lunit SCOPE(디지털 병리 PD-L1·IO 바이오마커).</li>
+<li>부문 매출 실체[실측: 분기보고서 유형별 매출]: 3Q26 누적 암검진(CancerScreening) 631.71억(93.0%, SW 599.91+기타 31.8), 암치료(Oncology) 48.10억(7.0%, 용역 46.25+기타 1.85). 즉 매출의 93%가 볼파라 결합 암검진 SW이고 해외비중 95%·북미 암검진 71%는 볼파라 구독형 매출이 실체임을 공시가 뒷받침.</li>
+<li>급등사유 검증[인용: 서울경제 2026-11-13, 한스경제 11-12]: 11/13 장초반 <span class="up">+11%</span>대 강세는 &#x27;3Q 실적 발표&#x27; 반응(매출 역대최대·손실 역대최저). 10월 급등(상한가)은 별개로 &#x27;AI신약 재평가&#x27; 테마[인용: 파이낸셜뉴스 2026-10-26 &quot;루닛스코프 가치 5000억&quot;, NH 10-26 Not Rated]. → 11월 상승은 실적 기반(실체), 10월 급등은 테마 기대감(실체 약함)으로 구분.</li>
+<li>블로거(비나인) 핵심논지 = 3Q 체질개선·4Q EBITDA 흑전 기대 → DART 실측과 방향 일치. 단 블로그는 개인의견·참고용, 사실로 인용하지 않음.</li>
+</ul>
+<p>② 실적 분석 (연결 CFS 실측, 단위 억)[실측: DART fnlttSinglAcntAll CFS, 접수 20261112000294 외]</p>
+<ul>
+<li>단일분기 매출/영업손익/순손익:</li>
+<li>1Q25 192.0 / -206.7 / <span class="up">+20.3</span></li>
+<li>2Q25 178.7 / -211.1 / -349.6</li>
+<li>3Q25 195.8 / -215.6 / <span class="up">+181.2</span></li>
+<li>4Q25 264.8 / -197.6 / (분해 n/a)</li>
+<li>1Q26 239.5 / -135.9 / -178.1</li>
+<li>2Q26 218.1 / -153.7 / (분해 n/a)</li>
+<li>3Q26 222.15 / -106.85 / -291.3</li>
+<li>3Q26 단독: 매출 222.15(YoY <span class="up">+13.4%</span>, 3Q25 195.8), 영업손실 106.85(YoY <span class="down">-50.4%</span> 적자반감). 3Q26 누적: 매출 679.81(YoY <span class="up">+20.0%</span> vs 566.5, 창사최대), 영업손실 누적 396.5(전년 누적 -633.4 대비 37% 축소).</li>
+<li>EBITDA 3Q26 -35.01억(YoY-77%·QoQ-55%·14개분기 최저)[인용: 이데일리 2026-11-12]. 비용 25% 절감으로 적자 반감[인용: 동행일보 11-12].</li>
+<li>순손익 분해(5원칙#5): 3Q26 영업손실은 축소(-106.9)됐으나 순손실은 -291.3으로 확대 — 금융손익 악화(볼파라 인수 CB 공정가치평가·환율) 때문이며 영업 악화가 아님[인용: 디지털데일리 11-12 &quot;영업적자 줄었지만 순손실 확대, 금융손익 악화&quot;]. → 영업 추세는 개선, 순이익은 CB 변수로 노이즈.</li>
+<li>연간 추세: 매출 FY23 250.8 → FY24 541.8(<span class="up">+116%</span>) → FY25 831.3(<span class="up">+53%</span>). 영업손실 FY23 -422 → FY24 -677 → FY25 -831(볼파라 결합 비용). 2026은 적자축소 전환 원년.</li>
+<li>재무상태(3Q26말): 현금성 854.3억, 자본총계 2,718.9, 부채총계 1,605.8 → 부채비율 59%(건전). 현금 추이 2025말 141.1(저점) → 2Q26 1,545.3(자본확충 ~2,000억, 자본 1,247→3,316) → 3Q26 854.3.</li>
+<li>런웨이: 3Q26 EBITDA 손실 -35억/분기 기준이면 현금 854억으로 수년 버퍼. 영업손실 -107억/분기 기준으로도 ~8분기. 4Q EBITDA 흑전 시 현금소진 사실상 종료 근접 → 적자기업 리스크는 완화 국면.</li>
+</ul>
+<p>③ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: 미확인(4소스 stockeasy·naver·fnguide·hankyung 자동시도). 최근 리포트 NH투자증권(2026-10-26)·미래에셋(2026-05-27) 모두 &#x27;Not Rated·목표가 미제시&#x27;. → FY26/27 매출·영업이익 컨센 및 목표주가 공식 컨센 미확인.</li>
+<li>자체 추정[추정]: FY26 매출 누적679.8 + 4Q26E(250~280, 4Q 라이선스 연말집중 계절성) ≈ 930~960억(Base 945). FY26 영업손실 Base ≈ -470억(누적-396.5 + 4Q -70~-110).</li>
+<li>4Q26 EBITDA 흑자전환 달성가능성: 中. 근거 — 3Q EBITDA -35억까지 축소 + 4Q 계절성 매출최대(4Q25 264.8) + 비용 25%↓ 지속이면 산술적 흑전 가능권. 반면 QoQ 매출이 1Q239→3Q222로 소폭 역성장, 환율·마케팅비 변수로 &#x27;시험대&#x27;[인용: 동행일보·팜이데일리 11월]. → 가능하나 확정 아님.</li>
+</ul>
+<p>④ 밸류에이션·목표가</p>
+<ul>
+<li>적자라 PER 무의미(EPS -760, PER -20.1x). PBR 6.94(BPS 2,196)[실측: KIS 2026-11-14].</li>
+<li>PSR(TTM): 시총 11,355억 ÷ TTM매출 944.5억(4Q25 264.8<span class="up">+1</span>Q26 239.5<span class="up">+2</span>Q26 218.1<span class="up">+3</span>Q26 222.15) = 12.0x. FY26E PSR ≈ 11.8~12.2x.</li>
+<li>글로벌 의료AI SaaS peer PSR 밴드 대략 8~15x[추정·단일성격, 산업리포트 미확보로 교차출처 1개 미만 → 미확인 처리]. 현 12x는 밴드 중상단.</li>
+<li>자체 목표가 산식[추정](주식수 ≈ 11,355억/15,250 = 74.46백만주):</li>
+<li>Bear: PSR 9x × 945억 = 8,505억 ÷ 74.46M = 11,420원</li>
+<li>Base: PSR 12x × 980억 = 11,760억 ÷ 74.46M = 15,800원 (현재가와 근접)</li>
+<li>Bull: PSR 14x × 1,080억(FY27E) = 15,120억 ÷ 74.46M = 20,300원</li>
+<li>증권사 목표가 병기: 컨센 미확인. → 밸류 상방은 &#x27;PSR 재확장 + 매출 재가속&#x27; 전제여야 열림.</li>
+</ul>
+<p>⑤ 손익비 (진입 15,250 기준)</p>
+<ul>
+<li>상방: 1차 16,840원(20일 고점 저항) = <span class="up">+10.4%</span> / 2차 18,000원(PSR~13x) = <span class="up">+18.0%</span></li>
+<li>하방 손절: 14,000원(MA20 14,309 하단·종가이탈) = <span class="down">-8.2%</span> / 구조적 지지 11,270(20일저점·MA60) = <span class="down">-26.1%</span></li>
+<li>손익비 = 상승여력 ÷ 하락리스크:</li>
+<li>1차 기준: 10.4% ÷ 8.2% = 1:1.27 (빈약)</li>
+<li>2차 기준: 18.0% ÷ 8.2% = 1:2.20 (양호)</li>
+<li>현재가(15,250)가 자체 Base목표 15,800에 근접 → 지금 진입 시 1차 손익비 1.3으로 비효율. 눌림 대기가 손익비 유리.</li>
+</ul>
+<p>⑥ 진입전략 (★선물 미상장 → 현물 스윙 3라인만, 레버리지 불가)</p>
+<ul>
+<li>추세: MA 정배열(MA5 15,224 &gt; MA20 14,309 &gt; MA60 11,268). ret20 <span class="up">+28.8%</span>/ret60 <span class="up">+44.4%</span>. 현 위치 = 52주 고점 49,800 대비 31% 수준(고점권 아님)·저점 8,180 대비 <span class="up">+86%</span>(반등 중단). 20일 박스 11,270~16,840 상단부.</li>
+<li>수급[실측: KIS 20일]: 외국인 -223.75억(매도), 기관 <span class="up">+340.41</span>억(매수), 개인 -91.92억. 공매도 당일 2.43%(20일평균 9.78%, 감소세).</li>
+<li>유동성: 20일 평균 거래대금 411.5억 → 1일 체결상한(ADV 10%) ≈ 41억. 변동성 고변동(RV20 54.5%, 92%분위, ATR14 1,867≈12.2%) → 손절 타이트 설정 시 노이즈 이탈 잦음, 분할 필수.</li>
+<li>현물 스윙 3라인:</li>
+<li>진입: 14,300~11,300 눌림 분할(3회, 각 1/3). 추격매수는 16,840 돌파 확인 후만.</li>
+<li>손절: 종가 14,000 이탈(<span class="down">-8.2%</span>) → 스윙 청산. 손절선 아래 추가매수 금지.</li>
+<li>익절: 1차 16,840 / 2차 18,000.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (INDUSTRY_MODEL_SPEC §9) 9-1 제품분해[실측: 분기보고서 유형별매출, 억]: 암검진 SW 599.91(3Q26누적, 88.3%)·암검진 기타 31.8(4.7%)·암치료 용역 46.25(6.8%)·암치료 기타 1.85 = 합 679.81. 암검진이 93%. 9-2 고객·납품: 주요 매출처 A사 10.65%, 기타 89.35%[실측] → 고객 분산(1사&lt;30%, 집중 리스크 낮음). 해외 95%·북미 암검진 71%(볼파라 구독)[인용: 서범석 대표 2026-11-11 더바이오 &quot;해외 95%, 직접판매&quot;]. 9-3 시장규모·경쟁: 글로벌 의료영상 AI TAM·CAGR — 교차출처 2개 미확보 → 미확인. 경쟁: 암검진 iCAD·Hologic(볼파라 흡수)·GE헬스케어, 암치료 PathAI·Paige(병리AI). 루닛 점유율 수치 미확인(회사 &#x27;글로벌 선도&#x27; 주장은 정량근거 부족). 9-4 단가: 제품단가·원재료 &#x27;영업기밀로 미공시&#x27;[실측: 분기보고서 &quot;세부 내역 미기재&quot;]. SW 특성상 원재료 없음. → 단가 모델 불가, 부문매출로 대체. 9-5 CAPA·수주: SW라 생산능력 &#x27;해당없음&#x27;. 수주잔고 2025말 49억(라이선스 납기 1주 이내 특성상 잔고 의미 작음)[실측]. 9-6 전방수요: 전방 = 병원 검진·제약사 바이오마커. 미국 유방촬영 치밀도 고지법·검진 확대가 볼파라 구독 성장 드라이버(정량 소요량 추정 근거 미확보 → 미확인). 9-7 바텀업 모델(연결, 억)[추정]:</p>
+<ul>
+<li>매출: Bear 915 / Base 945 / Bull 970 (4Q26E 235/265/290, 4Q 계절성)</li>
+<li>영업손실률: 3Q26 <span class="down">-48%</span>(개선, 1Q <span class="down">-57%</span>→3Q <span class="down">-48%</span>)</li>
+<li>FY26 영업손익: Bear -520 / Base -470 / Bull -430</li>
+<li>4Q26 단독 영업손익[핵심]: Bear -130 / Base -75 / Bull -40, EBITDA Bull 흑전(+)</li>
+<li>민감도: 매출 ±10% → 4Q 영업손익 약 ±25억; 환율(USD) ±5% → 금융손익 변동(순손익 노이즈 지속)</li>
+<li>결론 문장: &quot;4Q26 연결 영업손실 ≤ 70억(Base, EBITDA 흑전 근접)이면 체질개선 논지 유지·눌림 추가검토, &gt; 130억(Bear, 적자 재확대)이면 턴어라운드 논지 폐기.&quot; (실적 캘린더 임계 연동)</li>
+</ul>
+<p>9-8 미확인: 의료AI TAM 2출처·점유율·제품단가·전방 소요량 모델.</p>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜확정): ①4Q26 실적발표(2027.2월 예정, 법정기한 2027-03-31) — 4Q EBITDA 흑전 여부 최대 분수령. ②신규 477억 CB 관련 후속공시(2026-11 발행)[인용: 조선일보·헬로티 11-05] — 희석 규모 확정.</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>4Q26 연결 영업손실 &gt; 130억 → 턴어라운드 논지 폐기·전량 청산 / ≤ 70억 → 논지 유지·눌림 추가검토.</li>
+<li>종가 14,000원 이탈 → 스윙 전량 청산.</li>
+<li>신규 CB·유상증자 500억 초과 추가 공시 → 희석 가속, 논지 약화·비중 축소.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(4Q 실적 × 당일):</li>
+<li>서프라이즈(영업손실≤70/EBITDA흑전) × 갭상승 → 돌파매수(16,840 상회 확인)</li>
+<li>서프라이즈 × 갭하락 → 눌림 분할매수 기회</li>
+<li>인라인(70~130) × 보합 → 관망 유지</li>
+<li>쇼크(손실&gt;130) × 갭하락 → 반증1 발동, 청산</li>
+<li>확률가중 시나리오(합 100%):</li>
+<li>Bear 30%: 4Q 적자확대·CB 희석 부각, 목표 11,420원</li>
+<li>Base 45%: 적자축소 지속·EBITDA 흑전 근접, 목표 15,800원(현재가 근접)</li>
+<li>Bull 25%: 4Q EBITDA 흑전+AI신약 재평가, 목표 20,300원</li>
+<li>확률가중 기대값 = 11,420×0.30 + 15,800×0.45 + 20,300×0.25 = 3,426 + 7,110 + 5,075 = 15,611원 → 현재가 15,250 대비 <span class="up">+2.4%</span> (상방 제한적).</li>
+<li>수급·유동성: 외국인 20일 -223.75억(이탈)·기관 <span class="up">+340.41</span>억(유입). 20일 평균 거래대금 411.5억 → 1일 체결상한 ≈ 41억.</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭 8.2% = 자산의 12.2%. 집중상한 50%·이벤트(4Q실적) 전 상한 25% 중 최소값 = 12.2% 채택. 선물 미상장으로 레버리지 가산 없음.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거(비나인)·단일 기관 의견은 &#x27;개인의견/참고용&#x27;, 자체 추정은 &#x27;추정&#x27;, 미확인은 &#x27;미확인&#x27; 표기. 의료AI는 의뢰 프로필 관심섹터(반도체·조선·전력·원전·2차전지) 밖이며 선물 미상장으로 레버리지 스윙 불가·현물만 가능. [미확인 목록] 의료AI TAM 교차출처·루닛 글로벌 점유율·제품단가·전방 소요량·증권사 목표가(컨센 미확인). [출처] DART 분기보고서 20261112000294·사업보고서 20260323001574, KIS 시세 2026-11-14, news_search(서울경제·한스경제·이데일리·디지털데일리·조선일보·더바이오 2026-11), consensus 4소스. [검산] 분기합 1Q26 239.5<span class="up">+2</span>Q26 218.1<span class="up">+3</span>Q26 222.15=679.75 ≈ 누적 679.81(반올림 오차) ✓ / 손익비 헤더=본문 1:1.27(1차)·1:2.20(2차) 일치 ✓ / 연결·단독 라벨 전수표기 ✓.</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-14 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 15,250원 (<span class="up">+11.2%</span>) · 시총 1.14조 · 5일 <span class="down">-1.3%</span> / 20일 <span class="up">+28.8%</span> / 60일 <span class="up">+44.4%</span></li>
+<li>MA5 15,224원 / MA20 14,309원 / MA60 11,268원 → MA20 이격 <span class="up">+6.6%</span> · MA60 이격 <span class="up">+35.3%</span></li>
+<li>52주 고 49,800원 / 저 8,180원 → 고점 대비 <span class="down">-69.4%</span> · 20일 고 16,840원 / 저 11,270원</li>
+<li>후행 PER -20.07 / PBR 6.94 (EPS -760원 · BPS 2,196원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 411.5억 (5일 553.7억)</li>
+<li>외국인 순매수 5일 -26.8억 / 20일 -223.8억 · 기관 5일 -17.6억 / 20일 340.4억 · 개인 20일 -91.9억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 2.43% (공매도 94,489주 · 14.2억) · 5일 평균 5.95% / 20일 평균 9.78% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 25.77% (10/21) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 16,840원 (<span class="up">+10.4%</span>) ÷ 하방 14,000원 (−8.2%) = <strong>1:1.27</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 8.2% = <strong>자산의 6.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 6.1%</strong></li>
+<li>유동성 참고: 20일 ADV 411.5억 · 1일 소화 한도는 ADV의 10%(41.15억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 8.2% · ATR14 1,867원 (손절폭/ATR 0.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 8.2% = ATR14 × 0.7배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 12,449원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.57</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-328130"></span>📋 결정카드 — 루닛(328130) 판정: 관심 선물: 無 현재가: 15,250원 진입: 14,300~11,300원 (눌림 3회 분할) 손절: 14,000원 (종가 이탈) 목표: 1차 16,840원 (2차 18,000원) 손익비: 1:1.3 (1차 / 2차 1:2.2) 기간: 스윙 4~10주 촉매: 4Q26 실적발표(2027.2, EBITDA 흑전 분수령)·477억 CB 후속공시 반증: 4Q26 연결 영업손실 &gt; 130억 → 논지 폐기·청산 / 종가 14,000원 이탈 → 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
