@@ -1,0 +1,254 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>명인제약 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261114-120809-명인제약.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 자동판정(한줄 결론 기준)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 / 소량 · 손익비 1:2.6</div><div class="tp-c"><b>결론 발췌</b> &gt; 저평가 가치주(PER 6.25·PBR 0.77·무차입·현금 5,000억+)이나 상장 1년차 커버리지 전무 + 2027.4 약가인하·거버넌스 디스카운트가 발목. 자체 적정가 54,000원(PER 8배×TTM EPS, +28.7%), 확률가중 기대값 52,300원(+24.7%). 현물 스윙 진입 41,950 / 손절 38,500(-8.2%) / 1차목표 51,000(+21.6%) → 손익비 1:2.6. 선물 불가라 50% 집중은 현물 변동성 리스크 과다 → 부적합. 판정: 中(관망 우위, 공모가 반 토막 저평가 베팅은 소량 분할만).</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(자동판정): 관망 · 소량</span><h1>명인제약</h1>
+<div class="meta">📊 benine · 2026-11-14 12:08 · 코드 317450</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-14 12:08)</div><div class="kpi-v">41,950원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">6,125억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">6.25</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.77</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:3.49</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">54,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc dn">손절 38,500원</span><span class="dc up">목표 54,000원</span><span class="dc">손익비 현재가 1:3.49</span><span class="dc-src">자동추출</span></div></div>
+
+<div class="body"><h1>명인제약 (317450 · 코스피) — 기관급 딥리서치</h1>
+<p class="note">작성 2026-11-14 12:03 KST · 현재가 <strong>41,950원</strong>(전일종가 대비 -0.36%, 장중) · 시총 <strong>6,125억</strong> · PER <strong>6.25</strong> · PBR <strong>0.77</strong> 선물: <strong>❌ 개별주식선물 미상장 → 현물만 가능(레버리지 불가)</strong> [kis_futures_check.py 317450 실측 확인] 트리거: 비나인 블로그 스크랩(blog_id compounding_routine, 2026-11-14). ※블로거 본인 <strong>보유자 편향·개인의견 명시</strong>, 본 리포트는 매수/매도 추천 아님·참고용.</p>
+<hr>
+<h2 id="한줄결론">🎯 한줄결론</h2>
+<p class="note"><strong>저평가 가치주(PER 6.25·PBR 0.77·무차입·현금 5,000억+)이나 상장 1년차 커버리지 전무 + 2027.4 약가인하·거버넌스 디스카운트가 발목.</strong> 자체 적정가 <strong>54,000원(PER 8배×TTM EPS, +28.7%)</strong>, 확률가중 기대값 <strong>52,300원(+24.7%)</strong>. 현물 스윙 진입 41,950 / 손절 38,500(-8.2%) / 1차목표 51,000(+21.6%) → <strong>손익비 1:2.6</strong>. 선물 불가라 50% 집중은 <strong>현물 변동성 리스크 과다 → 부적합</strong>. <strong>판정: 中(관망 우위, 공모가 반 토막 저평가 베팅은 소량 분할만)</strong>.</p>
+<hr>
+<h2 id="사실관계-검증-실체-vs-기대감">① 사실관계 검증 — 실체 vs 기대감</h2>
+<p><strong>실체(✅ 공시·실적으로 확인됨)</strong></p>
+<ul>
+<li><strong>CNS(정신신경용제) 국내 1위 캐시카우는 사실.</strong> DART 사업보고서: 2025년 정신신경용제(제품+상품) = 193,646 + 33,369 = <strong>2,270억(총매출 2,874억의 79.0%)</strong> [DART 2025 사업보고서 실측]. 블로거 &quot;79%&quot; 주장 일치.</li>
+<li><strong>IQVIA 2025 4Q 기준 국내 정신신경용제 점유율 1위</strong>(회사 공시 기준). 명인 2,270억 vs 환인 2,108억(2025, 제품+상품) — 2025년 환인 추월 [블로거·IQVIA 추정].</li>
+<li><strong>무차입·고현금은 사실.</strong> 2025 연결 부채총계 473억 / 자본총계 7,944억 → <strong>부채비율 5.95%</strong> [DART 실측]. 자산 8,417억 중 차입 미미. 블로거 &quot;보유현금 5,000억+&quot; 정합.</li>
+<li><strong>고수익성 사실.</strong> 2025 OPM 32.2%, 2026 반기 OPM 35.6% [DART 실측, 하단 ②].</li>
+<li><strong>실적 모멘텀 지속.</strong> 2026 3Q 별도 매출 769억(<span class="up">+5.7%</span> YoY)·영업익 265억(<span class="up">+24.6%</span> YoY), 3Q 누적 영업익 780억(<span class="up">+16.7%</span> YoY) → 연간 첫 <strong>영업익 1,000억 돌파 가시권</strong>(220억 남음) [히트뉴스·데일리팜 2026-11-02~03].</li>
+</ul>
+<p><strong>기대감(⚠️ 내러티브 단계, 실적 기여 미검증)</strong></p>
+<ul>
+<li><strong>펠렛 CDMO·신약은 성장동력 &quot;스토리&quot;일 뿐 현재 매출 기여 미미.</strong> 2026-11-05 <strong>쓰리브룩스테라퓨틱스 전략적 투자</strong>(퇴행성 뇌질환/전기생리학 신약) — 오픈이노베이션 첫 사례이나 파이프라인 초기, 밸류 기여 <strong>미확인</strong> [메디파나 2026-11-05].</li>
+<li><strong>OTC(이가탄·메이킨)는 사실상 적자사업.</strong> 블로거: 2024 OTC 매출 405억 vs 광고비 286억 → 마진 거의 없음. 단 2026-11 메이킨Q 공급가 최대 20% 인상으로 수익성 개선 시도 [메디파나 2026-10-16].</li>
+</ul>
+<p><strong>결론:</strong> 캐시카우·재무건전성은 <strong>실체 확실</strong>. 성장동력(CDMO/신약)은 <strong>기대감 단계</strong>. 현 저평가는 실적 부진이 아니라 <strong>약가인하·거버넌스 디스카운트</strong>에 기인.</p>
+<hr>
+<h2 id="실적-분석-dart-연결-실측">② 실적 분석 — DART 연결 실측</h2>
+<p><strong>연간 추세</strong> (연결, 억원)</p>
+<div class="tablewrap"><table><thead><tr><th>구분</th><th>2023</th><th>2024</th><th>2025</th><th>24→25</th></tr></thead><tbody><tr><td>매출액</td><td>2,425</td><td>2,696</td><td><strong>2,872.5</strong></td><td><span class="up">+6.6%</span></td></tr><tr><td>영업이익</td><td>미확인¹</td><td>미확인¹</td><td><strong>925.0</strong></td><td>—</td></tr><tr><td>당기순이익</td><td>미확인¹</td><td>미확인¹</td><td><strong>814.4</strong></td><td>—</td></tr><tr><td>OPM</td><td>—</td><td>—</td><td><strong>32.2%</strong></td><td>—</td></tr><tr><td>순이익률</td><td>—</td><td>—</td><td><strong>28.4%</strong></td><td>—</td></tr></tbody></table></div>
+<p>¹ 2023·2024 연결 손익은 상장 전(2025.10 상장)이라 DART 정기보고서 API 미제출(status 013) → <strong>미확인</strong>. 매출만 사업보고서 제품표에서 확보. 블로거 &quot;4년 CAGR 11.1%(CNS)·OPM 30%+&quot;는 회사자료·블로거 추정.</p>
+<p><strong>분기 추세</strong> (연결, 억원) [DART 분기/반기보고서 실측]</p>
+<div class="tablewrap"><table><thead><tr><th>분기</th><th>매출</th><th>영업익</th><th>순익</th><th>OPM</th></tr></thead><tbody><tr><td>2026 1Q</td><td>721.4</td><td>251.1</td><td>227.3</td><td>34.8%</td></tr><tr><td>2026 2Q</td><td>761.1</td><td>276.1</td><td>243.2</td><td>36.3%</td></tr><tr><td>2026 반기누적</td><td>1,482.4</td><td>527.2</td><td>470.5</td><td><strong>35.6%</strong></td></tr><tr><td>2026 3Q(별도)</td><td>769</td><td>265</td><td>미확인</td><td>34.5%</td></tr></tbody></table></div>
+<ul>
+<li><strong>OPM이 2025년 32% → 2026 반기 35.6%로 상승.</strong> 제품믹스 개선(고단가 CNS 신제품)·판가 반등 효과. CNS 우울증치료제 단가 2025 239.5원 → 2026반기 246.8원, 뇌전증 529.6→580.8원 등 <strong>반등 추세</strong> [DART 가격변동표].</li>
+<li><strong>사업부문별(2025)</strong>: CNS 79% / 순환계 6% / OTC 치과구강(이가탄) 8.4% + 소화계(메이킨) 5.5% / 임대 1.2% [DART 실측].</li>
+<li><strong>재무 안정성</strong>: 부채비율 5.95%, <strong>실질 무차입 → 이자보상배율 사실상 무한대(이자비용 미미)</strong>. 영업현금흐름은 고 OPM·저운전자본 구조상 순이익 근접 추정(별도 수치 미확인).</li>
+</ul>
+<p><strong>평가:</strong> 매출 성장은 완만(연 6~7%)하나 <strong>마진·현금흐름·재무건전성은 제약업 최상위권</strong>. 전형적 &quot;저성장 고마진 캐시카우&quot;.</p>
+<hr>
+<h2 id="미래실적-달성가능성">③ 미래실적 + 달성가능성</h2>
+<p><strong>증권사 컨센서스: ❌ 미확인</strong> — 최근 6개월 목표가 제시 리포트 <strong>0건</strong>, naver/fnguide/한경 추정치 전무 [stockeasy_consensus.py·consensus.py 2026-11-14 실측]. <strong>상장 1년차로 제도권 커버리지 부재</strong>(리레이팅 촉매 약점이자, 향후 커버 개시 시 촉매 양면성).</p>
+<p><strong>자체 추정 (실측 기반)</strong></p>
+<ul>
+<li>2026E: 반기순익 470.5억 단순연율화 → <strong>순익 ~940억</strong>, 매출 ~2,980억, 영업익 <strong>1,000억 돌파 유력</strong>(3Q 누적 별도 780억).</li>
+<li>2027 약가인하 시나리오(2027.4 기등재 제네릭 53.55%→45% 단계 반영):</li>
+<li>블로거/한기평: 이론상 CNS 매출 <strong>-16%까지</strong> 단계 하락 가능. 단 과거 2012·2020 인하기에도 명인 매출/마진 <strong>우상향</strong>(P통제·제품믹스·Q성장 상쇄). 환인 실측은 2년마다 -2.X% 수준.</li>
+<li><strong>보수 가정: 2027 순익 <span class="down">-10%</span>(≈850억)</strong>, 낙관 가정: 보합~<span class="up">+5%</span>.</li>
+</ul>
+<p><strong>달성가능성 판정</strong></p>
+<ul>
+<li>영업익 1,000억 돌파(2026): <strong>高</strong> (3Q 누적 780억, 계절성 없음)</li>
+<li>약가인하 영향 &quot;제한적&quot;(블로거 낙관): <strong>中</strong> (회사 자체판단 vs 구조적 리스크 상존, 혁신형제약 인증 올해 불발→2027 노림)</li>
+<li>CDMO·신약 밸류 기여: <strong>低</strong> (초기 단계, 2~3년 내 실적 기여 불투명)</li>
+</ul>
+<hr>
+<h2 id="밸류에이션-목표가">④ 밸류에이션 → 목표가</h2>
+<p><strong>현재 실측</strong> [enrich.py 2026-11-14]</p>
+<ul>
+<li>PER <strong>6.25</strong> / PBR <strong>0.77</strong> / EPS 6,713(TTM) / BPS 54,409 / ROE ≈ 814억/7,944억 = <strong>10.3%</strong></li>
+</ul>
+<p><strong>Peer 비교 (환인제약 016580)</strong></p>
+<ul>
+<li>환인: PER <strong>14.83</strong> / PBR 0.48 / ROE ≈ 3.2% [enrich.py 실측]</li>
+<li>명인은 PER이 환인의 <strong>절반 이하</strong>, ROE는 <strong>3배</strong> → 질적으로 명인 우위인데 PER 역전. 단 환인 PER 14.8은 저성장주 고평가 성격이라 그대로 밴드로 쓰면 과대. <strong>제네릭 제약 보수 밴드 7~10배</strong> 적용.</li>
+</ul>
+<p><strong>자체 목표가 산식</strong> (TTM EPS 6,713 기준)</p>
+<ul>
+<li>보수 7배 → 47,000원 (<span class="up">+12.0%</span>)</li>
+<li><strong>중립 8배 → 53,700 ≈ 54,000원 (<span class="up">+28.7%</span>)</strong> ← base</li>
+<li>낙관 9배 → 60,400원 (<span class="up">+44.0%</span>, 공모가 58,000 근접)</li>
+<li>약가인하 반영(EPS <span class="down">-10%</span> = 6,040)×8배 → 48,300원</li>
+</ul>
+<p><strong>확률가중 기대값</strong></p>
+<div class="tablewrap"><table><thead><tr><th>시나리오</th><th>확률</th><th>목표</th><th>근거</th></tr></thead><tbody><tr><td>낙관</td><td>30%</td><td>60,000</td><td>약가인하 미미(P통제)+커버개시 리레이팅</td></tr><tr><td>중립</td><td>45%</td><td>54,000</td><td>완만성장·저평가 일부해소</td></tr><tr><td>비관</td><td>25%</td><td>40,000</td><td>약가타격 가시화+거버넌스 추가훼손</td></tr></tbody></table></div>
+<p>→ <strong>기대값 = 52,300원 (현재가 대비 <span class="up">+24.7%</span>)</strong></p>
+<p><strong>증권사 목표가: 미확인(커버리지 없음).</strong> 위는 전량 자체 추정.</p>
+<hr>
+<h2 id="손익비">⑤ 손익비</h2>
+<p>진입 <strong>41,950</strong> 기준</p>
+<ul>
+<li><strong>상방</strong>: 1차 51,000(<span class="up">+21.6%</span>, PER 7.6배 저평가 일부해소) / base 54,000(<span class="up">+28.7%</span>)</li>
+<li><strong>하방</strong>: 손절 <strong>38,500</strong>(52주저 39,100·전저점 하단, <span class="down">-8.2%</span>). 공모가 58,000 하회·보호예수 해제 후 수급공백이 추가 하락 리스크.</li>
+<li><strong>손익비 = 21.6 ÷ 8.2 = 1:2.6</strong> (base 목표 기준 1:3.5)</li>
+</ul>
+<p>→ <strong>손익비 1:2.6 → 진입 적합 구간</strong>(1:2 이상). 단 변동성 높음(ATR14 1,178원≈2.8%, RV20 54%·고변동).</p>
+<hr>
+<h2 id="진입-전략-현물-스윙-전용">⑥ 진입 전략 (현물 스윙 전용)</h2>
+<p><strong>가격 위치</strong> [KIS 실측 11/13 종가 기준]</p>
+<ul>
+<li>MA5 42,120 / MA20 41,103 / MA60 42,852 → <strong>현재가 MA20 약간 위, MA60 아래</strong> (중기 하락 눌림 후 횡보)</li>
+<li>52주 39,100 ~ 82,700 (현재가는 52주저 <span class="up">+7.3%</span> / 공모가 58,000의 72% 수준)</li>
+<li>20일 박스 39,700~42,550, ret60 <span class="down">-12.0%</span> (중기 약세)</li>
+<li><strong>공매도 20일 평균 16.3%·11/02 최대 33.9%</strong> → 공매도 압력 높음(최근 감소 전환) ⚠️</li>
+</ul>
+<p><strong>3라인 전략</strong></p>
+<ul>
+<li><strong>진입</strong>: 41,000~42,000 분할(현 MA20 지지대). 적극 매수는 39,700(박스 하단)~40,000 재터치 시.</li>
+<li><strong>손절</strong>: <strong>38,500 종가 이탈</strong>(52주저·박스 하단 명확 붕괴). <span class="down">-8.2%</span>.</li>
+<li><strong>익절</strong>: 1차 51,000(전고·공모가 접근 전 저항, 절반 익절) / 2차 54,000(PER 8배) / 돌파 시 공모가 58,000.</li>
+</ul>
+<p><strong>⚠️ 50% 집중 경고</strong></p>
+<ul>
+<li>선물 미상장 → <strong>레버리지 불가, 현물만</strong>. 형 스타일(선물 레버리지 스윙)과 <strong>상품 미스매치</strong>.</li>
+<li>고변동(RV20 54%·VKOSPI 51)·공매도 압력·커버리지 공백·약가 이벤트(2027.4) 리스크 → <strong>50% 집중은 부적합</strong>. 저평가 가치베팅으로 접근 시 <strong>포트 10~15% 이내 소량 분할·장기 보유</strong> 성격이 맞음.</li>
+</ul>
+<hr>
+<h2 id="invalidation">🧭 촉매 &amp; 반증</h2>
+<p><strong>촉매(Bull)</strong></p>
+<ol>
+<li>저평가 해소 — PER 6.25·PBR 0.77·무차입·현금 5,000억, <strong>기관 커버리지 개시 시 리레이팅</strong></li>
+<li>2026 영업익 첫 1,000억 돌파 + 배당성향 25%+ 유지(기업가치제고계획 &#x27;26~&#x27;28) → 배당주 매력(2025 배당 1,500원·성향 26.9%)</li>
+<li>펠렛 CDMO·쓰리브룩스 신약 등 신성장 내러티브</li>
+<li>거버넌스 정상화 시그널(유한양행식 재단증여·메디컴 임차정상화·감사위 재편) 시 급속 저평가 해소</li>
+</ol>
+<p><strong>반증(Bear) — 이 중 하나라도 현실화 시 논지 붕괴</strong></p>
+<ol>
+<li><strong>2027.4 기등재 제네릭 약가인하가 블로거 낙관(P통제)보다 큰 타격</strong> → CNS 제네릭 비중 높아 구조적 매출/마진 훼손(이론상 <span class="down">-16%</span>). 혁신형제약 인증 올해 불발.</li>
+<li><strong>이회장 잔여 43% 지분 증여 완료 전까지 주가 억제 지속</strong> + 메디컴 임차/채무보증 통한 주주가치 상시 유출 → 디스카운트 장기화(&quot;오너만 배당잔치&quot; IB토마토 2026-11-05 지적).</li>
+<li><strong>커버리지 전무 → 리레이팅 트리거 부재</strong>, 공매도 압력(20일 16%)·수급공백 지속 → 저평가가 &quot;밸류트랩&quot;으로 고착.</li>
+</ol>
+<p><strong>이벤트 매트릭스</strong></p>
+<ul>
+<li>2027.2~3월: 2026 연간실적·배당 확정(영업익 1,000억 여부) → <strong>상방 촉매</strong></li>
+<li><strong>2027.4월: 기등재 제네릭 약가인하 본격 반영 → 최대 리스크 이벤트</strong></li>
+<li>2028.3월: 윤준섭 감사위원 임기만료(거버넌스 정상화 분수령)</li>
+<li>수시: 이회장 추가 증여·지분처리 공시(오버행/디스카운트 양면)</li>
+</ul>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-14 12:08 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 41,950원 (<span class="down">-0.4%</span>) · 시총 6,125억 · 5일 <span class="down">-0.9%</span> / 20일 <span class="up">+1.5%</span> / 60일 <span class="down">-12.0%</span></li>
+<li>MA5 42,120원 / MA20 41,102원 / MA60 42,852원 → MA20 이격 <span class="up">+2.1%</span> · MA60 이격 <span class="down">-2.1%</span></li>
+<li>52주 고 82,700원 / 저 39,100원 → 고점 대비 <span class="down">-49.3%</span> · 20일 고 42,550원 / 저 39,700원</li>
+<li>후행 PER 6.25 / PBR 0.77 (EPS 6,713원 · BPS 54,409원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 4.5억 (5일 4.6억)</li>
+<li>외국인 순매수 5일 2.2억 / 20일 -0.8억 · 기관 5일 -0.6억 / 20일 3.1억 · 개인 20일 -1.3억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.58% (공매도 53주 · 0.0억) · 5일 평균 11.51% / 20일 평균 16.34% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 33.91% (11/02) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 54,000원 (<span class="up">+28.7%</span>) ÷ 하방 38,500원 (−8.2%) = <strong>1:3.49</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 8.2% = <strong>자산의 6.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 6.1%</strong></li>
+<li>유동성 참고: 20일 ADV 4.5억 · 1일 소화 한도는 ADV의 10%(0.45억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 8.2% · ATR14 1,179원 (손절폭/ATR 2.9배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 8.2% = ATR14 × 2.9배 → <strong>적정</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 39,700원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:5.36</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<h2 id="결정카드">📋 결정카드</h2>
+<ol>
+<li><strong>판정</strong>: 中 (저평가 가치베팅 매력 있으나 커버리지 공백+약가/거버넌스 디스카운트로 관망 우위, 소량 분할만)</li>
+<li><strong>선물</strong>: ❌ 미상장 — 현물만, 레버리지 불가 [실측]</li>
+<li><strong>현재가</strong>: 41,950원 (공모가 58,000의 72%, 52주저 <span class="up">+7.3%</span>)</li>
+<li><strong>진입</strong>: 41,000~42,000 분할 / 적극 39,700~40,000 재터치</li>
+<li><strong>손절</strong>: 38,500 종가이탈 (<span class="down">-8.2%</span>)</li>
+<li><strong>목표</strong>: 1차 51,000(<span class="up">+21.6%</span>) / base 54,000(<span class="up">+28.7%</span>, PER 8배×EPS6,713) / 기대값 52,300</li>
+<li><strong>손익비</strong>: 1:2.6 (base 1:3.5)</li>
+<li><strong>기간</strong>: 중기 스윙~가치보유(약가 이벤트 2027.4 전 재평가 구간)</li>
+<li><strong>촉매</strong>: 저평가해소·영업익 1,000억·배당·커버리지 개시·거버넌스 정상화</li>
+<li><strong>반증</strong>: 약가인하 실타격&gt;낙관 / 오너증여 전 주가억제·주주가치유출 / 커버리지 공백 밸류트랩</li>
+</ol>
+<hr>
+<p class="note">실측: kis_futures_check·enrich·DART(사업/반기/분기보고서)·news_search·stockeasy_consensus·consensus(2026-11-14). 증권사 컨센 미확인(상장 1년차). 2023·24 연결손익 미확인(상장 전). 블로거/회사 수치는 &#x27;추정&#x27; 표기. 본 리포트는 투자권유 아님, 투자책임 본인.</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
