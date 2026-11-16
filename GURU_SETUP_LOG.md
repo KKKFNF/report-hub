@@ -32,7 +32,11 @@
 
 ## 6. 훅 (2026-11-16 완료)
 - `hublib.gh_publish._do()` 가 파일을 쓴 뒤 `git add` 직전에 `_guru_postprocess(names)` 호출 → md/html 을 발행할 때마다 `python3 -m guru postprocess gh-redirect`(수 초), 바뀐 리포트 html 도 같은 커밋에 포함. 실패해도 발행은 계속, 로그 `~/report-hub/guru_run.log`.
-- 새 리포트 주입: crontab `20,50 8-18 * * 1-5` → `~/report-hub/guru_cycle.py`(최근 3일 블록 없는 reports/ 리포트에 룰+LLM 주입은 lock 밖, serve/·gh-redirect 동기화와 발행은 hub_lock 안). 로그 `/tmp/guru_cycle.log`. crontab 백업 `~/report-hub/_claude_fixes/crontab.bak-20261116`.
+- 새 리포트 주입: 오픈클로 command 잡 `69017f33` `20,50 8-18 * * 1-5` → `~/report-hub/guru_cycle.py`(최근 3일 블록 없는 리포트 + 'LLM 오류' 블록 재시도, 룰+LLM 주입은 lock 밖, serve/·gh-redirect 동기화와 발행은 hub_lock 안). 로그 `/tmp/guru_cycle.log`.
+  - crontab 에서 돌리면 `claude -p` 가 키체인 인증을 못 해 LLM 이 rc=1 로 실패(11/16 11:50·12:20 실측) → 오픈클로 게이트웨이(키체인 접근 가능)의 command 잡으로 이전, 인증 테스트 rc=0. crontab 백업 `~/report-hub/_claude_fixes/crontab.bak-20261116`.
+- 재무 갱신: 오픈클로 command 잡 `38a5fa63` 평일 19:10 → `~/report-hub/guru_refresh.py`. 최근 4일 DART 정기공시(분기·반기·사업보고서, 기재정정 포함) 중 허브 종목이고 fundamentals 출처에 그 접수번호가 없으면 → 그 회사의 '조회 데이터 없음' DART 캐시 삭제(guru 가 미공시 분기 빈 응답을 10년 캐시하기 때문) → fundamentals 를 `.prev` 로 옮기고 → 최신 리포트 블록 룰+LLM 재생성·발행. `"manual": true` 손검산본은 제외. 로그 `/tmp/guru_refresh.log`.
+  - 11/16 밀린 3Q 갱신(룰만): 127종목, DART 재조회 125 성공(486510·153890 은 사업보고서 없음), md 123건 발행. 예: 세아제강 TTM(2Q26) → TTM(3Q26).
+- LLM 백필: 오픈클로 1회 잡 `338da2c1` 2026-11-17 00:30 → `~/report-hub/guru_llm_backfill.py`(종목별 최신 리포트, 최신순, 20건마다 발행, 완료 표시 `~/.guru/llm_backfill.done`). 로그 `/tmp/guru_llm_backfill.log`.
 - 레짐: `~/report-hub/guru_regime.py` 는 수동 실행 중(일일 크론 미등록).
 
 ## 7. 커밋·푸시
@@ -40,5 +44,4 @@
 - 10/21 이후 리포트 62건 룰 백필(DART 321회) → 블록 487 · index 배지 245 · 리포트 html 86 반영·발행.
 
 ## 8. 남은 것
-- LLM 정성 필터 백필(종목별 최신 1장) 미실행 — 현재 블록은 룰만. 새 리포트는 guru_cycle 이 LLM 포함 주입.
-- `~/.guru/fundamentals/<코드>.json` 은 만료 없이 우선 적용됨 → 3Q 분기보고서(11/14) 이후에도 TTM(2Q26) 유지. 주기적 재조회 필요.
+- guru 원본 버그(수정 안 함): CB·BW 엔드포인트 오타(status=101), 미공시 분기 빈 응답 장기 캐시(guru_refresh 가 우회), command 백엔드 실패 시 stdout 메시지를 버림.
