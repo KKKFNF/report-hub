@@ -1,6 +1,6 @@
 {
  "version": "1.0.0",
- "count": 490,
+ "count": 492,
  "rows": [
   {
    "code": "032820",
@@ -14700,6 +14700,66 @@
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
    "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240314000515 · KIS enrich 2026-11-16 12:13 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 12:40",
    "report": "20261116-121316-한선엔지니어링-452280",
+   "date": "20261116"
+  },
+  {
+   "code": "326030",
+   "name": "SK바이오팜",
+   "ver": "v1",
+   "fit": 0,
+   "total": 6,
+   "bucket": "lo",
+   "mean": 0.38,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
+   "v": {
+    "buffett": "부적합",
+    "munger": "보류",
+    "druckenmiller": "보류",
+    "graham": "부적합",
+    "piotroski": "부적합",
+    "greenblatt": "데이터부족"
+   },
+   "s": {
+    "buffett": 0.35,
+    "munger": 0.5,
+    "druckenmiller": 0.58,
+    "graham": 0.14,
+    "piotroski": 0.33,
+    "greenblatt": null
+   },
+   "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240318000296 · KIS enrich 2026-11-16 14:38 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 14:50",
+   "report": "20261116-143841-SK바이오팜-326030",
+   "date": "20261116"
+  },
+  {
+   "code": "326030",
+   "name": "SK바이오팜",
+   "ver": "v1",
+   "fit": 0,
+   "total": 6,
+   "bucket": "lo",
+   "mean": 0.39,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
+   "v": {
+    "buffett": "부적합",
+    "munger": "보류",
+    "druckenmiller": "보류",
+    "graham": "부적합",
+    "piotroski": "부적합",
+    "greenblatt": "데이터부족"
+   },
+   "s": {
+    "buffett": 0.35,
+    "munger": 0.5,
+    "druckenmiller": 0.64,
+    "graham": 0.14,
+    "piotroski": 0.33,
+    "greenblatt": null
+   },
+   "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240318000296 · KIS enrich 2026-11-16 14:41 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 14:50",
+   "report": "20261116-144156-SK바이오팜-326030",
    "date": "20261116"
   }
  ]
