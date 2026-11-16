@@ -36,13 +36,13 @@
    "code": "009450",
    "name": "경동나비엔",
    "ver": "v1",
-   "fit": 4,
+   "fit": 3,
    "total": 6,
-   "bucket": "hi",
+   "bucket": "mid",
    "mean": 0.66,
    "summary": "산출 6/6 · 가치·품질 적합 · 상황 비우호",
    "v": {
-    "buffett": "적합",
+    "buffett": "보류",
     "munger": "적합",
     "druckenmiller": "부적합",
     "graham": "적합",
@@ -50,15 +50,15 @@
     "greenblatt": "적합"
    },
    "s": {
-    "buffett": 0.72,
-    "munger": 0.89,
-    "druckenmiller": 0.33,
+    "buffett": 0.61,
+    "munger": 0.87,
+    "druckenmiller": 0.25,
     "graham": 0.86,
-    "piotroski": 0.44,
-    "greenblatt": 0.74
+    "piotroski": 0.56,
+    "greenblatt": 0.79
    },
    "rel": "결정카드 없음 — 비교 불가",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000499 · KIS enrich 2026-09-16 12:31 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:19",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240319000499 · KIS enrich 2026-09-16 12:31 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:14",
    "report": "20260909-120923-경동나비엔-009450",
    "date": "20260909"
   },
@@ -129,26 +129,26 @@
    "fit": 1,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.39,
-   "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 중립",
+   "mean": 0.33,
+   "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "부적합",
     "piotroski": "부적합",
     "greenblatt": "부적합"
    },
    "s": {
-    "buffett": 0.27,
-    "munger": 0.84,
-    "druckenmiller": 0.51,
+    "buffett": 0.15,
+    "munger": 0.83,
+    "druckenmiller": 0.33,
     "graham": 0.21,
     "piotroski": 0.22,
-    "greenblatt": 0.26
+    "greenblatt": 0.2
    },
    "rel": "결정카드 없음 — 비교 불가",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321001938 · KIS enrich 2026-09-16 12:31 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:19",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240321001938 · KIS enrich 2026-09-16 12:31 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:30",
    "report": "20260910-091739-원익-032940",
    "date": "20260910"
   },
@@ -189,7 +189,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.38,
+   "mean": 0.39,
    "summary": "산출 5/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
@@ -200,15 +200,15 @@
     "greenblatt": "데이터부족"
    },
    "s": {
-    "buffett": 0.31,
-    "munger": 0.41,
-    "druckenmiller": 0.41,
+    "buffett": 0.37,
+    "munger": 0.42,
+    "druckenmiller": 0.25,
     "graham": 0.57,
-    "piotroski": 0.22,
+    "piotroski": 0.33,
     "greenblatt": null
    },
    "rel": "결정카드 없음 — 비교 불가",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001803 · KIS enrich 2026-09-16 12:31 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:19",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320001803 · KIS enrich 2026-09-16 12:31 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:42",
    "report": "20260910-103814-흥아해운-003280",
    "date": "20260910"
   },
@@ -279,26 +279,26 @@
    "fit": 1,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.59,
-   "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 중립",
+   "mean": 0.51,
+   "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "보류",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "적합",
     "piotroski": "보류",
     "greenblatt": "보류"
    },
    "s": {
-    "buffett": 0.4,
-    "munger": 0.46,
-    "druckenmiller": 0.6,
+    "buffett": 0.29,
+    "munger": 0.47,
+    "druckenmiller": 0.19,
     "graham": 0.93,
     "piotroski": 0.56,
-    "greenblatt": 0.62
+    "greenblatt": 0.59
    },
    "rel": "결정카드 없음 — 비교 불가",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240311000515 · KIS enrich 2026-09-16 12:31 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:19",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240311000515 · KIS enrich 2026-09-16 12:31 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:41",
    "report": "20260911-092050-샘표식품-248170",
    "date": "20260911"
   },
@@ -489,26 +489,26 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.34,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
+   "mean": 0.32,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "보류",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "부적합",
-    "piotroski": "보류",
+    "piotroski": "부적합",
     "greenblatt": "부적합"
    },
    "s": {
     "buffett": 0.01,
     "munger": 0.58,
-    "druckenmiller": 0.46,
+    "druckenmiller": 0.41,
     "graham": 0.29,
-    "piotroski": 0.44,
-    "greenblatt": 0.25
+    "piotroski": 0.33,
+    "greenblatt": 0.29
    },
    "rel": "결정카드 없음 — 비교 불가",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001616 · KIS enrich 2026-09-16 12:32 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:20",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320001616 · KIS enrich 2026-09-16 12:32 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:36",
    "report": "20260914-093802-드림시큐리티-203650",
    "date": "20260914"
   },
@@ -516,15 +516,15 @@
    "code": "003350",
    "name": "한국화장품제조",
    "ver": "v1",
-   "fit": 4,
+   "fit": 3,
    "total": 6,
-   "bucket": "hi",
-   "mean": 0.7,
-   "summary": "산출 6/6 · 가치·품질 적합 · 상황 우호",
+   "bucket": "mid",
+   "mean": 0.66,
+   "summary": "산출 6/6 · 가치·품질 적합 · 상황 중립",
    "v": {
     "buffett": "적합",
     "munger": "적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "보류",
     "piotroski": "부적합",
     "greenblatt": "적합"
@@ -532,13 +532,13 @@
    "s": {
     "buffett": 0.96,
     "munger": 0.71,
-    "druckenmiller": 0.7,
+    "druckenmiller": 0.53,
     "graham": 0.57,
-    "piotroski": 0.33,
-    "greenblatt": 0.92
+    "piotroski": 0.22,
+    "greenblatt": 0.95
    },
    "rel": "결정카드 없음 — 비교 불가",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001586 · KIS enrich 2026-09-16 12:32 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:20",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320001586 · KIS enrich 2026-09-16 12:32 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:38",
    "report": "20260914-093820-한국화장품제조-003350",
    "date": "20260914"
   },
@@ -726,15 +726,15 @@
    "code": "411080",
    "name": "샌즈랩",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.19,
-   "summary": "산출 4/6 · 가치·품질 미달 · 상황 우호",
+   "mean": 0.15,
+   "summary": "산출 4/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "데이터부족",
     "piotroski": "데이터부족",
     "greenblatt": "부적합"
@@ -742,13 +742,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.01,
-    "druckenmiller": 0.74,
+    "druckenmiller": 0.58,
     "graham": null,
     "piotroski": null,
     "greenblatt": 0.0
    },
    "rel": "결정카드 없음 — 비교 불가",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240313001058 · KIS enrich 2026-09-16 12:32 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:20",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240313001058 · KIS enrich 2026-09-16 12:32 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:40",
    "report": "20260915-091845-샌즈랩-411080",
    "date": "20260915"
   },
@@ -1659,26 +1659,26 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.32,
+   "mean": 0.24,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
     "druckenmiller": "부적합",
     "graham": "부적합",
-    "piotroski": "보류",
+    "piotroski": "부적합",
     "greenblatt": "부적합"
    },
    "s": {
-    "buffett": 0.24,
+    "buffett": 0.21,
     "munger": 0.31,
-    "druckenmiller": 0.38,
+    "druckenmiller": 0.25,
     "graham": 0.36,
-    "piotroski": 0.44,
-    "greenblatt": 0.16
+    "piotroski": 0.11,
+    "greenblatt": 0.17
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001449 · KIS enrich 2026-09-16 12:33 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:21",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320001449 · KIS enrich 2026-09-16 12:33 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:26",
    "report": "20260916-103829-아모그린텍-125210",
    "date": "20260916"
   },
@@ -1986,29 +1986,29 @@
    "code": "006730",
    "name": "서부T&D",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.48,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 우호",
+   "mean": 0.41,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "보류",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "보류",
     "piotroski": "보류",
     "greenblatt": "부적합"
    },
    "s": {
-    "buffett": 0.11,
-    "munger": 0.6,
-    "druckenmiller": 0.75,
+    "buffett": 0.1,
+    "munger": 0.61,
+    "druckenmiller": 0.56,
     "graham": 0.57,
-    "piotroski": 0.67,
-    "greenblatt": 0.18
+    "piotroski": 0.44,
+    "greenblatt": 0.15
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321000430 · KIS enrich 2026-09-17 09:19 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:22",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240321000430 · KIS enrich 2026-09-17 09:19 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:20",
    "report": "20260917-091908-서부T-D-006730",
    "date": "20260917"
   },
@@ -2379,12 +2379,12 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.12,
-   "summary": "산출 5/6 · 가치·품질 미달 · 상황 비우호",
+   "mean": 0.15,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "부적합",
+    "druckenmiller": "보류",
     "graham": "부적합",
     "piotroski": "데이터부족",
     "greenblatt": "부적합"
@@ -2392,13 +2392,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.05,
-    "druckenmiller": 0.42,
+    "druckenmiller": 0.49,
     "graham": 0.07,
     "piotroski": null,
-    "greenblatt": 0.08
+    "greenblatt": 0.12
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321001584 · KIS enrich 2026-09-17 13:37 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:22",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240321001584 · KIS enrich 2026-09-17 13:37 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:43",
    "report": "20260917-133739-스피어-347700",
    "date": "20260917"
   },
@@ -2619,7 +2619,7 @@
    "fit": 2,
    "total": 6,
    "bucket": "mid",
-   "mean": 0.51,
+   "mean": 0.49,
    "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
     "buffett": "적합",
@@ -2632,13 +2632,13 @@
    "s": {
     "buffett": 0.7,
     "munger": 0.58,
-    "druckenmiller": 0.3,
+    "druckenmiller": 0.18,
     "graham": 0.57,
     "piotroski": 0.11,
     "greenblatt": 0.8
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320000873 · KIS enrich 2026-09-20 08:17 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:22",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320000873 · KIS enrich 2026-09-20 08:17 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:31",
    "report": "20260920-081750-한국-방산-미사일-숏티지-천궁-수출",
    "date": "20260920"
   },
@@ -2646,15 +2646,15 @@
    "code": "204620",
    "name": "글로벌텍스프리",
    "ver": "v1",
-   "fit": 2,
+   "fit": 1,
    "total": 6,
-   "bucket": "mid",
-   "mean": 0.59,
-   "summary": "산출 4/6 · 가치·품질 부분 적합 · 상황 우호",
+   "bucket": "lo",
+   "mean": 0.55,
+   "summary": "산출 4/6 · 가치·품질 부분 적합 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "부적합",
     "piotroski": "데이터부족",
     "greenblatt": "데이터부족"
@@ -2662,13 +2662,13 @@
    "s": {
     "buffett": 0.37,
     "munger": 0.89,
-    "druckenmiller": 0.74,
+    "druckenmiller": 0.59,
     "graham": 0.36,
     "piotroski": null,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321001393 · KIS enrich 2026-09-20 12:09 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:22",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240321001393 · KIS enrich 2026-09-20 12:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:23",
    "report": "20260920-120902-글로벌텍스프리-204620",
    "date": "20260920"
   },
@@ -2758,7 +2758,7 @@
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240311000888 · KIS enrich 2026-09-20 16:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 12:41",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240311000888 · KIS enrich 2026-09-20 16:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:41",
    "report": "20260920-161054-한솔아이원스",
    "date": "20260920"
   },
@@ -2931,14 +2931,14 @@
    },
    "s": {
     "buffett": 0.0,
-    "munger": 0.01,
-    "druckenmiller": 0.63,
+    "munger": 0.07,
+    "druckenmiller": 0.5,
     "graham": null,
     "piotroski": 0.44,
-    "greenblatt": 0.17
+    "greenblatt": 0.23
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320000227 · KIS enrich 2026-09-21 09:37 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:23",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320000227 · KIS enrich 2026-09-21 09:37 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:45",
    "report": "20260921-093731-우리로-046970",
    "date": "20260921"
   },
@@ -3189,7 +3189,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.09,
+   "mean": 0.06,
    "summary": "산출 4/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
@@ -3202,13 +3202,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.01,
-    "druckenmiller": 0.34,
+    "druckenmiller": 0.22,
     "graham": null,
     "piotroski": null,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321000993 · KIS enrich 2026-09-21 10:39 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:23",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240321000993 · KIS enrich 2026-09-21 10:39 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:26",
    "report": "20260921-103945-보로노이-310210",
    "date": "20260921"
   },
@@ -3216,15 +3216,15 @@
    "code": "950260",
    "name": "인제니아테라퓨틱스",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.66,
-   "summary": "산출 1/6 · 가치·품질 축 데이터부족 · 상황 우호",
+   "mean": 0.45,
+   "summary": "산출 1/6 · 가치·품질 축 데이터부족 · 상황 중립",
    "v": {
     "buffett": "데이터부족",
     "munger": "데이터부족",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "데이터부족",
     "piotroski": "데이터부족",
     "greenblatt": "데이터부족"
@@ -3232,13 +3232,13 @@
    "s": {
     "buffett": null,
     "munger": null,
-    "druckenmiller": 0.66,
+    "druckenmiller": 0.45,
     "graham": null,
     "piotroski": null,
     "greenblatt": null
    },
    "rel": "데이터부족 — 카드 판정과 비교 보류 (카드 판정: 관심)",
-   "snapshot": "DART 미조회(룰 중 재무 항목 데이터부족) · KIS enrich 2026-09-21 11:18 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:23",
+   "snapshot": "DART 미조회(룰 중 재무 항목 데이터부족) · KIS enrich 2026-09-21 11:18 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:44",
    "report": "20260921-111853-인제니아테라퓨틱스-950260",
    "date": "20260921"
   },
@@ -3339,7 +3339,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.36,
+   "mean": 0.3,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
@@ -3350,15 +3350,15 @@
     "greenblatt": "부적합"
    },
    "s": {
-    "buffett": 0.38,
+    "buffett": 0.15,
     "munger": 0.56,
-    "druckenmiller": 0.4,
+    "druckenmiller": 0.28,
     "graham": 0.36,
     "piotroski": 0.22,
-    "greenblatt": 0.27
+    "greenblatt": 0.24
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001612 · KIS enrich 2026-09-21 13:16 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:23",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320001612 · KIS enrich 2026-09-21 13:16 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:37",
    "report": "20260921-131653-티이엠씨-425040",
    "date": "20260921"
   },
@@ -3579,7 +3579,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.12,
+   "mean": 0.1,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
@@ -3592,13 +3592,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.0,
-    "druckenmiller": 0.4,
+    "druckenmiller": 0.27,
     "graham": 0.0,
     "piotroski": 0.33,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321001437 · KIS enrich 2026-09-22 09:57 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:23",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321001437 · KIS enrich 2026-09-22 09:57 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:23",
    "report": "20260922-095743-아모텍-052710",
    "date": "20260922"
   },
@@ -3729,7 +3729,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.26,
+   "mean": 0.23,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
@@ -3742,13 +3742,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.05,
-    "druckenmiller": 0.63,
+    "druckenmiller": 0.5,
     "graham": 0.0,
     "piotroski": 0.56,
-    "greenblatt": 0.32
+    "greenblatt": 0.25
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240328001260 · KIS enrich 2026-09-22 12:10 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:23",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240328001260 · KIS enrich 2026-09-22 12:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:19",
    "report": "20260922-121037-삼성SDI-LFP-ESS-밸류체인",
    "date": "20260922"
   },
@@ -4149,7 +4149,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.27,
+   "mean": 0.29,
    "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
@@ -4160,15 +4160,15 @@
     "greenblatt": "부적합"
    },
    "s": {
-    "buffett": 0.05,
-    "munger": 0.0,
-    "druckenmiller": 0.63,
+    "buffett": 0.0,
+    "munger": 0.08,
+    "druckenmiller": 0.5,
     "graham": null,
-    "piotroski": 0.44,
-    "greenblatt": 0.24
+    "piotroski": 0.56,
+    "greenblatt": 0.34
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000690 · KIS enrich 2026-09-23 09:37 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:24",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240319000690 · KIS enrich 2026-09-23 09:37 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:27",
    "report": "20260923-093756-메가터치-446540",
    "date": "20260923"
   },
@@ -4329,26 +4329,26 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.29,
-   "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
+   "mean": 0.28,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "부적합",
-    "piotroski": "보류",
+    "piotroski": "부적합",
     "greenblatt": "데이터부족"
    },
    "s": {
     "buffett": 0.12,
-    "munger": 0.21,
-    "druckenmiller": 0.47,
+    "munger": 0.29,
+    "druckenmiller": 0.41,
     "graham": 0.21,
-    "piotroski": 0.44,
+    "piotroski": 0.33,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001697 · KIS enrich 2026-09-23 15:17 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:24",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320001697 · KIS enrich 2026-09-23 15:17 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:36",
    "report": "20260923-151742-원익IPS-240810",
    "date": "20260923"
   },
@@ -4569,12 +4569,12 @@
    "fit": 2,
    "total": 6,
    "bucket": "mid",
-   "mean": 0.55,
-   "summary": "산출 5/6 · 가치·품질 부분 적합 · 상황 중립",
+   "mean": 0.53,
+   "summary": "산출 5/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
     "buffett": "적합",
     "munger": "적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "부적합",
     "piotroski": "부적합",
     "greenblatt": "데이터부족"
@@ -4582,13 +4582,13 @@
    "s": {
     "buffett": 0.68,
     "munger": 0.77,
-    "druckenmiller": 0.55,
+    "druckenmiller": 0.42,
     "graham": 0.43,
     "piotroski": 0.33,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240318000722 · KIS enrich 2026-09-24 08:12 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:24",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240318000722 · KIS enrich 2026-09-24 08:12 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:34",
    "report": "20260924-081224-전력기기-Tier1-효성중공업-HD현대일렉트릭",
    "date": "20260924"
   },
@@ -4629,12 +4629,12 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.25,
-   "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
+   "mean": 0.22,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "부적합",
     "piotroski": "보류",
     "greenblatt": "해당없음"
@@ -4642,13 +4642,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.08,
-    "druckenmiller": 0.57,
+    "druckenmiller": 0.45,
     "graham": 0.14,
     "piotroski": 0.44,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321002037 · KIS enrich 2026-09-25 18:49 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:24",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321002037 · KIS enrich 2026-09-25 18:49 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:16",
    "report": "20260925-184928-원익홀딩스-030530",
    "date": "20260925"
   },
@@ -4719,12 +4719,12 @@
    "fit": 2,
    "total": 6,
    "bucket": "mid",
-   "mean": 0.55,
-   "summary": "산출 5/6 · 가치·품질 부분 적합 · 상황 중립",
+   "mean": 0.52,
+   "summary": "산출 5/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
     "buffett": "적합",
     "munger": "적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "보류",
     "piotroski": "부적합",
     "greenblatt": "데이터부족"
@@ -4732,13 +4732,13 @@
    "s": {
     "buffett": 0.71,
     "munger": 0.66,
-    "druckenmiller": 0.53,
+    "druckenmiller": 0.4,
     "graham": 0.5,
     "piotroski": 0.33,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240411003898 · KIS enrich 2026-09-25 18:55 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:24",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240411003898 · KIS enrich 2026-09-25 18:55 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:27",
    "report": "20260925-185507-HD현대마린엔진",
    "date": "20260925"
   },
@@ -5038,7 +5038,7 @@
     "greenblatt": null
    },
    "rel": "데이터부족 — 카드 판정과 비교 보류 (카드 판정: 관심)",
-   "snapshot": "DART 미조회(룰 중 재무 항목 데이터부족) · KIS enrich 2026-09-28 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 12:42",
+   "snapshot": "DART 미조회(룰 중 재무 항목 데이터부족) · KIS enrich 2026-09-28 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:47",
    "report": "20260928-081124-져스텍",
    "date": "20260928"
   },
@@ -5092,13 +5092,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.15,
-    "druckenmiller": 0.62,
+    "druckenmiller": 0.49,
     "graham": null,
-    "piotroski": 0.22,
+    "piotroski": 0.33,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240328000886 · KIS enrich 2026-09-28 09:17 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:25",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240328000886 · KIS enrich 2026-09-28 09:17 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:20",
    "report": "20260928-091744-아이씨티케이-456010",
    "date": "20260928"
   },
@@ -5109,26 +5109,26 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.17,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
+   "mean": 0.13,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "부적합",
     "piotroski": "부적합",
     "greenblatt": "부적합"
    },
    "s": {
     "buffett": 0.0,
-    "munger": 0.17,
-    "druckenmiller": 0.51,
+    "munger": 0.16,
+    "druckenmiller": 0.39,
     "graham": 0.21,
-    "piotroski": 0.11,
+    "piotroski": 0.0,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001423 · KIS enrich 2026-09-28 09:41 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:25",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320001423 · KIS enrich 2026-09-28 09:41 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:13",
    "report": "20260928-094113-우리넷-115440",
    "date": "20260928"
   },
@@ -5319,7 +5319,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.19,
+   "mean": 0.17,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
@@ -5332,13 +5332,13 @@
    "s": {
     "buffett": 0.04,
     "munger": 0.0,
-    "druckenmiller": 0.64,
+    "druckenmiller": 0.52,
     "graham": 0.21,
     "piotroski": 0.22,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240315000794 · KIS enrich 2026-09-28 10:21 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:25",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240315000794 · KIS enrich 2026-09-28 10:21 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:28",
    "report": "20260928-102155-롯데에너지머티리얼즈-020150",
    "date": "20260928"
   },
@@ -5379,7 +5379,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.32,
+   "mean": 0.3,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
@@ -5392,13 +5392,13 @@
    "s": {
     "buffett": 0.12,
     "munger": 0.33,
-    "druckenmiller": 0.59,
+    "druckenmiller": 0.46,
     "graham": 0.14,
     "piotroski": 0.22,
     "greenblatt": 0.54
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240314000999 · KIS enrich 2026-09-28 12:37 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:25",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240314000999 · KIS enrich 2026-09-28 12:37 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:26",
    "report": "20260928-123754-금강공업-014280",
    "date": "20260928"
   },
@@ -5529,7 +5529,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.07,
+   "mean": 0.04,
    "summary": "산출 4/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
@@ -5542,13 +5542,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.01,
-    "druckenmiller": 0.25,
+    "druckenmiller": 0.12,
     "graham": null,
     "piotroski": null,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240426000648 · KIS enrich 2026-09-29 09:37 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:25",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240426000648 · KIS enrich 2026-09-29 09:37 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:30",
    "report": "20260929-093756-뷰노-338220",
    "date": "20260929"
   },
@@ -5559,26 +5559,26 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.23,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
+   "mean": 0.17,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "부적합",
     "piotroski": "부적합",
     "greenblatt": "부적합"
    },
    "s": {
-    "buffett": 0.05,
-    "munger": 0.15,
-    "druckenmiller": 0.46,
+    "buffett": 0.0,
+    "munger": 0.23,
+    "druckenmiller": 0.36,
     "graham": 0.21,
-    "piotroski": 0.33,
-    "greenblatt": 0.17
+    "piotroski": 0.0,
+    "greenblatt": 0.23
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(1Q26) · FY2023 사업보고서 20230621000032 · KIS enrich 2026-09-29 10:17 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:25",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20230621000032 · KIS enrich 2026-09-29 10:17 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:16",
    "report": "20260929-101759-이지케어텍-099750",
    "date": "20260929"
   },
@@ -5750,15 +5750,15 @@
     "greenblatt": "데이터부족"
    },
    "s": {
-    "buffett": 1.0,
+    "buffett": 0.99,
     "munger": 0.99,
-    "druckenmiller": 0.53,
-    "graham": 0.5,
+    "druckenmiller": 0.49,
+    "graham": 0.57,
     "piotroski": 0.22,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240416000331 · KIS enrich 2026-09-29 14:57 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:25",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240416000331 · KIS enrich 2026-09-29 14:57 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:21",
    "report": "20260929-145746-HPSP-403870",
    "date": "20260929"
   },
@@ -5856,29 +5856,29 @@
    "code": "098120",
    "name": "마이크로컨텍솔",
    "ver": "v1",
-   "fit": 3,
+   "fit": 2,
    "total": 6,
    "bucket": "mid",
-   "mean": 0.62,
-   "summary": "산출 5/6 · 가치·품질 부분 적합 · 상황 우호",
+   "mean": 0.61,
+   "summary": "산출 5/6 · 가치·품질 부분 적합 · 상황 중립",
    "v": {
     "buffett": "적합",
     "munger": "적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "보류",
-    "piotroski": "부적합",
+    "piotroski": "보류",
     "greenblatt": "데이터부족"
    },
    "s": {
     "buffett": 0.72,
-    "munger": 0.71,
-    "druckenmiller": 0.78,
+    "munger": 0.68,
+    "druckenmiller": 0.65,
     "graham": 0.57,
-    "piotroski": 0.33,
+    "piotroski": 0.44,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000865 · KIS enrich 2026-09-30 08:09 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:25",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240319000865 · KIS enrich 2026-09-30 08:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:12",
    "report": "20260930-080914-마이크로컨텍솔",
    "date": "20260930"
   },
@@ -5979,26 +5979,26 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.49,
+   "mean": 0.42,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "보류",
     "druckenmiller": "보류",
     "graham": "보류",
-    "piotroski": "보류",
+    "piotroski": "부적합",
     "greenblatt": "부적합"
    },
    "s": {
-    "buffett": 0.35,
+    "buffett": 0.29,
     "munger": 0.55,
-    "druckenmiller": 0.6,
+    "druckenmiller": 0.48,
     "graham": 0.57,
-    "piotroski": 0.44,
-    "greenblatt": 0.45
+    "piotroski": 0.22,
+    "greenblatt": 0.43
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240312000985 · KIS enrich 2026-09-30 09:39 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:25",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240312000985 · KIS enrich 2026-09-30 09:39 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:28",
    "report": "20260930-093931-현대바이오랜드-052260",
    "date": "20260930"
   },
@@ -6009,12 +6009,12 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.58,
-   "summary": "산출 1/6 · 가치·품질 축 데이터부족 · 상황 중립",
+   "mean": 0.38,
+   "summary": "산출 1/6 · 가치·품질 축 데이터부족 · 상황 비우호",
    "v": {
     "buffett": "데이터부족",
     "munger": "데이터부족",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "데이터부족",
     "piotroski": "데이터부족",
     "greenblatt": "데이터부족"
@@ -6022,13 +6022,13 @@
    "s": {
     "buffett": null,
     "munger": null,
-    "druckenmiller": 0.58,
+    "druckenmiller": 0.38,
     "graham": null,
     "piotroski": null,
     "greenblatt": null
    },
    "rel": "데이터부족 — 카드 판정과 비교 보류 (카드 판정: 관심)",
-   "snapshot": "DART 미조회(룰 중 재무 항목 데이터부족) · KIS enrich 2026-09-30 09:57 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:25",
+   "snapshot": "DART 미조회(룰 중 재무 항목 데이터부족) · KIS enrich 2026-09-30 09:57 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:10",
    "report": "20260930-095751-스카이랩스-386380",
    "date": "20260930"
   },
@@ -6069,7 +6069,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.24,
+   "mean": 0.22,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
@@ -6082,13 +6082,13 @@
    "s": {
     "buffett": 0.01,
     "munger": 0.0,
-    "druckenmiller": 0.6,
+    "druckenmiller": 0.48,
     "graham": 0.0,
     "piotroski": 0.67,
     "greenblatt": 0.18
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321000372 · KIS enrich 2026-09-30 10:38 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:25",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321000372 · KIS enrich 2026-09-30 10:38 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:17",
    "report": "20260930-103836-후성-093370",
    "date": "20260930"
   },
@@ -6279,26 +6279,26 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.29,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
+   "mean": 0.28,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "부적합",
     "piotroski": "부적합",
     "greenblatt": "부적합"
    },
    "s": {
-    "buffett": 0.18,
-    "munger": 0.35,
-    "druckenmiller": 0.51,
+    "buffett": 0.19,
+    "munger": 0.37,
+    "druckenmiller": 0.38,
     "graham": 0.43,
     "piotroski": 0.22,
-    "greenblatt": 0.05
+    "greenblatt": 0.08
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001092 · KIS enrich 2026-10-01 09:17 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320001092 · KIS enrich 2026-10-01 09:17 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:24",
    "report": "20261001-091721-금강철강-053260",
    "date": "20261001"
   },
@@ -6448,7 +6448,7 @@
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2025·TTM(3Q26) · FY2025 사업보고서 20260323001690 · KIS enrich 2026-10-01 10:17 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 12:42",
+   "snapshot": "DART 연결 FY2025·TTM(3Q26) · FY2025 사업보고서 20260323001690 · KIS enrich 2026-10-01 10:17 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:46",
    "report": "20261001-101725-세미파이브-490470",
    "date": "20261001"
   },
@@ -6669,7 +6669,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.22,
+   "mean": 0.29,
    "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
@@ -6680,15 +6680,15 @@
     "greenblatt": "데이터부족"
    },
    "s": {
-    "buffett": 0.0,
-    "munger": 0.21,
-    "druckenmiller": 0.48,
-    "graham": 0.07,
+    "buffett": 0.06,
+    "munger": 0.34,
+    "druckenmiller": 0.55,
+    "graham": 0.14,
     "piotroski": 0.33,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240617000252 · KIS enrich 2026-10-01 12:37 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240617000252 · KIS enrich 2026-10-01 12:37 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:12",
    "report": "20261001-123734-씨싸이트-109670",
    "date": "20261001"
   },
@@ -6699,7 +6699,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.06,
+   "mean": 0.03,
    "summary": "산출 4/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
@@ -6712,13 +6712,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.01,
-    "druckenmiller": 0.23,
+    "druckenmiller": 0.1,
     "graham": null,
     "piotroski": null,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240401001932 · KIS enrich 2026-10-01 13:17 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240401001932 · KIS enrich 2026-10-01 13:17 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:13",
    "report": "20261001-131726-알지노믹스-476830",
    "date": "20261001"
   },
@@ -6759,7 +6759,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.28,
+   "mean": 0.25,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
@@ -6772,13 +6772,13 @@
    "s": {
     "buffett": 0.11,
     "munger": 0.0,
-    "druckenmiller": 0.62,
+    "druckenmiller": 0.49,
     "graham": 0.36,
     "piotroski": 0.44,
-    "greenblatt": 0.14
+    "greenblatt": 0.09
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001517 · KIS enrich 2026-10-01 14:37 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320001517 · KIS enrich 2026-10-01 14:37 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:36",
    "report": "20261001-143707-덕우전자-263600",
    "date": "20261001"
   },
@@ -6786,15 +6786,15 @@
    "code": "001430",
    "name": "세아베스틸지주",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.43,
-   "summary": "산출 5/6 · 가치·품질 미달 · 상황 우호",
+   "mean": 0.4,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "보류",
     "piotroski": "보류",
     "greenblatt": "해당없음"
@@ -6802,13 +6802,13 @@
    "s": {
     "buffett": 0.1,
     "munger": 0.32,
-    "druckenmiller": 0.77,
+    "druckenmiller": 0.65,
     "graham": 0.5,
     "piotroski": 0.44,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240312000629 · KIS enrich 2026-10-01 15:57 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240312000629 · KIS enrich 2026-10-01 15:57 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:24",
    "report": "20261001-155746-세아베스틸지주-001430",
    "date": "20261001"
   },
@@ -6849,12 +6849,12 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.43,
-   "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
+   "mean": 0.4,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "보류",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "보류",
     "piotroski": "부적합",
     "greenblatt": "데이터부족"
@@ -6862,13 +6862,13 @@
    "s": {
     "buffett": 0.25,
     "munger": 0.52,
-    "druckenmiller": 0.55,
+    "druckenmiller": 0.42,
     "graham": 0.5,
     "piotroski": 0.33,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001838 · KIS enrich 2026-10-02 08:09 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001838 · KIS enrich 2026-10-02 08:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:22",
    "report": "20261002-080959-HD건설기계",
    "date": "20261002"
   },
@@ -6879,12 +6879,12 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.46,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
+   "mean": 0.43,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "보류",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "부적합",
     "piotroski": "보류",
     "greenblatt": "부적합"
@@ -6892,13 +6892,13 @@
    "s": {
     "buffett": 0.39,
     "munger": 0.63,
-    "druckenmiller": 0.48,
+    "druckenmiller": 0.36,
     "graham": 0.43,
     "piotroski": 0.56,
     "greenblatt": 0.26
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320000640 · KIS enrich 2026-10-02 08:10 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320000640 · KIS enrich 2026-10-02 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:38",
    "report": "20261002-081023-성광벤드",
    "date": "20261002"
   },
@@ -7209,12 +7209,12 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.36,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
+   "mean": 0.34,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "부적합",
     "piotroski": "보류",
     "greenblatt": "부적합"
@@ -7222,13 +7222,13 @@
    "s": {
     "buffett": 0.14,
     "munger": 0.43,
-    "druckenmiller": 0.54,
+    "druckenmiller": 0.42,
     "graham": 0.36,
     "piotroski": 0.44,
     "greenblatt": 0.27
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000321 · KIS enrich 2026-10-02 10:16 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000321 · KIS enrich 2026-10-02 10:16 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:32",
    "report": "20261002-101632-솔루엠-248070",
    "date": "20261002"
   },
@@ -7476,29 +7476,29 @@
    "code": "097800",
    "name": "윈팩",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.21,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 우호",
+   "mean": 0.17,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "부적합",
-    "piotroski": "보류",
+    "piotroski": "부적합",
     "greenblatt": "부적합"
    },
    "s": {
     "buffett": 0.0,
     "munger": 0.0,
-    "druckenmiller": 0.8,
+    "druckenmiller": 0.68,
     "graham": 0.0,
-    "piotroski": 0.44,
+    "piotroski": 0.33,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320000836 · KIS enrich 2026-10-02 12:10 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320000836 · KIS enrich 2026-10-02 12:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:25",
    "report": "20261002-121008-윈팩-097800",
    "date": "20261002"
   },
@@ -7509,26 +7509,26 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.17,
-   "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
+   "mean": 0.14,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "데이터부족",
     "piotroski": "부적합",
     "greenblatt": "부적합"
    },
    "s": {
     "buffett": 0.0,
-    "munger": 0.31,
-    "druckenmiller": 0.56,
+    "munger": 0.27,
+    "druckenmiller": 0.43,
     "graham": null,
     "piotroski": 0.0,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2025·TTM(2Q26) · FY2025 사업보고서 20260319000778 · KIS enrich 2026-10-02 14:39 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:26",
+   "snapshot": "DART 연결 FY2025·TTM(3Q26) · FY2025 사업보고서 20260319000778 · KIS enrich 2026-10-02 14:39 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:38",
    "report": "20261002-143946-나라스페이스테크놀로지-478340",
    "date": "20261002"
   },
@@ -7659,26 +7659,26 @@
    "fit": 2,
    "total": 6,
    "bucket": "mid",
-   "mean": 0.54,
+   "mean": 0.56,
    "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "적합",
     "druckenmiller": "부적합",
     "graham": "적합",
-    "piotroski": "부적합",
+    "piotroski": "보류",
     "greenblatt": "보류"
    },
    "s": {
-    "buffett": 0.44,
-    "munger": 0.7,
-    "druckenmiller": 0.38,
-    "graham": 0.93,
-    "piotroski": 0.22,
-    "greenblatt": 0.56
+    "buffett": 0.42,
+    "munger": 0.69,
+    "druckenmiller": 0.27,
+    "graham": 0.86,
+    "piotroski": 0.56,
+    "greenblatt": 0.59
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000626 · KIS enrich 2026-10-03 12:09 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240319000626 · KIS enrich 2026-10-03 12:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:11",
    "report": "20261003-120927-로봇양산-밸류체인-현대모비스-현대차",
    "date": "20261003"
   },
@@ -7689,7 +7689,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.34,
+   "mean": 0.32,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
@@ -7702,13 +7702,13 @@
    "s": {
     "buffett": 0.3,
     "munger": 0.53,
-    "druckenmiller": 0.33,
+    "druckenmiller": 0.2,
     "graham": 0.57,
     "piotroski": 0.11,
     "greenblatt": 0.21
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240313001451 · KIS enrich 2026-10-03 12:09 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240313001451 · KIS enrich 2026-10-03 12:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:23",
    "report": "20261003-120927-로봇양산-밸류체인-현대모비스-현대차",
    "date": "20261003"
   },
@@ -7746,29 +7746,29 @@
    "code": "013030",
    "name": "하이록코리아",
    "ver": "v1",
-   "fit": 4,
+   "fit": 3,
    "total": 6,
-   "bucket": "hi",
+   "bucket": "mid",
    "mean": 0.72,
-   "summary": "산출 5/6 · 가치·품질 적합 · 상황 우호",
+   "summary": "산출 5/6 · 가치·품질 적합 · 상황 중립",
    "v": {
     "buffett": "적합",
     "munger": "적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "적합",
     "piotroski": "보류",
     "greenblatt": "데이터부족"
    },
    "s": {
-    "buffett": 0.69,
+    "buffett": 0.72,
     "munger": 0.91,
-    "druckenmiller": 0.7,
+    "druckenmiller": 0.58,
     "graham": 0.86,
-    "piotroski": 0.44,
+    "piotroski": 0.56,
     "greenblatt": null
    },
-   "rel": "우호: 카드 관심/관망인데 구루 적합 ≥4 (눌림 시 가중 검토 근거) (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240314000793 · KIS enrich 2026-10-03 12:11 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:27",
+   "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240314000793 · KIS enrich 2026-10-03 12:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:44",
    "report": "20261003-121155-피팅3사-밸류체인-비엠티-하이록-디케이락",
    "date": "20261003"
   },
@@ -7776,15 +7776,15 @@
    "code": "105740",
    "name": "디케이락",
    "ver": "v1",
-   "fit": 2,
+   "fit": 1,
    "total": 6,
-   "bucket": "mid",
-   "mean": 0.49,
-   "summary": "산출 5/6 · 가치·품질 부분 적합 · 상황 우호",
+   "bucket": "lo",
+   "mean": 0.47,
+   "summary": "산출 5/6 · 가치·품질 부분 적합 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "적합",
     "piotroski": "보류",
     "greenblatt": "데이터부족"
@@ -7792,13 +7792,13 @@
    "s": {
     "buffett": 0.26,
     "munger": 0.21,
-    "druckenmiller": 0.72,
+    "druckenmiller": 0.6,
     "graham": 0.71,
     "piotroski": 0.56,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240315000861 · KIS enrich 2026-10-03 12:11 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240315000861 · KIS enrich 2026-10-03 12:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:40",
    "report": "20261003-121155-피팅3사-밸류체인-비엠티-하이록-디케이락",
    "date": "20261003"
   },
@@ -8106,29 +8106,29 @@
    "code": "356680",
    "name": "엑스게이트",
    "ver": "v1",
-   "fit": 2,
+   "fit": 1,
    "total": 6,
-   "bucket": "mid",
-   "mean": 0.54,
-   "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 우호",
+   "bucket": "lo",
+   "mean": 0.5,
+   "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "보류",
     "piotroski": "보류",
     "greenblatt": "부적합"
    },
    "s": {
-    "buffett": 0.28,
-    "munger": 0.78,
-    "druckenmiller": 0.71,
+    "buffett": 0.21,
+    "munger": 0.77,
+    "druckenmiller": 0.59,
     "graham": 0.57,
     "piotroski": 0.67,
     "greenblatt": 0.21
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320000741 · KIS enrich 2026-10-06 09:17 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320000741 · KIS enrich 2026-10-06 09:17 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:33",
    "report": "20261006-091745-엑스게이트-356680",
    "date": "20261006"
   },
@@ -8439,7 +8439,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.13,
+   "mean": 0.11,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
@@ -8452,13 +8452,13 @@
    "s": {
     "buffett": 0.02,
     "munger": 0.0,
-    "druckenmiller": 0.38,
+    "druckenmiller": 0.26,
     "graham": 0.14,
     "piotroski": 0.22,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320000816 · KIS enrich 2026-10-06 10:39 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320000816 · KIS enrich 2026-10-06 10:39 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:32",
    "report": "20261006-103955-TCC스틸-002710",
    "date": "20261006"
   },
@@ -8499,7 +8499,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.23,
+   "mean": 0.2,
    "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
@@ -8512,13 +8512,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.27,
-    "druckenmiller": 0.64,
+    "druckenmiller": 0.52,
     "graham": null,
     "piotroski": 0.22,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2025·TTM(2Q26) · FY2025 사업보고서 20260318000428 · KIS enrich 2026-10-06 12:39 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:27",
+   "snapshot": "DART 연결 FY2025·TTM(3Q26) · FY2025 사업보고서 20260318000428 · KIS enrich 2026-10-06 12:39 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:45",
    "report": "20261006-123914-원일티엔아이-136150",
    "date": "20261006"
   },
@@ -8859,7 +8859,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.17,
+   "mean": 0.14,
    "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
@@ -8872,13 +8872,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.0,
-    "druckenmiller": 0.61,
+    "druckenmiller": 0.49,
     "graham": null,
     "piotroski": 0.22,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240329000609 · KIS enrich 2026-10-07 09:37 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240329000609 · KIS enrich 2026-10-07 09:37 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:17",
    "report": "20261007-093755-빛과전자-069540",
    "date": "20261007"
   },
@@ -8976,15 +8976,15 @@
    "code": "043260",
    "name": "성호전자",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.37,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 우호",
+   "mean": 0.35,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "보류",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "부적합",
     "piotroski": "보류",
     "greenblatt": "부적합"
@@ -8992,13 +8992,13 @@
    "s": {
     "buffett": 0.2,
     "munger": 0.49,
-    "druckenmiller": 0.8,
+    "druckenmiller": 0.68,
     "graham": 0.29,
     "piotroski": 0.44,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000867 · KIS enrich 2026-10-07 10:37 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000867 · KIS enrich 2026-10-07 10:37 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:17",
    "report": "20261007-103704-성호전자-043260",
    "date": "20261007"
   },
@@ -9096,29 +9096,29 @@
    "code": "219130",
    "name": "타이거일렉",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.26,
-   "summary": "산출 5/6 · 가치·품질 미달 · 상황 우호",
+   "mean": 0.25,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "부적합",
-    "piotroski": "부적합",
+    "piotroski": "보류",
     "greenblatt": "데이터부족"
    },
    "s": {
-    "buffett": 0.04,
-    "munger": 0.05,
-    "druckenmiller": 0.8,
+    "buffett": 0.03,
+    "munger": 0.06,
+    "druckenmiller": 0.67,
     "graham": 0.07,
-    "piotroski": 0.33,
+    "piotroski": 0.44,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240318000371 · KIS enrich 2026-10-07 15:58 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240318000371 · KIS enrich 2026-10-07 15:58 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:35",
    "report": "20261007-155806-타이거일렉-219130",
    "date": "20261007"
   },
@@ -9126,15 +9126,15 @@
    "code": "172670",
    "name": "에이엘티",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.2,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 우호",
+   "mean": 0.18,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "부적합",
     "piotroski": "부적합",
     "greenblatt": "부적합"
@@ -9142,13 +9142,13 @@
    "s": {
     "buffett": 0.04,
     "munger": 0.0,
-    "druckenmiller": 0.79,
+    "druckenmiller": 0.67,
     "graham": 0.07,
     "piotroski": 0.33,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321001017 · KIS enrich 2026-10-08 08:11 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321001017 · KIS enrich 2026-10-08 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:35",
    "report": "20261008-081104-에이엘티-172670",
    "date": "20261008"
   },
@@ -9219,12 +9219,12 @@
    "fit": 3,
    "total": 6,
    "bucket": "mid",
-   "mean": 0.72,
-   "summary": "산출 6/6 · 가치·품질 적합 · 상황 중립",
+   "mean": 0.7,
+   "summary": "산출 6/6 · 가치·품질 적합 · 상황 비우호",
    "v": {
     "buffett": "적합",
     "munger": "적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "보류",
     "piotroski": "보류",
     "greenblatt": "적합"
@@ -9232,13 +9232,13 @@
    "s": {
     "buffett": 0.86,
     "munger": 0.99,
-    "druckenmiller": 0.46,
+    "druckenmiller": 0.34,
     "graham": 0.57,
     "piotroski": 0.44,
     "greenblatt": 1.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001384 · KIS enrich 2026-10-08 08:13 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001384 · KIS enrich 2026-10-08 08:13 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:29",
    "report": "20261008-081317-태광-023160",
    "date": "20261008"
   },
@@ -9489,26 +9489,26 @@
    "fit": 1,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.27,
-   "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 중립",
+   "mean": 0.28,
+   "summary": "산출 5/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "적합",
     "piotroski": "부적합",
-    "greenblatt": "부적합"
+    "greenblatt": "데이터부족"
    },
    "s": {
-    "buffett": 0.18,
-    "munger": 0.03,
-    "druckenmiller": 0.51,
+    "buffett": 0.07,
+    "munger": 0.11,
+    "druckenmiller": 0.35,
     "graham": 0.79,
     "piotroski": 0.11,
-    "greenblatt": 0.0
+    "greenblatt": null
    },
    "rel": "결정카드 없음 — 비교 불가",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000872 · KIS enrich 2026-10-08 10:36 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:28",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240319000872 · KIS enrich 2026-10-08 10:36 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:28",
    "report": "20261008-103648-비아트론-141000",
    "date": "20261008"
   },
@@ -9636,15 +9636,15 @@
    "code": "441270",
    "name": "파인엠텍",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.24,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 우호",
+   "mean": 0.26,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "부적합",
     "piotroski": "부적합",
     "greenblatt": "부적합"
@@ -9652,13 +9652,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.15,
-    "druckenmiller": 0.88,
+    "druckenmiller": 0.75,
     "graham": 0.07,
     "piotroski": 0.33,
-    "greenblatt": 0.03
+    "greenblatt": 0.27
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240327000653 · KIS enrich 2026-10-08 15:57 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:28",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240327000653 · KIS enrich 2026-10-08 15:57 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:44",
    "report": "20261008-155712-파인엠텍-441270",
    "date": "20261008"
   },
@@ -9696,15 +9696,15 @@
    "code": "006110",
    "name": "삼아알미늄",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.18,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 우호",
+   "mean": 0.16,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "부적합",
     "piotroski": "부적합",
     "greenblatt": "부적합"
@@ -9712,13 +9712,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.0,
-    "druckenmiller": 0.84,
+    "druckenmiller": 0.69,
     "graham": 0.14,
     "piotroski": 0.11,
     "greenblatt": 0.0
    },
    "rel": "결정카드 없음 — 비교 불가",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240314001254 · KIS enrich 2026-10-09 04:32 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:28",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240314001254 · KIS enrich 2026-10-09 04:32 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:24",
    "report": "20261009-043231-삼아알미늄-006110-가동률-영업레버리지-정밀분석",
    "date": "20261009"
   },
@@ -9808,7 +9808,7 @@
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320000260 · KIS enrich 2026-10-09 09:19 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 12:40",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320000260 · KIS enrich 2026-10-09 09:19 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:47",
    "report": "20261009-091928-피노-033790",
    "date": "20261009"
   },
@@ -9819,12 +9819,12 @@
    "fit": 1,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.48,
-   "summary": "산출 5/6 · 가치·품질 부분 적합 · 상황 중립",
+   "mean": 0.45,
+   "summary": "산출 5/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "적합",
     "piotroski": "부적합",
     "greenblatt": "해당없음"
@@ -9832,13 +9832,13 @@
    "s": {
     "buffett": 0.44,
     "munger": 0.37,
-    "druckenmiller": 0.54,
+    "druckenmiller": 0.41,
     "graham": 0.71,
     "piotroski": 0.33,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240318000823 · KIS enrich 2026-10-09 15:59 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:28",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240318000823 · KIS enrich 2026-10-09 15:59 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:19",
    "report": "20261009-155952-솔브레인홀딩스-036830",
    "date": "20261009"
   },
@@ -10119,26 +10119,26 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.2,
-   "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
+   "mean": 0.18,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "보류",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "데이터부족",
     "piotroski": "부적합",
     "greenblatt": "부적합"
    },
    "s": {
     "buffett": 0.0,
-    "munger": 0.48,
-    "druckenmiller": 0.52,
+    "munger": 0.51,
+    "druckenmiller": 0.39,
     "graham": null,
     "piotroski": 0.0,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2025·TTM(2Q26) · FY2025 사업보고서 20260320001240 · KIS enrich 2026-10-11 16:09 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:28",
+   "snapshot": "DART 연결 FY2025·TTM(3Q26) · FY2025 사업보고서 20260320001240 · KIS enrich 2026-10-11 16:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:15",
    "report": "20261011-160927-프로티나-468530",
    "date": "20261011"
   },
@@ -10239,12 +10239,12 @@
    "fit": 1,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.61,
-   "summary": "산출 4/6 · 가치·품질 부분 적합 · 상황 중립",
+   "mean": 0.58,
+   "summary": "산출 4/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
     "buffett": "보류",
     "munger": "적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "부적합",
     "piotroski": "데이터부족",
     "greenblatt": "데이터부족"
@@ -10252,13 +10252,13 @@
    "s": {
     "buffett": 0.55,
     "munger": 0.94,
-    "druckenmiller": 0.54,
+    "druckenmiller": 0.42,
     "graham": 0.43,
     "piotroski": null,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000270 · KIS enrich 2026-10-12 08:11 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:28",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000270 · KIS enrich 2026-10-12 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:31",
    "report": "20261012-081142-유사연애-AI캐릭터챗-4사-디어유-노머스-키다리-엔키AX",
    "date": "20261012"
   },
@@ -10266,29 +10266,29 @@
    "code": "473980",
    "name": "노머스",
    "ver": "v1",
-   "fit": 3,
+   "fit": 1,
    "total": 6,
-   "bucket": "mid",
-   "mean": 0.62,
-   "summary": "산출 5/6 · 가치·품질 적합 · 상황 중립",
+   "bucket": "lo",
+   "mean": 0.47,
+   "summary": "산출 5/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
-    "buffett": "적합",
+    "buffett": "부적합",
     "munger": "적합",
-    "druckenmiller": "보류",
-    "graham": "적합",
+    "druckenmiller": "부적합",
+    "graham": "보류",
     "piotroski": "부적합",
     "greenblatt": "데이터부족"
    },
    "s": {
-    "buffett": 0.65,
+    "buffett": 0.35,
     "munger": 0.94,
-    "druckenmiller": 0.45,
-    "graham": 0.71,
-    "piotroski": 0.33,
+    "druckenmiller": 0.33,
+    "graham": 0.5,
+    "piotroski": 0.22,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2024·FY2025·TTM(2Q26) · FY2024 사업보고서 20250509000006 · KIS enrich 2026-10-12 08:11 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:28",
+   "snapshot": "DART 연결 FY2024·FY2025·TTM(3Q26) · FY2024 사업보고서 20250509000006 · KIS enrich 2026-10-12 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:34",
    "report": "20261012-081142-유사연애-AI캐릭터챗-4사-디어유-노머스-키다리-엔키AX",
    "date": "20261012"
   },
@@ -10419,7 +10419,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.14,
+   "mean": 0.12,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
@@ -10432,13 +10432,13 @@
    "s": {
     "buffett": 0.14,
     "munger": 0.0,
-    "druckenmiller": 0.33,
+    "druckenmiller": 0.2,
     "graham": 0.14,
     "piotroski": 0.22,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240318000513 · KIS enrich 2026-10-12 09:38 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:28",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240318000513 · KIS enrich 2026-10-12 09:38 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:25",
    "report": "20261012-093801-다스코-058730",
    "date": "20261012"
   },
@@ -10779,7 +10779,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.19,
+   "mean": 0.17,
    "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
@@ -10791,14 +10791,14 @@
    },
    "s": {
     "buffett": 0.0,
-    "munger": 0.03,
-    "druckenmiller": 0.59,
+    "munger": 0.04,
+    "druckenmiller": 0.47,
     "graham": null,
     "piotroski": 0.33,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001009 · KIS enrich 2026-10-13 09:20 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:29",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320001009 · KIS enrich 2026-10-13 09:20 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:22",
    "report": "20261013-092036-금호전기-001210",
    "date": "20261013"
   },
@@ -10896,15 +10896,15 @@
    "code": "042510",
    "name": "라온시큐어",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.41,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 우호",
+   "mean": 0.38,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "보류",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "보류",
     "piotroski": "보류",
     "greenblatt": "부적합"
@@ -10912,13 +10912,13 @@
    "s": {
     "buffett": 0.04,
     "munger": 0.47,
-    "druckenmiller": 0.7,
-    "graham": 0.5,
+    "druckenmiller": 0.45,
+    "graham": 0.57,
     "piotroski": 0.44,
-    "greenblatt": 0.33
+    "greenblatt": 0.27
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240315000858 · KIS enrich 2026-10-13 10:17 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:29",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240315000858 · KIS enrich 2026-10-13 10:17 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:29",
    "report": "20261013-101742-라온시큐어-042510",
    "date": "20261013"
   },
@@ -11398,7 +11398,7 @@
     "greenblatt": null
    },
    "rel": "데이터부족 — 카드 판정과 비교 보류 (카드 판정: 관망)",
-   "snapshot": "DART 미조회(룰 중 재무 항목 데이터부족) · KIS enrich 2026-10-14 13:38 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 12:39",
+   "snapshot": "DART 미조회(룰 중 재무 항목 데이터부족) · KIS enrich 2026-10-14 13:38 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:45",
    "report": "20261014-133835-글로벌테크놀로지-486510",
    "date": "20261014"
   },
@@ -11450,15 +11450,15 @@
     "greenblatt": "부적합"
    },
    "s": {
-    "buffett": 0.22,
-    "munger": 0.42,
-    "druckenmiller": 0.42,
+    "buffett": 0.21,
+    "munger": 0.41,
+    "druckenmiller": 0.4,
     "graham": 0.0,
     "piotroski": 0.22,
-    "greenblatt": 0.12
+    "greenblatt": 0.16
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321001786 · KIS enrich 2026-10-14 15:17 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:29",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240321001786 · KIS enrich 2026-10-14 15:17 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:41",
    "report": "20261014-151719-대성산업-128820",
    "date": "20261014"
   },
@@ -11469,12 +11469,12 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.16,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
+   "mean": 0.15,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "부적합",
     "piotroski": "부적합",
     "greenblatt": "부적합"
@@ -11482,13 +11482,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.08,
-    "druckenmiller": 0.55,
+    "druckenmiller": 0.42,
     "graham": 0.0,
-    "piotroski": 0.22,
-    "greenblatt": 0.1
+    "piotroski": 0.33,
+    "greenblatt": 0.05
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240411004116 · KIS enrich 2026-10-14 15:57 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:29",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240411004116 · KIS enrich 2026-10-14 15:57 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:12",
    "report": "20261014-155711-이수스페셜티케미컬-457190",
    "date": "20261014"
   },
@@ -11548,7 +11548,7 @@
     "greenblatt": 0.0
    },
    "rel": "결정카드 없음 — 비교 불가",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240328000654 · KIS enrich 2026-10-14 16:40 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 12:42",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240328000654 · KIS enrich 2026-10-14 16:40 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:46",
    "report": "20261014-164026-한화솔루션-009830-태양광-화학-심층-턴어라운드-베팅-검증",
    "date": "20261014"
   },
@@ -11796,29 +11796,29 @@
    "code": "006400",
    "name": "삼성SDI",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.22,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 우호",
+   "mean": 0.25,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "부적합",
     "piotroski": "보류",
     "greenblatt": "부적합"
    },
    "s": {
     "buffett": 0.0,
-    "munger": 0.0,
-    "druckenmiller": 0.73,
+    "munger": 0.1,
+    "druckenmiller": 0.6,
     "graham": 0.14,
-    "piotroski": 0.44,
+    "piotroski": 0.67,
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240312000853 · KIS enrich 2026-10-20 16:09 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:29",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240312000853 · KIS enrich 2026-10-20 16:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:11",
    "report": "20261020-160900-ESS-2차전지-섹터",
    "date": "20261020"
   },
@@ -11890,25 +11890,25 @@
    "total": 6,
    "bucket": "mid",
    "mean": 0.65,
-   "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 우호",
+   "summary": "산출 6/6 · 가치·품질 적합 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "적합",
     "piotroski": "보류",
-    "greenblatt": "보류"
+    "greenblatt": "적합"
    },
    "s": {
     "buffett": 0.42,
-    "munger": 0.68,
-    "druckenmiller": 0.69,
+    "munger": 0.67,
+    "druckenmiller": 0.58,
     "graham": 1.0,
-    "piotroski": 0.44,
-    "greenblatt": 0.65
+    "piotroski": 0.56,
+    "greenblatt": 0.68
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320000451 · KIS enrich 2026-10-21 08:10 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:29",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320000451 · KIS enrich 2026-10-21 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:42",
    "report": "20261021-081022-원익머트리얼즈-104830-반도체-특수가스-딥리서치",
    "date": "20261021"
   },
@@ -11916,15 +11916,15 @@
    "code": "091580",
    "name": "상신이디피",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.36,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 우호",
+   "mean": 0.34,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "적합",
+    "druckenmiller": "보류",
     "graham": "부적합",
     "piotroski": "보류",
     "greenblatt": "부적합"
@@ -11932,13 +11932,13 @@
    "s": {
     "buffett": 0.0,
     "munger": 0.15,
-    "druckenmiller": 0.81,
+    "druckenmiller": 0.69,
     "graham": 0.29,
     "piotroski": 0.67,
     "greenblatt": 0.27
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240328000617 · KIS enrich 2026-10-21 08:10 · 레짐 2026-10-21 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-10-22 17:29",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240328000617 · KIS enrich 2026-10-21 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:20",
    "report": "20261021-081057-상신이디피-091580-ESS-BBU-딥리서치",
    "date": "20261021"
   },
@@ -12129,7 +12129,7 @@
    "fit": 1,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.36,
+   "mean": 0.35,
    "summary": "산출 3/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
     "buffett": "부적합",
@@ -12140,15 +12140,15 @@
     "greenblatt": "해당없음"
    },
    "s": {
-    "buffett": 0.17,
+    "buffett": 0.16,
     "munger": null,
-    "druckenmiller": 0.19,
+    "druckenmiller": 0.17,
     "graham": 0.71,
     "piotroski": null,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240423000486 · KIS enrich 2026-10-23 08:16 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240423000486 · KIS enrich 2026-10-23 08:16 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:32",
    "report": "20261023-081623-증권주-밸류업-3사-대신-신영-부국-딥리서치",
    "date": "20261023"
   },
@@ -12429,26 +12429,26 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.42,
+   "mean": 0.44,
    "summary": "산출 5/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "보류",
     "druckenmiller": "보류",
     "graham": "부적합",
-    "piotroski": "부적합",
+    "piotroski": "보류",
     "greenblatt": "데이터부족"
    },
    "s": {
-    "buffett": 0.29,
-    "munger": 0.57,
+    "buffett": 0.28,
+    "munger": 0.56,
     "druckenmiller": 0.47,
     "graham": 0.43,
-    "piotroski": 0.33,
+    "piotroski": 0.44,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240318000888 · KIS enrich 2026-10-27 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240318000888 · KIS enrich 2026-10-27 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:39",
    "report": "20261027-081040-이엔에프테크놀로지-102710",
    "date": "20261027"
   },
@@ -12538,7 +12538,7 @@
     "greenblatt": 0.78
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240329003421 · KIS enrich 2026-10-27 12:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240329003421 · KIS enrich 2026-10-27 12:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:29",
    "report": "20261027-121004-삼성E-A-028050",
    "date": "20261027"
   },
@@ -12628,7 +12628,7 @@
     "greenblatt": 0.87
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240321001742 · KIS enrich 2026-10-28 12:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 12:42",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240321001742 · KIS enrich 2026-10-28 12:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:46",
    "report": "20261028-120914-엘티씨-170920",
    "date": "20261028"
   },
@@ -12669,7 +12669,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.43,
+   "mean": 0.38,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
@@ -12680,15 +12680,15 @@
     "greenblatt": "부적합"
    },
    "s": {
-    "buffett": 0.21,
-    "munger": 0.52,
-    "druckenmiller": 0.43,
+    "buffett": 0.06,
+    "munger": 0.51,
+    "druckenmiller": 0.4,
     "graham": 0.57,
-    "piotroski": 0.56,
-    "greenblatt": 0.29
+    "piotroski": 0.44,
+    "greenblatt": 0.28
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240315000818 · KIS enrich 2026-10-29 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240315000818 · KIS enrich 2026-10-29 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:14",
    "report": "20261029-081104-에스티팜-237690",
    "date": "20261029"
   },
@@ -12819,26 +12819,26 @@
    "fit": 1,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.52,
+   "mean": 0.58,
    "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
     "buffett": "보류",
     "munger": "보류",
     "druckenmiller": "부적합",
     "graham": "적합",
-    "piotroski": "부적합",
+    "piotroski": "보류",
     "greenblatt": "보류"
    },
    "s": {
-    "buffett": 0.47,
-    "munger": 0.48,
-    "druckenmiller": 0.35,
+    "buffett": 0.48,
+    "munger": 0.46,
+    "druckenmiller": 0.4,
     "graham": 0.93,
-    "piotroski": 0.33,
-    "greenblatt": 0.57
+    "piotroski": 0.56,
+    "greenblatt": 0.65
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240314001650 · KIS enrich 2026-10-31 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240314001650 · KIS enrich 2026-10-31 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:13",
    "report": "20261031-081121-한국-구리-밸류체인-풍산-LS",
    "date": "20261031"
   },
@@ -12846,29 +12846,29 @@
    "code": "006260",
    "name": "LS",
    "ver": "v1",
-   "fit": 1,
+   "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.42,
-   "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 비우호",
+   "mean": 0.38,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
-    "munger": "보류",
+    "munger": "부적합",
     "druckenmiller": "부적합",
     "graham": "부적합",
     "piotroski": "보류",
-    "greenblatt": "적합"
+    "greenblatt": "보류"
    },
    "s": {
-    "buffett": 0.26,
-    "munger": 0.52,
+    "buffett": 0.11,
+    "munger": 0.43,
     "druckenmiller": 0.28,
-    "graham": 0.29,
-    "piotroski": 0.44,
-    "greenblatt": 0.73
+    "graham": 0.43,
+    "piotroski": 0.56,
+    "greenblatt": 0.49
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240328001620 · KIS enrich 2026-10-31 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240328001620 · KIS enrich 2026-10-31 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:35",
    "report": "20261031-081121-한국-구리-밸류체인-풍산-LS",
    "date": "20261031"
   },
@@ -13078,7 +13078,7 @@
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001005 · KIS enrich 2026-11-02 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320001005 · KIS enrich 2026-11-02 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:37",
    "report": "20261102-081006-휴머노이드-로봇부품-밸류체인-로보티즈-중심",
    "date": "20261102"
   },
@@ -13438,7 +13438,7 @@
     "greenblatt": 0.59
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240315000850 · KIS enrich 2026-11-03 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:26",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240315000850 · KIS enrich 2026-11-03 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:16",
    "report": "20261103-081133-조선-슈퍼사이클-Tier1-한화오션-HD현대중공업",
    "date": "20261103"
   },
@@ -13479,7 +13479,7 @@
    "fit": 1,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.4,
+   "mean": 0.42,
    "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
     "buffett": "부적합",
@@ -13487,18 +13487,18 @@
     "druckenmiller": "부적합",
     "graham": "부적합",
     "piotroski": "부적합",
-    "greenblatt": "부적합"
+    "greenblatt": "보류"
    },
    "s": {
     "buffett": 0.15,
-    "munger": 0.73,
-    "druckenmiller": 0.44,
+    "munger": 0.72,
+    "druckenmiller": 0.45,
     "graham": 0.36,
     "piotroski": 0.33,
-    "greenblatt": 0.4
+    "greenblatt": 0.49
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000770 · KIS enrich 2026-11-04 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240319000770 · KIS enrich 2026-11-04 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:43",
    "report": "20261104-081143-녹십자웰빙-234690",
    "date": "20261104"
   },
@@ -13509,26 +13509,26 @@
    "fit": 1,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.55,
-   "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 비우호",
+   "mean": 0.57,
+   "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 중립",
    "v": {
     "buffett": "부적합",
     "munger": "적합",
-    "druckenmiller": "부적합",
+    "druckenmiller": "보류",
     "graham": "보류",
     "piotroski": "보류",
     "greenblatt": "보류"
    },
    "s": {
-    "buffett": 0.38,
-    "munger": 0.82,
-    "druckenmiller": 0.44,
-    "graham": 0.57,
+    "buffett": 0.37,
+    "munger": 0.81,
+    "druckenmiller": 0.48,
+    "graham": 0.64,
     "piotroski": 0.56,
-    "greenblatt": 0.51
+    "greenblatt": 0.55
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240318000832 · KIS enrich 2026-11-05 08:12 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240318000832 · KIS enrich 2026-11-05 08:12 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:15",
    "report": "20261105-081244-반도체-소재-밸류체인-High-k-HSN-몰리브덴-국산화",
    "date": "20261105"
   },
@@ -13566,13 +13566,13 @@
    "code": "005290",
    "name": "동진쎄미켐",
    "ver": "v1",
-   "fit": 1,
+   "fit": 2,
    "total": 6,
-   "bucket": "lo",
-   "mean": 0.57,
+   "bucket": "mid",
+   "mean": 0.6,
    "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 비우호",
    "v": {
-    "buffett": "보류",
+    "buffett": "적합",
     "munger": "적합",
     "druckenmiller": "부적합",
     "graham": "보류",
@@ -13580,15 +13580,15 @@
     "greenblatt": "보류"
    },
    "s": {
-    "buffett": 0.56,
-    "munger": 0.84,
-    "druckenmiller": 0.36,
+    "buffett": 0.66,
+    "munger": 0.83,
+    "druckenmiller": 0.39,
     "graham": 0.64,
-    "piotroski": 0.56,
-    "greenblatt": 0.5
+    "piotroski": 0.44,
+    "greenblatt": 0.62
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240314001382 · KIS enrich 2026-11-05 08:12 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240314001382 · KIS enrich 2026-11-05 08:12 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:40",
    "report": "20261105-081244-반도체-소재-밸류체인-High-k-HSN-몰리브덴-국산화",
    "date": "20261105"
   },
@@ -13659,7 +13659,7 @@
    "fit": 3,
    "total": 6,
    "bucket": "mid",
-   "mean": 0.69,
+   "mean": 0.67,
    "summary": "산출 6/6 · 가치·품질 적합 · 상황 중립",
    "v": {
     "buffett": "적합",
@@ -13670,15 +13670,15 @@
     "greenblatt": "적합"
    },
    "s": {
-    "buffett": 0.83,
+    "buffett": 0.82,
     "munger": 0.81,
     "druckenmiller": 0.54,
     "graham": 0.64,
-    "piotroski": 0.56,
-    "greenblatt": 0.73
+    "piotroski": 0.44,
+    "greenblatt": 0.76
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240320001358 · KIS enrich 2026-11-08 08:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320001358 · KIS enrich 2026-11-08 08:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:33",
    "report": "20261108-080920-삼양식품",
    "date": "20261108"
   },
@@ -13738,7 +13738,7 @@
     "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240322001002 · KIS enrich 2026-11-08 12:08 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240322001002 · KIS enrich 2026-11-08 12:08 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:18",
    "report": "20261108-120854-K팝-엔터-섹터-하이브-중심",
    "date": "20261108"
   },
@@ -13809,26 +13809,26 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.21,
-   "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
+   "mean": 0.13,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
    "v": {
     "buffett": "부적합",
     "munger": "부적합",
-    "druckenmiller": "보류",
+    "druckenmiller": "부적합",
     "graham": "부적합",
-    "piotroski": "보류",
+    "piotroski": "부적합",
     "greenblatt": "부적합"
    },
    "s": {
-    "buffett": 0.04,
-    "munger": 0.07,
-    "druckenmiller": 0.48,
+    "buffett": 0.0,
+    "munger": 0.04,
+    "druckenmiller": 0.28,
     "graham": 0.14,
-    "piotroski": 0.44,
-    "greenblatt": 0.11
+    "piotroski": 0.33,
+    "greenblatt": 0.0
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000576 · KIS enrich 2026-11-09 12:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240319000576 · KIS enrich 2026-11-09 12:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:19",
    "report": "20261109-120957-라이콤-388790",
    "date": "20261109"
   },
@@ -13858,7 +13858,7 @@
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240318000459 · KIS enrich 2026-11-10 08:08 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240318000459 · KIS enrich 2026-11-10 08:08 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:33",
    "report": "20261110-080804-데이터센터-중속-가스엔진-수혜주-HD현대중공업-한화엔진",
    "date": "20261110"
   },
@@ -13978,7 +13978,7 @@
     "greenblatt": 0.99
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000684 · KIS enrich 2026-11-11 08:08 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240319000684 · KIS enrich 2026-11-11 08:08 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:18",
    "report": "20261111-080851-반도체-메모리-이익-시나리오-삼성전자-SK하이닉스",
    "date": "20261111"
   },
@@ -14008,7 +14008,7 @@
     "greenblatt": 0.57
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321001772 · KIS enrich 2026-11-11 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321001772 · KIS enrich 2026-11-11 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:21",
    "report": "20261111-081002-화장품-ODM-용기-쇼티지-한국콜마-코스맥스",
    "date": "20261111"
   },
@@ -14169,7 +14169,7 @@
    "fit": 2,
    "total": 6,
    "bucket": "mid",
-   "mean": 0.6,
+   "mean": 0.59,
    "summary": "산출 4/6 · 가치·품질 부분 적합 · 상황 중립",
    "v": {
     "buffett": "적합",
@@ -14180,15 +14180,15 @@
     "greenblatt": "데이터부족"
    },
    "s": {
-    "buffett": 0.8,
+    "buffett": 0.84,
     "munger": 0.81,
-    "druckenmiller": 0.47,
+    "druckenmiller": 0.48,
     "graham": null,
-    "piotroski": 0.33,
+    "piotroski": 0.22,
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2025·TTM(2Q26) · FY2025 사업보고서 20260323000620 · KIS enrich 2026-11-12 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2025·TTM(3Q26) · FY2025 사업보고서 20260323000620 · KIS enrich 2026-11-12 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:42",
    "report": "20261112-081058-대한조선-3Q26-컨콜-수에즈막스",
    "date": "20261112"
   },
@@ -14278,7 +14278,7 @@
     "greenblatt": null
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321001149 · KIS enrich 2026-11-12 16:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240321001149 · KIS enrich 2026-11-12 16:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:31",
    "report": "20261112-160957-AI-HW-기판-밸류체인-심텍-중심",
    "date": "20261112"
   },
@@ -14398,7 +14398,7 @@
     "greenblatt": 1.0
    },
    "rel": "결정카드 없음 — 비교 불가",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240312000736 · KIS enrich 2026-11-13 09:36 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240312000736 · KIS enrich 2026-11-13 09:36 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:22",
    "report": "20261113-093622-삼성전자-005930",
    "date": "20261113"
   },
@@ -14458,7 +14458,7 @@
     "greenblatt": 0.22
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240329002895 · KIS enrich 2026-11-14 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240329002895 · KIS enrich 2026-11-14 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:15",
    "report": "20261114-081017-삼성전기-009150",
    "date": "20261114"
   },
@@ -14589,7 +14589,7 @@
    "fit": 0,
    "total": 6,
    "bucket": "lo",
-   "mean": 0.38,
+   "mean": 0.42,
    "summary": "산출 6/6 · 가치·품질 미달 · 상황 중립",
    "v": {
     "buffett": "부적합",
@@ -14601,14 +14601,14 @@
    },
    "s": {
     "buffett": 0.0,
-    "munger": 0.52,
-    "druckenmiller": 0.57,
+    "munger": 0.5,
+    "druckenmiller": 0.59,
     "graham": 0.43,
-    "piotroski": 0.56,
-    "greenblatt": 0.21
+    "piotroski": 0.67,
+    "greenblatt": 0.34
    },
    "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관심)",
-   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(2Q26) · FY2023 사업보고서 20240318000772 · KIS enrich 2026-11-15 16:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · LLM 미실행 · 생성 2026-11-16 11:27",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240318000772 · KIS enrich 2026-11-15 16:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-16 19:39",
    "report": "20261115-161027-반도체-소부장-26-3Q-실적-서프라이즈-피에스케이홀딩스-이오테크닉스-등",
    "date": "20261115"
   },
