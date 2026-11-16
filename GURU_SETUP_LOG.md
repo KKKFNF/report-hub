@@ -30,10 +30,15 @@
 - index.html: `guru-badge` 217 · `href="./guru.html"` 1 · `data-f="guru:hi"` 1.
 - `guru collect` → guru_index.json / guru_ledger.csv (401 블록).
 
-## 6. 훅
-- `hublib.py` 에 `_guru_postprocess(names)` 추가(gh-redirect 에서 `python3 -m guru postprocess`, 실패해도 발행 계속, 로그 `~/report-hub/guru_run.log`).
-- **미완료**: `gh_publish._do()` 의 `_git("add", ...)` 직전 `names += _guru_postprocess(names)` 한 줄 — 자동권한 분류기 거부로 대기. 이 줄 전까지는 refresh_prices(30분)가 index 를 재생성하면 배지·칩·내비가 빠짐(리포트 md/html 블록은 유지).
-- 새 리포트 주입: `~/report-hub/guru_cycle.py`(최근 3일 블록 없는 리포트 → 룰+LLM 주입은 lock 밖, 동기화·발행은 hub_lock 안). 크론 등록 대기.
+## 6. 훅 (2026-11-16 완료)
+- `hublib.gh_publish._do()` 가 파일을 쓴 뒤 `git add` 직전에 `_guru_postprocess(names)` 호출 → md/html 을 발행할 때마다 `python3 -m guru postprocess gh-redirect`(수 초), 바뀐 리포트 html 도 같은 커밋에 포함. 실패해도 발행은 계속, 로그 `~/report-hub/guru_run.log`.
+- 새 리포트 주입: crontab `20,50 8-18 * * 1-5` → `~/report-hub/guru_cycle.py`(최근 3일 블록 없는 reports/ 리포트에 룰+LLM 주입은 lock 밖, serve/·gh-redirect 동기화와 발행은 hub_lock 안). 로그 `/tmp/guru_cycle.log`. crontab 백업 `~/report-hub/_claude_fixes/crontab.bak-20261116`.
+- 레짐: `~/report-hub/guru_regime.py` 는 수동 실행 중(일일 크론 미등록).
 
 ## 7. 커밋·푸시
-- 아래 커밋 참조.
+- 2026-11-16 rebuild_all(dfb2c97)에 블록 포함 md/html 발행 → 7168b2d 에 guru/ · guru.html · 원장 · index 후처리.
+- 10/21 이후 리포트 62건 룰 백필(DART 321회) → 블록 487 · index 배지 245 · 리포트 html 86 반영·발행.
+
+## 8. 남은 것
+- LLM 정성 필터 백필(종목별 최신 1장) 미실행 — 현재 블록은 룰만. 새 리포트는 guru_cycle 이 LLM 포함 주입.
+- `~/.guru/fundamentals/<코드>.json` 은 만료 없이 우선 적용됨 → 3Q 분기보고서(11/14) 이후에도 TTM(2Q26) 유지. 주기적 재조회 필요.
