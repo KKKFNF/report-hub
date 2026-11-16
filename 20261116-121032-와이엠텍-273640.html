@@ -1,0 +1,272 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>와이엠텍(273640) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261116-121032-와이엠텍-273640.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.44</div><div class="tp-c"><b>결론 발췌</b> EV릴레이 본업 구조적 둔화를 2025.12 반도체(성현테크놀로지·SHM) 인수로 상쇄·턴어라운드 시도 중인 &#x27;사업재편 바닥주&#x27;. 현재가 5,000원은 PBR 0.99·PER 11.2로 자산가치 하단이나, 주가가 MA20/60 아래(하락추세)이고 증권사 커버리지·컨센 전무해 지금 추격매수는 부적합. 3Q26 실적 확인 전제 &#x27;관심&#x27;. 자체 확률가중 목표가 5,685원, 1차 5,800원 / 손익비 1:2.4(관심존 4,700원 진입 기준). ──────── ① 포착 신호 (KIS 실측 2026-11-16) • 현재가 5,000원 (당일 −4.4%) [실측: KIS inquire-price, 2026-11-16 12:05] • 시총 548…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>와이엠텍(273640)</h1>
+<div class="meta">📊 benine · 2026-11-16 12:10 · 코드 273640</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-16 12:10)</div><div class="kpi-v">5,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">548억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">11.24</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.99</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.44</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.07</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">5,800원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 4,600~4,800원 (눌림 대기)</span><span class="dc dn">손절 4,250원</span><span class="dc up">목표 5,800원</span><span class="dc">손익비 진입 1:2.44 · 현재가 1:1.07</span><span class="dc">기간 스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 3Q26 분기보고서(2026-11월 중순, 반도체 램프·릴레이 지속 확인)</div><div class="dc-l">🛑 반증: 3Q26 연결 영업이익 &lt; 8억이면 전량 청산 / ≥ 20억이면 추가매수 검토 / 종가 4,250원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 와이엠텍(273640)  ※개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: EV릴레이 본업 구조적 둔화를 2025.12 반도체(성현테크놀로지·SHM) 인수로 상쇄·턴어라운드 시도 중인 &#x27;사업재편 바닥주&#x27;. 현재가 5,000원은 PBR 0.99·PER 11.2로 자산가치 하단이나, 주가가 MA20/60 아래(하락추세)이고 증권사 커버리지·컨센 전무해 지금 추격매수는 부적합. 3Q26 실적 확인 전제 &#x27;관심&#x27;. 자체 확률가중 목표가 5,685원, 1차 5,800원 / 손익비 1:2.4(관심존 4,700원 진입 기준).</p>
+<p>──────── ① 포착 신호 (KIS 실측 2026-11-16)</p>
+<ul>
+<li>현재가 5,000원 (당일 −4.4%) [실측: KIS inquire-price, 2026-11-16 12:05]</li>
+<li>시총 548억 / PER 11.24 / PBR 0.99 / EPS 445원 / BPS 5,030원 [실측: KIS·enrich]</li>
+<li>20일 평균 거래대금 0.74억 — 극저유동성(1일 체결상한 ADV10% ≈ 740만원 수준) [실측: enrich adv20]</li>
+<li>이평: MA5 5,028 / MA20 5,138 / MA60 5,236 → 주가가 MA20·MA60 아래 = 단기·중기 하락추세(역배열 근접) [실측]</li>
+<li>모멘텀: 5일 <span class="up">+7.8%</span>(단기 반등) / 20일 −15.1%(눌림) / 60일 −4.2% [실측 enrich]</li>
+<li>52주 13,990~3,905 → 현재가는 저점 대비 <span class="up">+28%</span>, 고점 대비 −64% (저점권, 고점물림 多) [실측]</li>
+<li>외국인 20일 −1.28%·기관 −0.1%·개인 <span class="up">+1.38%</span> 순매수 / 공매도 특이 없음(20일 0.29%) [실측 enrich]</li>
+</ul>
+<p>② 사업·&#x27;테마&#x27; 사유 검증</p>
+<ul>
+<li>주력: 고전압 DC EV Relay(전기차/ESS/충전기/UPS/태양광 직류 개폐). 주고객 삼성SDI·LG에너지솔루션 [실측: DART 사업보고서 2025.12, 접수 20260320000600 &#x27;주요 매출처&#x27;].</li>
+<li>신성장: 2025.12 성현테크놀로지(반도체 정밀가공장비)·SHM(식각공정용 실리콘 소모성 부품, 고객 마이크론) 인수 → 2026 연결에 &#x27;반도체 부품·가공장비&#x27; 부문 신규 편입, 반기 매출의 38.6% 차지 [실측: 반기보고서 2026.06, 접수 20260828001952].</li>
+<li>최근 &#x27;테마&#x27; 실체: 2026-11-13 핀포인트뉴스 「전기차 보급 확대에 충전 전쟁 본격화…모트렉스·와이엠텍 &#x27;방긋&#x27;」 — 전기차충전 수요 기대 기사 1건 [인용: news_search, 2026-11-13]. → 뉴스發 테마 기대이지 신규 수주·공시 실체는 미확인. 실제 투자논지는 &#x27;반도체 신사업 턴어라운드 + ESS 릴레이 믹스개선&#x27;이 핵심(블로그 주담 근거), 충전테마는 부차적.</li>
+<li>⚠️ 블로그(vvw_wvv, 2026-11-15) 주담 내용(3Q 릴레이 2Q 수준·SHM 2025바닥 턴어라운드·성현 2Q OPM 22%·CB 199.98억/전환가 12,731원 리픽싱無)은 &#x27;추정·전언&#x27;으로 취급. 수주·단일계약 공시로 교차검증된 바 없음.</li>
+</ul>
+<p>③ 실적 (DART 실측 — 연결/별도 라벨 구분) [별도 기준 연간 추세 — 릴레이 본업]</p>
+<ul>
+<li>2022: 매출 492.9억 / 영익 148.9억 / OPM 30.2% (EV붐 피크) [실측: finstate 전전기]</li>
+<li>2023: 매출 348.8억 / 영익 59.6억 / OPM 17.1% [실측]</li>
+<li>2024: 매출 309.1억 / 영익 43.2억 / OPM 14.0% [실측]</li>
+<li>2025: 매출 291.1억 / 영익 17.4억 / OPM 6.0% [실측: 사업보고서 2025.12]</li>
+</ul>
+<p>→ 3년 연속 매출·이익 역성장. 릴레이 본업은 EV 수요둔화로 구조적 다운사이클(피크 대비 영익 −88%).</p>
+<p>[별도 분기 — 릴레이, 2025 바닥 확인]</p>
+<ul>
+<li>25Q1 81.8억/<span class="up">+14.5</span>억/17.8% · 25Q2 88.7억/<span class="up">+9.4</span>억/10.6% · 25Q3 63.9억/<span class="up">+7.1</span>억/11.2% · 25Q4(역산) 56.7억/−13.6억(적자) [실측: 분기·반기·사업보고서 누적 역산, 25Q4=연간−누적3Q]</li>
+<li>26Q1 81.2억/<span class="up">+12.2</span>억/15.1% · 26Q2 107.9억/<span class="up">+15.5</span>억/14.4% [실측: 2026 1분기·반기 별도]</li>
+</ul>
+<p>→ 릴레이 25Q4 적자 바닥 → 26Q1·Q2 회복(Q2 매출 <span class="up">+22%</span> QoQ, OPM 두자릿수 복귀). 블로거 &#x27;릴레이 턴어라운드&#x27;와 방향 일치.</p>
+<p>[연결 기준 — 반도체 포함(2026부터)]</p>
+<ul>
+<li>26Q1 매출 139.7억/영익 4.7억/OPM 3.4% [실측: 1분기보고서 CFS]</li>
+<li>26Q2 매출 176.5억/영익 18.4억/OPM 10.4% [실측: 반기 CFS 3개월, 누적−Q1 역산]</li>
+<li>26H1 연결: 매출 316.2억 / 영익 23.2억 / 순익 16.1억 [실측: 반기보고서 CFS]</li>
+</ul>
+<p>→ 반도체 인수로 연결 매출 YoY <span class="up">+85%</span>(H1 2025 170.6억 대비). 영익도 Q1→Q2 급개선(성현·SHM 통합효과).</p>
+<p>[사업부문 비중 — 2026 반기, 연결]</p>
+<ul>
+<li>EV Relay 169.8억(53.7%) · DC Relay 19.3억(6.1%) · 반도체 부품·가공장비 121.9억(38.6%) [실측: 반기보고서 제품별 매출].</li>
+</ul>
+<p>[재무 건전성 — ⚠️ 주의]</p>
+<ul>
+<li>부채비율: 2025말 5.2%(별도) → 2026H1 74.3%(연결, 부채 468.5억/자본 630.8억) [실측]. CB 199.98억 + 인수 관련 부채로 급증.</li>
+<li>영업활동현금흐름 26H1 연결 −29.8억(음수) [실측: 반기 CFS] — 인수통합·운전자본 증가. 이익은 났으나 현금창출은 아직 마이너스(플래그).</li>
+<li>이자보상배율·CB 쿠폰/풋옵션 조건: 미확인(공시 추가확인 필요).</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: 미확인 — 최근 6개월 목표가 제시 리포트 0건, FY26/27 매출·영익 추정 naver/fnguide/stockeasy/한경 4소스 전부 無 [실측: stockeasy_consensus·consensus.py 2026-11-16, stockeasy 403·나머지 추정치 없음]. 소형주 무커버리지.</li>
+<li>자체 추정(연결, [추정: 분기 런레이트×시나리오]): 26H1 영익 23.2억 실측 + H2(릴레이 Q2수준 유지·반도체 램프) → FY26E 연결 영익 Base 50~55억/순익 ~40억/EPS ~365원.</li>
+<li>달성가능성 中: (근거 ○) 26Q2 영익 18.4억 런레이트, 반도체 가동률 식각링 92%·성현 OPM 22% / (근거 △) 릴레이 ESS 수주·800V 믹스개선은 공시 미확인, 반도체 H2 추가 램프는 고객 CAPEX 의존. 수주잔고=없음(수주 즉시생산·납품 구조, 장기공급계약 無) [실측: 반기보고서 &#x27;수주상황&#x27;].</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 PER 11.2 / PBR 0.99 (BPS 5,030, 자산가치 하단) [실측].</li>
+<li>Peer 밴드 [실측: peer_finder 2025연결]: 식각링·소모품 티씨케이(064760) OPM 27.8%·PER 28.4, 케이엔제이(272110) OPM 26.3%·PER 7.1 / 릴레이·부품 네오오토 OPM 5.9%. → 와이엠텍은 릴레이 저마진(OPM 6%)이 블렌디드 멀티플을 눌러 &#x27;반도체 고마진&#x27;이 아직 밸류에 미반영.</li>
+<li>자체 목표가 산식 [추정]: FY26E EPS 365원 × 적정 PER 15배(턴어라운드+반도체 리레이팅 반영, 식각링 피어 7~28배 하단~중단) = 5,475원. PBR 1.1×BPS 5,030 = 5,533원. → Base 적정가 5,500~5,800원.</li>
+<li>증권사 목표가: 미확인(커버리지 없음).</li>
+</ul>
+<p>⑥ 진입전략·손익비 (현물 전용 — 선물 미상장)</p>
+<ul>
+<li>지지: 4,640(20일 저점)·3,905(52주·전저점) / 저항: 5,138(MA20)·5,236(MA60)·5,670(20일 고점) [실측].</li>
+<li>현 위치: MA20·MA60 아래 = 하락추세 미반전. 저점권이나 &#x27;떨어지는 칼&#x27; 구간 → 분할·확인매수.</li>
+<li>관심존 진입 4,600~4,800원(지지 되돌림) / 손절 4,250원 종가(전저점 3,905 위, ATR14 311 감안) / 목표 1차 5,800원·2차 7,000원.</li>
+<li>손익비(진입 4,700 기준): 상승여력 (5,800−4,700)/4,700 = <span class="up">+23.4%</span> ÷ 하락리스크 (4,700−4,250)/4,700 = −9.6% = 1:2.4.</li>
+</ul>
+<p>(현재가 5,000 직접 추격 시: 상방 5,800 <span class="up">+16%</span> ÷ 하방 4,250 −15% = 1:1.1 → 추격 비효율, 눌림 대기 권장.)</p>
+<p>──────── ⑧ 산업·제품 바텀업 실적 모델 (§9)</p>
+<p>9-1 제품·서비스 분해 [실측: 반기보고서 2026.06, 제품별 매출]</p>
+<ul>
+<li>EV Relay 169.8억(53.7%) — 전기차·ESS·충전기 직류 개폐</li>
+<li>DC Relay 등 19.3억(6.1%) — 산업·UPS·태양광</li>
+<li>반도체 부품·가공장비 외 121.9억(38.6%) — 식각공정 실리콘 소모품(SHM)+정밀가공장비(성현)</li>
+<li>2025 연간(별도): EV Relay 268.1억(92.1%)·DC 22.6억 → 1년 만에 반도체가 매출의 38% 점유(인수효과).</li>
+</ul>
+<p>9-2 고객·납품 구조 [실측: DART &#x27;주요 매출처&#x27;]</p>
+<ul>
+<li>릴레이: 삼성SDI·LG에너지솔루션 등(배터리 3사向 ESS·EV). 비중 수치 미공개.</li>
+<li>반도체(SHM): 마이크론 등 메모리/파운드리 식각 챔버向 소모품(수요=고객 웨이퍼 투입량·설비투자 함수) [실측: 반기보고서 본문].</li>
+<li>고객집중 리스크: 릴레이 배터리 3사 의존(정량 미공개) — 전방 ESS/EV 수요 변동에 직결.</li>
+</ul>
+<p>9-3 시장·경쟁 [일부 미확인]</p>
+<ul>
+<li>식각링·소모품 국내 피어: 티씨케이(글로벌 SiC 식각링 선두)·케이엔제이. SHM은 &#x27;국산화·공급처 이원화&#x27; 수혜 포지션(후발·애프터마켓) [실측: 반기보고서 본문 &#x27;국산화 수요&#x27;].</li>
+<li>EV Relay: 글로벌 경쟁 LS일렉트릭·파나소닉·BYD 등(정량 점유율 미확인).</li>
+<li>TAM·점유율 정량: 미확인(산업리포트 2출처 교차 실패, stockeasy 403).</li>
+</ul>
+<p>9-4 단가·원가 [실측: 반기보고서 가격변동추이]</p>
+<ul>
+<li>EV Relay 단가 105,756원(2025)→107,639원(26H1, <span class="up">+1.8%</span>) / DC Relay 687,766원 — 고전압화 믹스로 단가 소폭 상승.</li>
+<li>원재료: FIXING CONTACT·PCB·MAGNET·고순도 실리콘(반도체). 실리콘 수급·가격이 반도체 수익성 좌우 [실측].</li>
+<li>가동률: EV Relay 57.3%(26H1, 2024 48%→개선) / 식각 실리콘 Ring 92% 고가동·CSR 14%·GRD 1%(램프 초기) [실측].</li>
+</ul>
+<p>9-5 CAPA·수주</p>
+<ul>
+<li>EV Relay CAPA 반기 583천개·생산 334천개. 장기공급계약·수주잔고 없음(수주 즉시 생산·납품) [실측: &#x27;수주상황&#x27;].</li>
+</ul>
+<p>9-6 전방 수요</p>
+<ul>
+<li>릴레이: 배터리 3사 ESS 수주확대(북미·전력망)·800V 고전압화 → 개당 단가·채용 증가 기대(공시 미확인, 기대영역).</li>
+<li>반도체: 메모리/파운드리 설비투자·국산화 → 소모품 반복매출(애프터마켓) 성장. 고객 CAPEX 사이클 의존.</li>
+</ul>
+<p>9-7 바텀업 모델 (연결, FY26E) [추정: 분기 런레이트×시나리오]</p>
+<ul>
+<li>릴레이(별도): H1 189.1억 실측 + H2(Q3≈Q2 108억·Q4 ~90억) ≈ 198억 → FY26 ~387억 [추정]</li>
+<li>반도체(연결−별도): H1 127억 실측 + H2 램프 ~140억 → FY26 ~267억 [추정]</li>
+<li>매출: Bear 560억 / Base 635억 / Bull 700억</li>
+<li>OPM: Bear 7%(39억) / Base 8.3%(53억) / Bull 10%(70억) — H1 실측 7.3% 기반, 반도체 고마진 반영</li>
+<li>순익: Bear 30억 / Base 40억 / Bull 52억 → EPS Bear 274 / Base 365 / Bull 474원</li>
+<li>분기배분: 3Q 연결 영익 Base 18~22억(릴레이 Q2수준+반도체 지속) / 4Q 15~20억</li>
+<li>민감도: 반도체 단가 ±10%×점유율 ±5%p → FY26 영익 ±8억 / 전방 CAPEX 1분기 지연 → 반도체 분기매출 −35억</li>
+<li>컨센 대조: 불가(커버리지 無)</li>
+</ul>
+<p>★ 결론 문장: 3Q26 연결 영업이익 ≥ 20억이면 논지 유지·추가매수 검토, &lt; 8억이면 논지 폐기.</p>
+<p>9-8 미확인: TAM·점유율 정량, 릴레이 고객별 비중, CB 쿠폰·풋조건, 이자보상배율, 증권사 컨센 → IR 문의·3분기보고서·추가 공시 확인.</p>
+<p>──────── ⑦ 촉매·반증·이벤트 대응</p>
+<p>촉매 캘린더(날짜 확정)</p>
+<ul>
+<li>3Q26 분기보고서: 법정기한 2026-11-14(통상 11월 중순 제출, 블로그 &#x27;곧 발표&#x27;) — 반도체 램프·릴레이 지속 확인 핵심 [출처: 자본시장법 분기보고서 기한].</li>
+<li>성현·SHM 통합 실적 반영 지속 여부 / ESS 릴레이 수주 공시 발생 시(날짜 미정) — 발생하면 재평가.</li>
+</ul>
+<p>반증 조건 3개(수치→행동)</p>
+<ol>
+<li>3Q26 연결 영업이익 &lt; 8억이면 논지 폐기·전량 청산 (반도체 램프 실패·릴레이 재둔화 신호)</li>
+<li>종가 4,250원 이탈 시 전량 청산(전저점 3,905 방어선 붕괴 전조)</li>
+<li>3Q26 연결 영업현금흐름 2개 분기 연속 음수 지속 시 비중 축소(이익의 질 악화)</li>
+</ol>
+<p>이벤트 매트릭스(3Q 실적×당일 주가)</p>
+<ul>
+<li>서프라이즈(영익≥20억)×갭하락 → 분할매수(관심존 하단)</li>
+<li>인라인(10~20억)×보합 → 관망 유지, MA20 회복 확인 후 진입</li>
+<li>쇼크(&lt;8억)×갭상승 → 반등 시 청산</li>
+</ul>
+<p>확률가중 시나리오(합 100%)</p>
+<ul>
+<li>Bear 30%: 3Q 실망·ESS수주 지연, EPS 274, PBR 0.8 → 목표 4,000원</li>
+<li>Base 45%: 3Q 영익 18~22억, FY26 EPS 365, PER 15 → 목표 5,800원</li>
+<li>Bull 25%: 반도체 급램프+릴레이 ESS수주, EPS 474, PER 16 → 목표 7,500원</li>
+<li>확률가중 기대값 = 0.30×4,000 + 0.45×5,800 + 0.25×7,500 = 5,685원 (현재가 대비 <span class="up">+13.7%</span>)</li>
+</ul>
+<p>수급·유동성 [실측: enrich]</p>
+<ul>
+<li>외국인 20일 −1.28%·기관 −0.1%·개인 <span class="up">+1.38%</span> / 20일 평균 거래대금 0.74억 → 1일 체결상한 ADV10% ≈ 0.07억(극저유동성, 분할·지정가 필수).</li>
+</ul>
+<p>포지션 사이징(자산 대비 %로만)</p>
+<ul>
+<li>리스크예산: 손실예산 1% ÷ 손절폭 9.6% = 자산의 10.4%</li>
+<li>집중상한 50%·이벤트(3Q실적) 전 상한 25% 중 최소값 → 10.4% 채택. 분할 3회(각 1/3), 손절선 4,250원 아래 추가매수 금지.</li>
+<li>⚠️ CB 199.98억(전환가 12,731원·리픽싱無) 오버행: 현재가 5,000원은 전환가 −60.7%로 전환 無價(저가전환 압력 없음)이나, 만기 풋 상환부담·이자가 현금흐름 리스크. 극저유동성 + 50% 집중은 부적합.</li>
+</ul>
+<p>──────── ⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로그·단일 의견을 사실로 쓰지 않았음(주담 내용은 &#x27;추정·전언&#x27;). 증권사 추정치는 커버리지 없어 &#x27;컨센 미확인&#x27;, 자체 추정은 &#x27;추정&#x27; 표기.</p>
+<p>[미확인 목록] 증권사 컨센·목표가 / TAM·점유율 정량 / 릴레이 고객별 비중 / CB 쿠폰·풋옵션 조건 / 이자보상배율 / 릴레이 ESS 신규수주 공시 [출처 목록] DART 사업보고서 2025.12(20260320000600)·반기보고서 2026.06(20260828001952)·1분기·3분기보고서 / KIS 시세 2026-11-16 / peer_finder·enrich·news_search(2026-11-13 핀포인트) / consensus·stockeasy_consensus(컨센 미확인) [검산] 별도 분기합 Q1+Q2=H1(81.2<span class="up">+107.9</span>=189.1억 ✓) / 25 Q1~Q4 매출합 234.4<span class="up">+56.7</span>=291.1=연간 ✓ / 연결·별도 라벨 전수표기 / 손익비 헤더=본문 1:2.4(진입4,700·목표5,800·손절4,250) 일치</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-16 12:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 5,000원 (<span class="down">-4.4%</span>) · 시총 548억 · 5일 <span class="up">+7.8%</span> / 20일 <span class="down">-15.1%</span> / 60일 <span class="down">-4.2%</span></li>
+<li>MA5 5,028원 / MA20 5,138원 / MA60 5,236원 → MA20 이격 <span class="down">-2.7%</span> · MA60 이격 <span class="down">-4.5%</span></li>
+<li>52주 고 13,990원 / 저 3,905원 → 고점 대비 <span class="down">-64.3%</span> · 20일 고 5,670원 / 저 4,640원</li>
+<li>후행 PER 11.24 / PBR 0.99 (EPS 445원 · BPS 5,030원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 0.7억 (5일 0.8억)</li>
+<li>외국인 순매수 5일 0.1억 / 20일 -1.3억 · 기관 5일 0.0억 / 20일 -0.1억 · 개인 20일 1.4억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.24% / 20일 평균 0.29% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 1.09% (10/23) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 5,800원 (<span class="up">+16.0%</span>) ÷ 하방 4,250원 (−15.0%) = <strong>1:1.07</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 15.0% = <strong>자산의 3.3%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.3%</strong></li>
+<li>유동성 참고: 20일 ADV 0.7억 · 1일 소화 한도는 ADV의 10%(0.07억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 15.0% · ATR14 311원 (손절폭/ATR 2.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 15.0% = ATR14 × 2.4배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 4,533원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.71</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-273640"></span>📋 결정카드 — 와이엠텍(273640) 판정: 관심 선물: 無 현재가: 5,000원 진입: 4,600~4,800원 (눌림 대기) 손절: 4,250원 (종가 기준) 목표: 1차 5,800원 (2차 7,000원) 손익비: 1:2.4 기간: 스윙 4~10주 촉매: 3Q26 분기보고서(2026-11월 중순, 반도체 램프·릴레이 지속 확인) 반증: 3Q26 연결 영업이익 &lt; 8억이면 전량 청산 / ≥ 20억이면 추가매수 검토 / 종가 4,250원 이탈 시 청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
