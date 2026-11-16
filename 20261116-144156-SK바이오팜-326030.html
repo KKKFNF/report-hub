@@ -1,0 +1,323 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SK바이오팜(326030) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261116-144156-SK바이오팜-326030.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:1.93</div><div class="tp-c"><b>결론 발췌</b> SK바이오팜은 3Q26 연결 영업이익 1,163억(+65.9% YoY)·OPM 45.0%로 컨센을 22% 상회하며 엑스코프리(세노바메이트) 미국 직판의 구조적 이익 레버리지를 재확인했고, 현재가 88,700원은 52주 고점 144,100원 대비 −38% 조정 후 MA20(81,230)·MA60(80,430) 위에서 20일 +16.4% 반등 중인 눌림 회복 구간이다 — 다만 후행 PER 26배·분기 순이익(543억, −23.9% YoY)이 법인세 정상화·지분법손실로 꺾인 점을 감안해 판정 관심(watch): 추격보다 MA20 지지 확인 후 분할 진입을 권고(현재가 기준 손익비 1:1.8).</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>SK바이오팜(326030)</h1>
+<div class="meta">📊 deepresearch · 2026-11-16 14:41 · 코드 326030</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-16 14:41)</div><div class="kpi-v">89,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">7.0조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">26.11</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">8.57</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.93</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">100,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 83000~88000원</span><span class="dc dn">손절 78,000원</span><span class="dc up">목표 100,000원</span><span class="dc">손익비 진입 1:1.93 · 현재가 1:1 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.7</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.7로 적었지만 진입·손절·목표로 계산하면 1:1.93다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026년 12월 오파칼림/후속신약 탑라인, 2027년 2월 중순 4Q26 실적발표</div><div class="dc-l">🛑 반증: 4Q26 연결 영업이익 &lt; 850억(단일 3개월)이면 논지 폐기·비중 축소 / 종가 78000원 이탈 시 전량 청산 / 오파칼림 FDA 임상 보류 장기화·중단 시 목표가 74000원 하향</div></div>
+
+<div class="body"><h1>SK바이오팜(326030) 정밀 리포트 — 3Q26 호실적 점검</h1>
+<h2 id="한줄-결론">한줄 결론</h2>
+<p>SK바이오팜은 3Q26 연결 영업이익 1,163억(<span class="up">+65.9%</span> YoY)·OPM 45.0%로 컨센을 22% 상회하며 엑스코프리(세노바메이트) 미국 직판의 구조적 이익 레버리지를 재확인했고, 현재가 88,700원은 52주 고점 144,100원 대비 −38% 조정 후 MA20(81,230)·MA60(80,430) 위에서 20일 <span class="up">+16.4%</span> 반등 중인 눌림 회복 구간이다 — 다만 후행 PER 26배·분기 순이익(543억, −23.9% YoY)이 법인세 정상화·지분법손실로 꺾인 점을 감안해 <strong>판정 관심(watch)</strong>: 추격보다 MA20 지지 확인 후 분할 진입을 권고(현재가 기준 손익비 1:1.8).</p>
+<h2 id="판단-요약표">판단 요약표</h2>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>값</th><th>근거</th></tr></thead><tbody><tr><td>투자의견</td><td>관심(watch)</td><td>구조적 이익성장 유효하나 PER 26배·순이익 둔화로 조건부</td></tr><tr><td>목표가(1차/2차)</td><td>100,000 / 115,000원</td><td>20일 고점 90,600 돌파·100k 심리저항, 컨센 하단권(키움 120k) 전</td></tr><tr><td>확률가중 기대수익</td><td>약 <span class="up">+7%</span></td><td>§3-5 시나리오표(현재가 88,700 기준)</td></tr><tr><td>손절</td><td>78,000원</td><td>MA60 80,430 하회·20일 저점 74,500 위, 약 1.5×ATR</td></tr><tr><td>포지션 상한</td><td>자산의 약 8%</td><td>손실예산 1%÷손절폭 약 12%(88,700→78,000), 집중상한 50%·이벤트 전 25% 중 최소값</td></tr><tr><td>반증조건</td><td>4Q26 연결 영업이익 &lt; 850억(단일 3개월)</td><td>§5-6</td></tr></tbody></table></div>
+<p class="note">※ 헤더 KPI(현재가·시총·PER·PBR·52주 위치·수급·ADV·선물·현재가 기준 손익비·포지션 사이징)는 적재 시 허브 enrich.py가 KIS 실측으로 자동 삽입한다(현재가 88,700원 · 시총 6.95조 · 후행 PER 26.0 · PBR 8.54 · 52주 고 144,100/저 67,800). 본문 진입/손절/목표는 실측 현재가(88,700)·이평(MA20 81,230·MA60 80,430)·20일 고저(90,600/74,500)를 기준으로 설계했다.</p>
+<hr>
+<h2 id="분석-기여-요약-증권사-원문-vs-독립검증">🧩 분석 기여 요약 (증권사 원문 vs 독립검증)</h2>
+<ul>
+<li><strong>증권사 원문</strong>: 3Q26 연결 매출 2,584억(<span class="up">+34.8%</span> YoY)·영업이익 1,163억(<span class="up">+65.9%</span> YoY)·컨센 22% 상회 [인용: 다올·IBK 2026-11-06]. 목표가 컨센 142,632원, FY26E 영업이익 3,644억 [인용: FnGuide 2026-11-16]. &quot;환율 하락에도 빛난 성장세&quot;(신영).</li>
+<li><strong>독립검증 ①(영업이익 서프라이즈 분해)</strong>: DART 분기 분해로 3Q26 OP 1,163억을 재현[실측: 20261116000480]. 단 이 중 일본 허가 마일스톤·아시아 임상종료에 따른 <strong>일회성 용역매출</strong>이 포함(용역 수출이 2025 연간 287억→2026 3Q누적 453억으로 급증[실측])→ &quot;순수 제품(엑스코프리) OP 레버리지&quot;와 &quot;일회성 로열티/용역&quot;을 분리해야 정상화 OP가 보인다. 재현 결과: 분기 OP의 상당분이 반복적 제품 성장, 일부가 일회성 → <strong>서프라이즈의 질은 &#x27;혼합&#x27;</strong>.</li>
+<li><strong>독립검증 ②(순이익 역산)</strong>: 영업이익 <span class="up">+65.9%</span>인데 <strong>분기 순이익은 543억으로 −23.9% YoY</strong>. 역산 결과 (a)3Q26 누적 법인세비용 466억 — 반기까지 55억에 불과했으므로 3Q 단일에 약 411억이 집중 인식[실측: 20261116000480], (b)3Q누적 지분법손실 −219억[실측]. 즉 &quot;영업은 서프, 순이익은 세금·지분법으로 희석&quot; → 헤드라인 OP만 보면 오독.</li>
+<li><strong>독립검증 ③(FX 역풍 속 성장)</strong>: 3Q26 평균환율 1,423원(3Q25 1,385원 대비 <span class="up">+2.8%</span> 우호)이나 2Q26 1,502원→3Q26 1,423원으로 <strong>원화 강세 전환(QoQ −5.3%)</strong>[실측: ECOS 731Y001]. 그럼에도 달러기준 처방 성장(하나증권: 달러 QoQ <span class="up">+4.9%</span>)이 환손실을 상쇄 → 탑라인 성장의 체력 확인. 다만 현재 스팟 1,332원[실측: 2026-11-13]은 추가 역풍이라 4Q 원화환산 매출에 하방 압력.</li>
+</ul>
+<hr>
+<h2 id="1-v1-오류-정정">§1. v1 오류 정정</h2>
+<p>기존 v1(deepresearch) 리포트가 허브에 없어(신규 작성) 정정 대상 없음. 대신 <strong>시장 통념 2건을 선제 교정</strong>:</p>
+<div class="tablewrap"><table><thead><tr><th>통념</th><th>문제</th><th>교정</th></tr></thead><tbody><tr><td>&quot;3Q 영업이익 <span class="up">+66%</span>니 순이익도 급증&quot;</td><td>법인세·지분법 무시</td><td>분기 순이익 543억 −23.9% YoY. OP와 순이익 괴리를 §2-2에서 분해</td></tr><tr><td>&quot;세노바메이트 미국 70% 비중&quot; 어림</td><td>실측 대체 필요</td><td>2026 3Q누적 제품매출의 <strong>99.998%가 수출(USD)</strong>[실측], 세노바메이트 단일 98.6%[실측]. 사실상 단일제품·단일통화 집중</td></tr></tbody></table></div>
+<hr>
+<h2 id="2-추가-분석">§2. 추가 분석</h2>
+<h3 id="21-연결-vs-별도-2트랙-최근-8분기-단위-억원-3개월">2-1 연결 vs 별도 2트랙 (최근 8분기, 단위 억원, 3개월)</h3>
+<div class="tablewrap"><table><thead><tr><th>분기</th><th>연결 매출</th><th>연결 영업이익</th><th>연결 OPM</th><th>연결 순이익</th><th>별도 매출(누적기준 참고)</th></tr></thead><tbody><tr><td>2024 1Q</td><td>1,140</td><td>103</td><td>9.0%</td><td>97</td><td>1,052(누적)</td></tr><tr><td>2024 2Q</td><td>1,340</td><td>260</td><td>19.4%</td><td>246</td><td>—</td></tr><tr><td>2024 3Q</td><td>1,366</td><td>194</td><td>14.2%</td><td>63</td><td>—</td></tr><tr><td>2024 4Q</td><td>1,630</td><td>406</td><td>24.9%</td><td>1,864</td><td>—</td></tr><tr><td>2025 1Q</td><td>1,444</td><td>257</td><td>17.8%</td><td>196</td><td>1,617(누적)</td></tr><tr><td>2025 2Q</td><td>1,763</td><td>619</td><td>35.1%</td><td>295</td><td>—</td></tr><tr><td>2025 3Q</td><td>1,917</td><td>701</td><td>36.6%</td><td>714</td><td>—</td></tr><tr><td>2025 4Q</td><td>1,943</td><td>462</td><td>23.8%</td><td>1,328</td><td>—</td></tr><tr><td>2026 1Q</td><td>2,279</td><td>898</td><td>39.4%</td><td>1,027</td><td>1,894(누적)</td></tr><tr><td>2026 2Q</td><td>2,474</td><td>970</td><td>39.2%</td><td>851</td><td>—</td></tr><tr><td><strong>2026 3Q</strong></td><td><strong>2,584</strong></td><td><strong>1,163</strong></td><td><strong>45.0%</strong></td><td><strong>543</strong></td><td>6,432(3Q누적)</td></tr></tbody></table></div>
+<p>[실측: 분기보고서 20261116000480, 반기 20260814·1Q 등 누적치 차감으로 3개월 분기화. 산식 = 당기누적 − 직전누적]</p>
+<ul>
+<li><strong>연결 &gt; 별도 괴리의 성격</strong>: SK바이오팜은 미국 판매자회사 <strong>SK Life Science(지분 100%)</strong>가 엑스코프리를 직판한다. 별도(본사)는 자회사向 제품공급(sell-in)+로열티이고, 연결이 미국 최종판매(sell-through)를 반영 → 연결 매출·이익이 별도보다 크고, <strong>연결이 본업 지표</strong>다. 미국 자회사 실적[실측: 사업보고서 20260318000773]: 2025년 매출 9,078억원·순이익 301억(지분 100%), 2024년 6,678억·순이익 287억 → 미국 직판법인이 연결 매출의 본류.</li>
+<li><strong>차분기 sell-in 전망</strong>: 별도 3Q누적 매출 6,432억으로 이미 2025 연간 별도(6,506억)에 근접 → 본사 sell-in 가속. 4Q 연결은 미국 재고소진·처방 성장 지속 시 2,500억 내외 유지 가능(§4 모델).</li>
+</ul>
+<h3 id="22-법인세-브릿지-연결-억원">2-2 법인세 브릿지 (연결, 억원)</h3>
+<div class="tablewrap"><table><thead><tr><th>기간</th><th>세전이익</th><th>법인세비용</th><th>유효세율</th><th>순이익</th><th>비고</th></tr></thead><tbody><tr><td>2024 연간</td><td>726</td><td>(세전&lt;순이익)</td><td>음(−)</td><td>2,270</td><td><strong>이연법인세자산 인식</strong>으로 순이익 &gt; 세전(4Q24 단일 순이익 1,864)</td></tr><tr><td>2025 연간</td><td>1,509</td><td>—</td><td>—</td><td>2,533</td><td>4Q25 순이익 1,328(이연법인세수익 반복)</td></tr><tr><td>2026 3Q누적</td><td>2,887</td><td>466</td><td>16.1%</td><td>2,421</td><td>세금 정상 인식 시작</td></tr><tr><td>2026 반기누적</td><td>1,933</td><td>55</td><td>2.8%</td><td>1,878</td><td>상반기 세금 과소 → 3Q에 집중</td></tr></tbody></table></div>
+<p>[실측: 20261116000480, 20260318000773]</p>
+<ul>
+<li><strong>원인 식별</strong>: 2024~2025년 순이익이 세전을 초과한 것은 <strong>이월결손금 소진 전망에 따른 이연법인세자산 재평가·인식</strong>(흑자전환 가시화로 미래 세금효익을 자산화)으로 추정[추정: 세전&lt;순이익 구조 + 흑자전환 시점 정합]. 이는 <strong>반복 불가 일회성</strong>. 2026년부터 유효세율이 정상화(3Q누적 16.1%)되며 순이익 증가율이 영업이익 증가율을 하회하기 시작 → &quot;OP는 서프, 순이익은 둔화&quot;의 구조적 배경.</li>
+<li><strong>정상 유효세율 가정</strong>: Base 18~20%(미국·한국 혼합, 해외 원천세 포함)[추정]. 세율 20% 가정 시 FY27 세전 약 5,000억 → 순이익 약 4,000억(컨센 3,897억과 정합)[인용: FnGuide FY27E 순이익 3,897억].</li>
+</ul>
+<h3 id="23-영업외손익-분해-2026-3q누적-연결-억원">2-3 영업외손익 분해 (2026 3Q누적, 연결, 억원)</h3>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>값</th><th>성격</th></tr></thead><tbody><tr><td>금융수익</td><td>436</td><td>이자·외환이익</td></tr><tr><td>금융비용</td><td>−445</td><td>이자·외환손실(순 −9)</td></tr><tr><td>지분법손실</td><td>−219</td><td>지분법 피투자사(바이오/신약 투자) 손실 반영</td></tr><tr><td>지분법주식처분이익</td><td><span class="up">+91</span></td><td>일회성</td></tr><tr><td>해외사업장환산</td><td>−94</td><td>기타포괄(순이익 외)</td></tr></tbody></table></div>
+<p>[실측: 20261116000480]</p>
+<ul>
+<li>세전이익(2,887)이 영업이익(3,031)보다 낮은 주된 이유는 <strong>지분법손실 −219억</strong>. 신약 R&amp;D 투자지분 손실이 영업외를 갉아먹는 구조 → 파이프라인 투자 지속 동안 반복 가능.</li>
+</ul>
+<h3 id="24-환율-usdkrw-본업이-usd-매출이라-최중요">2-4 환율 (USD/KRW — 본업이 USD 매출이라 최중요)</h3>
+<div class="tablewrap"><table><thead><tr><th>구간</th><th>평균환율</th><th>QoQ/YoY</th></tr></thead><tbody><tr><td>2025 3Q 평균</td><td>1,385원</td><td>—</td></tr><tr><td>2026 2Q 평균</td><td>1,502원</td><td>—</td></tr><tr><td>2026 3Q 평균</td><td>1,423원</td><td>YoY <span class="up">+2.8%</span> / QoQ −5.3%(원화강세)</td></tr><tr><td>현재 스팟(2026-11-13)</td><td>1,332원</td><td>추가 원화강세</td></tr></tbody></table></div>
+<p>[실측: 한국은행 ECOS 731Y001, earnings/fx.py]</p>
+<ul>
+<li><strong>민감도</strong>: 2026 제품 수출 USD 4.63억 규모[실측: 20261116000480]. USD/KRW 10원 변동 → 연 매출 약 46억 변동[추정: 4.63억USD×10원]. 현재 스팟이 3Q 평균 대비 약 −91원(1,423→1,332) → <strong>4Q 원화환산 매출에 약 −420억/분기 환산 하방</strong>(달러 처방 성장이 일부 상쇄)[추정]. 회사 환헤지 현황은 미확인(§미확인).</li>
+<li>결론: 환율은 <strong>4Q 역풍 요인</strong>. 달러기준 처방 성장(QoQ <span class="up">+4.9%</span>, 하나[인용])이 없으면 원화 매출 역성장 위험.</li>
+</ul>
+<h3 id="25-관세정책-원가요인">2-5 관세·정책 원가요인</h3>
+<ul>
+<li>SK바이오팜은 외주 위탁생산(자체 생산설비 없음)[실측: 20261116000480] → 제조 관세 노출 제한적. 다만 <strong>미국 약가 정책(IRA 약가협상·관세 위협)</strong>이 매크로 리스크. 현 시점 세노바메이트는 Medicare 약가협상 대상 지정 없음(미확인→§미확인). HS코드·관세율 해당 없음(완제 수입이 아닌 미국 현지 유통).</li>
+</ul>
+<h3 id="269-세그먼트는-아래-9-바텀업-모델로-통합">2-6→§9 세그먼트는 아래 §9 바텀업 모델로 통합.</h3>
+<h3 id="27-현금흐름재무상태-품질">2-7 현금흐름·재무상태 품질</h3>
+<ul>
+<li>미국 자회사 자본 2025년 2,212억·부채 4,348억[실측: 20260318000773] → 연결 레버리지 존재(미국 판매망·재고 운전자본). OCF·FCF·DSO/DIO 8분기 상세는 분기보고서 현금흐름표 추가 파싱 필요(미확인→§미확인). 흑자 전환 이후 영업현금 창출로 순현금 개선 추세[추정].</li>
+</ul>
+<h3 id="28-수급주주환원">2-8 수급·주주환원</h3>
+<ul>
+<li>외국인/기관 순매수·공매도·대차·ADV는 enrich.py가 KIS 실측으로 자동 삽입(📐 실전 체크 블록). 최대주주 SK(주) 지배. 배당·밸류업 공시 여부 미확인(§미확인).</li>
+</ul>
+<h3 id="29-커버리지컨센서스-실측-봇차단-미확인-아님-4소스-중-naverfng">2-9 커버리지·컨센서스 (실측, &quot;봇차단 미확인&quot; 아님 — 4소스 중 naver·fnguide·hankyung 수집 성공)</h3>
+<div class="tablewrap"><table><thead><tr><th>FY</th><th>매출(억)</th><th>영업이익(억)</th><th>순이익(억)</th><th>EPS(원)</th><th>PER</th><th>ROE</th></tr></thead><tbody><tr><td>FY26E</td><td>9,782</td><td>3,644</td><td>3,068</td><td>3,916</td><td>22.4</td><td>31.6%</td></tr><tr><td>FY27E</td><td>11,779</td><td>4,679</td><td>3,897</td><td>5,091</td><td>17.3</td><td>30.3%</td></tr><tr><td>FY28E</td><td>13,674</td><td>5,853</td><td>4,996</td><td>6,543</td><td>13.4</td><td>28.7%</td></tr></tbody></table></div>
+<p>[인용: FnGuide/WiseReport 2026-11-16, 추정기관 16]</p>
+<ul>
+<li>목표가 컨센: 평균 <strong>142,632원</strong>(최고 160,000 다올·하나 / 최저 120,000 키움 · 19건). 투자의견 Buy 20 / NR 1 [인용: FnGuide 2026-11-16].</li>
+<li>분기 컨센: 2026Q4 매출 2,488억·순이익 548억 / 2027Q1 매출 2,674억·순이익 878억 [인용: naver/wisereport].</li>
+<li>최근 리포트 요지: &quot;실적 확인, 남은 건 탑라인·오파칼림&quot;(신한·하나·교보), 환율에도 호실적(신영), 일회성에 상회·목표가 일부 하향(키움 120k·IBK 145k·메리츠 150k 하향) [인용: 각사 2026-11-06~11-10].</li>
+</ul>
+<h3 id="210-수요경쟁">2-10 수요·경쟁</h3>
+<ul>
+<li>엑스코프리(세노바메이트): 미국 뇌전증(부분발작) 처방 성장 지속. 글로벌 로열티 파트너 확장 — 유럽·캐나다·이스라엘·라틴아메리카 경상기술료 신규 인식, 일본(오노약품)·중국 판매 개시(한·중·일 완편, 2026-11-13)[인용: 뉴스핌·히트뉴스 2026-11-13].</li>
+<li>경쟁: 뇌전증 신약 시장은 UCB(브리비아세탐 등)·Jazz 등과 경쟁. 세노바메이트는 난치성 부분발작에서 발작완전소실(seizure-free) 데이터로 차별화(회사 주장)[인용: 회사 IR].</li>
+</ul>
+<hr>
+<h2 id="9-산업제품-바텀업-모델">§9 산업·제품 바텀업 모델</h2>
+<h3 id="91-제품서비스-분해-실측-20260318000773-2026111600">9-1 제품·서비스 분해 [실측: 20260318000773 / 20261116000480]</h3>
+<div class="tablewrap"><table><thead><tr><th>제품</th><th>2026 3Q누적 매출(억)</th><th>비중</th><th>2025 연간(억)</th><th>2024 연간(억)</th><th>용도</th></tr></thead><tbody><tr><td>세노바메이트(엑스코프리)</td><td>7,233</td><td>98.6%</td><td>6,830</td><td>5,312</td><td>미국 뇌전증 직판+글로벌 로열티·마일스톤</td></tr><tr><td>솔리암페톨(수노시)</td><td>104</td><td>1.4%</td><td>114</td><td>123</td><td>기면증, 미국·유럽 경상기술료</td></tr><tr><td>기타</td><td>—</td><td>—</td><td>123</td><td>41</td><td>기술수출 계약금(TPD·Medsyn 등)</td></tr><tr><td>계</td><td>7,337</td><td>100%</td><td>7,067</td><td>5,476</td><td></td></tr></tbody></table></div>
+<h3 id="92-고객납품-구조">9-2 고객·납품 구조</h3>
+<div class="tablewrap"><table><thead><tr><th>채널</th><th>비중</th><th>근거</th></tr></thead><tbody><tr><td>미국 직판(SK Life Science 100% 자회사)</td><td>제품매출 대부분</td><td>[실측: 20260318000773 종속회사 매출 9,078억]</td></tr><tr><td>글로벌 로열티/마일스톤(오노·동아에스티·Eurofarma·Hikma·Ignis 등)</td><td>용역 453억(3Q누적)</td><td>[실측: 20261116000480 매출실적표]</td></tr></tbody></table></div>
+<ul>
+<li><strong>집중도 리스크</strong>: 세노바메이트 단일제품 98.6%·단일통화(USD) → 제품·약가·환율 집중 리스크 1사 ≥30% 해당(명시).</li>
+</ul>
+<h3 id="93-시장-규모경쟁-구도">9-3 시장 규모·경쟁 구도</h3>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>값</th><th>출처</th></tr></thead><tbody><tr><td>미국 뇌전증 치료제 시장</td><td>수십억 달러 규모(정확치 교차검증 필요)</td><td>[인용: 회사 IR, 단일출처→§미확인]</td></tr><tr><td>경쟁</td><td>UCB, Jazz, Angelini 등</td><td>[인용: 업계 통설]</td></tr><tr><td>세노바메이트 미국 점유</td><td>신규환자(NBRx) 기준 성장 지속(수치 미확인)</td><td>[추정: 처방 성장률 역산]</td></tr></tbody></table></div>
+<ul>
+<li>국내 경쟁자 없음(국산 FDA 신약 직판 유일 사례). 글로벌 CAPA는 외주 위탁생산이라 CAPA 제약 낮음.</li>
+</ul>
+<h3 id="94-단가원가-이력">9-4 단가·원가 이력</h3>
+<ul>
+<li>회사가 약가 변동성(미국 자율약가)을 이유로 단가표 미기재[실측: 20261116000480 본문]. 원재료도 &quot;향후 변동 가능&quot;만 기재, 수치 없음[실측]. → 단가는 <strong>처방량(물량)×순약가(net price, 리베이트 차감)</strong> 구조이며 외부 공개 제한. 매출 성장은 물량(신규 처방)+로열티 지역 확대로 분해[추정].</li>
+</ul>
+<h3 id="95-생산능력가동률수주">9-5 생산능력·가동률·수주</h3>
+<ul>
+<li>자체 생산설비 없음(외주 위탁)[실측: 20261116000480] → CAPA·가동률 N/A. 수주잔고 미공시[실측].</li>
+</ul>
+<h3 id="96-전방-수요-시나리오">9-6 전방 수요 시나리오</h3>
+<ul>
+<li>전방 = 미국 뇌전증 환자 처방. 성장 드라이버: ①미국 부분발작 처방 침투 지속 ②적응증 확대(전신발작 임상) ③글로벌 로열티 지역 확대(일·중·라틴). 침투율 시나리오는 아래 9-7에 반영.</li>
+</ul>
+<h3 id="97-바텀업-실적-모델-연결-억원">9-7 바텀업 실적 모델 (연결, 억원)</h3>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>Bear</th><th>Base</th><th>Bull</th><th>산식/근거</th></tr></thead><tbody><tr><td>FY26 매출</td><td>9,400</td><td>9,782</td><td>10,200</td><td>3Q누적 7,337<span class="up">+4</span>Q 2,100~2,850 [컨센 9,782, 인용: FnGuide]</td></tr><tr><td>FY26 영업이익</td><td>3,350</td><td>3,644</td><td>3,950</td><td>OPM 36~39% [컨센 3,644]</td></tr><tr><td>FY27 매출</td><td>11,000</td><td>11,779</td><td>12,800</td><td>처방성장+로열티 [컨센 11,779]</td></tr><tr><td>FY27 영업이익</td><td>4,200</td><td>4,679</td><td>5,300</td><td>OPM 38~41%</td></tr><tr><td>FY27 순이익</td><td>3,500</td><td>3,897</td><td>4,500</td><td>유효세율 18~20%</td></tr><tr><td>FY27 EPS(원)</td><td>4,470</td><td>5,091</td><td>5,747</td><td>÷7,830만주</td></tr></tbody></table></div>
+<p>[인용: FnGuide 2026-11-16 / 추정: 세율·OPM 레인지]</p>
+<ul>
+<li><strong>민감도 2종</strong>: ①USD/KRW ±50원 → FY27 매출 약 ±230억(수출 4.6억USD 기준)[추정]. ②미국 처방 성장률 ±5%p → FY27 매출 약 ±550억[추정].</li>
+<li><strong>결론 문장</strong>: 4Q26 연결 영업이익 ≥ 950억(Base)이면 논지 유지·눌림 매수 검토, &lt; 850억(Bear·일회성 제거 후 역성장)이면 &quot;일회성 의존&quot; 재평가·논지 약화. 3Q26은 이미 1,163억으로 Base 초과 확인.</li>
+</ul>
+<h3 id="98-미확인-목록바텀업">9-8 미확인 목록(바텀업)</h3>
+<ul>
+<li>미국 세노바메이트 분기 TRx/NBRx 절대수치, net price, 시장점유율 실측치 — 회사 비공개. IR·4Q 실적발표에서 확인 경로.</li>
+<li>미국 뇌전증 시장 TAM 2출처 교차 — 단일출처만 확보.</li>
+</ul>
+<hr>
+<h2 id="3-밸류에이션">§3. 밸류에이션</h2>
+<h3 id="31-정상화-eps-도출-연결-억원">3-1 정상화 EPS 도출 (연결, 억원)</h3>
+<div class="tablewrap"><table><thead><tr><th>단계</th><th>값</th><th>근거</th></tr></thead><tbody><tr><td>TTM 순이익(4Q25~3Q26)</td><td>3,749</td><td>[실측: 분기 합산]</td></tr><tr><td>(−) 4Q25 이연법인세 일회성수익</td><td>−990</td><td>[추정: 4Q25 세전 338 &lt; 순이익 1,328 괴리]</td></tr><tr><td>정상화 TTM 순이익</td><td>2,759</td><td></td></tr><tr><td>÷ 발행주식수(자사주 미미)</td><td>7,830만주</td><td>[추정: 컨센 EPS÷순이익 역산 정합]</td></tr><tr><td><strong>정상화 EPS</strong></td><td><strong>약 3,524원</strong></td><td></td></tr></tbody></table></div>
+<p>[실측/추정 혼합]</p>
+<h3 id="32-per-밴드-정상화컨센-기준">3-2 PER 밴드 (정상화·컨센 기준)</h3>
+<ul>
+<li>현재가 88,700원[실측: KIS 2026-11-16] 기준: 후행 PER 26.0배(EPS 3,409)[실측], FY26E(3,916) 기준 22.6배, FY27E(5,091) 기준 17.4배 [인용: FnGuide]. 정상화 TTM EPS 3,524원 기준 약 25배[추정]. 52주 고점(144,100)에서 −38% 조정으로 밸류 부담은 올해 고점 대비 상당폭 완화. 5년 월간 PER 밴드 분위수는 흑자전환 초기라 음수 구간 다수로 신뢰도 낮음(§미확인).</li>
+</ul>
+<h3 id="33-피어-비교">3-3 피어 비교</h3>
+<ul>
+<li>글로벌 CNS 신약 피어: Jazz Pharma, UCB, Axsome. 12M fwd PER 20~30배 밴드[인용: 업계 통설, 정밀 수치 미확인→§미확인]. SK바이오팜 FY27E PER 17.4배는 고성장(매출 CAGR 20%+·ROE 30%+) 대비 피어 하단~중단, 단 단일제품 리스크로 할인 요인 상존.</li>
+</ul>
+<h3 id="34-목표-per-근거">3-4 목표 PER 근거</h3>
+<ul>
+<li>Base 1차 목표가 100,000원 = FY27E EPS 5,091원 × PER 약 19.6배[추정] — 보수적. 상단 115,000원 = FY27E × 약 22.6배(=현재 FY26E 멀티플 유지). 근거: ROE 30%+ 성장 프리미엄 + 20일 고점 90,600 돌파 후 100k 심리저항·컨센 최저 120k(키움) 하단. 컨센 평균 142,632원은 12개월 forward이며 본 리포트 6~12주 스윙 목표와 구간이 다름.</li>
+</ul>
+<h3 id="35-시나리오-표-bearbasebull-확률-합-100-현재가-8870">3-5 시나리오 표 (Bear/Base/Bull, 확률 합 100%, 현재가 88,700원 기준)</h3>
+<div class="tablewrap"><table><thead><tr><th>시나리오</th><th>확률</th><th>전제</th><th>목표가</th><th>현재가 대비</th><th>기대기여</th></tr></thead><tbody><tr><td>Bear</td><td>30%</td><td>4Q 일회성 소멸+환율 역풍, 오파칼림 임상 실패 → MA 이탈</td><td>74,000원</td><td>−16.6%</td><td>−5.0%</td></tr><tr><td>Base</td><td>50%</td><td>처방 성장 지속·로열티 확대, 눌림 회복</td><td>100,000원</td><td><span class="up">+12.7%</span></td><td><span class="up">+6.4%</span></td></tr><tr><td>Bull</td><td>20%</td><td>적응증 확대·오파칼림 재개·후속 파이프라인 가치 반영</td><td>120,000원</td><td><span class="up">+35.3%</span></td><td><span class="up">+7.1%</span></td></tr><tr><td><strong>합</strong></td><td><strong>100%</strong></td><td></td><td></td><td></td><td><strong>확률가중 약 <span class="up">+8.5%</span></strong></td></tr></tbody></table></div>
+<p>[추정: 멀티플 §3-4·이평 레벨. 현재가 88,700원 실측 기준]</p>
+<h3 id="36-민감도-2종">3-6 민감도 2종</h3>
+<ul>
+<li>①환율×처방성장: USD/KRW 1,300원 &amp; 처방 −5%p → FY27 매출 Bear; 1,450원 &amp; <span class="up">+5%</span>p → Bull.</li>
+<li>②세율×OPM: 유효세율 20%·OPM 38% → 순이익 3,900억(Base); 세율 18%·OPM 41% → 4,500억(Bull).</li>
+</ul>
+<hr>
+<h2 id="4-자체-실적-추정-연결-억원">§4. 자체 실적 추정 (연결, 억원)</h2>
+<div class="tablewrap"><table><thead><tr><th>분기</th><th>매출</th><th>영업이익</th><th>OPM</th><th>순이익</th><th>컨센 대비</th></tr></thead><tbody><tr><td>4Q26E(하단/기준/상단)</td><td>2,100 / 2,450 / 2,850</td><td>780 / 950 / 1,150</td><td>37~40%</td><td>450 / 560 / 700</td><td>컨센 매출 2,488·순이익 548 [인용]</td></tr><tr><td>1Q27E</td><td>2,600 / 2,700 / 2,850</td><td>1,000 / 1,080 / 1,180</td><td>38~41%</td><td>820 / 880 / 960</td><td>컨센 매출 2,674·순이익 878</td></tr></tbody></table></div>
+<ul>
+<li><strong>쇼크/서프 기준선</strong>: 4Q26 연결 영업이익 <strong>950억이 인라인 기준선</strong>. ≥1,150억 서프라이즈 / &lt;780억 쇼크. 3Q 일회성(일본 마일스톤) 부재로 QoQ 소폭 둔화는 정상.</li>
+</ul>
+<hr>
+<h2 id="5-매매전략-선물-aff612-상장-레버리지-매매-가능">§5. 매매전략 (선물 ✅ AFF612 상장 — 레버리지 매매 가능)</h2>
+<h3 id="51-레벨-정의-실측-현재가-88700원ma20-81230ma60-804">5-1 레벨 정의 (실측 현재가 88,700원·MA20 81,230·MA60 80,430·20일 고 90,600/저 74,500 기준)</h3>
+<ul>
+<li>진입 구간: 83,000~88,000원(MA20 지지 눌림~현재가). 90,600(20일 고) 돌파 추격은 자제.</li>
+<li>추가매수: 80,000~82,000원(MA20/MA60 지지, 손절선 위).</li>
+<li>손절선: 78,000원(MA60 80,430 하회 확정·20일 저점 74,500 위, 약 1.5×ATR).</li>
+<li>익절: 1차 100,000원(심리저항), 2차 115,000원(컨센 최저 120k 하단 전).</li>
+</ul>
+<p>[실측: KIS 2026-11-16 · ATR은 enrich 손절적정성 배지 참조]</p>
+<h3 id="52-포지션-사이징-자산-대비">5-2 포지션 사이징 (자산 대비 %)</h3>
+<ul>
+<li>리스크예산: 손실예산 1% ÷ 손절폭 약 12%(88,700→78,000) = 자산의 약 <strong>8.3%</strong>.</li>
+<li>집중상한 50%·이벤트 전 상한 25% 중 최소값 → <strong>약 8%</strong> 채택(손절폭이 넓어 자동 축소).</li>
+<li>유동성 상한: 20일 평균 거래대금 186억의 10%(약 19억) 이내 1일 체결[실측: enrich].</li>
+<li>분할: 3회 분할, 각 1/3(진입·추가매수·눌림).</li>
+</ul>
+<h3 id="event-matrix">5-3 이벤트 매트릭스 (4Q26 실적발표 × 당일 반응)</h3>
+<div class="tablewrap"><table><thead><tr><th>실적</th><th>갭하락</th><th>보합</th><th>갭상승</th></tr></thead><tbody><tr><td>서프(OP≥1,150억)</td><td>눌림 매수</td><td>보유·추가</td><td>추격 자제·보유</td></tr><tr><td>인라인(950억)</td><td>손절선 확인</td><td>보유</td><td>1차 익절</td></tr><tr><td>쇼크(&lt;780억)</td><td>전량 청산</td><td>비중 축소</td><td>반등 시 청산</td></tr></tbody></table></div>
+<h3 id="54-기계적-규칙">5-4 기계적 규칙</h3>
+<div class="tablewrap"><table><thead><tr><th>조건</th><th>행동</th><th>근거</th></tr></thead><tbody><tr><td>종가 &lt; 78,000원</td><td>익일 시초 전량 청산</td><td>손절선·MA60 이탈</td></tr><tr><td>4Q26 연결 영업이익 &lt; 850억</td><td>논지 폐기·비중 축소</td><td>일회성 의존 확인</td></tr><tr><td>종가 &gt; 100,000원</td><td>1차 익절(1/2)</td><td>목표 1차 도달</td></tr><tr><td>USD/KRW &lt; 1,300 지속</td><td>목표가 하향 재점검</td><td>환산 매출 압력</td></tr></tbody></table></div>
+<h3 id="55-손익비-진입-88700원-현재가-기준">5-5 손익비 (진입 88,700원 현재가 기준)</h3>
+<ul>
+<li>상승여력 = 100,000−88,700 = 11,300원. 하락리스크 = 88,700−78,000 = 10,700원.</li>
+<li><strong>손익비 = 11,300 ÷ 10,700 = 1:1.06</strong> (1차 목표 기준). 2차 115,000원 기준 1:2.46.</li>
+<li>진입을 MA20 눌림(84,000)으로 당기면: 상승 16,000 ÷ 하락 6,000 = <strong>1:2.67</strong>(1차) → 추격 대신 눌림 진입이 손익비 핵심. 현재가 추격은 손익비 1:1로 부적합 → <strong>관심(watch)</strong> 판정 근거.</li>
+</ul>
+<h3 id="invalidation">5-6 반증 조건 (수치→행동)</h3>
+<ol>
+<li><strong>4Q26 연결 영업이익 &lt; 850억(단일 3개월)</strong>이면 &quot;일회성 제거 후 역성장&quot; → 논지 폐기·비중 축소. (≥1,150억이면 추가매수 검토)</li>
+<li><strong>종가 78,000원(MA60) 이탈</strong>이면 익일 시초 전량 청산.</li>
+<li><strong>오파칼림(opacalim) FDA 임상 보류 추가 장기화/중단 공식화</strong>되면 후속 파이프라인 밸류 제거·목표가 Base→Bear(74,000원) 하향.</li>
+</ol>
+<h3 id="57-촉매-캘린더-날짜-확정예정">5-7 촉매 캘린더 (날짜 확정/예정)</h3>
+<div class="tablewrap"><table><thead><tr><th>날짜</th><th>이벤트</th><th>비고</th></tr></thead><tbody><tr><td>2026-11-13</td><td>세노바메이트 일본 출시(오노약품)</td><td>완료, 로열티·마일스톤 [인용: 2026-11-13]</td></tr><tr><td>2026년 12월</td><td>오파칼림/후속신약 탑라인 기대</td><td>키움·하나 언급 [인용: 2026-11-06]</td></tr><tr><td>2027-02 중순(법정기한)</td><td>4Q26·FY26 실적발표</td><td>결산 2월 관행</td></tr><tr><td>상시</td><td>오파칼림 FDA 임상 보류 해제 여부</td><td>바이오헤이븐 자료 준비 중 [인용: 2026-11-09]</td></tr></tbody></table></div>
+<hr>
+<h2 id="미확인-목록">미확인 목록</h2>
+<ul>
+<li>미국 세노바메이트 분기 TRx/NBRx·net price·시장점유율 실측치(회사 비공개)</li>
+<li>환헤지(통화선도) 잔액·재무위험 민감도 주석 원문</li>
+<li>OCF·FCF·DSO/DIO/DPO 8분기(현금흐름표 추가 파싱 필요)</li>
+<li>5년 월간 PER/PBR 밴드 분위수(흑자전환 초기라 음수 PER 다수)</li>
+<li>글로벌 피어 12M fwd PER/EV·EBITDA 정밀 수치(단일출처)</li>
+<li>미국 뇌전증 TAM 2출처 교차</li>
+<li>배당·밸류업 공시 여부</li>
+<li>수급·공매도·ADV(enrich.py 실측으로 적재 시 자동 보완)</li>
+</ul>
+<h2 id="출처">출처</h2>
+<ul>
+<li>DART 분기보고서 2026.09 접수번호 20261116000480 (2026 3Q 연결/별도 재무·사업내용·매출실적)</li>
+<li>DART 사업보고서 2025.12 접수번호 20260318000773 (제품별 매출·종속회사 실적·단가/원재료 본문)</li>
+<li>FnGuide/WiseReport 컨센서스 2026-11-16 (목표가·FY26~28E·분기 추정, consensus.py)</li>
+<li>증권사 리포트 2026-11-06~11-10 (다올·하나·신한·IBK·교보·신영·키움·메리츠, FnGuide/네이버/한경 집계)</li>
+<li>한국은행 ECOS 731Y001 USD/KRW 평균환율 (earnings/fx.py)</li>
+<li>뉴스: 뉴스핌·히트뉴스(일본 출시 2026-11-13), 데일리메디·팜이데일리(오파칼림 임상 2026-11-09~12), 아시아투데이(후속신약 2026-11-15) — news_search.py Google News RSS</li>
+<li>선물 상장: 한투 개별주식선물 마스터 (kis_futures_check.py, AFF612)</li>
+</ul>
+<h2 id="변경이력">변경이력</h2>
+<ul>
+<li>2026-11-16 신규 작성(deepresearch v2). 3Q26 실적 확인 기반. v1 없음.</li>
+</ul>
+<hr>
+<h2 id="v-검증-미결리스크-체크리스트">§V 검증 미결·리스크 체크리스트</h2>
+<div class="tablewrap"><table><thead><tr><th>검증 항목(선제 의심)</th><th>현재 판정</th><th>미결/추가확인 경로</th></tr></thead><tbody><tr><td>&quot;OP <span class="up">+66%</span>니 순이익도 급증&quot;</td><td><strong>반박</strong>: 순이익 543억 −23.9%(세금 정상화+지분법손실)</td><td>4Q 세율 추이 확인</td></tr><tr><td>서프라이즈가 일회성인가</td><td><strong>부분 일회성</strong>: 일본 마일스톤·아시아 임상종료 용역매출 포함</td><td>4Q에 용역 급감 폭 확인</td></tr><tr><td>환율 역풍 영향</td><td><strong>4Q 하방 위험</strong>: 스팟 1,332 &lt; 3Q평균 1,423</td><td>달러 처방성장으로 상쇄 여부</td></tr><tr><td>고밸류(PER 30배) 정당한가</td><td><strong>조건부</strong>: ROE 30%+ 성장으로 상단 정당화하나 단일제품 할인</td><td>피어 멀티플 교차검증</td></tr><tr><td>오파칼림 파이프라인 가치</td><td><strong>미결 리스크</strong>: FDA 임상 보류 지속</td><td>바이오헤이븐 자료제출·12월 탑라인</td></tr></tbody></table></div>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-16 14:41 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 89,000원 (<span class="up">+1.2%</span>) · 시총 6.97조 · 5일 <span class="up">+2.7%</span> / 20일 <span class="up">+16.8%</span> / 60일 <span class="up">+4.5%</span></li>
+<li>MA5 87,720원 / MA20 81,245원 / MA60 80,435원 → MA20 이격 <span class="up">+9.5%</span> · MA60 이격 <span class="up">+10.6%</span></li>
+<li>52주 고 144,100원 / 저 67,800원 → 고점 대비 <span class="down">-38.2%</span> · 20일 고 90,600원 / 저 74,500원</li>
+<li>후행 PER 26.11 / PBR 8.57 (EPS 3,409원 · BPS 10,382원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 186.5억 (5일 175.4억)</li>
+<li>외국인 순매수 5일 -39.8억 / 20일 -480.6억 · 기관 5일 55.9억 / 20일 1,078.2억 · 개인 20일 -618.9억</li>
+<li>개별주식선물: ⚡ 상장 (AFF612) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 4.45% / 20일 평균 7.55% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 22.47% (10/21) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 100,000원 (<span class="up">+12.4%</span>) ÷ 하방 78,000원 (−12.4%) = <strong>1:1.00</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 12.4% = <strong>자산의 4.0%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.0%</strong></li>
+<li>유동성 참고: 20일 ADV 186.5억 · 1일 소화 한도는 ADV의 10%(18.65억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 12.4% · ATR14 4,471원 (손절폭/ATR 2.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 12.4% = ATR14 × 2.5배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 80,100원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.24</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 有 현재가: 88700원 진입: 83000~88000원 손절: 78000원 목표: 1차 100000원 (2차 115000원) 손익비: 1:2.7 기간: 스윙 6~12주 촉매: 2026년 12월 오파칼림/후속신약 탑라인, 2027년 2월 중순 4Q26 실적발표 반증: 4Q26 연결 영업이익 &lt; 850억(단일 3개월)이면 논지 폐기·비중 축소 / 종가 78000원 이탈 시 전량 청산 / 오파칼림 FDA 임상 보류 장기화·중단 시 목표가 74000원 하향</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
