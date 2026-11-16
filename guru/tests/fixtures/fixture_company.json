@@ -1,0 +1,20 @@
+{
+  "_note": "가상 기업 'A사' — 테스트·문서 예시 전용 (실존 기업 아님, 억원)",
+  "fundamentals": {
+    "code": "000000",
+    "name": "가상A사",
+    "fetched_at": "2026-10-19 09:00",
+    "sources": ["FY2023 사업보고서 2024032X000000", "FY2024 사업보고서 2025032X000000", "FY2025 사업보고서 2026032X000000", "반기보고서 2026 2026081X000000 (TTM 합성)", "감사의견 FY2025: 적정"],
+    "ttm_prev": {"label": "TTM-1Y(2Q25)", "revenue": 3650, "gross_profit": 960, "op": 400, "ni_total": 310, "ni_parent": 303, "cfo": 450, "capex": 190, "da": 165, "interest_exp": 17, "total_assets": 4650, "total_liab": 1680, "equity_parent": 2920, "current_assets": 2150, "current_liab": 980, "cash": 560, "st_debt": 140, "lt_debt": 290, "net_ppe": 1720, "inventories": 550, "dividends_paid": 70, "buyback": 30, "share_issue_proceeds": 0, "shares_out": 20000000, "source": "fixture"},
+    "periods": [
+      {"label": "FY2023", "revenue": 3000, "gross_profit": 750, "op": 300, "ni_total": 230, "ni_parent": 225, "cfo": 380, "capex": 120, "da": 150, "interest_exp": 20, "total_assets": 4000, "total_liab": 1600, "equity_parent": 2350, "current_assets": 1800, "current_liab": 900, "cash": 400, "st_debt": 200, "lt_debt": 300, "net_ppe": 1500, "inventories": 500, "dividends_paid": 60, "buyback": 0, "share_issue_proceeds": 0, "shares_out": 20000000, "source": "fixture"},
+      {"label": "FY2024", "revenue": 3400, "gross_profit": 880, "op": 360, "ni_total": 280, "ni_parent": 274, "cfo": 420, "capex": 180, "da": 160, "interest_exp": 18, "total_assets": 4400, "total_liab": 1650, "equity_parent": 2700, "current_assets": 2000, "current_liab": 950, "cash": 500, "st_debt": 150, "lt_debt": 300, "net_ppe": 1650, "inventories": 540, "dividends_paid": 70, "buyback": 30, "share_issue_proceeds": 0, "shares_out": 20000000, "source": "fixture"},
+      {"label": "FY2025", "revenue": 3900, "gross_profit": 1050, "op": 450, "ni_total": 350, "ni_parent": 342, "cfo": 500, "capex": 200, "da": 170, "interest_exp": 16, "total_assets": 4900, "total_liab": 1700, "equity_parent": 3150, "current_assets": 2300, "current_liab": 1000, "cash": 650, "st_debt": 120, "lt_debt": 280, "net_ppe": 1800, "inventories": 560, "dividends_paid": 90, "buyback": 40, "share_issue_proceeds": 0, "shares_out": 20000000, "source": "fixture"},
+      {"label": "TTM(2Q26)", "revenue": 4300, "gross_profit": 1180, "op": 520, "ni_total": 400, "ni_parent": 392, "cfo": 560, "capex": 210, "da": 175, "interest_exp": 15, "total_assets": 5200, "total_liab": 1750, "equity_parent": 3400, "current_assets": 2450, "current_liab": 1050, "cash": 720, "st_debt": 110, "lt_debt": 260, "net_ppe": 1850, "inventories": 580, "dividends_paid": 90, "buyback": 40, "share_issue_proceeds": 0, "shares_out": 20000000, "source": "fixture"}
+    ],
+    "flags": {"audit_opinion": "적정", "going_concern": false, "icfr_opinion": "적정", "related_party_sales_ratio": 0.08, "dilution_potential": 0.0, "rights_issue_24m": false, "holdco": false, "sector_group": "일반", "notes": []}
+  },
+  "market": {"code": "000000", "name": "가상A사", "asof": "2026-10-19 15:38", "price": 25000, "mcap": 5000, "per": 12.8, "pbr": 1.47, "eps": 1960, "bps": 17000, "ma5": 24500, "ma20": 23800, "ma60": 22000, "ret5": 0.02, "ret20": 0.06, "ret60": 0.18, "high52": 27000, "low52": 15000, "adv20": 25, "frgn5": 5, "frgn20": 45, "orgn5": 3, "orgn20": 20, "indiv20": -60, "short_today": 0.02, "short5": 0.025, "short20": 0.03, "short_above_days": 0, "atr14": 900, "futures": true},
+  "card": {"code": "000000", "name": "가상A사", "verdict": "관심", "verdict_norm": "관심", "entry": 24000, "stop": 22000, "target1": 30000, "target2": 34000, "rr_text": "1:3.0 (1차) · 1:5.0 (2차)", "rr1": 3.0, "horizon": "스윙 8~12주", "catalyst": "3Q 실적", "falsifier": "3Q 영업이익 < 100억"},
+  "regime": {"asof": "2026-10-19", "kospi_above_ma200": true, "kospi_ret60": 0.08, "vkospi": 21.5, "usdkrw_ret20": -0.01, "foreign_net20_market": 12000, "source": "fixture"}
+}
