@@ -1,0 +1,219 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SGC에너지(005090) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261116-121212-SGC에너지-005090.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.78</div><div class="tp-c"><b>결론 발췌</b> 본업가치(발전+건설+유리)가 현 시총을 대부분 설명하고, 그 위에 군산 AIDC 1단계(실체 있는 약정)가 얹힌 구조. 2단계(240MW)는 조건 미확정이라 0가치가 타당. 손익비 1:2.8(1차 목표 46,000원/손절 29,000원 기준). 자체 Base 목표 48,000원·증권사 평균 68,000원 병기. 하락추세 중이라 눌림 분할의 &#x27;관심&#x27;. ━━━━━━━━━━━━━━ ① 사실관계 검증 (블로거 논지 교차확인) • 사업구조[실측: 2026 3Q 분기보고서 20261113000527]: ①에너지(군산 열병합·SMP연동) ②건설(SGC이앤씨, 플랜트EPC·토목건축·물류) ③유리(논산·천안, 병유리·식기). 발전 제품매출 2025년 전…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>SGC에너지(005090)</h1>
+<div class="meta">📊 benine · 2026-11-16 12:12 · 코드 005090</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-16 12:12)</div><div class="kpi-v">33,500원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">4,827억</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.69</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.78</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.78</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">46,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 33,000~34,000원 (2차 30,000~31,000 분할)</span><span class="dc dn">손절 29,000원</span><span class="dc up">목표 46,000원</span><span class="dc">손익비 진입 1:2.78 · 현재가 1:2.78</span><span class="dc">기간 스윙 8~24주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: AIDC 2단계 계약조건 발표·1단계 매각대금 유입 공시·월별 SMP / 2027-03 FY26 사업보고서</div><div class="dc-l">🛑 반증: 4Q26 연결 영업이익&lt;250억 or FY26 연결순이익 적자 재전환 or 종가 29,000원 이탈 → 논지 폐기·청산</div></div>
+
+<div class="body"><p>🏭 정밀 딥리서치 — SGC에너지(005090)  ※개별주식선물 無(현물만·레버리지 불가)</p>
+<p>📌 한줄 결론: 본업가치(발전+건설+유리)가 현 시총을 대부분 설명하고, 그 위에 군산 AIDC 1단계(실체 있는 약정)가 얹힌 구조. 2단계(240MW)는 조건 미확정이라 0가치가 타당. 손익비 1:2.8(1차 목표 46,000원/손절 29,000원 기준). 자체 Base 목표 48,000원·증권사 평균 68,000원 병기. 하락추세 중이라 눌림 분할의 &#x27;관심&#x27;.</p>
+<hr>
+<p>① 사실관계 검증 (블로거 논지 교차확인)</p>
+<ul>
+<li>사업구조[실측: 2026 3Q 분기보고서 20261113000527]: ①에너지(군산 열병합·SMP연동) ②건설(SGC이앤씨, 플랜트EPC·토목건축·물류) ③유리(논산·천안, 병유리·식기). 발전 제품매출 2025년 전기 3,240억(48.5%)·증기 1,277억(19.1%)·REC 1,904억(28.5%)·기타 255억 = 에너지부문 6,676억.</li>
+<li>AIDC 1단계(블로거 주장→교차검증): 군산 60MW·KT클라우드 임차, 한투 PEF 선순위 PF 6,576억(2026-09-30), 완공후 1.27조 선매매 약정, 2028-02 개장. → 뉴스로 테마·방향성은 확인[인용: 프라임경제 2026-11-08 &quot;1차 차익 1조원·2차 4배&quot;], 다만 PF 6,576억·1.27조·2028-02 &#x27;구체 수치&#x27;는 블로거 인용값으로 1차 공시 원문 대조는 [일부 미확인]. 일부 매체는 &quot;2029년 운영 목표&quot;로 보도[인용: 핀포인트뉴스 2026-11-01]되어 개장시점은 단계·보도 간 편차 존재.</li>
+<li>건설 채무보증(리스크 실체): 블로거 &quot;SGC이엔씨 모회사 채무보증 5,568억&quot;. 최근에도 보증 추가[인용: 디지털투데이 2026-11-10 &quot;청라플러스 268억 채무보증 결정&quot;]. → 우발채무·PF 보증이 &#x27;진행형&#x27;임이 뉴스로 확인. 정확한 잔액 5,568억은 [추정: 블로거, 분기보고서 주석 전수대조 미완].</li>
+<li>기대(2단계) vs 실체(1단계) 구분: 1단계는 임차인(KT클라우드)·PF·선매매 &#x27;약정&#x27;이 있는 실체. 2단계 240MW는 임차인·조달·수전 전부 미확정 → 블로거도 2단계 0가치 인정. 이 구분이 투자의 핵심.</li>
+</ul>
+<hr>
+<p>② 실적 분석 (DART 연결 실측, 억원) [실측: 사업보고서 20260312001227 / 분기보고서 20261113000527, 연결·CFS]</p>
+<ul>
+<li>영업이익 추세: FY23 1,068 → FY24 1,896 → FY25 958 → 3Q26누적 399 (3Q25누적 254)</li>
+<li>순이익 추세: FY23 172 → FY24 359 → FY25 ▲948(순손실) → 3Q26누적 <span class="up">+80</span>(흑자전환)</li>
+<li>매출: FY24 23,550 → FY25 24,607 [실측: 수익(매출액)]. (FY23은 구분류 30,241로 연도간 직접비교 주의 → [일부 미확인])</li>
+<li>핵심해석: FY25 영업흑자(958억)인데 순손실 ▲948억의 원인은 &#x27;금융비용 1,910억&#x27;(영익의 2배). 고부채·고금리·건설PF 이자부담이 순익을 삼킴. 영업악화가 아니라 금융비용·일회성 성격 → 2026 금융비용 안정(3Q26누적 366억)되며 순익 흑전.</li>
+<li>영업이익 둔화(1,896→958) 주원인은 SMP 하락. 연평균 SMP(원/kWh)[실측]: 2022 195.5 → 2023 164.8 → 2024 127.0 → 2025 111.9 → 2026 3Q 132.7(반등). 발전은 SMP 연동이라 이익 변동성 큼.</li>
+<li>⚠️ 3Q26 단독 영업손실 ≈ ▲50억[실측 산식: 3Q26누적 399 − 반기누적 449 = ▲50]. 컨센(naver 3Q 영익 461 추정)을 크게 하회 → [인용: DS투자 2026-10-23 &quot;3Q26 영업이익 추정치 하회&quot;]와 정합. 본업 조정+유리 용해로 보수 영향 추정. 4Q 회복 여부가 관건.</li>
+</ul>
+<p>재무건전성(연결)[실측]:</p>
+<ul>
+<li>부채비율: FY23 241.6% → FY24 286.9% → FY25 339.2% → 3Q26 315.8%(부채 25,513억/자본 8,079억)</li>
+<li>이자보상배율[추정: 금융비용을 이자 proxy]: FY24 1.39 → FY25 0.50(⚠️영익으로 이자 못 갚음) → 3Q26 1.09. 1배 부근 아슬아슬 → 금리·차입구조가 최대 재무리스크.</li>
+<li>현금흐름·세부 영업CF는 [미확인](분기보고서 현금흐름표 전수추출 미완).</li>
+</ul>
+<hr>
+<p>③ 미래실적·컨센서스 (4소스 실측) [인용: fnguide/naver/hankyung 집계 2026-11-16]</p>
+<ul>
+<li>연간 컨센(억원·EPS원): FY26E 매출 23,635·영익 1,617·순익 304·EPS 1,925 / FY27E 매출 24,894·영익 1,755·순익 438·EPS 2,487 / FY28E 매출 25,224·영익 2,050·순익 624·EPS 3,362.</li>
+<li>투자의견: Buy 6 / NR 1(최근6M). 목표가 평균 70,167원(최고 86,000·최저 66,000), 증권사 최신 평균 71,750원(4개사).</li>
+<li>최근 리포트: 하나증권 2026-11-09 BUY 68,000원 &quot;전력 조달 문제없음=가장 빠르다, 본업 안정세 전환·AIDC 입지 개선&quot; / DS투자 2026-10-23 BUY 67,000원(하향, 3Q 하회) / 신한투자 2026-10-21 매수 66,000원(신규).</li>
+<li>달성가능성 판정: 中.</li>
+<li>영익 1,617억(FY26E): 3Q26누적 399억뿐 → 4Q에 ~1,200억 쏠림 전제는 과도. 건설 완성공사 4Q 인식 계절성을 감안해도 컨센 하향 압력 존재(→ 달성 &#x27;中&#x27;).</li>
+<li>순익 흑전(FY26E 304억): 3Q26누적 <span class="up">+80</span>억으로 방향성은 부합(達 &#x27;中~高&#x27;).</li>
+<li>AIDC 1단계 매각이익은 2028 완공 전까지 손익 미반영. 컨센 영익/순익은 본업 기준 → AIDC는 밸류 업사이드지 당장 실적 아님.</li>
+</ul>
+<hr>
+<p>④ 밸류에이션·목표가 (SOTP 재구성) 현 시세[실측 2026-11-16]: 주가 33,450원(당일 ▲5.77%)·시총 4,820억·PBR 0.69(BPS 48,667)·PER TTM 적자(-7.85, FY25 순손실 반영)·Fwd PER FY26E 18.4배.</p>
+<ul>
+<li>지배주주 자본 ≈ 7,013억[추정: BPS 48,667×약 1,441만주], 현 시총 4,820억 → 본업 PBR 0.69로 이미 청산가치 이하.</li>
+</ul>
+<p>SOTP 자체 재구성[추정: 산식 노출]:</p>
+<ul>
+<li>(A) 본업가치: 발전+건설+유리. 보수적 지배자본 7,013억×PBR 0.7~1.0 = 4,900~7,000억. 현 시총 4,820억은 본업 하단 수준 → 하방 지지.</li>
+<li>(B) AIDC 1단계: 블로거 모델 &quot;SGC 자기지분 869억 투자→완공후 3,500억+ 회수(1.27조 선매매의 자기지분 몫), 내재 cap rate 7.3%&quot;[추정: 블로거 가정]. 실행리스크·2028 시점 할인 적용 시 순현재가치 1,500~2,500억 → 주당 <span class="up">+10,400</span>~17,400원.</li>
+<li>(C) AIDC 2단계(240MW): 임차인·조달·수전 미확정 → 0가치 인정(블로거·자체 동일).</li>
+</ul>
+<p>→ 자체 적정가치 = (A 4,820~7,000 + B 1,500~2,500 + C 0) = 6,300~9,500억 → 주당 43,700~65,900원.</p>
+<ul>
+<li>자체 Base 목표 48,000원(본업<span class="up">+1</span>단계 보수, 블로거 &#x27;1단계만&#x27; ~4.6만과 정합). 증권사 평균 68,000원(1단계 full<span class="up">+2</span>단계 일부 반영 낙관) 병기.</li>
+<li>블로거 cap rate 모델(1단계 내재 7.3%, 2단계 6.5~8.5%)은 &#x27;블로거 가정&#x27;[추정]이며 1단계 PF 금리·임대료 공시 원문 대조는 미완 → [일부 미확인].</li>
+<li>비교종목[인용: 블로거]: Applied Digital(약정매출 362억달러·시총 50억달러 미만·고점比 ▲66%) — AIDC 약정매출 대비 저평가 사례. 참조만, 직접 멀티플 이식은 부적절(사업모델·회계상이).</li>
+</ul>
+<hr>
+<p>⑤ 손익비 (진입 33,450원 기준)</p>
+<ul>
+<li>상방: 1차 목표 46,000원(본업<span class="up">+1</span>단계 SOTP) = <span class="up">+37.5%</span> / 2차 68,000원(컨센) = <span class="up">+103%</span>.</li>
+<li>하방: 손절 29,000원(20일 저가 30,050·심리선 3만 종가이탈) = ▲13.3%. 최악 블로거 &#x27;1단계 불발&#x27; 2.5만 = ▲25%.</li>
+<li>손익비 = 37.5% ÷ 13.3% = 1:2.8 (1차 목표 기준). 2차 목표 기준 1:7.7. → 손익비 양호, 단 추세는 하락.</li>
+</ul>
+<hr>
+<p>⑥ 진입전략 (현물 스윙·선물 無)</p>
+<ul>
+<li>위치: 52주 70,700~20,150. 현재 33,450 = 고점比 ▲52.7%·저점比 <span class="up">+66%</span>. 중하단. MA5 35,690/MA20 33,972/MA60 46,640 → 역배열(단기·중기선 아래), MA60 괴리 큼. ret20 ▲16.8%·ret60 ▲46.5%, 당일 ▲5.77%로 조정 진행형.</li>
+<li>수급[실측 20일]: 외국인 ▲57.25억 순매도 vs 기관 <span class="up">+39.04</span>억·개인 <span class="up">+18.79</span>억 순매수. 기관 매집 vs 외국인 이탈 혼조. 공매도 20일평균 12.59%(압력 높음, 당일 0%). 20일 평균 거래대금 38.7억 → 1일 체결상한(ADV 10%) 약 3.9억.</li>
+<li>3라인(현물): 1차 진입 33,000~34,000(현 구간·MA20 부근) / 2차 분할 30,000~31,000(20일 저·3만 지지) — 3회 분할, 각 1/3 / 손절 종가 29,000 이탈 전량 / 1차 익절 39,000~40,000(20일 고·MA60 접근 저항) / 2차 익절 46,000(SOTP) / 최종 68,000(2단계 가시화 시).</li>
+<li>리스크 경고: ①개별주식선물 미상장 → 레버리지 불가, 현물만. ②건설PF 채무보증(진행형, 청라플러스 등) 사고 시 블로거 시나리오 0.9~1.5만까지. ③부채비율 316%·이자보상 1배 부근 → 금리 민감. ④AIDC는 기대, 당장 손익 아님. 50% 집중은 부적합(본업 변동성+PF우발채무).</li>
+</ul>
+<hr>
+<p>⑧ 산업·제품 바텀업 모델 (§9) 9-1 제품분해[실측 2025 에너지부문]: 전기 3,240억(48.5%)·증기 1,277억(19.1%)·REC 1,904억(28.5%)·기타 255억. 별도로 건설(SGC이앤씨)·유리(논산·천안)가 연결매출 대부분 구성. 9-3 전방(AIDC): 수도권 데이터센터 쏠림(운영 161곳 중 수도권 62.7%)[인용: 데이터이코노미 2026-11-15] → 군산 비수도권 입지의 전력·부지 강점이 AIDC 셀링포인트(하나증권 &quot;전력조달 문제없음&quot;). 2단계 TAM·임차수요는 [미확인]. 9-4 단가: 발전 핵심변수 SMP. 블로거 &quot;SMP 10원↑ → 발전 연 영익 <span class="up">+320</span>억&quot;[추정: 블로거]. 자체검증: 전기매출 3,240억·2025 SMP 111.9 기준, <span class="up">+10</span>원은 약 <span class="up">+8.9%</span> 단가 → 변동분 상당부 이익귀속 가정 시 수백억대 레버리지는 합리적 방향(정확 탄력도 [미확인]). 9-5 유리 CAPA: 논산·천안 273,750톤, 2025 가동률 81.4%[실측]. 증기 CAPA 15,768천톤·가동률 83.9%. 9-7 바텀업 결론(반증 임계): 본업 영업이익 회복 여부가 논지 핵심.</p>
+<ul>
+<li>Base: FY26 연결 영업이익 ≥ 1,300억이면 본업 정상·AIDC 옵션 유효 → 유지·분할매수.</li>
+<li>Bear: 4Q26 연결 영업이익 &lt; 250억(분기)이면 본업 훼손 지속 → 논지 약화·비중축소.</li>
+<li>폐기: FY26 연결 순이익 적자 재전환이면 본업+금융비용 동반악화 → 전량 청산 검토.</li>
+</ul>
+<p>(3Q26 단독 ▲50억 영업손실 이미 확인 → 4Q 반등이 1차 체크포인트.)</p>
+<hr>
+<p>⑦ 촉매·반증·시나리오 촉매 캘린더(날짜 확정):</p>
+<ul>
+<li>2026-11월(완료): 3Q26 분기보고서(11/13 접수)·실적 Q&amp;A → 3Q 본업 부진 반영 중.</li>
+<li>2027-03월: FY26 사업보고서(법정기한) → 본업 영익·AIDC 진척·채무보증 잔액 확인.</li>
+<li>수시: AIDC 2단계 임차인·조달·수전 &#x27;계약조건 발표&#x27; / 1단계 매각대금 유입 공시 / 월별 SMP.</li>
+<li>2028-02(블로거): AIDC 1단계 개장 목표(일부 매체 2029).</li>
+</ul>
+<p>반증 3개(수치→행동): ① 4Q26 연결 영업이익 &lt; 250억(분기)이면 본업 조정 지속 → 비중축소. ② FY26 연결 순이익 적자 재전환이면 금융비용 재악화 → 전량 청산. ③ 종가 29,000원 이탈이면 추세 훼손 → 전량 청산(손절선 아래 추가매수 금지).</p>
+<p>이벤트 매트릭스(차기 실적/AIDC 공시 × 당일):</p>
+<ul>
+<li>서프라이즈(본업 회복 or 2단계 계약)×갭상승 → 추격 자제, 눌림 대기.</li>
+<li>인라인×보합 → 분할 유지.</li>
+<li>쇼크(본업 추가부진 or 보증사고)×갭하락 → 손절선 점검, 29,000 이탈 시 청산.</li>
+</ul>
+<p>확률가중 시나리오(블로거 시나리오 참조·자체 조정):</p>
+<ul>
+<li>Bull 15%: 2단계 실현 → 11만원대. 기여 <span class="up">+16,500.</span></li>
+<li>Base 70%: 1단계만 실현·본업 안정 → 46,000원. 기여 <span class="up">+32,200.</span></li>
+<li>Bear(불발) 10%: AIDC 1단계 차질 → 25,000원. 기여 <span class="up">+2,500.</span></li>
+<li>사고 5%: 건설PF 보증사고 → 12,000원. 기여 <span class="up">+600.</span></li>
+</ul>
+<p>→ 확률가중 기대값 ≈ 51,800원[추정: 가중합], 현재가 33,450 대비 <span class="up">+55%</span>. (상방이 큰 비대칭 구조, 단 꼬리리스크 15% 존재)</p>
+<p>포지션 사이징(자산 대비 %): 손실예산 1% ÷ 손절폭 13.3% = 자산의 7.5%. 이벤트전 상한 25%·집중상한 50% 중 최소값 = 7.5% 채택. 고변동(RV20 54%·VKOSPI 50)·PF우발채무 감안 하한 권고.</p>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거 글은 참고용 가설이며 cap rate·PF 수치는 &#x27;블로거 추정&#x27;으로 공시 원문 대조 일부 미완. 증권사 목표가는 &#x27;추정&#x27;.</p>
+<p>[미확인 목록] AIDC PF 6,576억·1.27조·2028-02 공시원문 / 건설 채무보증 정확 잔액(5,568억 추정) / 영업현금흐름 세부 / 3Q26 단독 손익 일회성 분해 / 2단계 TAM·임차수요 / SMP 정확 이익탄력도. [출처 목록] DART 사업보고서 20260312001227·분기보고서 20261113000527 / KIS 시세 2026-11-16 / fnguide·naver·hankyung 컨센 / 프라임경제·핀포인트·디지털투데이·데이터이코노미·MK 뉴스 / 블로거 kth3276(2026-11-15). [검산] 3Q26 단독영익 399누적−449반기H1=▲50 ✓ / 부채비율 25,513/8,079=315.8% ✓ / 손익비 37.5÷13.3=2.82 ✓ / 시나리오 확률합 15<span class="up">+70</span><span class="up">+10</span><span class="up">+5</span>=100% ✓.</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-16 12:12 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 33,500원 (<span class="down">-5.6%</span>) · 시총 4,827억 · 5일 <span class="down">-2.0%</span> / 20일 <span class="down">-16.7%</span> / 60일 <span class="down">-46.4%</span></li>
+<li>MA5 35,700원 / MA20 33,975원 / MA60 46,641원 → MA20 이격 <span class="down">-1.4%</span> · MA60 이격 <span class="down">-28.2%</span></li>
+<li>52주 고 70,700원 / 저 20,150원 → 고점 대비 <span class="down">-52.6%</span> · 20일 고 39,700원 / 저 30,050원</li>
+<li>후행 PER -7.87 / PBR 0.69 (EPS -4,259원 · BPS 48,667원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 38.7억 (5일 29.2억)</li>
+<li>외국인 순매수 5일 0.5억 / 20일 -57.2억 · 기관 5일 3.0억 / 20일 39.0억 · 개인 20일 18.8억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 8.73% / 20일 평균 12.59% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 27.83% (11/03) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 46,000원 (<span class="up">+37.3%</span>) ÷ 하방 29,000원 (−13.4%) = <strong>1:2.78</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 13.4% = <strong>자산의 3.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.7%</strong></li>
+<li>유동성 참고: 20일 ADV 38.7억 · 1일 소화 한도는 ADV의 10%(3.87억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 13.4% · ATR14 2,625원 (손절폭/ATR 1.7배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 13.4% = ATR14 × 1.7배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 29,562원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:3.17</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-005090"></span>📋 결정카드 — SGC에너지(005090) 판정: 관심 선물: 無 현재가: 33,450원 진입: 33,000~34,000원 (2차 30,000~31,000 분할) 손절: 29,000원 목표: 1차 46,000원 (2차 68,000원) 손익비: 1:2.8 기간: 스윙 8~24주 촉매: AIDC 2단계 계약조건 발표·1단계 매각대금 유입 공시·월별 SMP / 2027-03 FY26 사업보고서 반증: 4Q26 연결 영업이익&lt;250억 or FY26 연결순이익 적자 재전환 or 종가 29,000원 이탈 → 논지 폐기·청산</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
