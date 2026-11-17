@@ -1,0 +1,196 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한양디지텍 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261118-080903-한양디지텍.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:1.71</div><div class="tp-c"><b>결론 발췌</b> 3Q 영업이익 쇼크(14억)는 PCB 단가 2배 급등+환율 고점 안전재고의 &#x27;일회성&#x27;이 사실로 확인되나, 고가재고 521억이 4Q 원가로 추가 유입되고 주가는 이미 고점 대비 반토막(−49.9%)·KOSPI 하락국면·삼성 97% 단일고객. 손익비 1:1.1(진입상단)로 빈약 → 판정 관망. 자체 목표가(정상화 Base) 26,000원.  ※기존 추종논지는 &#x27;논지 폐기&#x27;, 일회성·2027 성장은 재검증 단계. ⚠️ 리서치 참고용·매수강요 아님. 원본 블로그(roadtofund)는 개인의견·참고용. 증권사 커버리지 부재로 미래치는 &#x27;추정&#x27;.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>한양디지텍</h1>
+<div class="meta">📊 benine · 2026-11-18 08:09 · 코드 078350</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-18 08:09)</div><div class="kpi-v">22,200원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3,384억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">22.61</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.9</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.71</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.67</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">26,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 19,000~21,000원 (도달 후 KOSPI 20일선 회복+종가 MA5 위 안착 확인 시 분할, 확인형)</span><span class="dc dn">손절 16,500원</span><span class="dc up">목표 26,000원</span><span class="dc">손익비 진입 1:1.71 · 현재가 1:0.67 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.1</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.1로 적었지만 진입·손절·목표로 계산하면 1:1.71다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주(4Q 실적 확인까지)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 4Q26 실적(2027.2 잠정~3/31) · 2027.1 베트남 착공·6월 가동</div><div class="dc-l">🛑 반증: 4Q26 연결 영업이익 &lt; 30억이면 논지 폐기·청산 / ≥100억이면 관심 상향 / 종가 16,500원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 한양디지텍(078350)  ※선물 無(현물 스윙만, 레버리지 불가)</p>
+<p>📌 한줄 결론: 3Q 영업이익 쇼크(14억)는 PCB 단가 2배 급등+환율 고점 안전재고의 &#x27;일회성&#x27;이 사실로 확인되나, 고가재고 521억이 4Q 원가로 추가 유입되고 주가는 이미 고점 대비 반토막(−49.9%)·KOSPI 하락국면·삼성 97% 단일고객. 손익비 1:1.1(진입상단)로 빈약 → <strong>판정 관망</strong>. 자체 목표가(정상화 Base) 26,000원.  ※기존 추종논지는 &#x27;논지 폐기&#x27;, 일회성·2027 성장은 재검증 단계.</p>
+<p>⚠️ 리서치 참고용·매수강요 아님. 원본 블로그(roadtofund)는 개인의견·참고용. 증권사 커버리지 부재로 미래치는 &#x27;추정&#x27;.</p>
+<p>⓪ 실전 기준 (scorecard.py --brief 2026-11-17 실측)</p>
+<ul>
+<li>시장 국면: 하락(KOSPI 20일선 아래) — KOSPI 4,968 / 20일선 5,479 / 60일선 6,273 · 20일 −10.5%</li>
+<li>종목 변동성: 일중 변동폭(14일) 13.9% → 손절 하한 = 진입상단서 20.9%(1.5배) 이상 아래 · 60일 베타 1.49 · 20일 평균 거래대금 189억 · 직전 20일 −38.4% · 60일 고점 대비 −48.0%</li>
+<li>1회 손실예산: 자산의 0.5%(고변동 레짐)</li>
+<li>최근 관심·매수 카드 사후(발행 9/9~11/17, n=232~288): 구간 지정가 목표먼저 15%/손절먼저 80% · 지수 대비 목표 35%/손절 40% · 20일뒤 종가 Bear이하 실제 48%</li>
+<li>직전 카드 점검(이 종목):</li>
+<li>10/10 관심 진입 34,000~35,000·손절 31,900·목표 44,300 → 이후 최저 21,450·최고 42,700, 손절 이탈 10/20</li>
+<li>이후 실제: 3Q 쇼크(11/12 공시)로 급락, 현재 22,200(직전 손절선들 전부 하회)</li>
+<li>이번에 달라진 사실: 3Q 실적 반증 임계(영익&lt;100억) 깨짐=shock 확정 / <strong>신규: 2026-11-17 베트남 2,200억(160M USD) 증설 공시</strong>(creditnews.kr idxno=32640)</li>
+</ul>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율·자금: 20일 평균 거래대금 189억(5일 200억), 외국인 20일 −148억 순매도 vs 기관 <span class="up">+254</span>억 순매수(개인 −99억) [실측:KIS]</li>
+<li>추세: 이평선 완전 역배열 아래(MA5 25,040&gt;현재 22,200, MA20 31,290·MA60 28,149) · 20일 −38% · 52주고 44,300 대비 −49.9%(저점권) — 급락 후 바닥 탐색, 추세 반전 미확인</li>
+</ul>
+<p>② 사업·쇼크사유</p>
+<ul>
+<li>주력: 삼성전자향 메모리모듈(매출 64.9%)·SSD(33.6%) OSAT(모듈하우스). 삼성 DRAM을 서버·PC용 모듈로 조립, <strong>매출의 약 97%가 삼성 의존</strong> [인용:creditnews 2026-11-17]. 전방=서버 DRAM(RDIMM)·PC</li>
+<li>3Q 쇼크 사유(검증됨): 매출 2,758억 사상최대·풀가동인데 영익 14억(2Q 154억). 원인 2중타 — (a) PCB 단가 급등: 메모리모듈 PCB USD 2.40(FY25)→<strong>5.16(3Q26, <span class="up">+115%</span>)</strong> [실측:분기보고서 20261112000320], (b) 환율 1,500원대 고점서 안전재고 대량매입 → 재고자산 3Q <span class="up">+521</span>억 폭증, 3Q말 환율 1,300원대 급락분이 고가원가로 인식. &#x27;빅배스&#x27;보다 원가·일회성 비용 무게 [인용:알파경제 2026-11-12]</li>
+<li>판단: 일회성 맞음. 단 고가재고 521억이 <strong>4Q COGS로 추가 유입</strong> → 4Q도 원가부담 잔존(블로거도 &#x27;길면 4Q&#x27; 인정)</li>
+</ul>
+<p>③ 실적 (DART 연결 실측, 단위 억원)</p>
+<ul>
+<li>연간: FY23 매출4,788/영익191(OPM4.0%)/순익126 → FY24 5,952(<span class="up">+24%</span>)/350(5.9%)/255 → FY25 6,511(<span class="up">+9%</span>)/239(3.7%)/150</li>
+<li>분기(2026 연결·3개월): 1Q 매출1,920/영익67.6(3.5%)/순익50.2 → 2Q 2,580/153.8(6.0%)/111.4 → <strong>3Q 2,758/14.5(0.53%)/51.3</strong> · 9M누적 7,258/236.0/212.9</li>
+</ul>
+<p>※3Q 순익(51.3)&gt;영익(14.5): 환율하락 외화관련 영업외이익이 순익 방어 [실측:포괄손익]</p>
+<ul>
+<li>재무건전성: 재고자산 FY25 665→1Q772→2Q823→<strong>3Q 1,344억(<span class="up">+521</span> QoQ·<span class="up">+102%</span>YoY)</strong> / 부채비율 FY25 75.0%→<strong>3Q 131.9%</strong>(재고·매입 급증) / 9M 영업현금흐름 <span class="up">+341</span>억(매입채무로 충당) / 이자보상배율 미확인</li>
+<li>검산: 분기합 영익 67.6<span class="up">+153.8</span><span class="up">+14.5</span>=235.9≈누적236.0 ✓ / 매출 1,920<span class="up">+2,580</span><span class="up">+2,758</span>=7,258 ✓</li>
+</ul>
+<p>④ 미래실적·컨센서스</p>
+<ul>
+<li>증권사 컨센서스: <strong>미확인</strong>(stockeasy·네이버·FnGuide·한경 4소스 0건 — 커버리지 부재). 목표가·추정치 없음</li>
+<li>자체 추정[추정]: FY26 영익 Base ~250억(4Q 고가재고 소진으로 ~37억 저조 가정, 9M 236<span class="up">+4</span>Q 저조) / FY27 매출 ~8,500~9,500억·OPM 5~6% 회복·베트남 증설 램프 → 영익 ~480억·순익 ~340~370억</li>
+<li>달성가능성 中: 근거(+) 베트남 2,200억 증설(2027.6 가동, 삼성 타이응우옌 공장 대응)·서버 RDIMM 수요·삼성 HBM 외주로 모듈 밀어내기 / (−) 삼성 97% 단일고객·PCB 단가·환율 변수·4Q 불확실</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 22,200 / 시총 3,384억 / 주식수 ~1,524만주</li>
+<li>PER 22.6(FY25 EPS 982 기준)·PBR 1.66(3Q26 자본 2,038억→BPS 13,373) [실측:enrich·DART]</li>
+<li>peer(2025 연간): 심텍 PBR6.97/적자, SK PER21.3/PBR1.02, 에이팩트 PER5.9/PBR1.51, SFA반도체 적자/PBR2.8, 드림텍 PBR1.0 — OSAT 피어 대부분 이익 부진, PBR 1.0~2.8 밴드</li>
+<li>자체 목표가[추정]: 정상화 EPS(FY27 추정) ~2,300원 × 적정 PER 11배(소형·삼성 단일고객 디스카운트) = <strong>25,300원 → 1차 26,000</strong>. 현재가는 정상화 forward PER 9~10배 수준으로 &#x27;싸지도 비싸지도 않음&#x27;</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 無 — 현물 스윙만, 레버리지 불가)</p>
+<ul>
+<li>지지/저항: 저항 MA5 25,040·MA20 31,290(전부 위) / 지지 심리선 20,000·52주저 13,720. 현재 20일 저점권(22,200)</li>
+<li>손익비(진입상단 21,000 기준): 상승여력 (26,000−21,000)/21,000=<span class="up">+23.8%</span> ÷ 하락폭 (21,000−16,500)/21,000=−21.4% = <strong>1:1.1</strong> / 현재가 기준 1:0.7 / 손익분기 승률 47% vs 최근 실제 20%(지수대비 39%) → <strong>빈약, 진입 부적합</strong></li>
+<li>손절: 16,500원 = 진입상단 대비 −21.4% = 일중변동폭의 1.5배(극단적 변동성 탓 손절폭 넓음 → 비중 축소로 대응)</li>
+<li>진입 조건(확인형): 19,000~21,000원 도달 후 <strong>KOSPI 20일선 회복 + 종가가 MA5 위 안착</strong> 확인 시 분할. 눌림 없이 오르면: 25,000원 종가 돌파 시에만 소량, 그 전 추격 안 함</li>
+<li>비중 상한: 자산의 2.3%(손실예산 0.5% ÷ 손절폭 21.4%) — 집중 50%·이벤트전 25%·Bear한도 5.7% 중 최소값. 50% 집중 절대 금지(단일고객+고변동)</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (실측 기반)</p>
+<ul>
+<li>9-1 매출구성(3Q26): 메모리모듈 64.9%·SSD 33.6%·PSSD 0.1%·IP통신 0.6% [실측:20261112000320]</li>
+<li>9-2 고객: 삼성전자 약 97% 단일고객(서버·PC DRAM 모듈 OSAT) [인용:creditnews]</li>
+<li>9-4 단가/원가: 메모리모듈 PCB USD 2.40→5.16(<span class="up">+115%</span>, 일회성 급등) · 메모리모듈 가동률 FY25 81.8%</li>
+<li>9-5 CAPA·증설: 올해 유형자산 취득 673억(건설중자산 440억↑, 기계장치 278→543억) [실측:분기보고서] + 베트남 2,200억(160M USD, 110M 집행, 2027.1 착공·6월 가동)</li>
+<li>9-7 바텀업: 3Q 매출 2,758억 풀가동이 정상 런레이트. 원가 정상화(PCB 단가 하향+고가재고 소진) 시 OPM 5~6% 복귀 → 분기 영익 ~140~165억. 2027 베트남 증설분 가세 시 연 영익 ~480억[추정]</li>
+<li>결론 임계: <strong>4Q26 연결 영업이익 ≥ 100억이면 원가 정상화·논지 유지, &lt; 30억이면 원가쇼크 구조화·논지 폐기</strong></li>
+</ul>
+<p>⑦ 촉매·반증·이벤트</p>
+<ul>
+<li>촉매 캘린더: 4Q26 실적(2027.2 중순 잠정 전후·사업보고서 법정기한 2027-03-31) / 2027.1 베트남 착공·6월 가동</li>
+<li>반증 3개(수치→행동): ①4Q26 연결 영업이익 &lt; 30억이면 논지 폐기·청산 ②종가 16,500원 이탈 시 전량 청산 ③2027 분기 OPM 지속 &lt; 2%면 성장스토리 폐기</li>
+<li>이벤트 매트릭스: 4Q실적 [쇼크&lt;30억→청산 / 인라인 30~100억→관망유지 / 서프≥100억→관심상향] × 당일 [갭하 추격금지 / 갭상 돌파확인 후]</li>
+<li>확률가중 시나리오(기저율 Bear 48%서 출발):</li>
+<li>Bear 40%(기저율 48%→하향, 급락 선반영): 4Q도 원가쇼크·삼성 둔화 → EPS×낮은멀티플, 전저점권 15,500원(−30%)</li>
+<li>Base 42%: 4Q 부분정상화·2027 성장 가시 → 26,000원(<span class="up">+17%</span>)</li>
+<li>Bull 18%: 원가 조기정상화+베트남 조기수주 → 31,000원(<span class="up">+40%</span>)</li>
+<li>기대수익(손절적용): 목표선도달 15%×<span class="up">+17%</span> − 손절선도달 80%×−21.4% = −14.6% → 현 구간 기대값 음(−)</li>
+<li>수급·유동성: 외국인 20일 −148억·기관 <span class="up">+254</span>억·개인 −99억 / 20일 평균 거래대금 189억 → 1일 체결상한(ADV10%) 약 18.9억 [실측:KIS]</li>
+<li>거래제약·오버행: 투자경고·단기과열·거래정지 지정 없음(확인:KIS 현재가 응답 특이 없음·최근뉴스 3건) / 미상환 CB·BW·유상증자 <strong>미확인</strong>(주요사항보고서 별도 미조회)</li>
+<li>컨센서스 방향: 추정치 미확인(커버리지 부재) → 목표가는 자체 정상화 EPS 기준</li>
+</ul>
+<p>[미확인 목록] 증권사 컨센서스·목표가 / 이자보상배율 / 미상환 CB·BW·보호예수 / 삼성 외주물량 구체 수치 [출처 목록] DART 분기보고서 20261112000320·사업보고서 20260316001638 / KIS 시세 2026-11-18 / creditnews.kr idxno=32640(2026-11-17) / 알파경제 2026-11-12 / 네이버·구글뉴스 news_search / 원본 블로그 roadtofund(개인의견) [검산] 분기합 영익 235.9≈누적236.0 ✓ / 매출 7,258 ✓ / 손익비 산식 헤더·본문 1:1.1 일치 ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-18 08:09 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 22,200원 (<span class="up">+0.0%</span>) · 시총 3,384억 · 5일 <span class="down">-28.4%</span> / 20일 <span class="down">-38.3%</span> / 60일 <span class="down">-2.2%</span></li>
+<li>MA5 25,040원 / MA20 31,290원 / MA60 28,150원 → MA20 이격 <span class="down">-29.1%</span> · MA60 이격 <span class="down">-21.1%</span></li>
+<li>52주 고 44,300원 / 저 13,720원 → 고점 대비 <span class="down">-49.9%</span> · 20일 고 41,000원 / 저 22,200원</li>
+<li>후행 PER 22.61 / PBR 1.9 (EPS 982원 · BPS 11,658원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 178.2억 (5일 200.4억)</li>
+<li>외국인 순매수 5일 37.1억 / 20일 -148.1억 · 기관 5일 30.3억 / 20일 254.2억 · 개인 20일 -99.5억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.23% / 20일 평균 1.56% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 4.25% (11/10) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 26,000원 (<span class="up">+17.1%</span>) ÷ 하방 16,500원 (−25.7%) = <strong>1:0.67</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 25.7% = <strong>자산의 1.9%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.9%</strong></li>
+<li>유동성 참고: 20일 ADV 178.2억 · 1일 소화 한도는 ADV의 10%(17.82억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 25.7% · ATR14 3,779원 (손절폭/ATR 1.5배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 25.7% = ATR14 × 1.5배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 16,532원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.67</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-078350"></span>📋 결정카드 — 한양디지텍(078350) 판정: 관망 선물: 無 현재가: 22,200원 진입: 19,000~21,000원 (도달 후 KOSPI 20일선 회복+종가 MA5 위 안착 확인 시 분할, 확인형) 손절: 16,500원 목표: 1차 26,000원 (2차 31,000원) 손익비: 1:1.1 기간: 스윙 6~12주(4Q 실적 확인까지) 촉매: 4Q26 실적(2027.2 잠정~3/31) · 2027.1 베트남 착공·6월 가동 반증: 4Q26 연결 영업이익 &lt; 30억이면 논지 폐기·청산 / ≥100억이면 관심 상향 / 종가 16,500원 이탈 시 청산 지수조건: KOSPI 20일선 회복 후 요구승률: 47% (=1÷(1<span class="up">+1.1</span>)) vs 최근 실제 20% 직전카드: 2026-10-10 관심 → 손절 이탈(10/20)·3Q 쇼크로 급락 검증: ✅5 ⚠️2 ❌0 | 손절 거리 1.5배 · 손익비 1:1.1(상단)/1:0.7(현재가) · 요구승률 47% vs 최근 20% · 비중 상한 2.3%</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
