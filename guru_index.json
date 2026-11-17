@@ -1,6 +1,6 @@
 {
  "version": "1.0.0",
- "count": 494,
+ "count": 497,
  "rows": [
   {
    "code": "032820",
@@ -14821,6 +14821,96 @@
    "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240516000401 · KIS enrich 2026-11-17 08:13 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-17 08:20",
    "report": "20261117-081317-프로텍-053610",
    "date": "20261117"
+  },
+  {
+   "code": "107640",
+   "name": "한중엔시에스",
+   "ver": "v1",
+   "fit": 0,
+   "total": 6,
+   "bucket": "lo",
+   "mean": 0.07,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
+   "v": {
+    "buffett": "부적합",
+    "munger": "부적합",
+    "druckenmiller": "부적합",
+    "graham": "부적합",
+    "piotroski": "부적합",
+    "greenblatt": "부적합"
+   },
+   "s": {
+    "buffett": 0.0,
+    "munger": 0.0,
+    "druckenmiller": 0.23,
+    "graham": 0.07,
+    "piotroski": 0.11,
+    "greenblatt": 0.0
+   },
+   "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240321000236 · KIS enrich 2026-11-18 08:08 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-18 08:20",
+   "report": "20261118-080828-한중엔시에스",
+   "date": "20261118"
+  },
+  {
+   "code": "493330",
+   "name": "지에프아이",
+   "ver": "v1",
+   "fit": 1,
+   "total": 6,
+   "bucket": "lo",
+   "mean": 0.51,
+   "summary": "산출 4/6 · 가치·품질 부분 적합 · 상황 비우호",
+   "v": {
+    "buffett": "부적합",
+    "munger": "적합",
+    "druckenmiller": "부적합",
+    "graham": "데이터부족",
+    "piotroski": "보류",
+    "greenblatt": "데이터부족"
+   },
+   "s": {
+    "buffett": 0.41,
+    "munger": 0.77,
+    "druckenmiller": 0.42,
+    "graham": null,
+    "piotroski": 0.44,
+    "greenblatt": null
+   },
+   "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
+   "snapshot": "DART 연결 FY2025·TTM(3Q26) · FY2025 사업보고서 20260320000164 · KIS enrich 2026-11-18 08:08 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-18 08:20",
+   "report": "20261118-080851-지에프아이",
+   "date": "20261118"
+  },
+  {
+   "code": "078350",
+   "name": "한양디지텍",
+   "ver": "v1",
+   "fit": 1,
+   "total": 6,
+   "bucket": "lo",
+   "mean": 0.43,
+   "summary": "산출 6/6 · 가치·품질 부분 적합 · 상황 비우호",
+   "v": {
+    "buffett": "부적합",
+    "munger": "적합",
+    "druckenmiller": "부적합",
+    "graham": "보류",
+    "piotroski": "부적합",
+    "greenblatt": "보류"
+   },
+   "s": {
+    "buffett": 0.37,
+    "munger": 0.67,
+    "druckenmiller": 0.32,
+    "graham": 0.57,
+    "piotroski": 0.11,
+    "greenblatt": 0.56
+   },
+   "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240318000550 · KIS enrich 2026-11-18 08:09 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-18 08:21",
+   "report": "20261118-080903-한양디지텍",
+   "date": "20261118"
   }
  ]
 }
