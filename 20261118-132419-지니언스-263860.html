@@ -1,0 +1,461 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>지니언스(263860) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261118-132419-지니언스-263860.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:1.7</div><div class="tp-c"><b>결론 발췌</b> 지니언스는 2026년 1~3분기 연결 매출 387억(+24.1%)·영업이익 80.9억(+269%)으로 2025년의 역성장을 벗어났고 2024년 같은 기간과 견줘도 영업이익이 2.2배이며, 2027년에 시행과 평가가 몰린 규제(공공 EDR 관제 연동·보안 예산 15% 의무, 금융 IT자산 식별 의무, 상장사 전체 정보보호 공시) 덕에 연 17% 안팎의 매출 성장을 기대할 수 있다. 그러나 현재가 40,550원은 자체 FY27E EPS 1,677원의 24.2배로, 7월 저점 뒤 주가 상승(3.5배)의 74%가 이익이 아니라 배수 확장이고 12개월 확률가중 적정가 30,980원(−23.6%)을 넘는다 — 판정 관망: 1차 목표 33,500원(…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>지니언스(263860)</h1>
+<div class="meta">📊 deepresearch · 2026-11-18 13:24 · 코드 263860</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-18 13:24)</div><div class="kpi-v">39,700원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3,605억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">48.06</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">5.54</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.7</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:-0.3</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">33,500원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 23,500~25,500원 (확인형: 도달 후 종가가 전일 고가 위에서 마감하면 다음 거래일 — KOSPI </span><span class="dc dn">손절 19,200원</span><span class="dc up">목표 33,500원</span><span class="dc">손익비 진입 1:1.7 · 현재가 1:-0.3 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.27</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.27로 적었지만 진입·손절·목표로 계산하면 1:1.7다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 3~6개월 (밸류 기준 12개월)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-11-30 금융권 1차 전수점검·행정지도 시행 / 2027년 2월 4Q26 잠정실적(법정기한 2027-03-31) / 2027년 1분기 전자금융감독규정 개정 시행·망분리 개선 방안</div><div class="dc-l">🛑 반증: 4Q26 연결 영업이익 &lt; 45억이면 Bear 전환·진입 계획 폐기 / ≥ 65억이고 FY27E 컨센 EPS ≥ 1,900원이면 관망 해제·적정가 재산정 / 종가 19,200원 이탈 시 조건부 진입분 전량 청산</div></div>
+
+<div class="body"><h1>지니언스(263860) 딥리서치 — 2026-05 원 리포트 갱신판</h1>
+<p><strong>실적은 한 단계 올라섰고, 주가는 그보다 더 멀리 갔다</strong> · 기준 시세 40,550원 [실측: KIS 2026-11-18 12:37] · 연결 기준 · 단위는 따로 적지 않으면 억원</p>
+<h2 id="한줄-결론">한줄 결론</h2>
+<p>지니언스는 2026년 1~3분기 연결 매출 387억(<span class="up">+24.1%</span>)·영업이익 80.9억(<span class="up">+269%</span>)으로 2025년의 역성장을 벗어났고 2024년 같은 기간과 견줘도 영업이익이 2.2배이며, 2027년에 시행과 평가가 몰린 규제(공공 EDR 관제 연동·보안 예산 15% 의무, 금융 IT자산 식별 의무, 상장사 전체 정보보호 공시) 덕에 연 17% 안팎의 매출 성장을 기대할 수 있다. 그러나 현재가 40,550원은 자체 FY27E EPS 1,677원의 24.2배로, 7월 저점 뒤 주가 상승(3.5배)의 74%가 이익이 아니라 배수 확장이고 12개월 확률가중 적정가 30,980원(−23.6%)을 넘는다 — <strong>판정 관망</strong>: 1차 목표 33,500원(Base 적정가)이 현재가 아래라 현재가 기준 손익비는 음수이고, 눌림 구간 23,500~25,500원에서도 손익비는 1:1.27에 그친다.</p>
+<h2 id="판단-요약표">판단 요약표</h2>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>값</th><th>근거</th></tr></thead><tbody><tr><td>판정</td><td>관망</td><td>현재가 &gt; Base 적정가 · 하락 국면(매수 불가) · 눌림 구간 손익비 1:1.27</td></tr><tr><td>현재가</td><td>40,550원 (<span class="up">+10.8%</span>, 장중 고가 45,000원)</td><td>[실측: KIS 2026-11-18 12:37]</td></tr><tr><td>12개월 적정가</td><td>Bear 16,100 / Base 33,500 / Bull 47,000원</td><td>§5-5 시나리오</td></tr><tr><td>확률가중 기대값</td><td>30,980원 (현재가 대비 −23.6%)</td><td>Bear 30% · Base 50% · Bull 20%</td></tr><tr><td>현재 배수</td><td>TTM PER 30.7배 · FY27E(자체) 24.2배 · PBR 5.46배</td><td>§5-1</td></tr><tr><td>조건부 진입 구간</td><td>23,500~25,500원 (확인형)</td><td>FY27E PER 14.0~15.2배 · 피델리티 최근 매수가 23,775원</td></tr><tr><td>손절선</td><td>19,200원</td><td>진입 상단 대비 −24.7%(일중 변동폭 16.2%의 1.5배) · 60일선 20,977원 아래</td></tr><tr><td>포지션 상한</td><td>조건 충족 전 0%, 충족 뒤 자산의 4.0%</td><td>손실예산 1% ÷ 손절폭 24.7%</td></tr><tr><td>관망 해제 조건</td><td>4Q26 연결 영업이익 ≥ 65억 + FY27E 컨센 EPS ≥ 1,900원</td><td>§6-6</td></tr><tr><td>Bear 전환 조건</td><td>4Q26 연결 영업이익 &lt; 45억</td><td>§6-6</td></tr></tbody></table></div>
+<p class="note">※ 현재가·이동평균·수급·손절 적정성 블록은 적재할 때 허브 enrich가 KIS 실측으로 다시 찍는다. 본문 수치는 2026-11-18 12:37 시세와 2026-11-17 일봉을 기준으로 계산했다.</p>
+<hr>
+<h2 id="분석-기여-요약-증권사-원문-vs-독립-검증">🧩 분석 기여 요약 (증권사 원문 vs 독립 검증)</h2>
+<ul>
+<li><strong>증권사 원문</strong>: 3Q26 매출 138억(<span class="up">+32.2%</span>)·영업이익 38억(<span class="up">+253.0%</span>), 4Q26E 매출 206억·영업이익 52억, 2026E EPS 1,447원·2027E 1,799원, 피어(에스원·라온시큐어·Gen Digital·CrowdStrike) 평균 PER 62.5배 대비 할인이라는 주장 [증권사원문: 유진투자증권 2026-11-16, consensus.hankyung.com report_idx=654208]. FnGuide 컨센서스 FY26E 영업이익 119억·FY27E 152억, 전 증권사 Not Rated(목표가 없음) [실측: 허브 consensus 2026-11-18].</li>
+<li><strong>독립 검증 ① 배수 분해</strong>: 7/29 저점 → 현재 주가 ×3.52 = TTM EPS ×1.39 × PER ×2.54. 로그 기준으로 상승의 74%가 배수 확장, 26%가 이익 증가다 [역산: §5-2].</li>
+<li><strong>독립 검증 ② 세율 역산</strong>: 유진의 FY27E 순이익 163억은 세전 171억에 유효세율 4.7%를 넣은 값이다. 9M26 실측 유효세율은 13.3%(3Q 단일 15.1%) [실측: DART 20261112000006]. 12%를 넣으면 EPS 1,677원으로 유진보다 6.8% 낮다 → 재현 여부: 가정 의존(세율).</li>
+<li><strong>독립 검증 ③ 피어 평균 62.5배</strong>: 평균을 끌어올리는 것은 CrowdStrike 같은 초고배수 종목이다. 국내 피어 실측은 안랩 TTM 26.4배, 윈스 7.3배, 파이오링크 7.5배(§5-3) → &#x27;피어 대비 할인&#x27;은 구성 종목을 바꾸면 뒤집히는 주장(재현 불가).</li>
+<li><strong>독립 검증 ④ 컨센서스의 낡은 값</strong>: FnGuide FY26E 영업이익 119억에서 9M 실측 80.9억을 빼면 4Q 38억(−21% YoY)이 된다. 3Q 발표 전 추정치가 섞인 평균이므로 최신 추정(유진 133억, 자체 136억)과 구분해 썼다.</li>
+<li><strong>독립 검증 ⑤ 수급 실측</strong>: 2대주주 미리캐피탈이 11/6~11/13에 보유분의 75%(103만 주)를 장내 매도했고, 피델리티는 10/12~11/9에 평균 22,778원으로 18.4만 주를 사 5.26%를 신규 보고했다(§3-4). 가치 기반 자금이 산 가격대는 FY27E 13.6배다.</li>
+<li><strong>독립 검증 ⑥ 회계 쟁점 제기</strong>: 3Q26 영업외손익이 −1.85억으로 상반기 분기 평균(<span class="up">+4.95</span>억)에서 6.8억 나빠졌다. 교환사채 교환권 평가손실일 가능성이 있고, 맞다면 4Q에 훨씬 커진다(§2-5, 미확인).</li>
+<li><strong>독립 검증 ⑦ 수요 실태</strong>: 보안 예산을 쓰는 기업 54.8%, EDR 도입 45.9%(관제 연동까지 끝낸 곳 14.1%), 지니언스 EDR 고객은 NAC 고객의 7.5%(§4).</li>
+<li><strong>독립 검증 ⑧ 원 리포트 점검</strong>: 2026-05 원 리포트의 논지 7개를 6개월 실측으로 판정했다(§1).</li>
+</ul>
+<hr>
+<h2 id="0-실전-기준-scorecard-브리프-일봉-20261117-기준-사후-">§0. 실전 기준 (scorecard 브리프 — 일봉 2026-11-17 기준, 사후 채점 표본 498건)</h2>
+<ul>
+<li>시장 국면: <strong>하락(20일선 아래)</strong> — KOSPI 4,968 / 20일선 5,479 / 60일선 6,273 · 20일 −10.5% · 일간 변동성 3.3%.</li>
+<li>종목 변동성: 일중 변동폭(14일 평균) 16.2% → 손절 하한은 진입가(구간 상단)에서 24.3% 이상 아래. 60일 베타 0.47(KOSPI) · 20일 평균 거래대금 694억 · 직전 20일 <span class="up">+98.3%</span> · 60일 고점 대비 <span class="up">+5.6%</span>.</li>
+<li>1회 손실예산: 자산의 1%. 비중 = 손실예산 ÷ 손절폭, 여기에 Bear 손실 한도(손실예산×3 ÷ Bear 하락폭)·집중 50%·이벤트 전 25% 중 최소값.</li>
+<li>최근 관심·매수 카드의 사후 실적(발행 2026-09-09~11-17): 발행일 종가 매수 — 목표 먼저 31% / 손절 먼저 62%(n=288). 진입 구간 지정가 — 10거래일 내 도달 87%, 목표 먼저 15% / 손절 먼저 80%(n=232). 하락 국면 발행분 — 종가 매수 32% / 62%(n=129), 구간 지정가 18% / 76%(n=98).</li>
+<li>시나리오 기저율(20일 뒤 종가): Bear가 이하 48% · Base가 이상 21% · Bull가 이상 14%.</li>
+<li>적용: 하락 국면에서는 &#x27;매수&#x27; 판정 불가, 카드에 &#x27;지수조건:&#x27; 필수. 20일선 회복을 기다렸다 산 경우 목표 48% / 손절 52%(n=56), 발행일에 바로 산 경우 25% / 75%.</li>
+</ul>
+<p><strong>직전 카드 점검</strong></p>
+<ol>
+<li>직전 판정: 2026-10-13 관심(현재가 23,800 · 진입 19,800~20,500 · 손절 18,000 · 목표 26,500), 2026-10-14 관심(목표 23,874).</li>
+<li>이후 실제: 최저 18,860원(10/26) · 최고 38,400원(11/17, 11/18 장중 45,000원). 손절 유지, 목표 도달 2026-10-28. 직전 카드의 반증선 &#x27;3Q26 영업이익 &lt; 12억&#x27;은 실제 37.8억으로 통과.</li>
+<li>이번에 달라진 사실: ① 3Q26 서프라이즈(11/12) ② 금융위 혁신방안(11/5)과 전자금융감독규정 개정 예고(11/18) ③ 2대주주 교체(11/13·11/16 공시) ④ 주가가 직전 카드 기준가보다 70% 위.</li>
+</ol>
+<hr>
+<h2 id="1-202605-원-리포트-사후-점검과-갱신">§1. 2026-05 원 리포트 사후 점검과 갱신</h2>
+<p>원 리포트(2026-05-21 작성, 자료방 게시 Notion 추출본)는 현재가 15,510원에 12개월 목표 30,000원(<span class="up">+93.4%</span>), BUY 분할매수였다. 추출본에는 본문 문장만 있고 표·차트는 빠져 있다.</p>
+<p><strong>성과</strong> [실측: marketdb(KIS KRX 종가)]: 5/21 종가 15,230원 → 11/16 34,400원(<span class="up">+125.9%</span>), 같은 기간 KOSDAQ −39.8%·KOSPI −34.7%. 현재가 기준으로는 기준가 15,510원 대비 <span class="up">+161%</span>, 목표가 대비 <span class="up">+35%</span>. 다만 가는 길은 순탄하지 않았다 — 1개월 뒤 −16.4%(6/22 12,730원, 그동안 KOSPI는 <span class="up">+16.6%</span>), 최저 11,510원(7/29, −24.4%), 3개월 뒤 −4.9%. 목표가 30,000원을 종가로 넘은 날은 11/12(발간 117거래일 뒤)다.</p>
+<div class="tablewrap"><table><thead><tr><th>#</th><th>원 리포트 주장</th><th>6개월 뒤 실측</th><th>판정</th><th>이번 갱신</th></tr></thead><tbody><tr><td>1</td><td>미토스(4/7 Claude Mythos Preview·Project Glasswing 발표) 뒤 글로벌 보안주 하락·한국 상승의 디커플링. 한국은 규제 진입장벽 + 12~14배 저PER</td><td>발간 뒤 두 달은 반대로 갔다(2Q26 KOSPI 대비 RS −72.5%p). 8월 이후 금융권 연쇄 침해사고와 규제로 재평가. PER은 12~14배 → 30.7배</td><td>방향 적중, 경로는 다름</td><td>구동 요인은 미토스 자체가 아니라 국내 사고·규제. &#x27;저PER 보호막&#x27;은 사라졌으므로 방어 논거에서 뺀다</td></tr><tr><td>2</td><td>2025년 역성장(매출 −2.5%, OPM 14.5%)은 백신 신제품·R&amp;D·채용 비용 탓, 실적주는 차별화</td><td>9M26 매출 <span class="up">+24.1%</span>, OPM 20.9%, 비용 증가 <span class="up">+5.6%</span></td><td>적중</td><td>FY26E 영업이익 136억, FY27E 162억(§9-7)</td></tr><tr><td>3</td><td>NAC 조달 점유율 71%, EDR 46%(7년 연속 1위), 누적 고객 NAC 3,000+ / EDR 225 / 글로벌 200곳</td><td>EDR 조달 점유율 1H26 58.4%로 반등 [실측: DART 20260814000732]. 수출은 1H26 8.7억(3.5%)</td><td>유지(EDR 개선)</td><td>&#x27;글로벌 200곳&#x27;은 고객 수이고 매출 기여는 3.5% — 해외는 밸류에이션에 넣지 않는다</td></tr><tr><td>4</td><td>규제 연쇄: 2026.5 EDR 의무화 → 7월 미토스 취약점 4,000개 공개 → 8월 EU AI Act → 2027.1 공시 의무화(666→2,400개+)</td><td>5/1 국가 사이버보안 기본지침 시행(제131조⑤5: 기관이 도입한 EDR을 보안관제와 연동, 보안 예산 15%·인력 10% 의무). 2027-01-01 정보보호 공시가 전체 상장사로 확대. 추가로 금융위 11/5·11/18 조치, 과징금 10%(9/11), ISMS-P 의무화(2027-07-01)</td><td>적중(범위 정정)</td><td>&#x27;EDR 의무화&#x27;의 실체는 공공기관의 관제 연동 의무다. 민간·금융은 점검과 과징금을 통한 간접 압력. 7월 취약점 공개·EU AI Act는 매출 연결을 확인하지 못해 논지에서 뺀다</td></tr><tr><td>5</td><td>글로벌 NAC 2025년 52억달러(CAGR 22.0%), EDR 51억달러(CAGR 28.3%), 한국 사이버보안 2026년 4.01조(<span class="up">+16.1%</span>)</td><td>반기보고서 인용치는 글로벌 NAC 2025년 25억달러(<span class="up">+13.9%</span>)로 출처 사이에 2배 차이. EDR 51억달러는 Mordor 수치와 일치</td><td>부분 수정</td><td>글로벌 TAM은 참고만 한다(수출 연 15억 규모)</td></tr><tr><td>6</td><td>12개월 목표 30,000원</td><td>11/12 종가 돌파, 현재가는 목표의 <span class="up">+35%</span></td><td>달성</td><td>산출 근거는 추출본에 없다. [역산] 당시 유진 FY27E EPS 1,479원의 20.3배. 같은 20배에 갱신 EPS 1,677원을 넣으면 33,500원</td></tr><tr><td>7</td><td>BUY 분할매수</td><td>분할매수 전제는 유효했다(발간 뒤 −24%까지 하락)</td><td>—</td><td>관망(현재가가 갱신 목표 위)</td></tr></tbody></table></div>
+<p><strong>허브 2026-10-14 보강판 정정</strong></p>
+<ul>
+<li>&quot;2026 상반기 매출 249억(YoY <span class="up">+118%</span>)&quot; → 실제 <span class="up">+19.9%</span>(1H25 207.8억 → 1H26 249.2억). 크게 늘어난 것은 영업이익(10.9억 → 43.1억, <span class="up">+294%</span>)이다 [실측: marketdb].</li>
+<li>&quot;미토스 사태 = Claude를 악용한 AI 자동해킹(4/7)&quot; → 원 리포트의 정의(모델 제한 공개 발표)가 맞다. 첫 보도 때 글로벌 보안주는 급락했다 [인용: 보안뉴스 2026-04-02, <a href="https://m.boannews.com/html/detail.html?idx=142902]." target="_blank">https://m.boannews.com/html/detail.html?idx=142902].</a></li>
+<li>&quot;해외 확장이 실적을 견인&quot; → 수출 비중 2025년 3.1%, 1H26 3.5% [실측: DART 20260316000916·20260814000732].</li>
+<li>보강판 Base(FY26 매출 560억·OPM 18%·EPS 944원, 목표 29,300원 = FY27 EPS 1,085원 × 27배) → 이익 추정은 낮았고(EPS 1,085 → 1,677원) 배수는 높았다(27 → 20배).</li>
+</ul>
+<hr>
+<h2 id="2-실적-체력">§2. 실적 체력</h2>
+<h3 id="21-분기-실적-연결3개월">2-1 분기 실적 (연결·3개월)</h3>
+<div class="tablewrap"><table><thead><tr><th>분기</th><th>매출</th><th>YoY</th><th>영업이익</th><th>OPM</th><th>순이익</th><th>영업이익 컨센 대비</th></tr></thead><tbody><tr><td>1Q25</td><td>93.5</td><td><span class="up">+33.9%</span></td><td>0.4</td><td>0.4%</td><td>8.1</td><td>컨센 1억 → 부합</td></tr><tr><td>2Q25</td><td>114.3</td><td>−3.9%</td><td>10.6</td><td>9.3%</td><td>10.0</td><td>컨센 22억 → −52%</td></tr><tr><td>3Q25</td><td>104.0</td><td><span class="up">+0.1%</span></td><td>11.0</td><td>10.6%</td><td>14.0</td><td>—</td></tr><tr><td>4Q25</td><td>172.0</td><td>−15.4%</td><td>48.0</td><td>27.9%</td><td>43.0</td><td>—</td></tr><tr><td>1Q26</td><td>117.4</td><td><span class="up">+25.5%</span></td><td>17.4</td><td>14.8%</td><td>19.7</td><td>컨센 5억 → <span class="up">+248%</span></td></tr><tr><td>2Q26</td><td>131.8</td><td><span class="up">+15.4%</span></td><td>25.7</td><td>19.5%</td><td>26.9</td><td>컨센 18억 → <span class="up">+43%</span></td></tr><tr><td>3Q26</td><td>137.8</td><td><span class="up">+32.5%</span></td><td>37.8</td><td>27.4%</td><td>30.5</td><td>컨센 15억 → <span class="up">+152%</span></td></tr><tr><td>4Q26E(자체 Base)</td><td>210</td><td><span class="up">+22.1%</span></td><td>55</td><td>26.2%</td><td>50.5</td><td>유진 206 / 52</td></tr></tbody></table></div>
+<p>[실측: marketdb — FnGuide 잠정치·DART 분기보고서(3Q26 접수번호 20261112000006), 연결·3개월. 3Q25·4Q25는 억 단위 반올림값]</p>
+<div class="tablewrap"><table><thead><tr><th>누적(1~3분기)</th><th>9M24</th><th>9M25</th><th>9M26</th><th>YoY</th><th>2년 전 대비</th></tr></thead><tbody><tr><td>매출</td><td>292.7</td><td>311.8</td><td>387.0</td><td><span class="up">+24.1%</span></td><td><span class="up">+32.2%</span></td></tr><tr><td>영업이익</td><td>36.5</td><td>21.9</td><td>80.9</td><td><span class="up">+268.7%</span></td><td><span class="up">+121.5%</span></td></tr><tr><td>OPM</td><td>12.5%</td><td>7.0%</td><td>20.9%</td><td></td><td></td></tr><tr><td>비용(매출 − 영업이익)</td><td>256.1</td><td>289.9</td><td>306.1</td><td><span class="up">+5.6%</span></td><td><span class="up">+19.5%</span></td></tr><tr><td>순이익</td><td>47.1</td><td>32.0</td><td>77.1</td><td><span class="up">+140.5%</span></td><td><span class="up">+63.5%</span></td></tr></tbody></table></div>
+<p>읽는 법: 2025년이 유난히 나빴던 탓에 YoY는 부풀어 보인다. 2024년과 견준 2년 수치(매출 <span class="up">+32%</span>, 영업이익 <span class="up">+122%</span>)가 체력 변화를 더 정직하게 보여 준다. 세 분기 연속으로 컨센서스를 크게 넘었다는 것은 추정하는 쪽이 계속 낮게 봤다는 뜻이고, 추정 기관이 2~3곳뿐이라 컨센서스 자체가 얇다.</p>
+<h3 id="22-계절성-4분기가-한-해를-정한다">2-2 계절성 — 4분기가 한 해를 정한다</h3>
+<ul>
+<li>4분기 매출 비중: 2023년 39.2% · 2024년 41.0% · 2025년 35.6%. 4분기 영업이익 비중은 58% · 63% · 69% [역산: 분기 ÷ 연간].</li>
+<li>4분기 비용(매출 − 영업이익): 4Q23 130.2억 · 4Q24 141.4억 · 4Q25 124.0억.</li>
+<li>4Q26 자체 Base는 매출 210억(<span class="up">+22.1%</span>)·영업이익 55억(<span class="up">+14.6%</span>). 비용을 155억(<span class="up">+25%</span>)으로 넉넉히 잡았다(성과급, 서버 단가 상승). 비용이 4Q24 수준(141억)에 그치면 영업이익은 69억까지 나온다 → 관망 해제 임계를 65억에 둔 근거 [추정: 210 − 141 = 69].</li>
+</ul>
+<h3 id="23-영업레버리지와-비용">2-3 영업레버리지와 비용</h3>
+<ul>
+<li>증분마진(영업이익 증가 ÷ 매출 증가): 9M26 vs 9M25 78%, vs 9M24 47%, FY21→FY26E 장기 27.7% [역산].</li>
+<li>3Q26 영업이익 증가분 <span class="up">+26.8</span>억의 분해: 매출총이익 <span class="up">+23.6</span>억(매출 <span class="up">+33.8</span>억, 원가율 31.8%) + 판관비 −3.2억(56억, −5.4%) [역산: 유진 2026-11-16의 원가율·판관비]. 88%가 매출에서 왔고 12%가 비용 감소다. 판관비가 줄어든 부분은 지속된다고 보기 어렵다.</li>
+<li>연구개발비는 전액 비용 처리한다: 2024년 83.4억(매출의 16.8%) → 2025년 94.2억(19.5%) → 1H26 51.8억(20.8%) [실측: DART 20260814000732]. 개발비 자산화가 없어 이익의 질은 보수적이다.</li>
+<li>해석: 2025년에 백신·MDR 출시 비용을 먼저 쓰고 2026년에 비용이 거의 늘지 않아 레버리지가 최대로 나왔다. 2027년에는 비용 증가율이 매출 증가율에 가까워진다고 본다(Base 비용 <span class="up">+16.7%</span>, 매출 <span class="up">+17.2%</span>).</li>
+</ul>
+<h3 id="24-연결-vs-별도">2-4 연결 vs 별도</h3>
+<p>3Q26 연결 매출 137.78억·영업이익 37.78억, 별도 134.30억·39.03억 → 종속회사(해외 법인 등)는 매출 3.5억에 영업손실 1.25억이다. 2Q24 −3.26억, 3Q24 −2.68억과 같은 흐름으로, 해외는 아직 비용 단계다 [실측: DART 20261112000006·20240814003212·20241114000064, 연결·별도 3개월].</p>
+<h3 id="25-영업외세율-그리고-교환사채-회계-쟁점">2-5 영업외·세율, 그리고 교환사채 회계 쟁점</h3>
+<ul>
+<li>유효세율: 9M26 13.3%(세전 88.94억, 순이익 77.07억), 3Q 단일 15.1% [실측: DART 20261112000006]. 과거 연간은 2021~2025년 15.3 / 9.0 / 4.6 / 5.2 / −5.6% [증권사원문: 유안타 2026-05-29 재무표, consensus.hankyung.com report_idx=649761]. 이익이 커지면서 세액공제가 가려 주는 폭이 줄고 있다고 본다 [추정: 연구개발비 세액공제 영향, 법인세 주석 미확인]. 자체 추정은 FY27 12%.</li>
+<li>영업외손익: 상반기 <span class="up">+9.90</span>억(분기 평균 <span class="up">+4.95</span>억) → 3Q26 −1.85억.</li>
+<li>교환사채: 2025-09-08 결정, 약 83.4억, 교환 대상 자기주식 372,000주(발행주식의 4.1%), 교환가 22,423원, 표면·만기 이자율 0%, 만기 2030-09-16, 발행 2년 뒤부터 조기상환 청구 가능 [인용: 블로터 2025-09-08, <a href="https://www.bloter.net/news/articleView.html?idxno=643617]." target="_blank">https://www.bloter.net/news/articleView.html?idxno=643617].</a> 현재가는 교환가보다 81% 높다.</li>
+<li><strong>쟁점</strong>: 교환권이 자본(교환권대가)으로 분류돼 있으면 손익 영향이 없다. 파생상품부채로 분류돼 있으면 주가 상승분이 평가손실로 잡힌다. 3Q26에 주가가 12,320원 → 19,300원으로 오르는 동안 영업외손익이 6.8억 나빠진 것이 그 신호일 수 있다. 4Q에는 주가가 교환가를 넘어섰으므로 규모가 달라진다 — 교환권 내재가치는 연말 주가 30,000원이면 28.2억, 35,000원 46.8억, 40,000원 65.4억, 45,000원 84.0억이다 [추정: 372,000주 × (주가 − 22,423원), 시간가치 제외]. 현금이 나가지 않고 교환되면 자본으로 바뀌는 손실이지만, 2027년 2월 발표될 순이익과 EPS를 흔들 수 있다. 분류는 미확인이다(§8).</li>
+</ul>
+<h3 id="26-현금흐름과-재무">2-6 현금흐름과 재무</h3>
+<ul>
+<li>5년 누적(2021~2025) 영업현금흐름 ÷ 순이익 0.99, 잉여현금흐름 ÷ 순이익 0.74 [역산: 유안타 2026-05-29 재무표]. 이익이 현금으로 들어온다.</li>
+<li>순현금(2025년 말) 394.6억 = 현금성 83.1 + 단기금융상품 390.1 − 교환사채 78.6 [실측: DART 20260316000916 재무상태표, 허브 2026-10-05 리포트 인용]. 시가총액의 10.7%. 교환이 이뤄지면 부채 78.6억이 사라진다.</li>
+<li>3Q26 말 자산 860.4억·부채 186.6억·자본 673.8억, TTM 순이익 ÷ 평균자본 = ROE 18.5% [실측·역산].</li>
+<li>배당: 2025년 주당 300원(성향 36.3%), 현재가 기준 수익률 0.74%.</li>
+</ul>
+<h3 id="27-서버-원가-아직-손익에-안-보이는-변수">2-7 서버 원가 — 아직 손익에 안 보이는 변수</h3>
+<div class="tablewrap"><table><thead><tr><th>구분</th><th>2023</th><th>2024</th><th>2025</th><th>1H26</th></tr></thead><tbody><tr><td>서버 등 매입 평균단가(원)</td><td>585,785</td><td>375,398</td><td>469,311</td><td>1,245,034</td></tr><tr><td>매입액(억)</td><td>—</td><td>—</td><td>40.3</td><td>47.7</td></tr><tr><td>매출 대비</td><td>—</td><td>—</td><td>8.3%</td><td>19.1%</td></tr></tbody></table></div>
+<p>[실측: DART 20260316000916·20260814000732. 2025년 사업보고서 표의 합계(25.83억)는 항목 합(40.34억)과 맞지 않아 항목 합을 썼다]</p>
+<p>반기 매입액이 이미 2025년 연간을 넘었고 단가는 2.65배다. 그런데 3Q26 원가율은 31.8%로 2025년 연간(36.0%)보다 낮다. 가능한 설명은 4분기 납품용 선매입(재고 증가), 고가 장비 위주의 믹스 변화, 판매가 전가다. 재고자산 주석을 확인하지 못했다. 선매입이라면 4분기 수요에 대한 회사의 자신감으로 읽을 수 있고, 전가 실패라면 4분기 원가율이 오른다.</p>
+<h3 id="28-컨센서스와-방향">2-8 컨센서스와 방향</h3>
+<div class="tablewrap"><table><thead><tr><th>출처</th><th>FY26E 매출 / 영업이익 / EPS</th><th>FY27E</th><th>FY28E</th></tr></thead><tbody><tr><td>FnGuide 평균(11/18)</td><td>580 / 119 / 1,294원</td><td>696 / 152 / 1,630원</td><td>816 / 188 / 2,137원</td></tr><tr><td>유진(11/16)</td><td>593 / 133 / 1,447원</td><td>695 / 158 / 1,799원</td><td>—</td></tr><tr><td>한국투자(10/28)</td><td>—</td><td>678 / 142 / —</td><td>—</td></tr><tr><td>자체 Base</td><td>597 / 136 / 1,405원</td><td>700 / 162 / 1,677원</td><td>—</td></tr></tbody></table></div>
+<p>[실측: 허브 consensus 2026-11-18 · 증권사원문: 유진 2026-11-16 · 인용: 한국투자증권 2026-10-28, <a href="https://core.asiae.co.kr/article/2026102808052664779]" target="_blank">https://core.asiae.co.kr/article/2026102808052664779]</a></p>
+<p>방향은 상향이다. FY26 영업이익 컨센서스는 6개월 전 99억 → 3개월 전 116억 → 현재 119억, FY27은 142억(11/13) → 146억(11/16) → 152억(11/18) [실측: 허브 consensus_hist]. 할인 EPS를 쓸 이유는 없다. 다만 1년 전 FY26E EPS 컨센서스는 1,531원으로 지금(1,294원)보다 높았다 — 2025년 고점 때의 기대가 한 번 꺾였다가 회복하는 중이라는 점은 기억해 둘 만하다.</p>
+<h3 id="29-시점별-평균주가perpbrrs">2-9 시점별 평균주가·PER·PBR·RS</h3>
+<div class="tablewrap"><table><thead><tr><th>시점</th><th>평균주가</th><th>EPS</th><th>BPS</th><th>PER</th><th>PBR</th><th>주가수익률</th><th>KOSDAQ수익률</th><th>RS(지수대비)</th></tr></thead><tbody><tr><td>2024년</td><td>10,911</td><td>1,165</td><td>6,583</td><td>9.4배</td><td>1.66배</td><td>−26.0%</td><td>−21.7%</td><td>−4.3%p</td></tr><tr><td>2025년</td><td>17,777</td><td>826</td><td>7,189</td><td>21.5배</td><td>2.47배</td><td><span class="up">+99.9%</span></td><td><span class="up">+36.5%</span></td><td><strong><span class="up">+63.4%</span>p</strong></td></tr><tr><td>2026 1Q</td><td>16,584</td><td>954*</td><td>6,852†</td><td>17.4배</td><td>2.42배</td><td>−30.7%</td><td><span class="up">+13.7%</span></td><td><strong>−44.4%p</strong></td></tr><tr><td>2026 2Q</td><td>14,672</td><td>1,141*</td><td>7,084</td><td>12.9배</td><td>2.07배</td><td>−4.7%</td><td>−12.9%</td><td><span class="up">+8.2%</span>p</td></tr><tr><td>2026 3Q</td><td>14,805</td><td>1,322*</td><td>7,421</td><td>11.2배</td><td>2.00배</td><td><span class="up">+56.7%</span></td><td>−6.6%</td><td><strong><span class="up">+63.2%</span>p</strong></td></tr><tr><td>2026 4Q(~11/16)</td><td>24,238</td><td>1,322*</td><td>7,421</td><td>18.3배</td><td>3.27배</td><td><span class="up">+78.2%</span></td><td>−22.2%</td><td><strong><span class="up">+100.5%</span>p</strong></td></tr><tr><td>현재(11/18)</td><td>40,550</td><td>1,322*</td><td>7,421</td><td>30.7배</td><td>5.46배</td><td>—</td><td>—</td><td>—</td></tr></tbody></table></div>
+<p>[실측: marketdb — 주가 KIS KRX 종가, 지수 KOSDAQ, 수익률은 직전 기간 말 종가 대비. 2024·2025년 EPS·BPS는 증권사원문(유안타 2026-05-29). *는 해당 분기까지의 TTM 순이익 ÷ 9,079,600주, BPS는 분기 말 자본 ÷ 같은 주식수. †는 2025년 말 자본. 유안타 BPS는 자기주식을 뺀 주식수 기준이라 2026년 행보다 약 5% 높게 나온다. 2021~2023년 연평균 PER은 12.2 / 12.2 / 17.8배(같은 출처)]</p>
+<p><strong>한줄 해석 ①(배수)</strong>: 이익이 가장 빨리 늘던 2026년 2~3분기에 시장이 준 배수는 11~13배였다. 실적이 좋아서 배수가 오른 것이 아니라, 10월 금융권 사고 뒤 석 달 만에 11배 → 31배로 뛰었다. 지금 배수는 이 회사가 받아 본 적 없는 수준이다(종전 최고는 2025년 연평균 21.5배).</p>
+<p><strong>한줄 해석 ②(RS)</strong>: 2025년 <span class="up">+63%</span>p → 2026년 1분기 −44%p → 3분기 <span class="up">+63%</span>p → 4분기 <span class="up">+100%</span>p. 지수와 무관하게 테마 순환에 따라 크게 출렁이는 종목이고, 실적 개선이 RS로 이어지는 데는 사고와 규제라는 방아쇠가 필요했다.</p>
+<h3 id="210-직전-테마-사이클2025년의-전례">2-10 직전 테마 사이클(2025년)의 전례</h3>
+<ul>
+<li>2025-08-26 19,100원 → 09-23 28,800원(20거래일 <span class="up">+50.8%</span>, KOSDAQ <span class="up">+8.8%</span>). 그 뒤 20일 −24.8%, 60일 −30.0%, 120일 −54.4%, 저점 11,510원(2026-07-29, −60.0%, 204거래일) [실측: marketdb].</li>
+<li>고점의 배수는 TTM 25.6배, 다음 해 EPS 기준 18.8배였다. 지금은 30.7배, 24.9배로 그때보다 높다 [역산: §5-2].</li>
+<li>다른 점: 2025년에는 고점 직후 실적이 꺾였다(4Q25 매출 −15.4%, 공공 예산 집행 지연). 이번에는 세 분기 연속 서프라이즈가 뒤를 받친다.</li>
+<li>더 위험한 점: 손바뀜 강도. 2025년 9월 일평균 회전율은 1.0%였고 2026년 11월은 34.8%다(§3-3).</li>
+</ul>
+<hr>
+<h2 id="3-시장-상황과-수급">§3. 시장 상황과 수급</h2>
+<h3 id="31-시장-국면">3-1 시장 국면</h3>
+<p>KOSPI는 6/22 고점 9,114.55에서 11/16 5,100.50으로 −44.0%, KOSDAQ은 4/27 고점 1,226.18에서 665.65로 −45.7% [실측: marketdb]. 11/6에는 KOSPI가 하루 6.02% 빠지며 서킷브레이커가 걸렸다 [인용: 아시아경제 2026-11-06, <a href="https://core.asiae.co.kr/article/2026110615475413854]." target="_blank">https://core.asiae.co.kr/article/2026110615475413854].</a> 허브 기준 국면은 하락이고 매수 판정을 낼 수 없다.</p>
+<h3 id="32-보안-테마를-움직인-사건들">3-2 보안 테마를 움직인 사건들</h3>
+<div class="tablewrap"><table><thead><tr><th>일자</th><th>사건</th><th>출처</th></tr></thead><tbody><tr><td>9/30~11/3</td><td>금융권 침해사고 37개사 40건 신고, 약 47.3만 건 유출</td><td>[인용: 법률신문(화우) 2026-11, <a href="https://www.lawtimes.co.kr/news/articleView.html?idxno=229265]" target="_blank">https://www.lawtimes.co.kr/news/articleView.html?idxno=229265]</a></td></tr><tr><td>11/5</td><td>금융위 &#x27;全금융권 보안체계 혁신방안&#x27; — 약 580개사 전수 점검, 망분리 규제 전면 해제 방안 2027년 1분기</td><td>[인용: 금융위 2026-11-05, <a href="https://fsc.go.kr/no010101/88086]" target="_blank">https://fsc.go.kr/no010101/88086]</a></td></tr><tr><td>11/11</td><td>금융보안원 정보 유출 보도, 보안주 동반 급등</td><td>[인용: 뉴스웨이 2026-11-11, <a href="https://newsway.co.kr/news/view?ud=2026111109254825054]" target="_blank">https://newsway.co.kr/news/view?ud=2026111109254825054]</a></td></tr><tr><td>11/12</td><td>3Q26 실적 발표, 종가 <span class="up">+21%</span></td><td>[실측: marketdb]</td></tr><tr><td>11/18</td><td>전자금융감독규정 개정 예고 — 전 금융회사 IT자산 식별·관리 의무, 대형사 취약점 점검 연 2회. 2027년 1분기 시행 목표, 일부는 행정지도로 11/30 시행 추진</td><td>[인용: 서울파이낸스 2026-11-18, <a href="https://www.seoulfn.com/news/articleView.html?idxno=643164]" target="_blank">https://www.seoulfn.com/news/articleView.html?idxno=643164]</a></td></tr><tr><td>11/18</td><td>지니언스 장중 <span class="up">+12.6%</span>(10:06), 고가 45,000원 뒤 40,550원</td><td>[인용: 뉴스핌 2026-11-18, <a href="https://www.newspim.com/news/view/20261118000318]" target="_blank">https://www.newspim.com/news/view/20261118000318]</a> · [실측: KIS]</td></tr></tbody></table></div>
+<p>11/18 급등은 규정 개정 예고가 직접 사유다. IT자산을 빠짐없이 식별하라는 의무는 NAC의 기본 기능(망에 붙은 단말 가시성)과 맞닿아 있어 지니언스에는 내용상 근거가 있는 재료다. 같은 날 AI를 이용한 시험 부정행위 이슈도 보안주 매수 사유로 거론됐다 [인용: 아주경제 2026-11-18, <a href="https://www.ajunews.com/view/20261118114159850]." target="_blank">https://www.ajunews.com/view/20261118114159850].</a></p>
+<h3 id="33-회전율-누가-가격을-정하고-있나">3-3 회전율 — 누가 가격을 정하고 있나</h3>
+<div class="tablewrap"><table><thead><tr><th>기간</th><th>일평균 회전율</th><th>일평균 거래대금</th><th>일중 변동폭</th></tr></thead><tbody><tr><td>2025년 9월(직전 테마 고점)</td><td>1.0%</td><td>24억</td><td>6.3%</td></tr><tr><td>2026년 7월</td><td>0.3%</td><td>4억</td><td>6.7%</td></tr><tr><td>2026년 9월</td><td>4.7%</td><td>81억</td><td>8.2%</td></tr><tr><td>2026년 10월</td><td>7.7%</td><td>172억</td><td>12.5%</td></tr><tr><td>2026년 11월(~17일, 12거래일)</td><td>34.8%</td><td>982억</td><td>17.5%</td></tr><tr><td>최근 5거래일(11/11~17)</td><td>59.4%</td><td>1,755억</td><td>19.1%</td></tr></tbody></table></div>
+<p>[실측: 허브 scorecard 일봉 캐시(네이버 fchart, 통합 시세) ÷ 발행주식 9,079,600주]</p>
+<p>11/12 하루 거래량 827만 주는 발행주식의 91%, 유동주식(약 509만 주)의 163%다. 11월 12거래일 누적 거래량은 유동주식을 7.5번 돌렸다. 가격을 정하는 주체가 실적을 보고 사는 자금에서 당일 매매 자금으로 넘어갔다는 뜻이고, 이런 구간의 가격은 기업가치에 대한 정보가 적다.</p>
+<h3 id="34-주주-변동-오래-든-쪽은-팔았고-새-기관은-훨씬-아래에서-샀다">3-4 주주 변동 — 오래 든 쪽은 팔았고, 새 기관은 훨씬 아래에서 샀다</h3>
+<ul>
+<li><strong>미리캐피탈(종전 2대주주)</strong>: 11/6~11/13 여섯 차례에 걸쳐 1,029,997주(보유분의 75%)를 장내 매도, 지분율 15.12% → 3.78%. 11/13 하루에 그중 41.2%(424,697주)를 팔았다. 2021년 4월 투자를 시작해 5년 넘게 보유했다 [인용: 블로터 2026-11-14, <a href="https://www.bloter.net/news/articleView.html?idxno=678525" target="_blank">https://www.bloter.net/news/articleView.html?idxno=678525</a> · DART 접수번호 20261113000320]. 처분 단가는 확인하지 못했다.</li>
+<li><strong>피델리티(FIL Limited)</strong>: 477,910주(5.26%) 신규 보고. 10/12~11/9에 184,385주를 약 42억에 장내 매수(평균 22,778원), 11/9 하루 7만 주를 23,775원에 샀다 [인용: 블로터 2026-11-17, <a href="https://www.bloter.net/news/articleView.html?idxno=678751" target="_blank">https://www.bloter.net/news/articleView.html?idxno=678751</a> · DART 접수번호 20261116000842].</li>
+<li>최대주주 측 39.26%(대표 31.54%)는 변동 없음. 외국인 지분율은 5월 27.1%(원 리포트, 5/20 기준) → 11월 18.4%(유진 11/16)로 8.7%p 내려갔다. 미리캐피탈 매도분(11.3%p)이 주된 원인이고 피델리티의 10~11월 매수(2.0%p) 등이 일부를 메웠다 [역산].</li>
+<li>해석 [추정]: 5년 보유자가 23,000~36,000원대에서 대부분을 정리했고, 새로 들어온 장기 기관의 매수가는 22,000~24,000원대다. 두 사실 모두 4만 원대가 가치 기반 자금이 사는 가격이 아님을 가리킨다. 미리의 남은 34만 주(3.78%)는 추가 매물이 될 수 있다.</li>
+</ul>
+<h3 id="35-거래-제약과-오버행">3-5 거래 제약과 오버행</h3>
+<ul>
+<li>시장조치: 투자주의·경고·단기과열 지정 여부를 검색으로 확인하지 못했다(미확인). 계산으로는 11/18 종가가 41,440원 이상이면 &#x27;5일 전 종가 대비 60% 상승&#x27; 요건에 닿는다 [추정: 11/11 종가 25,900 × 1.6].</li>
+<li>교환사채 372,000주(4.10%): 교환가 22,423원, 내재가치 67.4억. 교환되면 시가 151억어치가 유통 물량이 된다. 교환청구 시작일은 미확인.</li>
+<li>자기주식 427,166주(4.70%) 가운데 372,000주가 교환 대상이다 [역산: 발행 9,079,600 − 최대주주 3,565,076 − 유동 5,087,358, wisereport 지분현황].</li>
+<li>개별주식선물 미상장. 총판 계약(론스텍·대신정보통신·아이스콥·SK쉴더스)은 2026-12-31 만기 [실측: DART 20260814000732].</li>
+</ul>
+<hr>
+<h2 id="4-보안-투자도입-실태-침투-여력-경쟁-티핑-포인트">§4. 보안 투자·도입 실태 — 침투 여력, 경쟁, 티핑 포인트</h2>
+<h3 id="41-쓸-수-있는-조사-자료">4-1 쓸 수 있는 조사 자료</h3>
+<div class="tablewrap"><table><thead><tr><th>자료</th><th>대상·시점</th><th>쓸모</th><th>한계</th></tr></thead><tbody><tr><td>정보보호 실태조사(과기정통부·KISIA)</td><td>10인 이상 사업체 5,500개, 2024년 실적, 2026-03-27 발표</td><td>전체 기업의 예산·조직·사고 인지</td><td>제품별(NAC·EDR) 이용률은 보도자료에 없음</td></tr><tr><td>정보보호 공시(KISA 포털)</td><td>2026년 827개사</td><td>투자액·전담인력의 실제 집행치</td><td>대기업·의무 대상 중심</td></tr><tr><td>금융권 정보보호 예산·인력(금감원 국회 제출)</td><td>금융업권 전체, 2026년 6월 말</td><td>예산 비중, 은행별 편성·집행</td><td>제품별 내역 없음</td></tr><tr><td>의료기관 정보보안 현황조사(복지부) 분석 논문</td><td>상급종합 37곳·종합병원 118곳, 2023.11~2024.1</td><td>병원 종별 보안 장비 구축률</td><td>NAC·EDR 항목 없음</td></tr><tr><td>종합병원 보안 실태(보사연·병원협회)</td><td>263곳(상급종합 41 포함)</td><td>예산·인력·보안관제</td><td>같은 한계</td></tr><tr><td>보안 담당자 설문(보안뉴스·시큐리티월드)</td><td>1,072~1,533명, 2025~2026년</td><td>NAC·EDR 도입 여부를 직접 물음</td><td>보안 조직이 있는 곳에 치우침</td></tr><tr><td>공공 N2SF 설문(SGA솔루션즈)</td><td>공공 응답자 59명, 2026년</td><td>공공 전환 단계</td><td>표본 작음</td></tr><tr><td>학술 논문(융합보안논문지 2025)</td><td>사고 기업의 공시 3개년</td><td>사고 뒤 투자 변화</td><td>사례 수 제한</td></tr></tbody></table></div>
+<h3 id="42-기업-전반-절반은-아직-보안-예산이-없다">4-2 기업 전반 — 절반은 아직 보안 예산이 없다</h3>
+<ul>
+<li>정보보호가 중요하다고 답한 기업 80.6%, 그러나 정보보호 예산을 쓰는 기업은 54.8%. 예산을 쓰는 곳도 용도는 유지·보수 78.0%, 영상감시 57.4%이고 제품·솔루션 구입은 28.6%다 [인용: MTN 2026-03-27, <a href="https://news.mtn.co.kr/news-detail/2026032710311885850]." target="_blank">https://news.mtn.co.kr/news-detail/2026032710311885850].</a></li>
+<li>가장 큰 어려움은 예산 확보(49.1%). 침해사고 경험 0.2%, 침해 여부를 모른다는 응답 7.5%, 사고 신고율 31.4% [인용: ZDNet 2026-03-28, <a href="https://zdnet.co.kr/view/?no=20260328122146]." target="_blank">https://zdnet.co.kr/view/?no=20260328122146].</a> 사고가 없는 것이 아니라 탐지를 못 한다는 뜻이고, 탐지 제품(EDR)의 잠재 수요가 드러나지 않은 채 남아 있다.</li>
+</ul>
+<h3 id="43-공시기업과-금융권-투자는-늘지만-비중은-제자리-집행은-편성에-못-미">4-3 공시기업과 금융권 — 투자는 늘지만 비중은 제자리, 집행은 편성에 못 미친다</h3>
+<ul>
+<li>공시 기업 수 2022년 658 → 2025년 773 → 2026년 827개. IT 투자 대비 정보보호 투자 비율은 6.01% → 6.28% → <strong>6.15%</strong>로 올해 오히려 내려갔다 [인용: KISA 정보보호 공시 종합 포털, <a href="https://isds.kisa.or.kr/kr/member/publish/statistice.do?menuNo=204944&amp;category=1&amp;showFillText=Y]." target="_blank">https://isds.kisa.or.kr/kr/member/publish/statistice.do?menuNo=204944&amp;category=1&amp;showFillText=Y].</a></li>
+<li>2025년 공시 기준 총 투자액 2조 4,230억(<span class="up">+14.3%</span>), 전담인력 8,506명(<span class="up">+10.7%</span>) [인용: 한국경제 2025-12-30, <a href="https://www.hankyung.com/article/202512302844g]." target="_blank">https://www.hankyung.com/article/202512302844g].</a></li>
+<li>금융업권 전체(2026년 6월 말): 정보보호 예산 1조 6,726억으로 IT 예산의 11.7%, 정보보호 인력은 IT 인력의 9.6% [인용: 경남뉴스 2026-10-22, <a href="https://www.gnnews24.kr/news/articleView.html?idxno=34718]." target="_blank">https://www.gnnews24.kr/news/articleView.html?idxno=34718].</a></li>
+<li><strong>집행 실적</strong>: 4대 은행의 2025년 정보보호 예산은 편성 2,445.7억, 집행 1,663.0억으로 집행률 68.0%(2023년 73.5%) [인용: 디지털투데이 2026-10-13, <a href="https://www.digitaltoday.co.kr/news/articleView.html?idxno=706877]." target="_blank">https://www.digitaltoday.co.kr/news/articleView.html?idxno=706877].</a> 발표된 예산이 그대로 보안업체 매출이 되지 않는다는 실증이다.</li>
+<li>5대 은행 정보보호 예산: 2025년 3,198억 → 2026년 3,320억 → 2027년 최소 4,200억(<span class="up">+27%</span> 이상) [인용: 파이낸셜뉴스 2026-10-25, <a href="https://www.fnnews.com/news/202610201452042407]." target="_blank">https://www.fnnews.com/news/202610201452042407].</a></li>
+<li>사고는 투자를 늘린다: SK텔레콤 652억 → 1,111억(<span class="up">+70%</span>), 쿠팡 890억 → 1,349억(<span class="up">+51%</span>) [인용: 디지털데일리 2026-07-02, <a href="https://www.ddaily.co.kr/page/view/2026070215074214821]." target="_blank">https://www.ddaily.co.kr/page/view/2026070215074214821].</a> 공시 3개년을 분석한 논문도 사고 뒤 투자와 인력이 함께 늘었고, 공시 여부는 사고보다 법적 의무가 정했다고 보고한다 [인용: 융합보안논문지 2025, <a href="https://koreascience.kr/article/JAKO202530250462110.pdf]." target="_blank">https://koreascience.kr/article/JAKO202530250462110.pdf].</a></li>
+<li>비교 기준: 미국 기업 평균은 IT 예산의 10.5%(2023년) [인용: 이데일리 2025-05-21, <a href="https://edaily.co.kr/News/Read?mediaCodeNo=257&amp;newsId=03588326642171216]." target="_blank">https://edaily.co.kr/News/Read?mediaCodeNo=257&amp;newsId=03588326642171216].</a> 개인정보위는 대규모 개인정보처리자가 정보화 예산의 10% 이상을 보호 예산으로 쓰면 사고 때 책임을 덜어 주기로 했다 [인용: 김앤장 2025-09, <a href="https://www.kimchang.com/ko/insights/detail.kc?sch_section=4&amp;idx=33078]." target="_blank">https://www.kimchang.com/ko/insights/detail.kc?sch_section=4&amp;idx=33078].</a> 공시기업이 6.28%에서 10%로 가면 투자액은 2.42조 → 3.86조(<span class="up">+1.44</span>조, <span class="up">+59%</span>)가 된다 [추정: 2.4230조 ÷ 6.28% × 10%].</li>
+</ul>
+<h3 id="44-공공-의무는-생겼고-전환은-초입이다">4-4 공공 — 의무는 생겼고 전환은 초입이다</h3>
+<ul>
+<li>2026-05-01 시행 「국가 사이버보안 기본지침」: 일률 망분리 조항을 지우고 N2SF를 도입, 제131조 제5항 제5호에 &#x27;각 기관 도입 EDR을 보안관제체계와 연동&#x27;을 넣었다 [인용: 국가정보원 2026-05-01, <a href="https://www.ncsc.go.kr/template/resources/file/nis_guide_lines_2023_1_31.pdf" target="_blank">https://www.ncsc.go.kr/template/resources/file/nis_guide_lines_2023_1_31.pdf</a> · 화우 2026-05, <a href="https://www.lawtimes.co.kr/news/articleView.html?idxno=220417]." target="_blank">https://www.lawtimes.co.kr/news/articleView.html?idxno=220417].</a> 보안 예산은 정보화 예산의 15% 이상, 인력은 10% 이상으로 권고에서 의무로 바뀌었다 [인용: 디지털데일리 2026-04-17, <a href="https://m.ddaily.co.kr/page/view/2026041712442340954]." target="_blank">https://m.ddaily.co.kr/page/view/2026041712442340954].</a></li>
+<li>전환 단계: 공공 응답자의 79.7%가 N2SF를 검토·정보 수집 중이거나 계획이 없다. 국정원은 2027년도 평가지표에서 &#x27;망분리 시행&#x27; 항목을 &#x27;N2SF 적용&#x27;으로 바꾼다 [인용: ZDNet 2026-10-21, <a href="https://zdnet.co.kr/view/?no=20261021144003]." target="_blank">https://zdnet.co.kr/view/?no=20261021144003].</a></li>
+<li>EDR 보급: 중앙부처는 2022년부터 도입했고, 지자체는 서울시가 2025년에 &#x27;전국 최초&#x27;로 본청 6,400대에 넣은 뒤 2026년 13,000여 대로 넓혔다 [인용: 정보통신신문 2026-09-03, <a href="https://www.koit.co.kr/news/articleView.html?idxno=208844]." target="_blank">https://www.koit.co.kr/news/articleView.html?idxno=208844].</a> 광역 지자체 본청 단위 도입이 작년에야 시작됐다는 뜻이다.</li>
+<li>역풍: 행안부의 2027년 정부안에서 지방정부 사이버보안 핵심 4개 사업 예산은 17.1% 줄었다 [인용: 이데일리 2026-11-18, <a href="https://edaily.co.kr/News/Read?mediaCodeNo=257&amp;newsId=03755606645646704]." target="_blank">https://edaily.co.kr/News/Read?mediaCodeNo=257&amp;newsId=03755606645646704].</a> 반대로 과기정통부 민간 분야 정보보호 예산안은 3,634억 → 5,231억(<span class="up">+44%</span>)이고 중소기업 1만 곳의 보안 솔루션 구독을 돕는 500억이 새로 들어갔다 [인용: ZDNet 2026-10-06, <a href="https://zdnet.co.kr/view/?no=20261006180603]." target="_blank">https://zdnet.co.kr/view/?no=20261006180603].</a></li>
+</ul>
+<h3 id="45-병원-상급종합과-종합병원-사이가-절벽이다">4-5 병원 — 상급종합과 종합병원 사이가 절벽이다</h3>
+<ul>
+<li>NAC·EDR 도입률을 직접 조사한 공개 통계는 찾지 못했다(미확인). 대리지표로 본다.</li>
+<li>보안 장비 구축률(상급종합 vs 종합병원): 침입방지시스템 94.6% vs 57.6%, 웹방화벽 91.9% vs 38.1%, 메일 보안 75.7% vs 33.1%. 정보보안 전담인력 보유 89.2% vs 26.3%. 종합병원의 62.7%는 보안 장비가 5대 이하다 [인용: 메디파나뉴스 2026-01-21(HIRA Research 논문 소개), <a href="https://www.medipana.com/news/articleView.html?idxno=405668" target="_blank">https://www.medipana.com/news/articleView.html?idxno=405668</a> · 메디게이트뉴스, <a href="https://www.medigatenews.com/news/1171018307]." target="_blank">https://www.medigatenews.com/news/1171018307].</a></li>
+<li>종합병원급 이상 263곳 가운데 16.7%는 정보보안 예산이 0원, 병원당 보안 인력 평균 0.9명, 평균 예산은 상급종합 8억 2,260만 원 vs 종합병원 5,870만 원 [인용: 주간한국 2026-10-07, <a href="https://weekly.hankooki.com/news/articleView.html?idxno=7187857]." target="_blank">https://weekly.hankooki.com/news/articleView.html?idxno=7187857].</a> 보안관제 실시율 75.6% vs 53.6% [인용: 뉴시스 2026-10-11, <a href="https://m.news.nate.com/view/20261011n08944]." target="_blank">https://m.news.nate.com/view/20261011n08944].</a></li>
+<li>의료기관 공동 보안관제 가입률: 상급종합 77.1%(35곳 중 27), 종합병원 10.6%(273곳 중 29), 병·의원 0.0066%(75,560곳 중 5). 2020년~2026년 9월 침해사고 133건 중 91%가 랜섬웨어 [인용: 아이뉴스24 2026-10-18, <a href="https://m.inews24.com/v/2016168]." target="_blank">https://m.inews24.com/v/2016168].</a></li>
+<li>판단 [추정]: 웹방화벽 보급이 38%인 종합병원에서 그보다 뒤에 사는 EDR의 도입률은 그 아래일 것이다. 병원은 침투 여력이 가장 큰 부문이지만 종합병원 평균 보안 예산(5,870만 원)으로는 구축형 EDR을 사기 어렵다. 구독형·관리형(MDR)과 정부 지원이 붙어야 열리는 시장이다.</li>
+</ul>
+<h3 id="46-nacedr-도입률-종합">4-6 NAC·EDR 도입률 종합</h3>
+<div class="tablewrap"><table><thead><tr><th>부문</th><th>NAC</th><th>EDR</th><th>근거</th></tr></thead><tbody><tr><td>보안 담당자 설문</td><td>사용 50.2%</td><td>사용 45.8%(2025년 7월) → 도입 45.9%, 그중 관제 연동까지 완료 14.1%(2026년)</td><td>[인용: 보안뉴스 2025 네트워크 보안 리포트, <a href="https://m.boannews.com/html/detail.html?mtype=1&amp;idx=136834" target="_blank">https://m.boannews.com/html/detail.html?mtype=1&amp;idx=136834</a> · 2025 EDR/XDR 리포트, <a href="https://m.boannews.com/html/detail.html?mtype=1&amp;idx=138451" target="_blank">https://m.boannews.com/html/detail.html?mtype=1&amp;idx=138451</a> · 2026 EDR·NDR·XDR 리포트, <a href="https://m.boannews.com/html/detail.html?tab_type=1&amp;idx=144905]" target="_blank">https://m.boannews.com/html/detail.html?tab_type=1&amp;idx=144905]</a></td></tr><tr><td>전체 사업체(10인 이상)</td><td>제품별 통계 미확인 — 보안 예산 사용 54.8%, 그중 제품 구입 28.6%</td><td>같음</td><td>§4-2</td></tr><tr><td>공공</td><td>조달 등록 품목으로 보급이 성숙(도입률 통계 미확인)</td><td>중앙부처 2022년~, 지자체 본청은 2025년 시작</td><td>§4-4</td></tr><tr><td>금융</td><td>감독규정상 단말 통제 요구로 보급이 넓다고 추정(통계 미확인)</td><td>금감원이 2026-04-13 회의에서 주요 금융사의 EDR 추진 계획을 점검 — 지시가 아니라 현황 파악</td><td>[인용: 보안뉴스 2026-04-14, <a href="https://www.boannews.com/media/view.asp?idx=143160&amp;page=1&amp;kind=2]" target="_blank">https://www.boannews.com/media/view.asp?idx=143160&amp;page=1&amp;kind=2]</a></td></tr><tr><td>병원</td><td>통계 미확인</td><td>통계 미확인(대리지표 §4-5)</td><td></td></tr></tbody></table></div>
+<p>EDR을 들이지 않는 이유는 비용 43.9%가 1위이고, 2026년 설문에서 25.2%는 &#x27;검토 중이나 예산·인력 부족&#x27;, 16.8%는 &#x27;올해 예산 확보해 진행 중&#x27;, 12.1%는 &#x27;계획 없음&#x27;이다(같은 출처).</p>
+<h3 id="47-남은-침투-여력">4-7 남은 침투 여력</h3>
+<ul>
+<li><strong>EDR — 여력이 크다</strong>: ① 보안 조직이 있는 곳에서도 54%가 미도입이고, 도입한 곳의 3분의 2는 관제 연동이 남았다. ② 지니언스 안에서 보면 EDR 고객 225곳은 NAC 고객 3,000곳의 7.5%다 — 기존 고객에게 파는 것만으로 10배 이상의 여지가 있다 [역산: 225 ÷ 3,000]. ③ 지자체·종합병원·중소기업은 사실상 초입이다.</li>
+<li><strong>NAC — 신규보다 교체·확장이다</strong>: 보안 조직이 있는 곳의 절반이 이미 쓴다. 성장은 제로트러스트(ZTNA) 확장 라이선스, 클라우드 NAC(300개사), 금융권 IT자산 식별 의무(약 580개사)에서 나온다.</li>
+<li><strong>예산 — 비중을 올릴 여지는 있으나 저절로 오르지 않는다</strong>: 공시기업 6.15%, 금융 11.7%, 공공은 15% 의무. 다만 올해 공시기업 비중은 내려갔고 은행 집행률은 68%였다.</li>
+</ul>
+<h3 id="48-외산국내-경쟁사-대신-지니언스를-쓸-이유">4-8 외산·국내 경쟁사 대신 지니언스를 쓸 이유</h3>
+<div class="tablewrap"><table><thead><tr><th>영역</th><th>경쟁 대안</th><th>지니언스가 선택되는 이유</th><th>약점과 위협</th></tr></thead><tbody><tr><td>공공 NAC 경쟁</td><td>넷맨·엠엘소프트·스콥정보통신·휴네시온 / 외산 포어스카우트·HPE 아루바</td><td>조달 점유율 1위(2019년 72% → 2021·2023년 62% → 2025년 71%), 조달 등록·인증. 외산은 공공에서 힘을 못 쓰고 시스코는 국내 NAC 사업을 사실상 접었다는 보도</td><td>점유율이 이미 높아 더 오를 곳이 좁다</td></tr><tr><td>공공 EDR 경쟁</td><td>안랩 등 국내 백신 사업자</td><td>국정원 보안기능확인서를 국내외 제품 중 처음 받았고 7년 연속 조달 1위, 에이전트 75만 대·레퍼런스 200곳 이상</td><td>조달 점유율 2021년 79% → 2023년 86%(3분기 누적) → 2025년 46% → 1H26 58.4%. 시장이 커지며 경쟁자가 들어왔다</td></tr><tr><td>금융·대기업 EDR 경쟁</td><td>크라우드스트라이크·센티넬원·파이어아이(현 트렐릭스)·안랩</td><td>망분리 환경에 맞는 구축형, 국내 직접 기술지원, 외산을 교체한 사례</td><td>망분리가 풀리면 클라우드형 외산의 진입장벽도 같이 낮아진다 [추정]</td></tr><tr><td>중소·중견·병원</td><td>백신만 쓰거나 미도입</td><td>클라우드 NAC, 관리형 EDR(MDR, 2025년 2월 출시·1H26 고객 2배), NAC와 한 에이전트·한 콘솔</td><td>단가가 낮고 채널(총판) 의존</td></tr></tbody></table></div>
+<p>[인용: 컴퓨터월드 2022, <a href="http://www.comworld.co.kr/news/articleView.html?idxno=50672" target="_blank">http://www.comworld.co.kr/news/articleView.html?idxno=50672</a> · ZDNet 2026-04-28, <a href="https://zdnet.co.kr/view/?no=20260428080959" target="_blank">https://zdnet.co.kr/view/?no=20260428080959</a> · 지니언스 2023-10-24, <a href="https://www.genians.co.kr/pr-room/press/20231024" target="_blank">https://www.genians.co.kr/pr-room/press/20231024</a> · 리서치알음 2022-07-26, <a href="https://wp.genians.co.kr/resources/researcharum_report_20220726.pdf" target="_blank">https://wp.genians.co.kr/resources/researcharum_report_20220726.pdf</a> · IT데일리 2022-01-13, <a href="http://www.itdaily.kr/news/articleView.html?idxno=205952" target="_blank">http://www.itdaily.kr/news/articleView.html?idxno=205952</a> · DART 20260814000732]</p>
+<p>정리하면 지니언스를 고를 이유는 공공에서 가장 강하고(인증·조달·기존 설치 기반), 금융·대기업에서는 구축형과 기술지원이라는 조건부 우위이며, 민간 클라우드 환경으로 갈수록 약해진다. EDR 조달 점유율이 3년 사이 86%에서 46%까지 내려갔다가 58%로 돌아온 궤적은 이 우위가 고정된 것이 아님을 보여 준다.</p>
+<h3 id="49-티핑-포인트-무엇이-바뀌면-곡선이-꺾이나">4-9 티핑 포인트 — 무엇이 바뀌면 곡선이 꺾이나</h3>
+<div class="tablewrap"><table><thead><tr><th>#</th><th>티핑 포인트</th><th>시점</th><th>확인 지표</th></tr></thead><tbody><tr><td>1</td><td>공공 EDR이 &#x27;가점&#x27;에서 &#x27;평가 항목&#x27;으로 — 2027년 실태평가가 N2SF 적용을 보고, 지침이 관제 연동을 요구</td><td>2027년 평가</td><td>조달 EDR 계약액, 지니언스 조달 점유율 50% 유지</td></tr><tr><td>2</td><td>예산이 실제로 잡히는 회계연도 — 공공 15% 의무, 5대 은행 최소 <span class="up">+27%</span>, 과기정통부 <span class="up">+44%</span></td><td>2027년 1~2분기 발주</td><td>1H27 매출 성장률, 은행 집행률(2025년 68.0%)</td></tr><tr><td>3</td><td>금융 규정 시행 — IT자산 식별·관리 의무, 망분리 개선 방안</td><td>2027년 1분기</td><td>내수 직접판매 비중(1H26 42.8%, 2025년 38.4%)</td></tr><tr><td>4</td><td>비용·인력 장벽 해소 — 미도입 사유 1위가 비용(43.9%). 구독·관리형 + 정부 구독 지원 500억</td><td>2027년</td><td>용역·구독 매출 성장률(3Q26 용역 <span class="up">+12.3%</span>), 클라우드 NAC 고객 수</td></tr><tr><td>5</td><td>교차판매 임계 — EDR 고객 ÷ NAC 고객 7.5%</td><td>상시</td><td>15% 도달 여부(EDR 고객 450곳)</td></tr><tr><td>6</td><td>사고의 전염 — 사고 기업은 투자를 50~70% 늘렸다. 같은 업권으로 번질 때 업권 전체가 발주</td><td>수시</td><td>침해사고 신고 건수, 업권별 점검 결과</td></tr></tbody></table></div>
+<p>반대 방향의 신호도 같은 표에서 나온다. 공시기업 보안 투자 비중 하락(6.28 → 6.15%), 지자체 보안 예산 −17.1%, 은행 집행률 68%는 &quot;정책은 강해지는데 집행이 따라오지 않는&quot; 2025년형 위험이 살아 있음을 뜻한다. 2025년에도 종합대책 발표 뒤 주가가 먼저 뛰었고 실적은 예산 집행 지연으로 꺾였다.</p>
+<hr>
+<h2 id="9-산업제품-바텀업-모델">§9. 산업·제품 바텀업 모델</h2>
+<h3 id="91-제품서비스-분해-실측-dart-20260316000916202608">9-1 제품·서비스 분해 [실측: DART 20260316000916·20260814000732]</h3>
+<div class="tablewrap"><table><thead><tr><th>제품/서비스</th><th>2023</th><th>2024</th><th>2025</th><th>비중(2025)</th><th>1H26</th><th>용도·전방</th></tr></thead><tbody><tr><td>제품(NAC·EDR·GPI 등)</td><td>348.2</td><td>414.8</td><td>399.4</td><td>82.6%</td><td>206.7</td><td>내부망 접근 통제, 단말 위협 탐지 — 공공·금융·기업</td></tr><tr><td>용역(유지관리·기술지원)</td><td>80.7</td><td>81.3</td><td>84.4</td><td>17.4%</td><td>42.5</td><td>설치 고객 유지관리</td></tr><tr><td>합계</td><td>428.9</td><td>496.1</td><td>483.8</td><td>100%</td><td>249.2</td><td></td></tr><tr><td>(수출)</td><td>9.5</td><td>13.9</td><td>14.8</td><td>3.1%</td><td>8.7</td><td>미국·중동 등</td></tr></tbody></table></div>
+<ul>
+<li>제품별 매출은 공시하지 않는다(미공시). 매출 비중은 NAC 80 : EDR 15 : 기타 5 [인용: 뉴시스(밸류파인더) 2026-04-17, <a href="https://mobile.newsis.com/view/NISX20260417_0003594990]." target="_blank">https://mobile.newsis.com/view/NISX20260417_0003594990].</a> 2025년에 적용하면 NAC 약 387억, EDR 약 73억, 기타 약 24억 [추정: 484 × 비중].</li>
+<li>반복 매출인 용역은 2년간 <span class="up">+4.6%</span>에 그쳤다. 매출의 83%가 그해 새로 따내야 하는 제품 매출이라 가시성이 낮고, 구독형 보안 기업과 같은 배수를 주기 어려운 이유다.</li>
+</ul>
+<h3 id="92-고객납품-구조">9-2 고객·납품 구조</h3>
+<div class="tablewrap"><table><thead><tr><th>판매경로</th><th>2025</th><th>비중</th><th>1H26</th><th>비중</th><th>근거</th></tr></thead><tbody><tr><td>내수 간접(총판 → 파트너 → 고객)</td><td>283.0</td><td>58.5%</td><td>133.8</td><td>53.7%</td><td>DART 판매경로 표</td></tr><tr><td>내수 직접(금융·대기업, 공공 조달 직접계약)</td><td>186.0</td><td>38.4%</td><td>106.8</td><td>42.8%</td><td>같음</td></tr><tr><td>수출 직접</td><td>14.8</td><td>3.1%</td><td>8.7</td><td>3.5%</td><td>같음</td></tr></tbody></table></div>
+<ul>
+<li>주요 매출처는 공시하지 않는다(총판 경유). 총판은 론스텍·대신정보통신(NAC·ZTNA·EDR·VPN·MDR), 아이스콥(GPI), SK쉴더스(EDR). 단일 고객 30% 이상 집중은 공시상 확인되지 않는다.</li>
+<li>2025년 민간 52% : 공공 48%로 처음 민간이 앞섰다 [인용: 원 리포트(회사 IR 2026)]. 직접판매 비중이 38.4% → 42.8%로 오른 것은 금융·대기업 쪽 수요가 늘었다는 정황이다.</li>
+</ul>
+<h3 id="93-시장-규모경쟁-구도">9-3 시장 규모·경쟁 구도</h3>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>값</th><th>출처</th></tr></thead><tbody><tr><td>국내 정보보안 시장 규모</td><td>2024년 7.1조(<span class="up">+15.9%</span>)</td><td>[실측: DART 20260814000732 인용(정보보호산업 실태조사)]</td></tr><tr><td>국내 NAC 시장 규모</td><td>2022년 약 1,000억(업계 추산) / 역산 약 545억</td><td>[인용: IT데일리 2022-09, <a href="https://www.itdaily.kr/news/articleView.html?idxno=209844]" target="_blank">https://www.itdaily.kr/news/articleView.html?idxno=209844]</a> · [역산: 387억 ÷ 점유율 71%] — 두 값의 차이는 조달 점유율을 전체 시장에 적용한 데서 온다(단일 출처)</td></tr><tr><td>국내 EDR 시장 규모</td><td>역산 약 158억</td><td>[역산: 73억 ÷ 조달 점유율 46%] — 민간 포함 실제 시장은 더 클 가능성</td></tr><tr><td>글로벌 NAC TAM</td><td>2025년 25억달러(<span class="up">+13.9%</span>) vs 52억달러</td><td>[실측: DART 인용(Frost &amp; Sullivan)] vs [인용: 원 리포트(Coherent Market Insights)] — 2배 차이</td></tr><tr><td>글로벌 EDR TAM</td><td>2025년 51억달러 → 2031년 187억달러</td><td>[인용: Mordor Intelligence, <a href="https://www.mordorintelligence.kr/industry-reports/endpoint-detection-and-response-market]" target="_blank">https://www.mordorintelligence.kr/industry-reports/endpoint-detection-and-response-market]</a></td></tr><tr><td>지니언스 점유율</td><td>NAC 조달 71%(2025), EDR 조달 46%(2025) → 58.4%(1H26)</td><td>회사 주장(조달청 기준)</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>경쟁 구분</th><th>사업자</th><th>비고</th></tr></thead><tbody><tr><td>국내 NAC 경쟁</td><td>넷맨, 엠엘소프트, 스콥정보통신, 휴네시온</td><td>대부분 비상장·매출 100억 미만</td></tr><tr><td>글로벌 NAC 경쟁</td><td>시스코, 포어스카우트, HPE 아루바, 포티넷</td><td>가트너 상위 5개사에 지니언스 포함, 국내 공공에서는 존재감 약함</td></tr><tr><td>EDR 경쟁</td><td>안랩, 크라우드스트라이크, 센티넬원, 파이어아이(현 트렐릭스)</td><td>공공·금융은 안랩과, 민간은 외산과 경쟁</td></tr></tbody></table></div>
+<p>EDR 조달 점유율 46% → 매출 약 73억이라는 대응 관계에서 보듯, 점유율 1위여도 EDR이 전체 매출에서 차지하는 몫은 15% 안팎이다. EDR 침투율이 올라가는 속도가 전사 성장률을 정한다.</p>
+<h3 id="94-단가원가-이력">9-4 단가·원가 이력</h3>
+<ul>
+<li>제품 단가: 회사는 환경·판매 형태·경로·버전에 따라 달라 품목별 가격 추이를 산정하기 어렵다고 공시한다(미공시).</li>
+<li>원재료: §2-7 표. 서버 매입 평균단가 2025년 469,311원 → 1H26 1,245,034원. 변동 사유는 회사가 밝히지 않는다(고객 환경에 따라 장비가 달라진다는 설명뿐).</li>
+<li>가격 결정 구조: 계약별 견적, 조달 품목은 등록 단가. 원재료 연동 조항은 확인되지 않는다.</li>
+</ul>
+<h3 id="95-생산능력가동률수주">9-5 생산능력·가동률·수주</h3>
+<p>생산설비 없음(소프트웨어 개발과 단순 외주). 수주잔고 없음 — 계약 즉시 납품한다고 공시한다 [실측: DART 20260814000732]. 다음 분기 매출을 미리 볼 선행 지표가 없다는 뜻이다.</p>
+<h3 id="96-전방-수요-시나리오">9-6 전방 수요 시나리오</h3>
+<ul>
+<li>2026년 매출 증가분 113억(484 → 597)을 나누면 유기 성장 약 34억(2021~2025년 평균 수준인 7%)과 규제·사고가 만든 증분 약 79억이다 [역산].</li>
+<li>2027년 물음은 &quot;그 79억이 얼마나 반복되는가&quot;다.</li>
+</ul>
+<div class="tablewrap"><table><thead><tr><th>2027년</th><th>Bear</th><th>Base</th><th>Bull</th><th>근거</th></tr></thead><tbody><tr><td>유기 성장</td><td><span class="up">+12</span>억(<span class="up">+2%</span>)</td><td><span class="up">+42</span>억(<span class="up">+7%</span>)</td><td><span class="up">+60</span>억(<span class="up">+10%</span>)</td><td>2026년 선수요 반납 여부</td></tr><tr><td>규제·사고 증분</td><td><span class="up">+21</span>억(2026년의 27%)</td><td><span class="up">+61</span>억(77%)</td><td><span class="up">+88</span>억(111%)</td><td>공공 평가·금융 규정·은행 예산 집행률</td></tr><tr><td>EDR 조달 점유율</td><td>46%</td><td>55%</td><td>60%</td><td>2025년 46%, 1H26 58.4%</td></tr><tr><td>매출 합계</td><td>630억</td><td>700억</td><td>745억</td><td></td></tr></tbody></table></div>
+<h3 id="97-바텀업-실적-모델">9-7 바텀업 실적 모델</h3>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>FY26E</th><th>FY27E Bear</th><th>FY27E Base</th><th>FY27E Bull</th><th>산식·근거</th></tr></thead><tbody><tr><td>NAC 계열</td><td>465</td><td>480(<span class="up">+3%</span>)</td><td>525(<span class="up">+13%</span>)</td><td>550(<span class="up">+18%</span>)</td><td>2025년 387억에서 2026년 <span class="up">+20%</span> 가정, 시장 성장률 수준으로 수렴</td></tr><tr><td>EDR 계열</td><td>105</td><td>121(<span class="up">+15%</span>)</td><td>143(<span class="up">+36%</span>)</td><td>160(<span class="up">+52%</span>)</td><td>2025년 73억, 침투율 상승 속도에 따라</td></tr><tr><td>기타(ZTNA·GPI·클라우드)</td><td>27</td><td>29</td><td>32</td><td>35</td><td></td></tr><tr><td>매출 합계</td><td>597(<span class="up">+23.4%</span>)</td><td>630(<span class="up">+5.5%</span>)</td><td>700(<span class="up">+17.2%</span>)</td><td>745(<span class="up">+24.8%</span>)</td><td></td></tr><tr><td>비용(원가+판관비)</td><td>461</td><td>512(<span class="up">+11.0%</span>)</td><td>538(<span class="up">+16.7%</span>)</td><td>555(<span class="up">+20.4%</span>)</td><td>9M26 비용 <span class="up">+5.6%</span>, 2년 <span class="up">+19.5%</span></td></tr><tr><td>영업이익 / OPM</td><td>136 / 22.8%</td><td>118 / 18.7%</td><td>162 / 23.1%</td><td>190 / 25.5%</td><td>Base 증분마진 25%(장기 27.7%)</td></tr><tr><td>순이익 / EPS</td><td>127.5 / 1,405원</td><td>112.6 / 1,241원</td><td>152.2 / 1,677원</td><td>177.8 / 1,958원</td><td>(영업이익 + 영업외 10~12) × (1 − 12%) ÷ 9,079,600주</td></tr><tr><td>4Q26 매출 / 영업이익</td><td>—</td><td>190 / 42</td><td>210 / 55</td><td>230 / 68</td><td>4분기 비중 35~41%</td></tr></tbody></table></div>
+<p>[추정: 제품별 수치는 회사가 공시하지 않아 80:15:5 비중에서 출발한 가정 의존 값이다. 합계와 영업이익은 §2의 실측에서 직접 추정했다]</p>
+<ul>
+<li>컨센서스와 차이: 매출은 유진·FnGuide(695억)와 같고, EPS가 낮은 이유는 세율(12% vs 유진 4.7%)이다.</li>
+<li><strong>민감도 ① 매출 성장률 × 비용 증가율 → FY27 영업이익</strong></li>
+</ul>
+<div class="tablewrap"><table><thead><tr><th>매출 \ 비용</th><th>+8%</th><th>+11%</th><th>+15%</th><th>+18%</th><th>+21%</th></tr></thead><tbody><tr><td><span class="up">+5%</span></td><td>129</td><td>115</td><td>97</td><td>83</td><td>69</td></tr><tr><td><span class="up">+10%</span></td><td>159</td><td>145</td><td>126</td><td>113</td><td>99</td></tr><tr><td><span class="up">+17.3%</span></td><td>202</td><td>188</td><td>170</td><td>156</td><td>142</td></tr><tr><td><span class="up">+20%</span></td><td>218</td><td>205</td><td>186</td><td>172</td><td>158</td></tr><tr><td><span class="up">+25%</span></td><td>248</td><td>234</td><td>216</td><td>202</td><td>188</td></tr></tbody></table></div>
+<p>비용에는 서버처럼 매출을 따라 움직이는 항목이 섞여 있으므로 대각선 방향으로 읽는 것이 맞다.</p>
+<ul>
+<li><strong>민감도 ② 점유율·단가</strong>: EDR 점유율 ±5%p → EDR 매출 ±13억 → 영업이익 ±9억 [추정: 시장 260억 × 5%p, 증분마진 70%]. 서버 단가 <span class="up">+10%</span>를 전가하지 못하면 영업이익 −9.5억 [추정: 연환산 매입 95억 × 10%].</li>
+<li><strong>결론 문장</strong>: 4Q26 연결 영업이익 ≥ 55억(Base)이면 실적 레벨업 논지 유지, ≥ 65억이면 Bull 경로로 보고 적정가 상향·관망 해제 검토, &lt; 45억(Bear)이면 2025년형 재현으로 보고 조건부 진입 계획을 폐기한다.</li>
+</ul>
+<h3 id="98-미확인-목록바텀업">9-8 미확인 목록(바텀업)</h3>
+<p>제품별 매출(NAC·EDR·ZTNA) · 구독(클라우드 NAC·MDR) 매출 규모 · 국내 EDR 전체 시장 규모와 민간 점유율 · 주요 매출처 집중도 · 제품 단가 · 공공/민간 분기별 비중. 확인 경로: 사업보고서(2027-03), IR 문의, 조달청 종합쇼핑몰 계약 통계.</p>
+<hr>
+<h2 id="10-촉매-정량-분석">§10. 촉매 정량 분석</h2>
+<h3 id="101-실적-서프라이즈3q26">10-1 실적 서프라이즈(3Q26)</h3>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>값</th></tr></thead><tbody><tr><td>서프라이즈 실측</td><td>영업이익 37.8억 vs 컨센 15억(<span class="up">+152%</span>), 매출 137.8억 vs 117억(<span class="up">+18%</span>)</td></tr><tr><td>원인 분해</td><td>매출총이익 <span class="up">+23.6</span>억(구조: 공공·금융 수요) + 판관비 −3.2억(시점 요인일 가능성)</td></tr><tr><td>지속성</td><td>매출 증가는 2027년 규제 일정으로 이어질 근거가 있다. 판관비 감소와 68%대 매출총이익률은 4분기 성과급·서버 원가로 되돌려질 수 있다</td></tr><tr><td>추정치 수정</td><td>FY26 영업이익 유진 116 → 133억, FY27 131 → 158억. 이미 주가에 반영(발표 뒤 <span class="up">+57%</span>)</td></tr></tbody></table></div>
+<h3 id="102-규제정책">10-2 규제·정책</h3>
+<div class="tablewrap"><table><thead><tr><th>정책</th><th>시행 시점</th><th>수혜 경로</th><th>같은 수혜 기업</th></tr></thead><tbody><tr><td>국가 사이버보안 기본지침(EDR 관제 연동, 예산 15%)</td><td>2026-05-01 시행, 2027년 평가 반영</td><td>공공 EDR·N2SF 접근 통제</td><td>안랩, 이글루, SGA솔루션즈</td></tr><tr><td>전자금융감독규정 개정(IT자산 식별·관리, 취약점 점검 연 2회)</td><td>2027년 1분기, 일부 11/30 행정지도</td><td>NAC(자산 가시성), 취약점 점검 서비스</td><td>안랩, 라온시큐어 등</td></tr><tr><td>금융위 혁신방안(580개사 전수 점검, 망분리 개선)</td><td>점검 11/30·12/31, 방안 2027년 1분기</td><td>제로트러스트·단말 보안</td><td>보안주 전반</td></tr><tr><td>정보보호 공시 전체 상장사 확대</td><td>2027-01-01</td><td>보안 투자 가시화</td><td>보안주 전반</td></tr><tr><td>개인정보보호법(과징금 최대 매출 10%, 투자 시 감경) · ISMS-P 의무화</td><td>2026-09-11 · 2027-07-01</td><td>대규모 개인정보처리자의 예방 투자</td><td>보안주 전반</td></tr></tbody></table></div>
+<p>[인용: 파이낸셜뉴스 2026-11-11, <a href="https://www.fnnews.com/news/202611111830140888" target="_blank">https://www.fnnews.com/news/202611111830140888</a> · IT데일리 2026-03, <a href="http://www.itdaily.kr/news/articleView.html?idxno=238309" target="_blank">http://www.itdaily.kr/news/articleView.html?idxno=238309</a> · 위 §3-2·§4-4 출처]</p>
+<p>금액 가늠 [추정: 가정 의존]: 5대 은행 정보보호 예산 증액분은 최소 880억(3,320 → 4,200억)이다. 그중 3%가 지니언스 제품군으로 오면 26억으로, Base 매출 증가분(103억)의 4분의 1이다. 여기에 은행 집행률 68%를 곱하면 18억이다. 규제가 크다고 해서 회사 매출 증가가 그만큼 큰 것은 아니라는 점을 숫자로 확인해 둔다.</p>
+<hr>
+<h2 id="5-밸류에이션">§5. 밸류에이션</h2>
+<h3 id="51-현재-배수-40550원">5-1 현재 배수 (40,550원)</h3>
+<div class="tablewrap"><table><thead><tr><th>지표</th><th>값</th><th>산식</th></tr></thead><tbody><tr><td>시가총액</td><td>3,682억</td><td>40,550원 × 9,079,600주</td></tr><tr><td>TTM PER</td><td>30.7배</td><td>TTM 순이익 120.07억 → EPS 1,322원</td></tr><tr><td>FY26E PER</td><td>28.9배(자체) · 28.0배(유진) · 31.3배(FnGuide)</td><td>EPS 1,405 · 1,447 · 1,294원</td></tr><tr><td>FY27E PER</td><td>24.2배(자체) · 22.5배(유진) · 24.9배(FnGuide)</td><td>EPS 1,677 · 1,799 · 1,630원</td></tr><tr><td>FY28E PER</td><td>19.0배(FnGuide)</td><td>EPS 2,137원</td></tr><tr><td>PBR</td><td>5.46배</td><td>3Q26 자본 673.78억 → BPS 7,421원(KIS 표시 5.65배는 전년 말 기준)</td></tr><tr><td>PSR</td><td>6.59배</td><td>TTM 매출 559.0억</td></tr><tr><td>EV ÷ TTM 영업이익</td><td>25.5배</td><td>EV 3,287억 = 시총 − 순현금 394.6억</td></tr></tbody></table></div>
+<p>[실측: KIS 2026-11-18 · marketdb / 역산]</p>
+<h3 id="52-자기-역사와-비교">5-2 자기 역사와 비교</h3>
+<div class="tablewrap"><table><thead><tr><th>시점</th><th>주가</th><th>TTM PER</th><th>다음 해 EPS 기준</th></tr></thead><tbody><tr><td>2025-09-23 직전 테마 고점</td><td>28,800원</td><td>25.6배</td><td>18.8배</td></tr><tr><td>2026-07-29 저점</td><td>11,510원</td><td>12.1배</td><td>8.6배</td></tr><tr><td>2026-09-30</td><td>19,300원</td><td>16.9배</td><td>—</td></tr><tr><td>현재</td><td>40,550원</td><td>30.7배</td><td>24.9배</td></tr></tbody></table></div>
+<p>[역산: 각 시점에 발표돼 있던 최근 4개 분기 순이익 ÷ 9,079,600주, 선행은 당시 FnGuide 컨센서스]</p>
+<p>저점에서 현재까지 주가 ×3.52 = TTM EPS ×1.386 × 배수 ×2.54. 석 달 반 사이 이익은 39% 늘었고 배수는 2.5배가 됐다.</p>
+<h3 id="53-피어">5-3 피어</h3>
+<div class="tablewrap"><table><thead><tr><th>종목</th><th>시총</th><th>TTM 매출</th><th>TTM 영업이익</th><th>PER</th><th>시총 ÷ 영업이익</th><th>PSR</th><th>9M 성장(매출 / 영업이익)</th></tr></thead><tbody><tr><td>지니언스(현재가)</td><td>3,682</td><td>559</td><td>129</td><td>30.7배</td><td>28.6배</td><td>6.59배</td><td><span class="up">+24%</span> / <span class="up">+269%</span></td></tr><tr><td>안랩(11/16 종가)</td><td>11,794</td><td>2,935</td><td>391</td><td>26.4배</td><td>30.2배</td><td>4.02배</td><td><span class="up">+14%</span> / <span class="up">+47%</span></td></tr><tr><td>엑스게이트(11/16 종가)</td><td>3,579</td><td>534</td><td>60</td><td>61.4배</td><td>59.7배</td><td>6.70배</td><td>—</td></tr></tbody></table></div>
+<p>[실측: marketdb — 11/16 종가, TTM 4Q25~3Q26. 윈스 7.3배·파이오링크 7.5배는 2025년 실적 기준(허브 2026-10-13 보안주 비교)]</p>
+<p>테마 안에 있는 종목(안랩·엑스게이트·지니언스)은 26~61배, 테마 밖의 보안주(윈스·파이오링크)는 7배대다. 지금 배수는 사업의 질보다 테마 소속 여부가 정하고 있다. 안랩은 11/18에도 장중 4~10% 올라 이 표보다 높다.</p>
+<h3 id="54-목표-배수의-근거">5-4 목표 배수의 근거</h3>
+<ul>
+<li>Bear 13배: 2021~2024년 연평균 PER의 평균 12.9배. 테마가 꺼졌을 때 실제로 받던 배수다(2026년 2~3분기에는 실적이 좋아도 11~13배).</li>
+<li>Base 20배: 자체 밴드 상단(2025년 21.5배) 부근이자 FY26E → FY27E EPS 성장률 19.4%에 맞춘 값(PEG 1.0). 원 리포트 목표가의 내재 배수(20.3배)와도 같다. 반복 매출이 17%뿐인 사업에 주는 배수로는 후한 편이다.</li>
+<li>Bull 24배: 현재가가 자체 Base EPS에 주고 있는 24.2배가 유지되는 경우. 직전 고점의 선행 배수(18.8배)보다 높다.</li>
+</ul>
+<h3 id="55-확률가중-시나리오-12개월">5-5 확률가중 시나리오 (12개월)</h3>
+<div class="tablewrap"><table><thead><tr><th>시나리오</th><th>확률</th><th>전제</th><th>산식</th><th>적정가</th><th>현재가 대비</th></tr></thead><tbody><tr><td>Bear</td><td>30%</td><td>2025년형 재현: 매출 630억(<span class="up">+5.5%</span>), 영업이익 118억, 테마 소멸</td><td>EPS 1,241원 × 13배</td><td>16,100원</td><td>−60.3%</td></tr><tr><td>Base</td><td>50%</td><td>컨센서스 수준: 매출 700억(<span class="up">+17.2%</span>), 영업이익 162억</td><td>EPS 1,677원 × 20배</td><td>33,500원</td><td>−17.4%</td></tr><tr><td>Bull</td><td>20%</td><td>규제 증분이 2026년보다 큼: 매출 745억(<span class="up">+24.8%</span>), 영업이익 190억, 현 배수 유지</td><td>EPS 1,958원 × 24배</td><td>47,000원</td><td><span class="up">+15.9%</span></td></tr></tbody></table></div>
+<p>확률가중 기대값 = 0.30 × 16,100 + 0.50 × 33,500 + 0.20 × 47,000 = <strong>30,980원(−23.6%)</strong>.</p>
+<p>확률의 출발점과 조정: 허브 기저율은 20일 뒤 Bear가 이하 48%, Base가 이상 21%, Bull가 이상 14%다. Bear를 30%로 낮춘 근거는 ① Bear가 16,100원이 현재가의 −60%로 직전 20거래일 저가(18,860원)보다도 아래여서 20일 기저율과 거리 자체가 다르고 ② 세 분기 연속 서프라이즈와 2027년 규제 일정이 FY27 감익 확률을 낮추기 때문이다. Bull을 기저율보다 6%p 높인 근거는 규제 시행이 2027년 1분기에 몰려 있다는 점이다. Bear 25% · Base 50% · Bull 25%로 바꿔도 기대값은 32,525원(−19.8%)으로 결론이 같다.</p>
+<h3 id="56-민감도">5-6 민감도</h3>
+<div class="tablewrap"><table><thead><tr><th>EPS \ PER</th><th>13배</th><th>16배</th><th>20배</th><th>24배</th></tr></thead><tbody><tr><td>1,241원(Bear)</td><td>16,100(−60%)</td><td>19,900(−51%)</td><td>24,800(−39%)</td><td>29,800(−27%)</td></tr><tr><td>1,450원</td><td>18,900(−54%)</td><td>23,200(−43%)</td><td>29,000(−28%)</td><td>34,800(−14%)</td></tr><tr><td>1,677원(Base)</td><td>21,800(−46%)</td><td>26,800(−34%)</td><td>33,500(−17%)</td><td>40,200(−1%)</td></tr><tr><td>1,800원(유진)</td><td>23,400(−42%)</td><td>28,800(−29%)</td><td>36,000(−11%)</td><td>43,200(<span class="up">+7%</span>)</td></tr><tr><td>1,958원(Bull)</td><td>25,500(−37%)</td><td>31,300(−23%)</td><td>39,200(−3%)</td><td>47,000(<span class="up">+16%</span>)</td></tr></tbody></table></div>
+<p>세율 민감도(Base 세전이익 173억): 5% → EPS 1,810원, 12% → 1,677원, 20% → 1,524원. 같은 영업이익이라도 세율 가정에 따라 PER이 22.4배에서 26.6배까지 달라진다.</p>
+<h3 id="57-현재가가-요구하는-것">5-7 현재가가 요구하는 것</h3>
+<ul>
+<li>20배로 현재가를 설명하려면 EPS 2,028원이 필요하다. 영업이익으로는 약 198억(FY26E 대비 <span class="up">+46%</span>)으로 자체 Bull(190억)보다 많다.</li>
+<li>연 10% 수익을 내려면 12개월 뒤 44,600원이어야 하고, 그때 20배를 받는다면 FY28E EPS 2,230원(FnGuide 2,137원보다 <span class="up">+4.4%</span>), 18배라면 2,478원(<span class="up">+16.0%</span>)이 필요하다.</li>
+<li>즉 현재가는 &quot;컨센서스를 넘는 실적&quot;과 &quot;역사적 최고 배수의 유지&quot;를 동시에 요구한다. 둘 중 하나만 어긋나도 손실 구간이다.</li>
+</ul>
+<hr>
+<h2 id="6-매매전략-선물-미상장-현물만">§6. 매매전략 (선물 미상장 — 현물만)</h2>
+<h3 id="61-레벨-정의-실측-일봉-20261117-5일선-32900-20일선-2">6-1 레벨 정의 [실측: 일봉 2026-11-17 — 5일선 32,900 · 20일선 26,151 · 60일선 20,977 · 120일선 17,286]</h3>
+<ul>
+<li>현재가 40,550원: 신규 진입 부적합. 20일선 대비 <span class="up">+55%</span>, 60일선 대비 <span class="up">+93%</span>.</li>
+<li>조건부 진입 구간: 23,500~25,500원. 실적 발표 직전 종가대(11/10 25,000원, 11/11 25,900원), 20일선 바로 아래, FY27E 14.0~15.2배, 피델리티의 최근 매수가 23,775원이 겹친다.</li>
+<li>진입 방식: 확인형 — 구간에 닿은 뒤 종가가 전일 고가 위에서 마감하면 다음 거래일. 지정가 선매수는 하지 않는다(허브 실적: 하락 국면 구간 지정가는 목표 18% / 손절 76%).</li>
+<li>손절선: 19,200원. 진입 상단에서 24.7% 아래(변동폭 하한 24.3% 충족), 60일선과 10월 하순 종가 저점(19,400원) 이탈에 해당. 손절선 아래 추가 매수는 하지 않는다.</li>
+<li>목표: 1차 33,500원(Base 적정가), 2차 40,000원(Base EPS × 24배, 현 주가대 복귀).</li>
+</ul>
+<h3 id="62-포지션-사이징-자산-대비">6-2 포지션 사이징 (자산 대비 %)</h3>
+<ul>
+<li>리스크 예산: 손실예산 1% ÷ 손절폭 24.7% = 자산의 4.05%.</li>
+<li>Bear 손실 한도: 손실예산 3% ÷ Bear 하락폭 36.9%(25,500 → 16,100원) = 8.1%.</li>
+<li>집중 상한 50% · 이벤트 전 상한 25% → 최소값인 <strong>4.0%</strong>가 상한. 조건(§6-4)이 충족되기 전에는 0%.</li>
+<li>분할: 2회(구간 확인 시 절반, 4Q26 실적 확인 뒤 나머지).</li>
+</ul>
+<h3 id="event-matrix">6-3 이벤트 매트릭스 (4Q26 실적 × 발표 뒤 주가 위치)</h3>
+<div class="tablewrap"><table><thead><tr><th>4Q26 연결 영업이익</th><th>주가 &gt; 33,500원</th><th>25,500~33,500원</th><th>&lt; 25,500원</th></tr></thead><tbody><tr><td>≥ 65억(Bull 경로)</td><td>관망 해제 검토, 적정가 상향 뒤 재산정</td><td>관심 전환</td><td>조건부 진입 실행</td></tr><tr><td>45~65억(Base)</td><td>관망 유지</td><td>관망 유지, 구간 대기</td><td>조건부 진입 실행</td></tr><tr><td>&lt; 45억(Bear 경로)</td><td>관망 유지</td><td>진입 계획 폐기</td><td>진입 계획 폐기, 진입분 청산</td></tr></tbody></table></div>
+<h3 id="64-기계적-규칙">6-4 기계적 규칙</h3>
+<div class="tablewrap"><table><thead><tr><th>조건</th><th>행동</th><th>근거</th></tr></thead><tbody><tr><td>종가 23,500~25,500원 도달 + 다음 종가 &gt; 전일 고가 + KOSPI 20일선 위</td><td>관심 전환, 상한 4.0% 안에서 절반 진입</td><td>확인형 진입, 지수조건</td></tr><tr><td>14일 평균 일중 변동폭 ≤ 8%</td><td>손절을 진입가 −12%로 좁혀 재산정(상단 25,500원이면 22,400원, 손익비 1:2.6)</td><td>변동폭 1.5배 규칙</td></tr><tr><td>종가 &lt; 19,200원</td><td>다음 거래일 시초 전량 청산</td><td>손절선</td></tr><tr><td>4Q26 연결 영업이익 &lt; 45억</td><td>진입 계획 폐기</td><td>Bear 경로</td></tr><tr><td>4Q26 연결 영업이익 ≥ 65억 + FY27E 컨센 EPS ≥ 1,900원</td><td>적정가 재산정, 관망 해제 검토</td><td>Bull 경로</td></tr><tr><td>교환사채 교환 청구·미리캐피탈 추가 매도 공시</td><td>수급 재점검, 진입 보류</td><td>오버행</td></tr></tbody></table></div>
+<h3 id="65-손익비">6-5 손익비</h3>
+<ul>
+<li>진입 구간 상단 기준: 상승여력 33,500 − 25,500 = 8,000원, 하락리스크 25,500 − 19,200 = 6,300원. <strong>손익비 = 8,000 ÷ 6,300 = 1:1.27</strong>.</li>
+<li>현재가 기준: (33,500 − 40,550) ÷ (40,550 − 19,200) = −0.33. 1차 목표가 현재가 아래라 음수다.</li>
+<li>요구 승률 = 1 ÷ (1 + 1.27) = 44%. 허브의 최근 실제 승률은 20%(하락 국면 구간 지정가 18%)다. 눌림 구간에서도 손익비가 1:2에 못 미치는 이유는 변동폭 때문에 손절을 24.7%나 내려야 하기 때문이다 → 변동성이 가라앉기 전에는 눌림도 좋은 셋업이 아니다. 이것이 &#x27;관심&#x27;이 아니라 &#x27;관망&#x27;인 이유다.</li>
+</ul>
+<h3 id="invalidation">6-6 반증 조건 (수치 → 행동)</h3>
+<ol>
+<li>반증(하방): <strong>4Q26 연결 영업이익 &lt; 45억</strong>(단일 3개월)이면 2025년형 재현으로 보고 Bear 전환·진입 계획 폐기.</li>
+<li>반증(상방): <strong>4Q26 연결 영업이익 ≥ 65억</strong>이고 FY27E 컨센서스 EPS ≥ 1,900원이면 관망 판정이 틀린 것 — 적정가를 다시 계산한다.</li>
+<li>반증(가격): 조건부 진입 뒤 <strong>종가 19,200원 미만</strong>이면 전량 청산.</li>
+<li>반증(수요): 1H27 연결 매출 성장률 &lt; 10%이면 규제 증분이 반복되지 않는 것으로 보고 Base를 Bear 쪽으로 옮긴다.</li>
+</ol>
+<h3 id="67-촉매-캘린더">6-7 촉매 캘린더</h3>
+<div class="tablewrap"><table><thead><tr><th>날짜</th><th>이벤트</th><th>비고</th></tr></thead><tbody><tr><td>2026-11-30</td><td>금융권 1차 전수점검 결과 제출, 대형사 점검 주기 단축 행정지도 시행(추진), 감독규정 개정 예고 종료</td><td>[인용: 이투데이 2026-11-15, <a href="https://www.etoday.co.kr/news/view/2648244]" target="_blank">https://www.etoday.co.kr/news/view/2648244]</a></td></tr><tr><td>2026-12-31</td><td>금융권 2차 점검(미등재 시스템·내부통제), 총판 계약 만기, 양자 보안 게이트웨이 연내 출시 목표</td><td>[인용: 바이라인네트워크 2026-11-12, <a href="https://byline.network/2026/11/12-677/]" target="_blank">https://byline.network/2026/11/12-677/]</a></td></tr><tr><td>2027-01-01</td><td>정보보호 공시 의무 전체 상장사로 확대</td><td></td></tr><tr><td>2027년 2월</td><td>4Q26 잠정실적(전년은 2월 하순)</td><td>임계: 45억 / 55억 / 65억</td></tr><tr><td>2027-03-31</td><td>FY26 사업보고서 법정기한</td><td>교환사채·재고·제품별 매출 확인</td></tr><tr><td>2027년 1분기</td><td>전자금융감독규정 개정 시행, 망분리 개선 방안, 보안 내부통제 가이드라인</td><td></td></tr><tr><td>2027-07-01</td><td>ISMS-P 인증 의무화 시행</td><td></td></tr><tr><td>2027년 9월 이후</td><td>교환사채 조기상환 청구 가능</td><td>발행 2년 경과</td></tr></tbody></table></div>
+<hr>
+<h2 id="7-검산">§7. 검산</h2>
+<ul>
+<li>분기 합 = 연간: 2025년 매출 93.54 + 114.26 + 104.00 + 172.01 = 483.81 ✓(DART 483.81). 영업이익 0.37 + 10.57 + 11.0 + 48.0 = 69.94(연간 70).</li>
+<li>1Q + 2Q = 상반기: 117.40 + 131.84 = 249.24 ✓(DART 249.24).</li>
+<li>9M26: 매출 387.02 ✓, 영업이익 17.42 + 25.70 + 37.78 = 80.90(DART 누적 80.89, 반올림 차).</li>
+<li>TTM: 172.01 + 117.40 + 131.84 + 137.78 = 559.03, 순이익 43.0 + 19.68 + 26.88 + 30.51 = 120.07.</li>
+<li>판매경로 합(1H26): 133.76 + 106.77 + 8.70 = 249.23 ✓.</li>
+<li>시가총액: 40,550 × 9,079,600 = 3,681.8억 ✓(KIS 3,682억).</li>
+<li>시나리오: 확률 합 30 + 50 + 20 = 100 ✓. 기대값 4,830 + 16,750 + 9,400 = 30,980 ✓.</li>
+<li>손익비 재계산: 8,000 ÷ 6,300 = 1.27 ✓. 손절폭 6,300 ÷ 25,500 = 24.7% ✓.</li>
+<li>제품 추정 합: FY27 Base 525 + 143 + 32 = 700 ✓, FY26E 465 + 105 + 27 = 597 ✓.</li>
+<li>라벨: 분기 수치는 모두 연결·3개월, 누적은 &#x27;9M&#x27;으로 표기.</li>
+</ul>
+<h2 id="8-미확인-목록">§8. 미확인 목록</h2>
+<ol>
+<li>교환사채 교환권의 회계 분류(자본 / 파생상품부채)와 3Q26 영업외손익 −1.85억의 내역 — 분기보고서 주석.</li>
+<li>교환청구 시작일·인수자 — 2025-09-08 주요사항보고서.</li>
+<li>미리캐피탈의 처분 단가와 남은 34만 주의 처리 방향.</li>
+<li>시장조치(투자주의·경고·단기과열) 지정 여부 — 적재 시 KIS 필드로 재확인.</li>
+<li>제품별 매출, 구독 매출, 공공/민간 분기 비중.</li>
+<li>NAC·EDR의 부문별(공공·금융·병원) 도입률 공식 통계 — 실태조사 원자료.</li>
+<li>서버 매입 급증의 성격(재고 선매입 / 믹스 / 가격 전가), 재고자산 잔액.</li>
+<li>3Q26 말 순현금, 유효세율 상승의 원인(세액공제 내역).</li>
+<li>한국투자증권·유안타증권 11/13 리포트의 세부 추정치.</li>
+<li>원 리포트의 목표가 산출표와 차트(추출본에 없음).</li>
+<li>2026년 7월 취약점 대량 공개, EU AI Act가 국내 보안 수요에 미친 영향.</li>
+</ol>
+<h2 id="출처">출처</h2>
+<ul>
+<li>공시: DART 분기보고서 20261112000006 · 반기보고서 20260814000732 · 사업보고서 20260316000916 · 임원·주요주주 소유상황보고서 20261113000320 · 대량보유상황보고서(약식) 20261116000842.</li>
+<li>허브 실측: marketdb(KIS 종가·지수, FnGuide·DART 분기 실적), consensus(FnGuide·한경 컨센서스), scorecard(일봉·사후 채점), 자료방 게시 원 리포트 추출본(2026-05-21).</li>
+<li>증권사: 유진투자증권 2026-11-16(report_idx=654208)·2026-05-18(649426), 유안타증권 2026-05-29(649761), 한국투자증권 2026-10-28, 한국IR협의회 2025-01-03(<a href="https://www.genians.co.kr/hubfs/00genian/IR/20250103_KIRIS.pdf)." target="_blank">https://www.genians.co.kr/hubfs/00genian/IR/20250103_KIRIS.pdf).</a></li>
+<li>실태조사·통계·정책·보도: 본문 각 [인용] 태그의 URL.</li>
+</ul>
+<h2 id="변경이력">변경이력</h2>
+<ul>
+<li>2026-05-21 원 리포트: BUY 분할매수, 목표 30,000원(15,510원 기준).</li>
+<li>2026-10-13·10-14 허브 카드: 관심, 목표 26,500원 / 23,874원 → 10-28 도달.</li>
+<li>2026-11-18 본 갱신판: 관망. Base 적정가 33,500원(FY27E EPS 1,677원 × 20배), 조건부 진입 23,500~25,500원.</li>
+</ul>
+<h2 id="v-검증-미결리스크-체크리스트">§V. 검증 미결·리스크 체크리스트</h2>
+<div class="tablewrap"><table><thead><tr><th>검증 항목(먼저 의심한 것)</th><th>현재 판정</th><th>미결·추가 확인 경로</th></tr></thead><tbody><tr><td>4분기 순이익이 교환사채 평가손실로 깎이는가</td><td>가능성 있음(3Q 영업외 −1.85억)</td><td>분기보고서 주석의 사채·파생상품 항목, IR 문의</td></tr><tr><td>유진 FY27E EPS 1,799원을 재현할 수 있는가</td><td>세율 4.7% 가정에 의존 — 9M26 실측 13.3%와 불일치</td><td>4Q26 법인세, 세액공제 내역</td></tr><tr><td>&#x27;EDR 의무화&#x27;는 실체가 있는가</td><td>공공은 있음(지침 제131조⑤5, 관제 연동). 금융·민간은 직접 의무 아님</td><td>전자금융감독규정 최종안, 2027년 실태평가 지표</td></tr><tr><td>규제 예산이 회사 매출로 오는 비율</td><td>낮음 — 은행 집행률 68%, 5대 은행 증액분의 3% 가정 시 26억</td><td>1H27 직접판매 매출, 은행별 발주 공고</td></tr><tr><td>서버 단가 2.65배가 마진을 깎는가</td><td>3Q까지는 안 보임(원가율 31.8%)</td><td>4Q 원가율, 재고자산</td></tr><tr><td>2025년처럼 테마 고점 뒤 60% 하락이 반복되는가</td><td>실적은 다르나 배수·회전율은 더 높음</td><td>4Q26 실적, 회전율 정상화 여부</td></tr><tr><td>미리캐피탈 잔여분·교환사채 물량이 나오는가</td><td>합계 7.9%가 잠재 매물</td><td>지분 공시, 교환 청구 공시</td></tr><tr><td>EDR 점유율 반등(46 → 58.4%)이 유지되는가</td><td>반기 수치 하나뿐</td><td>2026년 연간 조달 통계(2027년 초)</td></tr><tr><td>망분리 완화가 외산 EDR에 문을 여는가</td><td>논리상 가능, 사례 미확인</td><td>금융권 EDR 수주 사례, 클라우드 보안인증 동향</td></tr></tbody></table></div>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-18 13:24 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 39,700원 (<span class="up">+8.5%</span>) · 시총 3,605억 · 5일 <span class="up">+53.3%</span> / 20일 <span class="up">+94.6%</span> / 60일 <span class="up">+174.2%</span></li>
+<li>MA5 35,270원 / MA20 27,020원 / MA60 21,376원 → MA20 이격 <span class="up">+46.9%</span> · MA60 이격 <span class="up">+85.7%</span></li>
+<li>52주 고 45,000원 / 저 11,000원 → 고점 대비 <span class="down">-11.8%</span> · 20일 고 39,700원 / 저 19,400원</li>
+<li>후행 PER 48.06 / PBR 5.54 (EPS 826원 · BPS 7,171원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 793.0억 (5일 1,916.2억)</li>
+<li>외국인 순매수 5일 -64.3억 / 20일 -223.2억 · 기관 5일 63.8억 / 20일 68.3억 · 개인 20일 163.7억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 0.01% / 20일 평균 0.59% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 3.62% (10/23) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비</strong></p>
+<ul>
+<li>현재가 39,700원가 손절 19,200~목표 33,500 구간 밖 → 라인 재설정 필요</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 51.6% = <strong>자산의 1.0%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.0%</strong></li>
+<li>유동성 참고: 20일 ADV 793.0억 · 1일 소화 한도는 ADV의 10%(79.30억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 51.6% · ATR14 4,793원 (손절폭/ATR 4.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 51.6% = ATR14 × 4.3배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 32,510원</li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-263860"></span>📋 결정카드 — 지니언스(263860) 판정: 관망 선물: 無 현재가: 40,550원 진입: 23,500~25,500원 (확인형: 도달 후 종가가 전일 고가 위에서 마감하면 다음 거래일 — KOSPI 20일선 회복과 변동성 진정이 함께 확인될 때만) 손절: 19,200원 목표: 1차 33,500원 (2차 40,000원) 손익비: 1:1.27 (진입 상단 25,500 기준 / 현재가 기준 음수 — 1차 목표가 현재가 아래) 기간: 3~6개월 (밸류 기준 12개월) 촉매: 2026-11-30 금융권 1차 전수점검·행정지도 시행 / 2027년 2월 4Q26 잠정실적(법정기한 2027-03-31) / 2027년 1분기 전자금융감독규정 개정 시행·망분리 개선 방안 반증: 4Q26 연결 영업이익 &lt; 45억이면 Bear 전환·진입 계획 폐기 / ≥ 65억이고 FY27E 컨센 EPS ≥ 1,900원이면 관망 해제·적정가 재산정 / 종가 19,200원 이탈 시 조건부 진입분 전량 청산 지수조건: KOSPI 20일선 회복 후 (하락 국면 — 매수 불가) 요구승률: 44% (=1÷(1<span class="up">+1.27</span>)) vs 최근 실제 20%(하락 국면 구간 지정가 18%) 직전카드: 2026-10-14 관심(목표 23,874원 → 10-28 도달, 손절 유지) → 목표 초과 뒤 재설정 검증: ✅4 ⚠️3 ❌0 | 손절 거리 1.5배 · 손익비 1:1.3(구간 상단) · 요구 승률 44% vs 최근 20% · 비중 상한 4.0%</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
