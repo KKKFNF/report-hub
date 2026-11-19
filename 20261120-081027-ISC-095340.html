@@ -1,0 +1,225 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ISC(095340) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261120-081027-ISC-095340.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.55</div><div class="tp-c"><b>결론 발췌</b> 3Q26 실적·AIDC 모멘텀은 &#x27;실체&#x27;지만(매출 718억·OP 218억·AIDC 분기 첫 500억 돌파 — 뉴스·6개 증권사 리포트로 교차확인됨) 현재가 146,900원은 trailing PER 55배로 고평가 구간이고 시장이 하락 국면(코스피 20일선 아래)·고베타(1.93)·순익 YoY 역성장이라 현재가 추격은 손익비 1:0.8로 부적합. 눌림(128,000~135,000) 지정가 대기 시 손익비 1:1.9, 1차 목표 171,000원(자체)·증권사 목표 200,000원대. 판정 관심, 지수 헤지/코스피 20일선 회복 전제. ⓪ 실전 기준 [실측: scorecard --brief, 일봉 2026-11-19, 표본 502건] • 시장…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>ISC(095340)</h1>
+<div class="meta">📊 benine · 2026-11-20 08:10 · 코드 095340</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-20 08:10)</div><div class="kpi-v">146,900원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3.1조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">55.48</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">5.6</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.55</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.78</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">171,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 128,000~135,000원 (구간 도달 시 지정가 분할 3회)</span><span class="dc dn">손절 116,000원</span><span class="dc up">목표 171,000원</span><span class="dc">손익비 진입 1:2.55 · 현재가 1:0.78 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.9</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.9로 적었지만 진입·손절·목표로 계산하면 1:2.55다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 2026-12-10 선물만기 · 4Q26 실적발표 ~2027-02 · 송도팹 착공</div><div class="dc-l">🛑 반증: 4Q26 연결 영업이익 &lt; 220억이면 논지 폐기·전량 청산 / 종가 116,000원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — ISC(095340)  ※선물 有 (근월물 A2B612) _출처: 비나인 블로그 &#x27;ISC 3분기 IR내용 요약&#x27;(blog 98442427, 2026-11-19) 기반 교차검증 리포트. 블로거 요약은 &#x27;참고&#x27;이며 IR 원문 추정이 섞여 있음._</p>
+<p>📌 한줄 결론: 3Q26 실적·AIDC 모멘텀은 &#x27;실체&#x27;지만(매출 718억·OP 218억·AIDC 분기 첫 500억 돌파 — 뉴스·6개 증권사 리포트로 교차확인됨) 현재가 146,900원은 trailing PER 55배로 고평가 구간이고 시장이 하락 국면(코스피 20일선 아래)·고베타(1.93)·순익 YoY 역성장이라 <strong>현재가 추격은 손익비 1:0.8로 부적합</strong>. 눌림(128,000~135,000) 지정가 대기 시 손익비 <strong>1:1.9</strong>, 1차 목표 171,000원(자체)·증권사 목표 200,000원대. 판정 <strong>관심</strong>, 지수 헤지/코스피 20일선 회복 전제.</p>
+<p>⓪ 실전 기준 [실측: scorecard --brief, 일봉 2026-11-19, 표본 502건]</p>
+<ul>
+<li>시장 국면: <strong>하락(코스피 20일선 아래)</strong> — 코스피 5,138 / 20일선 5,426 / 60일선 6,214 · 20일 −7.2%</li>
+<li>종목 일중 변동폭(14일) 9.3% → 손절 하한 = 진입 상단에서 <strong>13.9%(1.5배) 이상 아래</strong> · 60일 베타 <strong>1.93(코스닥)</strong> · 20일 평균 거래대금 290억 · 60일 고점 대비 −34.7%</li>
+<li>1회 손실예산: 자산의 <strong>0.5%</strong> (변동성 레짐 &#x27;고변동&#x27;, VKOSPI 55.3)</li>
+<li>최근 관심·매수 카드 사후 20거래일: 구간 지정가 목표먼저 15%/손절먼저 80% · <strong>지수 대비(헤지 가정) 목표먼저 35%/손절먼저 40%</strong> · 하락국면 발행분은 20일선 회복 후 매수 시 목표 48%/손절 52%, 발행일 즉시 매수 시 25%/75%</li>
+<li>시나리오 기저율: 20일 뒤 Bear가 이하 47%(보고서 평균 Bear 30%) · Base가 이상 21%</li>
+<li>이 종목 직전 카드: <strong>없음</strong></li>
+</ul>
+<p>① 포착 신호 (사실관계 검증)</p>
+<ul>
+<li>주력: 반도체 <strong>테스트 소켓</strong>(칩 양산 전 전기적 검사용 소모성 부품) + 테스트 부품/장비소재. 전공정 내재화·다품종 단납기 [실측: DART 사업보고서 20260318000018]</li>
+<li>급등 사유 = <strong>실체 확인</strong>: 10/27 IR서 3Q26 매출 718억·OP 218억·OPM 30%·<strong>AIDC(AI데이터센터) 매출 분기 첫 500억 돌파</strong> 발표 [인용: 머니투데이 더벨 2026-10-27, <a href="http://www.mt.co.kr/stock/2026/10/27/2026102711089649410]." target="_blank">http://www.mt.co.kr/stock/2026/10/27/2026102711089649410].</a> 11/12~13 <strong>송도팹(350억 신공장) 착공</strong>에 장중 <span class="up">+11%</span> 급등 [인용: 한국경제 2026-11-12]</li>
+<li>★블로거 요약의 &#x27;영업이익 18억&#x27;은 <strong>오타(실제 218억)</strong>로 확인 — DART·6개 증권사 리포트 전부 218억(OPM 30.4%). 블로그 수치를 그대로 믿지 말 것</li>
+<li>기대감 vs 실체: 3Q 숫자(매출·OP·AIDC 500억)는 <strong>사실</strong>. 반면 &#x27;4Q 700억+·2027 LTA 50%·베트남 V2/V3·소켓매출 6,500억&#x27;은 회사 IR 가이던스 = <strong>추정</strong></li>
+</ul>
+<p>② 사업·전방·고객</p>
+<ul>
+<li>제품비중 [실측: 분기보고서 20261116000017, 연결]: Test Socket(제품) <strong>82.1%</strong> / Test 부품류(상품) 16.9% / 용역 1.0% — 소켓 집중도 상승(25년 75.4%→26.3Q 82.1%)</li>
+<li>전방: AI데이터센터(북미 ASIC·GPU), CPU(x86·Arm), 모바일 AP, HBM/AI메모리</li>
+<li>매출처 [실측: 분기보고서]: 내수 <strong>삼성전자·하이닉스 외</strong>, 수출 미주·동남아·중국·대만·유럽. 고객 개별 비중 <strong>미공시</strong></li>
+<li>원재료: 실리콘·파우더(국제 금 시세 연동), 생산거점 대한민국·베트남</li>
+</ul>
+<p>③ 실적 (DART 연결 실측) + 시점별 밸류에이션·RS</p>
+<p><img src="https://kkkfnf.github.io/report-hub/assets/benine-095340-price-trend.png" alt="주가추이 vs KOSDAQ" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<p>연간(연결) [실측: DART finstate 11011]:</p>
+<ul>
+<li>2022: 매출 1,788.7억 / OP 558.8억 / OPM 31.2%</li>
+<li>2023: 매출 1,402.2억 / OP 107.4억 / OPM 7.7% (반도체 다운사이클)</li>
+<li>2024: 매출 1,744.8억 / OP 447.8억 / OPM 25.7% / 순익 549.0억 / 영업CF 506.7억 / 부채비율 11.4%</li>
+<li>2025: 매출 2,201.9억 / OP 600.5억 / OPM 27.3% / 순익 563.4억 / 영업CF 417.1억 / 부채비율 <strong>15.9%</strong></li>
+</ul>
+<p>→ 재무 매우 건전(부채비율 11~16%, 순현금). 이자보상배율 사실상 무위험 수준(미확인 정밀값, OP≫이자비용)</p>
+<p>분기(연결·3개월) [실측: DART 11013/11012/11014]:</p>
+<ul>
+<li>3Q25: 645.2 / OP 174.2 / OPM 27.0% / 순익 162.2</li>
+<li>1Q26: 682.7 / OP 236.2 / OPM 34.6% / 순익 206.0</li>
+<li>2Q26: 729.3 / OP 213.2 / OPM 29.2% / 순익 193.9</li>
+<li><strong>3Q26: 717.7 / OP 218.4 / OPM 30.4% / 순익 148.8</strong></li>
+<li>9M26누적: 매출 2,129.7 / OP 667.8 / OPM 31.4% / 순익 548.7</li>
+</ul>
+<p>→ 3Q26 YoY: 매출 <span class="up">+11.2%</span> · OP <strong><span class="up">+25.4%</span></strong> · 순익 <strong>−8.3%</strong>. OP는 늘었는데 순익이 준 건 <strong>환율(원/달러 1,330원대 하락 → 외화환산 관련 손익)</strong> 영향 [블로거·증권사 공통 지적, 세부 분해는 미확인]. QoQ 순익 −23% 도 같은 원인 → 가이던스 궤도: 9M OP 668억, 연 가이던스 ~1,000억 → 4Q OP 약 330억 필요(컨센 FY26 OP 1,004억과 정합)</p>
+<p>시점별 멀티플·RS [실측: hist_valuation, 벤치 KOSDAQ]:</p>
+<ul>
+<li>2022 PER 13.3 / PBR 2.17 / RS <span class="up">+19.0%</span>p</li>
+<li>2023 PER 83.0(이익 급감) / PBR 2.71 / RS <span class="up">+136.5%</span>p</li>
+<li>2024 PER 25.5 / PBR 2.41 / RS <span class="up">+9.7%</span>p</li>
+<li>2025 PER 25.0 / RS <span class="up">+22.2%</span>p</li>
+<li>2026 1Q RS <span class="up">+72.7%</span>p → 2Q −10.0%p → 3Q <span class="up">+12.9%</span>p → <strong>4Q −11.6%p</strong></li>
+</ul>
+<p>→ 해석: 밸류는 13배(2022)→25배(2024~25)로 <strong>재평가(re-rating)</strong> 됐고 2026 상반기 AIDC 기대로 주가·멀티플 폭발. 단 <strong>RS가 상반기 시장 초과(<span class="up">+73%</span>p)에서 하반기 열위(−10~−12%p)로 전환</strong> — 모멘텀이 꺾인 구간. 분기 EPS 연율화 왜곡이 커 PBR·절대 이익추세를 주 지표로 봄</p>
+<p>④ 미래실적·컨센서스 [실측: consensus, 수집 2026-11-20]</p>
+<ul>
+<li>목표가 컨센 평균 <strong>216,250원</strong>(최고 300,000/최저 180,000·8건), 증권사 최신 median ~200,000 · 현재가 대비 <span class="up">+47.2%</span></li>
+<li>투자의견: Buy 8 / NR 2</li>
+<li>FY26E 매출 3,104 / OP 1,004 / 순익 840 / EPS 3,989 / PER 36.8</li>
+<li>FY27E 매출 4,084 / OP 1,443 / EPS 5,714 / PER 25.7</li>
+<li>FY28E 매출 4,918 / OP 1,810</li>
+<li>분기 컨센: 4Q26 매출 927억 / 순익 259억</li>
+<li>OP컨센 추이(FY26): 1,004 ← 3M전 1,020(소폭 하향) · 1Y전 747(대폭 상향) → 중기 상향, 최근 소폭 하향</li>
+<li>최근 리포트: SK증권 200,000(하향)11/13 · 유안타 NR 11/11 · 메리츠 210,000(하향)10/28 · 하나 250,000(유지)10/28 · IBK 180,000(유지)10/28 · 삼성 200,000(유지)10/27</li>
+</ul>
+<p>→ <strong>달성 가능성 中</strong>: 4Q 매출 이연분(110억) 인식 + AIDC 램프업은 근거 있으나, 3Q가 컨센을 매출 −13%·OP −21% 하회했고 목표가 다수 하향 중. FY27 30%+ 성장은 베트남 증설·LTA 가정에 의존(가정 실현 시 高, 지연 시 中)</p>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현재 [실측]: trailing PER <strong>55.5</strong> / PBR <strong>5.6</strong> (EPS 2,648 / BPS 26,223). fwd PER FY26 36.8 · FY27 25.7</li>
+<li>Peer 밴드 [실측]: 티에스이(131290) PER 57.3·PBR 5.6 / 마이크로컨텍솔(098120) PER 18.6·PBR 3.9 / 리노공업(058470) <strong>미확인(도구 0 반환)</strong>. ISC는 피어 상단·고멀티플</li>
+<li>자체 목표가 [추정: 산식]: FY27 EPS 5,714 × 적정멀티플 <strong>30배</strong>(2024~25 자기밴드 25배 + AI 성장 프리미엄) = <strong>171,420 → 1차 171,000원</strong>(현재가 <span class="up">+16.4%</span>). Bull: 5,714 × 35배 = <strong>200,000원</strong>(증권사 목표권)</li>
+<li>Bear [추정: 산식]: 4Q 실적 컨센 재차 하회 + 디레이팅 → FY26 EPS 3,989 × 26배 ≈ 103,700, 급등분 반납 겹치면 <strong>105,000원대</strong></li>
+</ul>
+<p>→ 증권사 목표(평균 216k)는 FY27~28 이익 × 35~40배 전제로 <strong>낙관적</strong>. 자체 Base는 보수적 30배 적용</p>
+<p>⑥ 진입전략·손익비 (선물 레버리지)</p>
+<ul>
+<li>위치: 현재가 146,900원 = 52주(79,400~292,500) 중단, <strong>고점 대비 −50%</strong> · MA5(140,100) 위 · MA20(146,205) 부근 · <strong>MA60(170,637) 아래</strong> · 60일 고점 대비 −34.7%</li>
+<li>지지 121,000(20일 저)·128,000(심리)·전저 / 저항 MA60 170,000·200,000</li>
+<li>손익비(진입 상단 135,000 기준): 상승여력 <strong><span class="up">+26.7%</span></strong>(→171,000) ÷ 하락폭 <strong>14.1%</strong>(→116,000) = <strong>1:1.9</strong> / 현재가 기준 1:0.8 / 손익분기 승률 <strong>35%</strong>(=1÷(1<span class="up">+1.9</span>)) vs 최근 실제 구간지정가 19%·<strong>지수대비 39%</strong>(브리프)</li>
+</ul>
+<p>→ 요구승률 35% &gt; 종목 실측 19%이지만 <strong>지수선물 헤지 시 실측 39% ≥ 35%</strong> 로 평균 이상 성립. 헤지 없이 하락국면 직진입은 기대손익 −5.9%로 부적합</p>
+<ul>
+<li>손절: <strong>116,000원</strong> = 진입 상단 135,000 대비 −14.1% = 일중 변동폭 9.3%의 1.5배(하한 충족). 전저 121,000 아래로 설정</li>
+<li>진입 조건: <strong>지정가형 128,000~135,000원 도달 시 분할(3회, 각 1/3)</strong>. 눌림 없이 오르면 → <strong>추격 안 함</strong>(고베타·고평가, 171,000 돌파는 별도 재평가)</li>
+<li>(선물 有) 근월물 <strong>A2B612</strong>(ISC F 202612) · 만기 <strong>2026-12-10</strong>(둘째 목요일, D−13거래일) · 위탁증거금률·현선 베이시스 <strong>미확인</strong> · 만기 근접 시 차근월(2027-03) 롤오버 고려</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (§9) 9-1 제품분해 [실측: 분기보고서 연결]: Test Socket 82.1% / Test 부품 16.9% / 용역 1.0% 9-2 고객: 내수 삼성전자·하이닉스, 수출 북미(AIDC·ASIC/GPU)·대만·동남아. 개별 비중 미공시. AIDC가 3Q26 소켓의 최대 성장원(분기 500억) 9-3 시장·경쟁: 테스트소켓 글로벌 피어 리노공업·티에스이·마이크로컨텍솔. TAM·ISC 점유율 <strong>정량치 미확인</strong>(블로거 &#x27;CPU x86 90%·Arm 10→50%·모바일 국내 20→40%&#x27;는 IR 추정, 2출처 교차 불가 → 추정 표기) 9-4 단가: &#x27;주문제작·고객별 스펙 책정, 출시 초 고부가→시간경과 하락&#x27; [실측: 사업보고서 본문]. 분기 단가표 미공시. 원재료=실리콘·파우더(금 시세 연동) 9-5 CAPA: 생산수량 2024 15,048 → 2025 15,416 → 26.3Q누적 16,426천개(Socket 4,604·Pogo PIN 11,822) [실측]. 증설: 베트남 V1 완료→V2 2027 2분기(추정)·송도팹 350억 착공(2026-11) 9-7 바텀업(연결, 억):</p>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>Bear</th><th>Base</th><th>Bull</th><th>근거</th></tr></thead><tbody><tr><td>FY26 매출</td><td>2,950</td><td>3,104</td><td>3,250</td><td>9M 2,130 + 4Q 820~1,120</td></tr><tr><td>FY26 OP</td><td>850</td><td>1,004</td><td>1,120</td><td>9M 668 + 4Q 180~450</td></tr><tr><td>FY26 OPM</td><td>28.8%</td><td>32.3%</td><td>34.5%</td><td>환율·믹스</td></tr><tr><td>FY27 매출</td><td>3,600</td><td>4,084</td><td>4,600</td><td>LTA·베트남 증설</td></tr><tr><td>FY27 EPS</td><td>4,800</td><td>5,714</td><td>6,500</td><td>컨센±할인</td></tr></tbody></table></div>
+<ul>
+<li><strong>4Q26 분기 임계(다음 발표 ~2027-02)</strong>: 연결 OP <strong>≥ 330억</strong>(Base)이면 논지 유지·추가매수 검토 / <strong>&lt; 220억</strong>(Bear)이면 논지 폐기. 매출 이연·환율 재발 여부가 관건</li>
+<li>민감도: 단가 ±10%·점유율 ±5%p → OP 약 ±15%. 전방 CAPEX 1분기 지연 → 분기 매출 −10%</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더: <strong>2026-12 선물 만기 12/10</strong> · <strong>4Q26 실적발표 ~2027-02</strong>(매출 이연분 인식·환율 회복 확인점) · 송도팹 가동(2027~) · 베트남 V2(2027 2분기, 추정)</li>
+<li>반증 3개: ①<strong>4Q26 연결 OP &lt; 220억이면 논지 폐기·전량 청산</strong> ②<strong>종가 116,000원 이탈 시 청산</strong> ③AIDC 분기 매출 400억 하회(500억 역성장)로 재확인 시 모멘텀 폐기</li>
+<li>이벤트 매트릭스(4Q 발표): 쇼크(OP&lt;220)×갭하락→청산 / 인라인(220~330)×보합→보유·추격금지 / 서프(&gt;330)×갭상승→눌림 추가매수</li>
+<li>확률가중 시나리오(현재가 146,900 기준):</li>
+<li>Bear 42%(기저율 47%→근거: 9M OP 668억으로 가이던스 궤도·순현금 재무로 소폭 하향): 105,000원 −28.5%</li>
+<li>Base 40%(기저율 21%→근거: AIDC 500억 실체·4Q 이연분 인식 가시성): 171,000원 <span class="up">+16.4%</span></li>
+<li>Bull 18%(24%→근거: 고평가·하락장 역풍): 200,000원 <span class="up">+36.1%</span></li>
+<li>기대수익(가격) = 0.42×−28.5 + 0.40×16.4 + 0.18×36.1 = <strong><span class="up">+1.1%</span></strong>(현재가) / 진입 135,000 기준 <strong><span class="up">+10.0%</span></strong></li>
+<li>기대수익(손절 적용, 지수헤지): 0.35×26.7% − 0.40×14.1% = <strong><span class="up">+3.7%</span></strong> (헤지 없으면 −5.9%)</li>
+<li>수급 [실측]: 외국인 20일 <strong>−409억 순매도</strong>, 기관 <span class="up">+399</span>억 순매수 · 공매도 20일 평균 <strong>13.67%(압력 높음)</strong> · 20일 평균 거래대금 290억 → 1일 체결상한(ADV 10%) 약 29억</li>
+<li>거래 제약·오버행 [확인: 분기보고서 20261116000017·KIS]: 투자주의·경고·단기과열·거래정지·관리종목 지정 <strong>없음(확인)</strong> · 신용/증거금 특이 <strong>미확인</strong> · 미상환 CB/BW/EB·진행 유상증자 <strong>없음(사업·분기보고서 자본변동 확인)</strong> · 보호예수·최대주주 담보 <strong>미확인</strong></li>
+<li>컨센 방향(R10): FY26 OP 1,004 ← 3M전 1,020, 소폭 하향 중 → 목표가에 FY27 EPS 5,714에 멀티플 보수화(30배)로 할인 반영</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 0.5% ÷ 손절폭 14.1% = <strong>3.6%</strong> / Bear 손실한도(0.5%×3÷22%)=6.8% / 집중 50% / 이벤트 전 25% 중 <strong>최소 3.6%</strong>(고변동·고베타로 비중 축소)</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 블로거 요약·증권사 추정치는 &#x27;추정&#x27;, 실측 못한 값은 &#x27;미확인&#x27;. 원글은 외부 블로그 요약으로 IR 원문 추정 포함.</p>
+<p>[미확인 목록] 리노공업 PER/PBR(도구 0), 고객 개별 비중, TAM·ISC 점유율 정량, 분기 단가표, 이자보상배율 정밀값, 선물 증거금률·베이시스, 보호예수·최대주주 담보, 3Q 순익 환율영향 정밀 분해 [출처] DART 사업보고서 20260318000018·분기보고서 20261116000017 / consensus(naver·fnguide·hankyung) / 머니투데이 2026-10-27 / 한국경제 2026-11-12 / 비나인 blog 98442427 2026-11-19 [검산] 분기합 1Q682.7<span class="up">+2</span>Q729.3<span class="up">+3</span>Q717.7=2,129.7=9M누적 ✓ / OP 236.2<span class="up">+213.2</span><span class="up">+218.4</span>=667.8=9M ✓ / 손익비 26.7÷14.1=1.9 헤더·본문 일치 ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-20 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 146,900원 (<span class="up">+0.0%</span>) · 시총 3.11조 · 5일 <span class="down">-2.7%</span> / 20일 <span class="down">-0.9%</span> / 60일 <span class="down">-4.7%</span></li>
+<li>MA5 140,100원 / MA20 146,205원 / MA60 170,637원 → MA20 이격 <span class="up">+0.5%</span> · MA60 이격 <span class="down">-13.9%</span></li>
+<li>52주 고 292,500원 / 저 79,400원 → 고점 대비 <span class="down">-49.8%</span> · 20일 고 166,200원 / 저 121,000원</li>
+<li>후행 PER 55.48 / PBR 5.6 (EPS 2,648원 · BPS 26,223원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 277.6억 (5일 150.1억)</li>
+<li>외국인 순매수 5일 -36.8억 / 20일 -409.1억 · 기관 5일 5.0억 / 20일 398.5억 · 개인 20일 12.3억</li>
+<li>개별주식선물: ⚡ 상장 (A2B612) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 11.21% / 20일 평균 13.67% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 19.98% (11/03) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 171,000원 (<span class="up">+16.4%</span>) ÷ 하방 116,000원 (−21.0%) = <strong>1:0.78</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 21.0% = <strong>자산의 2.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.4%</strong></li>
+<li>유동성 참고: 20일 ADV 277.6억 · 1일 소화 한도는 ADV의 10%(27.76억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 21.0% · ATR14 11,957원 (손절폭/ATR 2.6배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 21.0% = ATR14 × 2.6배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 128,964원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.34</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-095340"></span>📋 결정카드 — ISC(095340) 판정: 관심 선물: 有 현재가: 146,900원 진입: 128,000~135,000원 (구간 도달 시 지정가 분할 3회) 손절: 116,000원 목표: 1차 171,000원 (2차 200,000원) 손익비: 1:1.9 기간: 스윙 6~12주 촉매: 2026-12-10 선물만기 · 4Q26 실적발표 ~2027-02 · 송도팹 착공 반증: 4Q26 연결 영업이익 &lt; 220억이면 논지 폐기·전량 청산 / 종가 116,000원 이탈 시 청산 지수조건: 지수선물 헤지 병행(베타 1.93) 또는 코스피 20일선 회복 후 요구승률: 35% (=1÷(1<span class="up">+1.9</span>)) vs 최근 실제 19%·지수대비 39% 직전카드: 없음 검증: ✅4 ⚠️2 ❌0 | 손절 1.5배 · 손익비 1:1.9(상단)/1:0.8(현재가) · 요구승률 35% vs 지수대비 39% · 비중 상한 3.6%</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
