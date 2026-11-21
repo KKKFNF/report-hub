@@ -1,0 +1,229 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SK하이닉스 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261121-121109-SK하이닉스.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:4.27</div><div class="tp-c"><b>결론 발췌</b> 관망(진입 부적합). 하락 국면 + 직전 카드 손절선(1,110,000원) 3거래일 전 이탈 + 새로운 상방 사실 부재 → 재진입 금지 구간. 밸류(선행 PBR 2.47배)는 과거밴드 상단이나 2026 피크(4.73배) 대비는 반값. 관찰 재진입은 KOSPI 20일선 회복 + 종가 1,180,000원 회복 확인 후. 조건부 손익비(진입상단 1,050,000원 기준) 1:4.3이나 하락국면·손절이탈로 현재는 유효하지 않음. 1차 목표 1,520,000원(MA60)·Bear 800,000원(BNK 저PER 디레이팅). &gt; ⚠️ 본 리포트는 비나인 블로그 글(&quot;대폭락, BNK리포트&quot;, ddorokipapa, 2026-11-21)을 분석 대상으…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>SK하이닉스</h1>
+<div class="meta">📊 benine · 2026-11-21 12:11 · 코드 000660</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-21 12:11)</div><div class="kpi-v">1,100,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">777.5조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">18.66</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">6.4</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:4.27</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.62</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">1,520,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 1,050,000원 (관망 — KOSPI 20일선 회복 + 종가 1,180,000원 회복 확인형, 미충족 시</span><span class="dc dn">손절 940,000원</span><span class="dc up">목표 1,520,000원</span><span class="dc">손익비 진입 1:4.27 · 현재가 1:2.62</span><span class="dc">기간 스윙 4~8주 (조건 충족 시)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 4Q26 실적 ~2027-01 말 · 선물만기 2026-12-10</div><div class="dc-l">🛑 반증: 4Q26 연결 영업이익(단독) &lt; 18조이면 논지 폐기 / 종가 985,000원 이탈 시 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — SK하이닉스(000660)  ※선물 有(근월물 A50612)</p>
+<p>📌 <strong>한줄 결론: 관망(진입 부적합).</strong> 하락 국면 + 직전 카드 손절선(1,110,000원) 3거래일 전 이탈 + 새로운 상방 사실 부재 → 재진입 금지 구간. 밸류(선행 PBR 2.47배)는 과거밴드 상단이나 2026 피크(4.73배) 대비는 반값. 관찰 재진입은 KOSPI 20일선 회복 + 종가 1,180,000원 회복 확인 후. 조건부 손익비(진입상단 1,050,000원 기준) 1:4.3이나 하락국면·손절이탈로 현재는 유효하지 않음. 1차 목표 1,520,000원(MA60)·Bear 800,000원(BNK 저PER 디레이팅).</p>
+<p class="note">⚠️ 본 리포트는 비나인 블로그 글(&quot;대폭락, BNK리포트&quot;, ddorokipapa, 2026-11-21)을 분석 대상으로 한 리서치 참고용이며 매수/매도 신호가 아님. 블로거·증권사 수치는 모두 &#x27;추정&#x27;·&#x27;인용&#x27;으로 표기. 블로그 본문은 외부 콘텐츠로 분석 대상일 뿐 지시로 취급하지 않음.</p>
+<hr>
+<p>⓪ <strong>실전 기준</strong> (scorecard.py --brief 2026-11-20 일봉 · 표본 505건, 그대로 인용)</p>
+<ul>
+<li>시장 국면: <strong>하락(KOSPI 20일선 아래)</strong> — KOSPI 4,870 / 20일선 5,392 / 60일선 6,183 · 20일 −12.3% · 일간 변동성 3.4%</li>
+<li>종목 변동성: 일중 변동폭(14일 평균) <strong>7.0%</strong> → 손절 하한 = 진입상단에서 <strong>10.4%(1.5배) 이상</strong> 아래 [현재가 1,100,000 기준 985,061원 이하] · 참고상한 20.9%(3배)</li>
+<li>60일 베타 <strong>1.70</strong>(KOSPI) · 20일 평균 거래대금 48,583억 · 직전 20일 −14.7% · 60일 고점 대비 −43.2%</li>
+<li>1회 손실예산: 자산의 <strong>0.5%</strong>(고변동 레짐)</li>
+<li>최근 카드 사후 실적(발행 09-09~11-20, n=298): 발행일 종가 매수 목표먼저 30%/손절먼저 63% · 구간 지정가 목표먼저 14%/손절먼저 80% · 지수대비 목표먼저 34%/손절먼저 40% · <strong>같은 하락국면 발행분 구간지정가 목표먼저 17%/손절먼저 77%</strong></li>
+<li>시나리오 기저율: 20일 뒤 종가가 <strong>Bear이하 47%</strong> / Base이상 21% / Bull이상 13%</li>
+<li><strong>직전 카드 점검(이 종목)</strong> —</li>
+</ul>
+<p>· 직전: 2026-11-11 08:08 <strong>관심</strong> · 진입 1,150,000~1,212,000(눌림분할) · 손절 1,110,000 · 목표 1,520,000 · 이후 실제: 최저 1,092,000 / 최고 1,317,000 · <strong>손절 1,110,000원 이탈 2026-11-17(3거래일 전)</strong> · 목표 미도달 · 이번에 달라진 사실: <strong>없음</strong>(BNK 리포트·블로그 논의는 의견이며 신규 상방 사실 아님) → <strong>R8 규칙에 따라 판정 &#x27;관망&#x27; 강제. 손절선만 낮춘 재발행 금지.</strong> · 실적 판정: 2026Q3 surprise(컨센 3Q누적 영익 77.0조 대비 <span class="up">+8.3%</span>, 발표 2026-10-28)</p>
+<hr>
+<p>① <strong>사실관계 검증 — 급락은 &#x27;실체(피크아웃 공포)+심리(탑다운)&#x27;의 결합</strong></p>
+<ul>
+<li>사업: 글로벌 메모리 반도체 1위권. 주력 DRAM·NAND(파운드리 병행). 전방=AI 데이터센터(HBM)·서버 DDR5·기업용 SSD. [실측: DART 분기보고서 2026.09, 접수 20261116001715]</li>
+<li>최근 분기 질적 코멘트(실측): &quot;DRAM은 AI향 서버 중심 출하 <span class="up">+10%</span>대, <strong>ASP는 HBM4 비중 확대로 20% 후반 상승</strong>. NAND는 고부가 SSD 위주로 출하 소폭 감소했으나 ASP 20% 중반 상승.&quot; [실측: DART 분기보고서 2026.09, 접수 20261116001715]</li>
+<li>급락 사유(검증): ⓐ <strong>탑다운 AI HW 투자둔화 공포</strong> — 나스닥 주간 −10%·SOXL −32%, &#x27;월요일 공포&#x27; [인용: 녹색경제신문 2026-11-21 news.google.com RSS]. ⓑ <strong>밸류 디레이팅 리포트</strong> — BNK 2026-11-20 &#x27;보유&#x27;로 목표 1,050,000원(하향), &quot;내년 2~3분기 채널 재고조정·드라마틱한 가격하락&quot; [인용: fnguide 수집 BNK 2026-11-20]. ⓒ 전문가 &quot;삼성전자 7만·하이닉스 20만 경고&quot;류 비관론 확산 [인용: 머니투데이 2026-11-21]. ⓓ 당일 −7.02% [실측: KIS].</li>
+<li>기대감 vs 실체: 실적(3Q누적 영익 83.3조)은 <strong>역대 최고 서프라이즈</strong>로 실체는 견고. 급락은 &#x27;현재 실적&#x27;이 아니라 &#x27;<strong>2027~2028 ASP 피크아웃 확률</strong>&#x27;에 대한 선반영 + 글로벌 AI HW 투자심리 급랭(탑다운)이 주동인. 블로거도 &quot;지금은 메모리가 아닌 탑다운이 더 큰 문제&quot;로 결론.</li>
+<li>신규 공시: 키옥시아 투자법인 CB 주식 전환으로 지분 14.1% 간접 보유 [인용: 전자신문 2026-11-20] / HBM용 하이브리드 본더 베시(Besi)에 일괄 발주 추진 [인용: 서울경제 2026-11-19] — 둘 다 중립~소폭 긍정, 급락 사유 상쇄엔 미약.</li>
+</ul>
+<hr>
+<p>② <strong>실적 분석 (DART 연결 실측)</strong>  ※모두 연결(CFS)·누적 기준</p>
+<ul>
+<li>연간 추세 [실측: DART 사업보고서, 접수 20260317000635 등]</li>
+</ul>
+<p>· 2023: 매출 32.77조 · 영업이익 <strong>−7.73조(적자)</strong> · OPM −23.6% · 부채비율 87.5% · 2024: 매출 66.19조(<span class="up">+102%</span> YoY) · 영업이익 <strong><span class="up">+23.47</span>조(흑전)</strong> · OPM 35.5% · 부채비율 62.2% · 2025: 매출 97.15조(<span class="up">+47%</span>) · 영업이익 <strong>47.21조</strong> · OPM 48.6% · 부채비율 45.9%</p>
+<ul>
+<li>2026 누적(연결) [실측: DART 분기보고서, 접수 20261116001715]</li>
+</ul>
+<p>· 1Q누적: 매출 52.58조 · 영익 37.61조 · 반기누적: 매출 79.32조 · 영익 60.54조 · <strong>3Q누적(9M): 매출 104.62조 · 영익 83.33조 · OPM 79.7%</strong> — 9M만으로 2025 연간 영익(47.21조)의 <strong>1.76배</strong> · 9M 세전이익 50.71조 · <strong>당기순이익 39.78조</strong> → 영익(83.33조)과 세전(50.71조) 사이 <strong>약 32.6조 영업외 손실</strong> 존재. 성격(환율·금융·일회성 평가손 등)은 <strong>미확인</strong> → 순익 기반 밸류는 보수적으로 해석.</p>
+<ul>
+<li>재무건전성: 부채비율 2023 87.5%→2024 62.2%→2025 45.9%→<strong>3Q26 26.8%</strong>(부채 82.71조/자본 309.09조) [실측]. 자본 2023 53.5조→3Q26 309.1조로 5.8배. 사실상 저레버리지 현금창출 구간. 이자보상배율·영업현금흐름 수치는 본리포트 <strong>미확인</strong>(별도 추출 안 함)이나 영익 83조 규모상 이자부담 무의미 수준 추정.</li>
+<li>★검산: 1Q누적 역산 시 1Q 매출(52.58조)이 2Q 단독(26.74조)보다 큰 <strong>이상치</strong> → 분기 단독 분해는 DART 원자료 재확인 전까지 <strong>미확인</strong>. 누적치만 실측 신뢰.</li>
+</ul>
+<p><strong>시점별 밸류에이션·RS</strong> [실측: hist_valuation.py, 단 벤치마크가 KOSDAQ로 자동판별된 오류 → RS는 참고용]</p>
+<ul>
+<li>2022 평균 102,117 · PER 31.5 · PBR 1.11</li>
+<li>2023 평균 108,270 · PER n/a(적자) · PBR 1.38</li>
+<li>2024 평균 179,077 · PER 6.2 · PBR 1.77</li>
+<li>2025 평균 309,114 · PER 5.0 · PBR 1.78</li>
+<li>2026 1Q 평균 870,644 · PBR 3.67</li>
+<li>2026 2Q 평균 1,792,230 · PBR <strong>4.73(피크)</strong></li>
+<li>2026 3Q 평균 1,775,452 · PBR 3.99</li>
+<li>2026 4Q(현) 평균 1,362,971 · 현재가 1,100,000</li>
+</ul>
+<p>→ 해석: 2024~2025 <strong>PBR 1.7~1.8배 디레이팅 박스</strong>를 2026 들어 3.7→4.73배로 <strong>급격 re-rating</strong> 후 현재 하락. 현재가 PBR(실측 BPS 445,284 기준) <strong>2.47배</strong>는 과거밴드(1.1~1.8) 상단을 넘지만 2026 피크의 절반 수준. 멀티플이 &#x27;정상화 과정&#x27;인지 &#x27;디레이팅 재개&#x27;인지가 핵심 분기점.</p>
+<hr>
+<p>③ <strong>미래실적·컨센서스</strong></p>
+<ul>
+<li>목표가 컨센(stockeasy 집계): 평균 <strong>3,185,556원</strong>(최고 4,000,000/최저 1,050,000, 36건) · 증권사별 최신 평균 3,007,000원(20개사) · 현재가 대비 <strong><span class="up">+189.6%</span></strong> [인용: fnguide/naver 수집 2026-11-21]</li>
+<li>투자의견: Buy 33 / NR 7 / 보유 2 · 평균 4.00/5</li>
+<li>최근 리포트(날짜·증권사·목표가·방향) [인용: fnguide]</li>
+</ul>
+<p>· 2026-11-20 <strong>BNK</strong> 보유 1,050,000(<strong>하향</strong>) — &quot;저PER화 가속화&quot;, 내년 2~3Q 채널 재고조정·드라마틱한 가격하락 · 2026-11-16 키움 BUY 1,800,000(<strong>하향</strong>) — 2027 영익 383조(<span class="up">+35%</span>YoY) · 2026-11-16 LS NR 2,400,000 · 2026-11-12 하나 BUY 2,800,000(<strong>하향</strong>) — 2027 매분기 영익 100조+ · 2026-11-11 메리츠 Buy 3,200,000 / 신한 매수 3,000,000 · 2026-11-10 DS 2,640,000 / 2026-11-04 iM Buy 2,300,000(<strong>하향</strong>) — &quot;HBM 하나로 시총 설명&quot;</p>
+<ul>
+<li>★컨센 방향(R10): 목표가 컨센은 높으나 <strong>최근 2주 주요 하우스(BNK·키움·하나·iM) 전부 목표 하향</strong> 중. 목표가 분산 1,050,000~4,000,000원(3.8배)으로 <strong>역대급 불확실성</strong>.</li>
+<li>★주의: 자동집계 연간 컨센(FY26 매출 363조·영익 283.7조 등)은 DART 9M 실측(매출 104.62조·영익 83.33조)의 런레이트와 <strong>2.5~3배 괴리</strong> → 스케일 오류 가능성 높아 본 리포트는 <strong>절대 매출·영익 컨센은 신뢰하지 않고</strong> 목표가·투자의견·질적 코멘트만 인용. 영익 컨센 추이는 1Y전 71.4조→현재 283.7조로 <strong>상향 중</strong>이라는 방향성만 참고.</li>
+<li>달성가능성 판정: <strong>中</strong>. 실적 모멘텀(9M 영익 83조, 서프라이즈)은 실체가 있어 &#x27;피크 이익&#x27; 자체는 달성. 그러나 2028 추정치는 하우스별 15배 편차(BNK 34.6조 vs 컨센 500조대)로, 목표가 평균 3M의 근거가 되는 고성장 지속은 <strong>ASP 피크아웃 시점에 전적으로 의존</strong> → 달성 불확실.</li>
+</ul>
+<hr>
+<p>④ <strong>밸류에이션·목표가</strong></p>
+<ul>
+<li>현재가 1,100,000원 · 시총 <strong>777.5조</strong>(=hts_avls) · 발행주식 약 707백만주(시총÷현재가, [실측: KIS])</li>
+<li>PBR = 현재가/BPS(3Q26 실측 445,284) = <strong>2.47배</strong> (KIS 표기 PBR 6.40·PER 18.66은 과거 저실적 기반 TTM·BPS로 왜곡 → 미채택)</li>
+<li>과거 자기밴드: 2024~2025 PBR 1.77~1.78, 2026 피크 4.73, 현재 2.47 → <strong>밴드 중단</strong></li>
+<li>자체 목표가(PBR 기반, BPS는 매분기 급증 중이라 보수적으로 3Q26 실측 445,284 고정 적용)</li>
+</ul>
+<p>· Bear = 445,284 × 1.8배(2024~25 디레이팅 박스 회귀, BNK 저PER 시나리오) = <strong>801,511원 ≈ 800,000</strong> · Base = 445,284 × 2.5배(현 수준 유지, 이익과 함께 북 증가 상쇄) = <strong>1,113,210원 ≈ 1,100,000</strong>(≈현재가, 북 기준 적정) · Bull = 445,284 × 3.5배(사이클 연장·HBM 프리미엄 re-rating) = <strong>1,558,494원 ≈ 1,550,000</strong>(MA60 부근)</p>
+<ul>
+<li>증권사 목표가 병기: 평균 3,007,000(20사) / 보수 하우스 BNK 1,050,000·키움 1,800,000. 자체 Base(1.1M)는 증권 평균보다 현저히 보수적 — 자동집계 컨센 EPS 스케일 불신 + 디레이팅 리스크 반영 때문.</li>
+</ul>
+<hr>
+<p>⑤ <strong>진입전략·손익비</strong> (선물 레버리지 반영)</p>
+<ul>
+<li>위치: 52주 고점 2,987,000 대비 <strong>−63.2%</strong>, 저점 501,000 대비 <span class="up">+119.6%</span>. 60일 고점 대비 −43.2%. <strong>MA 역배열</strong>(현재가 1,100,000 &lt; MA5 1,129,000 &lt; MA20 1,272,450 &lt; MA60 1,521,517) — 명백한 하락추세. [실측: KIS]</li>
+<li>지지/저항: 1차 지지 985,000(전저 영역·브리프 손절하한선) → 2차 900,000 → 심리 800,000(Bear). 저항 MA5 1,129,000 → MA20 1,272,450 → MA60 1,520,000.</li>
+<li>손익비(참고·조건부, 진입 상단 1,050,000 가정): 상승여력(1차목표 1,520,000) <strong><span class="up">+44.8%</span></strong> ÷ 하락폭(손절 940,000) <strong>−10.5%</strong> = <strong>1:4.3</strong> / 현재가(1,100,000) 기준 1차목표까지 <span class="up">+38.2%</span>, 손절까지 −14.5% = 1:2.6 / 손익분기 승률 1÷(1<span class="up">+4.3</span>)=<strong>18.9%</strong> vs 최근 실제(하락국면 구간지정가 목표선도달) <strong>17%</strong> → 실제가 손익분기 아래 = <strong>엣지 없음</strong>.</li>
+<li>손절 참고: 940,000 = 진입상단 1,050,000 대비 −10.5% = 일중변동폭(7.0%)의 1.5배(하한 충족).</li>
+<li>★그러나 현 판정 <strong>관망</strong>: ⓐ하락국면(R5 &#x27;매수&#x27; 불가) ⓑ직전 카드 손절(1,110,000) 3거래일 전 이탈·신규사실 없음(R8 &#x27;관망&#x27; 강제) ⓒ손익분기 승률&gt;실제 선도달률.</li>
+<li><strong>관찰 재진입 조건</strong>: KOSPI 20일선 회복 <strong>그리고</strong> 종가 1,180,000원(MA5 상단·단기 전고) 회복 확인 시 소량 재평가. 눌림 없이 1,180,000 돌파 시에만 확인형 진입(손절 1,050,000). 추격·물타기 금지. 손절선(1,110,000) 하단 추가매수 금지.</li>
+<li>(선물 有) 근월물 <strong>A50612</strong>(SK하이닉스 F 202612, std KR4A506C0001) · 12월물 만기 <strong>2026-12-10(둘째 목요일)</strong> → D약−13거래일. 위탁증거금률(KIS marg_rate 20%)·현선 베이시스는 <strong>미확인</strong>. 레버리지는 베타 1.70·일중 7%·하락국면에서 손실 가속 — 관망 구간에선 신규 선물 진입 부적합.</li>
+</ul>
+<hr>
+<p>⑧ <strong>산업·제품 바텀업 실적 모델 — 블로그 핵심 쟁점(2028 ASP) 정량화</strong> ▶ 9-1 제품: 반도체부문 DRAM·NAND 단일 보고(HBM 별도 미공시) [실측: DART, 접수 20261116001715]. HBM은 DRAM 내 포함. ▶ 9-4 단가: 3Q26 DRAM ASP QoQ <span class="up">+20%</span>후반, NAND <span class="up">+20%</span>중반 [실측: 동 분기보고서]. 블로그 인용 <strong>현재 DRAM ASP 3Q 기준 $1.81/Gb</strong>. ▶ 9-7 FY2028 DRAM 영업이익 — 하우스별 ASP 가정 편차표 [전부 인용/추정, 출처=블로그 재인용] · <strong>BNK(Bear)</strong>: Bit 1,899억Gb × ASP <strong>$0.62</strong>/Gb × (0.62−0.48 cost) × 1,335원, NAND 제로 → (0.14×1,899억)×1,335 = <strong>영익 약 34.6~35.5조</strong> [인용: BNK 2026-11-20, 블로그 재계산] · <strong>iM STRESS TEST</strong>: LTA 하단 ASP <strong>$1.11</strong>/Gb(과거 슈퍼사이클 최고 OPM 유지가) · 28년 HBM 영익만 <strong>약 141조</strong> 추정 [인용: iM 2026-11] · <strong>키움(Base)</strong>: 28년 ASP <strong>$1.41</strong>/Gb(스팟도 LTA 수렴 가정) → 전체 영익 <strong>약 231조</strong>, HBM 영익 26년 20조→28년 <strong>100조</strong> [인용: 키움] · <strong>컨센 평균(Bull)</strong>: ASP $2+ 가정, 자동집계 FY28 영익 500조대(단 스케일 불신) → 현재 ASP $1.81 대비 BNK $0.62는 <strong>1/3토막</strong>, iM 하단 $1.11은 <strong>절반</strong>. 블로거 견해: 애플조차 LTA 요청하는 수급에서 현재가 1/3 LTA는 비현실적, 키움 수준($1.41)이 보수적 합리선. ▶ LTA 취소 시 하방 방어(블로거 러프 추정, [추정: 블로그 산식]): 전체 Bit 1,900억Gb 중 LTA 50%=950억Gb × iM 하단 $1.11 × 1,335원 = 140.8조, 금융보강(위약금) 20% 적용 = <strong>약 28.2조</strong> → BNK Bear 영익(34.6조)에 근접. 즉 BNK의 Bear는 &quot;LTA 전부 취소·위약금만 수취&quot; 수준의 극단 가정. 마이크론·샌디스크 공개계약 금융보강 비율 각 <strong>21%·18%</strong> [인용: 블로그]. ▶ HBM 차별성: HBM은 GPU/ASIC 연동·고객 맞춤·사전 물량/가격 협의 생산 → 범용 DRAM 가격하락으로 물량취소 가능성 낮음(cHBM일수록 강화). [블로거 의견·추정] ▶ 민감도: ASP $0.62(BNK)↔$1.41(키움) 사이에서 전체 영익 35조↔231조로 <strong>약 6.6배</strong> 변동 — 2028 실적은 ASP 단일 변수에 극단적으로 민감. ▶ <strong>결론 문장(반증 임계)</strong>: 차기 실적 <strong>4Q26 연결 영업이익(단독) ≥ 23조이면</strong> ASP 강세 지속 논지 유지·재평가, <strong>&lt; 18조이면</strong> 피크아웃 가속 신호로 논지 폐기. (3Q26 단독 영익 추정 ~22.8조 기준·발표 ~2027년 1월 말)</p>
+<hr>
+<p>⑦ <strong>촉매·반증·이벤트 대응</strong></p>
+<ul>
+<li>촉매 캘린더(날짜 확정): ⓐ <strong>4Q26 실적발표 ~2027년 1월 말</strong>(잠정)·DART 사업보고서 법정기한 2027-03-31 ⓑ 12월 선물 만기 2026-12-10 ⓒ 글로벌 AI capex 가이던스(美 빅테크 4Q 실적 시즌) — 탑다운 방향 결정.</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li><strong>4Q26 연결 영업이익(단독) &lt; 18조</strong> → ASP 피크아웃 가속, 논지 폐기·관망 유지</li>
+<li><strong>종가 985,000원 이탈</strong> → 전저 지지 붕괴, 하방 900,000·800,000 열림(보유 시 전량 청산)</li>
+<li><strong>KOSPI 20일선 회복 실패 지속(4,870 유지/추가하락)</strong> → 탑다운 리스크 지속, 재진입 보류</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(4Q 실적×당일):</li>
+</ul>
+<p>· 쇼크(&lt;18조)×갭하락 → 추격매도 금지·관망, 800,000 지지 확인 · 인라인(18~23조)×보합 → 관망 유지, KOSPI 20일선 회복까지 대기 · 서프라이즈(≥23조)×갭상승 → 1,180,000 종가 회복 시 소량 재진입 검토</p>
+<ul>
+<li>확률가중 시나리오(합 100%, 브리프 기저율 출발)</li>
+</ul>
+<p>· <strong>Bear 50%</strong>(기저 47% → 하락국면·베타1.70·목표하향 연쇄 반영 <span class="up">+3%</span>p): 가격 <strong>800,000</strong>(PBR 1.8·BNK 디레이팅) · 전제 ASP 피크아웃+탑다운 지속 · <strong>Base 35%</strong>(기저 Base이상 21% → 실적 서프라이즈·저PBR 완충 반영 상향): 가격 <strong>1,100,000</strong>(현 수준 등락) · <strong>Bull 15%</strong>(기저 Bull이상 13%): 가격 <strong>1,550,000</strong>(MA60 회복·사이클 연장) · 기대수익률(i)시나리오: 0.5×(−27%)<span class="up">+0.35</span>×0%<span class="up">+0.15</span>×<span class="up">+41%</span> = <strong>−7.4%</strong> · 기대수익률(ii)손절적용(목표선도달 17%×<span class="up">+44.8%</span> − 손절선도달 77%×−10.5%, 하락국면 구간지정가): <span class="up">+7.6%</span>−(−8.1%)… = 7.6%−8.1% = <strong>−0.5%</strong> → 엣지 미미, 관망 타당</p>
+<ul>
+<li>수급·유동성: 20일 평균 거래대금 48,583억 → 1일 체결상한(ADV 10%) 약 4,858억, 유동성 충분. 외국인/기관 20일 순매수는 <strong>미확인</strong>.</li>
+<li>거래 제약·오버행(R9): 시장경고/투자주의/단기과열/거래정지/관리종목 <strong>해당없음</strong>(mrkt_warn_cls_code 00·temp_stop_yn N·short_over_yn N·crdt_able_yn Y) [실측: KIS]. 미상환 CB/BW·진행 유상증자·보호예수·최대주주 담보는 본 리포트 <strong>미확인</strong>(주요사항보고서 별도 미확인). 키옥시아 CB는 자사 &#x27;보유&#x27; 전환(타사 희석 아님).</li>
+<li>포지션 사이징(자산 대비 %, R7): 손실예산 0.5% ÷ 손절폭 10.5% = <strong>4.8%</strong> / Bear 손실한도(0.5%×3÷Bear하락 27%)= <strong>5.6%</strong> / 집중상한 50% / 이벤트전 25% → <strong>최소값 4.8%</strong>. 단, <strong>현 판정 관망이므로 신규 비중 0%</strong>가 원칙이며 4.8%는 재진입 조건 충족 시 상한.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 증권사·블로거 추정치는 &#x27;추정/인용&#x27;. 실측 못한 값은 &#x27;미확인&#x27;. [미확인 목록] 분기 단독 영익 분해(1Q 이상치) · 영업외 32.6조 손실 성격 · 이자보상배율·영업현금흐름 · 현선 베이시스·증거금률 · 외국인/기관 수급 · 미상환 사채·오버행 · 자동집계 연간 컨센 절대금액(스케일 불신) [출처 목록] DART 분기보고서(접수 20261116001715)·사업보고서(접수 20260317000635) · KIS 현재가/일봉 2026-11-21 · stockeasy_consensus 2026-11-21 · news_search(전자신문/서울경제/머니투데이/녹색경제 2026-11-19~21) · 블로그 ddorokipapa/224485480181(분석대상) · scorecard.py brief 2026-11-20 [검산] 2026 9M 영익 83.33조=1Q 37.61<span class="up">+2</span>Q 22.93<span class="up">+3</span>Q 22.79(누적일치) · 부채비율 82.71/309.09=26.8% ✓ · 손익비 산식 헤더·본문 1:4.3 일치 · 시나리오 확률합 50<span class="up">+35</span><span class="up">+15</span>=100% ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-21 12:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 1,100,000원 (<span class="down">-7.0%</span>) · 시총 777.48조 · 5일 <span class="down">-9.5%</span> / 20일 <span class="down">-13.9%</span> / 60일 <span class="down">-34.2%</span></li>
+<li>MA5 1,129,000원 / MA20 1,272,450원 / MA60 1,521,517원 → MA20 이격 <span class="down">-13.6%</span> · MA60 이격 <span class="down">-27.7%</span></li>
+<li>52주 고 2,987,000원 / 저 501,000원 → 고점 대비 <span class="down">-63.2%</span> · 20일 고 1,526,000원 / 저 1,098,000원</li>
+<li>후행 PER 18.66 / PBR 6.4 (EPS 58,955원 · BPS 171,751원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 48,416.8억 (5일 39,687.4억)</li>
+<li>외국인 순매수 5일 -9,319.4억 / 20일 -74,467.2억 · 기관 5일 -10,152.8억 / 20일 9,288.8억 · 개인 20일 -1,022.4억</li>
+<li>개별주식선물: ⚡ 상장 (A50612) → 레버리지 가능</li>
+<li>공매도 비중: 당일 4.31% (공매도 142,859주 · 1582.3억) · 5일 평균 2.41% / 20일 평균 3.10% → 감소 · 20일 평균 상회 연속 1일</li>
+<li>공매도 20일 최대 7.12% (11/04) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 1,520,000원 (<span class="up">+38.2%</span>) ÷ 하방 940,000원 (−14.5%) = <strong>1:2.62</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 9%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 14.5% = <strong>자산의 3.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.4%</strong></li>
+<li>유동성 참고: 20일 ADV 48,416.8억 · 1일 소화 한도는 ADV의 10%(4841.68억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 14.5% · ATR14 83,357원 (손절폭/ATR 1.9배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 14.5% = ATR14 × 1.9배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 974,964원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:3.36</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 <strong>결정카드 — SK하이닉스(000660)</strong> 판정: 관망 선물: 有 현재가: 1,100,000원 진입: 1,050,000원 (관망 — KOSPI 20일선 회복 + 종가 1,180,000원 회복 확인형, 미충족 시 진입 안 함) 손절: 940,000원 (보유 전제 참고선, 전저 985,000 하단) 목표: 1차 1,520,000원 (2차 1,800,000원) 손익비: 1:4.3 (진입 상단 1,050,000 기준·조건부, 현재 하락국면으로 미유효) 기간: 스윙 4~8주 (조건 충족 시) 촉매: 4Q26 실적 ~2027-01 말 · 선물만기 2026-12-10 반증: 4Q26 연결 영업이익(단독) &lt; 18조이면 논지 폐기 / 종가 985,000원 이탈 시 청산 지수조건: KOSPI 20일선 회복 후 (하락국면 — 필수) 요구승률: 18.9% (=1÷(1<span class="up">+4.3</span>)) vs 최근 실제 17% (엣지 미미) 직전카드: 2026-11-11 관심 → 손절 1,110,000 이탈(2026-11-17), 목표 미도달 검증: ✅5 ⚠️2 ❌0 · 손절거리 1.5배 · 손익비 1:4.3(구간상단)/1:2.6(현재가) · 요구승률 19% vs 최근 18% · 비중상한 4.8%</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
