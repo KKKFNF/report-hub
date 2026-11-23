@@ -1,0 +1,232 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>와이지원 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261123-121146-와이지원.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.63</div><div class="tp-c"><b>결론 발췌</b> 블로거의 &quot;가격인상→마진 레벨업&quot; 논지는 9M26 실측(OP +130% YoY·OPM 10.4%→19.5%)으로 이미 &#x27;실체&#x27;가 확인된다. 다만 주가는 고점 대비 -44% 급락·역배열·외국인 20일 순매도·컨센 하향 중이고 Q3 영업이익이 QoQ 둔화(477→374억)로 꺾였다. Forward PER 3~4배·PBR 0.73으로 밸류 매력은 크나, 하락 국면 falling knife라 &#x27;매수&#x27; 불가 → 관심(지수조건: KOSPI 20일선 회복 후). 손익비 1:2.0, 1차 목표 11,000원. ⓪ 실전 기준 (scorecard --brief 실측 2026-11-20) • 시장 국면: 하락(KOSPI 4,870 · 20일선 5,392 아…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>와이지원</h1>
+<div class="meta">📊 benine · 2026-11-23 12:11 · 코드 019210</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-23 12:11)</div><div class="kpi-v">8,370원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">3,113억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">12.31</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.73</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.63</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:3.21</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">11,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 8,300~8,700원 (확인형: KOSPI 20일선 회복 후 구간 도달 + 종가가 전일 고가 위 마감 시 </span><span class="dc dn">손절 7,550원</span><span class="dc up">목표 11,000원</span><span class="dc">손익비 진입 1:2.63 · 현재가 1:3.21 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2로 적었지만 진입·손절·목표로 계산하면 1:2.63다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 4Q26 실적발표(2027년 2월 전후)·월간 텅스텐 가격·미국 수출단가</div><div class="dc-l">🛑 반증: 4Q26 연결 영업이익 &lt; 300억(OPM&lt;14%) 또는 종가 7,550원 이탈 시 논지 폐기·전량 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 와이지원(019210) ※개별주식선물 無(현물 스윙만, 레버리지 불가)</p>
+<p>📌 한줄 결론: 블로거의 &quot;가격인상→마진 레벨업&quot; 논지는 9M26 실측(OP <span class="up">+130%</span> YoY·OPM 10.4%→19.5%)으로 이미 &#x27;실체&#x27;가 확인된다. 다만 주가는 고점 대비 <span class="down">-44%</span> 급락·역배열·외국인 20일 순매도·컨센 하향 중이고 Q3 영업이익이 QoQ 둔화(477→374억)로 꺾였다. Forward PER 3~4배·PBR 0.73으로 밸류 매력은 크나, 하락 국면 falling knife라 &#x27;매수&#x27; 불가 → 관심(지수조건: KOSPI 20일선 회복 후). 손익비 1:2.0, 1차 목표 11,000원.</p>
+<p>⓪ 실전 기준 (scorecard --brief 실측 2026-11-20)</p>
+<ul>
+<li>시장 국면: 하락(KOSPI 4,870 · 20일선 5,392 아래 · 20일 <span class="down">-12.3%</span>) → &#x27;매수&#x27; 판정 불가 [실측]</li>
+<li>종목 일중 변동폭(14일) 6.5% → 손절 하한 = 진입 상단에서 9.8%(1.5배) 이상 아래 · 60일 베타 0.93 · 20일 평균 거래대금 34억 · 고변동 레짐 1회 손실예산 0.5%</li>
+<li>최근 카드 사후 실적(n=298, 하락국면): 구간 지정가 목표 먼저 17% / 손절 먼저 77% · 지수 대비 목표 34%/손절 40% · 20일선 회복 뒤 매수 시 목표 48%/손절 52% → 지수조건의 가치가 수치로 확인됨</li>
+<li>이 종목 직전 카드: 없음</li>
+</ul>
+<p>① 포착 신호 (블로그 스크랩 기반 딥리서치)</p>
+<ul>
+<li>블로거(네이버 newypapa·&quot;쇠깎는 사람들&quot;) 논지: 절삭공구 가격인상 랠리 진행형(일본 다이젯 6월 솔리드공구 전량 수주전환) → 재고자산 가치상승 수혜 → 10월 이후 미국 수출단가 급등, 미국 자회사 Regal Cutting Tools 가격인상 공지 → 판가 레벨업으로 27년 OP 2000억·PER 4배 가능.</li>
+<li>★주의: 블로거 1인의 의견·추정이며 &#x27;미국 10월 수출단가 급등&#x27;·&#x27;Regal 11/1 인상&#x27;은 동일 블로거의 관세청 데이터 해석으로, 뉴스·공시로 교차확인되지 않음 [블로거 주장·미확인].</li>
+</ul>
+<p>② 사업·급등사유 (검증)</p>
+<ul>
+<li>주력: 절삭공구 단일사업부문(Round Tool=솔리드 엔드밀·드릴 / Insert Tool). 전방=자동차·항공·금형·IT·조선 등 제조업 전반. 미국·중국 등 해외 종속법인 비중 큼(연결 매출의 상당부분이 종속회사). [실측: 사업보고서 2025.12, 접수 20260318000988]</li>
+<li>급등사유 &#x27;실체&#x27; 교차검증 ✅: 텅스텐 가격 2025 상반기 50달러 → 2026.3.6 이후 300달러+ (6배 급등). 유안타증권(권명준, 2026-03-12)·한국투자증권(2026-06-18)이 &quot;원가 6배 상승→절삭공구사 지속 가격인상, 재고자산이 아킬레스건에서 성장동력으로 전환&quot;으로 분석 [인용: newsprime.co.kr/news/article/?no=726758(유안타 2026-03-12), newspim 20260618000147(한투)]. 글로벌 산업자료도 APT(텅스텐 중간재) 수입가 약 7.6배·중국 수출통제 확인 [인용: kezuriba.net/en/articles/tungsten-carbide-2026, jptonline.com].</li>
+<li>★반대신호: 다수 산업전망은 &quot;2026 하반기 텅스텐 가격 안정화·하락, 재고 과다로 가격 하방압력&quot; 전망 [인용: expertmarketresearch.com/price-forecast/metal-carbides-price-trends, serenotools.com/blog/2026-cutting-tool-market-outlook] → 재고 재평가 이익·가격인상 모멘텀이 꺾이면 마진 역풍. 실제 Q3 OPM이 22.4%→17.5%로 이미 둔화.</li>
+</ul>
+<p>③ 실적 (DART 연결 실측)</p>
+<ul>
+<li>연간 추세 [실측: 연결 CIS]</li>
+<li>FY23: 매출 5,532억 / 영업이익 547억 / OPM 9.9% / GPM 34.0% / 지배순익 244억</li>
+<li>FY24: 매출 5,750억 / 영업이익 558억 / OPM 9.7% / GPM 35.2% / 지배순익 167억</li>
+<li>FY25: 매출 6,394억 / 영업이익 665억 / OPM 10.4% / GPM 34.6% / 지배순익 253억</li>
+<li>2026 분기 단독 [실측: 접수 20261116000953]</li>
+<li>1Q26: 매출 2,078억 / OP 388억 / OPM 18.7% / GPM 38.3% / 지배순익 259억</li>
+<li>2Q26: 매출 2,133억 / OP 477억 / OPM 22.4% / GPM 43.6% / 지배순익 304억</li>
+<li>3Q26: 매출 2,135억 / OP 374억 / OPM 17.5% / GPM 38.3% / 지배순익 209억</li>
+<li>9M26 누적: 매출 6,346억 / OP 1,240억 / OPM 19.5% / GPM 40.1% / 지배순익 771억</li>
+<li>★해석: 블로거의 &#x27;GPM 레벨업·마진 점프&#x27; 논지는 실측으로 확인됨 — OPM이 10%대→19.5%로 거의 2배, GPM 34.6%→40.1%. 9M26 OP(1,240억)만으로 이미 FY25 전체(665억)의 1.9배. BUT QoQ로는 2Q 피크(OPM 22.4%) 후 3Q 둔화(17.5%, OP <span class="down">-21.6%</span>) — &#x27;피크아웃&#x27; 우려가 주가 급락의 핵심.</li>
+<li>재무건전성: 부채비율 170.8% [실측 FY25 연결] — 다소 높음. 회사는 텅스텐 급등 전 저가 재고를 보유·추가 비축 전략(블로거 주장과 일치) → 운전자본·재고 부담 큼. 영업현금흐름·이자보상배율 [미확인].</li>
+</ul>
+<ul>
+<li>시점별 밸류에이션·RS (hist_valuation 실측, 벤치 KOSDAQ)</li>
+<li>2023년: 평균 6,259원 / PER 8.6배 / PBR 0.62배 / RS <span class="down">-35.7%</span>p</li>
+<li>2024년: 평균 5,568원 / PER 11.8배 / PBR 1.08배 / RS <span class="up">+11.9%</span>p</li>
+<li>2025년: 평균 5,494원 / PER 7.5배 / PBR 0.62배 / RS <span class="down">-32.0%</span>p</li>
+<li>2026 1Q: 평균 8,957원 / PER 3.2배* / PBR 0.94배 / RS <span class="up">+118.4%</span>p</li>
+<li>2026 2Q: 평균 16,184원 / PER 9.9배* / PBR 1.57배 / RS <span class="up">+94.3%</span>p</li>
+<li>2026 3Q: 평균 16,861원 / PER 22.5배* / PBR 1.72배 / RS <span class="down">-32.3%</span>p</li>
+<li>2026 4Q(현): 평균 10,649원 / 현재가 8,350원 / PBR 0.73배 / RS <span class="down">-4.0%</span>p</li>
+</ul>
+<p>(*분기 EPS는 누적 연율화라 변동 큼 → PBR을 주 밸류지표로 해석) → 해석: 2026 1~2Q에 테마로 급격히 re-rating(PBR 0.6→1.6) 후 3Q부터 이익둔화로 디레이팅·주가반납. 현 PBR 0.73은 과거밴드(0.62~1.72) 하단권으로 회귀. RS도 상반기 시장 <span class="up">+118%</span>p 초과에서 하반기 열위 전환.</p>
+<p>④ 미래실적·컨센서스 (fnguide·naver 집계)</p>
+<ul>
+<li>목표가 컨센 16,600원(1건, <span class="up">+98.8%</span>) · 투자의견 4.0/5 [인용: fnguide 2026-11-23 집계]</li>
+<li>FY26E 매출 8,581 / OP 1,181 / 순익 590 / EPS 1,600 · FY27E 매출 9,386 / OP 1,369 / EPS 1,710 · FY28E 매출 10,300 / OP 1,620 / EPS 2,420 [인용: fnguide]</li>
+<li>★컨센 방향(R10): OP 컨센 현재 1,181 ← 3개월 전 1,910 (−38% 하향). 그런데 9M26 실측 OP가 이미 1,240억으로 FY26E 컨센(1,181)을 초과 → fnguide FY26E 수치는 stale/과소로 판단, 신뢰도 낮음. 실측 런레이트 기준 FY26 OP는 1,500~1,650억대가 현실적.</li>
+<li>분기 컨센: 2026Q3 매출 2,214·OP 322 (naver) vs 실측 2,135·374 → 매출 소폭 하회·OP 상회.</li>
+<li>최근 리포트: IBK투자증권 &#x27;다시 날 세운다&#x27;(2026-10-22), 유안타 &#x27;2Q 실적의 내재적 의미&#x27;(2026-08-19) [인용: naver]. 목표가·추정치 본문 미공개.</li>
+<li>달성가능성 판정: 올해 YoY 대폭증익(OP FY25 665→FY26 1,500±)은 9M 실측으로 &#x27;달성 확정적(高)&#x27;. 그러나 블로거의 &#x27;27년 OP 2,000억&#x27;은 컨센 FY27E 1,369·FY28E 1,620도 상회 → 텅스텐 고공·가격인상 지속 전제라 &#x27;達成 低~中&#x27;. 자체 Base는 FY27 OP 1,350~1,500억 [추정].</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 멀티플: 주가 8,350원 · 트레일링 PER 12.3배(EPS 680, FY25) · PBR 0.73배 · BPS 11,486원 [실측 enrich]</li>
+<li>Forward: 9M26 지배순익 771억 → FY26 지배순익 ~960~1,000억 가정 시 EPS ~2,580~2,690 → forward PER 3.1~3.2배. → 블로거 &#x27;PER 4배&#x27; 주장은 2026 실적 기준으로 대체로 타당(오히려 더 낮음). 단 이는 &#x27;이익 피크&#x27; 가정 PER이라 지속성이 관건.</li>
+<li>자체 목표가 산식 [추정]:</li>
+<li>보수(Base): forward EPS 2,580 × PER 4.3배(과거밴드 중하단) = 11,100원 / 또는 PBR 0.95 × BPS 11,486 = 10,900원 → 1차 목표 11,000원</li>
+<li>낙관(Bull): forward EPS 2,580 × PER 5.2배 = 13,400원 → 2차 목표 13,000~13,500원</li>
+<li>증권사 목표가 16,600원(fnguide)은 FY27~28 성장·멀티플 5배 이상 가정 → 본 리포트는 이익둔화·텅스텐 안정화 리스크 반영해 보수적 11,000(1차)/13,000(2차) 채택.</li>
+<li>배당: FY25 주당배당 190원·배당성향 27.9%·당시 배당수익률 3.4% [실측 DART alotMatter 2025]. 현재가 8,350 기준 190원이면 수익률 2.3% → ★블로거 &#x27;배당 분리과세 7%&#x27; 주장은 현 수준에서 미성립(미래 대폭 증배 가정이거나 과장) [블로거 주장·미확인].</li>
+<li>peer: 자동탐색 피어(티엠씨·싸이맥스 등)는 사업 유사도 낮아 밸류 기준 부적합 → 자기 과거밴드(PBR 0.62~1.72)를 기준으로 사용.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (현물 스윙 — 선물 無, 레버리지 불가)</p>
+<ul>
+<li>위치: 현재가 8,350원 = 20일 저점. 52주 고 28,500 대비 <span class="down">-71%</span> / 52주 저 4,900 대비 <span class="up">+70%</span>. MA5 9,254·MA20 9,956·MA60 11,724 전부 위 → 완전 역배열, 가격이 모든 이평 아래. ret20 <span class="down">-18.9%</span>·ret60 <span class="down">-43.3%</span> [실측].</li>
+<li>지지/저항: 하방 지지 7,500선(심리·전저 부근), 그 아래 6,500→5,500(2025 박스). 상단 저항 MA20 9,956·MA60 11,724.</li>
+<li>손익비(진입 구간 상단 8,700 기준): 상승여력 (11,000-8,700)/8,700 = <span class="up">+26.4%</span> ÷ 하락폭 (8,700-7,550)/8,700 = 13.2% = 1:2.0 / 현재가 8,350 기준 1:3.3 / 손익분기 승률 33% vs 최근 실제 17%(하락국면 구간지정가)·지수대비 38%.</li>
+</ul>
+<p>→ ★요구승률(33%)이 하락국면 실측(17%)보다 높다 — 그럼에도 &#x27;관심&#x27; 유지 근거: (a) forward PER 3~4배·PBR 0.73 과거밴드 하단으로 밸류 하방 완충, (b) 9M26 OP <span class="up">+130%</span> YoY 실측으로 이익 실체 확인(테마 아님), (c) 지수조건(20일선 회복 후) 적용 시 실측 목표율 48%로 상승. 이 조건 미충족 시 진입 보류.</p>
+<ul>
+<li>손절: 7,550원 = 진입 상단 8,700 대비 <span class="down">-13.2%</span> = 일중 변동폭의 2.0배(하한 1.5배 충족). 종가 기준 이탈 시 전량 청산.</li>
+<li>진입 조건(확인형): KOSPI가 20일선 회복한 뒤, 8,300~8,700원 구간 도달 후 종가가 전일 고가 위에서 마감하면 다음 거래일 진입. 눌림 없이 오르면: 9,000원(≈MA5) 종가 돌파 확인 시 추격(손절 7,900원 상향), 그 전엔 추격 안 함.</li>
+<li>사이징(R7): 자산의 3.8% (손실예산 0.5% ÷ 손절폭 13.2%) — Bear 손실한도 5.4%·집중 50%·이벤트 전 25% 중 최소값. 고변동 falling knife라 분할 3회(각 1/3) 권고. 50% 집중은 이 종목에 부적합.</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정): 4Q26 실적발표 예정(통상 2027년 2월 전후, 잠정공시)·FY26 사업보고서 법정기한 2027-03-31 [실측 관례]. 월간 텅스텐 가격·관세청 수출단가(매월)는 비확정 모니터링.</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>4Q26 연결 영업이익 &lt; 300억(OPM&lt;14%)이면 &#x27;마진 레벨업&#x27; 논지 폐기·전량 청산 / ≥ 420억(OPM≥20% 유지)이면 추가매수 검토.</li>
+<li>종가 7,550원 이탈 시 전량 청산(손절).</li>
+<li>텅스텐 가격이 월간 기준 추세적 하락 전환(예: 200달러 하회 지속)이면 재고·가격인상 논지 약화 → 비중 축소.</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(4Q 실적): 쇼크(OP&lt;300억)×갭하락→청산 / 인라인(300~420)×보합→유지·관망 / 서프라이즈(&gt;420)×갭상승→1차 목표 상향·추가검토.</li>
+<li>확률가중 시나리오(기저율 Bear 47%에서 출발):</li>
+<li>Bear 45%: 텅스텐 안정화·가격인상 모멘텀 소멸·4Q OPM&lt;14%, 급등분 반납 → 6,300원 [산식: 정상화 forward EPS ~1,300 × PER 5 또는 2025 PBR 0.7회귀]</li>
+<li>Base 35%: 가격인상 효과 지속하나 QoQ 둔화 인정, forward PER ~4.3 → 10,500~11,000원</li>
+<li>Bull 20%: 4Q 미국 가격인상 본격반영·OP 서프라이즈·텅스텐 고공 → 13,500원</li>
+</ul>
+<p>(합 100%. Bear 45%: 기저율 47%→45%, 근거 밸류 하방완충. Bear가 6,300은 손절 7,550 대비 <span class="down">-17%</span>로 &#x27;손절가≠Bear&#x27; 충족)</p>
+<ul>
+<li>기대수익률: (i) 시나리오 가격 기준 ≈ <span class="up">+10.2%</span> [<span class="down">-24.6%</span>×0.45 + 25.7%×0.35 + 61.7%×0.20] (ii) 손절 적용(하락국면 기저율): 목표율 17%×26.4% − 손절율 77%×13.2% = <span class="down">-7.2%</span> → ★하락국면 즉시매수는 기대값 음(-). 단 20일선 회복 후 기저율(목표48%/손절52%) 적용 시 <span class="up">+5.8%</span> → 지수조건이 손익의 핵심.</li>
+<li>수급·유동성: 외국인 20일 <span class="down">-19.2%</span>(순매도)·기관 20일 <span class="up">+15.1%</span>·개인 <span class="up">+5.1%</span> [실측]. 공매도 20일 평균 9.8%(판정 &#x27;압력 높음&#x27;), 당일 0% [실측]. 20일 평균 거래대금 34억 → 1일 체결 상한(ADV 10%) 약 3.4억으로 유동성 얇음.</li>
+<li>거래 제약·오버행(R9): 투자경고·단기과열·거래정지·관리종목 지정 [미확인 — KIS/KIND 별도 조회 필요]. 미상환 CB/BW/유상증자·보호예수 [미확인 — 주요사항보고서 별도 확인 필요]. 공매도 거래비중 높음은 수급 부담.</li>
+<li>컨센 방향(R10): OP 컨센 3개월 <span class="down">-38%</span> 하향 중이나 9M 실측이 컨센 초과 → 목표가에는 컨센 EPS 대신 실측 런레이트 forward EPS(2,580) 사용.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (§9)</p>
+<ul>
+<li>9-1 제품: 절삭공구 단일부문. Round Tool(솔리드) CAPA 89,665천개·가동률 63.95%, Insert Tool CAPA 36,733천개·가동률 46.57% [실측 2025 사업보고서] → 가동률 여력 보유(물량 증가 시 고정비 레버리지).</li>
+<li>9-2 고객·구조: 전방 자동차·항공·금형·조선. 미국 자회사 Regal Cutting Tools 포함 해외 종속법인 매출이 연결의 큰 비중(지배 4,203억 vs 종속 5,774억, 내부거래 -3,583억). 고객 집중도 [미공시].</li>
+<li>9-3 시장·경쟁: 글로벌 경쟁사 샌드빅·케나메탈(프리미엄), 일본 OSG·미쓰비시머터리얼즈·다이젯, 국내 대구텍 등. 와이지원은 가성비 포지션으로 일본·프리미엄 가격인상 시 반사수요 가능(블로거·업계 블로그 주장) [단일출처·정성]. 글로벌 TAM·점유율 수치 [미확인].</li>
+<li>9-4 단가·원가: 주 원재료 텅스텐(CARBIDE)·HSS. 텅스텐 50→300달러+(6배) [인용 유안타]. 단가는 원재료 연동 가격전가 구조 — 저가재고 보유분만큼 마진 선반영, 재고 소진·고가재고 전환 시 GPM 정상화 위험(3Q GPM 43.6%→38.3%가 그 신호).</li>
+<li>9-5 CAPA·수주: 증설계획·수주잔고 [미확인 — 단일사업·수주업 아님].</li>
+<li>9-7 바텀업 실적 모델 [추정]</li>
+<li>FY26: Base 매출 8,450억·OP 1,550억(OPM 18.3%)·지배순익 ~980억 / Bear 매출 8,300·OP 1,450(OPM 17.5%) / Bull 매출 8,600·OP 1,660(OPM 19.3%). (9M 실측 매출6,346·OP1,240 + Q4)</li>
+<li>FY27: Base OP 1,350~1,500억(텅스텐 점진 안정→OPM 15% 회귀) / Bear OP 1,100억(OPM 13%) / Bull OP 1,600억(가격인상 지속). 블로거 2,000억은 Bull도 상회 → 과대.</li>
+<li>민감도: 판가 ±10% → OP ±350억 수준(매출의 약 ±8%p가 OP로); 텅스텐 하락 1분기 지속 → 분기 GPM -3~5%p.</li>
+<li>결론 문장: 4Q26 연결 영업이익 ≥ 420억(Base)이면 마진 레벨업 논지 유지·추가매수 검토, &lt; 300억(Bear·OPM&lt;14%)이면 논지 폐기. (결정카드 &#x27;반증&#x27;과 동일)</li>
+</ul>
+<p>⚠️ 본 리포트는 리서치 참고용이며 매수/매도 강요가 아님. 블로거(네이버 newypapa) 의견·추정과 증권사 추정치는 &#x27;추정/블로거 주장&#x27;으로 명시했고, 실측 못한 값은 &#x27;미확인&#x27;으로 남김. 블로그 본문은 외부 신뢰불가 콘텐츠로 데이터로만 취급.</p>
+<p>[미확인 목록] 영업현금흐름·이자보상배율 / 미국 10월 수출단가·Regal 11/1 인상 구체수치(블로거 주장) / 거래제약·오버행(CB·BW·증자·보호예수) / 글로벌 TAM·점유율 / 수주잔고 / 배당 분리과세 7% 근거 [출처 목록] DART 사업보고서 20260318000988·분기보고서 20261116000953·배당 alotMatter2025 / 유안타증권 2026-03-12(newsprime 726758)·한투 2026-06-18(newspim 20260618000147) / fnguide·naver 컨센(2026-11-23) / 글로벌 텅스텐: kezuriba.net·jptonline.com·expertmarketresearch.com / KIS 시세 2026-11-23 [검산] 9M26 분기합 2,078<span class="up">+2,133</span><span class="up">+2,135</span>=6,346=누적매출 ✅ / OP 388<span class="up">+477</span><span class="up">+374</span>=1,239≈누적1,240 ✅ / 손익비 헤더·본문 1:2.0 일치 ✅ / 시나리오 확률 45<span class="up">+35</span><span class="up">+20</span>=100% ✅</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-23 12:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 8,370원 (<span class="down">-5.4%</span>) · 시총 3,113억 · 5일 <span class="down">-12.4%</span> / 20일 <span class="down">-18.7%</span> / 60일 <span class="down">-43.1%</span></li>
+<li>MA5 9,258원 / MA20 9,957원 / MA60 11,724원 → MA20 이격 <span class="down">-15.9%</span> · MA60 이격 <span class="down">-28.6%</span></li>
+<li>52주 고 28,500원 / 저 4,900원 → 고점 대비 <span class="down">-70.6%</span> · 20일 고 10,840원 / 저 8,370원</li>
+<li>후행 PER 12.31 / PBR 0.73 (EPS 680원 · BPS 11,486원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 34.4억 (5일 31.9억)</li>
+<li>외국인 순매수 5일 -1.1억 / 20일 -19.2억 · 기관 5일 3.8억 / 20일 15.1억 · 개인 20일 5.1억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 2.58% / 20일 평균 9.83% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 17.48% (11/05) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 39영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 11,000원 (<span class="up">+31.4%</span>) ÷ 하방 7,550원 (−9.8%) = <strong>1:3.21</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 9.8% = <strong>자산의 5.1%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 5.1%</strong></li>
+<li>유동성 참고: 20일 ADV 34.4억 · 1일 소화 한도는 ADV의 10%(3.44억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 9.8% · ATR14 612원 (손절폭/ATR 1.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 9.8% = ATR14 × 1.3배 → <strong>타이트(1.5×ATR 미만)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 7,451원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.86</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-019210"></span>📋 결정카드 — 와이지원(019210) 판정: 관심 선물: 無 현재가: 8,350원 진입: 8,300~8,700원 (확인형: KOSPI 20일선 회복 후 구간 도달 + 종가가 전일 고가 위 마감 시 다음 거래일) 손절: 7,550원 목표: 1차 11,000원 (2차 13,000원) 손익비: 1:2.0 기간: 스윙 6~12주 촉매: 4Q26 실적발표(2027년 2월 전후)·월간 텅스텐 가격·미국 수출단가 반증: 4Q26 연결 영업이익 &lt; 300억(OPM&lt;14%) 또는 종가 7,550원 이탈 시 논지 폐기·전량 청산 지수조건: KOSPI 20일선 회복 후 요구승률: 33% (=1÷(1<span class="up">+2</span>)) vs 최근 실제 17%(하락국면 구간지정가)·지수대비 38% 직전카드: 없음 검증: ✅4 ⚠️2 ❌0 · 손절 2.0배 · 손익비 1:2.0(상단)/1:3.3(현재가) · 요구승률 33% vs 최근 31% · 비중 상한 3.8%</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
