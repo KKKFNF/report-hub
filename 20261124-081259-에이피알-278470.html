@@ -1,0 +1,232 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>에이피알(278470) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261124-081259-에이피알-278470.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.53</div><div class="tp-c"><b>결론 발췌</b> K-뷰티 해외성장 실체는 강함(9M26 수출비중 92%·매출 YoY +100%)이나 ①3Q26 영업이익 컨센 -11.5% 쇼크(환율) ②PBR 21.6배 업종 최상단 고평가 ③KOSPI 하락 국면이 겹쳐 현재가(257,000원) 즉시 진입은 부적합. 눌림 지정가 + KOSPI 20일선 회복/지수 헤지 전제의 &#x27;관심&#x27;. 자체 Base 목표 289,000원(증권사 평균 469,833원은 FY27 고성장 선반영, 공격적). 손익비 1:1.57(구간 상단)·현재가 기준 1:0.9. ⚠️ 리서치 참고용 · 매매신호 아님. 블로거(비나인)·증권사 추정치는 &#x27;추정&#x27;. 실측 못한 값은 &#x27;미확인&#x27;.</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>에이피알(278470)</h1>
+<div class="meta">📊 benine · 2026-11-24 08:12 · 코드 278470</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-24 08:12)</div><div class="kpi-v">257,000원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">9.6조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">33.36</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">21.58</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.53</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.91</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">289,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 234,000~248,000원 (도달 시 지정가 3회 분할·MA20 하회 재확인형, KOSPI 20일선 회복</span><span class="dc dn">손절 222,000원</span><span class="dc up">목표 289,000원</span><span class="dc">손익비 진입 1:2.53 · 현재가 1:0.91 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.57</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.57로 적었지만 진입·손절·목표로 계산하면 1:2.53다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 4~8주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 4Q26/FY26 잠정실적(2027-02) · 유럽 아마존 블프 성과(11월말~12월) · 선물 12월물 만기 2026-12-10</div><div class="dc-l">🛑 반증: 4Q26 연결 영업이익 &lt; 1,600억(OPM&lt;17%) 논지 폐기·청산 / 종가 222,000원 이탈 전량 청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 에이피알(278470) ※선물 有(A1Q612) ※비나인 블로그 &#x27;올해 아마존 행사 성과 정리&#x27;(ks200331022, 2026-11-23) 스크랩 기반 — 블로거 개인의견·참고용, 매수신호 아님</p>
+<p>📌 한줄 결론: K-뷰티 해외성장 실체는 강함(9M26 수출비중 92%·매출 YoY <span class="up">+100%</span>)이나 ①3Q26 영업이익 컨센 <span class="down">-11.5%</span> 쇼크(환율) ②PBR 21.6배 업종 최상단 고평가 ③KOSPI 하락 국면이 겹쳐 현재가(257,000원) 즉시 진입은 부적합. 눌림 지정가 + KOSPI 20일선 회복/지수 헤지 전제의 &#x27;관심&#x27;. 자체 Base 목표 289,000원(증권사 평균 469,833원은 FY27 고성장 선반영, 공격적). 손익비 1:1.57(구간 상단)·현재가 기준 1:0.9.</p>
+<p>⚠️ 리서치 참고용 · 매매신호 아님. 블로거(비나인)·증권사 추정치는 &#x27;추정&#x27;. 실측 못한 값은 &#x27;미확인&#x27;.</p>
+<p>⓪ 실전 기준 [실측: scorecard.py --brief 2026-11-23, 표본 511건]</p>
+<ul>
+<li>시장 국면: 하락(KOSPI 20일선 아래) — KOSPI 4,709 / 20일선 5,354 / 60일선 6,149 · 20일 <span class="down">-13.9%</span> → &#x27;매수&#x27; 판정 불가</li>
+<li>종목 변동성: 일중 변동폭(14일) 6.7% → 손절 하한 = 진입 상단에서 10.1%(1.5배) 이상 아래 · 60일 베타 0.61 · 20일 평균 거래대금 948억 · 60일 고점 대비 <span class="down">-45.9%</span></li>
+<li>1회 손실예산: 자산의 0.5%(변동성 레짐 &#x27;고변동&#x27;, VKOSPI 53)</li>
+<li>최근 카드 사후실적(발행 09/09~11/23, 20거래일): 구간 지정가 → 목표 먼저 14% / 손절 먼저 81% · 하락국면 발행분 구간지정가 → 목표 17% / 손절 78% · 지수대비 목표 34% / 손절 41% · 시나리오 실측 Bear 이하 47% / Base 이상 21%</li>
+<li>직전 카드 점검(이 종목, 3줄):</li>
+<li>직전: 2026-11-22 &#x27;관심&#x27; 진입 210,000~225,000(지지 분할·지정가형) · 손절 202,000 · 목표 290,000</li>
+<li>이후 실제: 손절 202,000 유지(미이탈) · 목표 미도달 · 11/23 <span class="up">+9.13%</span> 반등으로 진입구간 상단 돌파</li>
+<li>이번에 달라진 사실: 11/23 한중 FTA 훈풍 + 美 아마존 프라임빅딜 성과 + 외국인/기관 동시 순매수로 급반등(출처: 파이낸셜뉴스·남도일보 2026-11-23). 손절 미이탈 + 신규 촉매 → &#x27;관심&#x27; 유지 가능(R8 충족)</li>
+</ul>
+<p>① 사업·급등사유 검증</p>
+<ul>
+<li>주력: 화장품(메디큐브·에이프릴스킨·포맨트·글램디바이오) + 홈뷰티 디바이스(메디큐브 에이지알). 9M26 매출비중 화장품 83.6% / 디바이스 15.4% / 기타 1.0% [실측: 분기보고서 20261113001366]. 화장품(메디큐브) 수출이 성장 견인, 디바이스 비중은 축소(FY24 43.3%→9M26 15.4%)</li>
+<li>전방·고객: B2C 직판(아마존·틱톡샵·자사몰) 중심, 특정 전방기업 집중도 낮음. 생산 전량 외주(코스맥스·노디너리·엔코스), 디바이스만 자회사 에이피알팩토리 내재화 [실측: 사업보고서 20260323001257]</li>
+<li>수출 드라이브: 9M26 수출 19,551억 / 내수 1,789억 → 수출비중 92%(FY25 80%·FY24 55%). 미국·유럽 아마존·틱톡샵이 성장 엔진 [실측: 분기보고서 매출실적 표]</li>
+<li>급등사유(11/23 <span class="up">+9.13%</span>) = ①한중 FTA 훈풍 화장품주 동반 강세 ②美 아마존 10월 프라임빅딜 메디큐브 성과 ③외국인·기관 동시 순매수 [인용: 남도일보·파이낸셜뉴스 2026-11-23, news.google.com]</li>
+<li>★기대 vs 실체: 매출 급성장은 DART 실측으로 &#x27;실체&#x27;. 단 3Q26 OPM이 24.8%→20.8%로 급락(환율)해 &#x27;성장=이익&#x27;이 꺾인 분기. 11/23 반등은 FTA·테마성 수급 요인이 큼. 비나인 블로거가 제시한 수치(브랜드 검색량 430만·틱톡 거래액 4,578만달러·Top100 SKU 92개 등)는 블로거 &#x27;추정&#x27;으로 2출처 교차검증 미완 → 성장 방향은 사실, 세부 수치는 참고용</li>
+</ul>
+<p>② 실적 (DART 연결 실측) <img src="https://kkkfnf.github.io/report-hub/assets/benine-278470-price-trend.png" alt="주가·지수 추이" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<ul>
+<li>연간 추세 [실측: 사업보고서 20260323001257]</li>
+<li>FY23: 매출 5,238억 / 영업익 1,042억(OPM 19.9%)</li>
+<li>FY24: 매출 7,228억(<span class="up">+38%</span>) / 영업익 1,227억(OPM 17.0%) / 순익 1,076억</li>
+<li>FY25: 매출 15,273억(<span class="up">+111%</span>) / 영업익 3,655억(OPM 23.9%) / 순익 2,897억</li>
+<li>9M26 누적: 매출 21,340억(이미 FY25 전체 초과) / 영업익 5,033억</li>
+<li>분기 추세(연결·단일분기) [실측: 각 분기보고서]</li>
+<li>2Q25 매출 3,277 / OP 845 / OPM 25.8%</li>
+<li>3Q25 매출 3,859 / OP 961 / OPM 24.9%</li>
+<li>4Q25 매출 5,476 / OP 1,303 / OPM 23.8% [추정: FY25−9M 잔차]</li>
+<li>1Q26 매출 5,933 / OP 1,522 / OPM 25.7%</li>
+<li>2Q26 매출 7,675 / OP 1,905 / OPM 24.8%</li>
+<li>3Q26 매출 7,731(YoY <span class="up">+100.3%</span>, QoQ <span class="up">+0.7%</span>) / OP 1,606(YoY <span class="up">+67.1%</span>, QoQ <span class="down">-15.7%</span>) / OPM 20.8% ← 쇼크</li>
+<li>★3Q26 핵심: 매출 YoY 2배지만 QoQ 정체, OPM 4%p 급락. 원인=환율(원화 강세, 수출 수익성 둔화). 컨센 OP 1,814억 대비 <span class="down">-11.5%</span> 하회 [인용: IBK &#x27;변한 것은 환율뿐&#x27; 2026-11-04, 유진 3Q26 Review 2026-11-03]</li>
+<li>재무건전성: 부채비율 FY23 45.9%→FY24 74.7%→FY25 73.1%→3Q26 91.1%(상승). 영업현금흐름 FY25 3,410억(OP의 93%, 양호) vs 9M26 537억(OP 5,033억의 11%) — 수출 급증에 따른 매출채권·재고 등 운전자본 부담 급증이 현금흐름 압박(★주의). 이자보상배율 미확인(이자비용 데이터 미확인), 단 OP 규모 대비 차입 부담 낮음</li>
+</ul>
+<ul>
+<li>시점별 밸류에이션·RS [실측: hist_valuation.py, 벤치 KOSPI]</li>
+<li>2024년: 평균 56,188 / PER 19.5 / PBR 6.39 / RS <span class="down">-8.7%</span>p</li>
+<li>2025년: 평균 152,331 / 주가 <span class="up">+352%</span> / RS <span class="up">+283.3%</span>p (폭발적 re-rating)</li>
+<li>2026 1Q: 284,331 / PBR 20.67 / RS <span class="up">+27.4%</span>p</li>
+<li>2026 2Q: 397,549 / PER 53.6* / PBR 22.59 / RS <span class="down">-42.8%</span>p</li>
+<li>2026 3Q: 380,435 / PER 97.0* / PBR 21.09 / RS <span class="up">+7.1%</span>p</li>
+<li>2026 4Q(진행): 284,708 / RS <span class="up">+2.4%</span>p  (*분기 PER은 누적EPS 연율화 왜곡 → PBR 추세를 주지표로)</li>
+<li>해석: 2025년 PBR 6→22배 극단 re-rating 후 2026년 디레이팅 진행(2Q RS <span class="down">-42.8%</span>p). 현재 PBR 21.6배로 여전히 역대 최고 수준(밸류 부담 상존). RS는 하반기 시장 소폭 초과(<span class="up">+2</span>~7%p)하나 추세적 우위 상실</li>
+</ul>
+<p>③ 미래실적·컨센서스 [실측: stockeasy_consensus 2026-11-24, 4소스]</p>
+<ul>
+<li>목표가 컨센: 평균 469,833원(최고 560,000 / 최저 370,000, 30건) · 현재가 대비 <span class="up">+82.8%</span> · 투자의견 Buy 30 / NR 2</li>
+<li>연간 컨센(억원·EPS원): FY26E 매출 30,866 / OP 7,195 / 순 5,403 / EPS 14,433 (PER 17.8) — FY27E 42,304 / 10,106 / 7,637 / EPS 20,399 (PER 12.6) — FY28E 53,304 / 13,037 / EPS 26,498</li>
+<li>분기 컨센: 2026Q3 OP 1,814 vs 실측 1,606 = <span class="down">-11.5%</span> 쇼크 · 4Q26E 매출 9,518 / 순 1,526</li>
+<li>★컨센 방향(R10): FY26 OP컨센 추이 7,195 ← 3M전 7,625 ← 6M전 6,855. 최근 3개월 <span class="down">-5.6%</span> 하향(3Q 쇼크 반영) → 목표가 산식에 할인 EPS(PER 20배)</li>
+<li>최근 리포트: NH 460k(11/19) · 교보 500k(11/16) · 메리츠 450k(11/13, 27년 매출 4조) · 현대차 440k(11/13, OPM 23.8%) · 한투 450k(11/10) · 흥국 370k↓(11/10) · IBK 500k↓(11/04 &#x27;변한 것은 환율뿐&#x27;) · 유진 450k↓(11/03). 11월 다수 &#x27;하향&#x27; — 3Q 쇼크로 눈높이 하향</li>
+<li>달성가능성 判定: 매출 &#x27;高&#x27;(9M 21,340 + 4Q 블프 성수기 → FY26 3조 레일), OP 7,195 &#x27;中&#x27;(4Q OPM 22%+ 회복 전제, 환율 변수) · FY27 OP 1조 &#x27;中&#x27;(유럽 아마존 신축 성공 전제, 미검증)</li>
+</ul>
+<p>④ 밸류에이션·목표가</p>
+<ul>
+<li>현 멀티플: 트레일링 PER 33.4(FY25 EPS 7,704) / PBR 21.6 / 포워드 PER FY26E 17.8·FY27E 12.6 [실측: enrich·consensus]</li>
+<li>Peer(K-뷰티 성장주 실리콘투·브이티 등 Forward PER 10~15배): 에이피알 Forward 12.6~17.8배는 성장률(<span class="up">+100%</span>) 감안 시 극단 고평가는 아니나, PBR 21.6배는 업종 최상단(디레이팅 리스크)</li>
+<li>자체 목표가 산식:</li>
+<li>[추정] 보수 Base = FY26E EPS 14,433 × 적정 PER 20배(하락국면·컨센 하향 할인) = 288,660 ≈ 289,000원</li>
+<li>[추정] 중립 = FY27E EPS 20,399 × 15배 = 305,985 ≈ 306,000원</li>
+<li>자체 목표 289,000~306,000원(1차 289,000). 증권사 평균 469,833원은 FY27~28 OP 1조+·PER 20배+ 선반영 공격값 → 병기하되 본 리포트는 보수값 채택(컨센 평균 대비 <span class="down">-38%</span>)</li>
+</ul>
+<p>⑤ (④와 통합)</p>
+<p>⑥ 진입전략·손익비 (선물 有)</p>
+<ul>
+<li>위치: 현재 257,000, 52주 475,000~210,000 중 하단(고점 <span class="down">-45.9%</span>). MA5 245,600(상회)/MA20 252,325(상회)/MA60 323,500(크게 하회) — 단기 반등이나 중기 역배열 미회복</li>
+<li>지지/저항: 지지 231,000(low20)·210,000(52주저·박스하단) / 저항 289,000(hi20·11월 반등고점)·323,500(MA60)</li>
+<li>손익비(진입 상단 248,000 기준): 상방 289,000 = <span class="up">+16.5%</span> ÷ 하방 222,000 = <span class="down">-10.5%</span> = 1:1.57 · 현재가 257,000 기준 <span class="up">+12.5%</span>÷<span class="down">-13.6%</span> = 1:0.9 · 손익분기 승률 38.9%(=1/(1<span class="up">+1.57</span>)) vs 최근 실제 14~17% → 요구승률이 실제보다 크게 높음(★불리)</li>
+<li>손절: 222,000원 = 진입 상단 248,000 대비 <span class="down">-10.5%</span> = 일중 변동폭 6.7%의 1.57배(하한 1.5배 충족)</li>
+<li>진입 조건(지정가형): 234,000~248,000원 도달 시 3회 분할(각 1/3, MA20 하회·전저점 지지 재확인) — 단 KOSPI 20일선 회복 후에만. 눌림 없이 오르면: 종가 289,000(hi20) 돌파 확정 시에만 소량 추격(손절 262,000), 그 전 추격 안 함</li>
+<li>★현재가 257,000 즉시 진입은 R/R 0.9로 부적합 — 눌림 대기 필수</li>
+<li>(선물 有) 근월물 A1Q612(에이피알 F 202612, std KR4A1Q6C0008) · 만기 2026-12-10(둘째 목요일, D-약 12거래일) → 만기 임박, 익월물(2027-03) 롤오버 고려 · 위탁증거금률·현선 베이시스 미확인</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (§9)</p>
+<ul>
+<li>9-1 제품 분해(9M26, 억원) [실측: dart_biz.py]: 화장품 17,831(83.6%) / 디바이스 3,293(15.4%) / 기타 215(1.0%), 합 21,340</li>
+<li>9-2 지역·고객: 수출 19,551(92%)·내수 1,789 / B2C 직판(아마존·틱톡샵·자사몰), 특정 전방기업 집중도 낮음. 생산 전량 외주, 디바이스만 자회사 내재화 [실측: 분기보고서]</li>
+<li>9-3 시장·경쟁: 미국 아마존 뷰티 TAM·메디큐브 점유율은 블로거 추정치만(검색 1위·틱톡 거래액 1위 주장) → 2출처 교차 미완 &#x27;미확인&#x27;. 디바이스 글로벌 CAPA·점유율 미확인</li>
+<li>9-4 단가: 세트·프로모션 구성으로 단가 추이 미공시(회사 명시), 원재료는 완제품 매입이라 가격변동 미공시 [실측: 사업보고서 본문] → 물량×단가 분해 불가, 지역·채널 믹스로 대체</li>
+<li>9-5 CAPA: 화장품 외주라 CAPA 해당없음, 디바이스만 내재화, 수주잔고 개념 없음(B2C)</li>
+<li>9-7 바텀업 모델(연결 영업이익, 억원):</li>
+<li>4Q26E: Bear 1,600(OPM 17%, 환율 추가 악화) / Base 2,150(OPM 22%, 블프 성수기) / Bull 2,500(OPM 24%, 환율 정상화+유럽 서프)</li>
+<li>산식: 4Q26 매출 컨센 9,518억 × OPM. 9M26 OP 5,033 + 4Q = FY26 6,633/7,183/7,533</li>
+<li>FY27E: Base 매출 42,304 × OPM 23.9% = OP 10,106(컨센) / Bear 38,000×20%=7,600 / Bull 45,000×25%=11,250</li>
+<li>민감도: OPM ±2%p → 4Q OP ±190억 / 유럽 아마존 성공 여부가 FY27 매출 ±4,000억 스윙 핵심</li>
+<li>★결론 문장: 4Q26 연결 영업이익 ≥ 2,100억(OPM ≥ 22%)이면 논지 유지·추가매수 검토, &lt; 1,600억(OPM &lt; 17%)이면 논지 폐기·전량 청산. (4Q26 실적 발표 예상 2027년 2월) — 이 X·Y를 결정카드 반증에 반영</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더: ①4Q26/FY26 잠정실적 예상 2027년 2월(법정기한), 환율 정상화·블프 성과 반영 분수령 ②유럽 아마존 블프 성과(11월말~12월, 수치 미확정) ③선물 12월물 만기 2026-12-10</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<ol>
+<li>4Q26 연결 영업이익 &lt; 1,600억(OPM&lt;17%) → 논지 폐기·전량 청산</li>
+<li>종가 222,000원 이탈 → 전량 청산(손절)</li>
+<li>2026Q4 수출비중/메디큐브 아마존 순위 하락 확인 + 종가 210,000(52주저) 이탈 → 성장 둔화 간주·청산</li>
+</ol>
+<ul>
+<li>이벤트 매트릭스(4Q 실적): [서프(OP≥2,500)×갭상승→1차 익절 후 홀드 / 인라인(2,100±200)×보합→Base 목표 유지 / 쇼크(&lt;1,600)×갭하락→즉시 청산]</li>
+<li>확률가중 시나리오(R3, 기저율 출발):</li>
+<li>Bear 45%(기저율 Bear 이하 47%→45%, 근거: 하락국면·3Q쇼크·고PBR이나 FTA·수급 단기지지): 가격 198,000(52주저 하향·OPM 쇼크, 산식 디레이팅 PBR 11배×BPS 18,000)</li>
+<li>Base 40%(기저율 Base 이상 21%→상향, 근거: 저점권 반등·4Q 성수기): 가격 289,000(FY26E EPS×20배)</li>
+<li>Bull 15%(기저율 13%→15%, 근거: 유럽 아마존 신축 성공): 가격 340,000(MA60 돌파·re-rating)</li>
+<li>기대수익(i) 시나리오 가격: 0.45×(<span class="down">-23%</span>)<span class="up">+0.40</span>×(<span class="up">+12.5%</span>)<span class="up">+0.15</span>×(<span class="up">+32%</span>) = <span class="down">-0.5%</span></li>
+<li>기대수익(ii) 손절적용·하락국면 기저율(목표 17%/손절 78%): 0.17×16.5% − 0.78×10.5% = <span class="down">-5.4%</span> ★음(-) → 지수 20일선 회복 전 진입 금지 근거</li>
+<li>수급·유동성: 외국인 20일 <span class="up">+409</span>억(5일 -121억 전환)·기관 20일 <span class="up">+50</span>억(5일 <span class="up">+388</span>억)·개인 20일 -445억 / 공매도 20일 평균 6.3%(11/19 21%, 압력 높음) / 20일 평균 거래대금 948억 → 1일 체결상한(ADV 10%) 약 95억 [실측: KIS]</li>
+<li>거래 제약·오버행(R9): 미상환 CB/BW/EB·진행 중 유상증자 &#x27;없음&#x27;(확인: DART 공시목록 2025-01~2026-11, 자기주식취득신탁만 존재=오버행 아님). 시장조치(투자주의·경고·거래정지·관리종목) 해당 없음(확인: KIS). 공매도 20일 평균 6.3% 높음(잠재 매도압력)</li>
+<li>컨센 방향(R10): FY26 OP컨센 3개월 <span class="down">-5.6%</span> 하향 → 목표가에 FY26E EPS 할인(PER 20배) 반영</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 0.5% ÷ 손절폭 10.5% = 4.8% / Bear 손실한도(0.5%×3÷Bear하락폭 23% = 6.5%) / 집중 50% / 이벤트 전 25% → 최소값 4.8% 채택. 고변동·하락국면이므로 하한(소액·헤지) 운용</li>
+</ul>
+<p>[미확인 목록] 이자보상배율(이자비용) · 메디큐브 아마존 점유율·틱톡 거래액(블로거 추정만) · 선물 증거금률·베이시스 · 9M26 순이익 누적 · 단가/원재료 가격추이(회사 미공시) [출처 목록] DART 사업보고서 20260323001257 · 분기보고서 20261113001366 · KIS enrich 2026-11-24 · stockeasy_consensus 4소스 2026-11-24 · hist_valuation.py · 뉴스 남도일보·파이낸셜뉴스 2026-11-23 · 비나인 블로그 ks200331022(2026-11-23) [검산] 분기합 1Q26<span class="up">+2</span>Q26<span class="up">+3</span>Q26=5,933<span class="up">+7,675</span><span class="up">+7,731</span>=21,339 ≈ 9M 누적 21,340 ✓ / FY25 9M<span class="up">+4</span>Q=9,797<span class="up">+5,476</span>=15,273 ✓ / 손익비 헤더·본문 1:1.57 일치 / 시나리오 확률 45<span class="up">+40</span><span class="up">+15</span>=100 ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-24 08:12 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 257,000원 (<span class="up">+0.0%</span>) · 시총 9.62조 · 5일 <span class="up">+11.3%</span> / 20일 <span class="down">-7.6%</span> / 60일 <span class="down">-41.9%</span></li>
+<li>MA5 245,600원 / MA20 252,325원 / MA60 323,500원 → MA20 이격 <span class="up">+1.9%</span> · MA60 이격 <span class="down">-20.6%</span></li>
+<li>52주 고 475,000원 / 저 210,000원 → 고점 대비 <span class="down">-45.9%</span> · 20일 고 289,000원 / 저 231,000원</li>
+<li>후행 PER 33.36 / PBR 21.58 (EPS 7,704원 · BPS 11,910원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 915.4억 (5일 610.8억)</li>
+<li>외국인 순매수 5일 -121.0억 / 20일 408.8억 · 기관 5일 388.4억 / 20일 49.8억 · 개인 20일 -444.9억</li>
+<li>개별주식선물: ⚡ 상장 (A1Q612) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 7.29% / 20일 평균 6.34% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 21.04% (11/19) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 40영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 289,000원 (<span class="up">+12.5%</span>) ÷ 하방 222,000원 (−13.6%) = <strong>1:0.91</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 13.6% = <strong>자산의 3.7%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.7%</strong></li>
+<li>유동성 참고: 20일 ADV 915.4억 · 1일 소화 한도는 ADV의 10%(91.54억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 13.6% · ATR14 15,250원 (손절폭/ATR 2.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 13.6% = ATR14 × 2.3배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 231,300원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.25</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 有 현재가: 257,000원 진입: 234,000~248,000원 (도달 시 지정가 3회 분할·MA20 하회 재확인형, KOSPI 20일선 회복 후만) 손절: 222,000원 목표: 1차 289,000원 (2차 323,500원) 손익비: 1:1.57 기간: 스윙 4~8주 촉매: 4Q26/FY26 잠정실적(2027-02) · 유럽 아마존 블프 성과(11월말~12월) · 선물 12월물 만기 2026-12-10 반증: 4Q26 연결 영업이익 &lt; 1,600억(OPM&lt;17%) 논지 폐기·청산 / 종가 222,000원 이탈 전량 청산 지수조건: KOSPI 20일선 회복 후 요구승률: 38.9% (=1/(1<span class="up">+1.57</span>)) vs 최근 실제 14~17%(하락국면 구간지정가) 직전카드: 2026-11-22 관심(손절 202,000) → 손절 유지·목표 미도달·진행 중 검증: ✅4 ⚠️3 ❌0 | 손절 거리 1.6배 · 손익비 1:1.6(구간 상단)/1:0.9(현재가) · 요구 승률 39% vs 최근 18% · 비중 상한 4.8%</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
