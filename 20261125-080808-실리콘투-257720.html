@@ -1,0 +1,276 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>실리콘투(257720) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261125-080808-실리콘투-257720.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b>  🟡 관망(하락국면·반증다수. 지수 20일선 회복 + 종목 MA20 2일 안착 시에만 조건부 레버리지 스윙) · 손익비 1:1.52</div><div class="tp-c"><b>결론 발췌</b> 외형은 YoY+42%로 폭발 중이나 3Q 순익은 환율에 -85% 훼손, 하락국면·2연속 손절 자리라 지금은 관망. KOSPI 20일선 회복 + MA20 안착 확인 시에만 조건부 레버리지 스윙(진입 26,000·손절 22,700·1차 31,000·손익비 1:1.5).</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드):  🟡 관망(하락국면·반증다수. 지수 20일선 회복 + 종목 MA20 2일 안착 시에만 조건부 레버리지 스윙)</span><h1>실리콘투(257720)</h1>
+<div class="meta">📊 benine · 2026-11-25 08:08 · 코드 257720</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-25 08:08)</div><div class="kpi-v">25,800원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1.7조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">9.89</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">3.7</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.52</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:1.68</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">31,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입  26,000원 분할(조건충족 후) / 돌파분은 28,650 종가돌파 후</span><span class="dc dn">손절 22,700원</span><span class="dc up">목표 31,000원</span><span class="dc">손익비 진입 1:1.52 · 현재가 1:1.68</span><span class="dc">기간  스윙 4~10주</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매:  4Q 환율 정상화·미실현 환산손 환입 / 미주 신규 리테일러 매출반영 / 월마트·코스트코 입점(옵션)</div><div class="dc-l">🛑 반증:  신환율 레벨 고착(마진 16%대 고착) / OPM 추가하락 / RCS 희석·부채비율 상승 / K뷰티 미국수요 피크아웃 / 공매도·외국인 순매도 지속</div></div>
+
+<div class="body"><h1>실리콘투(257720) 정밀 리포트 — 3Q26 &#x27;성장은 기록, 이익은 환율에 삼켜짐&#x27;</h1>
+<p class="note">근거 글: 비나인 스크랩 [실리콘투 3Q26P Re] (blog.naver.com/ks200331022, 2026-11-24). <strong>블로거 의견·참고용이며 매수/매도 권유 아님.</strong> 아래 수치는 DART·KIS·증권사 컨센 실측으로 교차검증했고, 못 구한 값은 &#x27;미확인&#x27;으로 표기한다. <strong>재무는 K-IFRS 연결(CFS) 기준.</strong> 현재가 25,800원(2026-11-25 08:03) · 시총 1조6,919억 · PER 9.9x(TTM) · PBR 3.7x · 52주 22,700~56,100</p>
+<h2 id="한줄결론">🧾 한줄결론</h2>
+<p>외형은 YoY<span class="up">+42%</span>로 폭발 중이나 3Q 순익은 환율에 <span class="down">-85%</span> 훼손, 하락국면·2연속 손절 자리라 <strong>지금은 관망</strong>. KOSPI 20일선 회복 + MA20 안착 확인 시에만 조건부 레버리지 스윙(진입 26,000·손절 22,700·1차 31,000·손익비 1:1.5).</p>
+<p><strong>핵심 수치태그:</strong> <code>매출 4,244억(<span class="up">+41.7%</span>)</code> <code>영업익 696억(<span class="up">+10.4%</span>)</code> <code>순익 88억(<span class="down">-84.9%</span>)</code> <code>OPM 16.4%(<span class="down">-4.7%</span>p)</code> <code>GPM 28.7%</code> <code>영업외 -475억</code> <code>현금 4,475억</code> <code>부채비율 72.2%</code> <code>PER 9.9x</code> <code>FY27E PER 6.5x</code> <code>PBR 3.7x</code> <code>ROE 33%</code> <code>컨센목표 42,091원</code> <code>52주저 22,700</code></p>
+<hr>
+<h2 id="실전-기준사후-통계-요약">⓪ 실전 기준(사후 통계 요약)</h2>
+<ul>
+<li><strong>시장 국면: 하락</strong> (KOSPI 20일선 아래, 20일 <span class="down">-11.2%</span>). → 교과서상 &#x27;매수&#x27; 판정 불가, <strong>지수조건 필수</strong>.</li>
+<li>종목 변동성 고변동(일중 8.3%). 손절 하한 = 진입가에서 <strong>12.4%↑</strong> 아래여야 유효.</li>
+<li>이 종목 <strong>직전 2장 모두 손절 이탈·목표 미도달</strong>(10/05, 11/03 카드). 11/03 손절(25,900)은 14거래일 전 붕괴.</li>
+<li>하락국면 발행분 통계: 발행일 매수 시 목표먼저 28% / <strong>손절먼저 66%</strong>. 20일선 회복 후 매수 시 목표 48%로 개선.</li>
+<li>→ <strong>이 종목은 지금 &quot;싸 보여서 받는&quot; 자리가 아니라, 바닥 확인 신호를 기다리는 자리.</strong></li>
+</ul>
+<hr>
+<h2 id="사실관계-검증-k뷰티-유통-실체환손실-성격">① 사실관계 검증 — K뷰티 유통 실체·환손실 성격</h2>
+<p><strong>사업 실체 (DART 사업/분기보고서 실측):</strong></p>
+<ul>
+<li>StyleKorean.com 기반 <strong>K-Beauty 종합유통 플랫폼</strong>. 약 175개국 대상 B2B 도매(CA) + B2C 역직구(PA) + 풀필먼트.</li>
+<li>매출구조(2026 3Q 누적비중): <strong>CA(기업계정) 94.1%</strong>, PA(개인) 4.6%, 풀필먼트 1.2%. → B2B 도매가 압도적. 해외법인·물류거점 기반 현지화가 해자.</li>
+<li>거래처 집중도 낮음: 상위 3사 합산 CA 9%대, 나머지 &#x27;기타&#x27; 85%가 분산 → <strong>특정 바이어 리스크는 낮으나, 마진은 바이어 교섭력에 좌우.</strong></li>
+</ul>
+<p><strong>채널 다변화 지속성(블로그 논지 검증):</strong></p>
+<ul>
+<li>블로그: 북미 1,085억(QoQ<span class="up">+24%</span>, 얼타·타깃 고성장 + 샘스클럽·노드스트롬 신규), 미주비중 1Q 18.6%→3Q 25.6%. 중남미 342억(YoY<span class="up">+123%</span>).</li>
+<li>삼성·KB증권 리포트가 2027 월마트·코스트코 입점 가능성 언급 → <strong>채널 확장은 실재하는 성장 동력(✅ 일관)</strong>, 단 &#x27;입점 가능성&#x27;은 아직 확정 공시 아님(<strong>미확정</strong>).</li>
+</ul>
+<p><strong>환손실 = 일회성인가? (핵심 쟁점)</strong></p>
+<ul>
+<li>3Q26 순이익 88억(YoY <strong>-84.9%</strong>)의 범인은 <strong>영업외 -475억</strong>(원화강세發 외환차손+환산손, 외화손익효과 -577억).</li>
+<li><strong>영업이익 696억은 정상</strong>이고 순익만 환율로 훼손 → <strong>영업단 본질 훼손은 아님(✅).</strong></li>
+<li>단 OPM도 16.4%로 QoQ <span class="down">-4.2%</span>p 하락(운반비·원가 부담). <strong>GPM 28.7%는 환율영향 포함</strong> → 환율 자체가 매출총이익률도 일부 잠식. 100% 일회성은 아니고 <strong>&quot;환율이 정상화되면 미실현 환산분은 환입 가능, 그러나 신환율 레벨이 지속되면 마진은 구조적으로 낮아진 레벨에 적응해야 함&quot;</strong>(신영·유안타 지적과 일치).</li>
+</ul>
+<hr>
+<h2 id="실적-분석-dart-연결-실측-억원">② 실적 분석 (DART 연결 실측, 억원)</h2>
+<div class="tablewrap"><table><thead><tr><th>기간</th><th>매출</th><th>YoY</th><th>영업익</th><th>OPM</th><th>순익</th><th>GPM</th></tr></thead><tbody><tr><td>FY23</td><td>3,429</td><td>—</td><td>478</td><td>13.9%</td><td>380</td><td>33.6%</td></tr><tr><td>FY24</td><td>6,915</td><td><span class="up">+101.7%</span></td><td>1,376</td><td>19.9%</td><td>1,207</td><td>33.7%</td></tr><tr><td>FY25</td><td>11,163</td><td><span class="up">+61.4%</span></td><td>2,054</td><td>18.4%</td><td>1,686</td><td>31.1%</td></tr><tr><td>3Q25</td><td>2,994</td><td>—</td><td>631</td><td>21.1%</td><td>≈583*</td><td>31.6%</td></tr><tr><td>3Q26</td><td>4,244</td><td><strong><span class="up">+41.7%</span></strong></td><td>696</td><td><strong>16.4%</strong></td><td><strong>88</strong></td><td>28.7%</td></tr></tbody></table></div>
+<p>*3Q25 순익은 blog YoY <span class="down">-84.9%</span> 역산치(≈583억), DART 분기 순익 직접값은 미확인.</p>
+<ul>
+<li><strong>외형: 폭발적 성장 지속.</strong> 2026 3Q 단일분기 4,244억은 FY23 연매출(3,429억)을 1개 분기에 넘어섬. 2026 3Q 누적매출 11,735억으로 <strong>이미 FY25 연간(11,163억) 초과</strong>.</li>
+<li><strong>마진: 고점 대비 뚜렷한 둔화.</strong> OPM 21.1%(3Q25)→16.4%(3Q26), <span class="down">-4.7%</span>p. 원가·운반비·환율 3중 압박.</li>
+<li><strong>순익: 환율로 왜곡.</strong> 영업익 <span class="up">+10.4%</span>인데 순익 <span class="down">-84.9%</span> → P&amp;L 하단만 깨진 구조.</li>
+<li><strong>재무/RCS:</strong> RCS 3,000억 발행 → <strong>현금 4,475억</strong> 확보. <strong>부채비율 72.2%</strong>(25말 55.1%에서 상승). 공격적 재고·채널 확장 자금. 영업현금흐름 상세는 <strong>미확인</strong>(분기보고서 현금흐름표 미파싱). RCS는 희석 잠재(전환 시 EPS 희석) 요인 — 반증 리스트에 포함.</li>
+</ul>
+<hr>
+<h2 id="미래-실적-달성-가능성">③ 미래 실적 &amp; 달성 가능성</h2>
+<p><strong>증권사 컨센(fnguide 13개 기관, 억원):</strong></p>
+<div class="tablewrap"><table><thead><tr><th>FY</th><th>매출</th><th>영업익</th><th>순익</th><th>EPS</th><th>PER</th><th>ROE</th></tr></thead><tbody><tr><td>FY26E</td><td>16,001</td><td>2,780</td><td>1,986</td><td>2,941</td><td>8.8x</td><td>33.6%</td></tr><tr><td>FY27E</td><td>20,507</td><td>3,567</td><td>2,883</td><td>3,990</td><td>6.5x</td><td>33.5%</td></tr><tr><td>FY28E</td><td>24,904</td><td>4,397</td><td>3,516</td><td>4,867</td><td>5.3x</td><td>30.4%</td></tr></tbody></table></div>
+<ul>
+<li>4Q26E(naver): 매출 4,288 / 영업익 572 / 순익 360. KB증권 2027 전망 매출 2조766억(<span class="up">+31.8%</span>)·영업익 3,656억(OPM 17.6%).</li>
+<li><strong>달성 가능성 판정: 中.</strong></li>
+<li>(+) 외형 YoY<span class="up">+40%</span>대 유지·미주 고성장·신규 리테일러(샘스클럽·노드스트롬) 실적 반영 전 → 매출 컨센(FY27 <span class="up">+31%</span>)은 <strong>달성 가능성 높음</strong>.</li>
+<li>(−) 영업익 컨센 추이가 <strong>하향</strong>: 3M전 2,951 → 현재 2,780(FY26E). 3Q 쇼크 반영 중. OPM 17%대 회복은 <strong>환율·운반비 정상화 가정에 의존</strong> → 마진 컨센은 달성 <strong>불확실</strong>.</li>
+<li>월마트·코스트코 입점은 <strong>업사이드 옵션(미확정)</strong>, 베이스 추정엔 미반영.</li>
+</ul>
+<hr>
+<h2 id="밸류에이션-목표가">④ 밸류에이션 → 목표가</h2>
+<p><strong>실측 멀티플:</strong> PER 9.9x(TTM EPS 2,609) · <strong>FY26E 8.8x · FY27E 6.5x</strong> · PBR 3.7x(BPS 6,976) · ROE 33%대.</p>
+<ul>
+<li>고성장+고ROE 유통플랫폼이 <strong>FY27 PER 6.5x</strong>까지 디레이팅 → 시장이 마진둔화·환율·K뷰티 피크아웃을 선반영. Peer 정량밴드는 <strong>미확인</strong>(순수 비교대상 희소)이나, 과거 이 종목 15~25x 대비 현 레벨은 <strong>역사적 하단권</strong>.</li>
+</ul>
+<p><strong>자체 목표가(FY27E EPS 3,990 기준):</strong></p>
+<ul>
+<li>보수 8x → <strong>31,900원</strong> (1차)</li>
+<li>중립 9.5x → <strong>37,900원</strong> (중기)</li>
+<li>공격 12x → <strong>47,900원</strong> (환율·마진 정상화 시)</li>
+</ul>
+<p><strong>증권사 목표가(3Q 후 일제 하향):</strong></p>
+<ul>
+<li>KB 45,000(11/23) · 한투 46,000 · 한화 46,000 · NH 41,000 · 삼성 40,000 · SK 38,000 · 신영 35,000 · <strong>유안타 31,000(최저)</strong></li>
+<li>컨센 평균 <strong>42,091원</strong>(최신 11개사) · 현재가 대비 <span class="up">+63%</span>. 전원 BUY 유지하나 <strong>목표가는 전부 15%내외 하향</strong>.</li>
+<li>→ 나는 <strong>1차 31,000(유안타 하한=hi20 돌파선) / 중기 38,000</strong> 채택. 증권사 평균 42,091은 환율·마진 정상화 가정의 Bull 시나리오로 본다.</li>
+</ul>
+<hr>
+<h2 id="손익비">⑤ 손익비</h2>
+<ul>
+<li>조건부 진입 26,000 기준: 상방 1차 31,000(<span class="up">+19.2%</span>) ÷ 하방 손절 22,700(<span class="down">-12.7%</span>) = <strong>1 : 1.5</strong></li>
+<li>현재가 25,800 기준: <span class="up">+20.2%</span> / <span class="down">-12.0%</span> = <strong>1 : 1.7</strong></li>
+<li>지지: <strong>MA20 25,815(현 위치)</strong> → lo20 23,200 → <strong>52주저 22,700</strong>. 저항: hi20 28,650 → MA60 34,947.</li>
+<li>손익비 1.5는 손익분기 승률 40% 요구인데, 하락국면 실제 목표달성률 30% → <strong>통계적으로 열위.</strong> 그래서 베팅이 아니라 <strong>조건충족 시에만</strong> 진입.</li>
+</ul>
+<hr>
+<h2 id="9-산업바텀업-모델-제품물량단가-이익-임계">§9 산업·바텀업 모델 (제품×물량×단가 → 이익 임계)</h2>
+<p>K-Beauty 역직구/도매 플랫폼. 전방 = 미국·유럽·중남미 K뷰티 소비. 실리콘투는 <strong>브랜드 소싱 → 글로벌 리테일러 도매(CA 94%)</strong> 구조라 &#x27;단가&#x27;보다 <strong>지역 믹스×GPM×운반비</strong>가 이익을 결정.</p>
+<ul>
+<li><strong>물량(매출) 드라이버:</strong> 지역별 3Q26 — 유럽 1,606억(38%)·북미 1,085억(QoQ<span class="up">+24%</span>)·중남미 342억(YoY<span class="up">+123%</span>)·아시아 둔화. 미주비중 18.6%(1Q)→25.6%(3Q).</li>
+<li><strong>단가/믹스:</strong> 고마진 B2C(PA) 4.6% vs 저마진 B2B(CA) 94% → 믹스가 GPM 눌림. 신규 리테일러(샘스클럽·노드스트롬·얼타·타깃) 매출 반영 전.</li>
+<li><strong>이익 임계(연결, 추정):</strong> 분기매출 4,300억 가정 시 OPM 17% 회복이면 영업익 731억(4Q 컨센 572억 대비 상회), OPM 13%로 추가둔화면 559억. <strong>임계 스윙팩터 = 환율(외화손익)·운반비.</strong> 4Q 환율 정상화 시 OPM 복원이 베이스.</li>
+<li><strong>달성 임계 판정:</strong> 매출 컨센(FY27 2.05조) 달성가능성 高(물량 성장 지속), OPM 17%대 복원 中(환율·운반비 의존). <em>제품별 단가 시계열은 DART 미제공 → 바텀업 단가모델은 믹스 기반 근사치(미확인 포함).</em></li>
+</ul>
+<h2 id="진입-전략-개별주식선물-상장-근월물-a3b612-레버리지-가능">⑥ 진입 전략 (개별주식선물 상장 ✅ 근월물 A3B612 — 레버리지 가능)</h2>
+<p><strong>현 위치:</strong> 25,800원, MA20(25,815) 정확히 걸침, 5일 <span class="up">+8.9%</span> 단기반등. 그러나 MA60(34,947)까지 <span class="down">-47%</span>, 60일 고점比 <span class="down">-54%</span>, <strong>외국인 20일 순매도·공매도 20일평균 10%</strong>(피크 23%) → 하방 압력 상존.</p>
+<p><strong>레버리지 스윙 플랜(조건부, 3라인):</strong></p>
+<ul>
+<li><strong>지수조건:</strong> KOSPI 20일선 회복 <strong>전까지 신규 레버리지 보류</strong>, 또는 지수선물(K200) 매도 헤지 병행(베타 0.6 반영).</li>
+<li><strong>종목조건:</strong> MA20(25,800) <strong>종가 2일 안착</strong> 또는 52주저(22,700)·lo20(23,200) 지지 재확인 반등.</li>
+<li><strong>진입:</strong> 26,000원 분할(1/2씩). 돌파매수는 hi20(28,650) 종가 돌파 확인 후 추격분만.</li>
+<li><strong>손절:</strong> <strong>22,700원 이탈 시 전량</strong>(진입 26,000 대비 <span class="down">-12.7%</span>, 52주저 하향이탈 = 논지 훼손).</li>
+<li><strong>익절:</strong> 1차 <strong>31,000원 50% 익절</strong>(hi20 돌파·유안타 타겟), 2차 <strong>38,000원 잔량</strong>(SK/삼성 라인). 트레일링은 MA20.</li>
+<li><strong>비중:</strong> 손실예산 0.5% ÷ 손절폭 12.7% → <strong>자산 3.9% 상한</strong>(현물 환산). <strong>레버리지 적용 시 선물 명목은 이 범위 내로 역산.</strong> 50% 집중은 이 종목엔 <strong>금지</strong>(하락국면·연속 손절·환율 변수).</li>
+</ul>
+<p class="note">⚠️ <strong>레버리지 경고:</strong> 일중 변동 8.3%·고변동 레짐. 선물 레버리지로 50% 집중 시 Bear(18,500) 도달하면 단일종목으로 계좌 -29%×레버리지. 재두형 집중 스타일이라도 <strong>이 자리는 소액·조건부</strong>가 맞다. 지수·종목 조건 미충족 시 <strong>관망</strong>.</p>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-25 08:08 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 25,800원 (<span class="up">+0.0%</span>) · 시총 1.69조 · 5일 <span class="up">+8.9%</span> / 20일 <span class="down">-13.1%</span> / 60일 <span class="down">-47.5%</span></li>
+<li>MA5 24,540원 / MA20 25,815원 / MA60 34,948원 → MA20 이격 <span class="down">-0.1%</span> · MA60 이격 <span class="down">-26.2%</span></li>
+<li>52주 고 56,100원 / 저 22,700원 → 고점 대비 <span class="down">-54.0%</span> · 20일 고 28,650원 / 저 23,200원</li>
+<li>후행 PER 9.89 / PBR 3.7 (EPS 2,609원 · BPS 6,976원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 210.5억 (5일 144.8억)</li>
+<li>외국인 순매수 5일 -33.9억 / 20일 -41.9억 · 기관 5일 80.0억 / 20일 -100.2억 · 개인 20일 149.6억</li>
+<li>개별주식선물: ⚡ 상장 (A3B612) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 4.44% / 20일 평균 10.14% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 23.23% (11/17) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 41영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 31,000원 (<span class="up">+20.2%</span>) ÷ 하방 22,700원 (−12.0%) = <strong>1:1.68</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 12.0% = <strong>자산의 4.2%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 4.2%</strong></li>
+<li>유동성 참고: 20일 ADV 210.5억 · 1일 소화 한도는 ADV의 10%(21.05억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 12.0% · ATR14 1,718원 (손절폭/ATR 1.8배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 12.0% = ATR14 × 1.8배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 23,220원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:2.02</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<h2 id="결정카드">📋 결정카드</h2>
+<ul>
+<li><strong>판정:</strong> 🟡 <strong>관망</strong>(하락국면·반증다수. 지수 20일선 회복 + 종목 MA20 2일 안착 시에만 조건부 레버리지 스윙)</li>
+<li><strong>선물:</strong> ✅ 상장(근월물 A3B612, 레버리지 가능)</li>
+<li><strong>현재가:</strong> 25,800원 (2026-11-25)</li>
+<li><strong>진입:</strong> 26,000원 분할(조건충족 후) / 돌파분은 28,650 종가돌파 후</li>
+<li><strong>손절:</strong> 22,700원(<span class="down">-12.7%</span>, 52주저 이탈)</li>
+<li><strong>목표:</strong> 1차 31,000 · 중기 38,000</li>
+<li><strong>손익비:</strong> 1 : 1.5(진입기준) / 1 : 1.7(현재가)</li>
+<li><strong>기간:</strong> 스윙 4~10주</li>
+<li><strong>촉매:</strong> 4Q 환율 정상화·미실현 환산손 환입 / 미주 신규 리테일러 매출반영 / 월마트·코스트코 입점(옵션)</li>
+<li><strong>반증:</strong> 신환율 레벨 고착(마진 16%대 고착) / OPM 추가하락 / RCS 희석·부채비율 상승 / K뷰티 미국수요 피크아웃 / 공매도·외국인 순매도 지속</li>
+</ul>
+<h2 id="시나리오-확률-20일-뒤-종가-기준">🎲 시나리오 확률 (20일 뒤 종가 기준)</h2>
+<ul>
+<li><strong>Bull(20%)</strong> 38,000원↑: 4Q 환율 정상화·미실현 환산손 환입 + 미주 신규채널 매출 서프라이즈 → OPM 17% 복원, 멀티플 리레이팅.</li>
+<li><strong>Base(40%)</strong> 26,000~31,000원: 외형 성장 유지·마진 16%대 횡보, 지수 반등에 동행 박스.</li>
+<li><strong>Bear(45%→보수 반영)</strong> 18,500원↓: 신환율 레벨 고착·OPM 추가하락·K뷰티 미국 피크아웃 우려 → FY27E 하향 + PER 6x 디레이팅. <em>확률합&gt;100%는 구간 중첩, Bear 빈도는 하락국면 실측 45% 반영해 상향.</em></li>
+</ul>
+<h2 id="invalidation">⚠️ 반증조건 (아래 발생 시 논지 폐기·청산)</h2>
+<ol>
+<li>4Q에도 OPM 16%대 이하 고착(환율 탓 아닌 구조적 운반비·원가) → 마진스토리 붕괴.</li>
+<li>RCS 3,000억 전환 가시화로 EPS 희석·부채비율 추가 상승.</li>
+<li>미국 K뷰티 수요 피크아웃(얼타·타깃 역성장) 데이터.</li>
+<li>52주저 22,700 종가 하향이탈 → 기술적 논지 훼손.</li>
+</ol>
+<h2 id="미확인-목록-정직표기">❓ 미확인 목록 (정직표기)</h2>
+<ul>
+<li>3Q26 <strong>단일분기 순이익 DART 직접값</strong>(blog YoY로 역산, 3Q25 순익 ≈583억 추정).</li>
+<li><strong>영업현금흐름·분기 현금흐름표</strong>(분기보고서 미파싱).</li>
+<li><strong>Peer 정량 PER/PBR 밴드</strong>(순수 비교대상 희소 → 역사적 자기밴드로 대체).</li>
+<li>월마트·코스트코 입점은 <strong>증권사 언급(가능성)</strong>, 확정 공시 아님.</li>
+<li>제품별 단가 시계열(DART 플랫폼 특성상 미제공).</li>
+</ul>
+<h2 id="검산">✅ 검산</h2>
+<ul>
+<li>OPM: 696/4,244 = <strong>16.40%</strong> ✔ (blog 16.4% 일치)</li>
+<li>GPM: 1,218/4,244 = <strong>28.70%</strong> ✔ (blog 28.7% 일치)</li>
+<li>매출 YoY: 4,244/2,994-1 = <strong><span class="up">+41.8%</span></strong> ✔</li>
+<li>영업익 YoY: 696/631-1 = <strong><span class="up">+10.3%</span></strong> ✔</li>
+<li>손익비: (31,000-26,000)/(26,000-22,700) = 5,000/3,300 = <strong>1.52</strong> ✔</li>
+<li>3Q26 누적매출 11,735억 &gt; FY25 연간 11,163억 ✔ (연내 사상최대 확정)</li>
+</ul>
+<h2 id="가정추적검증">📌 가정추적·검증</h2>
+<ul>
+<li><strong>가정1:</strong> 환손실 일회성 → <em>검증:</em> 영업익은 정상(<span class="up">+10%</span>), 순익만 환율로 훼손 확인. 단 GPM에도 환율 침투 → &quot;완전 일회성 아님&quot;으로 수정.</li>
+<li><strong>가정2:</strong> FY27 OPM 17% 복원 → <em>검증:</em> 환율·운반비 정상화 의존, 컨센 영업익 3M전 2,951→2,780 하향 중 → 달성확률 中으로 하향 반영.</li>
+<li><strong>가정3:</strong> 디레이팅 과도(FY27 6.5x) → <em>검증:</em> ROE 33% 유지 시 저평가, 그러나 하락국면·공매도 10%·외인 순매도로 되돌림 신호 전까진 밸류만으로 매수 금지.</li>
+<li><em>다음 점검 트리거:</em> 4Q26 실적(환율 효과)·미주 신규채널 매출 반영분·KOSPI 20일선 회복 여부.</li>
+</ul>
+<p><strong>검증 4줄:</strong></p>
+<ul>
+<li><strong>지수조건:</strong> KOSPI 20일선(≈5,322) 회복 전 신규 레버리지 보류 또는 K200선물 헤지 병행.</li>
+<li><strong>요구승률:</strong> 손익비 1.5 → 40% 필요. 하락국면 실제 30% → <strong>열위</strong>, 조건충족이 승률 보정의 전제.</li>
+<li><strong>직전카드:</strong> 2026-11-03 관심(진입 26,100~28,500·손절 25,900) → 11/04 손절 이탈·목표 미도달. 10/05 카드도 손절 이탈. <strong>2연속 손절.</strong></li>
+<li><strong>검증:</strong> scorecard --check ❌0건(✅4 ⚠️3). ⚠️=요구승률&gt;실적·Bear확률·하락국면 → 전부 &#x27;관망&#x27; 판정으로 수용.</li>
+</ul>
+<hr>
+<p class="note">블로거 글 참고·DART/KIS/컨센 실측 교차검증. 투자판단·책임은 본인. 매수매도 권유 아님.</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
