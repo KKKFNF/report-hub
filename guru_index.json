@@ -1,6 +1,6 @@
 {
  "version": "1.0.0",
- "count": 508,
+ "count": 514,
  "rows": [
   {
    "code": "032820",
@@ -15241,6 +15241,186 @@
    "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240321000964 · KIS enrich 2026-11-24 08:12 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-24 08:20",
    "report": "20261124-081259-에이피알-278470",
    "date": "20261124"
+  },
+  {
+   "code": "257720",
+   "name": "실리콘투",
+   "ver": "v1",
+   "fit": 4,
+   "total": 6,
+   "bucket": "hi",
+   "mean": 0.63,
+   "summary": "산출 6/6 · 가치·품질 적합 · 상황 비우호",
+   "v": {
+    "buffett": "적합",
+    "munger": "적합",
+    "druckenmiller": "부적합",
+    "graham": "적합",
+    "piotroski": "부적합",
+    "greenblatt": "적합"
+   },
+   "s": {
+    "buffett": 0.91,
+    "munger": 0.71,
+    "druckenmiller": 0.24,
+    "graham": 0.71,
+    "piotroski": 0.22,
+    "greenblatt": 1.0
+   },
+   "rel": "결정카드 없음 — 비교 불가",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320000377 · KIS enrich 2026-11-25 08:06 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-25 08:20",
+   "report": "20261125-080655-실리콘투-257720",
+   "date": "20261125"
+  },
+  {
+   "code": "086670",
+   "name": "비엠티",
+   "ver": "v1",
+   "fit": 0,
+   "total": 6,
+   "bucket": "lo",
+   "mean": 0.39,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 비우호",
+   "v": {
+    "buffett": "부적합",
+    "munger": "보류",
+    "druckenmiller": "부적합",
+    "graham": "보류",
+    "piotroski": "부적합",
+    "greenblatt": "데이터부족"
+   },
+   "s": {
+    "buffett": 0.26,
+    "munger": 0.59,
+    "druckenmiller": 0.28,
+    "graham": 0.57,
+    "piotroski": 0.22,
+    "greenblatt": null
+   },
+   "rel": "결정카드 없음 — 비교 불가",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240321001954 · KIS enrich 2026-11-25 08:07 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-25 08:20",
+   "report": "20261125-080757-비엠티-086670",
+   "date": "20261125"
+  },
+  {
+   "code": "257720",
+   "name": "실리콘투",
+   "ver": "v1",
+   "fit": 4,
+   "total": 6,
+   "bucket": "hi",
+   "mean": 0.63,
+   "summary": "산출 6/6 · 가치·품질 적합 · 상황 비우호",
+   "v": {
+    "buffett": "적합",
+    "munger": "적합",
+    "druckenmiller": "부적합",
+    "graham": "적합",
+    "piotroski": "부적합",
+    "greenblatt": "적합"
+   },
+   "s": {
+    "buffett": 0.91,
+    "munger": 0.71,
+    "druckenmiller": 0.24,
+    "graham": 0.71,
+    "piotroski": 0.22,
+    "greenblatt": 1.0
+   },
+   "rel": "결정카드 없음 — 비교 불가",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240320000377 · KIS enrich 2026-11-25 08:08 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-25 08:20",
+   "report": "20261125-080808-실리콘투-257720",
+   "date": "20261125"
+  },
+  {
+   "code": "086670",
+   "name": "비엠티",
+   "ver": "v1",
+   "fit": 0,
+   "total": 6,
+   "bucket": "lo",
+   "mean": 0.39,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 비우호",
+   "v": {
+    "buffett": "부적합",
+    "munger": "보류",
+    "druckenmiller": "부적합",
+    "graham": "보류",
+    "piotroski": "부적합",
+    "greenblatt": "데이터부족"
+   },
+   "s": {
+    "buffett": 0.26,
+    "munger": 0.59,
+    "druckenmiller": 0.28,
+    "graham": 0.57,
+    "piotroski": 0.22,
+    "greenblatt": null
+   },
+   "rel": "결정카드 없음 — 비교 불가",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240321001954 · KIS enrich 2026-11-25 08:08 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-25 08:20",
+   "report": "20261125-080852-비엠티-086670",
+   "date": "20261125"
+  },
+  {
+   "code": "329180",
+   "name": "HD현대중공업",
+   "ver": "v1",
+   "fit": 0,
+   "total": 6,
+   "bucket": "lo",
+   "mean": 0.38,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 비우호",
+   "v": {
+    "buffett": "부적합",
+    "munger": "보류",
+    "druckenmiller": "부적합",
+    "graham": "부적합",
+    "piotroski": "보류",
+    "greenblatt": "데이터부족"
+   },
+   "s": {
+    "buffett": 0.12,
+    "munger": 0.47,
+    "druckenmiller": 0.39,
+    "graham": 0.36,
+    "piotroski": 0.56,
+    "greenblatt": null
+   },
+   "rel": "결정카드 없음 — 비교 불가",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240318000459 · KIS enrich 2026-11-25 08:11 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-25 08:21",
+   "report": "20261125-081115-HD조선-엔진-329180-071970",
+   "date": "20261125"
+  },
+  {
+   "code": "329180",
+   "name": "HD현대중공업",
+   "ver": "v1",
+   "fit": 0,
+   "total": 6,
+   "bucket": "lo",
+   "mean": 0.38,
+   "summary": "산출 5/6 · 가치·품질 미달 · 상황 비우호",
+   "v": {
+    "buffett": "부적합",
+    "munger": "보류",
+    "druckenmiller": "부적합",
+    "graham": "부적합",
+    "piotroski": "보류",
+    "greenblatt": "데이터부족"
+   },
+   "s": {
+    "buffett": 0.12,
+    "munger": 0.47,
+    "druckenmiller": 0.39,
+    "graham": 0.36,
+    "piotroski": 0.56,
+    "greenblatt": null
+   },
+   "rel": "결정카드 없음 — 비교 불가",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240318000459 · KIS enrich 2026-11-25 08:12 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-25 08:21",
+   "report": "20261125-081259-HD조선-엔진-329180-071970",
+   "date": "20261125"
   }
  ]
 }
