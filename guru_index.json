@@ -1,6 +1,6 @@
 {
  "version": "1.0.0",
- "count": 514,
+ "count": 518,
  "rows": [
   {
    "code": "032820",
@@ -15421,6 +15421,126 @@
    "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240318000459 · KIS enrich 2026-11-25 08:12 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-25 08:21",
    "report": "20261125-081259-HD조선-엔진-329180-071970",
    "date": "20261125"
+  },
+  {
+   "code": "098070",
+   "name": "한텍",
+   "ver": "v1",
+   "fit": 3,
+   "total": 6,
+   "bucket": "mid",
+   "mean": 0.57,
+   "summary": "산출 6/6 · 가치·품질 적합 · 상황 비우호",
+   "v": {
+    "buffett": "적합",
+    "munger": "적합",
+    "druckenmiller": "부적합",
+    "graham": "보류",
+    "piotroski": "부적합",
+    "greenblatt": "적합"
+   },
+   "s": {
+    "buffett": 0.7,
+    "munger": 0.79,
+    "druckenmiller": 0.19,
+    "graham": 0.57,
+    "piotroski": 0.33,
+    "greenblatt": 0.84
+   },
+   "rel": "결정카드 없음 — 비교 불가",
+   "snapshot": "DART 연결 FY2025·TTM(3Q26) · FY2025 사업보고서 20260318000570 · KIS enrich 2026-11-26 08:10 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-26 08:20",
+   "report": "20261126-081038-한텍-098070",
+   "date": "20261126"
+  },
+  {
+   "code": "222800",
+   "name": "심텍",
+   "ver": "v1",
+   "fit": 0,
+   "total": 6,
+   "bucket": "lo",
+   "mean": 0.22,
+   "summary": "산출 6/6 · 가치·품질 미달 · 상황 비우호",
+   "v": {
+    "buffett": "부적합",
+    "munger": "부적합",
+    "druckenmiller": "부적합",
+    "graham": "부적합",
+    "piotroski": "보류",
+    "greenblatt": "부적합"
+   },
+   "s": {
+    "buffett": 0.0,
+    "munger": 0.05,
+    "druckenmiller": 0.21,
+    "graham": 0.29,
+    "piotroski": 0.44,
+    "greenblatt": 0.32
+   },
+   "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240321000928 · KIS enrich 2026-11-26 08:12 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-26 08:21",
+   "report": "20261126-081234-심텍-222800",
+   "date": "20261126"
+  },
+  {
+   "code": "098070",
+   "name": "한텍",
+   "ver": "v1",
+   "fit": 3,
+   "total": 6,
+   "bucket": "mid",
+   "mean": 0.57,
+   "summary": "산출 6/6 · 가치·품질 적합 · 상황 비우호",
+   "v": {
+    "buffett": "적합",
+    "munger": "적합",
+    "druckenmiller": "부적합",
+    "graham": "보류",
+    "piotroski": "부적합",
+    "greenblatt": "적합"
+   },
+   "s": {
+    "buffett": 0.7,
+    "munger": 0.79,
+    "druckenmiller": 0.19,
+    "graham": 0.57,
+    "piotroski": 0.33,
+    "greenblatt": 0.84
+   },
+   "rel": "결정카드 없음 — 비교 불가",
+   "snapshot": "DART 연결 FY2025·TTM(3Q26) · FY2025 사업보고서 20260318000570 · KIS enrich 2026-11-26 08:12 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-26 08:21",
+   "report": "20261126-081245-한텍-098070",
+   "date": "20261126"
+  },
+  {
+   "code": "042700",
+   "name": "한미반도체",
+   "ver": "v1",
+   "fit": 2,
+   "total": 6,
+   "bucket": "mid",
+   "mean": 0.5,
+   "summary": "산출 5/6 · 가치·품질 부분 적합 · 상황 비우호",
+   "v": {
+    "buffett": "적합",
+    "munger": "적합",
+    "druckenmiller": "부적합",
+    "graham": "부적합",
+    "piotroski": "부적합",
+    "greenblatt": "데이터부족"
+   },
+   "s": {
+    "buffett": 0.71,
+    "munger": 0.83,
+    "druckenmiller": 0.19,
+    "graham": 0.43,
+    "piotroski": 0.33,
+    "greenblatt": null
+   },
+   "rel": "중립: 카드 판정과 뚜렷한 상충 없음 (카드 판정: 관망)",
+   "snapshot": "DART 연결 FY2023·FY2024·FY2025·TTM(3Q26) · FY2023 사업보고서 20240314001257 · KIS enrich 2026-11-26 08:14 · 레짐 2026-11-13 · 유니버스 통계 없음(절대 스케일) · 룰 v1.0.0 · 프롬프트 v1.0.0 · command/claude-sonnet-5-5 · 생성 2026-11-26 08:22",
+   "report": "20261126-081404-AI-본딩-3D-IC-밸류체인-한미반도체-등",
+   "date": "20261126"
   }
  ]
 }
