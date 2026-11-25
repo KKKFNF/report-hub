@@ -1,0 +1,235 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 본딩/3D-IC 밸류체인(한미반도체 등) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+.stbadge.st-short{background:rgba(255,123,123,.16);color:#ffb3b3;border:1px solid rgba(255,123,123,.4)}
+.stbadge.st-short_watch{background:rgba(255,160,90,.16);color:#ffc79a;border:1px solid rgba(255,160,90,.35)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261126-081404-AI-본딩-3D-IC-밸류체인-한미반도체-등.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-short_watch">🟠 매도관심 · 반등 대기 ⓘ</span><span class="tip"><div class="tp-h">🟠 매도관심 · 반등 대기 — 판정 방식: 선물매도 카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 📉 선물매도 카드 판정이 &#x27;매도관심&#x27;이거나, &#x27;선물매도&#x27;였지만 매도검증 줄에 ❌ 0건이 없거나 현재가가 매도 진입 구간을 벗어난 경우. = 지금은 아니고, 카드의 매도 진입 구간·조건 충족 시.</div><div class="tp-r"><b>매도 근거</b> F1 2026Q3 영업익 908억 임계 1,000 미달·shock(10-30 발표, 40거래일 이내) · F2 FY26 영업익 컨센 3개월 -16.5%(3,822→3,190) · A3 종가 20·60일선 모두 아래, 60일선 20거래일 전 대비 하락(역배열)</div><div class="tp-r"><b>스퀴즈</b> 공매도 비중 20일 평균 29.24%·5일 25.08% · 카드 기간 내 실적발표 없음 → 높음 (비중 절반·확인형 진입)</div><div class="tp-r"><b>지수조건</b> KOSPI 20일선 이탈 지속(현재 하락국면 충족)</div><div class="tp-r"><b>요구승률</b> 43% (=1÷(1+1.3)) vs 숏 기저율 54%(절대 63%·지수 대비 54% 중 낮은 쪽)</div><div class="tp-r"><b>검증</b> ✅10 ⚠️1 ❌0 | 손절 거리 2.4배 · 손익비 1:1.3(구간 하단)/1:0.4(현재가) · 요구 승률 43% vs 숏 기저율 54% · 비중 상한 1.5%</div><div class="tp-f">매도 관점은 선물 상장 종목에만, 리포트의 📉 선물매도 카드 값을 그대로 쓴다. 📋 결정카드(매수 관점) 판정은 옆 배지에 따로 표시된다.</div></span></span><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:1.3</div><div class="tp-c"><b>결론 발췌</b> 산업 테마(연산→데이터이동 병목 이동, 3D-IC 확산으로 TCB·하이브리드본딩 &#x27;병행 확대&#x27;)는 구조적으로 유효. 그러나 대표주 한미반도체(042700)는 지금 밸류 디레이팅(PBR 39→20배)·하락국면·공매도 29% 구간이라 매수가 아닌 관망. 선물 有 → 반등 시 선물매도 관점(매도관심): 매도진입 165,000~172,000·매도손절 193,000·매도목표 128,000원, 매도손익비 1:1.3. 단 공매도 과열(스퀴즈 위험 &#x27;높음&#x27;) 유의. ──────────────────── 【A】밸류체인 수혜주 Tier 분류 (실적베타 × 개별주식선물 상장여부 실측) ──────────────────── 선물 상장여부는 한투 개별주식선물 …</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>AI 본딩/3D-IC 밸류체인(한미반도체 등)</h1>
+<div class="meta">📊 benine · 2026-11-26 08:14 · 코드 042700</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-26 08:14)</div><div class="kpi-v">147,300원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">14.0조</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">65.97</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">20.24</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">손절선 이탈</div></div><div class="kpi kpi-good"><div class="kpi-l">손익비</div><div class="kpi-v">1:1.3</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">122,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 매수 진입 없음 (롱 논지 폐기 — 매도 관점은 위 📉 선물매도 카드 참조)</span><span class="dc dn">손절 193,000원</span><span class="dc up">목표 122,000원</span><span class="dc">손익비 현재가 손절선 이탈</span><span class="dc">기간 스윙 2~4주(선물 만기 12-10 유의)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 선물 최종거래일 2026-12-10 · FY26 실적발표 2027년 1월말~2월(카드기간 밖)</div><div class="dc-l">🛑 반증: 종가 193,000원 돌파 시 숏 논지 폐기 / 4Q26 영업익 &lt;750억이면 숏 논지 강화·&lt;1,041억 미달이면 조정 지속</div><div class="decision"><span class="dc dn">🟠 매도관심 · 반등 대기</span><span class="dc">매도진입 165,000~172,000원 (반등 도달 후 종가가 전일 저가 아래 마감 시 다음 거래일 — 확인형 / 반등 없이 흘러내리면</span><span class="dc dn">매도손절 193,000원</span><span class="dc up">매도목표 128,000원</span><span class="dc">매도 손익비 진입 1:1.32 · 현재가 1:0.42</span><span class="dc fut-y">월물 A0Z612 · 최종거래일 2026-12-10(D-10거래일, 카드기간 </span><span class="dc">기간 스윙 2~4주 (만기 전 청산 또는 차근월 롤오버)</span><span class="dc-src">선물매도 카드</span></div><div class="dc-l">📉 매도근거: F1 2026Q3 영업익 908억 임계 1,000 미달·shock(10-30 발표, 40거래일 이내) · F2 FY26 영업익 컨센 3개월 -16.5%(3,822→3,190) · A3 종가 20·60일선 모두 아래, 60일선 20거래일 전 대비 하락(역배열)</div><div class="dc-l">🛑 매도반증: 종가 193,000원 돌파(60일선 회복) 또는 4Q26 영업익 ≥1,250억 서프라이즈 → 숏 폐기·환매</div><div class="dc-l">🧨 스퀴즈: 공매도 비중 20일 평균 29.24%·5일 25.08% · 카드 기간 내 실적발표 없음 → 높음 (비중 절반·확인형 진입)</div><div class="dc-l">📊 매도지수조건: KOSPI 20일선 이탈 지속(현재 하락국면 충족)</div></div>
+
+<div class="body"><p>🚀 산업 딥리서치 — AI 본딩/3D-IC 밸류체인 (한미반도체 등)  ※출처: 비나인 블로그(arsjj) &#x27;LS증권 74쪽 요약&#x27; 재가공 — 블로거·증권사 개인의견·참고용</p>
+<p>📌 한줄 결론: 산업 테마(연산→데이터이동 병목 이동, 3D-IC 확산으로 TCB·하이브리드본딩 &#x27;병행 확대&#x27;)는 구조적으로 유효. 그러나 대표주 한미반도체(042700)는 지금 <strong>밸류 디레이팅(PBR 39→20배)·하락국면·공매도 29%</strong> 구간이라 매수가 아닌 <strong>관망</strong>. 선물 有 → 반등 시 선물매도 관점(매도관심): 매도진입 165,000~172,000·매도손절 193,000·매도목표 128,000원, 매도손익비 1:1.3. 단 공매도 과열(스퀴즈 위험 &#x27;높음&#x27;) 유의.</p>
+<p>──────────────────── 【A】밸류체인 수혜주 Tier 분류 (실적베타 × 개별주식선물 상장여부 실측) ──────────────────── 선물 상장여부는 한투 개별주식선물 마스터(2026-11-26 실측)로 전수 확인. 레버리지(선물 스윙)는 선물 有 종목만 가능.</p>
+<p>● Tier 1 — 실적수혜 直 + 선물 有 (레버리지 가능)</p>
+<ul>
+<li>한미반도체(042700) ✅선물 有(A0Z612) — HBM TC본더 글로벌 선두, 매출 84.6%가 반도체장비. 3D-IC·HBM4 본더 수요의 &#x27;직접&#x27; 수혜주. 실적베타 최고. ★본 리포트 심층 대상(단, 현재 주가는 조정 국면).</li>
+<li>SK하이닉스(000660) ✅선물 有(A50612) — 커스텀HBM·HBM4(Base Die TSMC 로직공정)·PIM·CXL의 수요 본체. 메가캡이라 개별 실적베타는 완만하나 레버리지 가능.</li>
+<li>피에스케이홀딩스(031980) ✅선물 有(A4B612) — CoWoS 부족·후공정(디스컴·베이크) 장비. 로직 패키징 확산 수혜 경로이나 본 블로그에선 &#x27;언급&#x27; 수준(근거 얕음).</li>
+</ul>
+<p>● Tier 2 — 실적수혜 있으나 선물 無 (현물만, 레버리지 불가)</p>
+<ul>
+<li>한화비전(489790) ❌선물 無 — 자회사 한화세미텍이 TCB 신규 공급(한미 경쟁자). 본딩 2차 수혜지만 현물만.</li>
+<li>파크시스템스(140860) ❌선물 無 — 원자현미경(AFM) 계측, 선단 패키징 검사 수혜. 현물만.</li>
+<li>SFA반도체(036540) ❌선물 無 — 삼성 HBM4 후공정(OSAT). 현물만.</li>
+<li>하나마이크론(067310) ❌선물 無 — 후공정 패키징·테스트. 현물만.</li>
+</ul>
+<p>● Tier 3 — 이름만 스침(투자 직접대상 아님)</p>
+<ul>
+<li>세미파이브(3D-IC 턴키, 비상장) · PFN MN-Core(해외) · 한화세미텍(비상장, 한화비전 자회사)</li>
+</ul>
+<p>→ 레버리지 스윙 관점에서 실전 대상은 Tier1 3종뿐이며, 그중 블로그 핵심이자 실적베타 1위는 한미반도체. 아래는 한미반도체 6축 심층.</p>
+<hr>
+<p>【B】Tier1 대표주 심층 — 한미반도체(042700) ※선물 有 ════════════════════</p>
+<p>⓪ 실전 기준 (scorecard.py --brief 2026-11-25 실측 · 표본 518건)</p>
+<ul>
+<li>시장 국면: 하락(KOSPI 4,698 &lt; 20일선 5,256 &lt; 60일선 6,082, 20일 <span class="down">-21.9%</span>) · 일간 변동성 3.5%</li>
+<li>종목 일중 변동폭(14일) 7.2% → 손절 하한 = 진입가에서 10.8%(1.5배) 이상 · 60일 베타 1.41 · 20일 평균 거래대금 1,189억 · 60일 고점 대비 <span class="down">-47.7%</span></li>
+<li>1회 손실예산: 자산의 0.5%(고변동 레짐)</li>
+<li>최근 카드 사후 실적(발행 09-09~11-25): 발행일 종가 매수 목표 먼저 29%/손절 먼저 64% · 구간 지정가 목표 14%/손절 81% · 지수 대비 목표 34%/손절 41% · 같은 하락국면 발행분 목표 28%/손절 66%</li>
+<li>직전 카드 점검(3줄, R8):</li>
+<li>직전① 2026-09-17 &#x27;관망&#x27; 진입 209,000~215,000·손절 205,000·목표 260,000 → 이후 최저 142,100·최고 281,500 · 손절 이탈 10-15</li>
+<li>직전② 2026-10-02 &#x27;관심&#x27; 진입 248,000~255,000·손절 232,000·목표 320,000 → 손절 이탈 10-13, 목표 미도달</li>
+<li>이번에 달라진 사실: 2026Q3 실적 &#x27;shock&#x27;(반증 임계 OP&lt;1,000 대비 실제 908, 발표 10-30). 직전 롱 카드의 상승 논지 임계가 깨짐 → <strong>롱 논지 폐기</strong>, 신규 롱 카드 금지(새 호재 공시 없음)</li>
+<li>선물매도 점검(S0~S2): S0 선물 有+유동성 통과 · S1 하락국면 통과 · S2 종가 147,300 &lt; 60일선 209,658 통과 · 숏 기저율(하락국면·&lt;60MA, RR1.5) 절대 63%/지수 대비 56% · 근거 F1(Q3 shock 10-30)·F2(컨센 하향)·A3(역배열) 해당 → <strong>매도관심 카드 작성</strong></li>
+</ul>
+<p>① 사실관계 검증</p>
+<ul>
+<li>사업: 1980년 설립, 수직통합제조(VIM) 반도체 장비사. 매출 <strong>84.6%가 &#x27;반도체 제조용 장비(HBM TC본더 外)&#x27;</strong> + 15.4% Conversion Kit [실측: 2025 사업보고서 접수 20260312001230]. 2026 3분기 기준 장비 88.8%로 집중도 상승.</li>
+<li>주력 &#x27;HBM TC(Thermal Compression) 본더&#x27;: 12·16단 고적층 HBM 생산 핵심 장비. SK하이닉스 주력 공급. 글로벌 5개 법인(미·대만·중·베트남·싱가포르) [실측: 2026 3분기보고서 접수 20261113001455].</li>
+<li>블로그/증권사 논지(참고용): AI 병목이 연산력→데이터이동효율로 이동, 3D-IC(로직칩 위 D램·캐시 수직적층) 확산 → 첨단 본딩 적용이 HBM에서 <strong>Logic으로 확대</strong>. 2.5D 대형화→TCB 수요↑, 3D-IC→하이브리드본딩 &#x27;병행 확대&#x27;(대체 아님) → 한미 할인요인(하이브리드본딩 대체론) 해소 논리. HBM4부터 I/O핀 1,024→2,048, Base Die에 TSMC 로직공정. 로직 패키징 TCB 비중 2026 26.0%→2028 45.9% [인용: LS증권 정우성, 블로거 arsjj 2026-11-25 요약 — 원문 미검증, 추정].</li>
+<li>최근 뉴스 교차확인 [인용: Google News 2026-11-24~25]: LS증권 11/24 &#x27;목표가 230,000&#x27;(HBM→Logic TCB 확대) · 리딩투자 11/03 &#x27;목표가 250,000&#x27;(3Q26 OPM 50% 돌파) · 마이크론 HBM4 대규모 증설 3파전→국내 장비 반사이익(11/24) · 동시에 &#x27;한미반도체 주가 하락 중&#x27;(11/25) · 공매도 비중 상위 언급(11/25).</li>
+<li>판정: HBM TC본더 글로벌 선두는 <strong>실체</strong>(매출·고객·IR 확인). 로직 확장은 <strong>실체 초기 + 기대 선반영</strong>, 매출 기여 본격화는 2027~2028 추정. 현 주가 급락은 테마 소멸이 아니라 <strong>극단 밸류(PBR 39배) 되돌림 + 시장 하락국면 + 공매도 과열</strong>의 복합. 산업 테마는 유효하나 단기 주가는 역방향.</li>
+</ul>
+<p>② 실적 (DART 연결 실측) 연간(억원):</p>
+<ul>
+<li>2023: 매출 1,590 / 영업익 346 (OPM 21.8%) / 순익 2,672 ※순익≫영업익 = 2023년 대규모 영업외수익(투자·지분이익) 포함, 본업 아님</li>
+<li>2024: 매출 5,589 / 영업익 2,554 (OPM 45.7%) / 순익 1,526 ※순익&lt;영업익 = 법인세·영업외 부담</li>
+<li>2025: 매출 5,767 / 영업익 2,514 (OPM 43.6%) / 순익 2,140</li>
+</ul>
+<p>최근 4개 분기(연결·3개월 standalone, 억원):</p>
+<ul>
+<li>Q4&#x27;25: 매출 830 / 영업익 276 / OPM 33.3%</li>
+<li>Q1&#x27;26: 매출 509 / 영업익 85 / OPM 16.7% ← 주문·인식 공백 트로프</li>
+<li>Q2&#x27;26: 매출 2,512 / 영업익 1,303 / OPM 51.9% ← 급반등</li>
+<li>Q3&#x27;26: 매출 1,810 / 영업익 908 / OPM 50.2% ← QoQ 매출 <span class="down">-28%</span>, OPM은 50% 유지. YoY 영업익 678→908(<span class="up">+34%</span>). 단 직전 카드 임계 1,000 미달 → &#x27;shock&#x27; 판정(10-30)</li>
+<li>9M&#x27;26 누적: 매출 4,831 / 영업익 2,296 (OPM 47.5%) [실측: 3분기보고서 접수 20261113001455]</li>
+</ul>
+<p>검산: Q1+Q2+Q3 = 509<span class="up">+2,512</span><span class="up">+1,810</span> = 4,831 ✓(=9M 누적) · OP 85<span class="up">+1,303</span><span class="up">+908</span> = 2,296 ✓ 재무건전성: 자산 9,060 / 부채 1,244 / 자본 7,816 → <strong>부채비율 15.9%(사실상 무차입)</strong>, 이자보상배율 매우 양호. 영업현금흐름 9M <span class="up">+335</span>억(영업익 2,296 대비 낮음 — 장비 수주 운전자본에 묶임, 질적 주의) · 투자 -850(증설) · 재무 -772(배당·자사주) [실측: 동 보고서]. 해석: 실적 레벨은 견조(연 OPM 40%대). 문제는 <strong>분기 극변동(Q1 OP 85 → Q2 1,303)</strong>과 Q3의 기대치 미달. 순이익은 영업외·세금 변동이 커 EPS 기반 PER 신뢰도 낮음 → PBR·영업익 기준 해석 권장.</p>
+<p>시점별 밸류에이션·RS (hist_valuation.py 실측, 벤치마크 KOSDAQ):</p>
+<ul>
+<li>2024년: 평균 110,959 · PER 69.8 · PBR 19.4 · RS <span class="up">+58.5%</span>p</li>
+<li>2025년: 평균 99,077 · PER 43.9 · PBR 13.6 · RS <span class="up">+15.0%</span>p</li>
+<li>26 1Q: 평균 229,980 · PBR 34.2 · RS <span class="up">+53.4%</span>p</li>
+<li>26 2Q: 평균 309,500 · PBR 39.1 · RS <span class="up">+16.2%</span>p</li>
+<li>26 3Q: 평균 220,931 · PBR 26.7 · RS <span class="up">+12.6%</span>p</li>
+<li>26 4Q(진행): 평균 195,921 · 현재 PBR 20.2 · RS <span class="down">-19.4%</span>p</li>
+</ul>
+<p>한줄 해석: <strong>PBR 39→20배 디레이팅 진행 중</strong>(고점 멀티플 정상화). RS가 수년간 시장을 크게 이기다 <strong>4Q 들어 마이너스 전환(<span class="down">-19.4%</span>p)</strong> — 초과수익 국면 종료·시장 열위로 전환. 멀티플이 과거밴드 상단(PBR 39)에서 중단으로 내려왔으나 여전히 KOSDAQ 평균 대비 절대적으로 비쌈.</p>
+<p>③ 미래실적·컨센서스</p>
+<ul>
+<li>목표가 컨센 평균 <strong>240,000원</strong>(LS 230,000 11/24 신규 · 리딩 250,000 11/03 상향) — 현재가 대비 <span class="up">+62.9%</span> [인용: fnguide/naver 집계 2026-11-26]</li>
+<li>FY26E: 매출 7,062 / 영업익 3,190 / 순익 2,632 / EPS 2,761 / PER 53.3 · ROE 33.3%</li>
+<li>FY27E: 매출 10,514 / 영업익 5,024 / EPS 4,372 / PER 33.7 · ROE 39.0%</li>
+<li>Q4&#x27;26 컨센: 매출 2,269 / 영업익 1,041</li>
+<li>★컨센 방향(R10): FY26 영업익 컨센 <strong>하향 중</strong> — 현재 3,190 ← 3M前 3,822 ← 1Y前 4,916 (3개월 <strong>-16.5%</strong>). 상향이 아니라 하향 수정 국면.</li>
+<li>달성가능성 판정: <strong>中</strong>. 9M 영업익 2,296 + Q4 컨센 1,041 = FY26 3,337(컨센 3,190 근접, 달성 현실적). 그러나 FY27 매출 10,514(<span class="up">+49%</span> YoY)는 HBM4 본더 대량수주·로직 TCB 채택을 전제 → 수주공시로 아직 미확인 → <strong>FY27 고성장은 기대 선반영, 하향 리스크 상존</strong>.</li>
+</ul>
+<p>④ 밸류에이션·목표가</p>
+<ul>
+<li>현재 PER 66.0 / PBR 20.2 / EPS 2,233 / BPS 7,278 [실측: KIS 2026-11-26]</li>
+<li>과거밴드: PBR 2024 19.4 → 2Q&#x27;26 39.1(고점) → 현재 20.2. PER는 순익변동으로 왜곡(FY26E 53배·FY27E 34배가 더 유의미).</li>
+<li>peer(선단 패키징 장비): ASMPT·BESI(하이브리드본딩)·국내 이오테크닉스·HPSP 대비 한미는 HBM 집중·고ROE로 프리미엄 정당화 일부 있으나, PBR 20배는 여전히 밴드 상단권 [추정, peer 멀티플 실측 미확인].</li>
+<li>자체 목표가 산식:</li>
+<li>Base(컨센 EPS FY27 4,372 × 멀티플 재평가 후 PER 35배 적용) = 153,020원 [추정]</li>
+<li>그러나 FY27 EPS는 수주 미확인분 포함 → 하향 할인 EPS FY27 3,700(컨센 <span class="down">-15%</span>) × PER 33 = 122,100원 [추정, R10 할인 반영]</li>
+<li>증권사 목표가 240,000원은 FY27 EPS 4,372 × PER 55배 수준 → <strong>고멀티플 재적용 가정</strong>, 보수적으로 과도.</li>
+<li>결론: 자체 추정 적정가 <strong>122,000~153,000원</strong>(현재가 147,300과 근접) ↔ 증권사 240,000원. 괴리의 핵심은 &#x27;로직 TCB 매출 가시화 시점&#x27;과 &#x27;적용 멀티플&#x27;. 현재가는 자체밴드 중상단 — <strong>상방 제한적, 고평가 해소 미완</strong>.</li>
+</ul>
+<p>⑤ 손익비(매수 관점) — &#x27;진입 부적합&#x27;</p>
+<ul>
+<li>현재가 147,300이 20일 저점이자 전 이평선 아래(역배열). 하락국면·롱 논지 폐기 상태라 <strong>매수 진입 부적합</strong>. 반등 저항(MA20 169,530·MA60 208,628)까지는 되돌림 공간이나 추세 전환 미확인.</li>
+<li>매수 손익비 성립 안 함(직전 2개 롱 카드 모두 손절 이탈) → <strong>관망</strong>.</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 레버리지 — 매도 관점)</p>
+<ul>
+<li>지지/저항: 지지 52주저 114,700·심리 130,000 / 저항 MA20 169,530·20일고 191,700·MA60 208,628. 현재가 52주고 대비 <span class="down">-65.4%</span>, 52주저 <span class="up">+28%</span>.</li>
+<li>선물 실측 [futures_quote.py 2026-11-26]: 사용 월물 <strong>A0Z612·최종거래일 2026-12-10(D-10거래일)</strong> · 선물가 148,400(베이시스 <span class="up">+0.75%</span>) · 미결제 100,926계약(명목 1,498억) · 20일 평균 명목 465억/일·1일 체결 상한 46.5억 · <strong>유동성 판정 통과</strong> · 증거금률 미확인. 만기 임박(10거래일) → 카드 기간이 만기 넘으면 차근월 롤오버 필요.</li>
+<li>선물매도 점검(한 줄): <strong>매도관심 카드 작성</strong> — S0~S2·S3 근거 충족하나 ①현재가가 매도진입 구간(165,000~172,000) 아래라 추격매도 금지(반등 대기) ②공매도 과열로 즉시 진입 보류 → &#x27;선물매도&#x27; 아닌 &#x27;매도관심&#x27;(조건 대기).</li>
+<li>매도진입 조건(확인형): 165,000~172,000원 반등 도달 후 <strong>종가가 전일 저가 아래에서 마감하면 다음 거래일 매도</strong> / 반등 없이 더 흘러내리면 추격 안 함(이미 과매도).</li>
+<li>매도손절 193,000원 = 매도진입 하단 165,000 대비 <span class="up">+17.0%</span> = 일중 변동폭 7.2%의 2.4배(하한 1.5배 충족). 20일고(191,700)·MA60 base 위 = 숏 논지 무효 레벨.</li>
+<li>매도손익비(진입 구간 하단 165,000 기준): 하락폭 22.4%(→128,000) ÷ 손절폭 17.0% = <strong>1:1.3</strong> / 현재가 기준 1:0.4(이미 하단 아래라 불리) / 손익분기 승률 43% vs 숏 기저율(하락국면·&lt;60MA) 지수 대비 54%</li>
+<li>50% 집중·레버리지 경고: 선물 명목 <strong>자산의 1.5% 상한</strong>(손실예산 0.5%÷손절폭 17.0%, 스퀴즈 &#x27;높음&#x27; ×0.5). 1일 체결 상한 46.5억. 과도 레버리지·추격 금지.</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 모델 (§9) 9-1 제품: 반도체장비(HBM TC본더 外) 84.6% + Conversion Kit 15.4% [실측: 2025 사업보고서]. 단일 사업부문. 9-2 고객: 주력 고객 SK하이닉스(HBM TC본더), 글로벌 AI반도체 기업. 고객명 비공개·고집중 추정(1사 ≥30% 리스크) [추정, DART 매출처 상세 미공시]. 9-3 시장·경쟁: HBM TC본더 글로벌 선두(한미). 경쟁 — 한화세미텍(신규 진입)·ASMPT. 하이브리드본딩은 BESI·어플라이드(별개 트랙, &#x27;병행&#x27;). 로직 TCB 비중 2026 26.0%→2028 45.9% [인용: LS/블로거, 단일출처·추정]. 점유율 숫자 미확인. 9-4 단가: 주문형 맞춤가로 DART 단가 미공시 [실측: 가격변동추이 &#x27;기재 생략&#x27;]. ASP 역산 불가. 9-5 CAPA·수주: 증설 진행(건설중 자산 469억·투자 9M -850억) [실측]. 수주잔고 미공시(미확인). 9-7 바텀업(억원, 영업익 기준) [Base=컨센, Bear/Bull=추정]:</p>
+<ul>
+<li>FY26: Bear 2,900 / Base 3,190(컨센) / Bull 3,450 — 9M 2,296 확정, Q4 변동</li>
+<li>FY27: Bear 3,800 / Base 5,024(컨센) / Bull 5,900 — 로직 TCB·HBM4 본더 채택 속도가 변수</li>
+<li>분기 Q4&#x27;26 영업익: Bear 750 / Base 1,041(컨센) / Bull 1,250</li>
+<li>민감도: 로직 TCB 비중 확대(26→46%)가 1년 지연되면 FY27 매출 ~<span class="down">-12%</span>·영업익 ~<span class="down">-18%</span> [추정]</li>
+<li>결론 문장: <strong>&quot;4Q26 연결 영업이익 ≥ 1,041억(Base·컨센)이면 HBM4 재가속 논지 유지, &lt; 750억(Bear)이면 로직 확장 지연으로 숏 논지 강화&quot;</strong> — 단 발표는 2027년 1월 말~2월로 이번 스윙 카드(만기 12/10) 기간 밖 → 카드 반증은 가격 기준(종가 60일선 196,000 회복 시 환매).</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더: 선물 최종거래일 2026-12-10(D-10거래일, 롤오버 분기) · SK하이닉스 HBM4 양산·마이크론 HBM4 증설 뉴스플로우(날짜 미확정) · FY26 실적발표 2027년 1월말~2월(법정기한, 이번 카드 기간 밖).</li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<p>1) 종가 <strong>193,000원 돌파</strong>(60일선 base 회복) → 숏 전량 환매 2) 4Q26 영업이익 ≥ 1,250억(Bull 서프라이즈) 발표 → 숏 폐기 3) 공매도 과열종목 지정·숏커버 급등(일중 <span class="up">+10%</span> 이상 반등 지속) → 비중 축소</p>
+<ul>
+<li>이벤트 매트릭스(숏 관점): [반등·갭상승+거래량] → 매도진입(확인형) / [추가 급락·갭하락] → 추격 안 함, 기존분 유지 / [횡보] → 관망</li>
+<li>확률가중 시나리오(20일, R3 기저율 출발):</li>
+<li>Bear(추가 하락, 128,000 이하) 45% [기저율 47% → 하락국면·역배열 지지, 과매도·스퀴즈로 소폭 하향]</li>
+<li>Base(횡보 128,000~172,000) 35%</li>
+<li>Bull(반등, 192,000 이상=숏 손절) 20% [기저율 13% → 공매도 29% 스퀴즈 위험으로 상향]</li>
+<li>숏 기대수익(시나리오 가격 기준): 0.45×(1−128/165)<span class="up">+0.35</span>×(1−150/165)<span class="up">+0.20</span>×(1−193/165) = <span class="up">+0.10</span><span class="up">+0.032</span>−0.034 = <strong><span class="up">+9.8%</span></strong> [추정, 매도진입 165 기준]</li>
+<li>수급·유동성: 외국인 20일 <span class="up">+291</span>억(순매수) / 기관 20일 -386억(순매도) / 개인 <span class="up">+76</span>억. 20일 평균 거래대금 1,189억 → 1일 체결 상한 ~119억(현물). <strong>공매도 비중 20일 평균 29.24%·5일 25.08% — 매우 높음(스퀴즈 위험 &#x27;높음&#x27;)</strong>.</li>
+<li>거래 제약·오버행(R9): 부채비율 15.9%·미상환 CB/BW 없음(확인: 2026 3분기보고서 접수 20261113001455, 부채 대부분 영업부채) / 시장조치(투자경고·공매도 과열 지정) 여부 미확인(별도 조회 안함) — 공매도 비중 29%로 과열 지정 가능성은 모니터링 필요.</li>
+<li>컨센 방향(R10): FY26 영업익 컨센 3개월 <span class="down">-16.5%</span> 하향 → 목표가에 할인 EPS(FY27 3,700) 반영.</li>
+<li>스퀴즈·이벤트(S7): 공매도 비중 20일 29.24%(≥15%) → <strong>스퀴즈 위험 &#x27;높음&#x27;</strong> → 비중 상한 절반·진입 확인형 적용. 카드 기간 내 확정 실적발표 없음.</li>
+<li>포지션 사이징(숏, 자산 대비 %): 선물 명목 <strong>자산의 1.5%</strong>(손실예산 0.5%÷손절폭 17.0%, 스퀴즈 ×0.5), 집중 50%·이벤트 전 25% 중 최소값. 금액·계약수 미표기.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 증권사·블로거 추정치는 &#x27;추정&#x27;, 실측 못한 값은 &#x27;미확인&#x27;. [미확인 목록] peer 멀티플 실측 · 고객사별 매출비중 · 수주잔고 · HBM TC본더 글로벌 점유율 · 로직 TCB 비중(단일출처) · 증거금률 · 시장조치 현재 지정여부 [출처 목록] DART 2025 사업보고서(20260312001230)·2026 3분기보고서(20261113001455) · KIS 시세/선물(2026-11-26) · fnguide/naver 컨센(2026-11-26) · Google News(2026-11-24~25) · LS증권/리딩투자 리포트(블로거 요약, 원문 미검증) [검산] 분기합 4,831=9M누적 ✓ · OP 2,296=85<span class="up">+1,303</span><span class="up">+908</span> ✓ · 손익비 산식 헤더·본문 일치(1:1.3 구간하단) ✓</p>
+<p>📉 선물매도 카드 — 한미반도체(042700) 매도판정: 매도관심 월물: A0Z612 · 최종거래일 2026-12-10(D-10거래일, 카드기간 만기 넘으면 차근월 롤오버) 선물가: 148,400원 (베이시스 <span class="up">+0.75%</span>) 매도진입: 165,000~172,000원 (반등 도달 후 종가가 전일 저가 아래 마감 시 다음 거래일 — 확인형 / 반등 없이 흘러내리면 추격 안 함) 매도손절: 193,000원 (매도진입 하단 대비 <span class="up">+17.0%</span> = 일중 변동폭 2.4배, 20일고·60일선 base 위) 매도목표: 1차 128,000원 (2차 116,000원) 매도손익비: 1:1.3 (매도진입 구간 하단 165,000 기준) · 현재가 기준 1:0.4 매도기간: 스윙 2~4주 (만기 전 청산 또는 차근월 롤오버) 매도근거: F1 2026Q3 영업익 908억 임계 1,000 미달·shock(10-30 발표, 40거래일 이내) · F2 FY26 영업익 컨센 3개월 <span class="down">-16.5%</span>(3,822→3,190) · A3 종가 20·60일선 모두 아래, 60일선 20거래일 전 대비 하락(역배열) 매도반증: 종가 193,000원 돌파(60일선 회복) 또는 4Q26 영업익 ≥1,250억 서프라이즈 → 숏 폐기·환매 스퀴즈: 공매도 비중 20일 평균 29.24%·5일 25.08% · 카드 기간 내 실적발표 없음 → 높음 (비중 절반·확인형 진입) 매도지수조건: KOSPI 20일선 이탈 지속(현재 하락국면 충족) 매도요구승률: 43% (=1÷(1<span class="up">+1.3</span>)) vs 숏 기저율 54%(절대 63%·지수 대비 54% 중 낮은 쪽) 매도검증: ✅10 ⚠️1 ❌0 | 손절 거리 2.4배 · 손익비 1:1.3(구간 하단)/1:0.4(현재가) · 요구 승률 43% vs 숏 기저율 54% · 비중 상한 1.5%</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-26 08:14 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 147,300원 (<span class="up">+0.0%</span>) · 시총 14.04조 · 5일 <span class="down">-14.6%</span> / 20일 <span class="down">-25.2%</span> / 60일 <span class="down">-32.9%</span></li>
+<li>MA5 152,560원 / MA20 169,530원 / MA60 208,628원 → MA20 이격 <span class="down">-13.1%</span> · MA60 이격 <span class="down">-29.4%</span></li>
+<li>52주 고 426,000원 / 저 114,700원 → 고점 대비 <span class="down">-65.4%</span> · 20일 고 191,700원 / 저 147,300원</li>
+<li>후행 PER 65.97 / PBR 20.24 (EPS 2,233원 · BPS 7,278원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 1,135.3억 (5일 891.4억)</li>
+<li>외국인 순매수 5일 174.3억 / 20일 290.7억 · 기관 5일 -243.3억 / 20일 -385.7억 · 개인 20일 75.7억</li>
+<li>개별주식선물: ⚡ 상장 (A0Z612) → 레버리지 가능</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 25.08% / 20일 평균 29.24% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 46.55% (10/30) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비</strong></p>
+<ul>
+<li>현재가 147,300원가 손절 193,000~목표 122,000 구간 밖 → 라인 재설정 필요</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p><span id="card-042700"></span>📋 결정카드 — 한미반도체(042700) 판정: 관망 선물: 有 현재가: 147,300원 진입: 매수 진입 없음 (롱 논지 폐기 — 매도 관점은 위 📉 선물매도 카드 참조) 손절: 해당 없음(매수 관점 부적합) 목표: 자체 적정가 122,000~153,000원 (증권사 목표 240,000원 병기 — 고멀티플 가정) 손익비: 매수 관점 성립 안 함(진입 부적합) 기간: 스윙 2~4주(선물 만기 12-10 유의) 촉매: 선물 최종거래일 2026-12-10 · FY26 실적발표 2027년 1월말~2월(카드기간 밖) 반증: 종가 193,000원 돌파 시 숏 논지 폐기 / 4Q26 영업익 &lt;750억이면 숏 논지 강화·&lt;1,041억 미달이면 조정 지속 지수조건: KOSPI 20일선 회복 후(하락국면이라 매수 불가) 요구승률: 매수 해당 없음(관망) 직전카드: 2026-10-02 관심 → 손절 이탈(10-13) · 2026-09-17 관망 → 손절 이탈(10-15) 검증: 매도 관점 검증은 📉 카드 &#x27;매도검증&#x27; 참조(✅10 ⚠️1 ❌0). 매수 신규카드 없음(롱 논지 폐기)</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
