@@ -1,0 +1,245 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한텍(098070) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+.stbadge.st-short{background:rgba(255,123,123,.16);color:#ffb3b3;border:1px solid rgba(255,123,123,.4)}
+.stbadge.st-short_watch{background:rgba(255,160,90,.16);color:#ffc79a;border:1px solid rgba(255,160,90,.35)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261126-081038-한텍-098070.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망(분할 저가매수 관심) — 3Q 적자+하락국면, 즉시 매수는 통계·추세상 불리. 바닥확인 후 접근. · 손익비 1:3.29</div><div class="tp-c"><b>결론 발췌</b> 한텍(098070) 딥리서치 — 3Q 실적쇼크의 실체: 훼손 아닌 이연인가  &gt; ⚠️ 참고용 리서치 · 투자판단/책임은 본인. 비나인 블로그(fightant_, 2026-11-25 &#x27;IR 전화3&#x27;)의 IR통화 정리를 출발점으로, DART·KIS 실측으로 교차검증한 자료입니다. 블로거 개인의견이며 매수/매도 권유가 아닙니다. 개별주식선물 미상장 → 현물만 가능(레버리지 불가).  ---   ⓪ 실전 기준 (스코어카드 실측 브리프) - 시장 국면: 하락(KOSPI 4,698 &lt; 20일선 5,256 &lt; 60일선 6,082, 20일 -21.9%). → 하락 국면에선 &#x27;매수&#x27; 판정 불가, &#x27;지수조건&#x27; 필수. - 종목 변동성: 일중 변동폭(ATR1…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망(분할 저가매수 관심) — 3Q 적자+하락국면, 즉시 매수는 통계·추세상 불리. 바닥확인 후 접근.</span><h1>한텍(098070)</h1>
+<div class="meta">📊 benine · 2026-11-26 08:10 · 코드 098070</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-26 08:10)</div><div class="kpi-v">13,110원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,458억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">4.55</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">0.9</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:3.29</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:2.51</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">17,400원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입  12,500~13,100 분할(지수·촉매 조건부)</span><span class="dc dn">손절 11,400원</span><span class="dc up">목표 17,400원</span><span class="dc">손익비 진입 1:3.29 · 현재가 1:2.51 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:2.5</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:2.5로 적었지만 진입·손절·목표로 계산하면 1:3.29다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간  스윙 2~6개월(카타르 선적·2027 LNG발주 모멘텀 대기)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매:  카타르 선적재개(매출인식+충당금 환입+신규발주 동시) / 북미 LNG 발주 / SK하이닉스 탱크 수주 / 환율반등</div></div>
+
+<div class="body"><h1>한텍(098070) 딥리서치 — 3Q 실적쇼크의 실체: 훼손 아닌 이연인가</h1>
+<p class="note">⚠️ <strong>참고용 리서치 · 투자판단/책임은 본인.</strong> 비나인 블로그(fightant_, 2026-11-25 &#x27;IR 전화3&#x27;)의 IR통화 정리를 출발점으로, DART·KIS 실측으로 교차검증한 자료입니다. 블로거 개인의견이며 매수/매도 권유가 아닙니다. <strong>개별주식선물 미상장 → 현물만 가능(레버리지 불가).</strong></p>
+<hr>
+<h2 id="실전-기준-스코어카드-실측-브리프">⓪ 실전 기준 (스코어카드 실측 브리프)</h2>
+<ul>
+<li><strong>시장 국면: 하락(KOSPI 4,698 &lt; 20일선 5,256 &lt; 60일선 6,082, 20일 <span class="down">-21.9%</span>).</strong> → 하락 국면에선 &#x27;매수&#x27; 판정 불가, &#x27;지수조건&#x27; 필수.</li>
+<li>종목 변동성: 일중 변동폭(ATR14) 5.9% → 손절 하한 = 진입가에서 <strong>8.9% 이상 아래</strong>. 60일 베타 0.99.</li>
+<li>주가 위치: 현재가 13,110 · <strong>60일 고점 대비 <span class="down">-52%</span>, 52주 고점(62,200) 대비 <span class="down">-79%</span></strong>, 20일 평균 거래대금 6억(라이트).</li>
+<li>1회 손실예산 0.5%(고변동 레짐) · 비중상한 = 손실예산÷손절폭 → <strong>자산의 3.9%</strong>. 50% 집중은 규칙상 불가.</li>
+<li>사후 채점(하락 국면 발행분, n=119): 구간 지정가 <strong>목표먼저 16% / 손절먼저 79%</strong>. → 지금 바로 사는 건 통계적 열위. 20일선 회복 후 매수 시 목표 48%로 개선.</li>
+</ul>
+<hr>
+<h2 id="사실관계-사업전방고객-그리고-3q-쇼크의-실체">① 사실관계 — 사업·전방·고객, 그리고 3Q 쇼크의 실체</h2>
+<p><strong>사업:</strong> 1973년 한국비료 기기장치사업부에서 출발(구 삼성정밀화학 분사, 현 한텍). <strong>티타늄·지르코늄 등 산성에 강한 특수소재 화공기기</strong>가 뿌리. 현 사업부:</p>
+<ul>
+<li><strong>에너지사업부(3Q 매출비중 89.3%)</strong>: 열교환기·반응기·압력용기·탑조류 — 정유/석유화학/비료/암모니아 플랜트용 특수재질 압력용기.</li>
+<li><strong>탱크사업부(10.7%)</strong>: LNG·초저온 저장탱크, 반도체용 특수가스/화학탱크.</li>
+</ul>
+<p><strong>전방·고객(IR/블로그 기준, 일부 미확인):</strong></p>
+<ul>
+<li><strong>미국 와바시(Wabash) 암모니아 플랜트(HG26001)</strong> — 내년 5월 완료예정. 전쟁 이슈로 고객요청 일시홀딩 후 재개, <strong>지체상금 없음</strong>(블로거 IR 전언, 공시 미확인).</li>
+<li><strong>카타르 LNG</strong> — 완제품 제작 완료했으나 중동전쟁으로 <strong>선적 불가</strong> → 매출인식 지연 + 충당금 설정.</li>
+<li><strong>SK하이닉스(P5·M17)</strong> 반도체 탱크 후속수주 기대(블로거 전언, 미확인).</li>
+<li>최대주주 <strong>후성그룹</strong>(불산/반도체소재). 배당은 그룹 기조 종속.</li>
+</ul>
+<p><strong>3Q 쇼크의 실체 — &#x27;훼손&#x27;보다 &#x27;이연&#x27;에 가깝다(실측 근거):</strong></p>
+<ol>
+<li><strong>매출은 줄었으나 영업익은 흑자 유지.</strong> 3Q 단독 매출 372.5억(QoQ <span class="down">-19.6%</span>), <strong>영업익 <span class="up">+38.1</span>억(흑자)</strong>. 순익만 <strong>-31.2억 적자전환</strong>.</li>
+<li>적자 원인은 영업 아래 단(段). 3Q <strong>기타비용 65.5억 급증</strong>(외화환산손실+충당금 전입)이 법인세차감전 -27.3억을 만든 직접 원인. → <strong>원가 빅배스(영업단 훼손) 아님</strong>.</li>
+<li><strong>공사손실충당부채(기타유동충당부채) 29.29억</strong>(전기말 4.56억 → <strong><span class="up">+24.7</span>억 급증</strong>). 블로거 IR정리: 원/달러 급락 외화환산 + 카타르 완제품 선적불가 충당분. <strong>환율반등·종전 시 환입 가능</strong>.</li>
+<li><strong>미청구공사 성격의 유동계약자산 288.8억</strong>(전기말 154.7억 → <span class="up">+134</span>억). → 일은 했는데 청구/인식이 밀린 전형적 &#x27;매출이연&#x27; 지표.</li>
+<li><strong>미착품 재고 0</strong>(조달실패 아님) — 특수재질(티타늄·지르코늄) 비중↑로 <strong>입고 리드타임이 길어져</strong> 공정률 진척이 더딘 것(블로거 IR). 특수재질은 <strong>고마진</strong>.</li>
+<li><strong>환헤지 미실시 유지</strong> → 환율 변동이 분기 손익에 그대로 노출(양날의 검).</li>
+</ol>
+<p>→ 종합: <strong>&quot;수주는 사상최대인데 인식이 밀렸고, 순손실은 환율·지정학발 일회성 성격이 크다&quot;</strong>는 블로거 논지는 실측과 대체로 부합. 단, 환율·종전은 통제불가 변수라 <strong>4Q에도 재발/확대 가능</strong>이 핵심 리스크.</p>
+<hr>
+<h2 id="실적-dart-연결-실측">② 실적 — DART 연결 실측</h2>
+<p><strong>연간(억원)</strong></p>
+<div class="tablewrap"><table><thead><tr><th>항목</th><th>2023</th><th>2024</th><th>2025</th><th>2026 3Q누적</th></tr></thead><tbody><tr><td>매출</td><td>1,786.2</td><td>1,558.8</td><td>1,719.0</td><td>1,306.2</td></tr><tr><td>영업익</td><td>151.9</td><td>167.7</td><td><strong>381.8</strong></td><td>220.4</td></tr><tr><td>OPM</td><td>8.5%</td><td>10.8%</td><td><strong>22.2%</strong></td><td>16.9%</td></tr><tr><td>순익</td><td>148.7</td><td>263.0</td><td>307.7</td><td>139.0</td></tr></tbody></table></div>
+<p><strong>분기(2026, 억원)</strong></p>
+<div class="tablewrap"><table><thead><tr><th>분기</th><th>매출</th><th>영업익</th><th>OPM</th><th>순익</th></tr></thead><tbody><tr><td>1Q</td><td>470.3</td><td>76.3</td><td>16.2%</td><td>80.4</td></tr><tr><td>2Q</td><td>463.4</td><td>106.0</td><td>22.9%</td><td>89.8</td></tr><tr><td><strong>3Q</strong></td><td><strong>372.5</strong></td><td><strong>38.1</strong></td><td><strong>10.2%</strong></td><td><strong>-31.2</strong></td></tr><tr><td>(전년 3Q)</td><td>-</td><td>88.3</td><td>-</td><td>107.1</td></tr></tbody></table></div>
+<ul>
+<li>3Q 영업익 <strong>YoY <span class="down">-57%</span></strong>(88.3→38.1, 씽크풀 속보 일치), 순익 <strong>적자전환</strong>. 매출 QoQ <span class="down">-19.6%</span>·영업익 QoQ <span class="down">-64%</span>.</li>
+<li><strong>수주잔고: 2025말 1,604억 → 2026 3Q말 1,955.6억(사상최대, <span class="up">+21.9%</span>).</strong> 수주총액누계 3,346.5억·기납품 1,390.9억. → 일감은 쌓였고 인식만 밀림.</li>
+<li>가동률: 에너지 43.4%, 탱크 17.2%(낮음 — 특수재질 리드타임·선적지연 영향).</li>
+</ul>
+<p><strong>재무건전성(2026 3Q말):</strong></p>
+<ul>
+<li>자산 2,225.8억 / 부채 508.3억 / 자본 1,717.5억 → <strong>부채비율 29.6%</strong>(초우량).</li>
+<li><strong>현금성+단기금융 ≈ 637억</strong> + 미집행 공모자금 170억(블로거). 순현금 구조.</li>
+<li><strong>영업현금흐름 누적 <span class="up">+150.4</span>억</strong>(흑자) · 이자지급 3.7억 → <strong>이자보상배율 약 60배</strong>.</li>
+<li>→ <strong>재무 훼손 리스크는 낮음.</strong> 3Q 쇼크는 손익계산서 하단의 평가/충당 이슈이지 유동성·차입 문제 아님.</li>
+</ul>
+<hr>
+<h2 id="미래실적-달성가능성">③ 미래실적 + 달성가능성</h2>
+<p><strong>증권사 컨센서스: 미확인.</strong> 최근 6개월 목표가 제시 리포트 0건(교보증권 6/5 탐방노트·한국IR협의회 9/16 커버리지 존재하나 목표가 無). 네이버/FnGuide 추정치도 없음 → 숫자 컨센 부재.</p>
+<p><strong>자체 추정(실측 기반 시나리오, 추정):</strong></p>
+<ul>
+<li>2026E: 3Q누적 영업익 220.4억. 4Q 환율·카타르 불확실 → <strong>FY 영업익 250~280억, 순익 140~170억(추정)</strong>. 전년비 역성장.</li>
+<li>2027E 회복 트리거(블로거 논지, 미확인):</li>
+<li>① <strong>카타르 선적재개</strong> → 밀린 매출인식 + <strong>충당금 환입</strong> + 신규발주 동시 가능.</li>
+<li>② <strong>2027 지연된 북미 LNG 발주</strong>(올해 FID지연으로 신규수주 無였음) 재개.</li>
+<li>③ <strong>SK하이닉스 P5·M17 탱크 후속수주</strong>.</li>
+<li>→ 정상화 시 2025급(영업익 350~380억) 복귀 시도 가능.</li>
+<li><strong>달성가능성 판정: 中.</strong> 근거 — 사상최대 수주잔고(1,956억)·초우량재무는 하방을 받치나(高 확신), 회복 촉매 3개가 전부 <strong>환율·지정학·고객 FID 등 외생변수</strong>에 걸려 타이밍 통제 불가(低 확신). 종전·환율반등 없으면 이연이 장기화될 수 있음.</li>
+</ul>
+<hr>
+<h2 id="밸류에이션-목표가">④ 밸류에이션 → 목표가</h2>
+<p><strong>현재(13,110원):</strong> 시총 1,458억 · <strong>PBR 0.83~0.90x</strong> · <strong>PER(trailing) 4.55x</strong>(2025 EPS 2,879) · BPS ≈15,830(3Q 자본기준).</p>
+<ul>
+<li>Forward PER(2026E 순익 ~150억 추정 기준) ≈ <strong>9~10x</strong>.</li>
+<li><strong>과거 밴드: 2025년 평균 PER 13.2x / PBR 2.5x → 현재 PBR 0.83x.</strong> 역사적 저점권, 사실상 <strong>순자산 이하</strong> 거래.</li>
+<li>Peer: 자동탐색 피어(후성·태성 등)는 사업 이질적이라 직접비교 부적합. 후성은 최대주주(피어 아님).</li>
+</ul>
+<p><strong>자체 목표가 산식:</strong></p>
+<ul>
+<li><strong>Base 17,400원</strong> = BPS 15,830 × PBR 1.1x(순자산 소폭 상회 정상화). 교차검증: 2027 정상화 순익 250억·EPS 2,300 × PER 7.5x ≈ 17,250 → 수렴.</li>
+<li><strong>Bull 20,500원</strong> = PBR 1.3x(수주이연 해소+멀티플 일부 회복).</li>
+<li><strong>Bear 10,500원</strong> = PBR 0.66x(4Q 추가적자·카타르 충당 확대, 52주저 하회).</li>
+<li><strong>증권사 목표가: 미확인</strong>(제시 리포트 없음).</li>
+</ul>
+<hr>
+<h2 id="손익비-현물-기준">⑤ 손익비 (현물 기준)</h2>
+<ul>
+<li>진입 상단 13,100 기준: 상방(목표 17,400) 4,300원 ÷ 하방(손절 11,400) 1,700원 = <strong>1 : 2.5</strong>.</li>
+<li>현재가 13,110 기준도 동일 <strong>1 : 2.5</strong>.</li>
+<li>손익비 2.5의 <strong>손익분기 승률 = 29%</strong>. 그러나 하락국면 사후통계 목표먼저 16%(구간) → <strong>지금 즉시 진입은 통계적으로 기댓값 열위</strong>. 20일선 회복/바닥확인 후면 48%로 개선.</li>
+<li>→ <strong>손익비는 성립(진입 적합), 단 타이밍 조건부.</strong></li>
+</ul>
+<hr>
+<h2 id="진입전략-현물-스윙선물-미상장-레버리지-불가">⑥ 진입전략 — 현물 스윙(★선물 미상장, 레버리지 불가)</h2>
+<ul>
+<li><strong>선물매도 점검: 해당 없음(개별주식선물 미상장).</strong> S0~S11 규칙 비해당.</li>
+<li><strong>기술적 위치:</strong> 현재가 13,110 &lt; MA5 13,476 &lt; MA20 15,374 &lt; MA60 20,178 — <strong>역배열 하락추세</strong>, 52주저 12,500 바로 위. 공매도 20일평균 5.5%(압력 상존).</li>
+<li><strong>지수조건: KOSPI 20일선 회복 전까지 신규매수 보류(소량 관찰).</strong> 하락국면 발행분 통계 열위 반영.</li>
+<li><strong>현물 3라인:</strong></li>
+<li><strong>진입:</strong> 12,500(52주저 지지)~13,100 <strong>분할</strong>. 20일선 회복 또는 카타르 선적재개 촉매 확인 시 비중 확대.</li>
+<li><strong>손절:</strong> <strong>11,400 종가 이탈</strong>(52주저 <span class="down">-8.8%</span> 결정적 하회 = 바닥논리 붕괴).</li>
+<li><strong>익절:</strong> 1차 15,400(MA20 갭 메움) 분할 → 2차 17,400(PBR 1.1x).</li>
+<li><strong>★50% 집중 경고:</strong> 고변동 레짐+하락추세<span class="up">+3</span>Q 적자 → 스코어카드 <strong>비중상한 자산의 3.9%</strong>. 재두형 50% 집중 룰은 <strong>이 종목에 절대 부적합</strong>. 회복 확인 전 소액 관찰 포지션만.</li>
+</ul>
+<hr>
+<h2 id="9-산업바텀업-모델-요약">§9 산업·바텀업 모델 (요약)</h2>
+<ul>
+<li><strong>구조:</strong> 특수재질 화공기기(에너지 89%)는 수주산업 — 물량×단가×믹스. 특수재질(Ti/Zr) 비중↑ = 단가·마진↑이나 조달 리드타임↑로 인식지연. TUBE S.S 단가 13,300→17,300원/kg(2026)로 상승 = 특수재질 믹스·원가 동반 상승 확인.</li>
+<li><strong>임계치(추정):</strong> 분기 매출 400억·OPM 15%+ 복귀 시 영업익 분기 60억+ → 연 240억+ 안착. 카타르(완제품 대기)·북미 LNG가 변곡 트리거. 미달 시 이연 장기화.</li>
+<li><strong>전방:</strong> 암모니아/비료·북미 LNG·반도체 특수탱크. 전부 2027 발주 재개 기대에 의존.</li>
+</ul>
+<hr>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-26 08:10 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 13,110원 (<span class="up">+0.0%</span>) · 시총 1,458억 · 5일 <span class="down">-13.1%</span> / 20일 <span class="down">-22.8%</span> / 60일 <span class="down">-48.0%</span></li>
+<li>MA5 13,476원 / MA20 15,374원 / MA60 20,178원 → MA20 이격 <span class="down">-14.7%</span> · MA60 이격 <span class="down">-35.0%</span></li>
+<li>52주 고 62,200원 / 저 12,500원 → 고점 대비 <span class="down">-78.9%</span> · 20일 고 17,120원 / 저 13,110원</li>
+<li>후행 PER 4.55 / PBR 0.9 (EPS 2,879원 · BPS 14,605원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 5.4억 (5일 5.0억)</li>
+<li>외국인 순매수 5일 7.0억 / 20일 16.4억 · 기관 5일 -5.2억 / 20일 -10.2억 · 개인 20일 -6.7억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.00% (공매도 0주 · 0.0억) · 5일 평균 4.83% / 20일 평균 5.54% → 감소 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 14.64% (11/25) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 17,400원 (<span class="up">+32.7%</span>) ÷ 하방 11,400원 (−13.0%) = <strong>1:2.51</strong>  ← 1:2 이상</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 7%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 13.0% = <strong>자산의 3.8%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 3.8%</strong></li>
+<li>유동성 참고: 20일 ADV 5.4억 · 1일 소화 한도는 ADV의 10%(0.54억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 13.0% · ATR14 769원 (손절폭/ATR 2.2배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 13.0% = ATR14 × 2.2배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 11,799원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:3.27</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<h2 id="결정카드">📋 결정카드</h2>
+<ul>
+<li><strong>판정: 관망(분할 저가매수 관심)</strong> — 3Q 적자+하락국면, 즉시 매수는 통계·추세상 불리. 바닥확인 후 접근.</li>
+<li><strong>선물: 無(개별주식선물 미상장) → 현물만, 레버리지 불가</strong></li>
+<li><strong>현재가:</strong> 13,110원</li>
+<li><strong>진입:</strong> 12,500~13,100 분할(지수·촉매 조건부)</li>
+<li><strong>손절:</strong> 11,400 종가</li>
+<li><strong>목표:</strong> 17,400(Base) / 20,500(Bull)</li>
+<li><strong>손익비:</strong> 1 : 2.5 (현물, 구간상단 기준)</li>
+<li><strong>기간:</strong> 스윙 2~6개월(카타르 선적·2027 LNG발주 모멘텀 대기)</li>
+<li><strong>촉매:</strong> 카타르 선적재개(매출인식+충당금 환입+신규발주 동시) / 북미 LNG 발주 / SK하이닉스 탱크 수주 / 환율반등</li>
+<li><strong>반증(Bear 10,500):</strong> 4Q 환손실·충당 확대로 추가 적자 + 매출이연 장기화 + 낮은 멀티플 고착 → 52주저 하회</li>
+<li><strong>지수조건:</strong> KOSPI 20일선 회복 후 매수(미회복 시 소량 관찰만)</li>
+<li><strong>요구승률:</strong> 29%(손익비 2.5) — 하락국면 실측 목표비율 16% &lt; 요구 → <strong>현 시점 &#x27;관망&#x27;이 정답</strong>, 20일선 회복 시 48%로 역전</li>
+<li><strong>직전카드:</strong> 없음(이 종목 첫 카드)</li>
+<li><strong>검증:</strong> scorecard --check ❌ 0건 (✅4 ⚠️2) · 선물 미상장 재확인 ✅ · 컨센 목표가 미확인</li>
+</ul>
+<hr>
+<p class="note">데이터: DART 연결 실측(2026 3Q보고서 20261116001255·2025 사업보고서), KIS 시세 2026-11-26 08:04, 씽크풀 3Q속보. 블로그는 외부 비검증 출처 — IR 전언 중 지체상금·SK하이닉스·미집행공모자금 등은 공시 미확인. 투자책임 본인.</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
