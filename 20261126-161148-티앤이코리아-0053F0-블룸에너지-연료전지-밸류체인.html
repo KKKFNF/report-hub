@@ -1,0 +1,229 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>티앤이코리아(0053F0) 블룸에너지 연료전지 밸류체인 — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+.stbadge.st-short{background:rgba(255,123,123,.16);color:#ffb3b3;border:1px solid rgba(255,123,123,.4)}
+.stbadge.st-short_watch{background:rgba(255,160,90,.16);color:#ffc79a;border:1px solid rgba(255,160,90,.35)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261126-161148-티앤이코리아-0053F0-블룸에너지-연료전지-밸류체인.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-avoid">⚪ 관망 · 회피 ⓘ</span><span class="tip"><div class="tp-h">⚪ 관망 · 회피 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;매력 낮음/없음·회피&#x27;가 있거나, &#x27;진입 부적합·관망&#x27;이면서 대안 진입 구간이 전혀 없는 경우. = 진입 부적합.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관망 · 손익비 1:1.5</div><div class="tp-c"><b>결론 발췌</b> 블룸에너지 SOFC 에어블로워라는 실체 있는 성장 테마를 가진 신규상장주이나, ①일중변동폭 17%의 극단적 변동성으로 적정 손절폭이 25%를 넘어 손익비가 1 미만(현재가 기준 1:0.52), ②KOSPI 하락 국면(20일선 아래)으로 매수 판정 불가, ③FY27 매출 2.4배 고성장 컨센 달성이 블룸 대량수주(내년 초 예상)에 좌우되는 미확정 상태 — 판정 &#x27;관망&#x27;. 오버행 정리 + AI 투심 회복 + 블룸 대량수주 공시 확인 전까지 진입 부적합. 자체 적정주가 밴드 9,000~14,800원(FY27 달성 전제). ※ 이 글은 특정 블로그 탐방기를 출발점으로 한 참고용 분석이며 매수·매도 권유가 아님. ⓪ 실전 기준 (scorecard…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관망</span><h1>티앤이코리아(0053F0) 블룸에너지 연료전지 밸류체인</h1>
+<div class="meta">📊 benine · 2026-11-26 16:11 · 코드 0053F0</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-26 16:11)</div><div class="kpi-v">11,610원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">1,318억</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:1.5</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.66</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">14,000원</div></div></div><div class="decision"><span class="dc fut-n">현물만 · 선물 無</span><span class="dc">진입 10,000~10,800원 (도달 + 일중변동폭 10%↓ 수축 + KOSPI 20일선 회복 후 지정가 소량 </span><span class="dc dn">손절 8,000원</span><span class="dc up">목표 14,000원</span><span class="dc">손익비 진입 1:1.5 · 현재가 1:0.66 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.14</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.14로 적었지만 진입·손절·목표로 계산하면 1:1.5다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 6~12주(블룸 대량수주 공시 대기)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: FY26 사업보고서 ~2027-03-31 · 블룸 대량수주 공시 내년초(날짜 미확정) · 블룸에너지 분기실적</div><div class="dc-l">🛑 반증: 종가 10,350원 이탈 청산 / FY26 영익&lt;56억 논지약화 / 1Q27까지 블룸 대량수주 공시 미발표 시 관망</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 티앤이코리아(0053F0)  ※선물 無 · 2026-10 신규상장주</p>
+<p>📌 한줄 결론: 블룸에너지 SOFC 에어블로워라는 실체 있는 성장 테마를 가진 신규상장주이나, ①일중변동폭 17%의 극단적 변동성으로 적정 손절폭이 25%를 넘어 손익비가 1 미만(현재가 기준 1:0.52), ②KOSPI 하락 국면(20일선 아래)으로 매수 판정 불가, ③FY27 매출 2.4배 고성장 컨센 달성이 블룸 대량수주(내년 초 예상)에 좌우되는 미확정 상태 — <strong>판정 &#x27;관망&#x27;</strong>. 오버행 정리 + AI 투심 회복 + 블룸 대량수주 공시 확인 전까지 진입 부적합. 자체 적정주가 밴드 9,000~14,800원(FY27 달성 전제). ※ 이 글은 특정 블로그 탐방기를 출발점으로 한 참고용 분석이며 매수·매도 권유가 아님.</p>
+<p>⓪ 실전 기준 (scorecard.py --brief, 2026-11-26 · 사후채점 표본 518건)</p>
+<ul>
+<li>시장 국면: <strong>하락(KOSPI 20일선 아래)</strong> — KOSPI 4,711 / 20일선 5,195 / 60일선 6,048 · 20일 <span class="down">-20.7%</span> · 일간 변동성 3.5% → &#x27;매수&#x27; 판정 불가, 지수조건 필수</li>
+<li>종목 일중 변동폭: 최근 14거래일 (고가−저가)÷종가 평균 <strong>17.05%</strong> [실측: KIS 일봉] → 손절 하한 1.5배 = <strong>25.6%</strong></li>
+<li>60일 베타: 미확인(상장 21거래일, 60일선·베타 산출 불가)</li>
+<li>1회 손실예산: 자산의 0.5% (변동성 레짐 &#x27;고변동&#x27;, RV20 56.6%/상위 92%ile)</li>
+<li>최근 카드 사후 실적(발행 09-09~11-25, 20거래일): 발행일 종가매수 목표먼저 29%/손절먼저 64% · 구간지정가 목표먼저 14%/손절먼저 81% · 지수대비 목표 34%/손절 41% · <strong>하락국면 발행분 구간지정가 목표먼저 16%/손절먼저 79%</strong></li>
+<li>시나리오 기저율: Bear가 이하 47%(보고서 평균 Bear 30%) · Base가 이상 20% · Bull가 이상 13%</li>
+<li>직전 카드: 없음(신규상장, 최초 리포트)</li>
+<li>선물매도 점검: <strong>해당 없음(선물 無)</strong> — 개별주식선물 미상장 재확인 [실측: kis_futures_check.py 0053F0]</li>
+</ul>
+<p>① 포착 신호 (비나인 블로그 스크랩 — 전달가치 통과)</p>
+<ul>
+<li>출처: fractal1985 블로그 탐방기(2026-11-26) &quot;티앤이코리아 - 블룸에너지와 함께&quot;. 블룸에너지 연료전지 밸류체인 견조함·내년 추정치 대비 저평가 주장. (블로거 결론: &quot;손이 나가진 않음 … 오버행 정리 + AI 투심회복 + 대규모수주 전후로 봐볼만&quot;)</li>
+<li>유동성: 20일 평균 거래대금 258억 / 당일 56.7억(급감) / 시총 1,355억 — 1일 체결 상한(ADV 10%) ≈ 25.8억</li>
+<li>추세: MA5 12,030 / MA20 15,701 / MA60 없음(상장21일). 현재가 11,940 &lt; MA5 &lt; MA20 → <strong>역배열, 하락추세</strong>. ret5 <span class="down">-27.5%</span> · ret20 <span class="down">-46.0%</span> · 상장후 고점 34,500 대비 <strong>-65%</strong>, 공모가 15,300 대비 <strong>-22%</strong>. 당일 <span class="up">+8.94%</span> 반등이나 52주(상장후)저 10,350을 당일 경신 → 바닥 미확인</li>
+</ul>
+<p>② 사업·급등사유 (사실검증)</p>
+<ul>
+<li>주력: 고속 터보기계(터보블로워·에어블로워·컴프레서)·친환경에너지 기자재. 전방 = 美 블룸에너지 SOFC(고체산화물 연료전지) 온사이트 발전·AI 데이터센터 전력. [인용: 에너지경제 2026-10-13 &quot;IPO 출격…AI 데이터센터 전력 수요 겨냥&quot;, 이데일리TV 2026-10-14 &quot;고속 터보기계로 IPO 도전&quot;]</li>
+<li><strong>블룸 밸류체인 = 실체 확인</strong>: 블룸 연료전지 내 산소공급 에어블로워 납품. 11/3 &quot;블룸에너지와 SOFC 에어블로워 본격 양산&quot;으로 <span class="up">+22%</span> 급등 [인용: 데이터투자 2026-11-03]. 한국투자증권 10/29 &quot;SOFC 밸류체인 뉴비 등장&quot;(Not Rated) [인용: fnguide 수집]. 뉴스핌 10/29 &quot;美 SOFC 공급망 진입…내년 영업익 130%(증가)&quot; [인용: 뉴스핌 2026-10-29]. → 블룸 납품은 기대감이 아닌 실매출·리포트가 받치는 실체.</li>
+<li><strong>블로거 주장(탐방 기반·검증 불가 항목)</strong>: 블룸 내 기자재 납품사는 티앤이·에어텍 2곳, 재순환 블로워 인증은 티앤이 단독·단가 일반대비 <span class="up">+25%</span>, 수주잔고 200억·블룸 포캐스트 700억·블룸대응 캐파 600억, 대량수주 내년초 예상. → <strong>전부 블로거 탐방 전언으로 공시·IR 교차검증 불가(미확인). &#x27;사실&#x27; 아닌 &#x27;참고&#x27;로만 취급.</strong></li>
+<li><strong>테마성 급등 구분</strong>: 11/10 &quot;수자원 관련주&quot;(핀포인트), 11/24 &quot;우주항공(누리호/위성) 테마 <span class="up">+9.84%</span>&quot;(MK) — 블룸과 무관한 순환매 테마. <strong>실체 매출 근거 없음 → 테마성.</strong> 즉 이 종목은 블룸(실체) + 수자원·우주항공(테마)이 뒤섞여 주가 변동성을 키우는 구조.</li>
+</ul>
+<p>③ 실적 (DART 실측 — 2026년 3분기보고서, 연결 CFS)</p>
+<ul>
+<li>[실측: DART 3분기보고서, corp_code 01543043, 연결]</li>
+<li>9M 누적: 매출 <strong>320.0억</strong> / 매출총이익 123.7억(GPM 38.6%) / 영업이익 <strong>46.05억(OPM 14.4%)</strong> / 순손실 <strong>-34.08억</strong></li>
+<li>3Q 단독: 매출 108.9억 / 영업이익 11.45억(OPM 10.5%) / 순손실 -3.89억</li>
+<li>1H(검산 320.0−108.9) = 211.1억 ✓</li>
+<li><strong>순손실 주범 = 금융비용 9M 84.3억</strong> — IPO 전 상환전환우선주(RCPS) 등 금융부채 평가손실로 추정. 영업은 흑자(46억)이나 금융비용이 영업이익의 1.8배 → <strong>IPO로 RCPS 소멸 시 FY27 순이익 흑자전환 구조</strong>(컨센 FY27 순익 140억과 정합). [추정: 자본총계 전기말 -51.3억→3Q 151.3억 급증 = RCPS 자본전환]</li>
+<li>재무건전성(3Q말): 자산 417.3억 / 부채 266.1억 / 자본 <strong>151.3억</strong>(전기말 -51.3억) → <strong>부채비율 175.9%</strong> / 유동비율 121.6%(유동자산 275.1억·유동부채 226.3억). 이자보상배율: 영업이익 46억 vs 금융비용 84억 → <strong>1 미만(0.55)</strong>, 단 금융비용 대부분이 현금이자 아닌 RCPS 평가손실이라 IPO 후 해소 가능성.</li>
+<li><strong>과거 3개년 추세 = 미확인</strong>: 상장 전 외부감사·사업보고서 DART 미제출로 2023~2025 손익 데이터 없음. 신규상장주 한계. 2025말 자본 -51.3억만 확인(RCPS 부채계상).</li>
+<li>시점별 밸류에이션·RS [실측: hist_valuation.py]: 2026 4Q 평균주가 15,825원 · PER/PBR n/a(누적적자) · 주가수익률 <span class="down">-44.8%</span> vs KOSDAQ <span class="down">-26.7%</span> → <strong>RS <span class="down">-18.1%</span>p(시장 대비 열위)</strong>. 한줄 해석: 상장 이후 지수보다 더 가파르게 하락 — 멀티플 디레이팅 진행 중, 시장 추세적 열위.</li>
+</ul>
+<p>④ 미래실적·컨센서스 [인용: fnguide/wisereport 2026-11-26]</p>
+<ul>
+<li>FY26E: 매출 470억 / 영업이익 70억 / 순이익 10억</li>
+<li>FY27E: 매출 <strong>1,080억(YoY <span class="up">+130%</span>)</strong> / 영업이익 <strong>210억(OPM 19.4%)</strong> / 순이익 140억</li>
+<li>목표가 컨센: <strong>없음</strong>(최근 6개월 목표가 제시 리포트 0건, 한투 10/29 Not Rated). 신규상장 커버리지 공백 → &#x27;목표가 컨센 미확인&#x27;.</li>
+<li>분기 컨센: 미확인</li>
+<li><strong>달성가능성 판정: 中低</strong></li>
+<li>9M 매출 320억 → 연율화 427억, FY26E 470억은 4Q 가속 전제(달성 &#x27;中&#x27;). 영익 9M 46억→연율 61억 vs FY26E 70억(달성 &#x27;中&#x27;).</li>
+<li><strong>FY27E 매출 1,080억 = 전년比 2.4배</strong>가 핵심 난제. 현 수주잔고 200억(블로거 전언·미확인)·블룸 대응 캐파 600억 대비 1,080억은 <strong>블룸 포캐스트 700억 대량수주(내년초 예상)가 공시로 현실화돼야 성립</strong> → 달성 &#x27;低~中&#x27;. 미발생 시 컨센 하향 리스크.</li>
+<li>컨센 방향(R10): 신규상장이라 3개월 전 비교치 없음 → 추세 미확인. FY27 영익 추정치는 아직 미검증 단일 소스(fnguide).</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 PER/PBR: KIS 표기 PER -14.56·PBR -20.66·EPS -820·BPS -578 → <strong>전부 pre-IPO 누적적자 기준 음수로 무의미</strong>(금융비용 평가손실·RCPS 영향).</li>
+<li><strong>정상화 Forward 기준</strong>:</li>
+<li>FY26E 순익 10억 → EPS 88원 → PER 136x (금융비용 탓 왜곡, 무의미)</li>
+<li>FY27E 순익 140억 → EPS 1,233원[추정: 140억÷상장주식수 11,351,096주] → <strong>Forward FY27 PER = 11,940÷1,233 = 9.7x</strong> (달성 전제 시 저평가 구간)</li>
+<li>PBR: 3Q말 자본 151.3억 기준 BPS 1,333원 → PBR 8.96x(단 IPO 공모자금 미반영). 공모가 15,300·<strong>공모규모 미확인</strong>으로 post-IPO 자본 미확정 → <strong>PBR 2.5~9x 범위 추정, 정확값 미확인</strong>. EV/EBITDA: 순현금 미확인으로 산출 불가.</li>
+<li>peer(에어텍 067520·연료전지 밸류체인): 에어텍 실측 밸류 조회 실패(0값) → <strong>peer 밴드 미확인</strong>. 블룸 밸류체인 성장주 통상 PER 15~20x이나 교차검증 소스 부족.</li>
+<li><strong>자체 목표가 산식</strong>:</li>
+<li>적정멀티플 12x(성장주 15~20x에서 하락장·달성 불확실 디스카운트) × FY27E EPS 1,233 = <strong>14,800원</strong> [추정] — 컨센 FY27 달성 전제</li>
+<li>자체 Base(영익 128억·순익 85억·EPS 749원) × 12x = <strong>9,000원</strong> [추정] — 대량수주 일부만 현실화</li>
+<li>→ 적정주가 밴드 <strong>9,000~14,800원</strong>. 현재가 11,940은 밴드 중간 → <strong>뚜렷한 저평가 아님</strong>. 증권사 목표가 병기 불가(컨센 없음).</li>
+</ul>
+<p>⑥ 진입전략·손익비</p>
+<ul>
+<li>지지/저항: 지지 10,350(11/26 전저점·52주저) → 하한가 7,680. 저항 MA5 12,030 → 13,320(11/20 고)·MA20 15,701. 현재 역배열·52주저 경신 중 → 추세 하방.</li>
+<li>손익비(진입 구간 상단 기준): 1차 목표 14,000 · 진입 상단 10,800 → 상승여력 <span class="up">+29.6%</span> ÷ 하락폭 25.9%(손절 8,000) = <strong>1:1.14</strong> / <strong>현재가 11,940 기준: 상방 <span class="up">+17.2%</span>(14,000) ÷ 하방 <span class="down">-33.0%</span>(8,000) = 1:0.52</strong> / 손익분기 승률 46.7% vs 최근 실제 하락국면 구간지정가 목표선도달 16%(브리프) → <strong>요구승률이 실제의 2.9배, 진입 부적합</strong></li>
+<li>손절: 8,000원 = 진입 상단 10,800 대비 −25.9% = 일중변동폭(17.05%)의 1.52배(하한 1.5배 충족). ※변동성이 커서 손절폭이 넓음 → 손절을 좁히지 말고 비중을 줄인다(R2/R7).</li>
+<li>진입 조건(관망 대기·지정가형): 10,000~10,800원 도달 + 일중변동폭 10% 이하로 수축 + KOSPI 20일선 회복 후에만 소량 타진. 눌림 없이 오르면: <strong>추격 안 함</strong>(13,320 종가 돌파해도 역배열·오버행 미해소 시 관망 유지).</li>
+<li>현물 스윙 3라인(조건 충족 시 가정): 진입 10,000~10,800 / 손절 8,000 / 익절 1차 14,000·2차 15,300(공모가 회복선).</li>
+<li>(선물) 개별주식선물 <strong>미상장</strong> [실측: kis_futures_check.py 0053F0] → 레버리지·선물매도 불가. futures_quote 해당 없음.</li>
+<li><strong>선물매도 점검: 해당 없음(선물 無)</strong></li>
+<li>거래 제약(R9): <strong>신용거래 불가(crdt_able_yn=N)·증거금률 100%(현금만)</strong> [실측: KIS inquire-price], 투자주의 환기 가능성(mrkt_warn_cls_code=01, KIND 교차확인 권고). 거래정지·공매도과열 아님(temp_stop=N·short_over=N).</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9)</p>
+<ul>
+<li>9-1 제품 분해: 고속 터보기계(에어블로워·재순환 블로워·터보컴프레서) 중심. <strong>제품별 매출 세부는 DART 사업보고서 미제출로 미공시</strong> → 3Q 연결 총매출 320억만 확인. (dart_biz.py 추출 실패 — 신규상장 corp DB 미등록)</li>
+<li>9-2 고객·납품: 블룸에너지(SOFC 에어블로워)가 성장축. 자동차(터보) 비중은 정부보조금 축소로 감소(블로거·뉴스 정합). 고객 집중도·블룸 매출비중 <strong>미공시(미확인)</strong>. 블로거 전언: 블룸 납품사 2곳(티앤이·에어텍), 재순환 블로워 인증 티앤이 단독.</li>
+<li>9-3 시장·경쟁: SOFC/연료전지 에어블로워 TAM·점유율 <strong>공시·산업리포트 교차검증 소스 미확보(미확인)</strong>. &quot;재순환 블로워 인증 독점&quot;은 블로거 1인 전언으로 경쟁자 표·점유율 숫자 뒷받침 불가 → 정성 주장 미검증.</li>
+<li>9-4 단가: 재순환 블로워 단가 일반 대비 <span class="up">+25%</span>(블로거 전언, 미확인). 원재료·단가 이력 공시 미확보.</li>
+<li>9-5 CAPA·수주: 블룸 대응 캐파 600억, 수주잔고 200억, 블룸 포캐스트 700억+ (전부 블로거 탐방 전언·미확인). 공모자금으로 생산시설 투자·기존 연구시설 리모델링 대응 예정.</li>
+<li>9-6 전방: 블룸에너지 AI 데이터센터 온사이트 발전 수요 → 에어블로워 소요 증가. 단 블룸 주가·AI 인프라 투심 둔화가 발주 지연 리스크(블로거도 1순위 리스크로 지목).</li>
+<li>9-7 바텀업 모델 (FY27, 단위 억원) [추정: 산식]</li>
+<li>Bear: 매출 600(수주잔고+기존, 대량수주 지연) × OPM 13% = 영익 78 / 순익 ~50 / EPS ~440원</li>
+<li>Base: 매출 850(대량수주 일부 현실화) × OPM 15% = 영익 128 / 순익 ~85 / EPS ~749원</li>
+<li>Bull: 매출 1,080(컨센, 포캐스트 700억 실현) × OPM 19% = 영익 205 / 순익 ~140 / EPS ~1,233원</li>
+<li><strong>컨센 FY27 영익 210억 = Bull 시나리오 수준 → 달성가능성 中低</strong></li>
+<li>민감도: 단가 ±10% → 영익 ±약 25억 / 블룸 CAPEX 1분기 지연 → FY27 매출 -150억·영익 -30억</li>
+<li><strong>결론 문장: 4Q26(사업보고서 기준) 연결 영업이익 ≥ 20억(연 66억·Base 런레이트)이고 2027년 1분기 내 블룸 대량수주 단일판매공급계약 공시가 나오면 성장 논지 유지·재진입 검토 / 4Q26 영익 &lt; 10억(연 56억)이거나 1Q27까지 대량수주 공시 미발표면 성장 논지 폐기·관망 유지.</strong></li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더(날짜 확정): FY26 사업보고서 법정기한 ~2027-03-31(DART) / 블룸에너지 분기실적·가이던스(美, 블룸 주가·발주 선행지표) / 블룸 대량수주 단일판매공급계약 공시 — <strong>내년 초 예상(블로거)·날짜 미확정</strong></li>
+<li>반증 조건 3개(수치→행동):</li>
+</ul>
+<p>1) 종가 <strong>10,350원(11/26 전저점·52주저) 이탈</strong> 시 → 바닥 붕괴, 전량 청산·관망 2) FY26 연결 영업이익 <strong>&lt; 56억</strong>(9M 46억 런레이트 미달) → 실적 모멘텀 훼손, 성장 논지 약화(2027-03 사업보고서) 3) <strong>2027년 1분기 말까지 블룸 대량수주 공시 미발표</strong> → 성장 스토리 지연, 컨센 하향 트리거 → 관망 유지</p>
+<ul>
+<li>이벤트 매트릭스: [대량수주 공시+갭상승]→ 반증2·3 해소 확인 후 분할 타진 / [공시 지연+보합]→ 관망 / [블룸 실적쇼크·투심악화+갭하락]→ 10,350 이탈 시 청산</li>
+<li>확률가중 시나리오(브리프 기저율 Bear 30%에서 조정):</li>
+<li>Bear 40%(기저 30%→상향, 근거: 하락국면·ret20 <span class="down">-46%</span>·52주저 경신·오버행·RS 열위): 가격 <strong>7,500원</strong>[산식: FY26 영익 미달×낮은 멀티플 + 급등분 반납, 하한가 7,680 부근 투매]</li>
+<li>Base 42%: 가격 <strong>11,000원</strong>[산식: 현 수준 횡보, 대량수주 대기]</li>
+<li>Bull 18%(기저 24%→하향, 근거: 블룸 투심 둔화): 가격 <strong>15,300원</strong>[산식: 공모가 회복, FY27 컨센 기대 반영]</li>
+<li>기대수익률(i)시나리오: 0.40×(<span class="down">-37.2%</span>)<span class="up">+0.42</span>×(<span class="down">-7.9%</span>)<span class="up">+0.18</span>×(<span class="up">+28.1%</span>) = <strong>-13.1%</strong>(현재가 기준) → <strong>음(-), 현 위치 진입 비권장</strong></li>
+<li>기대수익률(ii)손절적용: 목표선도달 16% × <span class="up">+29.6%</span> − 손절선도달 79% × 25.9% = <strong>-15.7%</strong> → 진입 부적합 확인</li>
+<li>수급·유동성: 외국인 20일 <span class="up">+45.6</span>(순매수)·5일 -2.3(최근 이탈), 기관 20일 <span class="up">+9.7</span>·5일 -11.5(이탈), 개인 20일 -59.1. → 상장초 외인·기관 매수 후 최근 5일 동반 이탈. 20일 평균 거래대금 258억 → 1일 체결 상한(ADV 10%) 25.8억.</li>
+<li>거래 제약·오버행(R9): <strong>신용불가·증거금 100%·투자주의 환기 가능성(mrkt_warn 01)</strong>. <strong>오버행 — 블로거가 2순위 리스크로 지목(IPO 보호예수 해제·공모주 물량), 구체 잔량·해제일 공시 교차 미확인(미확인)</strong>. 미상환 CB/BW: 미확인.</li>
+<li>컨센서스 방향(R10): 3개월 전 비교치 없음(신규상장) → 할인 EPS 산식 생략, FY27 단일소스라 Base는 자체추정(영익 128억·EPS 749원) 채택.</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 0.5% ÷ 손절폭 25.9% = <strong>1.9%</strong> / Bear 손실한도 = 1.5% ÷ Bear하락폭 30.6%(10,800→7,500) = 4.9% / 집중상한 50% / 이벤트 전 25% → <strong>최소값 = 자산의 1.9% 상한</strong>(변동성 탓 매우 소액). 단 판정이 &#x27;관망&#x27;이므로 <strong>현 시점 신규진입 비중 0% 권고</strong>, 위 1.9%는 조건 충족 시 상한.</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 증권사/블로거 추정치는 &#x27;추정&#x27;, 탐방 전언은 &#x27;미확인&#x27; 명시. 블로거 개인의견·참고용.</p>
+<p>[미확인 목록] 과거 3개년 손익(상장 전 미제출) · 제품별/고객별 매출비중 · 블룸 매출비중 · 수주잔고 200억·포캐스트 700억·캐파 600억(블로거 전언) · 재순환 블로워 인증 독점·단가 <span class="up">+25%</span> · SOFC 에어블로워 TAM·점유율 · 공모규모→post-IPO 자본·정확 PBR · 에어텍 peer 밸류 · 오버행 잔량·보호예수 해제일 · 미상환 CB/BW · 60일 베타 · 투자주의 지정 확정 여부</p>
+<p>[출처 목록] DART 2026 3분기보고서(corp_code 01543043, 연결) · KIS inquire-price/일봉(2026-11-26) · fnguide/wisereport 컨센(2026-11-26) · 한국투자증권 2026-10-29 &quot;SOFC 밸류체인 뉴비 등장&quot;(Not Rated) · 뉴스핌 2026-10-29 · 데이터투자 2026-11-03 · 에너지경제 2026-10-13 · 이데일리TV 2026-10-14 · MK 2026-11-24 · fractal1985 블로그 탐방기 2026-11-26(참고·미검증)</p>
+<p>[검산] 9M 매출 320.0 = 1H 211.1 + 3Q 108.9 ✓ / 9M 영익 46.05(누적) · 3Q 11.45(단독) ✓ / 손익비 헤더 1:0.52(현재가)·1:1.14(진입상단) = 본문 일치 ✓ / 시나리오 확률 40<span class="up">+42</span><span class="up">+18</span> = 100% ✓</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-26 16:11 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 11,610원 (<span class="up">+5.9%</span>) · 시총 1,318억 · 5일 <span class="down">-27.5%</span> / 20일 <span class="down">-46.0%</span> / 60일 미확인</li>
+<li>MA5 12,032원 / MA20 15,702원 / MA60 미확인 → MA20 이격 <span class="down">-26.1%</span> · MA60 이격 미확인</li>
+<li>52주 고 34,500원 / 저 10,350원 → 고점 대비 <span class="down">-66.3%</span> · 20일 고 21,150원 / 저 10,960원</li>
+<li>후행 PER -14.16 / PBR -20.09 (EPS -820원 · BPS -578원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 258.2억 (5일 33.2억)</li>
+<li>외국인 순매수 5일 -2.3억 / 20일 45.5억 · 기관 5일 -11.5억 / 20일 9.7억 · 개인 20일 -59.1억</li>
+<li>개별주식선물: ❌ 미상장 → 현물만</li>
+<li>공매도 비중: 당일 0.05% (공매도 245주 · 0.0억) · 5일 평균 1.12% / 20일 평균 0.36% → 증가 · 20일 평균 상회 연속 0일</li>
+<li>공매도 20일 최대 4.64% (11/25) · 판정: 특이 없음 · 잔고는 KIS 미제공(거래량 비중 기준, 21영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 14,000원 (<span class="up">+20.6%</span>) ÷ 하방 8,000원 (−31.1%) = <strong>1:0.66</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 31.1% = <strong>자산의 1.6%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 1.6%</strong></li>
+<li>유동성 참고: 20일 ADV 258.2억 · 1일 소화 한도는 ADV의 10%(25.82억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 31.1% · ATR14 2,642원 (손절폭/ATR 1.4배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 31.1% = ATR14 × 1.4배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 7,646원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:0.60</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 21영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 — 티앤이코리아(0053F0) 판정: 관망 선물: 無 현재가: 11,940원 진입: 10,000~10,800원 (도달 + 일중변동폭 10%↓ 수축 + KOSPI 20일선 회복 후 지정가 소량 타진, 아니면 진입 안 함) 손절: 8,000원 목표: 1차 14,000원 (2차 15,300원·공모가 회복선) 손익비: 1:1.14 기간: 스윙 6~12주(블룸 대량수주 공시 대기) 촉매: FY26 사업보고서 ~2027-03-31 · 블룸 대량수주 공시 내년초(날짜 미확정) · 블룸에너지 분기실적 반증: 종가 10,350원 이탈 청산 / FY26 영익&lt;56억 논지약화 / 1Q27까지 블룸 대량수주 공시 미발표 시 관망 지수조건: KOSPI 20일선 회복 후 요구승률: 46.7% (=1÷(1<span class="up">+1.14</span>)) vs 최근 실제 하락국면 구간지정가 16% 직전카드: 없음 검증: ✅3 ⚠️3 ❌0 | 손익비 1:1.1(구간상단)/1:0.5(현재가) · 요구승률 47% vs 최근17%(→&#x27;관망&#x27;으로 수용) · 손절 일중변동폭 1.52배(하한1.5배 충족) · 비중상한 1.9%</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
