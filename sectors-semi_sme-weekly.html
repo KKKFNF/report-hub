@@ -1,0 +1,115 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>반도체 소부장 — 주간 리뷰</title><style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--up:#ff6b6b;--dn:#6aa8ff;--s1:#c98500;--s2:#9085e9;--s3:#b4bac4}
+*{box-sizing:border-box}
+body{font:15px/1.6 -apple-system,'Apple SD Gothic Neo',system-ui,'Segoe UI',sans-serif;max-width:1400px;margin:0 auto;padding:20px 14px 60px;color:var(--tx);background:var(--bg)}
+a{color:inherit;text-decoration:underline;text-decoration-color:#4a5262;text-underline-offset:3px}
+a:hover{text-decoration-color:var(--tx)}
+.head{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 20px;margin-bottom:12px}
+h1{font-size:22px;margin:0 0 2px;letter-spacing:-.3px}
+h2{font-size:16px;margin:24px 0 8px}
+.sub{color:var(--mut);font-size:13px}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.nav a{background:var(--card2);padding:6px 12px;border-radius:9px;text-decoration:none;font-size:13.5px;border:1px solid var(--bd)}
+.nav a.on{border-color:var(--tx)}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.stat{background:var(--card2);border:1px solid var(--bd);border-radius:9px;padding:5px 11px;font-size:12.5px;color:var(--mut)}
+.stat b{color:var(--tx);font-size:14px;font-weight:600}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 16px;margin-bottom:12px}
+.box ul{margin:4px 0;padding-left:18px}
+.box li{margin:3px 0;font-size:14px}
+.tw{overflow:auto;border:1px solid var(--bd);border-radius:12px;background:var(--card);max-height:80vh}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:12.5px;white-space:nowrap}
+th,td{padding:6px 8px;border-bottom:1px solid var(--bd);text-align:right}
+th{position:sticky;top:0;background:var(--card2);color:var(--mut);font-weight:600;font-size:11.5px;line-height:1.35;cursor:pointer;z-index:2;user-select:none}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--card);z-index:1}
+th:first-child{z-index:3;background:var(--card2)}
+td.l,th.l{text-align:left}
+td.w{white-space:normal;min-width:260px;max-width:460px;text-align:left;color:var(--mut);font-size:12.5px}
+tr.hid{display:none}
+.up{color:var(--up)}.dn{color:var(--dn)}.mut{color:var(--mut)}
+.bdg{display:inline-block;font-size:11px;line-height:1.5;padding:0 6px;border-radius:6px;border:1px solid var(--bd);color:var(--mut);margin-left:5px}
+.bdg.c{color:var(--tx);border-color:#5a6373}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{background:var(--card);border:1px solid var(--bd);color:var(--mut);padding:4px 11px;border-radius:18px;font-size:12.5px;cursor:pointer;user-select:none}
+.chip.on{border-color:var(--tx);color:var(--tx)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}body{padding:12px 8px 50px}td:first-child .bdg{display:none}}
+.chart{position:relative;min-height:200px}
+.chart svg{display:block}
+.chart .grid{stroke:var(--bd);stroke-width:1}
+.chart .ax{fill:var(--mut);font-size:11px}
+.chart .cross{stroke:var(--mut);stroke-width:1;stroke-dasharray:3 3}
+.tip{position:absolute;top:6px;left:50px;background:var(--card2);border:1px solid var(--bd);border-radius:8px;padding:6px 9px;font-size:12px;pointer-events:none;white-space:nowrap}
+.lg{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--mut);margin:2px 0 6px}
+.sw{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:5px}
+.foot{color:var(--mut);font-size:12.5px;margin-top:18px;line-height:1.7}
+.foot b{color:var(--tx);font-weight:600}
+h3{font-size:13.5px;margin:14px 0 6px;color:var(--mut);font-weight:600}
+.base{color:var(--mut);font-size:12.5px;margin:1px 0 7px}
+.box li.ev{font-size:14.5px}
+.tw.fit{max-height:none}
+code{font-size:12px;background:var(--card2);padding:1px 4px;border-radius:4px}
+.agent h3{margin:10px 0 4px;color:var(--tx)}
+.agent ul{margin:2px 0 6px}
+.agent h4{font-size:13px;margin:10px 0 2px;color:var(--mut);font-weight:600}
+.agent p{margin:4px 0}
+td.w2{white-space:normal;min-width:170px;max-width:330px;text-align:left;font-size:12.5px}
+.warn{border-color:#8a6a2a}
+tr.grp td{background:var(--card2);color:var(--mut);font-size:12px;padding:4px 8px}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px;margin:8px 0}
+.kv>div{background:var(--card2);border:1px solid var(--bd);border-radius:9px;padding:8px 11px;font-size:12.5px;color:var(--mut)}
+.kv b{color:var(--tx);font-size:14px;font-weight:600}
+.doc{max-width:900px}
+.doc h2{font-size:17px;margin:28px 0 8px;padding-top:6px;border-top:1px solid var(--bd)}
+.doc h3{font-size:14.5px;color:var(--tx);margin:16px 0 6px}
+.doc p,.doc li{font-size:14.5px;line-height:1.75}
+.doc ul,.doc ol{padding-left:20px;margin:4px 0 10px}
+.doc blockquote{margin:8px 0;padding:6px 12px;border-left:3px solid var(--bd);color:var(--mut);font-size:13.5px}
+.doc table{white-space:normal;font-size:13px}
+.doc td,.doc th{text-align:left}
+details{margin:6px 0}
+details>summary{cursor:pointer;color:var(--mut);font-size:13.5px;padding:4px 0}
+details[open]>summary{color:var(--tx)}
+.tag{display:inline-block;font-size:10.5px;line-height:1.5;padding:0 5px;border-radius:5px;border:1px solid var(--bd);color:var(--mut);margin-left:4px;vertical-align:1px;white-space:nowrap}
+.ins .call{font-size:16.5px;font-weight:600;line-height:1.55;margin:2px 0 6px}
+.ins h4{font-size:13px;margin:12px 0 2px;color:var(--mut);font-weight:600}
+.ins p{margin:4px 0;font-size:14px}
+.ins details{border-top:1px solid var(--bd);margin:0;padding:7px 0}
+.ins>details:first-child{border-top:0;padding-top:0}
+.ins details>summary{color:var(--tx);font-size:14px;padding:1px 0;line-height:1.6}
+.ins details details{border-top:0;padding:2px 0}
+.ins details details>summary{color:var(--mut);font-size:12.5px}
+.st{display:inline-block;font-size:12px;line-height:1.6;padding:0 8px;border-radius:7px;border:1px solid #5a6373;margin:0 6px 0 6px;white-space:nowrap}
+li>.st:first-child{margin-left:0}
+.st.up{color:var(--up);border-color:var(--up)}.st.dn{color:var(--dn);border-color:var(--dn)}.st.mut{color:var(--mut);border-color:var(--bd)}
+</style></head><body><div class="nav"><a href="sectors.html">섹터 지도</a><a href="sectors-registry.html">분류 검토</a><a href="index.html">허브 전체 목록</a></div><div class="doc" style="max-width:none"><div class="head"><h1>반도체 소부장 — 주간 리뷰</h1><div class="sub"><a href="sectors-semi_sme.html">섹터 페이지</a> · 2026W48주 · 기준일 2026-11-26 · 최근 5거래일 · 사실 38개</div></div><div class="base">해석 문단은 그 주의 금요일 기준 빌드에서 한 번 만든다. 그 전에는 아래 사실만 싣는다.</div><h2>이번 주 사실</h2><h3>가격</h3><div class="box"><ul><li><span class="tag">F1</span> 최근 5거래일 섹터 지수는 동일가중 -12.9%, 시총가중 -14.1%다 (코스피 -8.3%, 시총가중 기준 코스피 대비 -5.8%p)</li><li><span class="tag">F2</span> 시총가중 지수 20일 -27.5% · 60일 -27.1% · 120일 -37.9%. 중기 상대강도 11위/18개 섹터 (20거래일 전 3위)</li><li><span class="tag">F3</span> 60일선 위 종목 8%(105종목 중) · 60일 신고가 0 · 신저가 27 · 52주 고점 대비 하락 폭 중앙값 -55%</li><li><span class="tag">F4</span> 5거래일 상승 상위: 사피엔반도체 +16.3%, HLB이노베이션 +10.0%, 한솔케미칼 +3.3% · 하락 상위: 동원파츠 -32.8%, 티에프이 -29.8%, 코미코 -27.6%</li><li><span class="tag">F5</span> 허브 카드 58개 가운데 손절가 아래 46개(종목 요인 21 · 섹터 동행 19 · 섹터 대비 강함 5)</li></ul></div><h3>핵심 변수</h3><div class="box"><ul><li><span class="tag">F6</span> 반도체 수출 685.82 지수(2026-10 기준): 전월 대비 -6.4%, 전년 대비 +264.3%, 3개월 추세 상승</li><li><span class="tag">F7</span> 반도체 수출 속보(관세청 10·20일) 384.70 억$(2026-11 1~20일 기준): 전년 대비 +294.4%</li><li><span class="tag">F8</span> TSMC 월매출 5,868.90 억NT$(2026-10 기준): 전월 대비 +14.7%, 전년 대비 +59.7%, 3개월 추세 상승</li><li><span class="tag">F9</span> 필라델피아 반도체 지수 8,774.86(2026-11-26 기준): 20일 -14.5%, 60일 -26.4%, 최근 250일 범위의 25% 위치</li><li><span class="tag">F10</span> 원/달러 환율 1,343.77 원(2026-11-26 기준): 20일 +0.2%, 60일 -3.0%, 최근 250일 범위의 9% 위치</li></ul></div><h3>추정치와 밸류에이션</h3><div class="box"><ul><li><span class="tag">F11</span> 올해 영업이익 컨센서스(70종목): 1개월 사이 하향 31 · 상향 21 · 그대로 17, 변화율 중앙값 +0.0%; 3개월 사이 하향 30 · 상향 27, 중앙값 +0.0%</li><li><span class="tag">F12</span> 올해 영업이익 컨센서스 1개월 변화 — 하향 폭이 큰 종목 에프에스티 -29.1%, 씨엠티엑스 -19.3%, 유니테스트 -15.7% · 상향 종목 네오셈 +59.0%, 코세스 +20.8%, 엑시콘 +20.2%</li><li><span class="tag">F13</span> 목표가 컨센서스(59종목): 1개월 사이 하향 32 · 상향 10, 변화율 중앙값 -2.7%; 현재가 대비 괴리율 중앙값 +101%</li><li><span class="tag">F14</span> 3개월 주가 변화의 구성(59종목 중앙값): 이익 추정 -2.5% × 배수 -18.3% ≈ 주가 -25.6%, 올해 실적 기준 PER 12.5배 ← 17.9배</li><li><span class="tag">F15</span> 6개월 주가 변화의 구성(55종목 중앙값): 이익 추정 +2.4% × 배수 -42.7% ≈ 주가 -43.1%, 올해 실적 기준 PER 12.9배 ← 27.5배</li><li><span class="tag">F16</span> 시총 ÷ 최근 4분기 영업이익의 과거 대비 위치(85종목): 중앙값 아래에서 35%, 하위 20% 안 26종목 · 상위 20% 안 9종목</li><li><span class="tag">F17</span> 외국계 창구 누적 순매수(자료가 있는 23종목): 5일 -575억 · 20일 -3672억 · 60일 -14254억</li></ul></div><h3>엇갈리는 곳</h3><div class="box"><ul><li><span class="tag">F18</span> 6개월 사이 주가 하락(중앙값 -43%)은 이익 추정 변화(+2%)보다 배수 축소(-43%, 올해 PER 12.9 ← 27.5배)가 크다. 시장이 깎은 것은 올해 이익이 아니라 그 뒤의 성장 지속성이다 — 고객사 설비투자와 가동률의 방향이 바뀌는지가 먼저다</li><li><span class="tag">F19</span> 목표가 컨센서스가 현재가보다 중앙값 기준 +101% 높다(62종목). 목표가·추정치가 내려오는지 주가가 돌아가는지는 추정치 방향 표에서 가린다</li></ul></div><h3>글 자료와 쟁점</h3><div class="box"><ul><li><span class="tag">F20</span> 최근 7일(11-20~11-26) 새 주장 51건: 강세 22 · 약세 4 · 중립 25, 그 가운데 신뢰 등급 A·B 36건</li><li><span class="tag">F21</span> [B·강세] 11-23 제이피모건: 컨텍스트 길이 연 2.4배 성장(23-26E), 에이전틱 토큰 물량 2030년까지 24배, 추론 트래픽 연 CAGR +109%(26-30E)(하이닉스 발표, JPM 중개)</li><li><span class="tag">F22</span> [B·강세] 11-23 SK증권 · SFA반도체: SK증권: HBM4 투자와 D5 외주화로 SFA반도체·하나마이크론 수혜, TSMC CoWoS 증설 26년 60K → 27년 80-100K로 피에스케이홀딩스·파크시스템스 주목</li><li><span class="tag">F23</span> [B·강세] 11-26 유안타증권 · 원익QnC: 원익QnC 2027년 연결 영업이익 1,678억원(YoY +28.7%), 본사 쿼츠 매출 북미 L사 물량 20% 이상 증가 기대(유안타)</li><li><span class="tag">F24</span> [A·중립] 11-23 DART 공시 · 기가비스: 기가비스, 한국 반도체 기판 제조회사와 반도체 기판 수리장비 외 계약 388억원(매출대비 74.0%, 13개월)</li><li><span class="tag">F25</span> [A·중립] 11-24 DART 공시 · 네오셈: 네오셈, NEOSEM TECHNOLOGY INC.와 반도체 검사장비(GEN6 SSD TESTER 외) 계약 142억원(매출대비 22.2%, 7개월)</li><li><span class="tag">F26</span> [A·중립] 11-20 DART 공시 · 제주반도체: 제주반도체 타법인 출자 260억원(H.O.A. Semiconductor(가칭/베트남))</li><li><span class="tag">F27</span> 쟁점 [1단] 고객사 설비투자(삼성전자·SK하이닉스·해외): 최근 7일 근거 강세 1 · 약세 1 (30일 강세 4 · 약세 2), 언급 문서 51건(직전 3주 주평균 56.7)</li><li><span class="tag">F28</span> 쟁점 [1단] HBM·어드밴스드 패키징 장비 수요: 최근 7일 근거 강세 7 · 약세 1 (30일 강세 10 · 약세 1), 언급 문서 78건(직전 3주 주평균 90.7)</li><li><span class="tag">F29</span> 쟁점 [1단] AI 설비투자 지속성(하이퍼스케일러 투자·현금흐름): 최근 7일 근거 강세 2 · 약세 1 (30일 강세 2 · 약세 2), 언급 문서 58건(직전 3주 주평균 61.7)</li><li><span class="tag">F30</span> 쟁점 [1단] 시장 국면(지수 급락·금리·외국인 수급): 최근 7일 근거 강세 0 · 약세 0 (30일 강세 1 · 약세 0), 언급 문서 17건(직전 3주 주평균 15.0)</li></ul></div><h3>에이전트 분류</h3><div class="box"><ul><li><span class="tag">F31</span> 순차 점검 분류(2026-11-26 17:21 빌드): 즉시 확인 51 · 재검토 5 · 신규 후보 4 · 하방·헤지 후보 2 · 관찰 43 · 제외 2</li></ul></div><h3>다음 확인</h3><div class="box"><ul><li><span class="tag">F32</span> 11-26 사피엔반도체 — IR 개최</li><li><span class="tag">F33</span> 11-26 주성엔지니어링 — IR 개최</li><li><span class="tag">F34</span> 11-26 파크시스템스 — IR 개최</li><li><span class="tag">F35</span> 11-26 해성디에스 — IR 개최</li><li><span class="tag">F36</span> 12-01 산업통상부 월간 수출입동향</li><li><span class="tag">F37</span> 12-02 에프에스티 — IR 개최</li><li><span class="tag">F38</span> 12-02 엘티씨 — IR 개최</li></ul></div><div class="foot"><b>읽는 법.</b> 사실은 섹터 지도와 섹터 에이전트가 가진 값을 문장으로 옮긴 것이고 계산은 룰이다. 해석은 의견이며 허브 결정카드의 판정을 바꾸지 않는다. 주 중에는 사실을 매일 고쳐 쓴다.</div></div><div class="foot">'오늘의 판단'과 주간 리뷰의 해석은 LLM 이 번호 붙은 사실만 보고 쓴 의견이고, 그 밖의 계산은 전부 룰이다. 의견 전용 — 허브 결정카드의 판정은 바꾸지 않는다. 빌드 2026-11-26 18:00 · atlas v0.3.0</div><script>
+function sortTable(th){var t=th.closest('table'),tb=t.tBodies[0],i=Array.prototype.indexOf.call(th.parentNode.children,th);
+ var cur=th.getAttribute('data-asc'),txt=(i===0||th.classList.contains('l')),asc=(cur===null)?txt:(cur!=='1');Array.prototype.forEach.call(th.parentNode.children,function(x){x.removeAttribute('data-asc')});th.setAttribute('data-asc',asc?'1':'0');
+ var rows=Array.prototype.slice.call(tb.rows);rows.sort(function(a,b){var x=a.cells[i].getAttribute('data-v'),y=b.cells[i].getAttribute('data-v');
+  if(x===null)x=a.cells[i].textContent;if(y===null)y=b.cells[i].textContent;var nx=parseFloat(x),ny=parseFloat(y);
+  var ex=(x===''||isNaN(nx)),ey=(y===''||isNaN(ny));if(ex&&ey)return String(x).localeCompare(String(y),'ko')*(asc?1:-1);if(ex)return 1;if(ey)return -1;return (nx-ny)*(asc?1:-1)});
+ rows.forEach(function(r){tb.appendChild(r)})}
+document.addEventListener('click',function(e){var th=e.target.closest('th');if(th&&th.closest('table.sortable'))sortTable(th);
+ var c=e.target.closest('.chip');if(c){var g=c.parentNode;Array.prototype.forEach.call(g.children,function(x){x.classList.remove('on')});c.classList.add('on');
+  var k=c.getAttribute('data-k'),v=c.getAttribute('data-v'),t=document.getElementById(g.getAttribute('data-t'));
+  Array.prototype.forEach.call(t.tBodies[0].rows,function(r){r.classList.toggle('hid',!(v==='*'||r.getAttribute('data-'+k)===v))})}});
+function fd(d){d=String(d);return d.slice(2,4)+'-'+d.slice(4,6)+'-'+d.slice(6,8)}
+function lineChart(id,days,series,opt){var el=document.getElementById(id);if(!el||!days||days.length<2)return;opt=opt||{};
+ function draw(){var W=el.clientWidth||680,H=opt.h||230,L=46,R=14,T=10,B=22,all=[];
+  series.forEach(function(s){s.v.forEach(function(x){if(x!=null)all.push(x)})});if(!all.length)return;
+  var mn=Math.min.apply(null,all),mx=Math.max.apply(null,all),pad=(mx-mn)*0.06||1;mn-=pad;mx+=pad;
+  function X(i){return L+(W-L-R)*i/(days.length-1)}function Y(v){return T+(H-T-B)*(1-(v-mn)/(mx-mn))}
+  var f=opt.fmt||function(v){return v.toFixed(0)},s='<svg width="'+W+'" height="'+H+'" role="img" aria-label="'+(opt.label||'')+'">';
+  for(var g=0;g<=3;g++){var v=mn+(mx-mn)*g/3,y=Y(v);s+='<line class="grid" x1="'+L+'" x2="'+(W-R)+'" y1="'+y+'" y2="'+y+'"/><text class="ax" x="'+(L-6)+'" y="'+(y+4)+'" text-anchor="end">'+f(v)+'</text>'}
+  [0,Math.floor((days.length-1)/2),days.length-1].forEach(function(i,k){s+='<text class="ax" x="'+X(i)+'" y="'+(H-6)+'" text-anchor="'+(k==0?'start':k==1?'middle':'end')+'">'+fd(days[i])+'</text>'});
+  series.forEach(function(se){var d='';se.v.forEach(function(v,i){if(v==null)return;d+=(d?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)});
+   s+='<path d="'+d+'" fill="none" stroke="'+se.c+'" stroke-width="'+(se.w||2)+'"'+(se.dash?' stroke-dasharray="5 4"':'')+' stroke-linejoin="round"/>'});
+  s+='<line class="cross" id="'+id+'-x" y1="'+T+'" y2="'+(H-B)+'" x1="0" x2="0" style="display:none"/></svg><div class="tip" id="'+id+'-tip" style="display:none"></div>';
+  el.innerHTML=s;var cx=document.getElementById(id+'-x'),tip=document.getElementById(id+'-tip');
+  el.onmousemove=function(e){var r=el.getBoundingClientRect(),x=e.clientX-r.left,i=Math.round((x-L)/(W-L-R)*(days.length-1));if(i<0)i=0;if(i>days.length-1)i=days.length-1;
+   cx.setAttribute('x1',X(i));cx.setAttribute('x2',X(i));cx.style.display='';var h='<b>'+fd(days[i])+'</b>';
+   series.forEach(function(se){if(se.v[i]!=null)h+='<br><span class="sw" style="background:'+se.c+'"></span>'+se.n+' '+f(se.v[i])});tip.innerHTML=h;tip.style.display='';
+   tip.style.left=(X(i)>W/2?X(i)-tip.offsetWidth-10:X(i)+10)+'px'};
+  el.onmouseleave=function(){cx.style.display='none';tip.style.display='none'}}
+ draw();var tm;window.addEventListener('resize',function(){clearTimeout(tm);tm=setTimeout(draw,150)})}
+</script></body></html>
