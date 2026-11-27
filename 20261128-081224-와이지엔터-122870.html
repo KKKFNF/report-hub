@@ -1,0 +1,226 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>와이지엔터(122870) — 리서치 리포트</title>
+<style>
+:root{--bg:#0f1115;--card:#191c22;--card2:#1e222b;--bd:#2a2f3a;--tx:#e7eaee;--mut:#9aa2ad;--acc:#5db0ff;--up:#7ee7a1;--dn:#ff7b7b}
+*{box-sizing:border-box}
+body{font:16px/1.75 -apple-system,'Apple SD Gothic Neo',system-ui,Segoe UI,sans-serif;max-width:860px;margin:0 auto;padding:20px 18px 60px;color:var(--tx);background:var(--bg)}
+a{color:var(--acc)}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.top a{background:var(--card2);color:#cdd3dc;padding:7px 13px;border-radius:9px;text-decoration:none;font-size:13px;border:1px solid var(--bd)}
+.top a:hover{border-color:var(--acc)}
+.hero{background:linear-gradient(160deg,#1c2230,#191c22);border:1px solid var(--bd);border-radius:16px;padding:24px 24px 20px;margin-bottom:18px}
+.hero h1{font-size:23px;margin:0 0 6px;letter-spacing:-.3px}
+.hero .meta{color:var(--mut);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.kpi-l{color:var(--mut);font-size:12px;margin-bottom:3px}
+.kpi-v{font-size:19px;font-weight:700;letter-spacing:-.3px}
+.kpi-good{border-color:rgba(126,231,161,.4);background:linear-gradient(160deg,rgba(126,231,161,.08),var(--card))}
+.kpi-good .kpi-v{color:var(--up)}
+.decision{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:14px}
+.dc{background:var(--card);border:1px solid var(--bd);padding:4px 11px;border-radius:9px;font-size:13px;font-weight:600}
+.dc.up{color:var(--up);border-color:rgba(126,231,161,.35)} .dc.dn{color:var(--dn);border-color:rgba(255,123,123,.35)}
+.dc.fut-y{background:rgba(93,176,255,.14);color:#8fc3ff;border-color:rgba(93,176,255,.35)}
+.dc.fut-n{color:#a8b0bb}
+.dc-src{color:var(--mut);font-size:11px;margin-left:auto}
+.dc-l{color:#cdd3dc;font-size:13px;margin-top:6px}
+.charts{display:grid;gap:14px;margin:6px 0 20px}
+.chartcard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 10px;height:230px;display:flex;flex-direction:column}
+.chart-t{color:#cdd3dc;font-size:13px;font-weight:600;margin-bottom:8px}
+.chartcard canvas{flex:1;min-height:0}
+.body{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:8px 26px 26px}
+.body h1{font-size:20px;margin:26px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.body h2{font-size:18px;margin:26px 0 10px;color:#fff;display:flex;align-items:center;gap:8px}
+.body h2::before{content:"";width:4px;height:17px;background:var(--acc);border-radius:3px;display:inline-block}
+.body h3{font-size:15px;margin:20px 0 8px;color:#cfe3ff}
+.body p{margin:9px 0}
+.body p.note{color:var(--mut);font-size:13px;font-style:italic;background:var(--card2);border-left:3px solid var(--bd);padding:10px 14px;border-radius:6px;line-height:1.6}
+.body ul,.body ol{margin:8px 0;padding-left:22px}
+.body li{margin:5px 0}
+.body strong{color:#fff}
+.body code{background:#2a2f3a;padding:1px 6px;border-radius:5px;font-size:.9em;color:#ffd9a0}
+.body hr{border:0;border-top:1px solid var(--bd);margin:22px 0}
+.up{color:var(--up);font-weight:600} .down{color:var(--dn);font-weight:600}
+.tablewrap{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--bd);padding:9px 12px;text-align:left}
+th{background:#232834;color:#dfe5ee;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+tbody tr:hover{background:rgba(93,176,255,.06)}
+.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:26px;line-height:1.7}
+.stbadge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:8px;margin-right:6px}
+.stbadge.st-buy{background:rgba(126,231,161,.16);color:#a6f0c2;border:1px solid rgba(126,231,161,.4)}
+.stbadge.st-watch{background:rgba(255,193,107,.16);color:#ffd08a;border:1px solid rgba(255,193,107,.35)}
+.stbadge.st-avoid{background:rgba(154,162,173,.14);color:#c2c9d3;border:1px solid var(--bd)}
+.stbadge.st-short{background:rgba(255,123,123,.16);color:#ffb3b3;border:1px solid rgba(255,123,123,.4)}
+.stbadge.st-short_watch{background:rgba(255,160,90,.16);color:#ffc79a;border:1px solid rgba(255,160,90,.35)}
+
+.tt{position:relative;display:inline-block}
+.tt>.tag,.tt>.stbadge,.tt>.q{cursor:help}
+.tt .q{font-size:11.5px;font-weight:500;opacity:.75;margin-left:auto}
+.tt .tip{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 6px);width:min(420px,88vw);background:#20242d;border:1px solid #3a4150;border-radius:12px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font-size:12.5px;line-height:1.55;color:#dfe5ee;font-weight:400;text-align:left;white-space:normal}
+.tt.hd .tip,.tags .tt .tip{left:auto;right:0}
+.tt:hover .tip,.tt:focus-within .tip{display:block}
+.tip .tp-h{font-weight:700;color:#fff;margin-bottom:6px}
+.tip .tp-r{margin:4px 0} .tip .tp-c{margin:6px 0;color:#c9d1dc;border-left:2px solid #3a4150;padding-left:8px}
+.tip .tp-f{margin-top:7px;color:#9aa2ad;font-size:11.5px}
+.tip b{color:#fff}
+</style></head><body>
+<div class="top"><a href="./index.html">← 전체 목록</a>
+<a href="./20261128-081224-와이지엔터-122870.md" download>⬇︎ 마크다운 다운로드</a></div>
+<div class="hero"><span class="tt" tabindex="0"><span class="stbadge st-watch">🟡 관심 · 눌림 대기 ⓘ</span><span class="tip"><div class="tp-h">🟡 관심 · 눌림 대기 — 판정 방식: 결정카드(에이전트 명시)</div><div class="tp-r"><b>기준</b> 결론에 &#x27;추격 금지/자제/부적합·진입 부적합&#x27;이 있지만 눌림·분할·조건부 재진입 같은 대안 구간이 제시된 경우, 또는 손익비가 1:2 미만이거나 &#x27;확인 후 대응·대기&#x27; 등 유보 문구가 있는 경우. = 지금은 아니고, 카드의 진입 구간·조건 충족 시.</div><div class="tp-r"><b>이 리포트에서 잡힌 근거</b> 관심 · 손익비 1:2.2</div><div class="tp-c"><b>결론 발췌</b> 2027년 신인 데뷔·베이비몬스터 코첼라라는 IP 확장 스토리는 공시·뉴스로 실체 확인되나, ①주가가 3Q 저점 대비 +29%(20일) 급반등해 단기 과열, ②KOSPI 하락 국면(매수 부적합), ③FY27 영업이익 컨센 3개월간 -12.4% 하향 중이라 현재가 50,300원 진입은 손익비 1:0.6로 부적합. 눌림 대기 &#x27;관심&#x27; — 44,000~46,000원(20/60일선 수렴) 지정가 대기 시 손익비 1:1.7, 자체 1차 목표 56,000원(증권사 컨센 60,871원). ⚠️증권사·블로거 의견, 참고용. ⓪ 실전 기준 (scorecard.py --brief 2026-11-27 일봉) • 시장 국면: 하락(KOSPI 4,916 &lt; 2…</div><div class="tp-f">기준이 결론과 어긋나 보이면 리포트 맨 끝 📋 결정카드 값을 우선 신뢰하세요(없으면 자동판정).</div></span></span><span class="meta">판정근거(결정카드): 관심</span><h1>와이지엔터(122870)</h1>
+<div class="meta">📊 benine · 2026-11-28 08:12 · 코드 122870</div>
+<div class="kpis"><div class="kpi"><div class="kpi-l">현재가 (KIS 11-28 08:12)</div><div class="kpi-v">50,300원</div></div><div class="kpi"><div class="kpi-l">시총</div><div class="kpi-v">9,402억</div></div><div class="kpi"><div class="kpi-l">PER (후행)</div><div class="kpi-v">25.48</div></div><div class="kpi"><div class="kpi-l">PBR (후행)</div><div class="kpi-v">1.82</div></div><div class="kpi"><div class="kpi-l">손익비(진입가)</div><div class="kpi-v">1:2.2</div></div><div class="kpi"><div class="kpi-l">손익비(현재가)</div><div class="kpi-v">1:0.55</div></div><div class="kpi"><div class="kpi-l">목표가</div><div class="kpi-v">56,000원</div></div></div><div class="decision"><span class="dc fut-y">⚡ 선물 有 · 레버리지 가능</span><span class="dc">진입 44,000~46,000원 (20/60일선 수렴 도달 시 지정가, 3회 분할)</span><span class="dc dn">손절 40,000원</span><span class="dc up">목표 56,000원</span><span class="dc">손익비 진입 1:2.2 · 현재가 1:0.55 <span class="tt" tabindex="0"><span class="flag miss">⚠️ 본문 1:1.7</span><span class="tip"><div class="tp-h">본문 손익비와 계산 불일치</div><div class="tp-r">리포트 본문은 1:1.7로 적었지만 진입·손절·목표로 계산하면 1:2.2다. 허브는 계산값을 쓴다.</div></span></span></span><span class="dc">기간 스윙 8~16주 (2027 신인 데뷔·4Q 실적 모멘텀 구간)</span><span class="dc-src">결정카드</span></div><div class="dc-l">📅 촉매: 4Q26 실적발표(2027.2) · 2027 상반기 신인 보이그룹 데뷔 · 2027.4 베이비몬스터 코첼라</div><div class="dc-l">🛑 반증: 4Q26 연결 영업이익 &lt; 150억 or 종가 40,000원 이탈 시 논지 폐기·청산</div></div>
+
+<div class="body"><p>🚀 정밀 리서치 — 와이지엔터테인먼트(122870)  ※선물 有(개별주식선물 상장)</p>
+<p>📌 한줄 결론: 2027년 신인 데뷔·베이비몬스터 코첼라라는 IP 확장 스토리는 공시·뉴스로 실체 확인되나, ①주가가 3Q 저점 대비 <span class="up">+29%</span>(20일) 급반등해 단기 과열, ②KOSPI 하락 국면(매수 부적합), ③FY27 영업이익 컨센 3개월간 <span class="down">-12.4%</span> 하향 중이라 현재가 50,300원 진입은 손익비 1:0.6로 부적합. 눌림 대기 &#x27;관심&#x27; — 44,000~46,000원(20/60일선 수렴) 지정가 대기 시 손익비 1:1.7, 자체 1차 목표 56,000원(증권사 컨센 60,871원). ⚠️증권사·블로거 의견, 참고용.</p>
+<p>⓪ 실전 기준 (scorecard.py --brief 2026-11-27 일봉)</p>
+<ul>
+<li>시장 국면: 하락(KOSPI 4,916 &lt; 20일선 5,154 &lt; 60일선 6,016, 20일 <span class="down">-14.2%</span>) → &#x27;매수&#x27; 판정 불가, 지수조건 필수</li>
+<li>종목 일중 변동폭(14일) 7.8% → 손절 하한 = 진입 상단에서 11.7%(1.5배) 이상 아래 · 60일 베타 0.21(KOSDAQ, 저베타) · 20일 평균 거래대금 87억 · 직전 20일 <span class="up">+29.0%</span> · 60일 고점 대비 <span class="down">-7.9%</span></li>
+<li>1회 손실예산: 자산의 0.5%(고변동 레짐)</li>
+<li>최근 카드 사후 실적(발행 09-09~11-25): 발행일 종가 매수 목표 29%/손절 64% · 구간 지정가 목표 14%/손절 81% · 지수 대비 목표 33%/손절 42% · 하락국면 발행분 구간지정가 목표 16%/손절 80%</li>
+<li>시나리오 기저율: 20일 뒤 Bear가 이하 46% / Base가 이상 20% / Bull가 이상 13%</li>
+<li>이 종목 직전 카드: 없음</li>
+<li>선물매도 점검: S0 선물 有(ACQ612)·유동성 미확인(futures_quote 403) / S1 하락국면 통과 / S2 현재가 50,300 &gt; 60일선 42,498(<span class="up">+18.4%</span>) → &#x27;선물매도&#x27; 불가, &#x27;매도관심&#x27;까지만 · 근거 F3·A3 해당 없음</li>
+</ul>
+<p>① 포착 신호</p>
+<ul>
+<li>회전율·자금유입: 11/27 거래대금 861억(평소 20일평균 87억의 약 10배)·<span class="up">+3.60%</span> 마감, 11월 들어 신인 모멘텀·증권사 리포트 집중으로 반등. 직전 20일 <span class="up">+29.0%</span>, 20일 저가 대비 <span class="up">+36.7%</span> [실측: KIS 2026-11-27]</li>
+<li>추세: 현재가 50,300 &gt; 20일선 44,065 &gt; 60일선 42,498 (단기 정배열 회복) / 3Q 저점권(41,345 평균)에서 반등해 52주고 79,000 대비 <span class="down">-36%</span>·52주저 34,300 대비 <span class="up">+47%</span> 위치 — 저점 탈출 초기나 단기 과열권 [실측: hist_valuation·KIS]</li>
+</ul>
+<p>② 사업·급등사유</p>
+<ul>
+<li>주력: 글로벌 엔터. 음반·음원·공연·매니지먼트/광고·MD. 2025년 매출 5,454억 구성 — 상/제품(음반·MD) 2,018억(37%)·공연 1,264억(23%)·음악서비스(음원) 872억(16%)·기타(광고·로열티·출연료) 1,300억(24%) [실측: DART 사업보고서 접수 20260323001610]</li>
+<li>핵심 IP: 블랙핑크(그룹 활동 논의 중, 개인활동 전환)·베이비몬스터·트레저·빅뱅(4Q26 레버리지). 원재료 리스크 없음(음반 MASTER CD 외주, 수익성 영향 원재료 無) [실측: 동 보고서]</li>
+<li>급등사유(검증): (1)베이비몬스터 2027 코첼라 입성 확정 — 5세대 K팝 최초, 데뷔 약 36개월 [인용: 문화일보·OSEN 2026-11-11]. (2)증권사 신인 모멘텀 리포트 집중(상상인 63,000·리딩 65,000·한화 60,000·교보 60,000, 11/24~27) [인용: 뉴스핌·fnguide]. (3)11/24~25 국내 NDR로 2027 신인 보이→걸그룹 순차 데뷔 로드맵 제시 [인용: 비건뉴스 2026-11-23]. → 실체 있는 &#x27;기대 선반영&#x27;. 다만 데뷔·투어 모객은 2027년 이벤트로 현 주가는 선행 반영分</li>
+</ul>
+<p>③ 실적 (DART 연결 실측) <img src="https://kkkfnf.github.io/report-hub/assets/benine-122870-price-trend.png" alt="주가·지수 추이" loading="lazy" style="max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid #223;border-radius:8px"></p>
+<ul>
+<li>연간(연결): 2023 매출 5,692억·영업이익 869억(OPM 15.3%)·순익 770억 / 2024 매출 3,649억·영업이익 −206억(적자, 블핑 공백·투어 부재)·순익 200억 / 2025 매출 5,454억·영업이익 713억(OPM 13.1%)·순익 537억 [실측: DART 사업보고서]</li>
+<li>분기(연결·3개월 실측): 2025 Q3 매출 1,731억·영업 311억(OPM 18.0%) → 2026 Q1 1,471억·영업 194억(13.2%) / Q2 1,278억·영업 110억(8.6%) / Q3 1,567억·영업 135억(OPM 8.6%, YoY 매출 −9.5%·영업 −56.8%) [실측: DART 분기보고서 접수 20261116000477]</li>
+</ul>
+<p>→ 3Q26은 와이지플러스 투어 직접운영 초기비용·MD 일회성비용으로 컨센 201억 대비 −32.8% 쇼크. 증권사는 4Q26 투어 레버리지로 회복 전망(비반복성 비용으로 해석) [인용: 유안타 2026-11-12]</p>
+<ul>
+<li>재무건전성(2026 3Q 연결): 자산 8,972억·부채 2,305억·자본 6,667억 → 부채비율 34.6%(우량) · 영업활동현금흐름 3Q 누적 <span class="up">+402</span>억(흑자) [실측: DART 접수 20261116000477]. CB/BW/유증 등 주요사항보고 최근 1년 0건 → 오버행 없음 [실측: DART list kind=B 2025-11~2026-11]</li>
+</ul>
+<ul>
+<li>시점별 밸류에이션·RS(hist_valuation.py 실측, 벤치마크 KOSDAQ):</li>
+<li>2022 평균 53,015 · PER 29.0 · PBR 3.09 · RS <span class="up">+8.8%</span>p</li>
+<li>2024 평균 41,186 · PER 41.2 · PBR 1.97 · RS <span class="up">+19.2%</span>p</li>
+<li>2025 평균 75,258 · PER 37.8 · PBR 3.12 · RS <span class="up">+22.0%</span>p</li>
+<li>2026 1Q 67,292 · PER 65.2(연율화) · PBR 2.78 · RS −42.4%p</li>
+<li>2026 2Q 48,376 · PER 83.4 · PBR 1.97 · RS <span class="up">+2.0%</span>p</li>
+<li>2026 3Q 41,345 · PER 125.7 · PBR 1.67 · RS <span class="up">+6.1%</span>p</li>
+<li>2026 4Q(현재) 42,289~50,300 · PBR 1.82 · RS <span class="up">+42.2%</span>p</li>
+</ul>
+<p>해석: 순이익 변동이 커 PER은 연율화 왜곡(분기 적자 영향) → PBR이 주 밸류지표. 현 PBR 1.82는 2022·2025 고점 밴드(3.1배) 대비 크게 디레이팅, 3Q 저점(1.67) 바로 위. 올해 RS는 4Q <span class="up">+42%</span>p로 KOSDAQ을 강하게 이기는 반등 — 저점 재평가 초기 신호이나 멀티플 자체는 아직 밴드 하단</p>
+<p>④ 미래실적·컨센서스 (fnguide 20개사, 2026-11-28)</p>
+<ul>
+<li>FY26E 매출 6,136억·영업이익 678억·순익 466억·EPS 1,890·PER 26.8·ROE 6.7%</li>
+<li>FY27E 매출 5,679억·영업이익 685억·순익 590억·EPS 2,728·PER 18.6·ROE 9.0%</li>
+<li>FY28E 매출 6,074억·영업이익 746억·순익 626억·EPS 2,872</li>
+<li>분기 컨센: 2026Q4 매출 1,830억·영업이익 236억·순익 204억 [naver]</li>
+<li>★영업이익 컨센 추이(R10): 현재 678 ← 3M전 774 ← 6M전 806 ← 1Y전 865 → 1년간 −21.6%, 최근 3개월 −12.4% 하향 中. FY27은 685로 상대적 안정이나 전반적 추정치 하향 추세</li>
+<li>증권사 목표가: 평균 60,871원(31건, 최고 70,000/최저 50,000) · 투자의견 Buy 31/NR 2. 상상인 63,000·리딩 65,000·한화 60,000(하향)·교보 60,000·유안타 56,000·KB 50,000 [인용: fnguide·뉴스핌 2026-11-12~27]</li>
+<li>달성가능성 판정: 中</li>
+<li>긍정: 베이비몬스터 2차 월드투어·코첼라(2027.4)·신인 2팀 데뷔(2027 상반기)로 2027 외형 성장 동력 공시·뉴스 확인. 4Q26 빅뱅 레버리지로 236억 영업이익 회복은 투어 일회성비용 소멸 전제로 현실적</li>
+<li>부정: ①블랙핑크 그룹 활동 &#x27;논의 중&#x27;(개인활동 전환)으로 최대 IP의 2027 그룹 투어 가시성 낮음 [인용: 연합뉴스 2026-11-16] ②컨센 지속 하향 ③신인 흥행은 데뷔 전이라 불확실. FY27 EPS 2,728은 신인 성공을 일부 선반영한 추정치</li>
+</ul>
+<p>⑤ 밸류에이션·목표가</p>
+<ul>
+<li>현 멀티플: PER 25.5(후행 EPS 1,974)·PBR 1.82 [실측: KIS 2026-11-27]. FY27E 기준 PER 18.6</li>
+<li>Peer FY27E PER(fnguide): 하이브 21.8(ROE 10.6)·JYP 15.5(ROE 15.5)·SM 16.4(ROE 12.7) → peer 평균 17.9배. YG는 18.6배로 peer 평균 소폭 상회하나 ROE 9.0%로 셋 중 최저 → 밸류 프리미엄 정당화 약함</li>
+<li>자체 목표가 산식(FY27E EPS 2,728 기준):</li>
+<li>Base(적정): 2,728 × 19배(peer평균+신인 hit-ratio 소폭 프리미엄, 컨센 하향 반영 할인) = 51,832 ≈ 52,000원</li>
+<li>Bull: 2,728 × 22배(BM 투어·신인 흥행 re-rating, 증권사 수준) = 60,016 ≈ 60,000원</li>
+<li>1차 목표(카드): 56,000원(Base·Bull 중간, FY27 20.5배) / 2차 60,000원</li>
+<li>증권사 목표가 병기: 평균 60,871원(FY27 EPS 22.3배 적용) — 자체 Base보다 공격적. 블랙핑크 그룹활동·신인흥행 전제가 깨지면 괴리</li>
+</ul>
+<p>⑥ 진입전략·손익비 (선물 레버리지 반영)</p>
+<ul>
+<li>지지/저항: 지지 44,065(20일선)·42,498(60일선)·41,345(3Q 평균)·34,300(52주저) / 저항 50,300 부근(심리)·56,000(전 반등고)·79,000(52주고). 현 위치 저점 반등 중간, 52주고 대비 −36%</li>
+<li>손익비(진입 상단 46,000 기준): 상승여력 21.7%[(56,000−46,000)/46,000] ÷ 하락폭 13.0%[(46,000−40,000)/46,000] = 1:1.7 / 현재가 50,300 기준 1:0.55(상방 11.3%÷하방 20.5%, 현 진입 부적합) / 손익분기 승률 37% vs 최근 실제 16%(하락국면 구간지정가) — 승률 요구치가 실측보다 크게 높아 적극 진입 비권장</li>
+<li>손절: 40,000원 = 진입 상단 46,000 대비 −13.0% = 일중 변동폭 7.8%의 1.67배(하한 1.5배 충족). 60일선·심리선 40,000 아래</li>
+<li>진입 조건(지정가형): 44,000~46,000원(20/60일선 수렴) 도달 시 분할(3회, 각 1/3) / 눌림 없이 오르면: 추격 안 함(현재가~56,000 구간은 손익비 미달)</li>
+<li>레버리지 스윙 3라인(선물): 진입 44,000~46,000 / 손절 40,000(종가 이탈) / 익절 1차 56,000·2차 60,000</li>
+<li>(선물 有) 실측 도구 9) 미확인: 근월물 ACQ612(와이지엔터 F 202612, std KR4ACQ6C0006) [실측: kis_futures_check] · 선물 시세·베이시스·유동성·증거금률 futures_quote.py HTTP 403으로 미확인 → 레버리지 실행 전 월물·유동성 재확인 필요. 현물 증거금률 40%(신용 가능) [실측: KIS]</li>
+<li>선물매도 점검: 해당 없음 — S2 현재가가 60일선 <span class="up">+18.4%</span> 위(추세 미충족) + S0 선물 유동성 미확인. 매수 눌림 대기 관점</li>
+</ul>
+<p>⑧ 산업·제품 바텀업 실적 모델 (§9)</p>
+<ul>
+<li>9-1 세그먼트(2025 연간, 억원): 상/제품(음반·MD) 2,018(37%)·공연 1,264(23%)·음악서비스 872(16%)·기타(광고·로열티·출연료) 1,300(24%), 합계 5,454 [실측: DART 20260323001610]. 수출 비중 57%(3,103억)로 글로벌 의존 높음</li>
+<li>9-2 고객·납품: B2C(팬덤·공연·음원 플랫폼)+광고주. 특정 전방 고객 집중 아님(아티스트 IP 기반). 집중 리스크는 &#x27;아티스트 집중&#x27; — 블랙핑크 의존도 높음(2025 공연·수출 급증은 블핑 투어 효과)</li>
+<li>9-3 시장·경쟁: K-pop 4대 기획사(하이브·JYP·SM·YG). YG는 시총 9,402억으로 하이브(약 11조)·JYP·SM 대비 최소. TAM(글로벌 K-pop)은 성장하나 YG 점유율은 아티스트 라인업 수로 열위 — &#x27;국내 유일&#x27; 류 독점 요소 없음(멀티 IP 경쟁) [실측: KIS 시총·peer consensus]</li>
+<li>9-4 단가·원가: 음반 단가·원재료 영향 없음(MASTER CD 외주). 수익성은 투어 규모·앨범 판매량·광고 단가에 연동, 분기 가격위험 세전손익 10%민감도 9.4억 [실측: DART 분기보고서]</li>
+<li>9-5 CAPA/수주: 제조 CAPA 개념 미약(용역·IP 중심). &#x27;수주잔고&#x27;=확정 투어·광고 계약. 2027 BM 2차 월드투어(1차 32회 30만명 → 2차 50만명 전망)가 사실상 수주 파이프라인 [인용: 상상인 NDR 2026-11-26, 블로거·증권사 추정치]</li>
+<li>9-6 전방 수요: 2027 데뷔 보이그룹(일본·아시아)→걸그룹(미국·글로벌) 순차 데뷔로 IP 포트폴리오 저연차화. 침투율=신인 팬덤 확보 속도(불확실)</li>
+<li>9-7 바텀업(FY27 세그먼트 기반, 억원):</li>
+</ul>
+<p>| 세그먼트 | Bear | Base | Bull | 근거 |</p>
+<p>| 공연 | 1,000 | 1,400 | 1,800 | BM 2차 투어 모객 Bear 30만/Base 40만/Bull 50만 |</p>
+<p>| 음반·MD | 1,700 | 2,000 | 2,300 | 신인 2팀 데뷔 앨범+기존 IP |</p>
+<p>| 음원 | 800 | 900 | 1,000 | 신곡 발매 |</p>
+<p>| 기타(광고·로열티) | 1,100 | 1,300 | 1,500 | 신인 광고 단가 |</p>
+<p>| 매출 합계 | 4,600 | 5,600 | 6,600 | |</p>
+<p>| OPM | 9% | 13% | 17% | 투어 레버리지·신인 초기비용 |</p>
+<p>| 영업이익 | 414 | 728 | 1,122 | | 컨센 FY27 영업이익 685(Base 근접). 민감도: 투어 모객 ±10만명 → 공연매출 ±약 350억 → 영업이익 ±약 200억</p>
+<ul>
+<li>★결론 문장: 4Q26 연결 영업이익 ≥ 236억(컨센)이면 &#x27;투어 일회성비용 소멸·레버리지&#x27; 논지 유지·눌림 매수 검토 / &lt; 150억이면 비용 반복·수익성 훼손으로 논지 폐기. (이 임계를 결정카드 반증에 반영)</li>
+</ul>
+<p>⑦ 촉매·반증·이벤트 대응</p>
+<ul>
+<li>촉매 캘린더: 4Q26 실적발표(2027년 2월 중, 법정기한 2027-03-31 이전) — 레버리지 회복 확인 분수령 / 2027 상반기 신인 보이그룹 데뷔(일본·아시아) / 2027.4 베이비몬스터 코첼라 출연 / 2027 BM 2차 월드투어 개시 [인용: 상상인·리딩 리포트, 코첼라 문화일보 2026-11-11]</li>
+<li>반증 조건 3개: ①4Q26 연결 영업이익 &lt; 150억이면 논지 폐기·청산 ②종가 40,000원 이탈 시 전량 청산 ③2027 상반기 신인 데뷔 일정 공식 철회/연기 공시 시 비중 축소</li>
+<li>이벤트 매트릭스(4Q26 실적): 쇼크(영업&lt;150억)×갭하락 → 청산 / 인라인(150~236억)×보합 → 눌림 지정가 유지 / 서프라이즈(&gt;236억)×갭상승 → 2차 목표 60,000 상향·추격은 손익비 확인 후</li>
+<li>확률가중 시나리오: Bear 40%(기저율 46% → 신인 로드맵 실체로 소폭 하향, 근거: 공연·4Q 레버리지 가시성) 가격 37,000(FY27 EPS 할인 2,100×17.6배·3Q저점 회귀) / Base 45% 가격 52,000(FY27 2,728×19배) / Bull 15% 가격 60,000(22배·투어 흥행). 기대수익률(i)시나리오 가격 기준 = 0.40×(37,000)<span class="up">+0.45</span>×(52,000)<span class="up">+0.15</span>×(60,000)=47,200원 ≈ 현재가 −6% / (ii)손절 적용(진입 45,000 기준, 목표 선도달 16%·손절 선도달 80%) = 0.16×24.4% − 0.80×11.1% = −4.98% → 현재가·단기 모두 기대수익 음수, 눌림 대기만 유효</li>
+<li>수급·유동성: 20일 평균 거래대금 87억 → 1일 체결 상한(ADV 10%) 약 8.7억 [실측: scorecard brief]. 외국인·기관 순매수 미확인(enrich 403)</li>
+<li>거래 제약·오버행: 관리종목 N·투자경고 00·단기과열 N·신용 가능·증거금 40% [실측: KIS] / CB·BW·EB·유증 최근 1년 0건(오버행 없음) [실측: DART 주요사항보고 조회] / 보호예수·최대주주 담보 미확인</li>
+<li>컨센서스 방향(R10): FY26 영업이익 3개월 −12.4%·1년 −21.6% 하향. 목표가에 FY27 EPS 2,728을 20배 이하로 할인 적용(증권사 22.3배보다 보수)</li>
+<li>포지션 사이징(자산 대비 %): 손실예산 0.5% ÷ 손절폭 13.0% = 3.8% / Bear 손실 한도 = (0.5%×3) ÷ Bear 하락폭 19.6% = 7.7% / 집중 50% / 이벤트 전(4Q 실적) 25% 중 최소값 = 자산의 3.8%. 레버리지 시 명목 기준 동일 한도, 3회 분할</li>
+</ul>
+<p>⚠️ 리서치 참고용, 매수/매도 강요 아님. 증권사·블로거 추정치는 &#x27;추정&#x27;, 실측 못한 값은 &#x27;미확인&#x27;. 엔터 IP 모멘텀주는 아티스트 이벤트·계약 리스크로 변동성이 크다. [미확인 목록] 선물 시세·베이시스·유동성·증거금률(futures_quote 403) · 외국인/기관 순매수(enrich 403) · 보호예수 해제일·최대주주 담보 · BM 2차 투어 공식 일정·모객 수치(증권사·블로거 추정) [출처 목록] KIS(2026-11-27 시세) · DART 사업보고서 20260323001610·분기보고서 20261116000477 · fnguide 컨센(20개사) · 코첼라 문화일보/OSEN 2026-11-11 · 블핑 연합뉴스 2026-11-16 · 상상인/리딩/한화/교보/유안타/KB 리포트 [검산] 분기합 2026 Q1+Q2+Q3 매출=1,471<span class="up">+1,278</span><span class="up">+1,567</span>=4,316억(3Q누적) ✓ / 2025 Q1~Q4 영업이익 95.2<span class="up">+83.6</span><span class="up">+311.2</span><span class="up">+223.4</span>=713.4억=연간 713억 ✓ / 손익비 산식 헤더·본문 일치(1:1.7)</p>
+<p>&lt;!-- hub:enrich:begin --&gt;</p>
+<h2 id="enrich">📐 실전 체크 (자동 실측 · KIS 2026-11-28 08:12 · 추정 0건)</h2>
+<p class="note">리포트 적재 시 허브가 KIS API로 자동 산출한 블록. 본문 수치와 다르면 이 블록이 최신.</p>
+<p><strong>시세 위치</strong></p>
+<ul>
+<li>현재가 50,300원 (<span class="up">+3.6%</span>) · 시총 9,402억 · 5일 <span class="up">+5.2%</span> / 20일 <span class="up">+32.5%</span> / 60일 <span class="up">+22.2%</span></li>
+<li>MA5 48,010원 / MA20 43,998원 / MA60 42,491원 → MA20 이격 <span class="up">+14.3%</span> · MA60 이격 <span class="up">+18.4%</span></li>
+<li>52주 고 79,000원 / 저 34,300원 → 고점 대비 <span class="down">-36.3%</span> · 20일 고 50,300원 / 저 39,100원</li>
+<li>후행 PER 25.48 / PBR 1.82 (EPS 1,974원 · BPS 27,689원)</li>
+</ul>
+<p><strong>수급·유동성</strong></p>
+<ul>
+<li>20일 평균 거래대금 87.7억 (5일 75.7억)</li>
+<li>외국인 순매수 5일 -13.0억 / 20일 23.2억 · 기관 5일 69.2억 / 20일 121.2억 · 개인 20일 -151.3억</li>
+<li>개별주식선물: ⚡ 상장 (ACQ612) → 레버리지 가능</li>
+<li>공매도 비중: 당일 18.55% (공매도 31,768주 · 16.0억) · 5일 평균 17.86% / 20일 평균 14.48% → 증가 · 20일 평균 상회 연속 5일</li>
+<li>공매도 20일 최대 26.90% (11/17) · 판정: 공매도 압력 높음(20일 평균 5%↑) · 잔고는 KIS 미제공(거래량 비중 기준, 42영업일)</li>
+</ul>
+<p><strong>손익비 (현재가 기준 재계산)</strong></p>
+<ul>
+<li>상방 56,000원 (<span class="up">+11.3%</span>) ÷ 하방 40,000원 (−20.5%) = <strong>1:0.55</strong>  ← 1:2 미만, 현재가 추격은 불리</li>
+</ul>
+<p><strong>포지션 사이징 (자산 대비 비중 · 1회 손실예산 0.5% 기준)</strong></p>
+<ul>
+<li>변동성 레짐 고변동(상위 8%) → 리스크 예산 0.5%</li>
+<li>리스크예산 비중: 손실예산 0.5% ÷ 손절폭 20.5% = <strong>자산의 2.4%</strong></li>
+<li>집중상한 50% · 이벤트 전 상한 25%</li>
+<li>채택 = 최소값 → <strong>리스크예산(0.5%÷손절폭) 자산의 2.4%</strong></li>
+<li>유동성 참고: 20일 ADV 87.7억 · 1일 소화 한도는 ADV의 10%(8.77억) — 진입금액이 이보다 크면 분할 일수 = 진입금액 ÷ 이 값</li>
+<li>⚠️ 손절폭 20.5% · ATR14 3,096원 (손절폭/ATR 3.3배)</li>
+</ul>
+<p><strong>손절 적정성 검사</strong> (현재가 기준)</p>
+<ul>
+<li>카드 손절폭 20.5% = ATR14 × 3.3배 → <strong>느슨(⚠️ 3×ATR 초과 또는 12%↑)</strong> (권장 1.5~3배, ≤10%)</li>
+<li>구조적 타이트 손절 대안 45,270원(max(진입−2ATR, 20일 저가, −10%)) 기준 손익비 <strong>1:1.13</strong></li>
+<li>원칙: 손절이 3×ATR 를 넘으면 손익비가 아니라 진입 위치가 문제 — 목표를 올리지 말고 진입을 손절선 가까이 낮춰라</li>
+</ul>
+<p class="note">출처: KIS OpenAPI(현재가 FHKST01010100·일봉 FHKST03010100·투자자별 FHKST01010900·공매도 FHPST04830000, 투자자 데이터 30영업일) · 한투 개별주식선물 마스터. 값 조작·추정 없음.</p>
+<p>&lt;!-- hub:enrich:end --&gt;</p>
+<p>📋 결정카드 판정: 관심 선물: 有 현재가: 50,300원 진입: 44,000~46,000원 (20/60일선 수렴 도달 시 지정가, 3회 분할) 손절: 40,000원 목표: 1차 56,000원 (2차 60,000원) 손익비: 1:1.7 기간: 스윙 8~16주 (2027 신인 데뷔·4Q 실적 모멘텀 구간) 촉매: 4Q26 실적발표(2027.2) · 2027 상반기 신인 보이그룹 데뷔 · 2027.4 베이비몬스터 코첼라 반증: 4Q26 연결 영업이익 &lt; 150억 or 종가 40,000원 이탈 시 논지 폐기·청산 지수조건: KOSPI 20일선 회복 후 요구승률: 37% (=1÷(1<span class="up">+1.7</span>)) vs 최근 실제 16%(하락국면 구간지정가) 직전카드: 없음 검증: ✅4 ⚠️2 ❌0 | 손절 거리 1.7배 · 손익비 1:1.7(구간 상단)/1:0.6(현재가) · 요구 승률 37% vs 최근 16% · 비중 상한 3.8%</p></div>
+<div class="foot">🐤 춘식이 리서치 허브 · 자동 생성 리포트<br>⚠️ 참고용. 매수·매도 권유 아님. 수치 태그 [실측/추정/인용] 확인 후 판단.</div>
+
+</body></html>
